@@ -19,6 +19,7 @@ A native post of wxWidgets for Mac OS is available on MacPorts. For example, to 
     - The zipped "development files" contain the `build` and `lib` subdirectories along with the `wxWdigets.prop` Visual Studio proerty sheet file.
     - The "release DLLs" and "release DLL PDB files" also unzip into the `lib` subdirectory adding additional files to it.
 - To avoid having to hard-code the install directory of wxWidgets into your applications, define `wxwin` as an environment variable containing the path (`C:\wx\3.1.6\`) to the files we just downloaded and unziped.
+- If using DLLs, append the location of wxWidget's DLL files to the `Path` or `PATH` environment variable. For example, for wxWidgets 3.1.6, the default location of the DLL files is `C:\wx\3.1.6\lib\vc14x_dll\`. This allows the DLLs to be found by your application during runtime.
 
 ## Setting up the development environment
 ### Windows (Visual Studio 2019 or above)
@@ -26,5 +27,6 @@ A native post of wxWidgets for Mac OS is available on MacPorts. For example, to 
 - Go to `View|Property Manager|Add Existing Property Sheet` and add `wxWidgets.prop` (from the downloaded development files in wxWidget's root directory) to it.
 - Change the `Project|Properties|Linker|System|Subsystem|` property to `Windows`.
 - Be sure to include the headers (`wx/wxp.h`) or precompiled headers (`wx/wxprec.h`) as necessary to the main source file.
+- Set `Project|Properties|Configuration Properties|Advanced|Character Set` to `Use Unicode Character Set`.
 - Also remember that every app should define a new class derived from the `wxApp` with an overridden `OnInit()` function to initialize the program.
 

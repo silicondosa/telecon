@@ -18,9 +18,15 @@
     <ClInclude Include="..\include\telecon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\lib\wxMathPlot\include\mathplot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\telecon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\wxMathPlot\src\mathplot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

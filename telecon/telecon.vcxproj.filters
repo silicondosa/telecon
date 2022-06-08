@@ -24,4 +24,14 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\resources\telecon_icon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\resources\telecon_icon.xpm">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>

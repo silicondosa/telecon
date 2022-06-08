@@ -134,6 +134,12 @@
   <ItemGroup>
     <ClInclude Include="..\include\telecon.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\resources\telecon_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\resources\telecon_icon.xpm" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

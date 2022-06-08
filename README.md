@@ -7,9 +7,6 @@ On most Linux distributions, wxWidgets packages are available in system reposito
 
 For example, to install wxWidgets 3.0 on Ubuntu 20.04 LTS, you need to run the command `apt get libwxgtk3.0-gtk3-dev` on a terminal.
 
-### Mac OS
-A native post of wxWidgets for Mac OS is available on MacPorts. For example, to install wxWidgets 3.2 on MacoS, you need to run the command `sudo port install wxWidgets-3.2` on a terminal.
-
 ### Windows
 - [Download](https://www.wxwidgets.org/downloads/) the latest stable binary zip files for wxWidgets (v3.1.6 used here).
     - You must download the "header files."
@@ -26,7 +23,9 @@ A native post of wxWidgets for Mac OS is available on MacPorts. For example, to 
 - Create a new empty project.
 - Go to `View|Property Manager|Add Existing Property Sheet` and add `wxWidgets.prop` (from the downloaded development files in wxWidget's root directory) to it.
 - Change the `Project|Properties|Linker|System|Subsystem|` property to `Windows`.
-- Be sure to include the headers (`wx/wxp.h`) or precompiled headers (`wx/wxprec.h`) as necessary to the main source file.
 - Set `Project|Properties|Configuration Properties|Advanced|Character Set` to `Use Unicode Character Set`.
+
+## Coding tips
+- Be sure to include the headers (`wx/wxp.h`) or precompiled headers (`wx/wxprec.h`) as necessary to the main source file.
 - Also remember that every app should define a new class derived from the `wxApp` with an overridden `OnInit()` function to initialize the program.
 

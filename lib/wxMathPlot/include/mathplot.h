@@ -1294,6 +1294,35 @@ public:
     */
     void SetData( const std::vector<double> &xs,const std::vector<double> &ys);
 
+	/**
+	 * Adds a data point to the internal data vector.
+	 * This method DOES NOT refresh the mpWindow - do it manually.
+	 * 
+	 * \param x Abscissa of the new data point. 
+	 * \param y Ordinate of the new data point.
+	 */
+	void AddData(double x, double y);
+
+	/**
+	 * Presets the length of the internal vector when you want to use it as a FIFO.
+	 * This is useful when you want real-time plotting of a constant set of datapoints.
+	 * Initializes vector with NaNs.
+	 * This method DOES NOT refresh the mpWindow - do it manually.
+	 * 
+	 * \param FIFOsize Sets the initial size of the internal vector for use as a FIFO
+	 */
+	void SetFIFO(const long FIFOsize);
+
+	/**
+	 * Adds the x and y data points to the internal vector but also removes the oldest data points from it.
+	 * Ensures that the size of the internal vector does not change - useful for real-time plotting.
+	 * This method DOES NOT refresh the mpWindow - do it manually.
+	 * 
+	 * \param x Abscissa value of the current data point.
+	 * \param y Ordinate value of the cuttent data point.
+	 */
+	void AddFIFO(double x, double y);
+
     /** Clears all the data, leaving the layer empty.
       * @sa SetData
       */
@@ -1303,12 +1332,12 @@ protected:
     /** The internal copy of the set of data to draw.
       */
     std::vector<double>  m_xs,m_ys;
-
+    
     /** The internal counter for the "GetNextXY" interface
       */
     size_t              m_index;
 
-    /** Loaded at SetData
+    /** Loaded at SetData or SetFIFO
       */
     double              m_minX,m_maxX,m_minY,m_maxY;
 
@@ -1324,19 +1353,25 @@ protected:
     */
     bool GetNextXY(double & x, double & y);
 
-    /** Returns the actual minimum X data (loaded in SetData).
+	/** Search and update the minimum and maximum values the X and Y vectors. 
+		The results are put in their m_minX, m_maxX for X, and m_minY, m_maxY for Y.
+		Used to set bounding box limits.
+	  */
+	void updateMinMax();
+	
+    /** Returns the bounding box minimum X data (loaded in SetData).
       */
     double GetMinX() { return m_minX; }
 
-    /** Returns the actual minimum Y data (loaded in SetData).
+    /** Returns the bounding box minimum Y data (loaded in SetData).
       */
     double GetMinY() { return m_minY; }
 
-    /** Returns the actual maximum X data (loaded in SetData).
+    /** Returns the bounding box maximum X data (loaded in SetData).
       */
     double GetMaxX() { return m_maxX; }
 
-    /** Returns the actual maximum Y data (loaded in SetData).
+    /** Returns the bounding box maximum Y data (loaded in SetData).
       */
     double GetMaxY() { return m_maxY; }
 

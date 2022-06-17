@@ -54,9 +54,11 @@
 // #include "pixel.xpm"
 
 // Memory leak debugging
+/*
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
+*/
 
 // Legend margins
 #define mpLEGEND_MARGIN 5
@@ -92,7 +94,7 @@ wxBitmap mpLayer::GetColourSquare(int side)
 {
     wxBitmap square(side, side, -1);
     wxColour filler = m_pen.GetColour();
-    wxBrush brush(filler, wxSOLID);
+    wxBrush brush(filler, wxBRUSHSTYLE_SOLID/*wxSOLID*/);
     wxMemoryDC dc;
     dc.SelectObject(square);
     dc.SetBackground(brush);
@@ -899,7 +901,7 @@ void mpScaleX::Plot(wxDC & dc, mpWindow & w)
 					else
 						dc.DrawLine( p, orgy, p, orgy+4);
 				} else { // draw grid dotted lines
-					m_pen.SetStyle(wxDOT);
+					m_pen.SetStyle(wxPENSTYLE_DOT/*wxDOT*/);
 					dc.SetPen(m_pen);
 					if ((m_flags == mpALIGN_BOTTOM) && !m_drawOutsideMargins) {
 						dc.DrawLine( p, orgy+4, p, minYpx );
@@ -910,7 +912,7 @@ void mpScaleX::Plot(wxDC & dc, mpWindow & w)
 							dc.DrawLine( p, 0/*-w.GetScrY()*/, p, w.GetScrY() );
 						}
 					}
-					m_pen.SetStyle(wxSOLID);
+					m_pen.SetStyle(wxPENSTYLE_SOLID /*wxSOLID*/);
 					dc.SetPen(m_pen);
 				}
 				// Write ticks labels in s string
@@ -1160,7 +1162,7 @@ void mpScaleY::Plot(wxDC & dc, mpWindow & w)
 					dc.DrawLine( orgx-4, p, orgx, p); //( orgx, p, orgx+4, p);
 				}
 			} else {
-				m_pen.SetStyle(wxDOT);
+				m_pen.SetStyle(wxPENSTYLE_DOT);
 				dc.SetPen( m_pen);
 				if ((m_flags == mpALIGN_LEFT) && !m_drawOutsideMargins) {
 					dc.DrawLine( orgx-4, p, endPx, p);
@@ -1171,7 +1173,7 @@ void mpScaleY::Plot(wxDC & dc, mpWindow & w)
 					dc.DrawLine( 0/*-w.GetScrX()*/, p, w.GetScrX(), p);
 						}
 				}
-				m_pen.SetStyle(wxSOLID);
+				m_pen.SetStyle(wxPENSTYLE_SOLID);
 				dc.SetPen( m_pen);
 			}
 			// Print ticks labels
@@ -1421,7 +1423,7 @@ void mpWindow::OnMouseMove(wxMouseEvent     &event)
         if (event.m_leftDown) {
             if (m_movingInfoLayer == NULL) {
                 wxClientDC dc(this);
-                wxPen pen(*wxBLACK, 1, wxDOT);
+                wxPen pen(*wxBLACK, 1, wxPENSTYLE_DOT);
                 dc.SetPen(pen);
                 dc.SetBrush(*wxTRANSPARENT_BRUSH);
                 dc.DrawRectangle(m_mouseLClick_X, m_mouseLClick_Y, event.GetX() - m_mouseLClick_X, event.GetY() - m_mouseLClick_Y);
@@ -2514,11 +2516,14 @@ IMPLEMENT_DYNAMIC_CLASS(mpFXYVector, mpFXY)
 mpFXYVector::mpFXYVector(wxString name, int flags ) : mpFXY(name,flags)
 {
     m_index = 0;
-    m_minX  = -1;
-    m_maxX  = 1;
-    m_minY  = -1;
-    m_maxY  = 1;
-    m_type = mpLAYER_PLOT;
+    
+	m_minX  = -1;
+    m_maxX  =  1;
+    
+	m_minY  = -1;
+    m_maxY  =  1;
+    
+	m_type = mpLAYER_PLOT;
 }
 
 void mpFXYVector::Rewind()
@@ -2538,10 +2543,59 @@ bool mpFXYVector::GetNextXY(double & x, double & y)
     }
 }
 
+void mpFXYVector::updateMinMax()
+{
+	// Update internal variables for the bounding box.
+    if (m_xs.size()>0)
+    {
+        std::vector<double>::const_iterator  it;
+
+		// Update minimum and maximum values of X
+		m_minX  = m_xs[0];
+		m_maxX  = m_xs[0];
+		for (it = m_xs.begin(); it != m_xs.end(); it++)
+        {
+			if (*it < m_minX) {
+				m_minX = *it;
+			}
+			if (*it > m_maxX) {
+				m_maxX = *it;
+			}
+        }
+		m_minX -= 0.5f;
+        m_maxX += 0.5f;
+
+		// Update minimum and maximum values of Y
+		m_minY  = m_ys[0];
+        m_maxY  = m_ys[0];
+        for (it = m_ys.begin(); it != m_ys.end(); it++)
+        {
+			if (*it < m_minY) {
+				m_minY = *it;
+			}
+			if (*it > m_maxY) {
+				m_maxY = *it;
+			}
+        }
+        m_minY -= 0.5f;
+        m_maxY += 0.5f;
+    } else // when vectors are empty, set bounding box limits to default
+    {
+        m_minX  = -1;
+        m_minY  = -1;
+        
+		m_maxX  =  1;
+        m_maxY  =  1;
+    }
+}
+
 void mpFXYVector::Clear()
 {
     m_xs.clear();
     m_ys.clear();
+	
+	// update internal variables for the bounding box
+	updateMinMax();
 }
 
 void mpFXYVector::SetData( const std::vector<double> &xs,const std::vector<double> &ys)
@@ -2551,13 +2605,15 @@ void mpFXYVector::SetData( const std::vector<double> &xs,const std::vector<doubl
 		wxLogError(_("wxMathPlot error: X and Y vector are not of the same length!"));
 		return;
 	}
-    // Copy the data:
+    
+	// Copy the data:
     m_xs = xs;
     m_ys = ys;
-
-
+	
     // Update internal variables for the bounding box.
-    if (xs.size()>0)
+    updateMinMax();
+	/*
+	if (xs.size()>0)
     {
         m_minX  = xs[0];
         m_maxX  = xs[0];
@@ -2565,29 +2621,87 @@ void mpFXYVector::SetData( const std::vector<double> &xs,const std::vector<doubl
         m_maxY  = ys[0];
 
         std::vector<double>::const_iterator  it;
-
-        for (it=xs.begin();it!=xs.end();it++)
+	
+       for (it=xs.begin();it!=xs.end();it++)
         {
-            if (*it<m_minX) m_minX=*it;
-            if (*it>m_maxX) m_maxX=*it;
+			if (*it < m_minX) {
+				m_minX = *it;
+			}
+			if (*it > m_maxX) {
+				m_maxX = *it;
+			}
         }
         for (it=ys.begin();it!=ys.end();it++)
         {
-            if (*it<m_minY) m_minY=*it;
-            if (*it>m_maxY) m_maxY=*it;
+			if (*it < m_minY) {
+				m_minY = *it;
+			}
+			if (*it > m_maxY) {
+				m_maxY = *it;
+			}
         }
+
         m_minX-=0.5f;
         m_minY-=0.5f;
         m_maxX+=0.5f;
         m_maxY+=0.5f;
-    }
-    else
+    } else
     {
         m_minX  = -1;
         m_maxX  = 1;
         m_minY  = -1;
         m_maxY  = 1;
     }
+	*/
+}
+
+void mpFXYVector::AddData(double x, double y)
+{
+	// Add data point to the end of the internal vector
+	m_xs.push_back(x);
+	m_ys.push_back(y);
+
+	// update internal variables for the bounding box
+	// updateMinMax(); // this is slow: O(n) time.
+	m_minX = (x < m_minX) ? x : m_minX;
+	m_maxX = (x > m_maxX) ? x : m_maxX;
+
+	m_minY = (x < m_minY) ? x : m_minY;
+	m_maxY = (x > m_maxY) ? x : m_maxY;
+}
+
+void mpFXYVector::SetFIFO(const long FIFOsize)
+{
+	// Clear internal data vectors
+	m_xs.clear();
+	m_ys.clear();
+
+	// Push as many NaNs as needed
+	unsigned i = 0;
+	for (i = 0; i < FIFOsize; i++)
+	{
+		m_xs.push_back(NAN);
+		m_ys.push_back(NAN);
+	}
+
+	// Set min and max values of internal dataset - used to set bounding boxes
+	m_minX = -1;
+	m_maxX =  1;
+	m_minY = -1;
+	m_maxY =  1;
+}
+
+void mpFXYVector::AddFIFO(double x, double y)
+{
+	// Drop first values from FIFO
+	m_xs.erase(m_xs.begin());
+	m_ys.erase(m_ys.begin());
+
+	// Append new values to FIFO
+	AddData(x, y);
+
+	// update internal variables for the bounding box
+	updateMinMax();
 }
 
 //-----------------------------------------------------------------------------

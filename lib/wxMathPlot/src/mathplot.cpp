@@ -2555,11 +2555,13 @@ void mpFXYVector::updateMinMax()
 		m_maxX  = m_xs[0];
 		for (it = m_xs.begin(); it != m_xs.end(); it++)
         {
-			if (*it < m_minX) {
-				m_minX = *it;
-			}
-			if (*it > m_maxX) {
-				m_maxX = *it;
+			if (*it != NAN) {
+				if (*it < m_minX) {
+					m_minX = *it;
+				}
+				if (*it > m_maxX) {
+					m_maxX = *it;
+				}
 			}
         }
 		m_minX -= 0.5f;
@@ -2570,11 +2572,13 @@ void mpFXYVector::updateMinMax()
         m_maxY  = m_ys[0];
         for (it = m_ys.begin(); it != m_ys.end(); it++)
         {
-			if (*it < m_minY) {
-				m_minY = *it;
-			}
-			if (*it > m_maxY) {
-				m_maxY = *it;
+			if (*it != NAN) {
+				if (*it < m_minY) {
+					m_minY = *it;
+				}
+				if (*it > m_maxY) {
+					m_maxY = *it;
+				}
 			}
         }
         m_minY -= 0.5f;

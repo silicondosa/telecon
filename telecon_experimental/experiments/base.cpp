@@ -135,6 +135,10 @@ ChartFrame::ChartFrame(const wxString &title, const wxPoint &pos, const wxSize &
     realTimePanel->AddChart("My Title", "ylabel");
     realTimePanel->AddPlot("Expected Tension", CreateDataPoints, 0xff0000, "Expected Tension");
     itemBoxSizer->Add(realTimePanel, 1, wxGROW);
+    TeleconRealTimeLineChart* realTimePanel2 = new TeleconRealTimeLineChart(this, wxID_ANY, wxDefaultPosition, wxDefaultSize);
+    realTimePanel2->AddChart("My Title", "ylabel");
+    realTimePanel2->AddPlot("Expected Tension", CreateDataPoints, 0xff0000, "Expected Tension");
+    itemBoxSizer->Add(realTimePanel2, 1, wxGROW);
     // TeleconPanel->Show();
     // SetTopWindow(TeleconPanel);
     // itemBoxSizer->SetMinSize(300, 300);

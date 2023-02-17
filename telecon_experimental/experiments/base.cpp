@@ -9,9 +9,13 @@
 #include "base.h"
 #include "wxchartviewer.h"
 
+#include <cmath>
+#include <random>
+
 #include "classes/TeleconChart.h"
 #include "classes/TeleconBarChart.h"
 #include "classes/TeleconChartPanel.h"
+#include "classes/TeleconRealTimeLineChart.h"
 
 
 
@@ -20,11 +24,13 @@ IMPLEMENT_APP(MainApp);
 
 using namespace std;
 
+double CreateDataPoints();
+
 bool MainApp::OnInit()
 {
-    MainFrame *MainWin = new MainFrame("Hello World!", wxDefaultPosition, wxSize(500, 400));
-    MainWin->Show(true);
-    SetTopWindow(MainWin);
+    // MainFrame *MainWin = new MainFrame("Hello World!", wxDefaultPosition, wxSize(500, 400));
+    // MainWin->Show(true);
+    // SetTopWindow(MainWin);
 
     ChartFrame *ChartWin = new ChartFrame("MyChart", wxDefaultPosition, wxDefaultSize);
     ChartWin->Show(true);
@@ -124,6 +130,13 @@ ChartFrame::ChartFrame(const wxString &title, const wxPoint &pos, const wxSize &
     itemBoxSizer->Add(panel, 1, wxGROW);
     TeleconChartPanel *panel2 = new TeleconChartPanel(this, wxID_ANY, wxDefaultPosition, wxDefaultSize);
     itemBoxSizer->Add(panel2, 1, wxGROW);
+
+    TeleconRealTimeLineChart* realTimePanel = new TeleconRealTimeLineChart(this, wxID_ANY, wxDefaultPosition, wxDefaultSize);
+    realTimePanel->AddChart("My Title", "ylabel");
+    realTimePanel->AddPlot("Expected Tension", CreateDataPoints, 0xff0000, "Expected Tension");
+    itemBoxSizer->Add(realTimePanel, 1, wxGROW);
+    // TeleconPanel->Show();
+    // SetTopWindow(TeleconPanel);
     // itemBoxSizer->SetMinSize(300, 300);
     // cout << panel->GetSize().GetX() << endl;
     // panel->SetSize(300, 300);
@@ -145,5 +158,21 @@ void ChartFrame::populateChart(){
     // TeleconChart *chart = new TeleconBarChart();
     //Add data, etc.
     // XYChart* newchart = chart->makeChart()
+}
+
+double generateRandomDouble(double min, double max) {
+	std::random_device rd;  // Will be used to obtain a seed for the random number engine
+	std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
+	std::uniform_real_distribution<> dis(min, max);
+	return dis(gen);
+}
+
+double
+CreateDataPoints()
+{
+	double randomDouble = generateRandomDouble(0.0, 20.0);
+	double p = randomDouble;
+	double dataA = 20 + cos(p * 129241) * 10 + 1 / (cos(p) * cos(p) + 0.01);
+	return dataA;
 }
 

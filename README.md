@@ -18,6 +18,7 @@ For example, to install wxWidgets 3.0 on Ubuntu 20.04 LTS, you need to run the c
     - The "header files" zip is unzipped as the `include` subdirectory.
     - The zipped "development files" contain the `build` and `lib` subdirectories along with the `wxWidgets.prop` Visual Studio proerty sheet file.
     - The "release DLLs" and "release DLL PDB files" also unzip into the `lib` subdirectory adding additional files to it.
+- To avoid having to hard-code the install directory of wxWidgets into your applications, define wxwin as an environment variable containing the path (C:\wx\3.2.1\) to the files we just downloaded and unzipped.
 - If using DLLs, append the location of wxWidget's DLL files to the `Path` or `PATH` environment variable. For example, for wxWidgets 3.2.1 64-bit, the default location of the DLL files is `C:\wx\3.2.1\lib\vc14x_x64_dll\`. This allows the DLLs to be found by your application during runtime.
 
 ## Included prerequisite: wxMathPlot library
@@ -32,15 +33,17 @@ Use the --recurse-submodules flag when cloning or checking out branches to ensur
 ### Windows (Visual Studio 2019 or above)
 - Install wxWidgets according to the instructions above.
 - Create a new empty project.
-- Go to `View|Property Manager|Add Existing Property Sheet` and add `wxWidgets.prop` (from the downloaded development files in wxWidget's root directory) to it.
+- Go to `View|Property Manager|Add Existing Property Sheet` and add `wxWidgets.prop` (from the downloaded development files in wxWidget's root directory) to it. Then edit the .vcxproj file to make the import path relative to the wxwin environment variable, if desired.
 - Change the `Project|Properties|Linker|System|Subsystem|` property to `Windows`.
 - Set `Project|Properties|Configuration Properties|Advanced|Character Set` to `Use Unicode Character Set`.
 - Set `Project|Properties|Configuration Properties|General|C++ Language Standard` to `ISO C++ 17 Standard`, if desired.
 - To `Project|Properties|C/C++|General|Additional Include Directories|`, append `$(SolutionDir)..\include`, which is where you should place any needed header files. You can use a subdirectory of include instead, if desired.
+
 If using wxMathPlot:
 - To `Project|Properties|C/C++|General|Additional Include Directories|`, append `$(SolutionDir)..\lib\wxMathPlot\include`.
 - In the Solution Explorer, add `telecon\lib\wxMathPlot\include\mathplot.h` to Header Files
 - In the Solution Explorer, add `telecon\lib\wxMathPlot\src\mathplot.cpp` to Source Files
+
 If using wxChartDir:
 - To `Project|Properties|C/C++|General|Additional Include Directories|`, append `$(SolutionDir)..\lib\wxchartdir\include` and `$(SolutionDir)..\lib\wxchartdir\wxdemo\common`
 - To `Project|Properties|Linker|General|Additional Linker Directories|`, append `$(SolutionDir)..\lib\wxchartdir\lib\win64`

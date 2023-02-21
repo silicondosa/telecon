@@ -1,4 +1,8 @@
 
+// #ifndef __TELECON_CHART_PANEL
+// #define __TELECON_CHART_PANEL
+#pragma once
+
 #include <wx/wxprec.h>
 #include <wx/panel.h>
 
@@ -22,3 +26,5 @@ class TeleconChartPanel : public wxPanel
 
         
 };
+
+// #endif

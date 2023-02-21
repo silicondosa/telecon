@@ -1,12 +1,16 @@
 
+#ifndef __TELECON_REAL_TIME_LINE_CHART
+#define __TELECON_REAL_TIME_LINE_CHART
+
 #include <wx/wxprec.h>
 #include <wx/panel.h>
 #include <wx/tglbtn.h>
 
 #include "chartdir.h"
+#include "TeleconChartPanel.h"
 #include "wxchartviewer.h"
 
-class TeleconRealTimeLineChart : public wxPanel
+class TeleconRealTimeLineChart : public TeleconChartPanel
 {
 public:
     TeleconRealTimeLineChart(wxWindow *parent,
@@ -24,10 +28,10 @@ public:
     // ~TeleconRealTimeLineChart();
         // Delete each teleconPlot object, teleconChart object and each teleconWindow object
 
-    void AddPlot(const wxString& plotname, double (*ptr)(), int plotcolor, const char* plottitle);
+    void addPlot(const wxString& plotname, double (*ptr)(), int plotcolor, const char* plottitle);
     // Will create a new dynamic teleconPlot object and add it to plotList   
 
-    void AddChart(const wxString title, const wxString ylabel);
+    void initChart(const wxString title, const wxString ylabel);
     // Will create a new dynamic teleconChart object and add it to chartList  
 
     typedef double (*FuncPtr)();  
@@ -122,3 +126,4 @@ enum
     ID_UPDATE_TIMER
 };
 
+#endif

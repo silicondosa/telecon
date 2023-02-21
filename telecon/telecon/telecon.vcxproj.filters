@@ -50,5 +50,8 @@
     <ClCompile Include="..\..\lib\wxchartdir\wxdemo\common\wxchartviewer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\userfile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

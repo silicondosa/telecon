@@ -32,7 +32,7 @@ TeleconRealTimeLineChart::TeleconRealTimeLineChart(wxWindow *parent,
                                      const wxPoint &pos,
                                      const wxSize &size,
                                      long style ,
-                                     const wxString &name ) : wxPanel(parent, winid, pos, size, style, name )
+                                     const wxString &name ) : TeleconChartPanel(parent, winid, pos, size, style, name )
 {
 
 
@@ -115,7 +115,7 @@ END_EVENT_TABLE()
 #endif
 
 void
-TeleconRealTimeLineChart::AddChart(const wxString title, const wxString ylabel)
+TeleconRealTimeLineChart::initChart(const wxString title, const wxString ylabel)
 {
     m_chartTitle = title;
     m_ylabel = ylabel;
@@ -153,7 +153,7 @@ TeleconRealTimeLineChart::AddChart(const wxString title, const wxString ylabel)
 }
 
 void
-TeleconRealTimeLineChart::AddPlot(const wxString& plotname, double (*ptr)(), int plotcolor, const char* plottitle)
+TeleconRealTimeLineChart::addPlot(const wxString& plotname, double (*ptr)(), int plotcolor, const char* plottitle)
 {
     funcArray.push_back(ptr);
     std::vector<double> vec1;

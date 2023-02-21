@@ -152,6 +152,7 @@
     <ClCompile Include="..\..\src\TeleconBarChart.cpp" />
     <ClCompile Include="..\..\src\TeleconChartPanel.cpp" />
     <ClCompile Include="..\..\src\TeleconRealTimeLineChart.cpp" />
+    <ClCompile Include="..\..\src\userfile.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

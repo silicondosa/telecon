@@ -24,7 +24,7 @@ public:
     // ~TeleconRealTimeLineChart();
         // Delete each teleconPlot object, teleconChart object and each teleconWindow object
 
-    void AddPlot(const wxString& plotname, double (*ptr)(), int plotcolor, char* plottitle);
+    void AddPlot(const wxString& plotname, double (*ptr)(), int plotcolor, const char* plottitle);
     // Will create a new dynamic teleconPlot object and add it to plotList   
 
     void AddChart(const wxString title, const wxString ylabel);
@@ -103,7 +103,7 @@ private:
     std::vector<FuncPtr> funcArray;
     std::vector<std::vector<double>> m_dataSeries;
     std::vector<int> m_colorSeries;
-    std::vector<char*> m_plottitleSeries;
+    std::vector<const char*> m_plottitleSeries;
     std::vector<wxTextCtrl*> m_dataValues;
 
     wxDateTime m_nextDataTime;           // Used by the random number generator to generate realtime data.

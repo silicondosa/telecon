@@ -100,9 +100,9 @@ TeleconApp::OnInit()
   Telecon* teleconDialog = new Telecon();
   teleconDialog->createWindow("Telecon Window", 700, 700);
   teleconDialog->AddChart("Muscle 1","Voltages");
-  teleconDialog->AddPlot("Expected Tension", CreateDataPoints, 0xff0000, "Expected Tension");
-  teleconDialog->AddPlot("Actual Tension", CreateDataPoints, 0x00cc00, "Actual Tension");
-  teleconDialog->AddPlot("Applied Tension", CreateDataPoints, 0x0000ff, "Applied Tension");
+  teleconDialog->AddPlot("Expected Tension", CreateDataPoints, 0xff0000, (char*)"Expected Tension");
+  teleconDialog->AddPlot("Actual Tension", CreateDataPoints, 0x00cc00, (char*)"Actual Tension");
+  teleconDialog->AddPlot("Applied Tension", CreateDataPoints, 0x0000ff, (char*)"Applied Tension");
   teleconDialog->Show();
   SetTopWindow(teleconDialog);
 

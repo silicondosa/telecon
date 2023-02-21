@@ -12,10 +12,10 @@
 #include <cmath>
 #include <random>
 
-#include "classes/TeleconChart.h"
-#include "classes/TeleconBarChart.h"
-#include "classes/TeleconChartPanel.h"
-#include "classes/TeleconRealTimeLineChart.h"
+#include "TeleconChart.h"
+#include "TeleconBarChart.h"
+#include "TeleconChartPanel.h"
+#include "TeleconRealTimeLineChart.h"
 
 
 
@@ -126,10 +126,10 @@ ChartFrame::ChartFrame(const wxString &title, const wxPoint &pos, const wxSize &
     
     /////////////////////////////
 
-    TeleconChartPanel *panel = new TeleconChartPanel(this, wxID_ANY, wxDefaultPosition, wxDefaultSize);
+    /*TeleconChartPanel* panel = new TeleconChartPanel(this, wxID_ANY, wxDefaultPosition, wxDefaultSize);
     itemBoxSizer->Add(panel, 1, wxGROW);
     TeleconChartPanel *panel2 = new TeleconChartPanel(this, wxID_ANY, wxDefaultPosition, wxDefaultSize);
-    itemBoxSizer->Add(panel2, 1, wxGROW);
+    itemBoxSizer->Add(panel2, 1, wxGROW);*/
 
     TeleconRealTimeLineChart* realTimePanel = new TeleconRealTimeLineChart(this, wxID_ANY, wxDefaultPosition, wxDefaultSize);
     realTimePanel->AddChart("My Title", "ylabel");

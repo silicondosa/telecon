@@ -152,6 +152,11 @@ TeleconRealTimeLineChart::initChart(const wxString title, const wxString ylabel)
     Centre();
 }
 
+TeleconRealTimeLineChart::~TeleconRealTimeLineChart() {
+    m_dataRateTimer->Stop();
+    m_chartUpdateTimer->Stop();
+}
+
 void
 TeleconRealTimeLineChart::addPlot(const wxString& plotname, double (*ptr)(), int plotcolor, const char* plottitle)
 {

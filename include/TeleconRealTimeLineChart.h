@@ -25,7 +25,7 @@ public:
         // Will create a new dynamic teleconWindow object and add it to windowList
 
     /// Destructor
-    // ~TeleconRealTimeLineChart();
+    ~TeleconRealTimeLineChart();
         // Delete each teleconPlot object, teleconChart object and each teleconWindow object
 
     void addPlot(const wxString& plotname, double (*ptr)(), int plotcolor, const char* plottitle);

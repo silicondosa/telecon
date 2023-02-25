@@ -28,6 +28,10 @@ public:
     ~TeleconRealTimeLineChart();
         // Delete each teleconPlot object, teleconChart object and each teleconWindow object
 
+    // Copy constructor and assignment operator are unneeded, and are deleted to comply with Rule of Three (https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming))
+    TeleconRealTimeLineChart(const TeleconRealTimeLineChart&) = delete;
+    TeleconRealTimeLineChart& operator=(const TeleconRealTimeLineChart&) = delete;
+
     void addPlot(const wxString& plotname, double (*ptr)(), int plotcolor, const char* plottitle);
     // Will create a new dynamic teleconPlot object and add it to plotList   
 
@@ -91,7 +95,6 @@ private:
     wxToggleButton* m_pauseButton;
     wxButton* m_saveButton;
     wxColour        m_bgColour;
-    wxPanel* itemPanel2;
     wxFlexGridSizer* itemFlexGridSizer3;
     wxBoxSizer* itemBoxSizer3;
     wxString m_chartTitle;

@@ -34,31 +34,23 @@ TeleconRealTimeLineChart::TeleconRealTimeLineChart(wxWindow *parent,
                                      long style ,
                                      const wxString &name ) : TeleconChartPanel(parent, winid, pos, size, style, name )
 {
-
-
-    wxBoxSizer* itemBoxSizer1 = new wxBoxSizer(wxVERTICAL);
-    SetSizer(itemBoxSizer1);
-
-    itemPanel2 = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxNO_BORDER | wxTAB_TRAVERSAL);
-    itemPanel2->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
-    itemBoxSizer1->Add(itemPanel2, 1, wxGROW | wxALL, 0);
-    m_bgColour = itemPanel2->GetBackgroundColour();
+    m_bgColour = GetBackgroundColour();
 
     itemBoxSizer3 = new wxBoxSizer(wxHORIZONTAL);
-    itemPanel2->SetSizer(itemBoxSizer3);
+    SetSizer(itemBoxSizer3);
 
-    wxStaticBox* itemStaticBoxSizer1Static = new wxStaticBox(itemPanel2, wxID_ANY, wxEmptyString);
+    wxStaticBox* itemStaticBoxSizer1Static = new wxStaticBox(this, wxID_ANY, wxEmptyString);
     wxStaticBoxSizer* itemStaticBoxSizer1 = new wxStaticBoxSizer(itemStaticBoxSizer1Static, wxVERTICAL);
     itemBoxSizer3->Add(itemStaticBoxSizer1, 0, wxGROW | wxALL, FromDIP(3));
 
-    m_playButton = new wxToggleButton(itemPanel2, ID_PLAY, _(" &Run"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
+    m_playButton = new wxToggleButton(this, ID_PLAY, _(" &Run"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
     // m_playButton->SetBitmap(GetBitmapResource("play.png"));
     // m_playButton->SetBitmapMargins(FromDIP(10), FromDIP(0));
     // Initially set the mouse to drag to scroll mode
     m_playButton->SetValue(true);
     itemStaticBoxSizer1->Add(m_playButton, 0, wxGROW | wxALL, FromDIP(3));
 
-    m_pauseButton = new wxToggleButton(itemPanel2, ID_PAUSE, _(" &Freeze"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
+    m_pauseButton = new wxToggleButton(this, ID_PAUSE, _(" &Freeze"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
     // m_pauseButton->SetBitmap(GetBitmapResource("pause.png"));
     // m_pauseButton->SetBitmapMargins(FromDIP(10), FromDIP(0));
     m_pauseButton->SetValue(false);
@@ -66,14 +58,14 @@ TeleconRealTimeLineChart::TeleconRealTimeLineChart(wxWindow *parent,
 
     itemStaticBoxSizer1->Add(3, 3, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, FromDIP(3));
 
-    m_saveButton = new wxButton(itemPanel2, wxID_SAVE, _(" &Save"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
+    m_saveButton = new wxButton(this, wxID_SAVE, _(" &Save"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
     // m_saveButton->SetBitmap(GetBitmapResource("save.png"));
     // m_saveButton->SetBitmapMargins(FromDIP(10), FromDIP(0));
     itemStaticBoxSizer1->Add(m_saveButton, 0, wxGROW | wxALL, FromDIP(3));
 
     itemStaticBoxSizer1->Add(3, 3, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, FromDIP(3));
 
-    wxStaticText* itemStaticText4 = new wxStaticText(itemPanel2, wxID_STATIC, _("Update Period (ms)"), wxDefaultPosition, wxDefaultSize, 0);
+    wxStaticText* itemStaticText4 = new wxStaticText(this, wxID_STATIC, _("Update Period (ms)"), wxDefaultPosition, wxDefaultSize, 0);
     itemStaticBoxSizer1->Add(itemStaticText4, 0, wxALIGN_LEFT | wxALL, FromDIP(3));
 
     wxArrayString m_updatePeriodStrings;
@@ -85,7 +77,7 @@ TeleconRealTimeLineChart::TeleconRealTimeLineChart(wxWindow *parent,
     m_updatePeriodStrings.Add("1500");
     m_updatePeriodStrings.Add("1750");
     m_updatePeriodStrings.Add("2000");
-    m_updatePeriod = new wxChoice(itemPanel2, ID_UPDATE_PERIOD, wxDefaultPosition, wxDefaultSize, m_updatePeriodStrings, 0);
+    m_updatePeriod = new wxChoice(this, ID_UPDATE_PERIOD, wxDefaultPosition, wxDefaultSize, m_updatePeriodStrings, 0);
     m_updatePeriod->SetStringSelection(wxString::Format("%d", dataInterval));
     itemStaticBoxSizer1->Add(m_updatePeriod, 0, wxGROW | wxALL, FromDIP(3));
 
@@ -121,7 +113,7 @@ TeleconRealTimeLineChart::initChart(const wxString title, const wxString ylabel)
     m_ylabel = ylabel;
     wxBoxSizer* itemBoxSizer8 = new wxBoxSizer(wxVERTICAL);
     itemBoxSizer3->Add(itemBoxSizer8, 1, wxGROW | wxALL, FromDIP(3));
-    m_chartViewer = new wxChartViewer(itemPanel2, ID_CHARTVIEWER, wxDefaultPosition, FromDIP(wxSize(600, 270)), wxTAB_TRAVERSAL | wxNO_BORDER);
+    m_chartViewer = new wxChartViewer(this, ID_CHARTVIEWER, wxDefaultPosition, FromDIP(wxSize(600, 270)), wxTAB_TRAVERSAL | wxNO_BORDER);
 
     m_chartViewer->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
     itemBoxSizer8->Add(m_chartViewer, 1, wxGROW | wxALL, FromDIP(3));
@@ -162,10 +154,10 @@ TeleconRealTimeLineChart::addPlot(const wxString& plotname, double (*ptr)(), int
 {
     funcArray.push_back(ptr);
     std::vector<double> vec1;
-    wxStaticText* itemStaticText5 = new wxStaticText(itemPanel2, wxID_STATIC, _(plotname), wxDefaultPosition, wxDefaultSize, 0);
+    wxStaticText* itemStaticText5 = new wxStaticText(this, wxID_STATIC, _(plotname), wxDefaultPosition, wxDefaultSize, 0);
     itemFlexGridSizer3->Add(itemStaticText5, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
 
-    wxTextCtrl* m_alphaValue = new wxTextCtrl(itemPanel2, wxID_ANY, wxEmptyString, wxDefaultPosition, FromDIP(wxSize(60, -1)), wxTE_READONLY | wxSTATIC_BORDER);
+    wxTextCtrl* m_alphaValue = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, FromDIP(wxSize(60, -1)), wxTE_READONLY | wxSTATIC_BORDER);
     m_alphaValue->Enable(false);
     itemFlexGridSizer3->Add(m_alphaValue, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
     m_dataValues.push_back(m_alphaValue);

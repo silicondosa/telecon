@@ -1,4 +1,4 @@
-#pragma once
+// #pragma once
 
 #include <wx/wxprec.h>
 
@@ -15,8 +15,6 @@
 #include "TeleconRealTimeLineChart.h"
 #include "wxchartviewer.h"
 
-
-
 using namespace std;
 
 static const int chartUpdateIntervals[8] = {250, 500, 750, 1000, 1250, 1500, 1750, 2000};
@@ -24,20 +22,22 @@ static const int chartUpdateIntervals[8] = {250, 500, 750, 1000, 1250, 1500, 175
 static const int dataInterval = 250;
 static const int sampleSize = 240;
 
-TeleconRealTimeLineChart::~TeleconRealTimeLineChart() {
+TeleconRealTimeLineChart::~TeleconRealTimeLineChart()
+{
     m_dataRateTimer->Stop();
     m_chartUpdateTimer->Stop();
 }
 
 TeleconRealTimeLineChart::TeleconRealTimeLineChart(wxWindow *parent,
-                                                    wxWindowID winid,
-                                                    const wxPoint &pos,
-                                                    const wxSize &size,
-                                                    const wxString title,
-                                                    const wxString ylabelwxWindow,
-                                                    long style,
-                                                    const wxString& name)
-    : TeleconChartPanel(parent, winid, pos, size, style, name), m_timeStamps(sampleSize) {
+                                                   wxWindowID winid,
+                                                   const wxPoint &pos,
+                                                   const wxSize &size,
+                                                   const wxString title,
+                                                   const wxString ylabelwxWindow,
+                                                   long style,
+                                                   const wxString &name)
+    : TeleconChartPanel(parent, winid, pos, size, style, name), m_timeStamps(sampleSize)
+{
     m_bgColour = GetBackgroundColour();
 
     m_topSizer = new wxBoxSizer(wxHORIZONTAL);
@@ -55,7 +55,8 @@ TeleconRealTimeLineChart::TeleconRealTimeLineChart(wxWindow *parent,
     SetUpChartBox(title, ylabelwxWindow);
 }
 
-void TeleconRealTimeLineChart::SetUpViewOptionsBox() {
+void TeleconRealTimeLineChart::SetUpViewOptionsBox()
+{
     // Add play button
     m_playButton = new wxToggleButton(m_viewOptionsBox, ID_PLAY, _(" &Run"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
     // m_playButton->SetBitmap(GetBitmapResource("play.png"));
@@ -84,11 +85,12 @@ void TeleconRealTimeLineChart::SetUpViewOptionsBox() {
     m_viewOptionsBoxSizer->Add(3, 3, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, FromDIP(3)); // another gap
 
     // Add graph update period selector. Note: does not affect underlying data fetch rate
-    wxStaticText* graphUpdatePeriodStaticText = new wxStaticText(m_viewOptionsBox, wxID_STATIC, _("Update Period (ms)"), wxDefaultPosition, wxDefaultSize, 0);
+    wxStaticText *graphUpdatePeriodStaticText = new wxStaticText(m_viewOptionsBox, wxID_STATIC, _("Update Period (ms)"), wxDefaultPosition, wxDefaultSize, 0);
     m_viewOptionsBoxSizer->Add(graphUpdatePeriodStaticText, 0, wxALIGN_LEFT | wxALL, FromDIP(3));
 
     wxArrayString m_updatePeriodStrings;
-    for (auto i : chartUpdateIntervals) {
+    for (auto i : chartUpdateIntervals)
+    {
         m_updatePeriodStrings.Add(wxString::Format("%d", i));
     }
     m_updatePeriodSelector = new wxChoice(this, ID_UPDATE_PERIOD, wxDefaultPosition, wxDefaultSize, m_updatePeriodStrings, 0);
@@ -101,7 +103,8 @@ void TeleconRealTimeLineChart::SetUpViewOptionsBox() {
     m_viewOptionsBoxSizer->Add(m_plotLatestValueFlexGridSizer, 0, wxGROW | wxALL, FromDIP(3));
 }
 
-void TeleconRealTimeLineChart::SetUpChartBox(const wxString title, const wxString ylabel) {
+void TeleconRealTimeLineChart::SetUpChartBox(const wxString title, const wxString ylabel)
+{
     m_chartTitle = title;
     m_ylabel = ylabel;
 
@@ -132,39 +135,43 @@ EVT_CHARTVIEWER_MOUSEMOVE_PLOTAREA(ID_CHARTVIEWER, TeleconRealTimeLineChart::OnM
 END_EVENT_TABLE()
 
 // Event handler
-void TeleconRealTimeLineChart::OnPlayClick(wxCommandEvent& event) {
+void TeleconRealTimeLineChart::OnPlayClick(wxCommandEvent &event)
+{
     m_playButton->SetValue(true);
     m_pauseButton->SetValue(false);
     m_chartUpdateTimer->Start();
 }
 
 // Event handler
-void TeleconRealTimeLineChart::OnPauseClick(wxCommandEvent& event) {
+void TeleconRealTimeLineChart::OnPauseClick(wxCommandEvent &event)
+{
     m_playButton->SetValue(false);
     m_pauseButton->SetValue(true);
     m_chartUpdateTimer->Stop();
 }
 
 // Event handler
-void TeleconRealTimeLineChart::OnChartUpdatePeriodSelected(wxCommandEvent& event) {
+void TeleconRealTimeLineChart::OnChartUpdatePeriodSelected(wxCommandEvent &event)
+{
     long interval;
     (m_updatePeriodSelector->GetString(m_updatePeriodSelector->GetSelection())).ToLong(&interval);
     m_chartUpdateTimer->Start(interval);
 }
 
 // Event handler
-void TeleconRealTimeLineChart::OnSave(wxCommandEvent& event) {
+void TeleconRealTimeLineChart::OnSave(wxCommandEvent &event)
+{
     wxFileDialog saveFileDialog(this, _("Save graphics file"), "", "chartdirector_demo",
-        "PNG (*.png)|*.png|JPG (*.jpg)|*.jpg|GIF (*.gif)|*.gif|BMP (*.bmp)|*.bmp|SVG (*.svg)|*.svg|PDF (*.pdf)|*.pdf", wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
+                                "PNG (*.png)|*.png|JPG (*.jpg)|*.jpg|GIF (*.gif)|*.gif|BMP (*.bmp)|*.bmp|SVG (*.svg)|*.svg|PDF (*.pdf)|*.pdf", wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
     if (saveFileDialog.ShowModal() == wxID_CANCEL)
-        return;     // the user changed idea...
+        return; // the user changed idea...
 
     // save the current contents in the file;
     wxString fileName = saveFileDialog.GetPath();
     if (!fileName.IsEmpty())
     {
         // Save the chart
-        BaseChart* c = m_chartViewer->getChart();
+        BaseChart *c = m_chartViewer->getChart();
         if (0 != c)
         {
             c->makeChart(fileName.ToUTF8());
@@ -173,59 +180,65 @@ void TeleconRealTimeLineChart::OnSave(wxCommandEvent& event) {
 }
 
 // Event handler
-void TeleconRealTimeLineChart::OnChartUpdateTimer(wxTimerEvent& event) {
+void TeleconRealTimeLineChart::OnChartUpdateTimer(wxTimerEvent &event)
+{
     // Will result in a call to OnViewPortChanged, which may redraw the chart if needed
     m_chartViewer->updateViewPort(true, false);
 }
 
 // Event handler
-void TeleconRealTimeLineChart::OnDataTimer(wxTimerEvent& event) {
+void TeleconRealTimeLineChart::OnDataTimer(wxTimerEvent &event)
+{
     GetData();
 }
 
 // Event handler
 // This event occurs if the user scrolls or zooms in or out the chart by dragging or clicking on the chart.
 // It can also be triggered by calling WinChartViewer.updateViewPort.
-void TeleconRealTimeLineChart::OnViewPortChanged(wxCommandEvent& event) {
-    if (m_chartViewer->needUpdateChart()) {
+void TeleconRealTimeLineChart::OnViewPortChanged(wxCommandEvent &event)
+{
+    if (m_chartViewer->needUpdateChart())
+    {
         DrawChart();
     }
 }
 
 // Shift new data values into the real time data series
-void TeleconRealTimeLineChart::GetData() {
+void TeleconRealTimeLineChart::GetData()
+{
     // For now, we are assuming that all data function pointers run in effectively negligible time
     // TODO: Rewrite this code to make it fetch data asynchronously
     wxDateTime now = wxDateTime::UNow(); // Needs to UNow instead of Now fo millisecond precision
-    
+
     // Convert from wxDateTime to seconds since Unix epoch, then to ChartDirector double timestamp.
     // Since that loses millisecond precision, add it back in with GetMillisecond()
     double millis = now.GetMillisecond();
     double nowTimeStamp = Chart::chartTime2(now.GetTicks()) + now.GetMillisecond() / 1000.0;
     m_timeStamps.insertNewValue(nowTimeStamp);
 
-    for (int i = 0; i < m_plots.size(); i++) {
+    for (int i = 0; i < m_plots.size(); i++)
+    {
         double newValue = m_plots[i]->fetchData();
         m_latestValueTextCtrls[i]->SetValue(wxString::Format("%.2f", newValue));
     }
 }
 
-void TeleconRealTimeLineChart::DrawChart() {
-    // Create an XYChart object 600 x 270 pixels in size, with light grey (f4f4f4) 
+void TeleconRealTimeLineChart::DrawChart()
+{
+    // Create an XYChart object 600 x 270 pixels in size, with light grey (f4f4f4)
     // background, black (000000) border, 1 pixel raised effect, and with a rounded frame.
-    XYChart* c = new XYChart(520, 270, 0xf4f4f4, 0x000000, 1);
+    XYChart *c = new XYChart(520, 270, 0xf4f4f4, 0x000000, 1);
     c->setRoundedFrame((m_bgColour.Red() << 16) + (m_bgColour.Green() << 8) + m_bgColour.Blue());
 
-    // Set the plotarea at (55, 55) and of size 520 x 185 pixels. Use white (ffffff) 
-    // background. Enable both horizontal and vertical grids by setting their colors to 
+    // Set the plotarea at (55, 55) and of size 520 x 185 pixels. Use white (ffffff)
+    // background. Enable both horizontal and vertical grids by setting their colors to
     // grey (cccccc). Set clipping mode to clip the data lines to the plot area.
     c->setPlotArea(55, 55, 520, 185, 0xffffff, -1, -1, 0xcccccc, 0xcccccc);
     c->setClipping();
 
     // Add a title to the chart using 15 pts Times New Roman Bold Italic font, with a light
     // grey (dddddd) background, black (000000) border, and a glass like raised effect.
-    c->addTitle(m_chartTitle, "Times New Roman Bold Italic", 15
-    )->setBackground(0xdddddd, 0x000000, Chart::glassEffect());
+    c->addTitle(m_chartTitle, "Times New Roman Bold Italic", 15)->setBackground(0xdddddd, 0x000000, Chart::glassEffect());
 
     // Set the reference font size of the legend box
     c->getLegend()->setFontSize(8);
@@ -233,7 +246,7 @@ void TeleconRealTimeLineChart::DrawChart() {
     // Configure the y-axis with a 10pts Arial Bold axis title
     c->yAxis()->setTitle(m_ylabel, "Arial Bold", 10);
 
-    // Configure the x-axis to auto-scale with at least 75 pixels between major tick and 
+    // Configure the x-axis to auto-scale with at least 75 pixels between major tick and
     // 15  pixels between minor ticks. This shows more minor grid lines on the chart.
     c->xAxis()->setTickDensity(75, 15);
 
@@ -241,8 +254,9 @@ void TeleconRealTimeLineChart::DrawChart() {
     c->xAxis()->setWidth(2);
     c->yAxis()->setWidth(2);
 
-    // Now we add the data to the chart. 
-    if (m_timeStamps.size() > 0) {
+    // Now we add the data to the chart.
+    if (m_timeStamps.size() > 0)
+    {
         double firstTime = m_timeStamps[0];
         // Set up the x-axis to show the time range in the data buffer
         c->xAxis()->setDateScale(firstTime, firstTime + dataInterval * sampleSize / 1000);
@@ -251,22 +265,31 @@ void TeleconRealTimeLineChart::DrawChart() {
         c->xAxis()->setLabelFormat("{value|hh:nn:ss}");
 
         // Create a line layer to plot the lines
-        LineLayer* layer = c->addLineLayer();
+        LineLayer *layer = c->addLineLayer();
 
         // The x-coordinates are the timeStamps.
         layer->setXData(DoubleArray(&m_timeStamps[0], m_timeStamps.size()));
 
         // The data series are used to draw lines.
-        for (const auto& plot : m_plots) {
-            layer->addDataSet(DoubleArray(&(plot->getOldest()), plot->size()), plot->getColor(), plot->getPlotTitle().c_str());
+        for (const auto &plot : m_plots)
+        {
+            if (plot->getLineType() == LT_SOLID)
+            {
+                layer->addDataSet(DoubleArray(&(plot->getOldest()), plot->size()), plot->getColor(), plot->getPlotTitle().c_str());
+            }
+            else if (plot->getLineType() == LT_SCATTER)
+            {
+                c->addScatterLayer(DoubleArray(&m_timeStamps[0], m_timeStamps.size()), 
+                    DoubleArray(&(plot->getOldest()), plot->size()), plot->getPlotTitle().c_str(), 1, 5, plot->getColor());
+            }
+            // c->addScatterLayer(DoubleArray(&m_timeStamps[0], m_timeStamps.size()), DoubleArray(&(plot->getOldest()), plot->size()), plot->getPlotTitle().c_str(), 1, 5, plot->getColor());
         }
     }
 
-    // Include track line with legend. If the mouse is on the plot area, show the track 
+    // Include track line with legend. If the mouse is on the plot area, show the track
     // line with legend at the mouse position; otherwise, show them for the latest data
     // values (that is, at the rightmost position).
-    TrackLineLegend(c, m_chartViewer->isMouseOnPlotArea() ? m_chartViewer->getPlotAreaMouseX() :
-        c->getPlotArea()->getRightX());
+    TrackLineLegend(c, m_chartViewer->isMouseOnPlotArea() ? m_chartViewer->getPlotAreaMouseX() : c->getPlotArea()->getRightX());
 
     if (m_chartViewer->getChart() != NULL)
     {
@@ -277,18 +300,20 @@ void TeleconRealTimeLineChart::DrawChart() {
 }
 
 // Draw track cursor when mouse is moving over plotarea
-void TeleconRealTimeLineChart::OnMouseMovePlotArea(wxCommandEvent& event) {
-    TrackLineLegend((XYChart*)m_chartViewer->getChart(), m_chartViewer->getPlotAreaMouseX());
+void TeleconRealTimeLineChart::OnMouseMovePlotArea(wxCommandEvent &event)
+{
+    TrackLineLegend((XYChart *)m_chartViewer->getChart(), m_chartViewer->getPlotAreaMouseX());
     m_chartViewer->updateDisplay();
 }
 
 // Draw the track line with legend
-void TeleconRealTimeLineChart::TrackLineLegend(XYChart* c, int mouseX) {
+void TeleconRealTimeLineChart::TrackLineLegend(XYChart *c, int mouseX)
+{
     // Clear the current dynamic layer and get the DrawArea object to draw on it.
-    DrawArea* d = c->initDynamicLayer();
+    DrawArea *d = c->initDynamicLayer();
 
     // The plot area object
-    PlotArea* plotArea = c->getPlotArea();
+    PlotArea *plotArea = c->getPlotArea();
 
     // Get the data x-value that is nearest to the mouse, and find its pixel coordinate.
     double xValue = c->getNearestXValue(mouseX);
@@ -303,7 +328,7 @@ void TeleconRealTimeLineChart::TrackLineLegend(XYChart* c, int mouseX) {
     // Iterate through all layers to build the legend array
     for (int i = 0; i < c->getLayerCount(); ++i)
     {
-        Layer* layer = c->getLayerByZ(i);
+        Layer *layer = c->getLayerByZ(i);
 
         // The data array index of the x-value
         int xIndex = layer->getXIndexOf(xValue);
@@ -311,19 +336,18 @@ void TeleconRealTimeLineChart::TrackLineLegend(XYChart* c, int mouseX) {
         // Iterate through all the data sets in the layer
         for (int j = 0; j < layer->getDataSetCount(); ++j)
         {
-            DataSet* dataSet = layer->getDataSetByZ(j);
+            DataSet *dataSet = layer->getDataSetByZ(j);
 
             // We are only interested in visible data sets with names
-            const char* dataName = dataSet->getDataName();
+            const char *dataName = dataSet->getDataName();
             int color = dataSet->getDataColor();
             if (dataName && *dataName && (color != (int)Chart::Transparent))
             {
                 // Build the legend entry, consist of the legend icon, name and data value.
                 double dataValue = dataSet->getValue(xIndex);
                 ostringstream legendEntry;
-                legendEntry << "<*block*>" << dataSet->getLegendIcon() << " " << dataName << ": " <<
-                    ((dataValue == Chart::NoValue) ? "N/A" : c->formatValue(dataValue, "{value|P4}"))
-                    << "<*/*>";
+                legendEntry << "<*block*>" << dataSet->getLegendIcon() << " " << dataName << ": " << ((dataValue == Chart::NoValue) ? "N/A" : c->formatValue(dataValue, "{value|P4}"))
+                            << "<*/*>";
                 legendEntries.push_back(legendEntry.str());
 
                 // Draw a track dot for data points within the plot area
@@ -339,14 +363,14 @@ void TeleconRealTimeLineChart::TrackLineLegend(XYChart* c, int mouseX) {
     // Create the legend by joining the legend entries
     ostringstream legendText;
     legendText << "<*block,maxWidth=" << plotArea->getWidth() << "*><*block*><*font=Arial Bold*>["
-        << c->xAxis()->getFormattedLabel(xValue, "hh:nn:ss") << "]<*/*>";
+               << c->xAxis()->getFormattedLabel(xValue, "hh:nn:ss") << "]<*/*>";
     for (int i = ((int)legendEntries.size()) - 1; i >= 0; --i)
     {
         legendText << "        " << legendEntries[i];
     }
 
     // Display the legend on the top of the plot area
-    TTFText* t = d->text(legendText.str().c_str(), "Arial", 8);
+    TTFText *t = d->text(legendText.str().c_str(), "Arial", 8);
     t->draw(plotArea->getLeftX() + 5, plotArea->getTopY() - 3, 0x000000, Chart::BottomLeft);
     t->destroy();
 }
@@ -356,7 +380,8 @@ void TeleconRealTimeLineChart::TrackLineLegend(XYChart* c, int mouseX) {
  */
 
 wxBitmap
-TeleconRealTimeLineChart::GetBitmapResource(const wxString& name) {
+TeleconRealTimeLineChart::GetBitmapResource(const wxString &name)
+{
     // Bitmap retrieval
     wxImage image;
     if (name == wxT("play.png"))
@@ -380,14 +405,15 @@ TeleconRealTimeLineChart::GetBitmapResource(const wxString& name) {
     return wxNullBitmap;
 }
 
-void TeleconRealTimeLineChart::addPlot(const wxString& plotname, double (*ptr)(), int plotcolor, const char* plottitle) {
-    wxStaticText* latestValueLabel = new wxStaticText(this, wxID_STATIC, _(plotname), wxDefaultPosition, wxDefaultSize, 0);
+void TeleconRealTimeLineChart::addPlot(const wxString &plotname, double (*ptr)(), int plotcolor, const char *plottitle, LineType type)
+{
+    wxStaticText *latestValueLabel = new wxStaticText(this, wxID_STATIC, _(plotname), wxDefaultPosition, wxDefaultSize, 0);
     m_plotLatestValueFlexGridSizer->Add(latestValueLabel, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
 
-    wxTextCtrl* latestValueText = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, FromDIP(wxSize(60, -1)), wxTE_READONLY | wxSTATIC_BORDER);
+    wxTextCtrl *latestValueText = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, FromDIP(wxSize(60, -1)), wxTE_READONLY | wxSTATIC_BORDER);
     latestValueText->Enable(false);
     m_plotLatestValueFlexGridSizer->Add(latestValueText, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
     m_latestValueTextCtrls.push_back(latestValueText);
 
-    m_plots.push_back(make_shared<TeleconPlot>(ptr, sampleSize, plotcolor, 0 /*to be implemented*/, LT_SOLID, string(plottitle)));
+    m_plots.push_back(make_shared<TeleconPlot>(ptr, sampleSize, plotcolor, 0 /*to be implemented*/, type, string(plottitle)));
 }

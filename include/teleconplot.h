@@ -8,7 +8,8 @@ using namespace std;
 enum LineType {
 	LT_SOLID,
 	LT_DASHED,
-	LT_NONE
+	LT_NONE,
+	LT_SCATTER
 };
 
 typedef double (*DoubleFuncPtr)();

@@ -39,7 +39,7 @@ public:
     TeleconRealTimeLineChart(TeleconRealTimeLineChart&&) = delete;
     TeleconRealTimeLineChart& operator=(TeleconRealTimeLineChart&&) = delete;
 
-    void addPlot(const wxString& plotname, double (*ptr)(), int plotcolor, const char* plottitle);
+    void addPlot(const wxString& plotname, double (*ptr)(), int plotcolor, const char* plottitle, LineType type = LT_SOLID);
     // Will create a new dynamic teleconPlot object and add it to plotList
 
     typedef double (*FuncPtr)();

@@ -87,7 +87,7 @@ private:
     wxChoice* m_updatePeriodSelector;
 
     // Miscellaneous wxWidgets members
-    vector<wxTextCtrl*> m_dataValues;
+    vector<wxTextCtrl*> m_latestValueTextCtrls;
     wxColour m_bgColour;
     wxString m_chartTitle;
     wxString m_ylabel;
@@ -97,11 +97,8 @@ private:
     wxTimer* m_chartUpdateTimer;
 
     // Chart proper member variables
-    int m_currentIndex;                             // Index of the array position to which new values are added.
     DataBuffer<double> m_timeStamps;               // The timestamps for the data series
     vector<shared_ptr<TeleconPlot>> m_plots;
-
-    wxDateTime m_nextDataTime;           // Used by the random number generator to generate realtime data.
 
     // Pointer to the chart viewer - main body of panel
     wxChartViewer* m_chartViewer;

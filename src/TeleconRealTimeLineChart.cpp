@@ -37,8 +37,7 @@ TeleconRealTimeLineChart::TeleconRealTimeLineChart(wxWindow *parent,
                                                     const wxString ylabelwxWindow,
                                                     long style,
                                                     const wxString& name)
-    : TeleconChartPanel(parent, winid, pos, size, style, name),
-    m_timeStamps{ sampleSize } {
+    : TeleconChartPanel(parent, winid, pos, size, style, name), m_timeStamps(sampleSize) {
     m_bgColour = GetBackgroundColour();
 
     m_topSizer = new wxBoxSizer(wxHORIZONTAL);
@@ -72,7 +71,7 @@ void TeleconRealTimeLineChart::SetUpViewOptionsBox() {
     m_pauseButton->SetValue(false);
     m_viewOptionsBoxSizer->Add(m_pauseButton, 0, wxGROW | wxALL, FromDIP(3));
 
-    /* Add a small gap after the playand pause buttons.Gaps have nonzero proportion while buttons have zero proportion,
+    /* Add a small gap after the playand pause buttons. Gaps have nonzero proportion while buttons have zero proportion,
     so gaps will grow but buttons won't if the window is resized */
     m_viewOptionsBoxSizer->Add(3, 3, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, FromDIP(3));
 
@@ -109,9 +108,7 @@ void TeleconRealTimeLineChart::SetUpChartBox(const wxString title, const wxStrin
     m_chartViewer = new wxChartViewer(this, ID_CHARTVIEWER, wxDefaultPosition, FromDIP(wxSize(600, 270)), wxTAB_TRAVERSAL | wxNO_BORDER);
     m_chartBoxSizer->Add(m_chartViewer, 1, wxGROW | wxALL, FromDIP(3));
 
-    m_currentIndex = 0;
-
-    // Set up the data acquisition mechanism. In this demo, we just use a timer to get a sample every ms.
+    // Set up the data acquisition mechanism. We just use a timer to get a sample every dataInterval ms.
     m_dataRateTimer = new wxTimer(this, ID_DATA_TIMER);
     m_dataRateTimer->Start(dataInterval);
 
@@ -195,32 +192,25 @@ void TeleconRealTimeLineChart::OnViewPortChanged(wxCommandEvent& event) {
     }
 }
 
-// A utility to shift a new data value into a data array
-static void ShiftData(double* data, int len, double newValue) {
-    memmove(data, data + 1, sizeof(*data) * (len - 1));
-    data[len - 1] = newValue;
-}
-
 // Shift new data values into the real time data series
 void TeleconRealTimeLineChart::GetData() {
     // For now, we are assuming that all data function pointers run in effectively negligible time
     // TODO: Rewrite this code to make it fetch data asynchronously
     wxDateTime now = wxDateTime::UNow(); // Needs to UNow instead of Now fo millisecond precision
+    
     // Convert from wxDateTime to seconds since Unix epoch, then to ChartDirector double timestamp.
-    // Since that loses millisecond precision, add it back in
+    // Since that loses millisecond precision, add it back in with GetMillisecond()
     double millis = now.GetMillisecond();
     double nowTimeStamp = Chart::chartTime2(now.GetTicks()) + now.GetMillisecond() / 1000.0;
     m_timeStamps.insertNewValue(nowTimeStamp);
 
     for (int i = 0; i < m_plots.size(); i++) {
         double newValue = m_plots[i]->fetchData();
-        m_dataValues[i]->SetValue(wxString::Format("%.2f", newValue));
+        m_latestValueTextCtrls[i]->SetValue(wxString::Format("%.2f", newValue));
     }
 }
 
-void
-TeleconRealTimeLineChart::DrawChart()
-{
+void TeleconRealTimeLineChart::DrawChart() {
     // Create an XYChart object 600 x 270 pixels in size, with light grey (f4f4f4) 
     // background, black (000000) border, 1 pixel raised effect, and with a rounded frame.
     XYChart* c = new XYChart(520, 270, 0xf4f4f4, 0x000000, 1);
@@ -266,7 +256,7 @@ TeleconRealTimeLineChart::DrawChart()
         // The x-coordinates are the timeStamps.
         layer->setXData(DoubleArray(&m_timeStamps[0], m_timeStamps.size()));
 
-        // The 3 data series are used to draw 3 lines.
+        // The data series are used to draw lines.
         for (const auto& plot : m_plots) {
             layer->addDataSet(DoubleArray(&(plot->getOldest()), plot->size()), plot->getColor(), plot->getPlotTitle().c_str());
         }
@@ -278,7 +268,6 @@ TeleconRealTimeLineChart::DrawChart()
     TrackLineLegend(c, m_chartViewer->isMouseOnPlotArea() ? m_chartViewer->getPlotAreaMouseX() :
         c->getPlotArea()->getRightX());
 
-
     if (m_chartViewer->getChart() != NULL)
     {
         delete m_chartViewer->getChart();
@@ -288,16 +277,13 @@ TeleconRealTimeLineChart::DrawChart()
 }
 
 // Draw track cursor when mouse is moving over plotarea
-void TeleconRealTimeLineChart::OnMouseMovePlotArea(wxCommandEvent& event)
-{
+void TeleconRealTimeLineChart::OnMouseMovePlotArea(wxCommandEvent& event) {
     TrackLineLegend((XYChart*)m_chartViewer->getChart(), m_chartViewer->getPlotAreaMouseX());
     m_chartViewer->updateDisplay();
 }
 
 // Draw the track line with legend
-void
-TeleconRealTimeLineChart::TrackLineLegend(XYChart* c, int mouseX)
-{
+void TeleconRealTimeLineChart::TrackLineLegend(XYChart* c, int mouseX) {
     // Clear the current dynamic layer and get the DrawArea object to draw on it.
     DrawArea* d = c->initDynamicLayer();
 
@@ -370,8 +356,7 @@ TeleconRealTimeLineChart::TrackLineLegend(XYChart* c, int mouseX)
  */
 
 wxBitmap
-TeleconRealTimeLineChart::GetBitmapResource(const wxString& name)
-{
+TeleconRealTimeLineChart::GetBitmapResource(const wxString& name) {
     // Bitmap retrieval
     wxImage image;
     if (name == wxT("play.png"))
@@ -395,15 +380,14 @@ TeleconRealTimeLineChart::GetBitmapResource(const wxString& name)
     return wxNullBitmap;
 }
 
-void TeleconRealTimeLineChart::addPlot(const wxString& plotname, double (*ptr)(), int plotcolor, const char* plottitle)
-{
-    wxStaticText* itemStaticText5 = new wxStaticText(this, wxID_STATIC, _(plotname), wxDefaultPosition, wxDefaultSize, 0);
-    m_plotLatestValueFlexGridSizer->Add(itemStaticText5, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
+void TeleconRealTimeLineChart::addPlot(const wxString& plotname, double (*ptr)(), int plotcolor, const char* plottitle) {
+    wxStaticText* latestValueLabel = new wxStaticText(this, wxID_STATIC, _(plotname), wxDefaultPosition, wxDefaultSize, 0);
+    m_plotLatestValueFlexGridSizer->Add(latestValueLabel, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
 
-    wxTextCtrl* m_alphaValue = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, FromDIP(wxSize(60, -1)), wxTE_READONLY | wxSTATIC_BORDER);
-    m_alphaValue->Enable(false);
-    m_plotLatestValueFlexGridSizer->Add(m_alphaValue, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
-    m_dataValues.push_back(m_alphaValue);
+    wxTextCtrl* latestValueText = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, FromDIP(wxSize(60, -1)), wxTE_READONLY | wxSTATIC_BORDER);
+    latestValueText->Enable(false);
+    m_plotLatestValueFlexGridSizer->Add(latestValueText, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
+    m_latestValueTextCtrls.push_back(latestValueText);
 
     m_plots.push_back(make_shared<TeleconPlot>(ptr, sampleSize, plotcolor, 0 /*to be implemented*/, LT_SOLID, string(plottitle)));
 }

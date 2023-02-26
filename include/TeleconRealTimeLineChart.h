@@ -3,11 +3,15 @@
 #include <wx/wxprec.h>
 #include <wx/panel.h>
 #include <wx/tglbtn.h>
+#include <memory>
 
 #include "chartdir.h"
 #include "TeleconChartPanel.h"
 #include "wxchartviewer.h"
+#include "teleconplot.h"
 #include "databuffer.h"
+
+using namespace std;
 
 class TeleconRealTimeLineChart : public TeleconChartPanel {
 public:
@@ -57,7 +61,7 @@ private:
     void OnViewPortChanged(wxCommandEvent& event); // updates the chart if it needs updating
 
     // Chart and data update functions
-    void GetData(std::vector<FuncPtr>& funcArray);
+    void GetData();
     void DrawChart();
     
     // Calls TrackLineLegend if necessary
@@ -83,6 +87,7 @@ private:
     wxChoice* m_updatePeriodSelector;
 
     // Miscellaneous wxWidgets members
+    vector<wxTextCtrl*> m_dataValues;
     wxColour m_bgColour;
     wxString m_chartTitle;
     wxString m_ylabel;
@@ -94,11 +99,7 @@ private:
     // Chart proper member variables
     int m_currentIndex;                             // Index of the array position to which new values are added.
     DataBuffer<double> m_timeStamps;               // The timestamps for the data series
-    std::vector<FuncPtr> funcArray;
-    std::vector<DataBuffer<double>> m_dataSeries;
-    std::vector<int> m_colorSeries;
-    std::vector<const char*> m_plottitleSeries;
-    std::vector<wxTextCtrl*> m_dataValues;
+    vector<shared_ptr<TeleconPlot>> m_plots;
 
     wxDateTime m_nextDataTime;           // Used by the random number generator to generate realtime data.
 

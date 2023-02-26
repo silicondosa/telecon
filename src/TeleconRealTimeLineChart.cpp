@@ -111,10 +111,6 @@ void TeleconRealTimeLineChart::SetUpChartBox(const wxString title, const wxStrin
 
     m_currentIndex = 0;
 
-    // Set m_nextDataTime to the current time. It is used by the real time random number
-    // generator so it knows what timestamp should be used for the next data point.
-    m_nextDataTime = wxDateTime::Now();
-
     // Set up the data acquisition mechanism. In this demo, we just use a timer to get a sample every ms.
     m_dataRateTimer = new wxTimer(this, ID_DATA_TIMER);
     m_dataRateTimer->Start(dataInterval);
@@ -187,7 +183,7 @@ void TeleconRealTimeLineChart::OnChartUpdateTimer(wxTimerEvent& event) {
 
 // Event handler
 void TeleconRealTimeLineChart::OnDataTimer(wxTimerEvent& event) {
-    GetData(funcArray);
+    GetData();
 }
 
 // Event handler
@@ -206,43 +202,19 @@ static void ShiftData(double* data, int len, double newValue) {
 }
 
 // Shift new data values into the real time data series
-void TeleconRealTimeLineChart::GetData(/*windowID, chartID, plotID, function ptr */std::vector<FuncPtr>& funcArray) {
-    // The current time
+void TeleconRealTimeLineChart::GetData() {
+    // For now, we are assuming that all data function pointers run in effectively negligible time
+    // TODO: Rewrite this code to make it fetch data asynchronously
     wxDateTime now = wxDateTime::Now();
+    // Convert from wxDateTime to seconds since Unix epoch, then to ChartDirector double timestamp.
+    // Since that loses millisecond precision, add it back in
+    double millis = now.GetMillisecond();
+    double nowTimeStamp = Chart::chartTime2(now.GetTicks()) + now.GetMillisecond() / 1000.0;
+    m_timeStamps.insertNewValue(nowTimeStamp);
 
-    // This is our formula for the random number generator
-    do
-    {
-        // We need the currentTime in millisecond resolution
-        double currentTime = Chart::chartTime2(m_nextDataTime.GetTicks())
-            + m_nextDataTime.GetMillisecond() / 1000.0;
-
-        std::vector<double> data;
-        //double dataA = 20 + cos(p * 129241) * 10 + 1 / (cos(p) * cos(p) + 0.01);
-        for (auto func : funcArray) {
-            data.push_back(func());
-        }
-
-        // After obtaining the new values, we need to update the data arrays.
-        // Store the new values in the current index position, and increment the index.
-        int i = 0;
-        for (const double& element : data) {
-            m_dataSeries[i].insertNewValue(element);
-            i++;
-        }
-        m_timeStamps.insertNewValue(currentTime);
-
-        m_nextDataTime.Add(wxTimeSpan(0, 0, 0, dataInterval));
-    } while (m_nextDataTime < now);
-
-    // We provide some visual feedback to the latest numbers generated, so you can see the
-    // data being generated.
-    int i = 0;
-    for (auto& element : m_dataValues) {
-        if (m_dataSeries[0].size() > 0) {
-            element->SetValue(wxString::Format("%.2f", m_dataSeries[0].latest()));
-        }
-        i++;
+    for (int i = 0; i < m_plots.size(); i++) {
+        double newValue = m_plots[i]->fetchData();
+        m_dataValues[i]->SetValue(wxString::Format("%.2f", newValue));
     }
 }
 
@@ -295,10 +267,8 @@ TeleconRealTimeLineChart::DrawChart()
         layer->setXData(DoubleArray(&m_timeStamps[0], m_timeStamps.size()));
 
         // The 3 data series are used to draw 3 lines.
-        int i = 0;
-        for (const DataBuffer<double>& element : m_dataSeries) {
-            layer->addDataSet(DoubleArray(&element[0], element.size()), m_colorSeries[i], m_plottitleSeries[i]);
-            i++;
+        for (const auto& plot : m_plots) {
+            layer->addDataSet(DoubleArray(&(plot->getOldest()), plot->size()), plot->getColor(), plot->getPlotTitle().c_str());
         }
     }
 
@@ -427,8 +397,6 @@ TeleconRealTimeLineChart::GetBitmapResource(const wxString& name)
 
 void TeleconRealTimeLineChart::addPlot(const wxString& plotname, double (*ptr)(), int plotcolor, const char* plottitle)
 {
-    funcArray.push_back(ptr);
-    
     wxStaticText* itemStaticText5 = new wxStaticText(this, wxID_STATIC, _(plotname), wxDefaultPosition, wxDefaultSize, 0);
     m_plotLatestValueFlexGridSizer->Add(itemStaticText5, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
 
@@ -437,7 +405,5 @@ void TeleconRealTimeLineChart::addPlot(const wxString& plotname, double (*ptr)()
     m_plotLatestValueFlexGridSizer->Add(m_alphaValue, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
     m_dataValues.push_back(m_alphaValue);
 
-    m_dataSeries.push_back(DataBuffer<double>(sampleSize));
-    m_colorSeries.push_back(plotcolor);
-    m_plottitleSeries.push_back(plottitle);
+    m_plots.push_back(make_shared<TeleconPlot>(ptr, sampleSize, plotcolor, 0 /*to be implemented*/, LT_SOLID, string(plottitle)));
 }

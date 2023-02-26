@@ -1,10 +1,6 @@
-
-#ifndef __TELECON_CHART_PANEL
-
-#define __TELECON_CHART_PANEL
+#pragma once
 
 #include <wx/wxprec.h>
-
 
 #ifndef WX_PRECOMP
 #include <wx/wx.h>
@@ -23,77 +19,116 @@
 
 using namespace std;
 
+static const int chartUpdateIntervals[8] = {250, 500, 750, 1000, 1250, 1500, 1750, 2000};
+
 static const int dataInterval = 250;
 static const int sampleSize = 240;
 
+TeleconRealTimeLineChart::~TeleconRealTimeLineChart() {
+    m_dataRateTimer->Stop();
+    m_chartUpdateTimer->Stop();
+}
 
 TeleconRealTimeLineChart::TeleconRealTimeLineChart(wxWindow *parent,
-                                     wxWindowID winid ,
-                                     const wxPoint &pos,
-                                     const wxSize &size,
-                                     long style ,
-                                     const wxString &name ) : TeleconChartPanel(parent, winid, pos, size, style, name )
-{
+                                                    wxWindowID winid,
+                                                    const wxPoint &pos,
+                                                    const wxSize &size,
+                                                    const wxString title,
+                                                    const wxString ylabelwxWindow,
+                                                    long style,
+                                                    const wxString& name)
+    : TeleconChartPanel(parent, winid, pos, size, style, name),
+    m_timeStamps{ sampleSize } {
     m_bgColour = GetBackgroundColour();
 
-    itemBoxSizer3 = new wxBoxSizer(wxHORIZONTAL);
-    SetSizer(itemBoxSizer3);
+    m_topSizer = new wxBoxSizer(wxHORIZONTAL);
+    SetSizer(m_topSizer);
 
-    wxStaticBox* itemStaticBoxSizer1Static = new wxStaticBox(this, wxID_ANY, wxEmptyString);
-    wxStaticBoxSizer* itemStaticBoxSizer1 = new wxStaticBoxSizer(itemStaticBoxSizer1Static, wxVERTICAL);
-    itemBoxSizer3->Add(itemStaticBoxSizer1, 0, wxGROW | wxALL, FromDIP(3));
+    m_viewOptionsBox = new wxStaticBox(this, wxID_ANY, wxEmptyString);
+    m_viewOptionsBoxSizer = new wxStaticBoxSizer(m_viewOptionsBox, wxVERTICAL);
+    m_topSizer->Add(m_viewOptionsBoxSizer, 0, wxGROW | wxALL, FromDIP(3));
 
-    m_playButton = new wxToggleButton(this, ID_PLAY, _(" &Run"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
+    SetUpViewOptionsBox();
+
+    m_chartBoxSizer = new wxBoxSizer(wxVERTICAL);
+    m_topSizer->Add(m_chartBoxSizer, 1, wxGROW | wxALL, FromDIP(3));
+
+    SetUpChartBox(title, ylabelwxWindow);
+}
+
+void TeleconRealTimeLineChart::SetUpViewOptionsBox() {
+    // Add play button
+    m_playButton = new wxToggleButton(m_viewOptionsBox, ID_PLAY, _(" &Run"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
     // m_playButton->SetBitmap(GetBitmapResource("play.png"));
     // m_playButton->SetBitmapMargins(FromDIP(10), FromDIP(0));
     // Initially set the mouse to drag to scroll mode
     m_playButton->SetValue(true);
-    itemStaticBoxSizer1->Add(m_playButton, 0, wxGROW | wxALL, FromDIP(3));
+    m_viewOptionsBoxSizer->Add(m_playButton, 0, wxGROW | wxALL, FromDIP(3));
 
-    m_pauseButton = new wxToggleButton(this, ID_PAUSE, _(" &Freeze"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
+    // Add pause button
+    m_pauseButton = new wxToggleButton(m_viewOptionsBox, ID_PAUSE, _(" &Freeze"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
     // m_pauseButton->SetBitmap(GetBitmapResource("pause.png"));
     // m_pauseButton->SetBitmapMargins(FromDIP(10), FromDIP(0));
     m_pauseButton->SetValue(false);
-    itemStaticBoxSizer1->Add(m_pauseButton, 0, wxGROW | wxALL, FromDIP(3));
+    m_viewOptionsBoxSizer->Add(m_pauseButton, 0, wxGROW | wxALL, FromDIP(3));
 
-    itemStaticBoxSizer1->Add(3, 3, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, FromDIP(3));
+    /* Add a small gap after the playand pause buttons.Gaps have nonzero proportion while buttons have zero proportion,
+    so gaps will grow but buttons won't if the window is resized */
+    m_viewOptionsBoxSizer->Add(3, 3, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, FromDIP(3));
 
-    m_saveButton = new wxButton(this, wxID_SAVE, _(" &Save"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
+    // Add save button
+    m_saveButton = new wxButton(m_viewOptionsBox, wxID_SAVE, _(" &Save"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
     // m_saveButton->SetBitmap(GetBitmapResource("save.png"));
     // m_saveButton->SetBitmapMargins(FromDIP(10), FromDIP(0));
-    itemStaticBoxSizer1->Add(m_saveButton, 0, wxGROW | wxALL, FromDIP(3));
+    m_viewOptionsBoxSizer->Add(m_saveButton, 0, wxGROW | wxALL, FromDIP(3));
 
-    itemStaticBoxSizer1->Add(3, 3, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, FromDIP(3));
+    m_viewOptionsBoxSizer->Add(3, 3, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, FromDIP(3)); // another gap
 
-    wxStaticText* itemStaticText4 = new wxStaticText(this, wxID_STATIC, _("Update Period (ms)"), wxDefaultPosition, wxDefaultSize, 0);
-    itemStaticBoxSizer1->Add(itemStaticText4, 0, wxALIGN_LEFT | wxALL, FromDIP(3));
+    // Add graph update period selector. Note: does not affect underlying data fetch rate
+    wxStaticText* graphUpdatePeriodStaticText = new wxStaticText(m_viewOptionsBox, wxID_STATIC, _("Update Period (ms)"), wxDefaultPosition, wxDefaultSize, 0);
+    m_viewOptionsBoxSizer->Add(graphUpdatePeriodStaticText, 0, wxALIGN_LEFT | wxALL, FromDIP(3));
 
     wxArrayString m_updatePeriodStrings;
-    m_updatePeriodStrings.Add("250");
-    m_updatePeriodStrings.Add("500");
-    m_updatePeriodStrings.Add("750");
-    m_updatePeriodStrings.Add("1000");
-    m_updatePeriodStrings.Add("1250");
-    m_updatePeriodStrings.Add("1500");
-    m_updatePeriodStrings.Add("1750");
-    m_updatePeriodStrings.Add("2000");
-    m_updatePeriod = new wxChoice(this, ID_UPDATE_PERIOD, wxDefaultPosition, wxDefaultSize, m_updatePeriodStrings, 0);
-    m_updatePeriod->SetStringSelection(wxString::Format("%d", dataInterval));
-    itemStaticBoxSizer1->Add(m_updatePeriod, 0, wxGROW | wxALL, FromDIP(3));
+    for (auto i : chartUpdateIntervals) {
+        m_updatePeriodStrings.Add(wxString::Format("%d", i));
+    }
+    m_updatePeriodSelector = new wxChoice(this, ID_UPDATE_PERIOD, wxDefaultPosition, wxDefaultSize, m_updatePeriodStrings, 0);
+    m_updatePeriodSelector->SetStringSelection(wxString::Format("%d", chartUpdateIntervals[0]));
+    m_viewOptionsBoxSizer->Add(m_updatePeriodSelector, 0, wxGROW | wxALL, FromDIP(3));
 
-    itemStaticBoxSizer1->Add(3, 3, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, FromDIP(3));
+    m_viewOptionsBoxSizer->Add(3, 3, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, FromDIP(3));
 
-    itemFlexGridSizer3 = new wxFlexGridSizer(0, 2, 0, 0);
-    itemStaticBoxSizer1->Add(itemFlexGridSizer3, 0, wxGROW | wxALL, FromDIP(3));
+    m_plotLatestValueFlexGridSizer = new wxFlexGridSizer(0, 2, 0, 0);
+    m_viewOptionsBoxSizer->Add(m_plotLatestValueFlexGridSizer, 0, wxGROW | wxALL, FromDIP(3));
+}
 
+void TeleconRealTimeLineChart::SetUpChartBox(const wxString title, const wxString ylabel) {
+    m_chartTitle = title;
+    m_ylabel = ylabel;
 
+    m_chartViewer = new wxChartViewer(this, ID_CHARTVIEWER, wxDefaultPosition, FromDIP(wxSize(600, 270)), wxTAB_TRAVERSAL | wxNO_BORDER);
+    m_chartBoxSizer->Add(m_chartViewer, 1, wxGROW | wxALL, FromDIP(3));
+
+    m_currentIndex = 0;
+
+    // Set m_nextDataTime to the current time. It is used by the real time random number
+    // generator so it knows what timestamp should be used for the next data point.
+    m_nextDataTime = wxDateTime::Now();
+
+    // Set up the data acquisition mechanism. In this demo, we just use a timer to get a sample every ms.
+    m_dataRateTimer = new wxTimer(this, ID_DATA_TIMER);
+    m_dataRateTimer->Start(dataInterval);
+
+    // Set up the chart update timer
+    m_chartUpdateTimer = new wxTimer(this, ID_UPDATE_TIMER);
+    m_chartUpdateTimer->Start(chartUpdateIntervals[0]);
 }
 
 BEGIN_EVENT_TABLE(TeleconRealTimeLineChart, wxPanel)
 
 EVT_TOGGLEBUTTON(ID_PLAY, TeleconRealTimeLineChart::OnPlayClick)
 EVT_TOGGLEBUTTON(ID_PAUSE, TeleconRealTimeLineChart::OnPauseClick)
-EVT_CHOICE(ID_UPDATE_PERIOD, TeleconRealTimeLineChart::OnUpdatePeriodSelected)
+EVT_CHOICE(ID_UPDATE_PERIOD, TeleconRealTimeLineChart::OnChartUpdatePeriodSelected)
 EVT_BUTTON(wxID_SAVE, TeleconRealTimeLineChart::OnSave)
 
 EVT_TIMER(ID_DATA_TIMER, TeleconRealTimeLineChart::OnDataTimer)
@@ -103,94 +138,113 @@ EVT_CHARTVIEWER_MOUSEMOVE_PLOTAREA(ID_CHARTVIEWER, TeleconRealTimeLineChart::OnM
 
 END_EVENT_TABLE()
 
-
-#endif
-
-void
-TeleconRealTimeLineChart::initChart(const wxString title, const wxString ylabel)
-{
-    m_chartTitle = title;
-    m_ylabel = ylabel;
-    wxBoxSizer* itemBoxSizer8 = new wxBoxSizer(wxVERTICAL);
-    itemBoxSizer3->Add(itemBoxSizer8, 1, wxGROW | wxALL, FromDIP(3));
-    m_chartViewer = new wxChartViewer(this, ID_CHARTVIEWER, wxDefaultPosition, FromDIP(wxSize(600, 270)), wxTAB_TRAVERSAL | wxNO_BORDER);
-
-    m_chartViewer->SetExtraStyle(wxWS_EX_VALIDATE_RECURSIVELY);
-    itemBoxSizer8->Add(m_chartViewer, 1, wxGROW | wxALL, FromDIP(3));
-
-    // Allocate memory for the data series and initialize to Chart::NoValue
-    m_timeStamps.resize(sampleSize, Chart::NoValue);
-
-
-    m_currentIndex = 0;
-
-    // Set m_nextDataTime to the current time. It is used by the real time random number
-    // generator so it knows what timestamp should be used for the next data point.
-    m_nextDataTime = wxDateTime::Now();
-
-    // Set up the data acquisition mechanism. In this demo, we just use a timer to get a
-    // sample every 250ms.
-    m_dataRateTimer = new wxTimer(this, ID_DATA_TIMER);
-    m_dataRateTimer->Start(dataInterval);
-
-    // Set up the chart update timer
-    m_chartUpdateTimer = new wxTimer(this, ID_UPDATE_TIMER);
-    m_chartUpdateTimer->Start(dataInterval);
-
-    if (GetSizer())
-    {
-        GetSizer()->SetSizeHints(this);
-    }
-    Centre();
+// Event handler
+void TeleconRealTimeLineChart::OnPlayClick(wxCommandEvent& event) {
+    m_playButton->SetValue(true);
+    m_pauseButton->SetValue(false);
+    m_chartUpdateTimer->Start();
 }
 
-TeleconRealTimeLineChart::~TeleconRealTimeLineChart() {
-    m_dataRateTimer->Stop();
+// Event handler
+void TeleconRealTimeLineChart::OnPauseClick(wxCommandEvent& event) {
+    m_playButton->SetValue(false);
+    m_pauseButton->SetValue(true);
     m_chartUpdateTimer->Stop();
 }
 
-void
-TeleconRealTimeLineChart::addPlot(const wxString& plotname, double (*ptr)(), int plotcolor, const char* plottitle)
-{
-    funcArray.push_back(ptr);
-    std::vector<double> vec1;
-    wxStaticText* itemStaticText5 = new wxStaticText(this, wxID_STATIC, _(plotname), wxDefaultPosition, wxDefaultSize, 0);
-    itemFlexGridSizer3->Add(itemStaticText5, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
-
-    wxTextCtrl* m_alphaValue = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, FromDIP(wxSize(60, -1)), wxTE_READONLY | wxSTATIC_BORDER);
-    m_alphaValue->Enable(false);
-    itemFlexGridSizer3->Add(m_alphaValue, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
-    m_dataValues.push_back(m_alphaValue);
-
-    vec1.resize(sampleSize, Chart::NoValue);
-    m_dataSeries.push_back(vec1);
-    m_colorSeries.push_back(plotcolor);
-    m_plottitleSeries.push_back(plottitle);
+// Event handler
+void TeleconRealTimeLineChart::OnChartUpdatePeriodSelected(wxCommandEvent& event) {
+    long interval;
+    (m_updatePeriodSelector->GetString(m_updatePeriodSelector->GetSelection())).ToLong(&interval);
+    m_chartUpdateTimer->Start(interval);
 }
 
-// The ViewPortChanged event handler. This event occurs if the user scrolls or zooms in
-// or out the chart by dragging or clicking on the chart. It can also be triggered by
-// calling WinChartViewer.updateViewPort.
-void
-TeleconRealTimeLineChart::OnViewPortChanged(wxCommandEvent& event)
-{
-    if (m_chartViewer->needUpdateChart())
+// Event handler
+void TeleconRealTimeLineChart::OnSave(wxCommandEvent& event) {
+    wxFileDialog saveFileDialog(this, _("Save graphics file"), "", "chartdirector_demo",
+        "PNG (*.png)|*.png|JPG (*.jpg)|*.jpg|GIF (*.gif)|*.gif|BMP (*.bmp)|*.bmp|SVG (*.svg)|*.svg|PDF (*.pdf)|*.pdf", wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
+    if (saveFileDialog.ShowModal() == wxID_CANCEL)
+        return;     // the user changed idea...
+
+    // save the current contents in the file;
+    wxString fileName = saveFileDialog.GetPath();
+    if (!fileName.IsEmpty())
     {
+        // Save the chart
+        BaseChart* c = m_chartViewer->getChart();
+        if (0 != c)
+        {
+            c->makeChart(fileName.ToUTF8());
+        }
+    }
+}
+
+// Event handler
+void TeleconRealTimeLineChart::OnChartUpdateTimer(wxTimerEvent& event) {
+    // Will result in a call to OnViewPortChanged, which may redraw the chart if needed
+    m_chartViewer->updateViewPort(true, false);
+}
+
+// Event handler
+void TeleconRealTimeLineChart::OnDataTimer(wxTimerEvent& event) {
+    GetData(funcArray);
+}
+
+// Event handler
+// This event occurs if the user scrolls or zooms in or out the chart by dragging or clicking on the chart.
+// It can also be triggered by calling WinChartViewer.updateViewPort.
+void TeleconRealTimeLineChart::OnViewPortChanged(wxCommandEvent& event) {
+    if (m_chartViewer->needUpdateChart()) {
         DrawChart();
     }
 }
 
-// Update the chart. Instead of drawing the chart directly, we call updateViewPort, which
-// will trigger a ViewPortChanged signal. We update the chart in the signal handler
-// "drawChart". This can take advantage of the built-in rate control in wxChartViewer to
-// ensure a smooth user interface, even for extremely high update rate. (See the
-// documentation on wxChartViewer.setUpdateInterval).
-void
-TeleconRealTimeLineChart::UpdateChart()
-{
-    m_chartViewer->updateViewPort(true, false);
+// A utility to shift a new data value into a data array
+static void ShiftData(double* data, int len, double newValue) {
+    memmove(data, data + 1, sizeof(*data) * (len - 1));
+    data[len - 1] = newValue;
 }
 
+// Shift new data values into the real time data series
+void TeleconRealTimeLineChart::GetData(/*windowID, chartID, plotID, function ptr */std::vector<FuncPtr>& funcArray) {
+    // The current time
+    wxDateTime now = wxDateTime::Now();
+
+    // This is our formula for the random number generator
+    do
+    {
+        // We need the currentTime in millisecond resolution
+        double currentTime = Chart::chartTime2(m_nextDataTime.GetTicks())
+            + m_nextDataTime.GetMillisecond() / 1000.0;
+
+        std::vector<double> data;
+        //double dataA = 20 + cos(p * 129241) * 10 + 1 / (cos(p) * cos(p) + 0.01);
+        for (auto func : funcArray) {
+            data.push_back(func());
+        }
+
+        // After obtaining the new values, we need to update the data arrays.
+        // Store the new values in the current index position, and increment the index.
+        int i = 0;
+        for (const double& element : data) {
+            m_dataSeries[i].insertNewValue(element);
+            i++;
+        }
+        m_timeStamps.insertNewValue(currentTime);
+
+        m_nextDataTime.Add(wxTimeSpan(0, 0, 0, dataInterval));
+    } while (m_nextDataTime < now);
+
+    // We provide some visual feedback to the latest numbers generated, so you can see the
+    // data being generated.
+    int i = 0;
+    for (auto& element : m_dataValues) {
+        if (m_dataSeries[0].size() > 0) {
+            element->SetValue(wxString::Format("%.2f", m_dataSeries[0].latest()));
+        }
+        i++;
+    }
+}
 
 void
 TeleconRealTimeLineChart::DrawChart()
@@ -226,9 +280,8 @@ TeleconRealTimeLineChart::DrawChart()
     c->yAxis()->setWidth(2);
 
     // Now we add the data to the chart. 
-    double firstTime = m_timeStamps[0];
-    if (firstTime != Chart::NoValue)
-    {
+    if (m_timeStamps.size() > 0) {
+        double firstTime = m_timeStamps[0];
         // Set up the x-axis to show the time range in the data buffer
         c->xAxis()->setDateScale(firstTime, firstTime + dataInterval * sampleSize / 1000);
 
@@ -239,15 +292,14 @@ TeleconRealTimeLineChart::DrawChart()
         LineLayer* layer = c->addLineLayer();
 
         // The x-coordinates are the timeStamps.
-        layer->setXData(DoubleArray(&m_timeStamps[0], sampleSize));
+        layer->setXData(DoubleArray(&m_timeStamps[0], m_timeStamps.size()));
 
         // The 3 data series are used to draw 3 lines.
         int i = 0;
-        for (const std::vector<double>& element : m_dataSeries) {
-            layer->addDataSet(DoubleArray(&element[0], sampleSize), m_colorSeries[i], m_plottitleSeries[i]);
+        for (const DataBuffer<double>& element : m_dataSeries) {
+            layer->addDataSet(DoubleArray(&element[0], element.size()), m_colorSeries[i], m_plottitleSeries[i]);
             i++;
         }
-        
     }
 
     // Include track line with legend. If the mouse is on the plot area, show the track 
@@ -263,6 +315,13 @@ TeleconRealTimeLineChart::DrawChart()
     }
     // Set the chart image to the WinChartViewer
     m_chartViewer->setChart(c);
+}
+
+// Draw track cursor when mouse is moving over plotarea
+void TeleconRealTimeLineChart::OnMouseMovePlotArea(wxCommandEvent& event)
+{
+    TrackLineLegend((XYChart*)m_chartViewer->getChart(), m_chartViewer->getPlotAreaMouseX());
+    m_chartViewer->updateDisplay();
 }
 
 // Draw the track line with legend
@@ -336,8 +395,6 @@ TeleconRealTimeLineChart::TrackLineLegend(XYChart* c, int mouseX)
     t->destroy();
 }
 
-
-
 /*
  * Get bitmap resources
  */
@@ -368,163 +425,19 @@ TeleconRealTimeLineChart::GetBitmapResource(const wxString& name)
     return wxNullBitmap;
 }
 
-/*
- * wxEVT_COMMAND_BUTTON_CLICKED event handler for ID_PLAY
- */
-
-void
-TeleconRealTimeLineChart::OnPlayClick(wxCommandEvent& event)
+void TeleconRealTimeLineChart::addPlot(const wxString& plotname, double (*ptr)(), int plotcolor, const char* plottitle)
 {
-    m_playButton->SetValue(true);
-    m_pauseButton->SetValue(false);
-    OnRunFreezeChanged(true);
-}
+    funcArray.push_back(ptr);
+    
+    wxStaticText* itemStaticText5 = new wxStaticText(this, wxID_STATIC, _(plotname), wxDefaultPosition, wxDefaultSize, 0);
+    m_plotLatestValueFlexGridSizer->Add(itemStaticText5, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
 
+    wxTextCtrl* m_alphaValue = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, FromDIP(wxSize(60, -1)), wxTE_READONLY | wxSTATIC_BORDER);
+    m_alphaValue->Enable(false);
+    m_plotLatestValueFlexGridSizer->Add(m_alphaValue, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
+    m_dataValues.push_back(m_alphaValue);
 
-/*
- * wxEVT_COMMAND_BUTTON_CLICKED event handler for ID_PAUSE
- */
-
-void
-TeleconRealTimeLineChart::OnPauseClick(wxCommandEvent& event)
-{
-    m_playButton->SetValue(false);
-    m_pauseButton->SetValue(true);
-    OnRunFreezeChanged(false);
-}
-
-// The Run or Freeze button is pressed
-void TeleconRealTimeLineChart::OnRunFreezeChanged(bool run)
-{
-    if (run)
-    {
-        m_chartUpdateTimer->Start();
-    }
-    else
-    {
-        m_chartUpdateTimer->Stop();
-    }
-}
-
-/*
- * wxEVT_COMMAND_CHOICE_SELECTED event handler for ID_UPDATE_PERIOD
- */
-
-void
-TeleconRealTimeLineChart::OnUpdatePeriodSelected(wxCommandEvent& event)
-{
-    OnUpdatePeriodChanged(m_updatePeriod->GetString(m_updatePeriod->GetSelection()));
-}
-
-// User changes the chart update period
-void TeleconRealTimeLineChart::OnUpdatePeriodChanged(const wxString& text)
-{
-    long interval;
-    text.ToLong(&interval);
-    m_chartUpdateTimer->Start(interval);
-}
-
-void TeleconRealTimeLineChart::OnChartUpdateTimer(wxTimerEvent& event)
-{
-    UpdateChart();
-}
-
-void TeleconRealTimeLineChart::OnDataTimer(wxTimerEvent& event)
-{
-    GetData(funcArray);
-}
-
-// The Save button is pressed
-void
-TeleconRealTimeLineChart::OnSave(wxCommandEvent& event)
-{
-    wxFileDialog saveFileDialog(this, _("Save graphics file"), "", "chartdirector_demo",
-        "PNG (*.png)|*.png|JPG (*.jpg)|*.jpg|GIF (*.gif)|*.gif|BMP (*.bmp)|*.bmp|SVG (*.svg)|*.svg|PDF (*.pdf)|*.pdf", wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
-    if (saveFileDialog.ShowModal() == wxID_CANCEL)
-        return;     // the user changed idea...
-
-    // save the current contents in the file;
-    wxString fileName = saveFileDialog.GetPath();
-    if (!fileName.IsEmpty())
-    {
-        // Save the chart
-        BaseChart* c = m_chartViewer->getChart();
-        if (0 != c)
-        {
-            c->makeChart(fileName.ToUTF8());
-        }
-    }
-}
-
-// A utility to shift a new data value into a data array
-static void
-ShiftData(double* data, int len, double newValue)
-{
-    memmove(data, data + 1, sizeof(*data) * (len - 1));
-    data[len - 1] = newValue;
-}
-
-// Shift new data values into the real time data series
-void
-TeleconRealTimeLineChart::GetData(/*windowID, chartID, plotID, function ptr */std::vector<FuncPtr>& funcArray)
-{
-    // The current time
-    wxDateTime now = wxDateTime::Now();
-
-    // This is our formula for the random number generator
-    do
-    {
-        // We need the currentTime in millisecond resolution
-        double currentTime = Chart::chartTime2(m_nextDataTime.GetTicks())
-            + m_nextDataTime.GetMillisecond() / 1000.0;
-
-        int i = 0;
-        std::vector<double> data;
-        //double dataA = 20 + cos(p * 129241) * 10 + 1 / (cos(p) * cos(p) + 0.01);
-        for (auto func : funcArray) {
-            data.push_back(func());
-        }
-
-        
-
-        // After obtaining the new values, we need to update the data arrays.
-        if (m_currentIndex < sampleSize)
-        {
-            // Store the new values in the current index position, and increment the index.
-            for (const double& element : data) {
-                m_dataSeries[i][m_currentIndex] = element;
-                i++;
-            }
-            m_timeStamps[m_currentIndex] = currentTime;
-            ++m_currentIndex;
-        }
-        else
-        {
-            // The data arrays are full. Shift the arrays and store the values at the end.
-            for (const double& element : data) {
-                ShiftData(&m_dataSeries[i][0], sampleSize, element);
-                i++;
-            }
-            ShiftData(&m_timeStamps[0], sampleSize, currentTime);
-        }
-
-
-        m_nextDataTime.Add(wxTimeSpan(0, 0, 0, dataInterval));
-    } while (m_nextDataTime < now);
-
-    // We provide some visual feedback to the latest numbers generated, so you can see the
-    // data being generated.
-    int i = 0;
-    for (auto &element : m_dataValues) {
-        wxTextCtrl* m_alphaValue = element;
-        m_alphaValue->SetValue(wxString::Format("%.2f", m_dataSeries[0][m_currentIndex - 1]));
-        i++;
-    }
-}
-
-// Draw track cursor when mouse is moving over plotarea
-void TeleconRealTimeLineChart::OnMouseMovePlotArea(wxCommandEvent& event)
-{
-    TrackLineLegend((XYChart*)m_chartViewer->getChart(), m_chartViewer->getPlotAreaMouseX());
-    m_chartViewer->updateDisplay();
+    m_dataSeries.push_back(DataBuffer<double>(sampleSize));
+    m_colorSeries.push_back(plotcolor);
+    m_plottitleSeries.push_back(plottitle);
 }

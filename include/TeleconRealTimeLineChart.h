@@ -1,6 +1,4 @@
-
-#ifndef __TELECON_REAL_TIME_LINE_CHART
-#define __TELECON_REAL_TIME_LINE_CHART
+#pragma once
 
 #include <wx/wxprec.h>
 #include <wx/panel.h>
@@ -9,16 +7,18 @@
 #include "chartdir.h"
 #include "TeleconChartPanel.h"
 #include "wxchartviewer.h"
+#include "databuffer.h"
 
-class TeleconRealTimeLineChart : public TeleconChartPanel
-{
+class TeleconRealTimeLineChart : public TeleconChartPanel {
 public:
     TeleconRealTimeLineChart(wxWindow *parent,
-                             wxWindowID winid = wxID_ANY,
-                             const wxPoint &pos = wxDefaultPosition,
-                             const wxSize &size = wxDefaultSize,
-                             long style = wxTAB_TRAVERSAL | wxNO_BORDER,
-                             const wxString &name = wxASCII_STR(wxPanelNameStr));
+                                wxWindowID winid = wxID_ANY,
+                                const wxPoint &pos = wxDefaultPosition,
+                                const wxSize &size = wxDefaultSize,
+                                const wxString title = "",
+                                const wxString ylabel = "",
+                                long style = wxTAB_TRAVERSAL | wxNO_BORDER,
+                                const wxString &name = wxASCII_STR(wxPanelNameStr));
 
     // ~TeleconChartPanel(){ }
     bool createWindow(const wxString& caption, int width, int height);
@@ -28,93 +28,81 @@ public:
     ~TeleconRealTimeLineChart();
         // Delete each teleconPlot object, teleconChart object and each teleconWindow object
 
-    // Copy constructor and assignment operator are unneeded, and are deleted to comply with Rule of Three (https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming))
-    TeleconRealTimeLineChart(const TeleconRealTimeLineChart&) = delete;
-    TeleconRealTimeLineChart& operator=(const TeleconRealTimeLineChart&) = delete;
+    // Copy & move constructors and assignment operators are unneeded, and are deleted to comply with Rule of Five
+    // See: https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)
+    TeleconRealTimeLineChart(TeleconRealTimeLineChart&) = delete;
+    TeleconRealTimeLineChart& operator=(TeleconRealTimeLineChart&) = delete;
+    TeleconRealTimeLineChart(TeleconRealTimeLineChart&&) = delete;
+    TeleconRealTimeLineChart& operator=(TeleconRealTimeLineChart&&) = delete;
 
     void addPlot(const wxString& plotname, double (*ptr)(), int plotcolor, const char* plottitle);
-    // Will create a new dynamic teleconPlot object and add it to plotList   
+    // Will create a new dynamic teleconPlot object and add it to plotList
 
-    void initChart(const wxString title, const wxString ylabel);
-    // Will create a new dynamic teleconChart object and add it to chartList  
-
-    typedef double (*FuncPtr)();  
-
-    // Get new data values
-    void GetData(std::vector<FuncPtr>& funcArray);
-
-    BaseChart *my_base_chart;
+    typedef double (*FuncPtr)();
 
     DECLARE_EVENT_TABLE()
 
-private: 
-    /// private member functions
-    void Init();
+private:
+    // Setup functions 
+    void SetUpViewOptionsBox();
+    void SetUpChartBox(const wxString title, const wxString ylabel);
 
-    // The "Run" or "Freeze" button has been pressed
-    void OnRunFreezeChanged(bool run);
-
-    // The chart update timer interval has changed.
-    void OnUpdatePeriodChanged(const wxString& value);
-
-    /// Creates the controls and sizers
-    void CreatePlotControls();
-
-    // Update the chart.
-    void UpdateChart();
-
-    // Draw the chart.
-    void DrawChart();
-
-    void TrackLineLegend(XYChart* c, int mouseX);
-
-    /// wxEVT_COMMAND_CHECKBOX_CLICKED event handler for ID_POINTER
+    // wxWidgets event handler functions
     void OnPlayClick(wxCommandEvent& event);
-
-    /// wxEVT_COMMAND_CHECKBOX_CLICKED event handler for wxID_ZOOM_IN
     void OnPauseClick(wxCommandEvent& event);
-
-    /// wxEVT_COMMAND_CHOICE_SELECTED event handler for ID_UPDATE_PERIOD
-    void OnUpdatePeriodSelected(wxCommandEvent& event);
-
+    void OnChartUpdatePeriodSelected(wxCommandEvent& event);
+    void OnSave(wxCommandEvent& event);
     void OnDataTimer(wxTimerEvent& event);
     void OnChartUpdateTimer(wxTimerEvent& event);
+    void OnViewPortChanged(wxCommandEvent& event); // updates the chart if it needs updating
 
-    void OnViewPortChanged(wxCommandEvent& event);
+    // Chart and data update functions
+    void GetData(std::vector<FuncPtr>& funcArray);
+    void DrawChart();
+    
+    // Calls TrackLineLegend if necessary
     void OnMouseMovePlotArea(wxCommandEvent& event);
 
-    void OnSave(wxCommandEvent& event);
+    // Adjusts the track line and the values in the legends
+    void TrackLineLegend(XYChart* c, int mouseX);
 
     /// Retrieves bitmap resources
     wxBitmap GetBitmapResource(const wxString& name);
 
-    int w_width;
-    int w_height;
+    //wxWidgets panels, boxes and sizers
+    wxBoxSizer* m_topSizer;
+    wxStaticBox* m_viewOptionsBox;
+    wxStaticBoxSizer* m_viewOptionsBoxSizer;
+    wxFlexGridSizer* m_plotLatestValueFlexGridSizer;
+    wxBoxSizer* m_chartBoxSizer;
 
+    // wxWidgets buttons and dropdown boxes
     wxToggleButton* m_playButton;
     wxToggleButton* m_pauseButton;
     wxButton* m_saveButton;
-    wxColour        m_bgColour;
-    wxFlexGridSizer* itemFlexGridSizer3;
-    wxBoxSizer* itemBoxSizer3;
+    wxChoice* m_updatePeriodSelector;
+
+    // Miscellaneous wxWidgets members
+    wxColour m_bgColour;
     wxString m_chartTitle;
     wxString m_ylabel;
 
-    wxChoice* m_updatePeriod;
-
+    // wxWidgets timers
     wxTimer* m_dataRateTimer;
     wxTimer* m_chartUpdateTimer;
 
-    int    m_currentIndex;            // Index of the array position to which new values are added.
-    std::vector<double> m_timeStamps;	// The timestamps for the data series
+    // Chart proper member variables
+    int m_currentIndex;                             // Index of the array position to which new values are added.
+    DataBuffer<double> m_timeStamps;               // The timestamps for the data series
     std::vector<FuncPtr> funcArray;
-    std::vector<std::vector<double>> m_dataSeries;
+    std::vector<DataBuffer<double>> m_dataSeries;
     std::vector<int> m_colorSeries;
     std::vector<const char*> m_plottitleSeries;
     std::vector<wxTextCtrl*> m_dataValues;
 
     wxDateTime m_nextDataTime;           // Used by the random number generator to generate realtime data.
 
+    // Pointer to the chart viewer - main body of panel
     wxChartViewer* m_chartViewer;
 };
 
@@ -128,5 +116,3 @@ enum
     ID_DATA_TIMER,
     ID_UPDATE_TIMER
 };
-
-#endif

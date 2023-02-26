@@ -207,9 +207,8 @@ void ChartFrame::addChart(TeleconRealTimeLineChart *chartPanel)
 }
 
 TeleconRealTimeLineChart* ChartFrame::addChart(string title, string ylabel){
-    TeleconRealTimeLineChart *realTimePanel = new TeleconRealTimeLineChart(this, wxID_ANY, wxDefaultPosition, wxDefaultSize);
+    TeleconRealTimeLineChart *realTimePanel = new TeleconRealTimeLineChart(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, title, ylabel);
     list_charts.push_back(realTimePanel);
-    realTimePanel->initChart(title, ylabel);
     return realTimePanel;
 }
 

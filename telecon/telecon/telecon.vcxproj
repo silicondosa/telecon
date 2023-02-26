@@ -140,10 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\base.h" />
+    <ClInclude Include="..\..\include\databuffer.h" />
     <ClInclude Include="..\..\include\TeleconBarChart.h" />
     <ClInclude Include="..\..\include\TeleconChart.h" />
     <ClInclude Include="..\..\include\TeleconChartPanel.h" />
     <ClInclude Include="..\..\include\TeleconLineChart.h" />
+    <ClInclude Include="..\..\include\teleconplot.h" />
     <ClInclude Include="..\..\include\TeleconRealTimeLineChart.h" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +153,7 @@
     <ClCompile Include="..\..\src\base.cpp" />
     <ClCompile Include="..\..\src\TeleconBarChart.cpp" />
     <ClCompile Include="..\..\src\TeleconChartPanel.cpp" />
+    <ClCompile Include="..\..\src\teleconplot.cpp" />
     <ClCompile Include="..\..\src\TeleconRealTimeLineChart.cpp" />
     <ClCompile Include="..\..\src\userfile.cpp" />
   </ItemGroup>

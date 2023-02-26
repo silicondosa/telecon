@@ -205,7 +205,7 @@ static void ShiftData(double* data, int len, double newValue) {
 void TeleconRealTimeLineChart::GetData() {
     // For now, we are assuming that all data function pointers run in effectively negligible time
     // TODO: Rewrite this code to make it fetch data asynchronously
-    wxDateTime now = wxDateTime::Now();
+    wxDateTime now = wxDateTime::UNow(); // Needs to UNow instead of Now fo millisecond precision
     // Convert from wxDateTime to seconds since Unix epoch, then to ChartDirector double timestamp.
     // Since that loses millisecond precision, add it back in
     double millis = now.GetMillisecond();

@@ -1,0 +1,250 @@
+\hypertarget{base_8cpp_source}{}\doxysection{base.\+cpp}
+\label{base_8cpp_source}\index{src/base.cpp@{src/base.cpp}}
+\mbox{\hyperlink{base_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <wx/wxprec.h>}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <wx/textctrl.h>}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#ifndef\ WX\_PRECOMP}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <wx/wx.h>}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{base_8h}{base.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}wxchartviewer.h"{}}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_telecon_chart_8h}{TeleconChart.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_telecon_bar_chart_8h}{TeleconBarChart.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_telecon_chart_panel_8h}{TeleconChartPanel.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_telecon_real_time_line_chart_8h}{TeleconRealTimeLineChart.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00019}\mbox{\hyperlink{base_8cpp_a63d89b8394bc235439cb9294f6dfface}{00019}}\ \mbox{\hyperlink{base_8cpp_a63d89b8394bc235439cb9294f6dfface}{IMPLEMENT\_APP}}(\mbox{\hyperlink{class_main_app}{MainApp}});}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00021}00021\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00023}00023\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{base_8cpp_ac493508f4c1cf260b4caa9fd07e16159}{CreateDataPoints}}();}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00025}00025\ \textcolor{comment}{//\ void\ MainApp::addFrame(wxFrame\ *frame)\ \{\ frameList.push\_back(frame);\ \}}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00027}\mbox{\hyperlink{class_main_app_aff3d398e1b61f1016c37d57798f86731}{00027}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_main_app_aff3d398e1b61f1016c37d57798f86731}{MainApp::OnInit}}()}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00028}00028\ \{}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{comment}{//\ MainFrame\ *MainWin\ =\ new\ MainFrame("{}Hello\ World!"{},\ wxDefaultPosition,\ wxSize(500,\ 400));}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{comment}{//\ MainWin-\/>Show(true);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{comment}{//\ SetTopWindow(MainWin);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{comment}{//\ ChartFrame\ *ChartWin\ =\ new\ ChartFrame("{}MyChart"{},\ wxDefaultPosition,\ wxDefaultSize);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00034}00034\ \ \ \ \ \textcolor{comment}{//\ ChartWin-\/>Show(true);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{comment}{//\ ChartFrame*\ chartframe\ =\ new\ ChartFrame("{}MyChart"{},\ wxDefaultPosition,\ wxDefaultSize);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00038}00038\ \ \ \ \ \textcolor{comment}{//\ addFrame(chartframe);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{comment}{//\ //\ TeleconRealTimeLineChart*\ chart\ =\ window-\/>addChart();}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00040}00040\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00041}00041\ \ \ \ \ \textcolor{comment}{//\ TeleconRealTimeLineChart*\ realTimePanel\ =\ chartframe-\/>createRealTimePanel(wxDefaultPosition,\ wxDefaultSize);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{comment}{//\ realTimePanel-\/>AddChart("{}My\ Title"{},\ "{}ylabel"{});}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00043}00043\ \ \ \ \ \textcolor{comment}{//\ realTimePanel-\/>AddPlot("{}Expected\ Tension"{},\ CreateDataPoints,\ 0xff0000,\ "{}Expected\ Tension"{});}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00044}00044\ \ \ \ \ \textcolor{comment}{//\ chartframe-\/>addChart(realTimePanel);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00045}00045\ \ \ \ \ \textcolor{comment}{//\ chartframe-\/>drawChart();}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00047}00047\ \ \ \ \ \mbox{\hyperlink{class_main_app_a381b846838ebdb10b9a7d91dd32cf873}{teleconMain}}();}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00049}00049\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00050}00050\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00052}00052\ \ \ \ \ \textcolor{comment}{//\ ChartFrame\ *ChartWin2\ =\ new\ ChartFrame("{}MyChart1"{},\ wxDefaultPosition,\ wxDefaultSize);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{comment}{//\ ChartWin2-\/>Show(true);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{for}(wxFrame*\ frame\ :\ frameList)\{}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ frame-\/>Show(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00057}00057\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00059}00059\ \ \ \ \ \textcolor{comment}{//\ MainFrame\ *NewWin\ =\ new\ MainFrame("{}Hello\ World!"{},\ wxDefaultPosition,\ wxSize(500,\ 400));}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00060}00060\ \ \ \ \ \textcolor{comment}{//\ NewWin-\/>Show(true);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00062}00062\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00063}00063\ \}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00066}\mbox{\hyperlink{class_main_app_aa70b57e732bcc19e4094013ffafd2f9c}{00066}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_app_aa70b57e732bcc19e4094013ffafd2f9c}{MainApp::addWindow}}(wxFrame\ *chartWindow)\{}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00067}00067\ \ \ \ \ frameList.push\_back(chartWindow);}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00068}00068\ \}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00070}00070\ \mbox{\hyperlink{class_chart_frame}{TeleconWindow}}*\ \mbox{\hyperlink{class_main_app_aa70b57e732bcc19e4094013ffafd2f9c}{MainApp::addWindow}}(\textcolor{keywordtype}{string}\ name)\{}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00071}00071\ \ \ \ \ \mbox{\hyperlink{class_chart_frame}{ChartFrame}}*\ window\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_chart_frame}{ChartFrame}}(name);}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00072}00072\ \ \ \ \ frameList.push\_back(window);}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00073}00073\ \ \ \ \ \textcolor{keywordflow}{return}\ window;}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00074}00074\ \}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00076}00076\ BEGIN\_EVENT\_TABLE(\mbox{\hyperlink{class_main_frame}{MainFrame}},\ wxFrame)}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00077}00077\ EVT\_BUTTON(\mbox{\hyperlink{base_8h_a06fc87d81c62e9abb8790b6e5713c55bae25fa0b6fada9a0796a8311fa61e7486}{BUTTON\_Hello}},\ \mbox{\hyperlink{class_main_frame_af1146ec5200a7421957b143782bca765}{MainFrame::OnExit}})}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00078}00078\ EVT\_BUTTON(\mbox{\hyperlink{base_8h_a06fc87d81c62e9abb8790b6e5713c55ba96ed6e0793b6496e9e567faef22e9579}{BUTTON\_Text}},\ \mbox{\hyperlink{class_main_frame_a2ed6f269c99c66b10ba076cbbaafbc47}{MainFrame::OnText}})}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00079}00079\ END\_EVENT\_TABLE()}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00081}\mbox{\hyperlink{class_main_frame_ac3cd882c222585f82e42f1b305c6ffb6}{00081}}\ \mbox{\hyperlink{class_main_frame}{MainFrame}}::\mbox{\hyperlink{class_main_frame}{MainFrame}}(const\ wxString\ \&title,\ const\ wxPoint\ \&pos,\ const\ wxSize\ \&size)}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00082}00082\ \ \ \ \ :\ wxFrame((wxFrame\ *)NULL,\ -\/1,\ title,\ pos,\ size)}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00083}00083\ \{}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00085}00085\ \ \ \ \ \textcolor{comment}{//\ \ wxBoxSizer\ *vbox\ =\ new\ wxBoxSizer\ (wxVERTICAL);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00086}00086\ \ \ \ \ wxBoxSizer\ *hbox\ =\ \textcolor{keyword}{new}\ wxBoxSizer(wxHORIZONTAL);}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00088}00088\ \ \ \ \ HelloWorld\ =\ \textcolor{keyword}{new}\ wxButton(\textcolor{keyword}{this},\ \mbox{\hyperlink{base_8h_a06fc87d81c62e9abb8790b6e5713c55bae25fa0b6fada9a0796a8311fa61e7486}{BUTTON\_Hello}},\ \_T(\textcolor{stringliteral}{"{}Hello\ World"{}}),\ wxDefaultPosition,\ wxDefaultSize,\ 0);}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00089}00089\ \ \ \ \ TextButton\ =\ \textcolor{keyword}{new}\ wxButton(\textcolor{keyword}{this},\ \mbox{\hyperlink{base_8h_a06fc87d81c62e9abb8790b6e5713c55ba96ed6e0793b6496e9e567faef22e9579}{BUTTON\_Text}},\ \_T(\textcolor{stringliteral}{"{}Surprise"{}}),\ wxDefaultPosition,\ wxDefaultSize,\ 0);}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00091}00091\ \ \ \ \ hbox-\/>Add(HelloWorld,\ 0,\ wxALL,\ 10);}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00092}00092\ \ \ \ \ hbox-\/>Add(TextButton,\ 0,\ wxALL,\ 10);}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00094}00094\ \ \ \ \ \textcolor{comment}{//\ vbox-\/>Add(hbox,\ 0,\ wxALIGN\_CENTER);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00096}00096\ \ \ \ \ hbox-\/>SetMinSize(400,\ 300);}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00097}00097\ \ \ \ \ SetSizerAndFit(hbox);}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00099}00099\ \ \ \ \ \textcolor{comment}{//\ CreateStatusBar(2);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00101}00101\ \ \ \ \ \textcolor{comment}{//\ MainEditBox\ =\ new\ wxTextCtrl(this,TEXT\_main\ );}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00103}00103\ \ \ \ \ \textcolor{comment}{//\ normally\ we\ would\ initialize\ objects\ such\ as\ buttons\ and\ textboxes\ here}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00104}00104\ \}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00106}\mbox{\hyperlink{class_main_frame_af1146ec5200a7421957b143782bca765}{00106}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_frame_af1146ec5200a7421957b143782bca765}{MainFrame::OnExit}}(wxCommandEvent\ \&event)}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00107}00107\ \{}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00108}00108\ \ \ \ \ Close(TRUE);\ \textcolor{comment}{//\ Tells\ the\ OS\ to\ quit\ running\ this\ process}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00109}00109\ \}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00111}\mbox{\hyperlink{class_main_frame_a2ed6f269c99c66b10ba076cbbaafbc47}{00111}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_frame_a2ed6f269c99c66b10ba076cbbaafbc47}{MainFrame::OnText}}(wxCommandEvent\ \&event)}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00112}00112\ \{}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00113}00113\ \ \ \ \ \textcolor{comment}{//\ Close(TRUE);\ //\ Tells\ the\ OS\ to\ quit\ running\ this\ process}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00115}00115\ \ \ \ \ wxTextEntryDialog\ *dialog\ =\ \textcolor{keyword}{new}\ wxTextEntryDialog(\textcolor{keyword}{this},\ \textcolor{stringliteral}{"{}mydialog"{}});}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00116}00116\ \ \ \ \ \textcolor{keywordflow}{if}\ (dialog-\/>ShowModal()\ ==\ wxID\_OK)}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00117}00117\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ wxString\ value\ =\ dialog-\/>GetValue();}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ cout\ <<\ value\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00120}00120\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00121}00121\ \ \ \ \ \textcolor{comment}{//\ dialog-\/>Show(true);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00122}00122\ \}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00124}00124\ BEGIN\_EVENT\_TABLE(\mbox{\hyperlink{class_chart_frame}{ChartFrame}},\ wxFrame)}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00125}00125\ END\_EVENT\_TABLE()}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00127}\mbox{\hyperlink{class_chart_frame_aad546759597ebc6ce8f88567612ba34f}{00127}}\ \mbox{\hyperlink{class_chart_frame}{ChartFrame}}::\mbox{\hyperlink{class_chart_frame}{ChartFrame}}(const\ wxString\ \&title)}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00128}00128\ \ \ \ \ :\ wxFrame((wxFrame\ *)NULL,\ -\/1,\ title,\ wxDefaultPosition,\ wxDefaultSize)}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00129}00129\ \{}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00130}00130\ \ \ \ \ \textcolor{comment}{//\ populateChart();}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00132}00132\ \ \ \ \ wxBoxSizer\ *itemBoxSizer\ =\ \textcolor{keyword}{new}\ wxBoxSizer(wxVERTICAL);}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00133}00133\ \ \ \ \ SetSizer(itemBoxSizer);}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00135}00135\ \ \ \ \ \textcolor{comment}{//\ wxChartViewer\ *chartViewer\ =\ new\ wxChartViewer(this);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00136}00136\ \ \ \ \ \textcolor{comment}{//\ itemBoxSizer-\/>Add(chartViewer,\ 1,\ wxGROW,\ FromDIP(3));}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00137}00137\ \ \ \ \ \textcolor{comment}{//\ SetSizerAndFit(itemBoxSizer);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00138}00138\ \ \ \ \ \textcolor{comment}{//\ chartViewer-\/>setChart(my\_chart);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00140}00140\ \ \ \ \ \textcolor{comment}{//\ wxChartViewer\ *chartViewer1\ =\ new\ wxChartViewer(this);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00142}00142\ \ \ \ \ \textcolor{comment}{//\ itemBoxSizer-\/>Add(chartViewer1,\ 1,\ wxGROW,\ FromDIP(3));}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00143}00143\ \ \ \ \ \textcolor{comment}{//\ chartViewer1-\/>setChart(my\_chart);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00147}00147\ \ \ \ \ \textcolor{comment}{//\ TeleconChart\ *chart\ =\ new\ TeleconBarChart();}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00148}00148\ \ \ \ \ \textcolor{comment}{//\ charts.push\_back(chart-\/>makeChart());}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00150}00150\ \ \ \ \ \textcolor{comment}{//\ TeleconChart\ *chart\_2\ =\ new\ TeleconBarChart();}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00151}00151\ \ \ \ \ \textcolor{comment}{//\ charts.push\_back(chart\_2-\/>makeChart());}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00153}00153\ \ \ \ \ \textcolor{comment}{//\ for(BaseChart*\ singleChart\ :\ charts)\{}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00154}00154\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ wxChartViewer\ *chartViewer\ =\ new\ wxChartViewer(this);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00155}00155\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ chartViewer-\/>setChart(singleChart);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00156}00156\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ itemBoxSizer-\/>Add(chartViewer,\ 1,\ wxGROW,\ FromDIP(3));}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00157}00157\ \ \ \ \ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00161}00161\ \ \ \ \ \textcolor{comment}{//\ TeleconChartPanel\ *panel\ =\ new\ TeleconChartPanel(this,\ wxID\_ANY,\ wxDefaultPosition,\ wxDefaultSize);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00162}00162\ \ \ \ \ \textcolor{comment}{//\ itemBoxSizer-\/>Add(panel,\ 1,\ wxGROW);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00163}00163\ \ \ \ \ \textcolor{comment}{//\ TeleconChartPanel\ *panel2\ =\ new\ TeleconChartPanel(this,\ wxID\_ANY,\ wxDefaultPosition,\ wxDefaultSize);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00164}00164\ \ \ \ \ \textcolor{comment}{//\ itemBoxSizer-\/>Add(panel2,\ 1,\ wxGROW);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00166}00166\ \ \ \ \ \textcolor{comment}{//\ TeleconRealTimeLineChart*\ realTimePanel\ =\ new\ TeleconRealTimeLineChart(this,\ wxID\_ANY,\ wxDefaultPosition,\ wxDefaultSize);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00167}00167\ \ \ \ \ \textcolor{comment}{//\ realTimePanel-\/>AddChart("{}My\ Title"{},\ "{}ylabel"{});}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00168}00168\ \ \ \ \ \textcolor{comment}{//\ realTimePanel-\/>AddPlot("{}Expected\ Tension"{},\ CreateDataPoints,\ 0xff0000,\ "{}Expected\ Tension"{});}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00169}00169\ \ \ \ \ \textcolor{comment}{//\ itemBoxSizer-\/>Add(realTimePanel,\ 1,\ wxGROW);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00170}00170\ \ \ \ \ \textcolor{comment}{//\ TeleconRealTimeLineChart*\ realTimePanel2\ =\ new\ TeleconRealTimeLineChart(this,\ wxID\_ANY,\ wxDefaultPosition,\ wxDefaultSize);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00171}00171\ \ \ \ \ \textcolor{comment}{//\ realTimePanel2-\/>AddChart("{}My\ Title"{},\ "{}ylabel"{});}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00172}00172\ \ \ \ \ \textcolor{comment}{//\ realTimePanel2-\/>AddPlot("{}Expected\ Tension"{},\ CreateDataPoints,\ 0xff0000,\ "{}Expected\ Tension"{});}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00173}00173\ \ \ \ \ \textcolor{comment}{//\ itemBoxSizer-\/>Add(realTimePanel2,\ 1,\ wxGROW);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00174}00174\ \ \ \ \ userAddChart();}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00176}00176\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ panel\_element\ :\ list\_charts)}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00177}00177\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ itemBoxSizer-\/>Add(panel\_element,\ 1,\ wxGROW);}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00179}00179\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00180}00180\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00181}00181\ \ \ \ \ \textcolor{comment}{//\ TeleconPanel-\/>Show();}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00182}00182\ \ \ \ \ \textcolor{comment}{//\ SetTopWindow(TeleconPanel);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00183}00183\ \ \ \ \ \textcolor{comment}{//\ itemBoxSizer-\/>SetMinSize(300,\ 300);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00184}00184\ \ \ \ \ \textcolor{comment}{//\ cout\ <<\ panel-\/>GetSize().GetX()\ <<\ endl;}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00185}00185\ \ \ \ \ \textcolor{comment}{//\ panel-\/>SetSize(300,\ 300);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00186}00186\ \ \ \ \ SetSizerAndFit(itemBoxSizer);}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00187}00187\ \}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00189}\mbox{\hyperlink{class_chart_frame_ab81d99b5bdd4b90e4b82ef5fe385601a}{00189}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chart_frame_ab81d99b5bdd4b90e4b82ef5fe385601a}{ChartFrame::drawWindow}}()\{}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00190}00190\ \ \ \ \ wxBoxSizer\ *itemBoxSizer\ =\ \textcolor{keyword}{new}\ wxBoxSizer(wxVERTICAL);}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00191}00191\ \ \ \ \ SetSizer(itemBoxSizer);}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00192}00192\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ panel\_element\ :\ list\_charts)}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00193}00193\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ itemBoxSizer-\/>Add(panel\_element,\ 1,\ wxGROW);}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00195}00195\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00196}00196\ \ \ \ \ SetSizerAndFit(itemBoxSizer);}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00197}00197\ \}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00198}\mbox{\hyperlink{class_chart_frame_ad40ec4e8a23f72903ac4587f5a47dc68}{00198}}\ \mbox{\hyperlink{class_telecon_real_time_line_chart}{TeleconRealTimeLineChart}}*\ \mbox{\hyperlink{class_chart_frame_ad40ec4e8a23f72903ac4587f5a47dc68}{ChartFrame::createRealTimeChart}}()}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00199}00199\ \{}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00200}00200\ \ \ \ \ \mbox{\hyperlink{class_telecon_real_time_line_chart}{TeleconRealTimeLineChart}}\ *realTimePanel\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_telecon_real_time_line_chart}{TeleconRealTimeLineChart}}(\textcolor{keyword}{this},\ wxID\_ANY,\ wxDefaultPosition,\ wxDefaultSize);}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00201}00201\ \ \ \ \ \textcolor{keywordflow}{return}\ realTimePanel;}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00202}00202\ \}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00204}\mbox{\hyperlink{class_chart_frame_a6546afb55058c87ba31f5626f2e70a85}{00204}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chart_frame_a6546afb55058c87ba31f5626f2e70a85}{ChartFrame::addChart}}(\mbox{\hyperlink{class_telecon_real_time_line_chart}{TeleconRealTimeLineChart}}\ *chartPanel)}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00205}00205\ \{}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00206}00206\ \ \ \ \ list\_charts.push\_back(chartPanel);}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00207}00207\ \}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00208}00208\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00209}00209\ \mbox{\hyperlink{class_telecon_real_time_line_chart}{TeleconRealTimeLineChart}}*\ \mbox{\hyperlink{class_chart_frame_a6546afb55058c87ba31f5626f2e70a85}{ChartFrame::addChart}}(\textcolor{keywordtype}{string}\ title,\ \textcolor{keywordtype}{string}\ ylabel)\{}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00210}00210\ \ \ \ \ \mbox{\hyperlink{class_telecon_real_time_line_chart}{TeleconRealTimeLineChart}}\ *realTimePanel\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_telecon_real_time_line_chart}{TeleconRealTimeLineChart}}(\textcolor{keyword}{this},\ wxID\_ANY,\ wxDefaultPosition,\ wxDefaultSize,\ title,\ ylabel);}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00211}00211\ \ \ \ \ list\_charts.push\_back(realTimePanel);}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00212}00212\ \ \ \ \ \textcolor{keywordflow}{return}\ realTimePanel;}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00213}00213\ \}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00215}\mbox{\hyperlink{class_chart_frame_a675aeb7ec9a3eeefbf148e95516e7914}{00215}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chart_frame_a675aeb7ec9a3eeefbf148e95516e7914}{ChartFrame::populateChart}}()}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00216}00216\ \{}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00217}00217\ \ \ \ \ \textcolor{keywordtype}{double}\ data[]\ =\ \{56,\ 145,\ 80,\ 94,\ 60\};}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00218}00218\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *labels[]\ =\ \{\textcolor{stringliteral}{"{}Mon"{}},\ \textcolor{stringliteral}{"{}Tue"{}},\ \textcolor{stringliteral}{"{}Wed"{}},\ \textcolor{stringliteral}{"{}Thurs"{}},\ \textcolor{stringliteral}{"{}Fri"{}}\};}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00220}00220\ \ \ \ \ XYChart\ *my\_xy\_chart\ =\ \textcolor{keyword}{new}\ XYChart(250,\ 250);}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00221}00221\ \ \ \ \ my\_xy\_chart-\/>setPlotArea(30,\ 20,\ 200,\ 200);}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00222}00222\ \ \ \ \ my\_xy\_chart-\/>addBarLayer(DoubleArray(data,\ 5));}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00223}00223\ \ \ \ \ my\_xy\_chart-\/>xAxis()-\/>setLabels(StringArray(labels,\ (\textcolor{keywordtype}{int})5));}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00225}00225\ \ \ \ \ \mbox{\hyperlink{class_chart_frame_ae0944146de818442cd046aa913692cbc}{my\_chart}}\ =\ my\_xy\_chart;}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00226}00226\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00227}00227\ \ \ \ \ \textcolor{comment}{//\ TeleconChart\ *chart\ =\ new\ TeleconBarChart();}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00228}00228\ \ \ \ \ \textcolor{comment}{//\ Add\ data,\ etc.}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00229}00229\ \ \ \ \ \textcolor{comment}{//\ XYChart*\ newchart\ =\ chart-\/>makeChart()}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00230}00230\ \}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00231}00231\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00232}00232\ \textcolor{comment}{//\ double\ generateRandomDouble(double\ min,\ double\ max)\ \{}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00233}00233\ \textcolor{comment}{//\ \ std::random\_device\ rd;\ \ //\ Will\ be\ used\ to\ obtain\ a\ seed\ for\ the\ random\ number\ engine}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00234}00234\ \textcolor{comment}{//\ \ std::mt19937\ gen(rd());\ //\ Standard\ mersenne\_twister\_engine\ seeded\ with\ rd()}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00235}00235\ \textcolor{comment}{//\ \ std::uniform\_real\_distribution<>\ dis(min,\ max);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00236}00236\ \textcolor{comment}{//\ \ return\ dis(gen);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00237}00237\ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00238}00238\ }
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00239}00239\ \textcolor{comment}{//\ double}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00240}00240\ \textcolor{comment}{//\ CreateDataPoints()}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00241}00241\ \textcolor{comment}{//\ \{}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00242}00242\ \textcolor{comment}{//\ \ double\ randomDouble\ =\ generateRandomDouble(0.0,\ 20.0);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00243}00243\ \textcolor{comment}{//\ \ double\ p\ =\ randomDouble;}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00244}00244\ \textcolor{comment}{//\ \ double\ dataA\ =\ 20\ +\ cos(p\ *\ 129241)\ *\ 10\ +\ 1\ /\ (cos(p)\ *\ cos(p)\ +\ 0.01);}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00245}00245\ \textcolor{comment}{//\ \ return\ dataA;}}
+\DoxyCodeLine{\Hypertarget{base_8cpp_source_l00246}00246\ \textcolor{comment}{//\ \}}}
+
+\end{DoxyCode}

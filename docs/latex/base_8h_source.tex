@@ -1,0 +1,88 @@
+\hypertarget{base_8h_source}{}\doxysection{base.\+h}
+\label{base_8h_source}\index{include/base.h@{include/base.h}}
+\mbox{\hyperlink{base_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ \_\_BASE\_H}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00003}00003\ \textcolor{preprocessor}{\#define\ \_\_BASE\_H}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <wx/wxprec.h>}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <wx/app.h>}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <wx/frame.h>}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <wx/button.h>}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <wxchartviewer\_defs.h>}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}chartdir.h"{}}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_telecon_real_time_line_chart_8h}{TeleconRealTimeLineChart.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00019}00019\ \textcolor{comment}{//\ void\ teleconMain();}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00022}\mbox{\hyperlink{class_chart_frame}{00022}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_chart_frame}{ChartFrame}}\ :\ \textcolor{keyword}{public}\ wxFrame\ \{}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00023}00023\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_chart_frame}{ChartFrame}}(\textcolor{keyword}{const}\ wxString\ \&title);}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chart_frame_a675aeb7ec9a3eeefbf148e95516e7914}{populateChart}}();}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_telecon_real_time_line_chart}{TeleconRealTimeLineChart}}*\ \mbox{\hyperlink{class_chart_frame_ad40ec4e8a23f72903ac4587f5a47dc68}{createRealTimeChart}}();}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ XYChart*\ my\_chart;}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00028}\mbox{\hyperlink{class_chart_frame_acfe91573d6c3ef8527d23dea2b43cbea}{00028}}\ \ \ \ \ \ \ \ \ std::vector<BaseChart*>\ \mbox{\hyperlink{class_chart_frame_acfe91573d6c3ef8527d23dea2b43cbea}{charts}};}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00029}\mbox{\hyperlink{class_chart_frame_ae0944146de818442cd046aa913692cbc}{00029}}\ \ \ \ \ \ \ \ \ BaseChart*\ \mbox{\hyperlink{class_chart_frame_ae0944146de818442cd046aa913692cbc}{my\_chart}};}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chart_frame_ab81d99b5bdd4b90e4b82ef5fe385601a}{drawWindow}}();}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chart_frame_a9e519ccd5d26ec061cd881c8ded653e6}{userAddChart}}();\ \textcolor{comment}{//For\ user\ to\ impement\ }}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chart_frame_a6546afb55058c87ba31f5626f2e70a85}{addChart}}(\mbox{\hyperlink{class_telecon_real_time_line_chart}{TeleconRealTimeLineChart}}*);}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00036}\mbox{\hyperlink{class_chart_frame_a1cb7251dab29c830c3d50acbd948786a}{00036}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_telecon_real_time_line_chart}{TeleconRealTimeLineChart}}*\ \mbox{\hyperlink{class_chart_frame_a1cb7251dab29c830c3d50acbd948786a}{addChart}}(std::string\ title,\ std::string\ ylabel);}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ DECLARE\_EVENT\_TABLE()}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00039}00039\ \ \ \ \ private:}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ std::vector<\mbox{\hyperlink{class_telecon_real_time_line_chart}{TeleconRealTimeLineChart}}*>\ list\_charts;}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00041}00041\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00043}\mbox{\hyperlink{base_8h_a72595799e9629f3ca5ea53d6eee2883c}{00043}}\ \}\ \mbox{\hyperlink{class_chart_frame}{TeleconWindow}};}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00045}\mbox{\hyperlink{class_main_app}{00045}}\ typedef\ class\ \mbox{\hyperlink{class_main_app}{MainApp}}\ :\ public\ wxApp}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00046}00046\ \{}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00047}00047\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00048}00048\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ OnInit();}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00050}00050\ \ \ \ \ \textcolor{keywordtype}{void}\ addWindow(wxFrame*\ frame);}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00051}\mbox{\hyperlink{class_main_app_a4823b4a06759730be13413a6594ee7f2}{00051}}\ \ \ \ \ \mbox{\hyperlink{class_chart_frame}{ChartFrame}}*\ \mbox{\hyperlink{class_main_app_a4823b4a06759730be13413a6594ee7f2}{addWindow}}(std::string\ name);}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00053}\mbox{\hyperlink{class_main_app_a381b846838ebdb10b9a7d91dd32cf873}{00053}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_app_a381b846838ebdb10b9a7d91dd32cf873}{teleconMain}}();}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00055}00055\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00057}00057\ \ \ \ \ std::vector<wxFrame*>\ frameList;}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00059}\mbox{\hyperlink{base_8h_afa2205b812f27ddffdb2887a4b750ed9}{00059}}\ \}\ \mbox{\hyperlink{base_8h_afa2205b812f27ddffdb2887a4b750ed9}{Telecon}};}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00061}\mbox{\hyperlink{class_main_frame}{00061}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_main_frame}{MainFrame}}\ :\ \textcolor{keyword}{public}\ wxFrame}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00062}00062\ \{}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00063}00063\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00064}00064\ \ \ \ \ \mbox{\hyperlink{class_main_frame}{MainFrame}}(\textcolor{keyword}{const}\ wxString\ \&title,\ \textcolor{keyword}{const}\ wxPoint\ \&pos,\ \textcolor{keyword}{const}\ wxSize\ \&size);}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00065}\mbox{\hyperlink{class_main_frame_a48fdf4617d261b4a4d6b2cc632c95923}{00065}}\ \ \ \ \ wxButton\ *\mbox{\hyperlink{class_main_frame_a48fdf4617d261b4a4d6b2cc632c95923}{HelloWorld}};}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00066}\mbox{\hyperlink{class_main_frame_a1b3b0a2a285221ea153c07be0d99e289}{00066}}\ \ \ \ \ wxButton\ *\mbox{\hyperlink{class_main_frame_a1b3b0a2a285221ea153c07be0d99e289}{TextButton}};}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00067}\mbox{\hyperlink{class_main_frame_adb74c6176294c911c530c97a97b9fd06}{00067}}\ \ \ \ \ wxTextCtrl\ *\mbox{\hyperlink{class_main_frame_adb74c6176294c911c530c97a97b9fd06}{MainEditBox}};}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00068}00068\ \ \ \ \ \textcolor{keywordtype}{void}\ OnExit(wxCommandEvent\ \&event);}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00069}00069\ \ \ \ \ \textcolor{keywordtype}{void}\ OnText(wxCommandEvent\ \&event);}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00071}00071\ \ \ \ \ DECLARE\_EVENT\_TABLE()}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00072}00072\ \};}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00074}00074\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00075}00075\ \{}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00076}\mbox{\hyperlink{base_8h_a06fc87d81c62e9abb8790b6e5713c55bae25fa0b6fada9a0796a8311fa61e7486}{00076}}\ \ \ \ \ \mbox{\hyperlink{base_8h_a06fc87d81c62e9abb8790b6e5713c55bae25fa0b6fada9a0796a8311fa61e7486}{BUTTON\_Hello}}\ =\ wxID\_HIGHEST\ +\ 1,}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00077}\mbox{\hyperlink{base_8h_a06fc87d81c62e9abb8790b6e5713c55ba96ed6e0793b6496e9e567faef22e9579}{00077}}\ \ \ \ \ \mbox{\hyperlink{base_8h_a06fc87d81c62e9abb8790b6e5713c55ba96ed6e0793b6496e9e567faef22e9579}{BUTTON\_Text}},}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00078}00078\ \ \ \ \ \mbox{\hyperlink{base_8h_a06fc87d81c62e9abb8790b6e5713c55ba37e489569a9037a2766d0384a13e1941}{TEXT\_main}}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00080}\mbox{\hyperlink{base_8h_a06fc87d81c62e9abb8790b6e5713c55ba37e489569a9037a2766d0384a13e1941}{00080}}\ \};}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00082}00082\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,57 @@
+\label{index_md_README}%
+\Hypertarget{index_md_README}%
+A cross-\/platform near real-\/time telemetry and control GUI for C++ written using the \href{https://www.wxwidgets.org/}{\texttt{ wx\+Widgets}} library.\hypertarget{index_autotoc_md1}{}\doxysection{Prerequisite list}\label{index_autotoc_md1}
+\mbox{\hyperlink{class_telecon}{Telecon}} projects use three prerequisite packages\+: wx\+Widgets, wx\+Math\+Plot, and wx\+Chart\+Dir. Not every project uses every package. If using an existing project, all packages will already be set up except for wx\+Widgets; if creating a new project, see the steps below.\hypertarget{index_autotoc_md2}{}\doxysection{Necessary prerequisite\+: wx\+Widgets}\label{index_autotoc_md2}
+\hypertarget{index_autotoc_md3}{}\doxysubsection{Linux}\label{index_autotoc_md3}
+On most Linux distributions, wx\+Widgets packages are available in system repositories under the name \char`\"{}wx\+GTK\char`\"{}. Note that to develop applications using wx\+Widgets you may need to install the \char`\"{}development\char`\"{} packages and not just the libraries needed for running the applications using wx\+Widgets.
+
+For example, to install wx\+Widgets 3.\+0 on Ubuntu 20.\+04 LTS, you need to run the command {\ttfamily apt get libwxgtk3.\+0-\/gtk3-\/dev} on a terminal.\hypertarget{index_autotoc_md4}{}\doxysubsection{Windows}\label{index_autotoc_md4}
+
+\begin{DoxyItemize}
+\item \href{https://www.wxwidgets.org/downloads/}{\texttt{ Download}} the latest stable binary zip files for wx\+Widgets (v3.\+2.\+1 used here).
+\begin{DoxyItemize}
+\item You must download the \char`\"{}header files.\char`\"{}
+\item Then choose either 32-\/bit or 64-\/bit app environments to download the corresponding \char`\"{}development files\char`\"{}, \char`\"{}release DLLs\char`\"{}, and \char`\"{}release DLL PDB files\char`\"{}.
+\end{DoxyItemize}
+\item Unzip the files into {\ttfamily C\+:\textbackslash{}wx\textbackslash{}3.\+2.\+1\textbackslash{}}
+\begin{DoxyItemize}
+\item The \char`\"{}header files\char`\"{} zip is unzipped as the {\ttfamily include} subdirectory.
+\item The zipped \char`\"{}development files\char`\"{} contain the {\ttfamily build} and {\ttfamily lib} subdirectories along with the {\ttfamily wx\+Widgets.\+prop} Visual Studio proerty sheet file.
+\item The \char`\"{}release DLLs\char`\"{} and \char`\"{}release DLL PDB files\char`\"{} also unzip into the {\ttfamily lib} subdirectory adding additional files to it.
+\end{DoxyItemize}
+\item To avoid having to hard-\/code the install directory of wx\+Widgets into your applications, define wxwin as an environment variable containing the path (C\+:\textbackslash{}wx\textbackslash{}3.\+2.\+1) to the files we just downloaded and unzipped.
+\item If using DLLs, append the location of wx\+Widget\textquotesingle{}s DLL files to the {\ttfamily Path} or {\ttfamily PATH} environment variable. For example, for wx\+Widgets 3.\+2.\+1 64-\/bit, the default location of the DLL files is {\ttfamily C\+:\textbackslash{}wx\textbackslash{}3.\+2.\+1\textbackslash{}lib\textbackslash{}vc14x\+\_\+x64\+\_\+dll\textbackslash{}}. This allows the DLLs to be found by your application during runtime.
+\end{DoxyItemize}\hypertarget{index_autotoc_md5}{}\doxysection{Included prerequisite\+: wx\+Math\+Plot library}\label{index_autotoc_md5}
+This project ships with a {\bfseries{modified}} copy of the wx\+Math\+Plot library. It is an open-\/source scientific plotting library for wx\+Widgets. You can find it in {\ttfamily lib/wx\+Math\+Plot/} and is distributed under the wx\+Windows license. From June 2007 the project is maintained by \href{mailto:cdron77@users.sourceforge.net}{\texttt{ Davide Rondini}}, who carries on the original work by \href{mailto:mrhill@users.sourceforge.net}{\texttt{ David Schalig}}. The authors can be contacted via the \href{https://sourceforge.net/projects/wxmathplot}{\texttt{ wx\+Math\+Plot\textquotesingle{}s homepage}}.\hypertarget{index_autotoc_md6}{}\doxysection{Included prerequisite\+: wx\+Chart\+Dir}\label{index_autotoc_md6}
+This project includes wx\+Chart\+Dir as a submodule. It provides components for the integration and use of the commercial C++ library Chart\+Director, available at \href{https://github.com/utelle/wxchartdir}{\texttt{ https\+://github.\+com/utelle/wxchartdir}}. Use the --recurse-\/submodules flag when cloning or checking out branches to ensure that wx\+Chart\+Dir is modified appropriately.\hypertarget{index_autotoc_md7}{}\doxysection{Setting up the development environment}\label{index_autotoc_md7}
+\hypertarget{index_autotoc_md8}{}\doxysubsection{Windows (\+Visual Studio 2019 or above)}\label{index_autotoc_md8}
+
+\begin{DoxyItemize}
+\item Install wx\+Widgets according to the instructions above.
+\item Create a new empty project.
+\item Go to {\ttfamily View$\vert$\+Property Manager$\vert$\+Add Existing Property Sheet} and add {\ttfamily wx\+Widgets.\+prop} (from the downloaded development files in wx\+Widget\textquotesingle{}s root directory) to it. Then edit the .vcxproj file to make the import path relative to the wxwin environment variable, if desired.
+\item Change the {\ttfamily Project$\vert$\+Properties$\vert$\+Linker$\vert$\+System$\vert$\+Subsystem$\vert$} property to {\ttfamily Windows}.
+\item Set {\ttfamily Project$\vert$\+Properties$\vert$\+Configuration Properties$\vert$\+Advanced$\vert$\+Character Set} to {\ttfamily Use Unicode Character Set}.
+\item Set {\ttfamily Project$\vert$\+Properties$\vert$\+Configuration Properties$\vert$\+General$\vert$\+C++ Language Standard} to {\ttfamily ISO C++ 17 Standard}, if desired.
+\item To {\ttfamily Project$\vert$\+Properties$\vert$\+C/\+C++$\vert$\+General$\vert$\+Additional Include Directories$\vert$}, append {\ttfamily \$(Solution\+Dir)..\textbackslash{}include}, which is where you should place any needed header files. You can use a subdirectory of include instead, if desired.
+\end{DoxyItemize}
+
+If using wx\+Math\+Plot\+:
+\begin{DoxyItemize}
+\item To {\ttfamily Project$\vert$\+Properties$\vert$\+C/\+C++$\vert$\+General$\vert$\+Additional Include Directories$\vert$}, append {\ttfamily \$(Solution\+Dir)..\textbackslash{}lib\textbackslash{}wx\+Math\+Plot\textbackslash{}include}.
+\item In the Solution Explorer, add {\ttfamily telecon\textbackslash{}lib\textbackslash{}wx\+Math\+Plot\textbackslash{}include\textbackslash{}mathplot.\+h} to Header Files
+\item In the Solution Explorer, add {\ttfamily telecon\textbackslash{}lib\textbackslash{}wx\+Math\+Plot\textbackslash{}src\textbackslash{}mathplot.\+cpp} to Source Files
+\end{DoxyItemize}
+
+If using wx\+Chart\+Dir\+:
+\begin{DoxyItemize}
+\item To {\ttfamily Project$\vert$\+Properties$\vert$\+C/\+C++$\vert$\+General$\vert$\+Additional Include Directories$\vert$}, append {\ttfamily \$(Solution\+Dir)..\textbackslash{}lib\textbackslash{}wxchartdir\textbackslash{}include} and {\ttfamily \$(Solution\+Dir)..\textbackslash{}lib\textbackslash{}wxchartdir\textbackslash{}wxdemo\textbackslash{}common}
+\item To {\ttfamily Project$\vert$\+Properties$\vert$\+Linker$\vert$\+General$\vert$\+Additional Linker Directories$\vert$}, append {\ttfamily \$(Solution\+Dir)..\textbackslash{}lib\textbackslash{}wxchartdir\textbackslash{}lib\textbackslash{}win64}
+\item To {\ttfamily Project$\vert$\+Properties$\vert$\+Linker$\vert$\+Input$\vert$\+Additional Dependencies$\vert$}, append {\ttfamily chartdir70.\+lib}
+\item In the Solution Explorer, add {\ttfamily telecon\textbackslash{}lib\textbackslash{}wxchartdir\textbackslash{}wxdemo\textbackslash{}common\textbackslash{}wxchartviewer.\+cpp} to Source Files
+\end{DoxyItemize}\hypertarget{index_autotoc_md9}{}\doxysection{Coding tips}\label{index_autotoc_md9}
+
+\begin{DoxyItemize}
+\item Be sure to include the headers ({\ttfamily wx/wxp.\+h}) or precompiled headers ({\ttfamily wx/wxprec.\+h}) as necessary to the main source file.
+\item Also remember that every app should define a new class derived from the {\ttfamily wx\+App} with an overridden {\ttfamily On\+Init()} function to initialize the program. 
+\end{DoxyItemize}

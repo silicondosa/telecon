@@ -1,0 +1,71 @@
+\hypertarget{_telecon_real_time_line_chart_8h}{}\doxysection{include/\+Telecon\+Real\+Time\+Line\+Chart.h File Reference}
+\label{_telecon_real_time_line_chart_8h}\index{include/TeleconRealTimeLineChart.h@{include/TeleconRealTimeLineChart.h}}
+{\ttfamily \#include $<$wx/wxprec.\+h$>$}\newline
+{\ttfamily \#include $<$wx/panel.\+h$>$}\newline
+{\ttfamily \#include $<$wx/tglbtn.\+h$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include \char`\"{}chartdir.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Telecon\+Chart\+Panel.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}wxchartviewer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}teleconplot.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}databuffer.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_telecon_real_time_line_chart}{Telecon\+Real\+Time\+Line\+Chart}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \newline
+\mbox{\hyperlink{_telecon_real_time_line_chart_8h_adf764cbdea00d65edcd07bb9953ad2b7a2d9029a34d74f179eb4c10780890895c}{ID\+\_\+\+REALTIMETRACK}} = wx\+ID\+\_\+\+HIGHEST
+, \mbox{\hyperlink{_telecon_real_time_line_chart_8h_adf764cbdea00d65edcd07bb9953ad2b7a12f80c74dc4c5d9996717490ba4a8f52}{ID\+\_\+\+CHARTVIEWER}}
+, \mbox{\hyperlink{_telecon_real_time_line_chart_8h_adf764cbdea00d65edcd07bb9953ad2b7a8295136a6da52b0c280421c8fe22715a}{ID\+\_\+\+PLAY}}
+, \mbox{\hyperlink{_telecon_real_time_line_chart_8h_adf764cbdea00d65edcd07bb9953ad2b7a98bc0750b2c1238b4507f9b09ece67a6}{ID\+\_\+\+PAUSE}}
+, \newline
+\mbox{\hyperlink{_telecon_real_time_line_chart_8h_adf764cbdea00d65edcd07bb9953ad2b7a9c850307c7c28256b124539ae9ff52cc}{ID\+\_\+\+UPDATE\+\_\+\+PERIOD}}
+, \mbox{\hyperlink{_telecon_real_time_line_chart_8h_adf764cbdea00d65edcd07bb9953ad2b7a2d498a17f67886612376fb3d0c777cdb}{ID\+\_\+\+DATA\+\_\+\+TIMER}}
+, \mbox{\hyperlink{_telecon_real_time_line_chart_8h_adf764cbdea00d65edcd07bb9953ad2b7a4aa3022c869a7c5f87806fc17917f877}{ID\+\_\+\+UPDATE\+\_\+\+TIMER}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_telecon_real_time_line_chart_8h_adf764cbdea00d65edcd07bb9953ad2b7}\label{_telecon_real_time_line_chart_8h_adf764cbdea00d65edcd07bb9953ad2b7}} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ID\_REALTIMETRACK@{ID\_REALTIMETRACK}!TeleconRealTimeLineChart.h@{TeleconRealTimeLineChart.h}}\index{TeleconRealTimeLineChart.h@{TeleconRealTimeLineChart.h}!ID\_REALTIMETRACK@{ID\_REALTIMETRACK}}}\mbox{\Hypertarget{_telecon_real_time_line_chart_8h_adf764cbdea00d65edcd07bb9953ad2b7a2d9029a34d74f179eb4c10780890895c}\label{_telecon_real_time_line_chart_8h_adf764cbdea00d65edcd07bb9953ad2b7a2d9029a34d74f179eb4c10780890895c}} 
+ID\+\_\+\+REALTIMETRACK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ID\_CHARTVIEWER@{ID\_CHARTVIEWER}!TeleconRealTimeLineChart.h@{TeleconRealTimeLineChart.h}}\index{TeleconRealTimeLineChart.h@{TeleconRealTimeLineChart.h}!ID\_CHARTVIEWER@{ID\_CHARTVIEWER}}}\mbox{\Hypertarget{_telecon_real_time_line_chart_8h_adf764cbdea00d65edcd07bb9953ad2b7a12f80c74dc4c5d9996717490ba4a8f52}\label{_telecon_real_time_line_chart_8h_adf764cbdea00d65edcd07bb9953ad2b7a12f80c74dc4c5d9996717490ba4a8f52}} 
+ID\+\_\+\+CHARTVIEWER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ID\_PLAY@{ID\_PLAY}!TeleconRealTimeLineChart.h@{TeleconRealTimeLineChart.h}}\index{TeleconRealTimeLineChart.h@{TeleconRealTimeLineChart.h}!ID\_PLAY@{ID\_PLAY}}}\mbox{\Hypertarget{_telecon_real_time_line_chart_8h_adf764cbdea00d65edcd07bb9953ad2b7a8295136a6da52b0c280421c8fe22715a}\label{_telecon_real_time_line_chart_8h_adf764cbdea00d65edcd07bb9953ad2b7a8295136a6da52b0c280421c8fe22715a}} 
+ID\+\_\+\+PLAY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ID\_PAUSE@{ID\_PAUSE}!TeleconRealTimeLineChart.h@{TeleconRealTimeLineChart.h}}\index{TeleconRealTimeLineChart.h@{TeleconRealTimeLineChart.h}!ID\_PAUSE@{ID\_PAUSE}}}\mbox{\Hypertarget{_telecon_real_time_line_chart_8h_adf764cbdea00d65edcd07bb9953ad2b7a98bc0750b2c1238b4507f9b09ece67a6}\label{_telecon_real_time_line_chart_8h_adf764cbdea00d65edcd07bb9953ad2b7a98bc0750b2c1238b4507f9b09ece67a6}} 
+ID\+\_\+\+PAUSE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ID\_UPDATE\_PERIOD@{ID\_UPDATE\_PERIOD}!TeleconRealTimeLineChart.h@{TeleconRealTimeLineChart.h}}\index{TeleconRealTimeLineChart.h@{TeleconRealTimeLineChart.h}!ID\_UPDATE\_PERIOD@{ID\_UPDATE\_PERIOD}}}\mbox{\Hypertarget{_telecon_real_time_line_chart_8h_adf764cbdea00d65edcd07bb9953ad2b7a9c850307c7c28256b124539ae9ff52cc}\label{_telecon_real_time_line_chart_8h_adf764cbdea00d65edcd07bb9953ad2b7a9c850307c7c28256b124539ae9ff52cc}} 
+ID\+\_\+\+UPDATE\+\_\+\+PERIOD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ID\_DATA\_TIMER@{ID\_DATA\_TIMER}!TeleconRealTimeLineChart.h@{TeleconRealTimeLineChart.h}}\index{TeleconRealTimeLineChart.h@{TeleconRealTimeLineChart.h}!ID\_DATA\_TIMER@{ID\_DATA\_TIMER}}}\mbox{\Hypertarget{_telecon_real_time_line_chart_8h_adf764cbdea00d65edcd07bb9953ad2b7a2d498a17f67886612376fb3d0c777cdb}\label{_telecon_real_time_line_chart_8h_adf764cbdea00d65edcd07bb9953ad2b7a2d498a17f67886612376fb3d0c777cdb}} 
+ID\+\_\+\+DATA\+\_\+\+TIMER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ID\_UPDATE\_TIMER@{ID\_UPDATE\_TIMER}!TeleconRealTimeLineChart.h@{TeleconRealTimeLineChart.h}}\index{TeleconRealTimeLineChart.h@{TeleconRealTimeLineChart.h}!ID\_UPDATE\_TIMER@{ID\_UPDATE\_TIMER}}}\mbox{\Hypertarget{_telecon_real_time_line_chart_8h_adf764cbdea00d65edcd07bb9953ad2b7a4aa3022c869a7c5f87806fc17917f877}\label{_telecon_real_time_line_chart_8h_adf764cbdea00d65edcd07bb9953ad2b7a4aa3022c869a7c5f87806fc17917f877}} 
+ID\+\_\+\+UPDATE\+\_\+\+TIMER&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{_telecon_real_time_line_chart_8h_source_l00107}{107}} of file \mbox{\hyperlink{_telecon_real_time_line_chart_8h_source}{Telecon\+Real\+Time\+Line\+Chart.\+h}}.
+

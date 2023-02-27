@@ -1,0 +1,82 @@
+\hypertarget{userfile_8cpp_source}{}\doxysection{userfile.\+cpp}
+\label{userfile_8cpp_source}\index{src/userfile.cpp@{src/userfile.cpp}}
+\mbox{\hyperlink{userfile_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <wx/wxprec.h>}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#ifndef\ WX\_PRECOMP}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <wx/wx.h>}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{base_8h}{base.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_telecon_real_time_line_chart_8h}{TeleconRealTimeLineChart.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}wxchartviewer.h"{}}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00017}\mbox{\hyperlink{userfile_8cpp_aba678328bd9c8013c3bb4b37fab7ec8d}{00017}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{userfile_8cpp_aba678328bd9c8013c3bb4b37fab7ec8d}{generateRandomDouble}}(\textcolor{keywordtype}{double}\ min,\ \textcolor{keywordtype}{double}\ max)\ \{}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00018}00018\ \ \ \ \ std::random\_device\ rd;\ \ \textcolor{comment}{//\ Will\ be\ used\ to\ obtain\ a\ seed\ for\ the\ random\ number\ engine}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00019}00019\ \ \ \ \ std::mt19937\ gen(rd());\ \textcolor{comment}{//\ Standard\ mersenne\_twister\_engine\ seeded\ with\ rd()}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00020}00020\ \ \ \ \ std::uniform\_real\_distribution<>\ dis(min,\ max);}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{keywordflow}{return}\ dis(gen);}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00022}00022\ \}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00024}00024\ \textcolor{keywordtype}{double}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00025}\mbox{\hyperlink{base_8cpp_ac493508f4c1cf260b4caa9fd07e16159}{00025}}\ \mbox{\hyperlink{userfile_8cpp_ac493508f4c1cf260b4caa9fd07e16159}{CreateDataPoints}}()}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00026}00026\ \{}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{keywordtype}{double}\ randomDouble\ =\ \mbox{\hyperlink{userfile_8cpp_aba678328bd9c8013c3bb4b37fab7ec8d}{generateRandomDouble}}(0.0,\ 20.0);}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00028}00028\ \ \ \ \ \textcolor{keywordtype}{double}\ p\ =\ randomDouble;}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{keywordtype}{double}\ dataA\ =\ 20\ +\ cos(p\ *\ 129241)\ *\ 10\ +\ 1\ /\ (cos(p)\ *\ cos(p)\ +\ 0.01);}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{return}\ dataA;}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00031}00031\ \}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00035}\mbox{\hyperlink{class_chart_frame_a9e519ccd5d26ec061cd881c8ded653e6}{00035}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chart_frame_a9e519ccd5d26ec061cd881c8ded653e6}{ChartFrame::userAddChart}}()\{}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//\ TeleconRealTimeLineChart*\ realTimePanel\ =\ createRealTimePanel(wxDefaultPosition,\ wxDefaultSize);}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{comment}{//\ realTimePanel-\/>AddChart("{}My\ Title"{},\ "{}ylabel"{});}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00038}00038\ \ \ \ \ \textcolor{comment}{//\ realTimePanel-\/>AddPlot("{}Expected\ Tension"{},\ CreateDataPoints,\ 0xff0000,\ "{}Expected\ Tension"{});}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00040}00040\ \ \ \ \ \textcolor{comment}{//\ TeleconRealTimeLineChart*\ realTimePanel2\ =\ createRealTimePanel(wxDefaultPosition,\ wxDefaultSize);}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00041}00041\ \ \ \ \ \textcolor{comment}{//\ realTimePanel2-\/>AddChart("{}My\ Title"{},\ "{}ylabel"{});}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{comment}{//\ realTimePanel2-\/>AddPlot("{}Expected\ Tension"{},\ CreateDataPoints,\ 0x00b40a,\ "{}Expected\ Tension"{});}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00043}00043\ \ \ \ \ \textcolor{comment}{//\ realTimePanel2-\/>AddPlot("{}Expected\ Tension"{},\ CreateDataPoints,\ 0xff00ff,\ "{}Expected\ Tension"{});}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00045}00045\ \ \ \ \ \textcolor{comment}{//\ TeleconRealTimeLineChart*\ realTimePanel3\ =\ createRealTimePanel(wxDefaultPosition,\ wxDefaultSize);}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00046}00046\ \ \ \ \ \textcolor{comment}{//\ realTimePanel3-\/>AddChart("{}My\ Title"{},\ "{}ylabel"{});}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{comment}{//\ realTimePanel3-\/>AddPlot("{}Expected\ Tension"{},\ CreateDataPoints,\ 0x0000ff,\ "{}Expected\ Tension"{});}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00049}00049\ \ \ \ \ \textcolor{comment}{//\ addChart(realTimePanel);}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00050}00050\ \ \ \ \ \textcolor{comment}{//\ addChart(realTimePanel2);}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{comment}{//\ addChart(realTimePanel3);}}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00053}00053\ \}\ \ \ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00055}00055\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_app_a381b846838ebdb10b9a7d91dd32cf873}{Telecon::teleconMain}}()\{}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00057}00057\ \ \ \ \ \mbox{\hyperlink{class_chart_frame}{TeleconWindow}}*\ window\ =\ addWindow(\textcolor{stringliteral}{"{}MyWindow"{}});}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00059}00059\ \ \ \ \ \mbox{\hyperlink{class_telecon_real_time_line_chart}{TeleconRealTimeLineChart}}*\ realTimeChart\ =\ window-\/>\mbox{\hyperlink{class_chart_frame_a6546afb55058c87ba31f5626f2e70a85}{addChart}}(\textcolor{stringliteral}{"{}Chart1"{}},\ \textcolor{stringliteral}{"{}lbs"{}});}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00060}00060\ \ \ \ \ realTimeChart-\/>\mbox{\hyperlink{class_telecon_real_time_line_chart_a5fbafa0e0eadabb24d90efa2abc24fbe}{addPlot}}(\textcolor{stringliteral}{"{}Expected\ Tension"{}},\ \mbox{\hyperlink{base_8cpp_ac493508f4c1cf260b4caa9fd07e16159}{CreateDataPoints}},\ 0xff0000,\ \textcolor{stringliteral}{"{}Expected\ Tension"{}},\ \mbox{\hyperlink{teleconplot_8h_afd074c27ba0a2809258258751b754f52ad3188575e9151d64606bf543dc4c40f1}{LT\_SOLID}});}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00061}00061\ \ \ \ \ realTimeChart-\/>\mbox{\hyperlink{class_telecon_real_time_line_chart_a5fbafa0e0eadabb24d90efa2abc24fbe}{addPlot}}(\textcolor{stringliteral}{"{}Force"{}},\ \mbox{\hyperlink{base_8cpp_ac493508f4c1cf260b4caa9fd07e16159}{CreateDataPoints}},\ 0x00ff00,\ \textcolor{stringliteral}{"{}Force"{}},\ \mbox{\hyperlink{teleconplot_8h_afd074c27ba0a2809258258751b754f52ad3188575e9151d64606bf543dc4c40f1}{LT\_SOLID}});}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00063}00063\ \ \ \ \ \mbox{\hyperlink{class_telecon_real_time_line_chart}{TeleconRealTimeLineChart}}*\ realTimeChart2\ =\ window-\/>\mbox{\hyperlink{class_chart_frame_a6546afb55058c87ba31f5626f2e70a85}{addChart}}(\textcolor{stringliteral}{"{}Second\ Chart"{}},\ \textcolor{stringliteral}{"{}inches"{}});}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00064}00064\ \ \ \ \ realTimeChart2-\/>\mbox{\hyperlink{class_telecon_real_time_line_chart_a5fbafa0e0eadabb24d90efa2abc24fbe}{addPlot}}(\textcolor{stringliteral}{"{}Extension"{}},\ \mbox{\hyperlink{base_8cpp_ac493508f4c1cf260b4caa9fd07e16159}{CreateDataPoints}},\ 0x00ff00,\ \textcolor{stringliteral}{"{}Extension"{}});}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00067}00067\ \ \ \ \ \mbox{\hyperlink{class_chart_frame}{TeleconWindow}}*\ window2\ =\ addWindow(\textcolor{stringliteral}{"{}Second\ Window"{}});}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00069}00069\ \ \ \ \ \mbox{\hyperlink{class_telecon_real_time_line_chart}{TeleconRealTimeLineChart}}*\ realTimeChart3\ =\ window2-\/>\mbox{\hyperlink{class_chart_frame_a6546afb55058c87ba31f5626f2e70a85}{addChart}}(\textcolor{stringliteral}{"{}Third\ Chart"{}},\ \textcolor{stringliteral}{"{}mph"{}});}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00070}00070\ \ \ \ \ realTimeChart3-\/>\mbox{\hyperlink{class_telecon_real_time_line_chart_a5fbafa0e0eadabb24d90efa2abc24fbe}{addPlot}}(\textcolor{stringliteral}{"{}Speed"{}},\ \mbox{\hyperlink{base_8cpp_ac493508f4c1cf260b4caa9fd07e16159}{CreateDataPoints}},\ 0x0000ff,\ \textcolor{stringliteral}{"{}Speed"{}},\ \mbox{\hyperlink{teleconplot_8h_afd074c27ba0a2809258258751b754f52aba03de6d71e731d8544266543a0a9b70}{LT\_SCATTER}});}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00073}00073\ \ \ \ \ window-\/>\mbox{\hyperlink{class_chart_frame_ab81d99b5bdd4b90e4b82ef5fe385601a}{drawWindow}}();}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00074}00074\ \ \ \ \ window2-\/>\mbox{\hyperlink{class_chart_frame_ab81d99b5bdd4b90e4b82ef5fe385601a}{drawWindow}}();}
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00076}00076\ \}}
+
+\end{DoxyCode}

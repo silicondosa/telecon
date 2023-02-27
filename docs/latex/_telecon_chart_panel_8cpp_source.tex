@@ -1,0 +1,55 @@
+\hypertarget{_telecon_chart_panel_8cpp_source}{}\doxysection{Telecon\+Chart\+Panel.\+cpp}
+\label{_telecon_chart_panel_8cpp_source}\index{src/TeleconChartPanel.cpp@{src/TeleconChartPanel.cpp}}
+\mbox{\hyperlink{_telecon_chart_panel_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00002}00002\ \textcolor{comment}{//\ \#ifndef\ \_\_TELECON\_CHART\_PANEL}}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00004}00004\ \textcolor{comment}{//\ \#define\ \_\_TELECON\_CHART\_PANEL}}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <wx/wxprec.h>}}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#ifndef\ WX\_PRECOMP}}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <wx/wx.h>}}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_telecon_chart_panel_8h}{TeleconChartPanel.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}wxchartviewer.h"{}}}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00016}\mbox{\hyperlink{class_telecon_chart_panel_a9df641b6946664b25dc0fec9db4f8a8e}{00016}}\ \mbox{\hyperlink{class_telecon_chart_panel_a9df641b6946664b25dc0fec9db4f8a8e}{TeleconChartPanel::TeleconChartPanel}}(wxWindow\ *parent,}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ wxWindowID\ winid\ ,}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ wxPoint\ \&pos,}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ wxSize\ \&size,}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ style\ ,}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ wxString\ \&name\ )\ :\ wxPanel(parent,\ winid,\ pos,\ size,\ style,\ name\ )}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00022}00022\ \{}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00023}00023\ \ \ \ \ \textcolor{comment}{//\ wxBoxSizer*\ sizer\ =\ new\ wxBoxSizer(wxVERTICAL);}}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00025}00025\ \ \ \ \ \textcolor{comment}{//\ double\ data[]\ =\ \{56,\ 145,\ 80,\ 94,\ 60\};}}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{comment}{//\ const\ char*\ labels[]\ =\ \{"{}Mon"{},\ "{}Tue"{},\ "{}Wed"{},"{}Thurs"{},\ "{}Fri"{}\};}}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{comment}{//\ XYChart\ *my\_chart\ =\ new\ XYChart(250,\ 250);}}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00028}00028\ \ \ \ \ \textcolor{comment}{//\ my\_chart-\/>setPlotArea(30,\ 20,\ 200,\ 200);}}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{comment}{//\ my\_chart-\/>addBarLayer(DoubleArray(data,\ 5));}}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{comment}{//\ my\_chart-\/>xAxis()-\/>setLabels(StringArray(labels,\ (int)\ 5));}}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00032}00032\ \ \ \ \ \textcolor{comment}{//\ my\_base\_chart\ =\ my\_chart;}}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00034}00034\ \ \ \ \ \textcolor{comment}{//\ wxChartViewer\ *viewer\ =\ new\ wxChartViewer(this);}}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{comment}{//\ viewer-\/>setChart(my\_base\_chart);}}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//\ //\ sizer-\/>SetMinSize(300,\ 300);}}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00038}00038\ \ \ \ \ \textcolor{comment}{//\ sizer-\/>Add(viewer,\ 1,\ wxALIGN\_RIGHT,\ FromDIP(3));}}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00040}00040\ \ \ \ \ \textcolor{comment}{//\ SetSizerAndFit(sizer);}}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00043}00043\ \}}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00045}00045\ BEGIN\_EVENT\_TABLE(\mbox{\hyperlink{class_telecon_chart_panel}{TeleconChartPanel}},\ wxPanel)}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00046}00046\ END\_EVENT\_TABLE()}
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_telecon_chart_panel_8cpp_source_l00049}00049\ \textcolor{comment}{//\ \#endif}}
+
+\end{DoxyCode}

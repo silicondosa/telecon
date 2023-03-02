@@ -74,3 +74,16 @@ void Telecon::teleconMain(){
     window2->drawWindow();
 
 }
+
+int main(int argc, char *argv[])
+{   
+
+    wxApp::SetInstance( new MainApp() );
+    wxEntryStart( argc, argv );
+    wxTheApp->CallOnInit();
+    wxTheApp->OnRun();
+
+    cout << "Hello " << endl;
+
+    return 0;
+}

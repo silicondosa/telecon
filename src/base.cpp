@@ -16,7 +16,8 @@
 #include "TeleconChartPanel.h"
 #include "TeleconRealTimeLineChart.h"
 
-IMPLEMENT_APP(MainApp);
+// IMPLEMENT_APP(MainApp);
+IMPLEMENT_APP_NO_MAIN(MainApp);
 
 using namespace std;
 

@@ -5,8 +5,7 @@
 
 enum LineType {
 	LT_SOLID,
-	LT_DASHED,
-	LT_NONE
+	LT_DASHED
 };
 
 class TeleconLinePlot : public TeleconPlot {

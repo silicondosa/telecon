@@ -20,18 +20,14 @@ double TeleconLinePlot::fetchData() {
 void TeleconLinePlot::addToChart(XYChart* chart, DoubleArray xData) {
     // This integer represents both the color and dash status (solid, dashed, or none) of the chart
     int chartDirColor;
-    if (m_lineType == LT_DASHED) {
-        chartDirColor = chart->dashLineColor(m_color, Chart::DashLine);
-    } else { // Solid or none
+    if (m_lineType == LT_SOLID) {
         chartDirColor = m_color;
+    } else { // Solid or none
+        chartDirColor = chart->dashLineColor(m_color, Chart::DashLine);
     } 
     LineLayer* layer = chart->addLineLayer(DoubleArray(&m_yData[0], m_yData.size()), chartDirColor, m_plotTitle.c_str());
 
-    if (m_lineType == LT_NONE) {
-        layer->setLineWidth(0);
-    } else {
-        layer->setLineWidth(m_lineWidth);
-    }
+    layer->setLineWidth(m_lineWidth);
 
     // The x-coordinates are the timeStamps.
     layer->setXData(xData);

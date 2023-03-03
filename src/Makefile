@@ -8,7 +8,7 @@ TEST_FLAGS = -I ../include/
 # Run export LD_LIBRARY_PATH=~/git-repos/wxchartdir/lib/linux64/
 # PROJ_DIR = ~/git-repos/telecon/
 
-OBJECTS = TeleconBarChart.o TeleconChartPanel.o TeleconRealTimeLineChart.o teleconplot.o
+OBJECTS = TeleconBarChart.o TeleconChartPanel.o TeleconRealTimeLineChart.o teleconplot.o start.o
 
 
 
@@ -29,6 +29,9 @@ TeleconRealTimeLineChart.o: ../include/TeleconRealTimeLineChart.h TeleconRealTim
 
 teleconplot.o: teleconplot.cpp ../include/teleconplot.h
 	g++ -c teleconplot.cpp -I ../include/ $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
+
+start.o: start.cpp ../include/start.h
+	g++ -c start.cpp -I ../include/ $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
 
 wxchartviewer.o: ~/git-repos/wxchartdir/wxdemo/common/wxchartviewer.cpp
 	g++ -c ~/git-repos/wxchartdir/wxdemo/common/wxchartviewer.cpp $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)

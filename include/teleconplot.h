@@ -1,35 +1,31 @@
 #pragma once
 
 #include <string>
+
+#include "chartdir.h"
 #include "databuffer.h"
 
 using namespace std;
 
-enum LineType {
-	LT_SOLID,
-	LT_DASHED,
-	LT_NONE,
-	LT_SCATTER
-};
-
 typedef double (*DoubleFuncPtr)();
 class TeleconPlot {
-private:
+protected:
 	DoubleFuncPtr m_dataFuncPtr; // Function pointer to fetch one datum from the controller
-	DataBuffer<double> m_data;
+	DataBuffer<double> m_yData;
 	int m_color; // Represented as an RGB hexadecimal code (one byte per channel)
-	int m_lineWidth;
-	LineType m_lineType;
 	string m_plotTitle;
 public:
-	TeleconPlot(DoubleFuncPtr dataFuncPtr, size_t memoryDepth, int color, int lineWidth, LineType lineType, string plotTitle);
-	double fetchData(); // Fetches one datum from the controller
+	TeleconPlot(DoubleFuncPtr dataFuncPtr, int depth, int color, string plotTitle);
+	virtual double fetchData() = 0; // Fetches one datum from the controller
+	virtual void addToChart(XYChart* chart, DoubleArray xData) = 0;
 	// Returns a reference to the oldest datum in the series, if one exists. Other elements are guaranteed to be stored
 	// contiguously in order after the oldest element.
-	const double& getOldest() const;
+	const double& operator[](int index) const; // Pass by reference doesn't matter here, just doing it for consistency with DataBuffer
+	// Returns the current size of the data buffer
 	int size() const;
+	// Returns the capacity (maximum size) of the data buffer
+	int depth() const;
 	int getColor() const;
-	int getLineWidth() const;
-	LineType getLineType() const;
+	
 	const string& getPlotTitle() const;
 };

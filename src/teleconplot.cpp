@@ -1,32 +1,22 @@
 #include "teleconplot.h"
 
-TeleconPlot::TeleconPlot(DoubleFuncPtr dataFuncPtr, size_t memoryDepth, int color, int lineWidth, LineType lineType, string plotTitle)
-	: m_dataFuncPtr(dataFuncPtr), m_data(memoryDepth), m_color(color), m_lineWidth(lineWidth), m_lineType(lineType), m_plotTitle(plotTitle) {}
+TeleconPlot::TeleconPlot(DoubleFuncPtr dataFuncPtr, int depth, int color, string plotTitle)
+	: m_dataFuncPtr(dataFuncPtr), m_yData(depth), m_color(color), m_plotTitle(plotTitle) {}
 
-double TeleconPlot::fetchData() {
-	double newValue = m_dataFuncPtr();
-	m_data.insertNewValue(newValue);
-	return newValue;
-}
-
-const double& TeleconPlot::getOldest() const {
-	return m_data[0];
+const double& TeleconPlot::operator[](int index) const {
+	return m_yData[index];
 }
 
 int TeleconPlot::size() const {
-	return m_data.size();
+	return m_yData.size();
+}
+
+int TeleconPlot::depth() const {
+	return m_yData.depth();
 }
 
 int TeleconPlot::getColor() const {
 	return m_color;
-}
-
-int TeleconPlot::getLineWidth() const {
-	return m_lineWidth;
-}
-
-LineType TeleconPlot::getLineType() const {
-	return m_lineType;
 }
 
 const string& TeleconPlot::getPlotTitle() const {

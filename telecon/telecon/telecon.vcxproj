@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -145,16 +145,20 @@
     <ClInclude Include="..\..\include\TeleconChart.h" />
     <ClInclude Include="..\..\include\TeleconChartPanel.h" />
     <ClInclude Include="..\..\include\TeleconLineChart.h" />
+    <ClInclude Include="..\..\include\teleconlineplot.h" />
     <ClInclude Include="..\..\include\teleconplot.h" />
     <ClInclude Include="..\..\include\TeleconRealTimeLineChart.h" />
+    <ClInclude Include="..\..\include\teleconscatterplot.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\lib\wxchartdir\wxdemo\common\wxchartviewer.cpp" />
     <ClCompile Include="..\..\src\base.cpp" />
     <ClCompile Include="..\..\src\TeleconBarChart.cpp" />
     <ClCompile Include="..\..\src\TeleconChartPanel.cpp" />
+    <ClCompile Include="..\..\src\teleconlineplot.cpp" />
     <ClCompile Include="..\..\src\teleconplot.cpp" />
     <ClCompile Include="..\..\src\TeleconRealTimeLineChart.cpp" />
+    <ClCompile Include="..\..\src\teleconscatterplot.cpp" />
     <ClCompile Include="..\..\src\userfile.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

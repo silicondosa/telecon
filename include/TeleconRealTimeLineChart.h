@@ -9,6 +9,7 @@
 #include "TeleconChartPanel.h"
 #include "wxchartviewer.h"
 #include "teleconplot.h"
+#include "teleconlineplot.h"
 #include "databuffer.h"
 
 using namespace std;
@@ -39,7 +40,8 @@ public:
     TeleconRealTimeLineChart(TeleconRealTimeLineChart&&) = delete;
     TeleconRealTimeLineChart& operator=(TeleconRealTimeLineChart&&) = delete;
 
-    void addPlot(const wxString& plotname, double (*ptr)(), int plotcolor, const char* plottitle, LineType type = LT_SOLID);
+    void addLinePlot(double (*ptr)(), int plotcolor, const char* plottitle, int lineWidth, LineType lineType);
+    void addScatterPlot(double (*ptr)(), int plotcolor, const char* plottitle, int symbol, int symbolSize);
     // Will create a new dynamic teleconPlot object and add it to plotList
 
     typedef double (*FuncPtr)();
@@ -59,6 +61,9 @@ private:
     void OnDataTimer(wxTimerEvent& event);
     void OnChartUpdateTimer(wxTimerEvent& event);
     void OnViewPortChanged(wxCommandEvent& event); // updates the chart if it needs updating
+
+    // addPlot() helper function
+    void addLatestValueText(const char* plottitle);
 
     // Chart and data update functions
     void GetData();

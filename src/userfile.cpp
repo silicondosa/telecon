@@ -57,17 +57,17 @@ void Telecon::teleconMain(){
     TeleconWindow* window = addWindow("MyWindow");
 
     TeleconRealTimeLineChart* realTimeChart = window->addChart("Chart1", "lbs");
-    realTimeChart->addPlot("Expected Tension", CreateDataPoints, 0xff0000, "Expected Tension", LT_SOLID);
-    realTimeChart->addPlot("Force", CreateDataPoints, 0x00ff00, "Force", LT_SOLID);
+    realTimeChart->addLinePlot(CreateDataPoints, 0xff0000, "Expected Tension", 1, LT_SOLID);
+    realTimeChart->addLinePlot(CreateDataPoints, 0x00ff00, "Force", 5, LT_SOLID);
 
     TeleconRealTimeLineChart* realTimeChart2 = window->addChart("Second Chart", "inches");
-    realTimeChart2->addPlot("Extension", CreateDataPoints, 0x00ff00, "Extension");
+    realTimeChart2->addLinePlot(CreateDataPoints, 0x00ff00, "Extension", 1, LT_DASHED);
 
 
     TeleconWindow* window2 = addWindow("Second Window");
 
     TeleconRealTimeLineChart* realTimeChart3 = window2->addChart("Third Chart", "mph");
-    realTimeChart3->addPlot("Speed", CreateDataPoints, 0x0000ff, "Speed", LT_SCATTER);
+    realTimeChart3->addScatterPlot(CreateDataPoints, 0x0000ff, "Speed", Chart::SquareShape, 5);
 
 
     window->drawWindow();

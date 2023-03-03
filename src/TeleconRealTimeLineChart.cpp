@@ -15,6 +15,8 @@
 #include "TeleconRealTimeLineChart.h"
 #include "wxchartviewer.h"
 
+#include "teleconscatterplot.h"
+
 using namespace std;
 
 static const int chartUpdateIntervals[8] = {250, 500, 750, 1000, 1250, 1500, 1750, 2000};
@@ -264,25 +266,10 @@ void TeleconRealTimeLineChart::DrawChart()
         // Set the x-axis label format
         c->xAxis()->setLabelFormat("{value|hh:nn:ss}");
 
-        // Create a line layer to plot the lines
-        LineLayer *layer = c->addLineLayer();
-
-        // The x-coordinates are the timeStamps.
-        layer->setXData(DoubleArray(&m_timeStamps[0], m_timeStamps.size()));
-
         // The data series are used to draw lines.
-        for (const auto &plot : m_plots)
+        for (const auto& plot : m_plots)
         {
-            if (plot->getLineType() == LT_SOLID)
-            {
-                layer->addDataSet(DoubleArray(&(plot->getOldest()), plot->size()), plot->getColor(), plot->getPlotTitle().c_str());
-            }
-            else if (plot->getLineType() == LT_SCATTER)
-            {
-                c->addScatterLayer(DoubleArray(&m_timeStamps[0], m_timeStamps.size()), 
-                    DoubleArray(&(plot->getOldest()), plot->size()), plot->getPlotTitle().c_str(), 1, 5, plot->getColor());
-            }
-            // c->addScatterLayer(DoubleArray(&m_timeStamps[0], m_timeStamps.size()), DoubleArray(&(plot->getOldest()), plot->size()), plot->getPlotTitle().c_str(), 1, 5, plot->getColor());
+            plot->addToChart(c, DoubleArray(&m_timeStamps[0], m_timeStamps.size()));
         }
     }
 
@@ -405,15 +392,25 @@ TeleconRealTimeLineChart::GetBitmapResource(const wxString &name)
     return wxNullBitmap;
 }
 
-void TeleconRealTimeLineChart::addPlot(const wxString &plotname, double (*ptr)(), int plotcolor, const char *plottitle, LineType type)
+void TeleconRealTimeLineChart::addLinePlot(double (*ptr)(), int plotcolor, const char* plottitle, int lineWidth, LineType lineType)
 {
-    wxStaticText *latestValueLabel = new wxStaticText(this, wxID_STATIC, _(plotname), wxDefaultPosition, wxDefaultSize, 0);
+    addLatestValueText(plottitle);
+
+    m_plots.push_back(shared_ptr<TeleconPlot>(new TeleconLinePlot(ptr, sampleSize, plotcolor, string(plottitle), lineWidth, lineType)));
+}
+
+void TeleconRealTimeLineChart::addScatterPlot(double (*ptr)(), int plotcolor, const char* plottitle, int symbol, int symbolSize) {
+    addLatestValueText(plottitle);
+
+    m_plots.push_back(shared_ptr<TeleconPlot>(new TeleconScatterPlot(ptr, sampleSize, plotcolor, string(plottitle), symbol, symbolSize)));
+}
+
+void TeleconRealTimeLineChart::addLatestValueText(const char* plottitle) {
+    wxStaticText* latestValueLabel = new wxStaticText(this, wxID_STATIC, wxString(plottitle), wxDefaultPosition, wxDefaultSize, 0);
     m_plotLatestValueFlexGridSizer->Add(latestValueLabel, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
 
-    wxTextCtrl *latestValueText = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, FromDIP(wxSize(60, -1)), wxTE_READONLY | wxSTATIC_BORDER);
+    wxTextCtrl* latestValueText = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, FromDIP(wxSize(60, -1)), wxTE_READONLY | wxSTATIC_BORDER);
     latestValueText->Enable(false);
     m_plotLatestValueFlexGridSizer->Add(latestValueText, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
     m_latestValueTextCtrls.push_back(latestValueText);
-
-    m_plots.push_back(make_shared<TeleconPlot>(ptr, sampleSize, plotcolor, 0 /*to be implemented*/, type, string(plottitle)));
 }

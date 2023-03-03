@@ -17,8 +17,8 @@ shared_ptr<thread> t;
 
 void telecon_start_function(){
     wxApp::SetInstance( new MainApp() );
-    int argCount = 0;
-    char* argv[0];
+    int argCount = 1;
+    char* argv[1] = { (char*)"telecon"};
     if(! wxEntryStart(argCount, argv)) {
         cerr << "wx failed to start\n";
         wxExit();

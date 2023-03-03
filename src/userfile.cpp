@@ -9,9 +9,11 @@
 
 #include <cmath>
 #include <random>
+#include <thread>
 
 #include "TeleconRealTimeLineChart.h"
 #include "wxchartviewer.h"
+#include "start.h"
 
 
 double generateRandomDouble(double min, double max) {
@@ -75,15 +77,18 @@ void Telecon::teleconMain(){
 
 }
 
+
+
 int main(int argc, char *argv[])
 {   
 
-    wxApp::SetInstance( new MainApp() );
-    wxEntryStart( argc, argv );
-    wxTheApp->CallOnInit();
-    wxTheApp->OnRun();
+    
+    teleconStart();
 
-    cout << "Hello " << endl;
+
+
+
+    teleconJoin(); //Must be called prior to exiting main
 
     return 0;
 }

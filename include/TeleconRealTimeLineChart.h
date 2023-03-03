@@ -11,6 +11,7 @@
 #include "teleconplot.h"
 #include "teleconlineplot.h"
 #include "databuffer.h"
+#include "colors.h"
 
 using namespace std;
 
@@ -23,7 +24,8 @@ public:
                                 const wxString title = "",
                                 const wxString ylabel = "",
                                 long style = wxTAB_TRAVERSAL | wxNO_BORDER,
-                                const wxString &name = wxASCII_STR(wxPanelNameStr));
+                                const wxString &name = wxASCII_STR(wxPanelNameStr),
+                                ColorSequenceMode colorSequenceMode = CSM_BLACK);
 
     // ~TeleconChartPanel(){ }
     bool createWindow(const wxString& caption, int width, int height);
@@ -40,9 +42,9 @@ public:
     TeleconRealTimeLineChart(TeleconRealTimeLineChart&&) = delete;
     TeleconRealTimeLineChart& operator=(TeleconRealTimeLineChart&&) = delete;
 
-    void addLinePlot(double (*ptr)(), int plotcolor, const char* plottitle, int lineWidth, LineType lineType);
-    void addScatterPlot(double (*ptr)(), int plotcolor, const char* plottitle, int symbol, int symbolSize);
-    // Will create a new dynamic teleconPlot object and add it to plotList
+    // Will create a new dynamic TeleconPlot object and add it to plotList
+    void addLinePlot(double (*ptr)(), const char * plottitle, long plotcolor = -1, int symbol = Chart::NoSymbol, int symbolSize = 5, LineType lineType = LT_SOLID, int lineWidth = 1);
+    void addScatterPlot(double (*ptr)(), const char * plottitle, long plotcolor = -1, int symbol = Chart::SquareShape, int symbolSize = 5);
 
     typedef double (*FuncPtr)();
 
@@ -62,7 +64,8 @@ private:
     void OnChartUpdateTimer(wxTimerEvent& event);
     void OnViewPortChanged(wxCommandEvent& event); // updates the chart if it needs updating
 
-    // addPlot() helper function
+    // addPlot() helper functions
+    int getNextDefaultColor();
     void addLatestValueText(const char* plottitle);
 
     // Chart and data update functions
@@ -103,6 +106,7 @@ private:
 
     // Chart proper member variables
     DataBuffer<double> m_timeStamps;               // The timestamps for the data series
+    ColorSequenceMode m_colorSequenceMode;
     vector<shared_ptr<TeleconPlot>> m_plots;
 
     // Pointer to the chart viewer - main body of panel

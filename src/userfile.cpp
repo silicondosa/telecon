@@ -52,41 +52,40 @@ void ChartFrame::userAddChart(){
     // addChart(realTimePanel2);
     // addChart(realTimePanel3);
 
-}   
+}
 
 void Telecon::teleconMain(){
 
     TeleconWindow* window = addWindow("MyWindow");
 
     TeleconRealTimeLineChart* realTimeChart = window->addChart("Chart1", "lbs");
-    realTimeChart->addLinePlot(CreateDataPoints, 0xff0000, "Expected Tension", 1, LT_SOLID);
-    realTimeChart->addLinePlot(CreateDataPoints, 0x00ff00, "Force", 5, LT_SOLID);
+    realTimeChart->addLinePlot(CreateDataPoints, "Expected Tension", 0xff0000, LT_SOLID, 1);
+    realTimeChart->addLinePlot(CreateDataPoints, "Force", 0x00ff00, LT_SOLID, 5);
 
     TeleconRealTimeLineChart* realTimeChart2 = window->addChart("Second Chart", "inches");
-    realTimeChart2->addLinePlot(CreateDataPoints, 0x00ff00, "Extension", 1, LT_DASHED);
-
+    realTimeChart2->addLinePlot(CreateDataPoints, "Extension (expected)", -1L, Chart::CircleShape, 5, LT_SOLID, 1);
+    realTimeChart2->addLinePlot(CreateDataPoints, "Extension (actual)", 0x00ff00, LT_DASHED, 1);
 
     TeleconWindow* window2 = addWindow("Second Window");
 
-    TeleconRealTimeLineChart* realTimeChart3 = window2->addChart("Third Chart", "mph");
-    realTimeChart3->addScatterPlot(CreateDataPoints, 0x0000ff, "Speed", Chart::SquareShape, 5);
+    TeleconRealTimeLineChart* realTimeChart3 = window2->addChart("Diverging Chart", "ft", CSM_DIVERGING);
+    realTimeChart3->addLinePlot(CreateDataPoints, "Plot 1");
+    realTimeChart3->addLinePlot(CreateDataPoints, "Plot 2");
+    realTimeChart3->addLinePlot(CreateDataPoints, "Plot 3");
 
+    TeleconRealTimeLineChart* realTimeChart4 = window2->addChart("Scatter Chart", "mph");
+    realTimeChart4->addScatterPlot(CreateDataPoints, "Speed");
+    realTimeChart4->addScatterPlot(CreateDataPoints, "Velocity", 0x00ff00, Chart::DiamondShape, 3);
 
     window->drawWindow();
     window2->drawWindow();
-
 }
 
 
 
 int main(int argc, char *argv[])
-{   
-
-    
+{       
     teleconStart();
-
-
-
 
     teleconJoin(); //Must be called prior to exiting main
 

@@ -1,7 +1,7 @@
 #include "teleconlineplot.h"
 
-TeleconLinePlot::TeleconLinePlot(DoubleFuncPtr dataFuncPtr, int depth, int color, string plotTitle, int lineWidth, LineType lineType)
-    : TeleconPlot(dataFuncPtr, depth, color, plotTitle), m_lineWidth(lineWidth), m_lineType(lineType) {}
+TeleconLinePlot::TeleconLinePlot(DoubleFuncPtr dataFuncPtr, int depth, int color, string plotTitle, int lineWidth, LineType lineType, bool hasSymbol, int symbol, int symbolSize)
+    : TeleconPlot(dataFuncPtr, depth, color, plotTitle), m_lineWidth(lineWidth), m_lineType(lineType), m_hasSymbol(hasSymbol), m_symbol(symbol), m_symbolSize(symbolSize) {}
 
 int TeleconLinePlot::getLineWidth() const {
     return m_lineWidth;
@@ -25,9 +25,15 @@ void TeleconLinePlot::addToChart(XYChart* chart, DoubleArray xData) {
     } else { // Solid or none
         chartDirColor = chart->dashLineColor(m_color, Chart::DashLine);
     } 
-    LineLayer* layer = chart->addLineLayer(DoubleArray(&m_yData[0], m_yData.size()), chartDirColor, m_plotTitle.c_str());
+    LineLayer* layer = chart->addLineLayer();
 
-    layer->setLineWidth(m_lineWidth);
+    DataSet* dataSet = layer->addDataSet(DoubleArray(&m_yData[0], m_yData.size()), chartDirColor, m_plotTitle.c_str());
+
+    dataSet->setLineWidth(m_lineWidth);
+
+    if (m_hasSymbol) {
+        dataSet->setDataSymbol(m_symbol, m_symbolSize);
+    }
 
     // The x-coordinates are the timeStamps.
     layer->setXData(xData);

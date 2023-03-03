@@ -207,8 +207,8 @@ void ChartFrame::addChart(TeleconRealTimeLineChart *chartPanel)
     list_charts.push_back(chartPanel);
 }
 
-TeleconRealTimeLineChart* ChartFrame::addChart(string title, string ylabel){
-    TeleconRealTimeLineChart *realTimePanel = new TeleconRealTimeLineChart(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, title, ylabel);
+TeleconRealTimeLineChart* ChartFrame::addChart(string title, string ylabel, ColorSequenceMode colorSequenceMode){
+    TeleconRealTimeLineChart *realTimePanel = new TeleconRealTimeLineChart(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, title, ylabel, wxTAB_TRAVERSAL | wxNO_BORDER, wxASCII_STR(wxPanelNameStr), colorSequenceMode);
     list_charts.push_back(realTimePanel);
     return realTimePanel;
 }

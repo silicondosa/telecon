@@ -37,8 +37,9 @@ TeleconRealTimeLineChart::TeleconRealTimeLineChart(wxWindow *parent,
                                                    const wxString title,
                                                    const wxString ylabelwxWindow,
                                                    long style,
-                                                   const wxString &name)
-    : TeleconChartPanel(parent, winid, pos, size, style, name), m_timeStamps(sampleSize)
+                                                   const wxString &name,
+                                                   ColorSequenceMode colorSequenceMode)
+    : TeleconChartPanel(parent, winid, pos, size, style, name), m_timeStamps(sampleSize), m_colorSequenceMode(colorSequenceMode)
 {
     m_bgColour = GetBackgroundColour();
 
@@ -392,17 +393,21 @@ TeleconRealTimeLineChart::GetBitmapResource(const wxString &name)
     return wxNullBitmap;
 }
 
-void TeleconRealTimeLineChart::addLinePlot(double (*ptr)(), int plotcolor, const char* plottitle, int lineWidth, LineType lineType)
+void TeleconRealTimeLineChart::addLinePlot(double (*ptr)(), const char * plottitle, long plotcolor, int symbol, int symbolSize, LineType lineType, int lineWidth)
 {
     addLatestValueText(plottitle);
 
-    m_plots.push_back(shared_ptr<TeleconPlot>(new TeleconLinePlot(ptr, sampleSize, plotcolor, string(plottitle), lineWidth, lineType)));
+    int color = plotcolor == -1 ? getNextDefaultColor() : plotcolor;
+
+    m_plots.push_back(shared_ptr<TeleconPlot>(new TeleconLinePlot(ptr, sampleSize, color, string(plottitle), lineWidth, lineType, symbol != Chart::NoSymbol, symbol, symbolSize)));
 }
 
-void TeleconRealTimeLineChart::addScatterPlot(double (*ptr)(), int plotcolor, const char* plottitle, int symbol, int symbolSize) {
+void TeleconRealTimeLineChart::addScatterPlot(double (*ptr)(), const char * plottitle, long plotcolor, int symbol, int symbolSize) {
     addLatestValueText(plottitle);
 
-    m_plots.push_back(shared_ptr<TeleconPlot>(new TeleconScatterPlot(ptr, sampleSize, plotcolor, string(plottitle), symbol, symbolSize)));
+    int color = plotcolor == -1 ? getNextDefaultColor() : plotcolor;
+
+    m_plots.push_back(shared_ptr<TeleconPlot>(new TeleconScatterPlot(ptr, sampleSize, color, string(plottitle), symbol, symbolSize)));
 }
 
 void TeleconRealTimeLineChart::addLatestValueText(const char* plottitle) {
@@ -413,4 +418,18 @@ void TeleconRealTimeLineChart::addLatestValueText(const char* plottitle) {
     latestValueText->Enable(false);
     m_plotLatestValueFlexGridSizer->Add(latestValueText, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
     m_latestValueTextCtrls.push_back(latestValueText);
+}
+
+int TeleconRealTimeLineChart::getNextDefaultColor() {
+    switch (m_colorSequenceMode) {
+    case CSM_BLACK:
+        return 0x000000;
+        break;
+    case CSM_DIVERGING:
+        // Cycle through the colors in CSM_COLORS_DIVERGING, repeating upon reaching the end
+        return CSM_COLORS_DIVERGING[m_plots.size() % CSM_COLORS_DIVERGING.size()];
+        break;
+    }
+    // Should be impossible, cases are exhaustive
+    return 0x000000;
 }

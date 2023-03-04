@@ -33,7 +33,7 @@ typedef class ChartFrame : public wxFrame {
 
         virtual void userAddChart(); //For user to impement 
         void addChart(TeleconRealTimeLineChart*);
-        TeleconRealTimeLineChart* addChart(std::string title, std::string ylabel, ColorSequenceMode colorSequenceMode = CSM_BLACK);
+        TeleconRealTimeLineChart* addChart(std::string title, string xlabel, std::string ylabel, ColorSequenceMode colorSequenceMode = CSM_BLACK);
 
         DECLARE_EVENT_TABLE()
     private:

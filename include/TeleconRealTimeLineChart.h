@@ -22,7 +22,8 @@ public:
                                 const wxPoint &pos = wxDefaultPosition,
                                 const wxSize &size = wxDefaultSize,
                                 const wxString title = "",
-                                const wxString ylabel = "",
+                                const wxString xLabel = "",
+                                const wxString yLabel = "",
                                 long style = wxTAB_TRAVERSAL | wxNO_BORDER,
                                 const wxString &name = wxASCII_STR(wxPanelNameStr),
                                 ColorSequenceMode colorSequenceMode = CSM_BLACK);
@@ -53,7 +54,7 @@ public:
 private:
     // Setup functions 
     void SetUpViewOptionsBox();
-    void SetUpChartBox(const wxString title, const wxString ylabel);
+    void SetUpChartBox(const wxString title, const wxString xlabel, const wxString ylabel);
 
     // wxWidgets event handler functions
     void OnPlayClick(wxCommandEvent& event);
@@ -98,6 +99,7 @@ private:
     vector<wxTextCtrl*> m_latestValueTextCtrls;
     wxColour m_bgColour;
     wxString m_chartTitle;
+    wxString m_xlabel;
     wxString m_ylabel;
 
     // wxWidgets timers

@@ -35,7 +35,8 @@ TeleconRealTimeLineChart::TeleconRealTimeLineChart(wxWindow *parent,
                                                    const wxPoint &pos,
                                                    const wxSize &size,
                                                    const wxString title,
-                                                   const wxString ylabelwxWindow,
+                                                   const wxString xLabel,
+                                                   const wxString yLabel,
                                                    long style,
                                                    const wxString &name,
                                                    ColorSequenceMode colorSequenceMode)
@@ -55,7 +56,7 @@ TeleconRealTimeLineChart::TeleconRealTimeLineChart(wxWindow *parent,
     m_chartBoxSizer = new wxBoxSizer(wxVERTICAL);
     m_topSizer->Add(m_chartBoxSizer, 1, wxGROW | wxALL, FromDIP(3));
 
-    SetUpChartBox(title, ylabelwxWindow);
+    SetUpChartBox(title, xLabel, yLabel);
 }
 
 void TeleconRealTimeLineChart::SetUpViewOptionsBox()
@@ -106,9 +107,10 @@ void TeleconRealTimeLineChart::SetUpViewOptionsBox()
     m_viewOptionsBoxSizer->Add(m_plotLatestValueFlexGridSizer, 0, wxGROW | wxALL, FromDIP(3));
 }
 
-void TeleconRealTimeLineChart::SetUpChartBox(const wxString title, const wxString ylabel)
+void TeleconRealTimeLineChart::SetUpChartBox(const wxString title, const wxString xlabel, const wxString ylabel)
 {
     m_chartTitle = title;
+    m_xlabel = xlabel;
     m_ylabel = ylabel;
 
     m_chartViewer = new wxChartViewer(this, ID_CHARTVIEWER, wxDefaultPosition, FromDIP(wxSize(600, 270)), wxTAB_TRAVERSAL | wxNO_BORDER);
@@ -246,8 +248,10 @@ void TeleconRealTimeLineChart::DrawChart()
     // Set the reference font size of the legend box
     c->getLegend()->setFontSize(8);
 
-    // Configure the y-axis with a 10pts Arial Bold axis title
+    // Configure the x- and y-axes with a 10pts Arial Bold axis title
     c->yAxis()->setTitle(m_ylabel, "Arial Bold", 10);
+
+    c->xAxis()->setTitle(m_xlabel, "Arial Bold", 10);
 
     // Configure the x-axis to auto-scale with at least 75 pixels between major tick and
     // 15  pixels between minor ticks. This shows more minor grid lines on the chart.

@@ -58,22 +58,22 @@ void Telecon::teleconMain(){
 
     TeleconWindow* window = addWindow("MyWindow");
 
-    TeleconRealTimeLineChart* realTimeChart = window->addChart("Chart1", "lbs");
+    TeleconRealTimeLineChart* realTimeChart = window->addChart("Chart1", "time", "lbs");
     realTimeChart->addLinePlot(CreateDataPoints, "Expected Tension", 0xff0000, LT_SOLID, 1);
     realTimeChart->addLinePlot(CreateDataPoints, "Force", 0x00ff00, LT_SOLID, 5);
 
-    TeleconRealTimeLineChart* realTimeChart2 = window->addChart("Second Chart", "inches");
+    TeleconRealTimeLineChart* realTimeChart2 = window->addChart("Second Chart", "time", "inches");
     realTimeChart2->addLinePlot(CreateDataPoints, "Extension (expected)", -1L, Chart::CircleShape, 5, LT_SOLID, 1);
     realTimeChart2->addLinePlot(CreateDataPoints, "Extension (actual)", 0x00ff00, LT_DASHED, 1);
 
     TeleconWindow* window2 = addWindow("Second Window");
 
-    TeleconRealTimeLineChart* realTimeChart3 = window2->addChart("Diverging Chart", "ft", CSM_DIVERGING);
+    TeleconRealTimeLineChart* realTimeChart3 = window2->addChart("Diverging Chart", "time", "ft", CSM_DIVERGING);
     realTimeChart3->addLinePlot(CreateDataPoints, "Plot 1");
     realTimeChart3->addLinePlot(CreateDataPoints, "Plot 2");
     realTimeChart3->addLinePlot(CreateDataPoints, "Plot 3");
 
-    TeleconRealTimeLineChart* realTimeChart4 = window2->addChart("Scatter Chart", "mph");
+    TeleconRealTimeLineChart* realTimeChart4 = window2->addChart("Scatter Chart", "time", "mph");
     realTimeChart4->addScatterPlot(CreateDataPoints, "Speed");
     realTimeChart4->addScatterPlot(CreateDataPoints, "Velocity", 0x00ff00, Chart::DiamondShape, 3);
 

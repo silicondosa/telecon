@@ -15,19 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\base.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\TeleconBarChart.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\TeleconChart.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\TeleconChartPanel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\TeleconLineChart.h">
+    <ClInclude Include="..\..\include\telecon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\TeleconRealTimeLineChart.h">
@@ -45,21 +33,15 @@
     <ClInclude Include="..\..\include\teleconscatterplot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\start.h">
+    <ClInclude Include="..\..\include\colors.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\colors.h">
+    <ClInclude Include="..\..\include\teleconwindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\base.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\TeleconBarChart.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\TeleconChartPanel.cpp">
+    <ClCompile Include="..\..\src\telecon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\TeleconRealTimeLineChart.cpp">
@@ -80,7 +62,7 @@
     <ClCompile Include="..\..\src\teleconscatterplot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\start.cpp">
+    <ClCompile Include="..\..\src\teleconwindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

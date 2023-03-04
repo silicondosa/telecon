@@ -5,7 +5,7 @@
 #include <wx/wx.h>
 #endif
 
-#include "base.h"
+#include "telecon.h"
 
 #include <cmath>
 #include <random>
@@ -13,10 +13,9 @@
 
 #include "TeleconRealTimeLineChart.h"
 #include "wxchartviewer.h"
-#include "start.h"
 
-
-double generateRandomDouble(double min, double max) {
+double generateRandomDouble(double min, double max)
+{
 	std::random_device rd;  // Will be used to obtain a seed for the random number engine
 	std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
 	std::uniform_real_distribution<> dis(min, max);
@@ -32,30 +31,18 @@ CreateDataPoints()
 	return dataA;
 }
 
+int main(int argc, char* argv[])
+{
 
+    Telecon* telecon = Telecon::teleconStart();
 
-void ChartFrame::userAddChart(){
-    // TeleconRealTimeLineChart* realTimePanel = createRealTimePanel(wxDefaultPosition, wxDefaultSize);
-    // realTimePanel->AddChart("My Title", "ylabel");
-    // realTimePanel->AddPlot("Expected Tension", CreateDataPoints, 0xff0000, "Expected Tension");
+    Telecon::teleconJoin(); //Must be called prior to exiting main
 
-    // TeleconRealTimeLineChart* realTimePanel2 = createRealTimePanel(wxDefaultPosition, wxDefaultSize);
-    // realTimePanel2->AddChart("My Title", "ylabel");
-    // realTimePanel2->AddPlot("Expected Tension", CreateDataPoints, 0x00b40a, "Expected Tension");
-    // realTimePanel2->AddPlot("Expected Tension", CreateDataPoints, 0xff00ff, "Expected Tension");
-
-    // TeleconRealTimeLineChart* realTimePanel3 = createRealTimePanel(wxDefaultPosition, wxDefaultSize);
-    // realTimePanel3->AddChart("My Title", "ylabel");
-    // realTimePanel3->AddPlot("Expected Tension", CreateDataPoints, 0x0000ff, "Expected Tension");
-
-    // addChart(realTimePanel);
-    // addChart(realTimePanel2);
-    // addChart(realTimePanel3);
-
+    return 0;
 }
 
-void Telecon::teleconMain(){
-
+void Telecon::teleconMain()
+{
     TeleconWindow* window = addWindow("MyWindow");
 
     TeleconRealTimeLineChart* realTimeChart = window->addChart("Chart1", "time", "lbs");
@@ -79,15 +66,4 @@ void Telecon::teleconMain(){
 
     window->drawWindow();
     window2->drawWindow();
-}
-
-
-
-int main(int argc, char *argv[])
-{       
-    teleconStart();
-
-    teleconJoin(); //Must be called prior to exiting main
-
-    return 0;
 }

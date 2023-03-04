@@ -40,7 +40,7 @@ TeleconRealTimeLineChart::TeleconRealTimeLineChart(wxWindow *parent,
                                                    long style,
                                                    const wxString &name,
                                                    ColorSequenceMode colorSequenceMode)
-    : TeleconChartPanel(parent, winid, pos, size, style, name), m_timeStamps(sampleSize), m_colorSequenceMode(colorSequenceMode)
+    : wxPanel(parent, winid, pos, size, style, name), m_timeStamps(sampleSize), m_colorSequenceMode(colorSequenceMode)
 {
     m_bgColour = GetBackgroundColour();
 

@@ -139,29 +139,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\base.h" />
+    <ClInclude Include="..\..\include\telecon.h" />
     <ClInclude Include="..\..\include\colors.h" />
     <ClInclude Include="..\..\include\databuffer.h" />
-    <ClInclude Include="..\..\include\start.h" />
-    <ClInclude Include="..\..\include\TeleconBarChart.h" />
-    <ClInclude Include="..\..\include\TeleconChart.h" />
-    <ClInclude Include="..\..\include\TeleconChartPanel.h" />
-    <ClInclude Include="..\..\include\TeleconLineChart.h" />
     <ClInclude Include="..\..\include\teleconlineplot.h" />
     <ClInclude Include="..\..\include\teleconplot.h" />
     <ClInclude Include="..\..\include\TeleconRealTimeLineChart.h" />
     <ClInclude Include="..\..\include\teleconscatterplot.h" />
+    <ClInclude Include="..\..\include\teleconwindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\lib\wxchartdir\wxdemo\common\wxchartviewer.cpp" />
-    <ClCompile Include="..\..\src\base.cpp" />
-    <ClCompile Include="..\..\src\start.cpp" />
-    <ClCompile Include="..\..\src\TeleconBarChart.cpp" />
-    <ClCompile Include="..\..\src\TeleconChartPanel.cpp" />
+    <ClCompile Include="..\..\src\telecon.cpp" />
     <ClCompile Include="..\..\src\teleconlineplot.cpp" />
     <ClCompile Include="..\..\src\teleconplot.cpp" />
     <ClCompile Include="..\..\src\TeleconRealTimeLineChart.cpp" />
     <ClCompile Include="..\..\src\teleconscatterplot.cpp" />
+    <ClCompile Include="..\..\src\teleconwindow.cpp" />
     <ClCompile Include="..\..\src\userfile.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

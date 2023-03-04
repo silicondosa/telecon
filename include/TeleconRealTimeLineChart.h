@@ -1,21 +1,24 @@
 #pragma once
 
 #include <wx/wxprec.h>
-#include <wx/panel.h>
+
+#ifndef WX_PRECOMP
+#include <wx/wx.h>
+#endif
+
 #include <wx/tglbtn.h>
+
 #include <memory>
 
 #include "chartdir.h"
-#include "TeleconChartPanel.h"
 #include "wxchartviewer.h"
 #include "teleconplot.h"
 #include "teleconlineplot.h"
-#include "databuffer.h"
 #include "colors.h"
 
 using namespace std;
 
-class TeleconRealTimeLineChart : public TeleconChartPanel {
+class TeleconRealTimeLineChart : public wxPanel {
 public:
     TeleconRealTimeLineChart(wxWindow *parent,
                                 wxWindowID winid = wxID_ANY,

@@ -29,7 +29,9 @@ public:
                                 const wxString yLabel = "",
                                 long style = wxTAB_TRAVERSAL | wxNO_BORDER,
                                 const wxString &name = wxASCII_STR(wxPanelNameStr),
-                                ColorSequenceMode colorSequenceMode = CSM_BLACK);
+                                ColorSequenceMode colorSequenceMode = CSM_BLACK,
+                                int dataInterval = 100,
+                                int memoryDepth = 1000);
 
     /// Destructor
     ~TeleconRealTimeLineChart();
@@ -105,6 +107,8 @@ private:
     // Chart proper member variables
     ColorSequenceMode m_colorSequenceMode;
     vector<shared_ptr<TeleconPlot>> m_plots;
+    int m_dataInterval;
+    int m_memoryDepth;
 
     // Pointer to the chart viewer - main body of panel
     wxChartViewer* m_chartViewer;

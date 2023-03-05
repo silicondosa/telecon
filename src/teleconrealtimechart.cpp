@@ -19,10 +19,7 @@
 
 using namespace std;
 
-static const int chartUpdateIntervals[8] = {250, 500, 750, 1000, 1250, 1500, 1750, 2000};
-
-static const int dataInterval = 250;
-static const int sampleSize = 240;
+static const int chartUpdateIntervals[8] = {50, 500, 750, 1000, 1250, 1500, 1750, 2000};
 
 TeleconRealTimeLineChart::~TeleconRealTimeLineChart()
 {
@@ -38,8 +35,10 @@ TeleconRealTimeLineChart::TeleconRealTimeLineChart(wxWindow *parent,
                                                    const wxString yLabel,
                                                    long style,
                                                    const wxString &name,
-                                                   ColorSequenceMode colorSequenceMode)
-    : wxPanel(parent, winid, pos, size, style, name), m_colorSequenceMode(colorSequenceMode)
+                                                   ColorSequenceMode colorSequenceMode,
+                                                   int dataInterval,
+                                                   int memoryDepth)
+    : wxPanel(parent, winid, pos, size, style, name), m_colorSequenceMode(colorSequenceMode), m_dataInterval(dataInterval), m_memoryDepth(memoryDepth)
 {
     m_bgColour = GetBackgroundColour();
 
@@ -181,6 +180,7 @@ void TeleconRealTimeLineChart::OnSave(wxCommandEvent &event)
 // Event handler
 void TeleconRealTimeLineChart::OnChartUpdateTimer(wxTimerEvent &event)
 {
+    printf("Started updating chart %X\n", this);
     // Will result in a call to OnViewPortChanged, which may redraw the chart if needed
     m_chartViewer->updateViewPort(true, false);
 }
@@ -241,14 +241,17 @@ void TeleconRealTimeLineChart::DrawChart()
     }
     if (hasData) {
         // Set up the x-axis to show the time range in the data buffer
-        c->xAxis()->setDateScale(firstTime, firstTime + dataInterval * sampleSize / 1000);
+        c->xAxis()->setDateScale(firstTime, firstTime + m_dataInterval * m_memoryDepth / 1000);
 
         // Set the x-axis label format
         c->xAxis()->setLabelFormat("{value|hh:nn:ss}");
 
         // The data series are used to draw lines.
+        int i = 0;
         for (const auto& plot : m_plots) {
             plot->addToChart(c);
+            m_latestValueTextCtrls[i]->SetValue(wxString::Format("%.2f", plot->getLastestValue()));
+            i++;
         }
     }
 
@@ -263,6 +266,7 @@ void TeleconRealTimeLineChart::DrawChart()
     }
     // Set the chart image to the WinChartViewer
     m_chartViewer->setChart(c);
+    printf("Finished updating chart %X to use chartview %X\n", this, c);
 }
 
 // Draw track cursor when mouse is moving over plotarea
@@ -377,7 +381,7 @@ void TeleconRealTimeLineChart::addLinePlot(double (*ptr)(), const char * plottit
 
     int color = plotcolor == -1 ? getNextDefaultColor() : plotcolor;
 
-    m_plots.push_back(shared_ptr<TeleconPlot>(new TeleconLinePlot(ptr, sampleSize, color, string(plottitle), lineWidth, lineType, symbol != Chart::NoSymbol, symbol, symbolSize)));
+    m_plots.push_back(shared_ptr<TeleconPlot>(new TeleconLinePlot(ptr, m_memoryDepth, color, string(plottitle), lineWidth, lineType, symbol != Chart::NoSymbol, symbol, symbolSize)));
 }
 
 void TeleconRealTimeLineChart::addScatterPlot(double (*ptr)(), const char * plottitle, long plotcolor, int symbol, int symbolSize) {
@@ -385,7 +389,7 @@ void TeleconRealTimeLineChart::addScatterPlot(double (*ptr)(), const char * plot
 
     int color = plotcolor == -1 ? getNextDefaultColor() : plotcolor;
 
-    m_plots.push_back(shared_ptr<TeleconPlot>(new TeleconScatterPlot(ptr, sampleSize, color, string(plottitle), symbol, symbolSize)));
+    m_plots.push_back(shared_ptr<TeleconPlot>(new TeleconScatterPlot(ptr, m_memoryDepth, color, string(plottitle), symbol, symbolSize)));
 }
 
 void TeleconRealTimeLineChart::addLatestValueText(const char* plottitle) {

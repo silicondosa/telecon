@@ -28,6 +28,7 @@ public:
 	virtual void addToChart(XYChart* chart) = 0;
     void pushData(double xTimestamp, double yData);
     double getEarliestTimestamp() const;
+    double getLastestValue() const;
 	// Returns the current size of the data buffer
 	int size() const;
 	// Returns the capacity (maximum size) of the data buffer

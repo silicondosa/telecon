@@ -14,9 +14,9 @@ TeleconWindow::TeleconWindow(const wxString& title)
     SetSizerAndFit(itemBoxSizer);
 }
 
-TeleconRealTimeLineChart* TeleconWindow::addChart(string title, string xlabel, string ylabel, ColorSequenceMode colorSequenceMode)
+TeleconRealTimeLineChart* TeleconWindow::addChart(string title, string xlabel, string ylabel, ColorSequenceMode colorSequenceMode, int dataInterval, int memoryDepth)
 {
-    TeleconRealTimeLineChart* realTimePanel = new TeleconRealTimeLineChart(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, title, xlabel, ylabel, wxTAB_TRAVERSAL | wxNO_BORDER, wxASCII_STR(wxPanelNameStr), colorSequenceMode);
+    TeleconRealTimeLineChart* realTimePanel = new TeleconRealTimeLineChart(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, title, xlabel, ylabel, wxTAB_TRAVERSAL | wxNO_BORDER, wxASCII_STR(wxPanelNameStr), colorSequenceMode, dataInterval, memoryDepth);
     list_charts.push_back(realTimePanel);
     return realTimePanel;
 }

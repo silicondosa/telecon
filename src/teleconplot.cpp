@@ -21,6 +21,11 @@ double TeleconPlot::getEarliestTimestamp() const
     return m_xTimestamps[0];
 }
 
+double TeleconPlot::getLastestValue() const
+{
+    return m_yData.latest();
+}
+
 int TeleconPlot::size() const {
 	return m_xTimestamps.size();
 }

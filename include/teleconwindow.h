@@ -17,7 +17,7 @@ class TeleconWindow : public wxFrame
 public:
     TeleconWindow(const wxString& title);
 
-    TeleconRealTimeLineChart* addChart(std::string title, string xlabel, std::string ylabel, ColorSequenceMode colorSequenceMode = CSM_BLACK);
+    TeleconRealTimeLineChart* addChart(string title, string xlabel, string ylabel, ColorSequenceMode colorSequenceMode = CSM_BLACK, int dataInterval = 100, int memoryDepth = 1000);
     void drawWindow();
 
     // Iterator functions

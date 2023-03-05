@@ -12,7 +12,7 @@
 #include <vector>
 #include <sstream>
 
-#include "TeleconRealTimeLineChart.h"
+#include "teleconrealtimechart.h"
 #include "wxchartviewer.h"
 
 #include "teleconscatterplot.h"
@@ -26,7 +26,6 @@ static const int sampleSize = 240;
 
 TeleconRealTimeLineChart::~TeleconRealTimeLineChart()
 {
-    m_dataRateTimer->Stop();
     m_chartUpdateTimer->Stop();
 }
 
@@ -40,7 +39,7 @@ TeleconRealTimeLineChart::TeleconRealTimeLineChart(wxWindow *parent,
                                                    long style,
                                                    const wxString &name,
                                                    ColorSequenceMode colorSequenceMode)
-    : wxPanel(parent, winid, pos, size, style, name), m_timeStamps(sampleSize), m_colorSequenceMode(colorSequenceMode)
+    : wxPanel(parent, winid, pos, size, style, name), m_colorSequenceMode(colorSequenceMode)
 {
     m_bgColour = GetBackgroundColour();
 
@@ -116,10 +115,6 @@ void TeleconRealTimeLineChart::SetUpChartBox(const wxString title, const wxStrin
     m_chartViewer = new wxChartViewer(this, ID_CHARTVIEWER, wxDefaultPosition, FromDIP(wxSize(600, 270)), wxTAB_TRAVERSAL | wxNO_BORDER);
     m_chartBoxSizer->Add(m_chartViewer, 1, wxGROW | wxALL, FromDIP(3));
 
-    // Set up the data acquisition mechanism. We just use a timer to get a sample every dataInterval ms.
-    m_dataRateTimer = new wxTimer(this, ID_DATA_TIMER);
-    m_dataRateTimer->Start(dataInterval);
-
     // Set up the chart update timer
     m_chartUpdateTimer = new wxTimer(this, ID_UPDATE_TIMER);
     m_chartUpdateTimer->Start(chartUpdateIntervals[0]);
@@ -132,7 +127,6 @@ EVT_TOGGLEBUTTON(ID_PAUSE, TeleconRealTimeLineChart::OnPauseClick)
 EVT_CHOICE(ID_UPDATE_PERIOD, TeleconRealTimeLineChart::OnChartUpdatePeriodSelected)
 EVT_BUTTON(wxID_SAVE, TeleconRealTimeLineChart::OnSave)
 
-EVT_TIMER(ID_DATA_TIMER, TeleconRealTimeLineChart::OnDataTimer)
 EVT_TIMER(ID_UPDATE_TIMER, TeleconRealTimeLineChart::OnChartUpdateTimer)
 EVT_CHARTVIEWER_VIEWPORT_CHANGED(ID_CHARTVIEWER, TeleconRealTimeLineChart::OnViewPortChanged)
 EVT_CHARTVIEWER_MOUSEMOVE_PLOTAREA(ID_CHARTVIEWER, TeleconRealTimeLineChart::OnMouseMovePlotArea)
@@ -192,12 +186,6 @@ void TeleconRealTimeLineChart::OnChartUpdateTimer(wxTimerEvent &event)
 }
 
 // Event handler
-void TeleconRealTimeLineChart::OnDataTimer(wxTimerEvent &event)
-{
-    GetData();
-}
-
-// Event handler
 // This event occurs if the user scrolls or zooms in or out the chart by dragging or clicking on the chart.
 // It can also be triggered by calling WinChartViewer.updateViewPort.
 void TeleconRealTimeLineChart::OnViewPortChanged(wxCommandEvent &event)
@@ -205,26 +193,6 @@ void TeleconRealTimeLineChart::OnViewPortChanged(wxCommandEvent &event)
     if (m_chartViewer->needUpdateChart())
     {
         DrawChart();
-    }
-}
-
-// Shift new data values into the real time data series
-void TeleconRealTimeLineChart::GetData()
-{
-    // For now, we are assuming that all data function pointers run in effectively negligible time
-    // TODO: Rewrite this code to make it fetch data asynchronously
-    wxDateTime now = wxDateTime::UNow(); // Needs to UNow instead of Now fo millisecond precision
-
-    // Convert from wxDateTime to seconds since Unix epoch, then to ChartDirector double timestamp.
-    // Since that loses millisecond precision, add it back in with GetMillisecond()
-    double millis = now.GetMillisecond();
-    double nowTimeStamp = Chart::chartTime2(now.GetTicks()) + now.GetMillisecond() / 1000.0;
-    m_timeStamps.insertNewValue(nowTimeStamp);
-
-    for (int i = 0; i < m_plots.size(); i++)
-    {
-        double newValue = m_plots[i]->fetchData();
-        m_latestValueTextCtrls[i]->SetValue(wxString::Format("%.2f", newValue));
     }
 }
 
@@ -262,9 +230,16 @@ void TeleconRealTimeLineChart::DrawChart()
     c->yAxis()->setWidth(2);
 
     // Now we add the data to the chart.
-    if (m_timeStamps.size() > 0)
-    {
-        double firstTime = m_timeStamps[0];
+    bool hasData = false;
+    double firstTime;
+    for (const auto& plot : m_plots) {
+        plot->prepDataForDraw();
+        if (plot->size() > 0 && (!hasData || plot->getEarliestTimestamp() < firstTime)) {
+            firstTime = plot->getEarliestTimestamp();
+            hasData = true;
+        }
+    }
+    if (hasData) {
         // Set up the x-axis to show the time range in the data buffer
         c->xAxis()->setDateScale(firstTime, firstTime + dataInterval * sampleSize / 1000);
 
@@ -272,9 +247,8 @@ void TeleconRealTimeLineChart::DrawChart()
         c->xAxis()->setLabelFormat("{value|hh:nn:ss}");
 
         // The data series are used to draw lines.
-        for (const auto& plot : m_plots)
-        {
-            plot->addToChart(c, DoubleArray(&m_timeStamps[0], m_timeStamps.size()));
+        for (const auto& plot : m_plots) {
+            plot->addToChart(c);
         }
     }
 
@@ -436,4 +410,14 @@ int TeleconRealTimeLineChart::getNextDefaultColor() {
     }
     // Should be impossible, cases are exhaustive
     return 0x000000;
+}
+
+vector<shared_ptr<TeleconPlot>>::iterator TeleconRealTimeLineChart::begin()
+{
+    return m_plots.begin();
+}
+
+vector<shared_ptr<TeleconPlot>>::iterator TeleconRealTimeLineChart::end()
+{
+    return m_plots.end();
 }

@@ -4,9 +4,10 @@ using namespace std;
 
 shared_ptr<thread> Telecon::t = nullptr;
 
-void Telecon::teleconAppInit(Telecon* mainAppInstance)
+void Telecon::teleconAppInit(promise<Telecon*> mainAppInstancePromise)
 {
-    wxApp::SetInstance(mainAppInstance);
+    Telecon* telecon = new Telecon();
+    wxApp::SetInstance(telecon);
     int argCount = 0;
     char** argv = nullptr;
     if (!wxEntryStart(argCount, argv)) {
@@ -14,16 +15,19 @@ void Telecon::teleconAppInit(Telecon* mainAppInstance)
         wxExit();
     }
     wxTheApp->CallOnInit();
+    // Telecon has been initialized and we are ready to keep our promise
+    mainAppInstancePromise.set_value(telecon);
     wxTheApp->OnRun();
     wxTheApp->OnExit();
     wxEntryCleanup();
 }
 
-Telecon* Telecon::teleconStart()
+future<Telecon*> Telecon::teleconStart()
 {
-    Telecon* telecon = new Telecon();
-    t = make_shared<thread>(teleconAppInit, telecon);
-    return telecon;
+    promise<Telecon*> teleconPromise;
+    future<Telecon*> teleconFuture = teleconPromise.get_future();
+    t = make_shared<thread>(teleconAppInit, move(teleconPromise));
+    return teleconFuture;
 }
 
 void Telecon::teleconJoin()
@@ -36,8 +40,13 @@ TeleconWindow* Telecon::addWindow(string name)
     TeleconWindow* window = new TeleconWindow(name);
     frameList.push_back(window);
     return window;
-
 }
+
+TeleconWindow* Telecon::getWindow(int index)
+{
+    return frameList[index];
+}
+
 bool Telecon::OnInit()
 {
     teleconMain();
@@ -47,6 +56,16 @@ bool Telecon::OnInit()
     }
 
     return true;
+}
+
+vector<TeleconWindow*>::iterator Telecon::begin()
+{
+    return frameList.begin();
+}
+
+vector<TeleconWindow*>::iterator Telecon::end()
+{
+    return frameList.end();
 }
 
 BEGIN_EVENT_TABLE(TeleconWindow, wxFrame)

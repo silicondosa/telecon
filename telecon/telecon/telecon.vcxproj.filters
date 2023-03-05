@@ -18,7 +18,7 @@
     <ClInclude Include="..\..\include\telecon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\TeleconRealTimeLineChart.h">
+    <ClInclude Include="..\..\include\teleconrealtimechart.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\databuffer.h">
@@ -44,7 +44,7 @@
     <ClCompile Include="..\..\src\telecon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\TeleconRealTimeLineChart.cpp">
+    <ClCompile Include="..\..\src\teleconrealtimechart.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\lib\wxchartdir\wxdemo\common\wxchartviewer.cpp">

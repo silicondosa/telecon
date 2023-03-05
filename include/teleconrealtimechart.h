@@ -31,14 +31,8 @@ public:
                                 const wxString &name = wxASCII_STR(wxPanelNameStr),
                                 ColorSequenceMode colorSequenceMode = CSM_BLACK);
 
-    // ~TeleconChartPanel(){ }
-    bool createWindow(const wxString& caption, int width, int height);
-        // Will create a new dynamic teleconWindow object and add it to windowList
-
     /// Destructor
     ~TeleconRealTimeLineChart();
-        // Delete each teleconPlot object, teleconChart object and each teleconWindow object
-
     // Copy & move constructors and assignment operators are unneeded, and are deleted to comply with Rule of Five
     // See: https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)
     TeleconRealTimeLineChart(TeleconRealTimeLineChart&) = delete;
@@ -50,7 +44,9 @@ public:
     void addLinePlot(double (*ptr)(), const char * plottitle, long plotcolor = -1, int symbol = Chart::NoSymbol, int symbolSize = 5, LineType lineType = LT_SOLID, int lineWidth = 1);
     void addScatterPlot(double (*ptr)(), const char * plottitle, long plotcolor = -1, int symbol = Chart::SquareShape, int symbolSize = 5);
 
-    typedef double (*FuncPtr)();
+    // Iterator functions
+    vector<shared_ptr<TeleconPlot>>::iterator begin();
+    vector<shared_ptr<TeleconPlot>>::iterator end();
 
     DECLARE_EVENT_TABLE()
 
@@ -64,7 +60,6 @@ private:
     void OnPauseClick(wxCommandEvent& event);
     void OnChartUpdatePeriodSelected(wxCommandEvent& event);
     void OnSave(wxCommandEvent& event);
-    void OnDataTimer(wxTimerEvent& event);
     void OnChartUpdateTimer(wxTimerEvent& event);
     void OnViewPortChanged(wxCommandEvent& event); // updates the chart if it needs updating
 
@@ -73,7 +68,6 @@ private:
     void addLatestValueText(const char* plottitle);
 
     // Chart and data update functions
-    void GetData();
     void DrawChart();
     
     // Calls TrackLineLegend if necessary
@@ -106,11 +100,9 @@ private:
     wxString m_ylabel;
 
     // wxWidgets timers
-    wxTimer* m_dataRateTimer;
     wxTimer* m_chartUpdateTimer;
 
     // Chart proper member variables
-    DataBuffer<double> m_timeStamps;               // The timestamps for the data series
     ColorSequenceMode m_colorSequenceMode;
     vector<shared_ptr<TeleconPlot>> m_plots;
 

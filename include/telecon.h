@@ -6,32 +6,41 @@
 #include <wx/wx.h>
 #endif
 
-#include "chartdir.h"
-#include "TeleconRealTimeLineChart.h"
-#include "teleconwindow.h"
-
 #include <vector>
 #include <memory>
 #include <thread>
+#include <future>
+
+#include "chartdir.h"
+#include "teleconrealtimechart.h"
+#include "teleconwindow.h"
+
+using namespace std;
 
 class Telecon : public wxApp
 {
 private:
     static shared_ptr<thread> t;
 
-    std::vector<wxFrame*> frameList;
+    vector<TeleconWindow*> frameList;
 
-    static void teleconAppInit(Telecon* mainAppInstance);
+    static void teleconAppInit(promise<Telecon*> mainAppInstancePromise);
 
     // Private constructor because Telecon should only be created via teleconStart()
     Telecon() = default;
 
 public:
-    static Telecon* teleconStart();
+    static future<Telecon*> teleconStart();
     static void teleconJoin();
 
     TeleconWindow* addWindow(std::string name);
     bool OnInit() override;
+
+    TeleconWindow* getWindow(int index);
+
+    // Iterator functions
+    vector<TeleconWindow*>::iterator begin();
+    vector<TeleconWindow*>::iterator end();
 
     virtual void teleconMain();
 };

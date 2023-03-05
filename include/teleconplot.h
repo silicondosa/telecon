@@ -1,6 +1,8 @@
 #pragma once
 
 #include <string>
+#include <mutex>
+#include <list>
 
 #include "chartdir.h"
 #include "databuffer.h"
@@ -11,16 +13,21 @@ typedef double (*DoubleFuncPtr)();
 class TeleconPlot {
 protected:
 	DoubleFuncPtr m_dataFuncPtr; // Function pointer to fetch one datum from the controller
-	DataBuffer<double> m_yData;
+    list<pair<double, double>>* m_dataToAdd;
+    mutex m_dataToAddLock;
+    const int m_depth;
+    DataBuffer<double> m_xTimestamps;
+    DataBuffer<double> m_yData;
 	int m_color; // Represented as an RGB hexadecimal code (one byte per channel)
 	string m_plotTitle;
 public:
 	TeleconPlot(DoubleFuncPtr dataFuncPtr, int depth, int color, string plotTitle);
-	virtual double fetchData() = 0; // Fetches one datum from the controller
-	virtual void addToChart(XYChart* chart, DoubleArray xData) = 0;
-	// Returns a reference to the oldest datum in the series, if one exists. Other elements are guaranteed to be stored
-	// contiguously in order after the oldest element.
-	const double& operator[](int index) const; // Pass by reference doesn't matter here, just doing it for consistency with DataBuffer
+	// Fetches all of the data out of m_dataToAdd and updates the timestamps/data buffers
+    virtual void prepDataForDraw() = 0;
+    // Adds a layer representing the plot to the given chart
+	virtual void addToChart(XYChart* chart) = 0;
+    void pushData(double xTimestamp, double yData);
+    double getEarliestTimestamp() const;
 	// Returns the current size of the data buffer
 	int size() const;
 	// Returns the capacity (maximum size) of the data buffer

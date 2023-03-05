@@ -11,7 +11,7 @@
 #include <random>
 #include <thread>
 
-#include "TeleconRealTimeLineChart.h"
+#include "teleconrealtimechart.h"
 #include "wxchartviewer.h"
 
 double generateRandomDouble(double min, double max)
@@ -33,8 +33,32 @@ CreateDataPoints()
 
 int main(int argc, char* argv[])
 {
+    future<Telecon*> teleconFuture = Telecon::teleconStart();
 
-    Telecon* telecon = Telecon::teleconStart();
+    teleconFuture.wait();
+
+    Telecon* telecon = teleconFuture.get();
+
+    // Controller code starts here
+
+    while (true) {
+        for (auto& teleconWindow : *telecon) {
+            for (auto& teleconChart : *teleconWindow) {
+                for (auto& teleconPlot : *teleconChart) {
+                    wxDateTime now = wxDateTime::UNow(); // Needs to UNow instead of Now for millisecond precision
+
+                    // Convert from wxDateTime to seconds since Unix epoch, then to ChartDirector double timestamp.
+                    // Since that loses millisecond precision, add it back in with GetMillisecond()
+                    double millis = now.GetMillisecond();
+                    double nowTimeStamp = Chart::chartTime2(now.GetTicks()) + now.GetMillisecond() / 1000.0;
+                    teleconPlot->pushData(nowTimeStamp, CreateDataPoints());
+                }
+            }
+        }
+        this_thread::sleep_for(chrono::milliseconds(10));
+    }
+
+    // Controller code ends here
 
     Telecon::teleconJoin(); //Must be called prior to exiting main
 

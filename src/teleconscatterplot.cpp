@@ -3,6 +3,25 @@
 TeleconScatterPlot::TeleconScatterPlot(DoubleFuncPtr dataFuncPtr, int depth, int color, string plotTitle, int symbol, int symbolSize)
     : TeleconPlot(dataFuncPtr, depth, color, plotTitle), m_symbol(symbol), m_symbolSize(symbolSize) {}
 
+list<pair<double, double>>* TeleconScatterPlot::swapAndGetDataToAdd()
+{
+    list<pair<double, double>>* newDataToAdd = new list<pair<double, double>>();
+    list<pair<double, double>>* oldDataToAdd = m_dataToAdd;
+
+    const lock_guard<mutex> lock(m_dataToAddLock);
+    m_dataToAdd = newDataToAdd;
+    return oldDataToAdd;
+}
+
+void TeleconScatterPlot::prepDataForDraw() {
+    list<pair<double, double>>* dataToAdd = swapAndGetDataToAdd();
+
+    for (const auto& xyPair : *dataToAdd) {
+        m_xTimestamps.insertNewValue(xyPair.first);
+        m_yData.insertNewValue(xyPair.second);
+    }
+}
+
 int TeleconScatterPlot::getSymbol() const {
 	return m_symbol;
 }
@@ -11,12 +30,7 @@ int TeleconScatterPlot::getSymbolSize() const{
     return m_symbolSize;
 }
 
-double TeleconScatterPlot::fetchData() {
-    double newValue = m_dataFuncPtr();
-    m_yData.insertNewValue(newValue);
-    return newValue;
-}
-
-void TeleconScatterPlot::addToChart(XYChart* chart, DoubleArray xData) {
-    LineLayer* layer = chart->addScatterLayer(xData, DoubleArray(&m_yData[0], m_yData.size()), m_plotTitle.c_str(), m_symbol, m_symbolSize, m_color, m_color);
+void TeleconScatterPlot::addToChart(XYChart* chart) {
+    size_t size = m_xTimestamps.size();
+    LineLayer* layer = chart->addScatterLayer(DoubleArray(&m_xTimestamps[0], m_xTimestamps.size()), DoubleArray(&m_yData[0], m_yData.size()), m_plotTitle.c_str(), m_symbol, m_symbolSize, m_color, m_color);
 }

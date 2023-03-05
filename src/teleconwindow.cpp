@@ -30,3 +30,13 @@ void TeleconWindow::drawWindow()
     }
     SetSizerAndFit(itemBoxSizer);
 }
+
+vector<TeleconRealTimeLineChart*>::iterator TeleconWindow::begin()
+{
+    return list_charts.begin();
+}
+
+vector<TeleconRealTimeLineChart*>::iterator TeleconWindow::end()
+{
+    return list_charts.end();
+}

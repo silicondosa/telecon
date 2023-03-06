@@ -1,20 +1,21 @@
 #pragma once
 
 #include <array>
+#include "enums.h"
 
 using namespace std;
 
 static const array<int, 10> CSM_COLORS_DIVERGING {
-    0xa50026,
-    0xd73027,
-    0xf46d43,
-    0xfdae61,
-    0xfee090,
-    0xe0f3f8,
-    0xabd9e9,
-    0x74add1,
-    0x4575b4,
-    0x313695
+    COLOR_DIVERGING_CRIMSON,
+    COLOR_DIVERGING_SIENNA,
+    COLOR_DIVERGING_ORANGE,
+    COLOR_DIVERGING_TAN,
+    COLOR_DIVERGING_KHAKI,
+    COLOR_DIVERGING_ALICE_BLUE,
+    COLOR_DIVERGING_LIGHT_BLUE,
+    COLOR_DIVERGING_CORNFLOWER_BLUE,
+    COLOR_DIVERGING_STEEL_BLUE,
+    COLOR_DIVERGING_ROYAL_BLUE
 };
 
 enum ColorSequenceMode

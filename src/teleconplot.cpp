@@ -1,7 +1,7 @@
 #include "teleconplot.h"
 
-TeleconPlot::TeleconPlot(DoubleFuncPtr dataFuncPtr, int depth, int color, string plotTitle)
-	: m_dataFuncPtr(dataFuncPtr), m_dataToAdd(new list<pair<double, double>>()), m_depth(depth), m_xTimestamps(depth), m_yData(depth), m_color(color), m_plotTitle(plotTitle) {}
+TeleconPlot::TeleconPlot(int depth, int color, string plotTitle)
+	: m_dataToAdd(new list<pair<double, double>>()), m_depth(depth), m_xTimestamps(depth), m_yData(depth), m_color(color), m_plotTitle(plotTitle) {}
 
 void TeleconPlot::pushData(double xTimestamp, double yData)
 {

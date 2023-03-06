@@ -1,7 +1,7 @@
 #include "teleconlineplot.h"
 
-TeleconLinePlot::TeleconLinePlot(DoubleFuncPtr dataFuncPtr, int depth, int color, string plotTitle, int lineWidth, LineType lineType, bool hasSymbol, int symbol, int symbolSize)
-    : TeleconPlot(dataFuncPtr, depth, color, plotTitle), m_lineWidth(lineWidth), m_lineType(lineType), m_hasSymbol(hasSymbol), m_symbol(symbol), m_symbolSize(symbolSize) {}
+TeleconLinePlot::TeleconLinePlot(int depth, int color, string plotTitle, int lineWidth, LineType lineType, bool hasSymbol, int symbol, bool fillSymbol, int symbolSize)
+    : TeleconPlot(depth, color, plotTitle), m_lineWidth(lineWidth), m_lineType(lineType), m_hasSymbol(hasSymbol), m_symbol(symbol), m_fillSymbol(fillSymbol), m_symbolSize(symbolSize) {}
 
 list<pair<double, double>>* TeleconLinePlot::swapAndGetDataToAdd()
 {
@@ -18,6 +18,7 @@ void TeleconLinePlot::prepDataForDraw()
 {
     list<pair<double, double>>* dataToAdd = swapAndGetDataToAdd();
 
+    printf("Prepping data on thread %d\n", this_thread::get_id());
     for (const auto& xyPair : *dataToAdd) {
         m_xTimestamps.insertNewValue(xyPair.first);
         m_yData.insertNewValue(xyPair.second);

@@ -19,7 +19,7 @@
 
 using namespace std;
 
-static const int chartUpdateIntervals[8] = {50, 500, 750, 1000, 1250, 1500, 1750, 2000};
+static const int chartUpdateIntervals[8] = {250, 500, 750, 1000, 1250, 1500, 1750, 2000};
 
 TeleconRealTimeLineChart::~TeleconRealTimeLineChart()
 {
@@ -180,7 +180,7 @@ void TeleconRealTimeLineChart::OnSave(wxCommandEvent &event)
 // Event handler
 void TeleconRealTimeLineChart::OnChartUpdateTimer(wxTimerEvent &event)
 {
-    printf("Started updating chart %X\n", this);
+    printf("Running on thread %d\n", this_thread::get_id());
     // Will result in a call to OnViewPortChanged, which may redraw the chart if needed
     m_chartViewer->updateViewPort(true, false);
 }
@@ -266,7 +266,6 @@ void TeleconRealTimeLineChart::DrawChart()
     }
     // Set the chart image to the WinChartViewer
     m_chartViewer->setChart(c);
-    printf("Finished updating chart %X to use chartview %X\n", this, c);
 }
 
 // Draw track cursor when mouse is moving over plotarea
@@ -375,21 +374,21 @@ TeleconRealTimeLineChart::GetBitmapResource(const wxString &name)
     return wxNullBitmap;
 }
 
-void TeleconRealTimeLineChart::addLinePlot(double (*ptr)(), const char * plottitle, long plotcolor, int symbol, int symbolSize, LineType lineType, int lineWidth)
+void TeleconRealTimeLineChart::addLinePlot(const char * plottitle, long plotcolor, int symbol, bool fillSymbol, int symbolSize, LineType lineType, int lineWidth)
 {
     addLatestValueText(plottitle);
 
-    int color = plotcolor == -1 ? getNextDefaultColor() : plotcolor;
+    int color = plotcolor == COLOR_DEFAULT ? getNextDefaultColor() : plotcolor;
 
-    m_plots.push_back(shared_ptr<TeleconPlot>(new TeleconLinePlot(ptr, m_memoryDepth, color, string(plottitle), lineWidth, lineType, symbol != Chart::NoSymbol, symbol, symbolSize)));
+    m_plots.push_back(shared_ptr<TeleconPlot>(new TeleconLinePlot(m_memoryDepth, color, string(plottitle), lineWidth, lineType, symbol != Chart::NoSymbol, symbol, fillSymbol, symbolSize)));
 }
 
-void TeleconRealTimeLineChart::addScatterPlot(double (*ptr)(), const char * plottitle, long plotcolor, int symbol, int symbolSize) {
+void TeleconRealTimeLineChart::addScatterPlot(const char * plottitle, long plotcolor, int symbol, bool fillSymbol, int symbolSize) {
     addLatestValueText(plottitle);
 
-    int color = plotcolor == -1 ? getNextDefaultColor() : plotcolor;
+    int color = plotcolor == COLOR_DEFAULT ? getNextDefaultColor() : plotcolor;
 
-    m_plots.push_back(shared_ptr<TeleconPlot>(new TeleconScatterPlot(ptr, m_memoryDepth, color, string(plottitle), symbol, symbolSize)));
+    m_plots.push_back(shared_ptr<TeleconPlot>(new TeleconScatterPlot(m_memoryDepth, color, string(plottitle), symbol, fillSymbol, symbolSize)));
 }
 
 void TeleconRealTimeLineChart::addLatestValueText(const char* plottitle) {
@@ -405,7 +404,7 @@ void TeleconRealTimeLineChart::addLatestValueText(const char* plottitle) {
 int TeleconRealTimeLineChart::getNextDefaultColor() {
     switch (m_colorSequenceMode) {
     case CSM_BLACK:
-        return 0x000000;
+        return COLOR_BLACK;
         break;
     case CSM_DIVERGING:
         // Cycle through the colors in CSM_COLORS_DIVERGING, repeating upon reaching the end
@@ -413,7 +412,7 @@ int TeleconRealTimeLineChart::getNextDefaultColor() {
         break;
     }
     // Should be impossible, cases are exhaustive
-    return 0x000000;
+    return COLOR_BLACK;
 }
 
 vector<shared_ptr<TeleconPlot>>::iterator TeleconRealTimeLineChart::begin()

@@ -1,7 +1,7 @@
 #include "teleconscatterplot.h"
 
-TeleconScatterPlot::TeleconScatterPlot(DoubleFuncPtr dataFuncPtr, int depth, int color, string plotTitle, int symbol, int symbolSize)
-    : TeleconPlot(dataFuncPtr, depth, color, plotTitle), m_symbol(symbol), m_symbolSize(symbolSize) {}
+TeleconScatterPlot::TeleconScatterPlot(int depth, int color, string plotTitle, int symbol, bool fillSymbol, int symbolSize)
+    : TeleconPlot(depth, color, plotTitle), m_symbol(symbol), m_fillSymbol(fillSymbol), m_symbolSize(symbolSize) {}
 
 list<pair<double, double>>* TeleconScatterPlot::swapAndGetDataToAdd()
 {
@@ -16,6 +16,7 @@ list<pair<double, double>>* TeleconScatterPlot::swapAndGetDataToAdd()
 void TeleconScatterPlot::prepDataForDraw() {
     list<pair<double, double>>* dataToAdd = swapAndGetDataToAdd();
 
+    printf("Prepping data on thread %d\n", this_thread::get_id());
     for (const auto& xyPair : *dataToAdd) {
         m_xTimestamps.insertNewValue(xyPair.first);
         m_yData.insertNewValue(xyPair.second);

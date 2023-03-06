@@ -9,10 +9,8 @@
 
 using namespace std;
 
-typedef double (*DoubleFuncPtr)();
 class TeleconPlot {
 protected:
-	DoubleFuncPtr m_dataFuncPtr; // Function pointer to fetch one datum from the controller
     list<pair<double, double>>* m_dataToAdd;
     mutex m_dataToAddLock;
     const int m_depth;
@@ -21,7 +19,7 @@ protected:
 	int m_color; // Represented as an RGB hexadecimal code (one byte per channel)
 	string m_plotTitle;
 public:
-	TeleconPlot(DoubleFuncPtr dataFuncPtr, int depth, int color, string plotTitle);
+	TeleconPlot(int depth, int color, string plotTitle);
 	// Fetches all of the data out of m_dataToAdd and updates the timestamps/data buffers
     virtual void prepDataForDraw() = 0;
     // Adds a layer representing the plot to the given chart

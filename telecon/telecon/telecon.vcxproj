@@ -147,6 +147,7 @@
     <ClInclude Include="..\..\include\teleconrealtimechart.h" />
     <ClInclude Include="..\..\include\teleconscatterplot.h" />
     <ClInclude Include="..\..\include\teleconwindow.h" />
+    <ClInclude Include="..\..\src\enums.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\lib\wxchartdir\wxdemo\common\wxchartviewer.cpp" />

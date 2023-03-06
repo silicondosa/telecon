@@ -197,20 +197,24 @@ void TeleconRealTimeLineChart::OnViewPortChanged(wxCommandEvent &event)
 
 void TeleconRealTimeLineChart::DrawChart()
 {
+    static const int chartWidth = 600;
+    static const int chartHeight = 270;
     // Create an XYChart object 600 x 270 pixels in size, with light grey (f4f4f4)
     // background, black (000000) border, 1 pixel raised effect, and with a rounded frame.
-    XYChart *c = new XYChart(520, 270, 0xf4f4f4, 0x000000, 1);
+    XYChart *c = new XYChart(chartWidth, chartHeight, 0xf4f4f4, 0x000000, 1);
     c->setRoundedFrame((m_bgColour.Red() << 16) + (m_bgColour.Green() << 8) + m_bgColour.Blue());
+
+    // Add a title to the chart using 15 pts Times New Roman Bold Italic font, with a light
+    // grey (dddddd) background, black (000000) border, and a glass like raised effect.
+    m_titleBox = c->addTitle(m_chartTitle, "Times New Roman Bold Italic", 15);
+    m_titleBox->setBackground(0xdddddd, 0x000000, Chart::glassEffect());
 
     // Set the plotarea at (55, 55) and of size 520 x 185 pixels. Use white (ffffff)
     // background. Enable both horizontal and vertical grids by setting their colors to
     // grey (cccccc). Set clipping mode to clip the data lines to the plot area.
-    c->setPlotArea(55, 55, 520, 185, 0xffffff, -1, -1, 0xcccccc, 0xcccccc);
+    // The plot area doesn't actually matter much because we'll correct it later.
+    c->setPlotArea(155, 55, 520, 185, 0xffffff, -1, -1, 0xcccccc, 0xcccccc);
     c->setClipping();
-
-    // Add a title to the chart using 15 pts Times New Roman Bold Italic font, with a light
-    // grey (dddddd) background, black (000000) border, and a glass like raised effect.
-    c->addTitle(m_chartTitle, "Times New Roman Bold Italic", 15)->setBackground(0xdddddd, 0x000000, Chart::glassEffect());
 
     // Set the reference font size of the legend box
     c->getLegend()->setFontSize(8);
@@ -239,8 +243,17 @@ void TeleconRealTimeLineChart::DrawChart()
         }
     }
     if (hasData) {
-        // Set up the x-axis to show the time range in the data buffer
-        c->xAxis()->setDateScale(firstTime, firstTime + m_dataInterval * m_memoryDepth / 1000);
+        // Calculate the time range expected based on the size of the buffer and the actual total time range, and take the larger
+        double bufferTimeInterval = m_dataInterval * m_memoryDepth / 1000;
+        double dataTimeInterval = 0.0;
+        for (const auto& plot : m_plots) {
+            if (plot->size() > 0 && (plot->getLatestTimestamp() - plot->getEarliestTimestamp() > dataTimeInterval)) {
+                dataTimeInterval = plot->getLatestTimestamp() - plot->getEarliestTimestamp();
+            }
+        }
+        double dateScale = bufferTimeInterval > dataTimeInterval ? bufferTimeInterval : dataTimeInterval;
+        // Give a 5% margin on either side of the data
+        c->xAxis()->setDateScale(firstTime- dateScale * 0.05, firstTime + dateScale * 1.05);
 
         // Set the x-axis label format
         c->xAxis()->setLabelFormat("{value|hh:nn:ss}");
@@ -254,11 +267,13 @@ void TeleconRealTimeLineChart::DrawChart()
         }
     }
 
+    c->packPlotArea(0, m_titleBox->getHeight() + 5, chartWidth, chartHeight - 9); // Watermark has a constant height of 9 pixels
+    
     // Include track line with legend. If the mouse is on the plot area, show the track
     // line with legend at the mouse position; otherwise, show them for the latest data
     // values (that is, at the rightmost position).
-    TrackLineLegend(c, m_chartViewer->isMouseOnPlotArea() ? m_chartViewer->getPlotAreaMouseX() : c->getPlotArea()->getRightX());
-
+    // int legendHeight = TrackLineLegend(c, m_chartViewer->isMouseOnPlotArea() ? m_chartViewer->getPlotAreaMouseX() : c->getPlotArea()->getRightX());
+    
     if (m_chartViewer->getChart() != NULL)
     {
         delete m_chartViewer->getChart();
@@ -270,7 +285,7 @@ void TeleconRealTimeLineChart::DrawChart()
 // Draw track cursor when mouse is moving over plotarea
 void TeleconRealTimeLineChart::OnMouseMovePlotArea(wxCommandEvent &event)
 {
-    TrackLineLegend((XYChart *)m_chartViewer->getChart(), m_chartViewer->getPlotAreaMouseX());
+    // TrackLineLegend((XYChart *)m_chartViewer->getChart(), m_chartViewer->getPlotAreaMouseX());
     m_chartViewer->updateDisplay();
 }
 
@@ -339,7 +354,8 @@ void TeleconRealTimeLineChart::TrackLineLegend(XYChart *c, int mouseX)
 
     // Display the legend on the top of the plot area
     TTFText *t = d->text(legendText.str().c_str(), "Arial", 8);
-    t->draw(plotArea->getLeftX() + 5, plotArea->getTopY() - 3, 0x000000, Chart::BottomLeft);
+    t->draw(5, m_titleBox->getHeight(), 0x000000, Chart::TopLeft);
+    int height = t->getHeight();
     t->destroy();
 }
 

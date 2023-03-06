@@ -1,5 +1,7 @@
 #pragma once
 
+#include "chartdir.h"
+
 enum COLORS
 {
     COLOR_DEFAULT = -1L,
@@ -20,4 +22,16 @@ enum COLORS
     COLOR_DIVERGING_CORNFLOWER_BLUE = 0x74add1,
     COLOR_DIVERGING_STEEL_BLUE = 0x4575b4,
     COLOR_DIVERGING_ROYAL_BLUE = 0x313695 // Actually closest to steel blue; royal blue was next
+};
+
+enum SYMBOLS
+{
+    SYMBOL_NO_SYMBOL = Chart::NoShape,
+    SYMBOL_CIRCLE = Chart::CircleShape,
+    SYMBOL_SQUARE = Chart::SquareShape,
+    SYMBOL_TRIANGLE = Chart::TriangleShape,
+    SYMBOL_DIAMOND = Chart::DiamondShape,
+    SYMBOL_CROSS = 5033993, // Chart::Cross2Shape(0.3)
+    SYMBOL_PLUS = 5033992, // Chart::CrossShape(0.3)
+    SYMBOL_STAR = 20493, // Chart::StarShape(5)
 };

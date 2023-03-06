@@ -47,7 +47,7 @@ void TeleconLinePlot::addToChart(XYChart* chart) {
     dataSet->setLineWidth(m_lineWidth);
 
     if (m_hasSymbol) {
-        dataSet->setDataSymbol(m_symbol, m_symbolSize);
+        dataSet->setDataSymbol(m_symbol, m_symbolSize, m_fillSymbol ? m_color : Chart::Transparent, m_color);
     }
 
     // The x-coordinates are the timeStamps.

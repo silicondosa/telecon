@@ -44,8 +44,8 @@ public:
     TeleconRealTimeLineChart& operator=(TeleconRealTimeLineChart&&) = delete;
 
     // Will create a new dynamic TeleconPlot object and add it to plotList
-    void addLinePlot(const char * plottitle, long plotcolor = COLOR_DEFAULT, int symbol = Chart::NoSymbol, bool fillSymbol = true, int symbolSize = 5, LineType lineType = LT_SOLID, int lineWidth = 1);
-    void addScatterPlot(const char * plottitle, long plotcolor = COLOR_DEFAULT, int symbol = Chart::SquareShape, bool fillSymbol = true, int symbolSize = 5);
+    void addLinePlot(const char * plottitle, long plotcolor = COLOR_DEFAULT, int symbol = SYMBOL_NO_SYMBOL, bool fillSymbol = true, int symbolSize = 5, LineType lineType = LT_SOLID, int lineWidth = 1);
+    void addScatterPlot(const char * plottitle, long plotcolor = COLOR_DEFAULT, int symbol = SYMBOL_SQUARE, bool fillSymbol = true, int symbolSize = 5);
 
     // Iterator functions
     vector<shared_ptr<TeleconPlot>>::iterator begin();
@@ -88,6 +88,7 @@ private:
     wxStaticBoxSizer* m_viewOptionsBoxSizer;
     wxFlexGridSizer* m_plotLatestValueFlexGridSizer;
     wxBoxSizer* m_chartBoxSizer;
+    TextBox* m_titleBox;
 
     // wxWidgets buttons and dropdown boxes
     wxToggleButton* m_playButton;

@@ -32,5 +32,5 @@ int TeleconScatterPlot::getSymbolSize() const{
 
 void TeleconScatterPlot::addToChart(XYChart* chart) {
     size_t size = m_xTimestamps.size();
-    LineLayer* layer = chart->addScatterLayer(DoubleArray(&m_xTimestamps[0], m_xTimestamps.size()), DoubleArray(&m_yData[0], m_yData.size()), m_plotTitle.c_str(), m_symbol, m_symbolSize, m_color, m_color);
+    LineLayer* layer = chart->addScatterLayer(DoubleArray(&m_xTimestamps[0], m_xTimestamps.size()), DoubleArray(&m_yData[0], m_yData.size()), m_plotTitle.c_str(), m_symbol, m_symbolSize, m_fillSymbol ? m_color : Chart::Transparent, m_color);
 }

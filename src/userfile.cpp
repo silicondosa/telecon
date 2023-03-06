@@ -42,7 +42,6 @@ int main(int argc, char* argv[])
     // Controller code starts here
 
     while (true) {
-        printf("Pushing data on thread %d\n", this_thread::get_id());
         for (auto& teleconWindow : *telecon) {
             for (auto& teleconChart : *teleconWindow) {
                 for (auto& teleconPlot : *teleconChart) {

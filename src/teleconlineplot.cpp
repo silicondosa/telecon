@@ -18,7 +18,6 @@ void TeleconLinePlot::prepDataForDraw()
 {
     list<pair<double, double>>* dataToAdd = swapAndGetDataToAdd();
 
-    printf("Prepping data on thread %d\n", this_thread::get_id());
     for (const auto& xyPair : *dataToAdd) {
         m_xTimestamps.insertNewValue(xyPair.first);
         m_yData.insertNewValue(xyPair.second);

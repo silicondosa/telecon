@@ -180,7 +180,6 @@ void TeleconRealTimeLineChart::OnSave(wxCommandEvent &event)
 // Event handler
 void TeleconRealTimeLineChart::OnChartUpdateTimer(wxTimerEvent &event)
 {
-    printf("Running on thread %d\n", this_thread::get_id());
     // Will result in a call to OnViewPortChanged, which may redraw the chart if needed
     m_chartViewer->updateViewPort(true, false);
 }

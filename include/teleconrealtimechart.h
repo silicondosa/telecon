@@ -19,9 +19,9 @@
 
 using namespace std;
 
-class TeleconRealTimeLineChart : public wxPanel {
+class TeleconRealTimeChart : public wxPanel {
 public:
-    TeleconRealTimeLineChart(wxWindow *parent,
+    TeleconRealTimeChart(wxWindow *parent,
                                 wxWindowID winid = wxID_ANY,
                                 const wxPoint &pos = wxDefaultPosition,
                                 const wxSize &size = wxDefaultSize,
@@ -35,24 +35,55 @@ public:
                                 int memoryDepth = 1000);
 
     /// Destructor
-    ~TeleconRealTimeLineChart();
+    ~TeleconRealTimeChart();
     // Copy & move constructors and assignment operators are unneeded, and are deleted to comply with Rule of Five
     // See: https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)
-    TeleconRealTimeLineChart(TeleconRealTimeLineChart&) = delete;
-    TeleconRealTimeLineChart& operator=(TeleconRealTimeLineChart&) = delete;
-    TeleconRealTimeLineChart(TeleconRealTimeLineChart&&) = delete;
-    TeleconRealTimeLineChart& operator=(TeleconRealTimeLineChart&&) = delete;
+    TeleconRealTimeChart(TeleconRealTimeChart&) = delete;
+    TeleconRealTimeChart& operator=(TeleconRealTimeChart&) = delete;
+    TeleconRealTimeChart(TeleconRealTimeChart&&) = delete;
+    TeleconRealTimeChart& operator=(TeleconRealTimeChart&&) = delete;
 
     // Will create a new dynamic TeleconPlot object and add it to plotList
-    void addLinePlot(const char * plottitle, long plotcolor = COLOR_DEFAULT, int symbol = SYMBOL_NO_SYMBOL, bool fillSymbol = true, int symbolSize = 5, LineType lineType = LT_SOLID, int lineWidth = 1);
+    /**
+     * Adds a line plot to the chart with the given parameters.
+     * 
+     * \param plottitle the title of the plot, which will be displayed in the legend.
+     * \param plotcolor the color of the plot. Can be specified as an ARGB hexcode or by the provided COLOR enum.
+     * \param lineType the type of the line, eiher solid or dashed.
+     * \param lineWidth the width of the line in pixels.
+     * \param symbol the symbol used on each data point. Can be specified by the provided SYMBOL enum.
+     * \param fillSymbol if true, the symbol will (if drawn) be filled with the same color as the line. If false, the cener of the symbol will be transparent.
+     * \param symbolSize the size of the symbol (if drawn) in pixels.
+     */
+    void addLinePlot(const char * plottitle, long plotcolor = COLOR_DEFAULT, LineType lineType = LT_SOLID, int lineWidth = 1, int symbol = SYMBOL_NO_SYMBOL, bool fillSymbol = true, int symbolSize = 5);
+    /**
+     * Adds a scatter plot to the chart with the given parameters. Parameters, where present, are identical to those in addLinePlot.
+     * 
+     * \sa TeleconRealTimeChart::addLinePlot
+     */
     void addScatterPlot(const char * plottitle, long plotcolor = COLOR_DEFAULT, int symbol = SYMBOL_SQUARE, bool fillSymbol = true, int symbolSize = 5);
 
-    // Iterator functions
-    vector<shared_ptr<TeleconPlot>>::iterator begin();
-    vector<shared_ptr<TeleconPlot>>::iterator end();
-
+    /**
+     * \param index the index of the TeleconPlot to return.
+     * \return A pointer to the TeleconPlot requested.
+     */
     shared_ptr<TeleconPlot> getPlot(int index);
+    /**
+     * \return The number of TeleconPlots added to the chart.
+     */
     size_t getNumPlots() const;
+
+    // Iterator functions
+    /**
+     * For use with range-based for loops.
+     * \return Iterator to the first TeleconPlot added.
+     */
+    vector<shared_ptr<TeleconPlot>>::iterator begin();
+    /**
+     * For use with range-based for loops.
+     * \return Iterator to the element following the last TeleconPlot added.
+     */
+    vector<shared_ptr<TeleconPlot>>::iterator end();
 
     DECLARE_EVENT_TABLE()
 

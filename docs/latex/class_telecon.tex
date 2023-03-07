@@ -19,6 +19,8 @@ bool \mbox{\hyperlink{class_telecon_a7c5aa87cdc52840d1eba1551751e7b46}{On\+Init}
 \item 
 \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $\ast$ \mbox{\hyperlink{class_telecon_af1bebce20799e33f86c9bd1813a1c634}{get\+Window}} (int index)
 \item 
+size\+\_\+t \mbox{\hyperlink{class_telecon_aee854954e0004822dece3130a61e332e}{get\+Num\+Windows}} () const
+\item 
 vector$<$ \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $\ast$ $>$\+::iterator \mbox{\hyperlink{class_telecon_ad97d568de61730b580b91ffe89e174a6}{begin}} ()
 \item 
 vector$<$ \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $\ast$ $>$\+::iterator \mbox{\hyperlink{class_telecon_a8f99a4468928476c6046937d3c6dc11f}{end}} ()
@@ -109,6 +111,16 @@ Definition at line \mbox{\hyperlink{wx_chart_dir_example_2telecon_8cpp_source_l0
 \doxysubsubsection{\texorpdfstring{addWindow()}{addWindow()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $\ast$ Telecon\+::add\+Window (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
 
+Adds a window to the application and returns a pointer to it. The window must later be drawn with draw\+Window().
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the name that will be displayed on the window. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} object created. 
+\end{DoxyReturn}
 
 
 Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
@@ -119,9 +131,12 @@ Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00038}{38}} of file \mb
 \doxysubsubsection{\texorpdfstring{begin()}{begin()}}
 {\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $\ast$ $>$\+::iterator Telecon\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+For use with range-\/based for loops. \begin{DoxyReturn}{Returns}
+Iterator to the first \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} added. 
+\end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00066}{66}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
 
 \mbox{\Hypertarget{class_telecon_a3cfa78dae936ac117b15baff8670aed0}\label{class_telecon_a3cfa78dae936ac117b15baff8670aed0}} 
 \index{Telecon@{Telecon}!createWindow@{createWindow}}
@@ -139,9 +154,12 @@ Definition at line \mbox{\hyperlink{wx_chart_dir_example_2telecon_8cpp_source_l0
 \doxysubsubsection{\texorpdfstring{end()}{end()}}
 {\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $\ast$ $>$\+::iterator Telecon\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+For use with range-\/based for loops. \begin{DoxyReturn}{Returns}
+Iterator to the element following the last \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} added. 
+\end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00066}{66}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00071}{71}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
 
 \mbox{\Hypertarget{class_telecon_ac00fa709acf9b5bf95521935e65da6be}\label{class_telecon_ac00fa709acf9b5bf95521935e65da6be}} 
 \index{Telecon@{Telecon}!GetData@{GetData}}
@@ -153,12 +171,33 @@ Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00066}{66}} of file \mb
 
 Definition at line \mbox{\hyperlink{wx_chart_dir_example_2telecon_8cpp_source_l00530}{530}} of file \mbox{\hyperlink{wx_chart_dir_example_2telecon_8cpp_source}{telecon.\+cpp}}.
 
+\mbox{\Hypertarget{class_telecon_aee854954e0004822dece3130a61e332e}\label{class_telecon_aee854954e0004822dece3130a61e332e}} 
+\index{Telecon@{Telecon}!getNumWindows@{getNumWindows}}
+\index{getNumWindows@{getNumWindows}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{getNumWindows()}{getNumWindows()}}
+{\footnotesize\ttfamily size\+\_\+t Telecon\+::get\+Num\+Windows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+The number of Telecon\+Windows added to the application. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+
 \mbox{\Hypertarget{class_telecon_af1bebce20799e33f86c9bd1813a1c634}\label{class_telecon_af1bebce20799e33f86c9bd1813a1c634}} 
 \index{Telecon@{Telecon}!getWindow@{getWindow}}
 \index{getWindow@{getWindow}!Telecon@{Telecon}}
 \doxysubsubsection{\texorpdfstring{getWindow()}{getWindow()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $\ast$ Telecon\+::get\+Window (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
 
+
+\begin{DoxyParams}{Parameters}
+{\em index} & the index of the \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} to return. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} requested. 
+\end{DoxyReturn}
 
 
 Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
@@ -171,7 +210,7 @@ Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00045}{45}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
 
 \mbox{\Hypertarget{class_telecon_ac81ca0e9db9a0138de1002343155ac70}\label{class_telecon_ac81ca0e9db9a0138de1002343155ac70}} 
 \index{Telecon@{Telecon}!teleconJoin@{teleconJoin}}
@@ -189,7 +228,7 @@ Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00033}{33}} of file \mb
 \doxysubsubsection{\texorpdfstring{teleconMain()}{teleconMain()}}
 {\footnotesize\ttfamily void Telecon\+::telecon\+Main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
-
+The initialization function for \mbox{\hyperlink{class_telecon}{Telecon}}. All windows, charts, and plots should be added and drawn here. 
 
 Definition at line \mbox{\hyperlink{userfile_8cpp_source_l00068}{68}} of file \mbox{\hyperlink{userfile_8cpp_source}{userfile.\+cpp}}.
 

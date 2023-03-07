@@ -17,6 +17,6 @@ var searchData=
   ['ontogglelissajoux_14',['OnToggleLissajoux',['../classmain_frame.html#a12c9497cf5d38aa9cec76dc759a3a381',1,'mainFrame']]],
   ['ontogglescrollbars_15',['OnToggleScrollbars',['../classmain_frame.html#a65ed669a9b2dbee3687fddb804e9fc2a',1,'mainFrame']]],
   ['ontogglesine_16',['OnToggleSine',['../classmain_frame.html#acd38a3db3a9437756e4c8cb7fc83099d',1,'mainFrame']]],
-  ['operator_3d_17',['operator=',['../class_telecon_real_time_line_chart.html#a49e7054a49376e1e36dda5d8caf1942d',1,'TeleconRealTimeLineChart::operator=(TeleconRealTimeLineChart &amp;)=delete'],['../class_telecon_real_time_line_chart.html#a052e6c952db05005c8d0e6e865d0f778',1,'TeleconRealTimeLineChart::operator=(TeleconRealTimeLineChart &amp;&amp;)=delete']]],
+  ['operator_3d_17',['operator=',['../class_telecon_real_time_chart.html#a6f06753290698e5942720232a0073ef2',1,'TeleconRealTimeChart::operator=(TeleconRealTimeChart &amp;)=delete'],['../class_telecon_real_time_chart.html#ab6529e70afa9439d4ab56635e4fec862',1,'TeleconRealTimeChart::operator=(TeleconRealTimeChart &amp;&amp;)=delete']]],
   ['operator_5b_5d_18',['operator[]',['../class_data_buffer.html#a30c6285946a491d632aba89457717b30',1,'DataBuffer::operator[](int index)'],['../class_data_buffer.html#aa5a5cbd3df9ad98aed633b0851c0dbfb',1,'DataBuffer::operator[](int index) const']]]
 ];

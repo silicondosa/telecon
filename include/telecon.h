@@ -33,15 +33,39 @@ public:
     static future<Telecon*> teleconStart();
     static void teleconJoin();
 
+    /**
+     * Adds a window to the application and returns a pointer to it. The window must later be drawn with drawWindow().
+     * 
+     * \param name the name that will be displayed on the window.
+     * \return A pointer to the TeleconWindow object created.
+     */
     TeleconWindow* addWindow(std::string name);
     bool OnInit() override;
 
+    /**
+     * \param index the index of the TeleconWindow to return.
+     * \return A pointer to the TeleconWindow requested.
+     */
     TeleconWindow* getWindow(int index);
+    /**
+     * \return The number of TeleconWindows added to the application.
+     */
     size_t getNumWindows() const;
 
     // Iterator functions
+    /**
+     * For use with range-based for loops.
+     * \return Iterator to the first TeleconWindow added.
+     */
     vector<TeleconWindow*>::iterator begin();
+    /**
+     * For use with range-based for loops.
+     * \return Iterator to the element following the last TeleconWindow added.
+     */
     vector<TeleconWindow*>::iterator end();
 
+    /**
+     * The initialization function for Telecon. All windows, charts, and plots should be added and drawn here.
+     */
     virtual void teleconMain();
 };

@@ -24,6 +24,12 @@ public:
     virtual void prepDataForDraw() = 0;
     // Adds a layer representing the plot to the given chart
 	virtual void addToChart(XYChart* chart) = 0;
+    /**
+     * Appends one data point to the plot, removing the oldest point if the maximum depth has been reached.
+     * 
+     * \param xTimestamp the time that this data point was generated. It is interpreted by the chart for display purposes as seconds since January 1, year 1.
+     * \param yData the datum to be added to the plot.
+     */
     void pushData(double xTimestamp, double yData);
     double getEarliestTimestamp() const;
     double getLatestTimestamp() const;

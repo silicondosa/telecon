@@ -12,7 +12,7 @@ var annotated_dup =
     [ "teleconApp", "classtelecon_app.html", "classtelecon_app" ],
     [ "TeleconLinePlot", "class_telecon_line_plot.html", "class_telecon_line_plot" ],
     [ "TeleconPlot", "class_telecon_plot.html", "class_telecon_plot" ],
-    [ "TeleconRealTimeLineChart", "class_telecon_real_time_line_chart.html", "class_telecon_real_time_line_chart" ],
+    [ "TeleconRealTimeChart", "class_telecon_real_time_chart.html", "class_telecon_real_time_chart" ],
     [ "TeleconScatterPlot", "class_telecon_scatter_plot.html", "class_telecon_scatter_plot" ],
     [ "TeleconWindow", "class_telecon_window.html", "class_telecon_window" ]
 ];

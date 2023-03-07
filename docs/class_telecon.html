@@ -114,6 +114,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7c5aa87cdc52840d1eba1551751e7b46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1bebce20799e33f86c9bd1813a1c634"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_telecon_window.html">TeleconWindow</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon.html#af1bebce20799e33f86c9bd1813a1c634">getWindow</a> (int index)</td></tr>
 <tr class="separator:af1bebce20799e33f86c9bd1813a1c634"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee854954e0004822dece3130a61e332e"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon.html#aee854954e0004822dece3130a61e332e">getNumWindows</a> () const</td></tr>
+<tr class="separator:aee854954e0004822dece3130a61e332e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad97d568de61730b580b91ffe89e174a6"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_telecon_window.html">TeleconWindow</a> * &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon.html#ad97d568de61730b580b91ffe89e174a6">begin</a> ()</td></tr>
 <tr class="separator:ad97d568de61730b580b91ffe89e174a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f99a4468928476c6046937d3c6dc11f"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_telecon_window.html">TeleconWindow</a> * &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon.html#a8f99a4468928476c6046937d3c6dc11f">end</a> ()</td></tr>
@@ -276,6 +278,14 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Adds a window to the application and returns a pointer to it. The window must later be drawn with drawWindow().</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>the name that will be displayed on the window. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the <a class="el" href="class_telecon_window.html">TeleconWindow</a> object created. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="telecon_8cpp_source.html#l00038">38</a> of file <a class="el" href="telecon_8cpp_source.html">telecon.cpp</a>.</p>
 
@@ -295,8 +305,9 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>For use with range-based for loops. </p><dl class="section return"><dt>Returns</dt><dd>Iterator to the first <a class="el" href="class_telecon_window.html">TeleconWindow</a> added. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="telecon_8cpp_source.html#l00061">61</a> of file <a class="el" href="telecon_8cpp_source.html">telecon.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="telecon_8cpp_source.html#l00066">66</a> of file <a class="el" href="telecon_8cpp_source.html">telecon.cpp</a>.</p>
 
 </div>
 </div>
@@ -350,8 +361,9 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>For use with range-based for loops. </p><dl class="section return"><dt>Returns</dt><dd>Iterator to the element following the last <a class="el" href="class_telecon_window.html">TeleconWindow</a> added. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="telecon_8cpp_source.html#l00066">66</a> of file <a class="el" href="telecon_8cpp_source.html">telecon.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="telecon_8cpp_source.html#l00071">71</a> of file <a class="el" href="telecon_8cpp_source.html">telecon.cpp</a>.</p>
 
 </div>
 </div>
@@ -375,6 +387,26 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aee854954e0004822dece3130a61e332e" name="aee854954e0004822dece3130a61e332e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee854954e0004822dece3130a61e332e">&#9670;&#160;</a></span>getNumWindows()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Telecon::getNumWindows </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The number of TeleconWindows added to the application. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="telecon_8cpp_source.html#l00050">50</a> of file <a class="el" href="telecon_8cpp_source.html">telecon.cpp</a>.</p>
+
+</div>
+</div>
 <a id="af1bebce20799e33f86c9bd1813a1c634" name="af1bebce20799e33f86c9bd1813a1c634"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af1bebce20799e33f86c9bd1813a1c634">&#9670;&#160;</a></span>getWindow()</h2>
 
@@ -390,6 +422,13 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>the index of the <a class="el" href="class_telecon_window.html">TeleconWindow</a> to return. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the <a class="el" href="class_telecon_window.html">TeleconWindow</a> requested. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="telecon_8cpp_source.html#l00045">45</a> of file <a class="el" href="telecon_8cpp_source.html">telecon.cpp</a>.</p>
 
@@ -418,7 +457,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="telecon_8cpp_source.html#l00050">50</a> of file <a class="el" href="telecon_8cpp_source.html">telecon.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="telecon_8cpp_source.html#l00055">55</a> of file <a class="el" href="telecon_8cpp_source.html">telecon.cpp</a>.</p>
 
 </div>
 </div>
@@ -471,6 +510,7 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>The initialization function for <a class="el" href="class_telecon.html">Telecon</a>. All windows, charts, and plots should be added and drawn here. </p>
 
 <p class="definition">Definition at line <a class="el" href="userfile_8cpp_source.html#l00068">68</a> of file <a class="el" href="userfile_8cpp_source.html">userfile.cpp</a>.</p>
 

@@ -25,12 +25,12 @@
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00021}00021\ }
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00022}00022\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ chartUpdateIntervals[8]\ =\ \{250,\ 500,\ 750,\ 1000,\ 1250,\ 1500,\ 1750,\ 2000\};}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00023}00023\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00024}\mbox{\hyperlink{class_telecon_real_time_line_chart_afa396932da44ed90866d0a15e9e99512}{00024}}\ \mbox{\hyperlink{class_telecon_real_time_line_chart_afa396932da44ed90866d0a15e9e99512}{TeleconRealTimeLineChart::\string~TeleconRealTimeLineChart}}()}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00024}\mbox{\hyperlink{class_telecon_real_time_chart_a9f96f586f0bff2b021d8c27bb50c5b67}{00024}}\ \mbox{\hyperlink{class_telecon_real_time_chart_a9f96f586f0bff2b021d8c27bb50c5b67}{TeleconRealTimeChart::\string~TeleconRealTimeChart}}()}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00025}00025\ \{}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00026}00026\ \ \ \ \ m\_chartUpdateTimer-\/>Stop();}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00027}00027\ \}}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00028}00028\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00029}\mbox{\hyperlink{class_telecon_real_time_line_chart_a45f3951a605d2a6dada4f3580e00ab3d}{00029}}\ \mbox{\hyperlink{class_telecon_real_time_line_chart_a45f3951a605d2a6dada4f3580e00ab3d}{TeleconRealTimeLineChart::TeleconRealTimeLineChart}}(wxWindow\ *parent,}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00029}\mbox{\hyperlink{class_telecon_real_time_chart_a58f1ba71960f3cc8ffcb5d877103eba5}{00029}}\ \mbox{\hyperlink{class_telecon_real_time_chart_a58f1ba71960f3cc8ffcb5d877103eba5}{TeleconRealTimeChart::TeleconRealTimeChart}}(wxWindow\ *parent,}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ wxWindowID\ winid,}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ wxPoint\ \&pos,}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ wxSize\ \&size,}
@@ -61,7 +61,7 @@
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00057}00057\ \ \ \ \ SetUpChartBox(title,\ xLabel,\ yLabel);}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00058}00058\ \}}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00059}00059\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00060}00060\ \textcolor{keywordtype}{void}\ TeleconRealTimeLineChart::SetUpViewOptionsBox()}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00060}00060\ \textcolor{keywordtype}{void}\ TeleconRealTimeChart::SetUpViewOptionsBox()}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00061}00061\ \{}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00062}00062\ \ \ \ \ \textcolor{comment}{//\ Add\ play\ button}}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00063}00063\ \ \ \ \ m\_playButton\ =\ \textcolor{keyword}{new}\ wxToggleButton(m\_viewOptionsBox,\ \mbox{\hyperlink{teleconrealtimechart_8h_a06fc87d81c62e9abb8790b6e5713c55ba8295136a6da52b0c280421c8fe22715a}{ID\_PLAY}},\ \_(\textcolor{stringliteral}{"{}\ \&Run"{}}),\ wxDefaultPosition,\ wxDefaultSize,\ wxBU\_LEFT);}
@@ -109,7 +109,7 @@
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00105}00105\ \ \ \ \ m\_viewOptionsBoxSizer-\/>Add(m\_plotLatestValueFlexGridSizer,\ 0,\ wxGROW\ |\ wxALL,\ FromDIP(3));}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00106}00106\ \}}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00107}00107\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00108}00108\ \textcolor{keywordtype}{void}\ TeleconRealTimeLineChart::SetUpChartBox(\textcolor{keyword}{const}\ wxString\ title,\ \textcolor{keyword}{const}\ wxString\ xlabel,\ \textcolor{keyword}{const}\ wxString\ ylabel)}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00108}00108\ \textcolor{keywordtype}{void}\ TeleconRealTimeChart::SetUpChartBox(\textcolor{keyword}{const}\ wxString\ title,\ \textcolor{keyword}{const}\ wxString\ xlabel,\ \textcolor{keyword}{const}\ wxString\ ylabel)}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00109}00109\ \{}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00110}00110\ \ \ \ \ m\_chartTitle\ =\ title;}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00111}00111\ \ \ \ \ m\_xlabel\ =\ xlabel;}
@@ -123,21 +123,21 @@
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00119}00119\ \ \ \ \ m\_chartUpdateTimer-\/>Start(chartUpdateIntervals[0]);}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00120}00120\ \}}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00121}00121\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00122}00122\ BEGIN\_EVENT\_TABLE(\mbox{\hyperlink{class_telecon_real_time_line_chart}{TeleconRealTimeLineChart}},\ wxPanel)}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00122}00122\ BEGIN\_EVENT\_TABLE(\mbox{\hyperlink{class_telecon_real_time_chart}{TeleconRealTimeChart}},\ wxPanel)}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00123}00123\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00124}00124\ EVT\_TOGGLEBUTTON(\mbox{\hyperlink{teleconrealtimechart_8h_a06fc87d81c62e9abb8790b6e5713c55ba8295136a6da52b0c280421c8fe22715a}{ID\_PLAY}},\ TeleconRealTimeLineChart::OnPlayClick)}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00125}00125\ EVT\_TOGGLEBUTTON(\mbox{\hyperlink{teleconrealtimechart_8h_a06fc87d81c62e9abb8790b6e5713c55ba98bc0750b2c1238b4507f9b09ece67a6}{ID\_PAUSE}},\ TeleconRealTimeLineChart::OnPauseClick)}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00126}00126\ EVT\_CHOICE(\mbox{\hyperlink{teleconrealtimechart_8h_a06fc87d81c62e9abb8790b6e5713c55ba9c850307c7c28256b124539ae9ff52cc}{ID\_UPDATE\_PERIOD}},\ TeleconRealTimeLineChart::OnChartUpdatePeriodSelected)}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00127}00127\ EVT\_BUTTON(wxID\_SAVE,\ TeleconRealTimeLineChart::OnSave)}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00124}00124\ EVT\_TOGGLEBUTTON(\mbox{\hyperlink{teleconrealtimechart_8h_a06fc87d81c62e9abb8790b6e5713c55ba8295136a6da52b0c280421c8fe22715a}{ID\_PLAY}},\ TeleconRealTimeChart::OnPlayClick)}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00125}00125\ EVT\_TOGGLEBUTTON(\mbox{\hyperlink{teleconrealtimechart_8h_a06fc87d81c62e9abb8790b6e5713c55ba98bc0750b2c1238b4507f9b09ece67a6}{ID\_PAUSE}},\ TeleconRealTimeChart::OnPauseClick)}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00126}00126\ EVT\_CHOICE(\mbox{\hyperlink{teleconrealtimechart_8h_a06fc87d81c62e9abb8790b6e5713c55ba9c850307c7c28256b124539ae9ff52cc}{ID\_UPDATE\_PERIOD}},\ TeleconRealTimeChart::OnChartUpdatePeriodSelected)}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00127}00127\ EVT\_BUTTON(wxID\_SAVE,\ TeleconRealTimeChart::OnSave)}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00128}00128\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00129}00129\ EVT\_TIMER(\mbox{\hyperlink{teleconrealtimechart_8h_a06fc87d81c62e9abb8790b6e5713c55ba4aa3022c869a7c5f87806fc17917f877}{ID\_UPDATE\_TIMER}},\ TeleconRealTimeLineChart::OnChartUpdateTimer)}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00130}00130\ EVT\_CHARTVIEWER\_VIEWPORT\_CHANGED(\mbox{\hyperlink{teleconrealtimechart_8h_a06fc87d81c62e9abb8790b6e5713c55ba12f80c74dc4c5d9996717490ba4a8f52}{ID\_CHARTVIEWER}},\ TeleconRealTimeLineChart::OnViewPortChanged)}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00131}00131\ EVT\_CHARTVIEWER\_MOUSEMOVE\_PLOTAREA(\mbox{\hyperlink{teleconrealtimechart_8h_a06fc87d81c62e9abb8790b6e5713c55ba12f80c74dc4c5d9996717490ba4a8f52}{ID\_CHARTVIEWER}},\ TeleconRealTimeLineChart::OnMouseMovePlotArea)}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00129}00129\ EVT\_TIMER(\mbox{\hyperlink{teleconrealtimechart_8h_a06fc87d81c62e9abb8790b6e5713c55ba4aa3022c869a7c5f87806fc17917f877}{ID\_UPDATE\_TIMER}},\ TeleconRealTimeChart::OnChartUpdateTimer)}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00130}00130\ EVT\_CHARTVIEWER\_VIEWPORT\_CHANGED(\mbox{\hyperlink{teleconrealtimechart_8h_a06fc87d81c62e9abb8790b6e5713c55ba12f80c74dc4c5d9996717490ba4a8f52}{ID\_CHARTVIEWER}},\ TeleconRealTimeChart::OnViewPortChanged)}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00131}00131\ EVT\_CHARTVIEWER\_MOUSEMOVE\_PLOTAREA(\mbox{\hyperlink{teleconrealtimechart_8h_a06fc87d81c62e9abb8790b6e5713c55ba12f80c74dc4c5d9996717490ba4a8f52}{ID\_CHARTVIEWER}},\ TeleconRealTimeChart::OnMouseMovePlotArea)}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00132}00132\ }
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00133}00133\ END\_EVENT\_TABLE()}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00134}00134\ }
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00135}00135\ \textcolor{comment}{//\ Event\ handler}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00136}00136\ void\ \mbox{\hyperlink{class_telecon_real_time_line_chart}{TeleconRealTimeLineChart}}::OnPlayClick(wxCommandEvent\ \&event)}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00136}00136\ void\ \mbox{\hyperlink{class_telecon_real_time_chart}{TeleconRealTimeChart}}::OnPlayClick(wxCommandEvent\ \&event)}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00137}00137\ \{}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00138}00138\ \ \ \ \ m\_playButton-\/>SetValue(\textcolor{keyword}{true});}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00139}00139\ \ \ \ \ m\_pauseButton-\/>SetValue(\textcolor{keyword}{false});}
@@ -145,7 +145,7 @@
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00141}00141\ \}}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00142}00142\ }
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00143}00143\ \textcolor{comment}{//\ Event\ handler}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00144}00144\ \textcolor{keywordtype}{void}\ TeleconRealTimeLineChart::OnPauseClick(wxCommandEvent\ \&event)}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00144}00144\ \textcolor{keywordtype}{void}\ TeleconRealTimeChart::OnPauseClick(wxCommandEvent\ \&event)}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00145}00145\ \{}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00146}00146\ \ \ \ \ m\_playButton-\/>SetValue(\textcolor{keyword}{false});}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00147}00147\ \ \ \ \ m\_pauseButton-\/>SetValue(\textcolor{keyword}{true});}
@@ -153,7 +153,7 @@
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00149}00149\ \}}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00150}00150\ }
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00151}00151\ \textcolor{comment}{//\ Event\ handler}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00152}00152\ \textcolor{keywordtype}{void}\ TeleconRealTimeLineChart::OnChartUpdatePeriodSelected(wxCommandEvent\ \&event)}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00152}00152\ \textcolor{keywordtype}{void}\ TeleconRealTimeChart::OnChartUpdatePeriodSelected(wxCommandEvent\ \&event)}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00153}00153\ \{}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00154}00154\ \ \ \ \ \textcolor{keywordtype}{long}\ interval;}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00155}00155\ \ \ \ \ (m\_updatePeriodSelector-\/>GetString(m\_updatePeriodSelector-\/>GetSelection())).ToLong(\&interval);}
@@ -161,7 +161,7 @@
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00157}00157\ \}}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00158}00158\ }
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00159}00159\ \textcolor{comment}{//\ Event\ handler}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00160}00160\ \textcolor{keywordtype}{void}\ TeleconRealTimeLineChart::OnSave(wxCommandEvent\ \&event)}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00160}00160\ \textcolor{keywordtype}{void}\ TeleconRealTimeChart::OnSave(wxCommandEvent\ \&event)}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00161}00161\ \{}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00162}00162\ \ \ \ \ wxFileDialog\ saveFileDialog(\textcolor{keyword}{this},\ \_(\textcolor{stringliteral}{"{}Save\ graphics\ file"{}}),\ \textcolor{stringliteral}{"{}"{}},\ \textcolor{stringliteral}{"{}chartdirector\_demo"{}},}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}PNG\ (*.png)|*.png|JPG\ (*.jpg)|*.jpg|GIF\ (*.gif)|*.gif|BMP\ (*.bmp)|*.bmp|SVG\ (*.svg)|*.svg|PDF\ (*.pdf)|*.pdf"{}},\ wxFD\_SAVE\ |\ wxFD\_OVERWRITE\_PROMPT);}
@@ -182,7 +182,7 @@
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00178}00178\ \}}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00179}00179\ }
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00180}00180\ \textcolor{comment}{//\ Event\ handler}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00181}00181\ \textcolor{keywordtype}{void}\ TeleconRealTimeLineChart::OnChartUpdateTimer(wxTimerEvent\ \&event)}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00181}00181\ \textcolor{keywordtype}{void}\ TeleconRealTimeChart::OnChartUpdateTimer(wxTimerEvent\ \&event)}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00182}00182\ \{}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00183}00183\ \ \ \ \ \textcolor{comment}{//\ Will\ result\ in\ a\ call\ to\ OnViewPortChanged,\ which\ may\ redraw\ the\ chart\ if\ needed}}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00184}00184\ \ \ \ \ m\_chartViewer-\/>updateViewPort(\textcolor{keyword}{true},\ \textcolor{keyword}{false});}
@@ -191,7 +191,7 @@
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00187}00187\ \textcolor{comment}{//\ Event\ handler}}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00188}00188\ \textcolor{comment}{//\ This\ event\ occurs\ if\ the\ user\ scrolls\ or\ zooms\ in\ or\ out\ the\ chart\ by\ dragging\ or\ clicking\ on\ the\ chart.}}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00189}00189\ \textcolor{comment}{//\ It\ can\ also\ be\ triggered\ by\ calling\ WinChartViewer.updateViewPort.}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00190}00190\ \textcolor{keywordtype}{void}\ TeleconRealTimeLineChart::OnViewPortChanged(wxCommandEvent\ \&event)}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00190}00190\ \textcolor{keywordtype}{void}\ TeleconRealTimeChart::OnViewPortChanged(wxCommandEvent\ \&event)}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00191}00191\ \{}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00192}00192\ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_chartViewer-\/>needUpdateChart())}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00193}00193\ \ \ \ \ \{}
@@ -199,7 +199,7 @@
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00195}00195\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00196}00196\ \}}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00197}00197\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00198}00198\ \textcolor{keywordtype}{void}\ TeleconRealTimeLineChart::DrawChart()}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00198}00198\ \textcolor{keywordtype}{void}\ TeleconRealTimeChart::DrawChart()}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00199}00199\ \{}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00200}00200\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ chartWidth\ =\ 600;}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00201}00201\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ chartHeight\ =\ 270;}
@@ -271,177 +271,190 @@
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00267}00267\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00268}00268\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00269}00269\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00270}00270\ \ \ \ \ c-\/>packPlotArea(0,\ m\_titleBox-\/>getHeight()\ +\ 5,\ chartWidth,\ chartHeight\ -\/\ 9);\ \textcolor{comment}{//\ Watermark\ has\ a\ constant\ height\ of\ 9\ pixels}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00271}00271\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00272}00272\ \ \ \ \ \textcolor{comment}{//\ Include\ track\ line\ with\ legend.\ If\ the\ mouse\ is\ on\ the\ plot\ area,\ show\ the\ track}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00273}00273\ \ \ \ \ \textcolor{comment}{//\ line\ with\ legend\ at\ the\ mouse\ position;\ otherwise,\ show\ them\ for\ the\ latest\ data}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00274}00274\ \ \ \ \ \textcolor{comment}{//\ values\ (that\ is,\ at\ the\ rightmost\ position).}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00275}00275\ \ \ \ \ \textcolor{comment}{//\ int\ legendHeight\ =\ TrackLineLegend(c,\ m\_chartViewer-\/>isMouseOnPlotArea()\ ?\ m\_chartViewer-\/>getPlotAreaMouseX()\ :\ c-\/>getPlotArea()-\/>getRightX());}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00276}00276\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00277}00277\ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_chartViewer-\/>getChart()\ !=\ NULL)}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00278}00278\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00279}00279\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ m\_chartViewer-\/>getChart();}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00280}00280\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00281}00281\ \ \ \ \ \textcolor{comment}{//\ Set\ the\ chart\ image\ to\ the\ WinChartViewer}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00282}00282\ \ \ \ \ m\_chartViewer-\/>setChart(c);}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00283}00283\ \}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00284}00284\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00285}00285\ \textcolor{comment}{//\ Draw\ track\ cursor\ when\ mouse\ is\ moving\ over\ plotarea}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00286}00286\ \textcolor{keywordtype}{void}\ TeleconRealTimeLineChart::OnMouseMovePlotArea(wxCommandEvent\ \&event)}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00287}00287\ \{}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00288}00288\ \ \ \ \ \textcolor{comment}{//\ TrackLineLegend((XYChart\ *)m\_chartViewer-\/>getChart(),\ m\_chartViewer-\/>getPlotAreaMouseX());}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00289}00289\ \ \ \ \ m\_chartViewer-\/>updateDisplay();}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00290}00290\ \}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00291}00291\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00292}00292\ \textcolor{comment}{//\ Draw\ the\ track\ line\ with\ legend}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00293}00293\ \textcolor{keywordtype}{void}\ TeleconRealTimeLineChart::TrackLineLegend(XYChart\ *c,\ \textcolor{keywordtype}{int}\ mouseX)}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00294}00294\ \{}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00295}00295\ \ \ \ \ \textcolor{comment}{//\ Clear\ the\ current\ dynamic\ layer\ and\ get\ the\ DrawArea\ object\ to\ draw\ on\ it.}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00296}00296\ \ \ \ \ DrawArea\ *d\ =\ c-\/>initDynamicLayer();}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00297}00297\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00298}00298\ \ \ \ \ \textcolor{comment}{//\ The\ plot\ area\ object}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00299}00299\ \ \ \ \ PlotArea\ *plotArea\ =\ c-\/>getPlotArea();}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00300}00300\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00301}00301\ \ \ \ \ \textcolor{comment}{//\ Get\ the\ data\ x-\/value\ that\ is\ nearest\ to\ the\ mouse,\ and\ find\ its\ pixel\ coordinate.}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00302}00302\ \ \ \ \ \textcolor{keywordtype}{double}\ xValue\ =\ c-\/>getNearestXValue(mouseX);}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00303}00303\ \ \ \ \ \textcolor{keywordtype}{int}\ xCoor\ =\ c-\/>getXCoor(xValue);}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00304}00304\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00305}00305\ \ \ \ \ \textcolor{comment}{//\ Draw\ a\ vertical\ track\ line\ at\ the\ x-\/position}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00306}00306\ \ \ \ \ d-\/>vline(plotArea-\/>getTopY(),\ plotArea-\/>getBottomY(),\ xCoor,\ d-\/>dashLineColor(0x000000,\ 0x0101));}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00307}00307\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00308}00308\ \ \ \ \ \textcolor{comment}{//\ Container\ to\ hold\ the\ legend\ entries}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00309}00309\ \ \ \ \ vector<string>\ legendEntries;}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00310}00310\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00311}00311\ \ \ \ \ \textcolor{comment}{//\ Iterate\ through\ all\ layers\ to\ build\ the\ legend\ array}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00312}00312\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ c-\/>getLayerCount();\ ++i)}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00313}00313\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00314}00314\ \ \ \ \ \ \ \ \ Layer\ *layer\ =\ c-\/>getLayerByZ(i);}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00315}00315\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00316}00316\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ data\ array\ index\ of\ the\ x-\/value}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00317}00317\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ xIndex\ =\ layer-\/>getXIndexOf(xValue);}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00270}00270\ \ \ \ \ \textcolor{comment}{//\ 5\ for\ a\ margin,\ 13\ for\ one\ line\ of\ the\ legend\ (should\ be\ changed\ to\ prevent\ overlap\ with\ plot).\ 9\ for\ height\ of\ watermark}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00271}00271\ \ \ \ \ c-\/>packPlotArea(0,\ m\_titleBox-\/>getHeight()\ +\ 5\ +\ 13,\ chartWidth,\ chartHeight\ -\/\ 9);}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00272}00272\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00273}00273\ \ \ \ \ \textcolor{comment}{//\ Include\ track\ line\ with\ legend.\ If\ the\ mouse\ is\ on\ the\ plot\ area,\ show\ the\ track}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00274}00274\ \ \ \ \ \textcolor{comment}{//\ line\ with\ legend\ at\ the\ mouse\ position;\ otherwise,\ show\ them\ for\ the\ latest\ data}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00275}00275\ \ \ \ \ \textcolor{comment}{//\ values\ (that\ is,\ at\ the\ rightmost\ position).}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00276}00276\ \ \ \ \ TrackLineLegend(c,\ m\_chartViewer-\/>isMouseOnPlotArea()\ ?\ m\_chartViewer-\/>getPlotAreaMouseX()\ :\ c-\/>getPlotArea()-\/>getRightX());}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00277}00277\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00278}00278\ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_chartViewer-\/>getChart()\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00279}00279\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00280}00280\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ m\_chartViewer-\/>getChart();}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00281}00281\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00282}00282\ \ \ \ \ \textcolor{comment}{//\ Set\ the\ chart\ image\ to\ the\ WinChartViewer}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00283}00283\ \ \ \ \ m\_chartViewer-\/>setChart(c);}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00284}00284\ \}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00285}00285\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00286}00286\ \textcolor{comment}{//\ Draw\ track\ cursor\ when\ mouse\ is\ moving\ over\ plotarea}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00287}00287\ \textcolor{keywordtype}{void}\ TeleconRealTimeChart::OnMouseMovePlotArea(wxCommandEvent\ \&event)}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00288}00288\ \{}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00289}00289\ \ \ \ \ TrackLineLegend((XYChart\ *)m\_chartViewer-\/>getChart(),\ m\_chartViewer-\/>getPlotAreaMouseX());}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00290}00290\ \ \ \ \ m\_chartViewer-\/>updateDisplay();}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00291}00291\ \}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00292}00292\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00293}00293\ \textcolor{comment}{//\ Draw\ the\ track\ line\ with\ legend}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00294}00294\ \textcolor{keywordtype}{void}\ TeleconRealTimeChart::TrackLineLegend(XYChart\ *c,\ \textcolor{keywordtype}{int}\ mouseX)}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00295}00295\ \{}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00296}00296\ \ \ \ \ \textcolor{comment}{//\ Clear\ the\ current\ dynamic\ layer\ and\ get\ the\ DrawArea\ object\ to\ draw\ on\ it.}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00297}00297\ \ \ \ \ DrawArea\ *d\ =\ c-\/>initDynamicLayer();}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00298}00298\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00299}00299\ \ \ \ \ \textcolor{comment}{//\ The\ plot\ area\ object}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00300}00300\ \ \ \ \ PlotArea\ *plotArea\ =\ c-\/>getPlotArea();}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00301}00301\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00302}00302\ \ \ \ \ \textcolor{comment}{//\ Get\ the\ data\ x-\/value\ that\ is\ nearest\ to\ the\ mouse,\ and\ find\ its\ pixel\ coordinate.}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00303}00303\ \ \ \ \ \textcolor{keywordtype}{double}\ xValue\ =\ c-\/>getNearestXValue(mouseX);}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00304}00304\ \ \ \ \ \textcolor{keywordtype}{int}\ xCoor\ =\ c-\/>getXCoor(xValue);}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00305}00305\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00306}00306\ \ \ \ \ \textcolor{comment}{//\ Draw\ a\ vertical\ track\ line\ at\ the\ x-\/position}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00307}00307\ \ \ \ \ d-\/>vline(plotArea-\/>getTopY(),\ plotArea-\/>getBottomY(),\ xCoor,\ d-\/>dashLineColor(0x000000,\ 0x0101));}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00308}00308\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00309}00309\ \ \ \ \ \textcolor{comment}{//\ Container\ to\ hold\ the\ legend\ entries}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00310}00310\ \ \ \ \ vector<string>\ legendEntries;}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00311}00311\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00312}00312\ \ \ \ \ \textcolor{comment}{//\ Iterate\ through\ all\ layers\ to\ build\ the\ legend\ array}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00313}00313\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ c-\/>getLayerCount();\ ++i)}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00314}00314\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00315}00315\ \ \ \ \ \ \ \ \ Layer\ *layer\ =\ c-\/>getLayerByZ(i);}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00316}00316\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00317}00317\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ layerXValue\ =\ layer-\/>getNearestXValue(mouseX);}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00318}00318\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00319}00319\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Iterate\ through\ all\ the\ data\ sets\ in\ the\ layer}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00320}00320\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ layer-\/>getDataSetCount();\ ++j)}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00321}00321\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00322}00322\ \ \ \ \ \ \ \ \ \ \ \ \ DataSet\ *dataSet\ =\ layer-\/>getDataSetByZ(j);}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00323}00323\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00324}00324\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ are\ only\ interested\ in\ visible\ data\ sets\ with\ names}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00325}00325\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *dataName\ =\ dataSet-\/>getDataName();}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00326}00326\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ color\ =\ dataSet-\/>getDataColor();}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00327}00327\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dataName\ \&\&\ *dataName\ \&\&\ (color\ !=\ (\textcolor{keywordtype}{int})Chart::Transparent))}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00328}00328\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00329}00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Build\ the\ legend\ entry,\ consist\ of\ the\ legend\ icon,\ name\ and\ data\ value.}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00330}00330\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dataValue\ =\ dataSet-\/>getValue(xIndex);}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00331}00331\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ostringstream\ legendEntry;}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00332}00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ legendEntry\ <<\ \textcolor{stringliteral}{"{}<*block*>"{}}\ <<\ dataSet-\/>getLegendIcon()\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ dataName\ <<\ \textcolor{stringliteral}{"{}:\ "{}}\ <<\ ((dataValue\ ==\ Chart::NoValue)\ ?\ \textcolor{stringliteral}{"{}N/A"{}}\ :\ c-\/>formatValue(dataValue,\ \textcolor{stringliteral}{"{}\{value|P4\}"{}}))}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00333}00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}<*/*>"{}};}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00334}00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ legendEntries.push\_back(legendEntry.str());}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00335}00335\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00336}00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Draw\ a\ track\ dot\ for\ data\ points\ within\ the\ plot\ area}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00337}00337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ yCoor\ =\ c-\/>getYCoor(dataSet-\/>getPosition(xIndex),\ dataSet-\/>getUseYAxis());}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00338}00338\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((yCoor\ >=\ plotArea-\/>getTopY())\ \&\&\ (yCoor\ <=\ plotArea-\/>getBottomY()))}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00339}00339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00340}00340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d-\/>circle(xCoor,\ yCoor,\ 4,\ 4,\ color,\ color);}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00341}00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00342}00342\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00343}00343\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00344}00344\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00345}00345\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00346}00346\ \ \ \ \ \textcolor{comment}{//\ Create\ the\ legend\ by\ joining\ the\ legend\ entries}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00347}00347\ \ \ \ \ ostringstream\ legendText;}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00348}00348\ \ \ \ \ legendText\ <<\ \textcolor{stringliteral}{"{}<*block,maxWidth="{}}\ <<\ plotArea-\/>getWidth()\ <<\ \textcolor{stringliteral}{"{}*><*block*><*font=Arial\ Bold*>["{}}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00349}00349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ c-\/>xAxis()-\/>getFormattedLabel(xValue,\ \textcolor{stringliteral}{"{}hh:nn:ss"{}})\ <<\ \textcolor{stringliteral}{"{}]<*/*>"{}};}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00350}00350\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ ((\textcolor{keywordtype}{int})legendEntries.size())\ -\/\ 1;\ i\ >=\ 0;\ -\/-\/i)}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00351}00351\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00352}00352\ \ \ \ \ \ \ \ \ legendText\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ "{}}\ <<\ legendEntries[i];}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00353}00353\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00354}00354\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00355}00355\ \ \ \ \ \textcolor{comment}{//\ Display\ the\ legend\ on\ the\ top\ of\ the\ plot\ area}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00356}00356\ \ \ \ \ TTFText\ *t\ =\ d-\/>text(legendText.str().c\_str(),\ \textcolor{stringliteral}{"{}Arial"{}},\ 8);}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00357}00357\ \ \ \ \ t-\/>draw(5,\ m\_titleBox-\/>getHeight(),\ 0x000000,\ Chart::TopLeft);}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00358}00358\ \ \ \ \ \textcolor{keywordtype}{int}\ height\ =\ t-\/>getHeight();}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00359}00359\ \ \ \ \ t-\/>destroy();}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00360}00360\ \}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00361}00361\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00362}00362\ \textcolor{comment}{/*}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00363}00363\ \textcolor{comment}{\ *\ Get\ bitmap\ resources}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00364}00364\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00365}00365\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00366}00366\ wxBitmap}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00367}00367\ TeleconRealTimeLineChart::GetBitmapResource(\textcolor{keyword}{const}\ wxString\ \&name)}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00368}00368\ \{}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00369}00369\ \ \ \ \ \textcolor{comment}{//\ Bitmap\ retrieval}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00370}00370\ \ \ \ \ wxImage\ image;}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00371}00371\ \ \ \ \ \textcolor{keywordflow}{if}\ (name\ ==\ wxT(\textcolor{stringliteral}{"{}play.png"{}}))}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00372}00372\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00373}00373\ \ \ \ \ \ \ \ \ image.LoadFile(wxT(\textcolor{stringliteral}{"{}./icons/play.png"{}}),\ wxBITMAP\_TYPE\_PNG);}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00374}00374\ \ \ \ \ \ \ \ \ image.Rescale(FromDIP(16),\ FromDIP(16));}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00375}00375\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ wxBitmap(image);}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00376}00376\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00377}00377\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (name\ ==\ wxT(\textcolor{stringliteral}{"{}pause.png"{}}))}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00378}00378\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00379}00379\ \ \ \ \ \ \ \ \ image.LoadFile(wxT(\textcolor{stringliteral}{"{}./icons/pause.png"{}}),\ wxBITMAP\_TYPE\_PNG);}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00380}00380\ \ \ \ \ \ \ \ \ image.Rescale(FromDIP(16),\ FromDIP(16));}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00381}00381\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ wxBitmap(image);}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00382}00382\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00383}00383\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (name\ ==\ wxT(\textcolor{stringliteral}{"{}save.png"{}}))}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00384}00384\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00385}00385\ \ \ \ \ \ \ \ \ image.LoadFile(wxT(\textcolor{stringliteral}{"{}./icons/save\_icon.png"{}}),\ wxBITMAP\_TYPE\_PNG);}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00386}00386\ \ \ \ \ \ \ \ \ image.Rescale(FromDIP(16),\ FromDIP(16));}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00387}00387\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ wxBitmap(image);}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00388}00388\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00389}00389\ \ \ \ \ \textcolor{keywordflow}{return}\ wxNullBitmap;}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00390}00390\ \}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00391}00391\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00392}\mbox{\hyperlink{class_telecon_real_time_line_chart_abf96d3f697915ac789daa02e08fe9aa3}{00392}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_real_time_line_chart_abf96d3f697915ac789daa02e08fe9aa3}{TeleconRealTimeLineChart::addLinePlot}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ plottitle,\ \textcolor{keywordtype}{long}\ plotcolor,\ \textcolor{keywordtype}{int}\ symbol,\ \textcolor{keywordtype}{bool}\ fillSymbol,\ \textcolor{keywordtype}{int}\ symbolSize,\ \mbox{\hyperlink{teleconlineplot_8h_afd074c27ba0a2809258258751b754f52}{LineType}}\ lineType,\ \textcolor{keywordtype}{int}\ lineWidth)}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00393}00393\ \{}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00394}00394\ \ \ \ \ addLatestValueText(plottitle);}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00395}00395\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00396}00396\ \ \ \ \ \textcolor{keywordtype}{int}\ color\ =\ plotcolor\ ==\ \mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a0b8d8b18037efc3cdb5dd0313e7c67dc}{COLOR\_DEFAULT}}\ ?\ getNextDefaultColor()\ :\ plotcolor;}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00397}00397\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00398}00398\ \ \ \ \ m\_plots.push\_back(shared\_ptr<TeleconPlot>(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_telecon_line_plot}{TeleconLinePlot}}(m\_memoryDepth,\ color,\ \textcolor{keywordtype}{string}(plottitle),\ lineWidth,\ lineType,\ symbol\ !=\ Chart::NoSymbol,\ symbol,\ fillSymbol,\ symbolSize)));}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00399}00399\ \}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00319}00319\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ data\ array\ index\ of\ the\ x-\/value}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00320}00320\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ xIndex\ =\ layer-\/>getXIndexOf(layerXValue);}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00321}00321\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00322}00322\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Iterate\ through\ all\ the\ data\ sets\ in\ the\ layer}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00323}00323\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ layer-\/>getDataSetCount();\ ++j)}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00324}00324\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00325}00325\ \ \ \ \ \ \ \ \ \ \ \ \ DataSet\ *dataSet\ =\ layer-\/>getDataSetByZ(j);}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00326}00326\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00327}00327\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ are\ only\ interested\ in\ visible\ data\ sets\ with\ names}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00328}00328\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *dataName\ =\ dataSet-\/>getDataName();}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00329}00329\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ color\ =\ dataSet-\/>getDataColor();}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00330}00330\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dataName\ \&\&\ *dataName)}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00331}00331\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00332}00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Build\ the\ legend\ entry,\ consist\ of\ the\ legend\ icon,\ name\ and\ data\ value.}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00333}00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dataValue\ =\ dataSet-\/>getValue(xIndex);}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00334}00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ostringstream\ legendEntry;}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00335}00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ legendEntry\ <<\ \textcolor{stringliteral}{"{}<*block*>"{}}\ <<\ dataSet-\/>getLegendIcon()\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ dataName\ <<\ \textcolor{stringliteral}{"{}:\ "{}}\ <<\ ((dataValue\ ==\ Chart::NoValue)\ ?\ \textcolor{stringliteral}{"{}N/A"{}}\ :\ c-\/>formatValue(dataValue,\ \textcolor{stringliteral}{"{}\{value|P4\}"{}}))}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00336}00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}<*/*>"{}};}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00337}00337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ legendEntries.push\_back(legendEntry.str());}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00338}00338\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00339}00339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Draw\ a\ track\ dot\ for\ data\ points\ within\ the\ plot\ area}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00340}00340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ yCoor\ =\ c-\/>getYCoor(dataSet-\/>getPosition(xIndex),\ dataSet-\/>getUseYAxis());}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00341}00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((yCoor\ >=\ plotArea-\/>getTopY())\ \&\&\ (yCoor\ <=\ plotArea-\/>getBottomY()))}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00342}00342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00343}00343\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d-\/>circle(xCoor,\ yCoor,\ 4,\ 4,\ color,\ color);}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00344}00344\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00345}00345\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00346}00346\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00347}00347\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00348}00348\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00349}00349\ \ \ \ \ \textcolor{comment}{//\ Create\ the\ legend\ by\ joining\ the\ legend\ entries}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00350}00350\ \ \ \ \ ostringstream\ legendText;}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00351}00351\ \ \ \ \ legendText\ <<\ \textcolor{stringliteral}{"{}<*block,maxWidth="{}}\ <<\ plotArea-\/>getWidth()\ <<\ \textcolor{stringliteral}{"{}*><*block*><*font=Arial\ Bold*>["{}}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00352}00352\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ c-\/>xAxis()-\/>getFormattedLabel(xValue,\ \textcolor{stringliteral}{"{}hh:nn:ss"{}})\ <<\ \textcolor{stringliteral}{"{}]<*/*>"{}};}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00353}00353\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ ((\textcolor{keywordtype}{int})legendEntries.size())\ -\/\ 1;\ i\ >=\ 0;\ -\/-\/i)}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00354}00354\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00355}00355\ \ \ \ \ \ \ \ \ legendText\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ "{}}\ <<\ legendEntries[i];}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00356}00356\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00357}00357\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00358}00358\ \ \ \ \ \textcolor{comment}{//\ Display\ the\ legend\ on\ the\ top\ of\ the\ plot\ area}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00359}00359\ \ \ \ \ TTFText\ *t\ =\ d-\/>text(legendText.str().c\_str(),\ \textcolor{stringliteral}{"{}Arial"{}},\ 8);}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00360}00360\ \ \ \ \ t-\/>draw(5,\ m\_titleBox-\/>getHeight(),\ 0x000000,\ Chart::TopLeft);}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00361}00361\ \ \ \ \ \textcolor{keywordtype}{int}\ height\ =\ t-\/>getHeight();}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00362}00362\ \ \ \ \ t-\/>destroy();}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00363}00363\ \}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00364}00364\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00365}00365\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00366}00366\ \textcolor{comment}{\ *\ Get\ bitmap\ resources}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00367}00367\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00368}00368\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00369}00369\ wxBitmap}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00370}00370\ TeleconRealTimeChart::GetBitmapResource(\textcolor{keyword}{const}\ wxString\ \&name)}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00371}00371\ \{}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00372}00372\ \ \ \ \ \textcolor{comment}{//\ Bitmap\ retrieval}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00373}00373\ \ \ \ \ wxImage\ image;}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00374}00374\ \ \ \ \ \textcolor{keywordflow}{if}\ (name\ ==\ wxT(\textcolor{stringliteral}{"{}play.png"{}}))}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00375}00375\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00376}00376\ \ \ \ \ \ \ \ \ image.LoadFile(wxT(\textcolor{stringliteral}{"{}./icons/play.png"{}}),\ wxBITMAP\_TYPE\_PNG);}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00377}00377\ \ \ \ \ \ \ \ \ image.Rescale(FromDIP(16),\ FromDIP(16));}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00378}00378\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ wxBitmap(image);}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00379}00379\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00380}00380\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (name\ ==\ wxT(\textcolor{stringliteral}{"{}pause.png"{}}))}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00381}00381\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00382}00382\ \ \ \ \ \ \ \ \ image.LoadFile(wxT(\textcolor{stringliteral}{"{}./icons/pause.png"{}}),\ wxBITMAP\_TYPE\_PNG);}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00383}00383\ \ \ \ \ \ \ \ \ image.Rescale(FromDIP(16),\ FromDIP(16));}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00384}00384\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ wxBitmap(image);}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00385}00385\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00386}00386\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (name\ ==\ wxT(\textcolor{stringliteral}{"{}save.png"{}}))}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00387}00387\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00388}00388\ \ \ \ \ \ \ \ \ image.LoadFile(wxT(\textcolor{stringliteral}{"{}./icons/save\_icon.png"{}}),\ wxBITMAP\_TYPE\_PNG);}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00389}00389\ \ \ \ \ \ \ \ \ image.Rescale(FromDIP(16),\ FromDIP(16));}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00390}00390\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ wxBitmap(image);}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00391}00391\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00392}00392\ \ \ \ \ \textcolor{keywordflow}{return}\ wxNullBitmap;}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00393}00393\ \}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00394}00394\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00395}\mbox{\hyperlink{class_telecon_real_time_chart_a942a44f101bafd2d42be463db62804e6}{00395}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_real_time_chart_a942a44f101bafd2d42be463db62804e6}{TeleconRealTimeChart::addLinePlot}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ plottitle,\ \textcolor{keywordtype}{long}\ plotcolor,\ \textcolor{keywordtype}{int}\ symbol,\ \textcolor{keywordtype}{bool}\ fillSymbol,\ \textcolor{keywordtype}{int}\ symbolSize,\ \mbox{\hyperlink{teleconlineplot_8h_afd074c27ba0a2809258258751b754f52}{LineType}}\ lineType,\ \textcolor{keywordtype}{int}\ lineWidth)}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00396}00396\ \{}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00397}00397\ \ \ \ \ addLatestValueText(plottitle);}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00398}00398\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00399}00399\ \ \ \ \ \textcolor{keywordtype}{int}\ color\ =\ plotcolor\ ==\ \mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a0b8d8b18037efc3cdb5dd0313e7c67dc}{COLOR\_DEFAULT}}\ ?\ getNextDefaultColor()\ :\ plotcolor;}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00400}00400\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00401}\mbox{\hyperlink{class_telecon_real_time_line_chart_a8b5e76b0554b9481274c487c069bb177}{00401}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_real_time_line_chart_a8b5e76b0554b9481274c487c069bb177}{TeleconRealTimeLineChart::addScatterPlot}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ plottitle,\ \textcolor{keywordtype}{long}\ plotcolor,\ \textcolor{keywordtype}{int}\ symbol,\ \textcolor{keywordtype}{bool}\ fillSymbol,\ \textcolor{keywordtype}{int}\ symbolSize)\ \{}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00402}00402\ \ \ \ \ addLatestValueText(plottitle);}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00401}00401\ \ \ \ \ m\_plots.push\_back(shared\_ptr<TeleconPlot>(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_telecon_line_plot}{TeleconLinePlot}}(m\_memoryDepth,\ color,\ \textcolor{keywordtype}{string}(plottitle),\ lineWidth,\ lineType,\ symbol\ !=\ Chart::NoSymbol,\ symbol,\ fillSymbol,\ symbolSize)));}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00402}00402\ \}}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00403}00403\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00404}00404\ \ \ \ \ \textcolor{keywordtype}{int}\ color\ =\ plotcolor\ ==\ \mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a0b8d8b18037efc3cdb5dd0313e7c67dc}{COLOR\_DEFAULT}}\ ?\ getNextDefaultColor()\ :\ plotcolor;}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00405}00405\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00406}00406\ \ \ \ \ m\_plots.push\_back(shared\_ptr<TeleconPlot>(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_telecon_scatter_plot}{TeleconScatterPlot}}(m\_memoryDepth,\ color,\ \textcolor{keywordtype}{string}(plottitle),\ symbol,\ fillSymbol,\ symbolSize)));}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00407}00407\ \}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00404}\mbox{\hyperlink{class_telecon_real_time_chart_a0c4e1de2091869789d3339d830598aa1}{00404}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_real_time_chart_a0c4e1de2091869789d3339d830598aa1}{TeleconRealTimeChart::addScatterPlot}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ plottitle,\ \textcolor{keywordtype}{long}\ plotcolor,\ \textcolor{keywordtype}{int}\ symbol,\ \textcolor{keywordtype}{bool}\ fillSymbol,\ \textcolor{keywordtype}{int}\ symbolSize)\ \{}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00405}00405\ \ \ \ \ addLatestValueText(plottitle);}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00406}00406\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00407}00407\ \ \ \ \ \textcolor{keywordtype}{int}\ color\ =\ plotcolor\ ==\ \mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a0b8d8b18037efc3cdb5dd0313e7c67dc}{COLOR\_DEFAULT}}\ ?\ getNextDefaultColor()\ :\ plotcolor;}
 \DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00408}00408\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00409}00409\ \textcolor{keywordtype}{void}\ TeleconRealTimeLineChart::addLatestValueText(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ plottitle)\ \{}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00410}00410\ \ \ \ \ wxStaticText*\ latestValueLabel\ =\ \textcolor{keyword}{new}\ wxStaticText(\textcolor{keyword}{this},\ wxID\_STATIC,\ wxString(plottitle),\ wxDefaultPosition,\ wxDefaultSize,\ 0);}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00411}00411\ \ \ \ \ m\_plotLatestValueFlexGridSizer-\/>Add(latestValueLabel,\ 0,\ wxALIGN\_LEFT\ |\ wxALIGN\_CENTER\_VERTICAL\ |\ wxALL,\ FromDIP(3));}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00412}00412\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00413}00413\ \ \ \ \ wxTextCtrl*\ latestValueText\ =\ \textcolor{keyword}{new}\ wxTextCtrl(\textcolor{keyword}{this},\ wxID\_ANY,\ wxEmptyString,\ wxDefaultPosition,\ FromDIP(wxSize(60,\ -\/1)),\ wxTE\_READONLY\ |\ wxSTATIC\_BORDER);}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00414}00414\ \ \ \ \ latestValueText-\/>Enable(\textcolor{keyword}{false});}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00415}00415\ \ \ \ \ m\_plotLatestValueFlexGridSizer-\/>Add(latestValueText,\ 0,\ wxALIGN\_LEFT\ |\ wxALIGN\_CENTER\_VERTICAL\ |\ wxALL,\ FromDIP(3));}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00416}00416\ \ \ \ \ m\_latestValueTextCtrls.push\_back(latestValueText);}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00417}00417\ \}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00418}00418\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00419}00419\ \textcolor{keywordtype}{int}\ TeleconRealTimeLineChart::getNextDefaultColor()\ \{}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00420}00420\ \ \ \ \ \textcolor{keywordflow}{switch}\ (m\_colorSequenceMode)\ \{}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00421}00421\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38af694240c2be72deb06f19859d21ba193}{CSM\_BLACK}}:}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00422}00422\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a2a9daf215a30f1c539ead18c66380fc1}{COLOR\_BLACK}};}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00423}00423\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00424}00424\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38afafea2a6f8d4ad04e7bcabec56ba7417}{CSM\_DIVERGING}}:}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00425}00425\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Cycle\ through\ the\ colors\ in\ CSM\_COLORS\_DIVERGING,\ repeating\ upon\ reaching\ the\ end}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00426}00426\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ CSM\_COLORS\_DIVERGING[m\_plots.size()\ \%\ CSM\_COLORS\_DIVERGING.size()];}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00427}00427\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00428}00428\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00429}00429\ \ \ \ \ \textcolor{comment}{//\ Should\ be\ impossible,\ cases\ are\ exhaustive}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00430}00430\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a2a9daf215a30f1c539ead18c66380fc1}{COLOR\_BLACK}};}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00431}00431\ \}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00432}00432\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00433}\mbox{\hyperlink{class_telecon_real_time_line_chart_ac221e2a946c6e2fae9cd7d292eba0622}{00433}}\ vector<shared\_ptr<TeleconPlot>>::iterator\ \mbox{\hyperlink{class_telecon_real_time_line_chart_ac221e2a946c6e2fae9cd7d292eba0622}{TeleconRealTimeLineChart::begin}}()}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00434}00434\ \{}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00435}00435\ \ \ \ \ \textcolor{keywordflow}{return}\ m\_plots.begin();}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00436}00436\ \}}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00437}00437\ }
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00438}\mbox{\hyperlink{class_telecon_real_time_line_chart_acbfc67817a234b25b405e54ee99156d2}{00438}}\ vector<shared\_ptr<TeleconPlot>>::iterator\ \mbox{\hyperlink{class_telecon_real_time_line_chart_acbfc67817a234b25b405e54ee99156d2}{TeleconRealTimeLineChart::end}}()}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00439}00439\ \{}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00440}00440\ \ \ \ \ \textcolor{keywordflow}{return}\ m\_plots.end();}
-\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00441}00441\ \}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00409}00409\ \ \ \ \ m\_plots.push\_back(shared\_ptr<TeleconPlot>(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_telecon_scatter_plot}{TeleconScatterPlot}}(m\_memoryDepth,\ color,\ \textcolor{keywordtype}{string}(plottitle),\ symbol,\ fillSymbol,\ symbolSize)));}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00410}00410\ \}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00411}00411\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00412}00412\ \textcolor{keywordtype}{void}\ TeleconRealTimeChart::addLatestValueText(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ plottitle)\ \{}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00413}00413\ \ \ \ \ wxStaticText*\ latestValueLabel\ =\ \textcolor{keyword}{new}\ wxStaticText(\textcolor{keyword}{this},\ wxID\_STATIC,\ wxString(plottitle),\ wxDefaultPosition,\ wxDefaultSize,\ 0);}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00414}00414\ \ \ \ \ m\_plotLatestValueFlexGridSizer-\/>Add(latestValueLabel,\ 0,\ wxALIGN\_LEFT\ |\ wxALIGN\_CENTER\_VERTICAL\ |\ wxALL,\ FromDIP(3));}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00415}00415\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00416}00416\ \ \ \ \ wxTextCtrl*\ latestValueText\ =\ \textcolor{keyword}{new}\ wxTextCtrl(\textcolor{keyword}{this},\ wxID\_ANY,\ wxEmptyString,\ wxDefaultPosition,\ FromDIP(wxSize(60,\ -\/1)),\ wxTE\_READONLY\ |\ wxSTATIC\_BORDER);}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00417}00417\ \ \ \ \ latestValueText-\/>Enable(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00418}00418\ \ \ \ \ m\_plotLatestValueFlexGridSizer-\/>Add(latestValueText,\ 0,\ wxALIGN\_LEFT\ |\ wxALIGN\_CENTER\_VERTICAL\ |\ wxALL,\ FromDIP(3));}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00419}00419\ \ \ \ \ m\_latestValueTextCtrls.push\_back(latestValueText);}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00420}00420\ \}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00421}00421\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00422}00422\ \textcolor{keywordtype}{int}\ TeleconRealTimeChart::getNextDefaultColor()\ \{}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00423}00423\ \ \ \ \ \textcolor{keywordflow}{switch}\ (m\_colorSequenceMode)\ \{}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00424}00424\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38af694240c2be72deb06f19859d21ba193}{CSM\_BLACK}}:}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00425}00425\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a2a9daf215a30f1c539ead18c66380fc1}{COLOR\_BLACK}};}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00426}00426\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00427}00427\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38afafea2a6f8d4ad04e7bcabec56ba7417}{CSM\_DIVERGING}}:}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00428}00428\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Cycle\ through\ the\ colors\ in\ CSM\_COLORS\_DIVERGING,\ repeating\ upon\ reaching\ the\ end}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00429}00429\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ CSM\_COLORS\_DIVERGING[m\_plots.size()\ \%\ CSM\_COLORS\_DIVERGING.size()];}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00430}00430\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00431}00431\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00432}00432\ \ \ \ \ \textcolor{comment}{//\ Should\ be\ impossible,\ cases\ are\ exhaustive}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00433}00433\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a2a9daf215a30f1c539ead18c66380fc1}{COLOR\_BLACK}};}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00434}00434\ \}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00435}00435\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00436}\mbox{\hyperlink{class_telecon_real_time_chart_ad90134a0ca03738d4c5ae2000b759098}{00436}}\ vector<shared\_ptr<TeleconPlot>>::iterator\ \mbox{\hyperlink{class_telecon_real_time_chart_ad90134a0ca03738d4c5ae2000b759098}{TeleconRealTimeChart::begin}}()}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00437}00437\ \{}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00438}00438\ \ \ \ \ \textcolor{keywordflow}{return}\ m\_plots.begin();}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00439}00439\ \}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00440}00440\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00441}\mbox{\hyperlink{class_telecon_real_time_chart_a321e6d765d8aae88267f5c275901756e}{00441}}\ vector<shared\_ptr<TeleconPlot>>::iterator\ \mbox{\hyperlink{class_telecon_real_time_chart_a321e6d765d8aae88267f5c275901756e}{TeleconRealTimeChart::end}}()}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00442}00442\ \{}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00443}00443\ \ \ \ \ \textcolor{keywordflow}{return}\ m\_plots.end();}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00444}00444\ \}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00445}00445\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00446}\mbox{\hyperlink{class_telecon_real_time_chart_a3182129ac79ec2e6a34ba2eb13114bc0}{00446}}\ shared\_ptr<TeleconPlot>\ \mbox{\hyperlink{class_telecon_real_time_chart_a3182129ac79ec2e6a34ba2eb13114bc0}{TeleconRealTimeChart::getPlot}}(\textcolor{keywordtype}{int}\ index)}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00447}00447\ \{}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00448}00448\ \ \ \ \ \textcolor{keywordflow}{return}\ m\_plots[index];}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00449}00449\ \}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00450}00450\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00451}\mbox{\hyperlink{class_telecon_real_time_chart_a084cbfc17171ffb1bfa1ddf8ac9fbff2}{00451}}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_telecon_real_time_chart_a084cbfc17171ffb1bfa1ddf8ac9fbff2}{TeleconRealTimeChart::getNumPlots}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00452}00452\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00453}00453\ \ \ \ \ \textcolor{keywordflow}{return}\ m\_plots.size();}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8cpp_source_l00454}00454\ \}}
 
 \end{DoxyCode}

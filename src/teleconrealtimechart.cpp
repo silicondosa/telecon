@@ -21,12 +21,12 @@ using namespace std;
 
 static const int chartUpdateIntervals[8] = {250, 500, 750, 1000, 1250, 1500, 1750, 2000};
 
-TeleconRealTimeLineChart::~TeleconRealTimeLineChart()
+TeleconRealTimeChart::~TeleconRealTimeChart()
 {
     m_chartUpdateTimer->Stop();
 }
 
-TeleconRealTimeLineChart::TeleconRealTimeLineChart(wxWindow *parent,
+TeleconRealTimeChart::TeleconRealTimeChart(wxWindow *parent,
                                                    wxWindowID winid,
                                                    const wxPoint &pos,
                                                    const wxSize &size,
@@ -57,7 +57,7 @@ TeleconRealTimeLineChart::TeleconRealTimeLineChart(wxWindow *parent,
     SetUpChartBox(title, xLabel, yLabel);
 }
 
-void TeleconRealTimeLineChart::SetUpViewOptionsBox()
+void TeleconRealTimeChart::SetUpViewOptionsBox()
 {
     // Add play button
     m_playButton = new wxToggleButton(m_viewOptionsBox, ID_PLAY, _(" &Run"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
@@ -105,7 +105,7 @@ void TeleconRealTimeLineChart::SetUpViewOptionsBox()
     m_viewOptionsBoxSizer->Add(m_plotLatestValueFlexGridSizer, 0, wxGROW | wxALL, FromDIP(3));
 }
 
-void TeleconRealTimeLineChart::SetUpChartBox(const wxString title, const wxString xlabel, const wxString ylabel)
+void TeleconRealTimeChart::SetUpChartBox(const wxString title, const wxString xlabel, const wxString ylabel)
 {
     m_chartTitle = title;
     m_xlabel = xlabel;
@@ -119,21 +119,21 @@ void TeleconRealTimeLineChart::SetUpChartBox(const wxString title, const wxStrin
     m_chartUpdateTimer->Start(chartUpdateIntervals[0]);
 }
 
-BEGIN_EVENT_TABLE(TeleconRealTimeLineChart, wxPanel)
+BEGIN_EVENT_TABLE(TeleconRealTimeChart, wxPanel)
 
-EVT_TOGGLEBUTTON(ID_PLAY, TeleconRealTimeLineChart::OnPlayClick)
-EVT_TOGGLEBUTTON(ID_PAUSE, TeleconRealTimeLineChart::OnPauseClick)
-EVT_CHOICE(ID_UPDATE_PERIOD, TeleconRealTimeLineChart::OnChartUpdatePeriodSelected)
-EVT_BUTTON(wxID_SAVE, TeleconRealTimeLineChart::OnSave)
+EVT_TOGGLEBUTTON(ID_PLAY, TeleconRealTimeChart::OnPlayClick)
+EVT_TOGGLEBUTTON(ID_PAUSE, TeleconRealTimeChart::OnPauseClick)
+EVT_CHOICE(ID_UPDATE_PERIOD, TeleconRealTimeChart::OnChartUpdatePeriodSelected)
+EVT_BUTTON(wxID_SAVE, TeleconRealTimeChart::OnSave)
 
-EVT_TIMER(ID_UPDATE_TIMER, TeleconRealTimeLineChart::OnChartUpdateTimer)
-EVT_CHARTVIEWER_VIEWPORT_CHANGED(ID_CHARTVIEWER, TeleconRealTimeLineChart::OnViewPortChanged)
-EVT_CHARTVIEWER_MOUSEMOVE_PLOTAREA(ID_CHARTVIEWER, TeleconRealTimeLineChart::OnMouseMovePlotArea)
+EVT_TIMER(ID_UPDATE_TIMER, TeleconRealTimeChart::OnChartUpdateTimer)
+EVT_CHARTVIEWER_VIEWPORT_CHANGED(ID_CHARTVIEWER, TeleconRealTimeChart::OnViewPortChanged)
+EVT_CHARTVIEWER_MOUSEMOVE_PLOTAREA(ID_CHARTVIEWER, TeleconRealTimeChart::OnMouseMovePlotArea)
 
 END_EVENT_TABLE()
 
 // Event handler
-void TeleconRealTimeLineChart::OnPlayClick(wxCommandEvent &event)
+void TeleconRealTimeChart::OnPlayClick(wxCommandEvent &event)
 {
     m_playButton->SetValue(true);
     m_pauseButton->SetValue(false);
@@ -141,7 +141,7 @@ void TeleconRealTimeLineChart::OnPlayClick(wxCommandEvent &event)
 }
 
 // Event handler
-void TeleconRealTimeLineChart::OnPauseClick(wxCommandEvent &event)
+void TeleconRealTimeChart::OnPauseClick(wxCommandEvent &event)
 {
     m_playButton->SetValue(false);
     m_pauseButton->SetValue(true);
@@ -149,7 +149,7 @@ void TeleconRealTimeLineChart::OnPauseClick(wxCommandEvent &event)
 }
 
 // Event handler
-void TeleconRealTimeLineChart::OnChartUpdatePeriodSelected(wxCommandEvent &event)
+void TeleconRealTimeChart::OnChartUpdatePeriodSelected(wxCommandEvent &event)
 {
     long interval;
     (m_updatePeriodSelector->GetString(m_updatePeriodSelector->GetSelection())).ToLong(&interval);
@@ -157,7 +157,7 @@ void TeleconRealTimeLineChart::OnChartUpdatePeriodSelected(wxCommandEvent &event
 }
 
 // Event handler
-void TeleconRealTimeLineChart::OnSave(wxCommandEvent &event)
+void TeleconRealTimeChart::OnSave(wxCommandEvent &event)
 {
     wxFileDialog saveFileDialog(this, _("Save graphics file"), "", "chartdirector_demo",
                                 "PNG (*.png)|*.png|JPG (*.jpg)|*.jpg|GIF (*.gif)|*.gif|BMP (*.bmp)|*.bmp|SVG (*.svg)|*.svg|PDF (*.pdf)|*.pdf", wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
@@ -178,7 +178,7 @@ void TeleconRealTimeLineChart::OnSave(wxCommandEvent &event)
 }
 
 // Event handler
-void TeleconRealTimeLineChart::OnChartUpdateTimer(wxTimerEvent &event)
+void TeleconRealTimeChart::OnChartUpdateTimer(wxTimerEvent &event)
 {
     // Will result in a call to OnViewPortChanged, which may redraw the chart if needed
     m_chartViewer->updateViewPort(true, false);
@@ -187,7 +187,7 @@ void TeleconRealTimeLineChart::OnChartUpdateTimer(wxTimerEvent &event)
 // Event handler
 // This event occurs if the user scrolls or zooms in or out the chart by dragging or clicking on the chart.
 // It can also be triggered by calling WinChartViewer.updateViewPort.
-void TeleconRealTimeLineChart::OnViewPortChanged(wxCommandEvent &event)
+void TeleconRealTimeChart::OnViewPortChanged(wxCommandEvent &event)
 {
     if (m_chartViewer->needUpdateChart())
     {
@@ -195,7 +195,7 @@ void TeleconRealTimeLineChart::OnViewPortChanged(wxCommandEvent &event)
     }
 }
 
-void TeleconRealTimeLineChart::DrawChart()
+void TeleconRealTimeChart::DrawChart()
 {
     static const int chartWidth = 600;
     static const int chartHeight = 270;
@@ -284,14 +284,14 @@ void TeleconRealTimeLineChart::DrawChart()
 }
 
 // Draw track cursor when mouse is moving over plotarea
-void TeleconRealTimeLineChart::OnMouseMovePlotArea(wxCommandEvent &event)
+void TeleconRealTimeChart::OnMouseMovePlotArea(wxCommandEvent &event)
 {
     TrackLineLegend((XYChart *)m_chartViewer->getChart(), m_chartViewer->getPlotAreaMouseX());
     m_chartViewer->updateDisplay();
 }
 
 // Draw the track line with legend
-void TeleconRealTimeLineChart::TrackLineLegend(XYChart *c, int mouseX)
+void TeleconRealTimeChart::TrackLineLegend(XYChart *c, int mouseX)
 {
     // Clear the current dynamic layer and get the DrawArea object to draw on it.
     DrawArea *d = c->initDynamicLayer();
@@ -367,7 +367,7 @@ void TeleconRealTimeLineChart::TrackLineLegend(XYChart *c, int mouseX)
  */
 
 wxBitmap
-TeleconRealTimeLineChart::GetBitmapResource(const wxString &name)
+TeleconRealTimeChart::GetBitmapResource(const wxString &name)
 {
     // Bitmap retrieval
     wxImage image;
@@ -392,7 +392,7 @@ TeleconRealTimeLineChart::GetBitmapResource(const wxString &name)
     return wxNullBitmap;
 }
 
-void TeleconRealTimeLineChart::addLinePlot(const char * plottitle, long plotcolor, int symbol, bool fillSymbol, int symbolSize, LineType lineType, int lineWidth)
+void TeleconRealTimeChart::addLinePlot(const char * plottitle, long plotcolor, LineType lineType, int lineWidth, int symbol, bool fillSymbol, int symbolSize)
 {
     addLatestValueText(plottitle);
 
@@ -401,7 +401,7 @@ void TeleconRealTimeLineChart::addLinePlot(const char * plottitle, long plotcolo
     m_plots.push_back(shared_ptr<TeleconPlot>(new TeleconLinePlot(m_memoryDepth, color, string(plottitle), lineWidth, lineType, symbol != Chart::NoSymbol, symbol, fillSymbol, symbolSize)));
 }
 
-void TeleconRealTimeLineChart::addScatterPlot(const char * plottitle, long plotcolor, int symbol, bool fillSymbol, int symbolSize) {
+void TeleconRealTimeChart::addScatterPlot(const char * plottitle, long plotcolor, int symbol, bool fillSymbol, int symbolSize) {
     addLatestValueText(plottitle);
 
     int color = plotcolor == COLOR_DEFAULT ? getNextDefaultColor() : plotcolor;
@@ -409,7 +409,7 @@ void TeleconRealTimeLineChart::addScatterPlot(const char * plottitle, long plotc
     m_plots.push_back(shared_ptr<TeleconPlot>(new TeleconScatterPlot(m_memoryDepth, color, string(plottitle), symbol, fillSymbol, symbolSize)));
 }
 
-void TeleconRealTimeLineChart::addLatestValueText(const char* plottitle) {
+void TeleconRealTimeChart::addLatestValueText(const char* plottitle) {
     wxStaticText* latestValueLabel = new wxStaticText(this, wxID_STATIC, wxString(plottitle), wxDefaultPosition, wxDefaultSize, 0);
     m_plotLatestValueFlexGridSizer->Add(latestValueLabel, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
 
@@ -419,7 +419,7 @@ void TeleconRealTimeLineChart::addLatestValueText(const char* plottitle) {
     m_latestValueTextCtrls.push_back(latestValueText);
 }
 
-int TeleconRealTimeLineChart::getNextDefaultColor() {
+int TeleconRealTimeChart::getNextDefaultColor() {
     switch (m_colorSequenceMode) {
     case CSM_BLACK:
         return COLOR_BLACK;
@@ -433,22 +433,22 @@ int TeleconRealTimeLineChart::getNextDefaultColor() {
     return COLOR_BLACK;
 }
 
-vector<shared_ptr<TeleconPlot>>::iterator TeleconRealTimeLineChart::begin()
+vector<shared_ptr<TeleconPlot>>::iterator TeleconRealTimeChart::begin()
 {
     return m_plots.begin();
 }
 
-vector<shared_ptr<TeleconPlot>>::iterator TeleconRealTimeLineChart::end()
+vector<shared_ptr<TeleconPlot>>::iterator TeleconRealTimeChart::end()
 {
     return m_plots.end();
 }
 
-shared_ptr<TeleconPlot> TeleconRealTimeLineChart::getPlot(int index)
+shared_ptr<TeleconPlot> TeleconRealTimeChart::getPlot(int index)
 {
     return m_plots[index];
 }
 
-size_t TeleconRealTimeLineChart::getNumPlots() const
+size_t TeleconRealTimeChart::getNumPlots() const
 {
     return m_plots.size();
 }

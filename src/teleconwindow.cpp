@@ -14,9 +14,9 @@ TeleconWindow::TeleconWindow(const wxString& title)
     SetSizerAndFit(itemBoxSizer);
 }
 
-TeleconRealTimeLineChart* TeleconWindow::addChart(string title, string xlabel, string ylabel, ColorSequenceMode colorSequenceMode, int dataInterval, int memoryDepth)
+TeleconRealTimeChart* TeleconWindow::addChart(string title, string ylabel, string xlabel, int dataInterval, int memoryDepth, ColorSequenceMode colorSequenceMode)
 {
-    TeleconRealTimeLineChart* realTimePanel = new TeleconRealTimeLineChart(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, title, xlabel, ylabel, wxTAB_TRAVERSAL | wxNO_BORDER, wxASCII_STR(wxPanelNameStr), colorSequenceMode, dataInterval, memoryDepth);
+    TeleconRealTimeChart* realTimePanel = new TeleconRealTimeChart(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, title, xlabel, ylabel, wxTAB_TRAVERSAL | wxNO_BORDER, wxASCII_STR(wxPanelNameStr), colorSequenceMode, dataInterval, memoryDepth);
     list_charts.push_back(realTimePanel);
     return realTimePanel;
 }
@@ -31,17 +31,17 @@ void TeleconWindow::drawWindow()
     SetSizerAndFit(itemBoxSizer);
 }
 
-vector<TeleconRealTimeLineChart*>::iterator TeleconWindow::begin()
+vector<TeleconRealTimeChart*>::iterator TeleconWindow::begin()
 {
     return list_charts.begin();
 }
 
-vector<TeleconRealTimeLineChart*>::iterator TeleconWindow::end()
+vector<TeleconRealTimeChart*>::iterator TeleconWindow::end()
 {
     return list_charts.end();
 }
 
-TeleconRealTimeLineChart* TeleconWindow::getChart(int index)
+TeleconRealTimeChart* TeleconWindow::getChart(int index)
 {
     return list_charts[index];
 }

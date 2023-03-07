@@ -10,7 +10,7 @@ var class_telecon_plot =
     [ "getPlotTitle", "class_telecon_plot.html#a5e4ae130b0e05ca73f3a8afb4b3c54ba", null ],
     [ "prepDataForDraw", "class_telecon_plot.html#abb84706ff4a12f8d68b35ebbbdea0b00", null ],
     [ "pushData", "class_telecon_plot.html#a1bd8e8b22001472883929c536e336646", null ],
-    [ "size", "class_telecon_plot.html#aad07aabbc11475ead2e9544ae11e5529", null ],
+    [ "size", "class_telecon_plot.html#a6ec8a9bca1bc9a42e12e4518a4626f9c", null ],
     [ "m_color", "class_telecon_plot.html#a99d21e4d7983dbdcff00bf4cfad51c67", null ],
     [ "m_dataToAdd", "class_telecon_plot.html#abdcc4b41661466b49d102ea200fcbb6c", null ],
     [ "m_dataToAddLock", "class_telecon_plot.html#a4a92cbee50787cca571d43854a49f320", null ],

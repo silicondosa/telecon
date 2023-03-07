@@ -30,6 +30,6 @@ var hierarchy =
       [ "mainFrame", "classmain_frame.html", null ]
     ] ],
     [ "wxPanel", null, [
-      [ "TeleconRealTimeLineChart", "class_telecon_real_time_line_chart.html", null ]
+      [ "TeleconRealTimeChart", "class_telecon_real_time_chart.html", null ]
     ] ]
 ];

@@ -314,8 +314,10 @@ void TeleconRealTimeLineChart::TrackLineLegend(XYChart *c, int mouseX)
     {
         Layer *layer = c->getLayerByZ(i);
 
+        double layerXValue = layer->getNearestXValue(mouseX);
+
         // The data array index of the x-value
-        int xIndex = layer->getXIndexOf(xValue);
+        int xIndex = layer->getXIndexOf(layerXValue);
 
         // Iterate through all the data sets in the layer
         for (int j = 0; j < layer->getDataSetCount(); ++j)

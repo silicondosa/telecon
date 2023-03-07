@@ -51,6 +51,9 @@ public:
     vector<shared_ptr<TeleconPlot>>::iterator begin();
     vector<shared_ptr<TeleconPlot>>::iterator end();
 
+    shared_ptr<TeleconPlot> getPlot(int index);
+    size_t getNumPlots() const;
+
     DECLARE_EVENT_TABLE()
 
 private:

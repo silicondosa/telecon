@@ -40,3 +40,13 @@ vector<TeleconRealTimeLineChart*>::iterator TeleconWindow::end()
 {
     return list_charts.end();
 }
+
+TeleconRealTimeLineChart* TeleconWindow::getChart(int index)
+{
+    return list_charts[index];
+}
+
+size_t TeleconWindow::getNumCharts() const
+{
+    return list_charts.size();
+}

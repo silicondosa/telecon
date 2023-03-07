@@ -29,7 +29,7 @@ public:
     double getLatestTimestamp() const;
     double getLastestValue() const;
 	// Returns the current size of the data buffer
-	int size() const;
+	size_t size() const;
 	// Returns the capacity (maximum size) of the data buffer
 	int depth() const;
 	int getColor() const;

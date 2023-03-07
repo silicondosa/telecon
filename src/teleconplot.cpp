@@ -9,7 +9,7 @@ void TeleconPlot::pushData(double xTimestamp, double yData)
 
     m_dataToAdd->push_back(make_pair(xTimestamp, yData));
 
-    if (m_dataToAdd->size() > m_depth) {
+    if ((int)m_dataToAdd->size() > m_depth) {
         m_dataToAdd->pop_front();
     }
 
@@ -23,7 +23,7 @@ double TeleconPlot::getEarliestTimestamp() const
 
 double TeleconPlot::getLatestTimestamp() const
 {
-    return m_xTimestamps[m_xTimestamps.size() - 1];
+    return m_xTimestamps[(int)m_xTimestamps.size() - 1];
 }
 
 double TeleconPlot::getLastestValue() const
@@ -31,7 +31,7 @@ double TeleconPlot::getLastestValue() const
     return m_yData.latest();
 }
 
-int TeleconPlot::size() const {
+size_t TeleconPlot::size() const {
 	return m_xTimestamps.size();
 }
 

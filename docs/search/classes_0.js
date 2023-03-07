@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['chartframe_0',['ChartFrame',['../class_chart_frame.html',1,'']]]
+  ['databuffer_0',['DataBuffer',['../class_data_buffer.html',1,'']]],
+  ['databuffer_3c_20double_20_3e_1',['DataBuffer&lt; double &gt;',['../class_data_buffer.html',1,'']]]
 ];

@@ -11,7 +11,7 @@ enum COLORS
     COLOR_GREEN = 0x00ff00,
     COLOR_BLUE = 0x0000ff,
     // Names are chosen based on the closest matching HTML color code
-    // Note that the hex values are NOT identical to the HTML color
+    // Note however that the hex values are NOT identical to the HTML color
     COLOR_DIVERGING_CRIMSON = 0xa50026,
     COLOR_DIVERGING_SIENNA = 0xd73027,
     COLOR_DIVERGING_ORANGE = 0xf46d43,
@@ -33,5 +33,5 @@ enum SYMBOLS
     SYMBOL_DIAMOND = Chart::DiamondShape,
     SYMBOL_CROSS = 5033993, // Chart::Cross2Shape(0.3)
     SYMBOL_PLUS = 5033992, // Chart::CrossShape(0.3)
-    SYMBOL_STAR = 20493, // Chart::StarShape(5)
+    SYMBOL_STAR = 20493 // Chart::StarShape(5)
 };

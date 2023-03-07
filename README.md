@@ -34,10 +34,10 @@ Use the --recurse-submodules flag when cloning or checking out branches to ensur
 - Install wxWidgets according to the instructions above.
 - Create a new empty project.
 - Go to `View|Property Manager|Add Existing Property Sheet` and add `wxWidgets.prop` (from the downloaded development files in wxWidget's root directory) to it. Then edit the .vcxproj file to make the import path relative to the wxwin environment variable, if desired.
-- Change the `Project|Properties|Linker|System|Subsystem|` property to `Windows`.
 - Set `Project|Properties|Configuration Properties|Advanced|Character Set` to `Use Unicode Character Set`.
-- Set `Project|Properties|Configuration Properties|General|C++ Language Standard` to `ISO C++ 17 Standard`, if desired.
+- Set `Project|Properties|Configuration Properties|General|C++ Language Standard` to `ISO C++ 17 Standard`.
 - To `Project|Properties|C/C++|General|Additional Include Directories|`, append `$(SolutionDir)..\include`, which is where you should place any needed header files. You can use a subdirectory of include instead, if desired.
+- Add any needed source files (.c or .cpp) to `/src` or a subdirectory as needed
 
 If using wxMathPlot:
 - To `Project|Properties|C/C++|General|Additional Include Directories|`, append `$(SolutionDir)..\lib\wxMathPlot\include`.
@@ -53,4 +53,3 @@ If using wxChartDir:
 ## Coding tips
 - Be sure to include the headers (`wx/wxp.h`) or precompiled headers (`wx/wxprec.h`) as necessary to the main source file.
 - Also remember that every app should define a new class derived from the `wxApp` with an overridden `OnInit()` function to initialize the program.
-

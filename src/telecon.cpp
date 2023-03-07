@@ -47,6 +47,11 @@ TeleconWindow* Telecon::getWindow(int index)
     return frameList[index];
 }
 
+size_t Telecon::getNumWindows() const
+{
+    return frameList.size();
+}
+
 bool Telecon::OnInit()
 {
     teleconMain();

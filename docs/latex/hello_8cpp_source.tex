@@ -35,8 +35,8 @@
 \DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00031}00031\ \textcolor{comment}{//\ Notice\ that\ the\ 'exit'\ and\ 'about'\ events\ don't\ need\ to\ define\ IDs.\ Their\ IDs\ are\ automatically\ assigned.}}
 \DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00032}00032\ \textcolor{keyword}{enum}}
 \DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00033}00033\ \{}
-\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00034}00034\ \ \ \ \ \mbox{\hyperlink{hello_8cpp_abc6126af1d45847bc59afa0aa3216b04af16c628a845e3aa25649cb1e76236469}{ID\_Hello}}\ =\ 1}
-\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00035}\mbox{\hyperlink{hello_8cpp_abc6126af1d45847bc59afa0aa3216b04af16c628a845e3aa25649cb1e76236469}{00035}}\ \};}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00034}00034\ \ \ \ \ \mbox{\hyperlink{hello_8cpp_a99fb83031ce9923c84392b4e92f956b5af16c628a845e3aa25649cb1e76236469}{ID\_Hello}}\ =\ 1}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00035}\mbox{\hyperlink{hello_8cpp_a99fb83031ce9923c84392b4e92f956b5af16c628a845e3aa25649cb1e76236469}{00035}}\ \};}
 \DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00036}00036\ }
 \DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00037}00037\ \textcolor{comment}{//\ Implements\ the\ main\ function\ which\ creates\ an\ application\ instance\ and\ starts\ the\ GUI\ event\ loop,\ then\ calls\ the\ OnInit\ function}}
 \DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00038}\mbox{\hyperlink{hello_8cpp_adb9631f126f6a1c902aac936b0d3aaf7}{00038}}\ \mbox{\hyperlink{hello_8cpp_adb9631f126f6a1c902aac936b0d3aaf7}{wxIMPLEMENT\_APP}}(\mbox{\hyperlink{class_my_app}{MyApp}});}
@@ -62,7 +62,7 @@
 \DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{comment}{//\ Create\ a\ File\ menu\ and\ append\ menu\ items\ to\ it.}}
 \DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ note\ that\ the\ "{}Quit/Exit"{}\ menu\ item\ has\ a\ default\ ID.}}
 \DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00060}00060\ \ \ \ \ wxMenu*\ menuFile\ =\ \textcolor{keyword}{new}\ wxMenu;}
-\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00061}00061\ \ \ \ \ menuFile-\/>Append(\mbox{\hyperlink{hello_8cpp_abc6126af1d45847bc59afa0aa3216b04af16c628a845e3aa25649cb1e76236469}{ID\_Hello}},\ \textcolor{stringliteral}{"{}\&Hello...\(\backslash\)tCtrl-\/H"{}},}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00061}00061\ \ \ \ \ menuFile-\/>Append(\mbox{\hyperlink{hello_8cpp_a99fb83031ce9923c84392b4e92f956b5af16c628a845e3aa25649cb1e76236469}{ID\_Hello}},\ \textcolor{stringliteral}{"{}\&Hello...\(\backslash\)tCtrl-\/H"{}},}
 \DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Help\ string\ shown\ in\ status\ bar\ for\ this\ menu\ item"{}});}
 \DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00063}00063\ \ \ \ \ menuFile-\/>AppendSeparator();}
 \DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00064}00064\ \ \ \ \ menuFile-\/>Append(wxID\_EXIT);}
@@ -86,7 +86,7 @@
 \DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00082}00082\ \ \ \ \ \textcolor{comment}{//\ Bind\ event\ handler\ functions\ to\ event\ IDs.}}
 \DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ There\ are\ many\ types\ of\ events.\ These\ are\ all\ wxEVT\_MENU\ events.}}
 \DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ use\ a\ function\ point\ pointer\ to\ the\ event\ handler\ routine\ and\ call\ it\ on\ the\ object\ of\ choice\ (our\ own\ object\ here\ -\/\ so,\ using\ 'this').}}
-\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00085}00085\ \ \ \ \ Bind(wxEVT\_MENU,\ \&MyFrame::OnHello,\ \textcolor{keyword}{this},\ \mbox{\hyperlink{hello_8cpp_abc6126af1d45847bc59afa0aa3216b04af16c628a845e3aa25649cb1e76236469}{ID\_Hello}});}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00085}00085\ \ \ \ \ Bind(wxEVT\_MENU,\ \&MyFrame::OnHello,\ \textcolor{keyword}{this},\ \mbox{\hyperlink{hello_8cpp_a99fb83031ce9923c84392b4e92f956b5af16c628a845e3aa25649cb1e76236469}{ID\_Hello}});}
 \DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00086}00086\ \ \ \ \ Bind(wxEVT\_MENU,\ \&MyFrame::OnAbout,\ \textcolor{keyword}{this},\ wxID\_ABOUT);}
 \DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00087}00087\ \ \ \ \ Bind(wxEVT\_MENU,\ \&MyFrame::OnExit,\ \textcolor{keyword}{this},\ wxID\_EXIT);}
 \DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00088}00088\ \}}

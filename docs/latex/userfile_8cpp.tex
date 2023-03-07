@@ -2,10 +2,11 @@
 \label{userfile_8cpp}\index{src/userfile.cpp@{src/userfile.cpp}}
 {\ttfamily \#include $<$wx/wxprec.\+h$>$}\newline
 {\ttfamily \#include $<$wx/wx.\+h$>$}\newline
-{\ttfamily \#include \char`\"{}base.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}telecon.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$cmath$>$}\newline
 {\ttfamily \#include $<$random$>$}\newline
-{\ttfamily \#include \char`\"{}Telecon\+Real\+Time\+Line\+Chart.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include \char`\"{}teleconrealtimechart.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}wxchartviewer.\+h\char`\"{}}\newline
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -13,6 +14,8 @@
 double \mbox{\hyperlink{userfile_8cpp_aba678328bd9c8013c3bb4b37fab7ec8d}{generate\+Random\+Double}} (double min, double max)
 \item 
 double \mbox{\hyperlink{userfile_8cpp_ac493508f4c1cf260b4caa9fd07e16159}{Create\+Data\+Points}} ()
+\item 
+int \mbox{\hyperlink{userfile_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
 \end{DoxyCompactItemize}
 
 
@@ -25,7 +28,7 @@ double \mbox{\hyperlink{userfile_8cpp_ac493508f4c1cf260b4caa9fd07e16159}{Create\
 
 
 
-Definition at line \mbox{\hyperlink{userfile_8cpp_source_l00025}{25}} of file \mbox{\hyperlink{userfile_8cpp_source}{userfile.\+cpp}}.
+Definition at line \mbox{\hyperlink{userfile_8cpp_source_l00026}{26}} of file \mbox{\hyperlink{userfile_8cpp_source}{userfile.\+cpp}}.
 
 \mbox{\Hypertarget{userfile_8cpp_aba678328bd9c8013c3bb4b37fab7ec8d}\label{userfile_8cpp_aba678328bd9c8013c3bb4b37fab7ec8d}} 
 \index{userfile.cpp@{userfile.cpp}!generateRandomDouble@{generateRandomDouble}}
@@ -36,4 +39,14 @@ Definition at line \mbox{\hyperlink{userfile_8cpp_source_l00025}{25}} of file \m
 
 
 Definition at line \mbox{\hyperlink{userfile_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{userfile_8cpp_source}{userfile.\+cpp}}.
+
+\mbox{\Hypertarget{userfile_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{userfile_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{userfile.cpp@{userfile.cpp}!main@{main}}
+\index{main@{main}!userfile.cpp@{userfile.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{userfile_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{userfile_8cpp_source}{userfile.\+cpp}}.
 

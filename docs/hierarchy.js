@@ -11,14 +11,13 @@ var hierarchy =
     [ "mpFY", null, [
       [ "MyCOSinverse", "class_my_c_o_sinverse.html", null ]
     ] ],
-    [ "TeleconChart", "class_telecon_chart.html", [
-      [ "TeleconBarChart", "class_telecon_bar_chart.html", null ],
-      [ "TeleconLineChart", "class_telecon_line_chart.html", null ]
+    [ "TeleconPlot", "class_telecon_plot.html", [
+      [ "TeleconLinePlot", "class_telecon_line_plot.html", null ],
+      [ "TeleconScatterPlot", "class_telecon_scatter_plot.html", null ]
     ] ],
-    [ "TeleconPlot", "class_telecon_plot.html", null ],
     [ "wxApp", null, [
-      [ "MainApp", "class_main_app.html", null ],
       [ "MyApp", "class_my_app.html", null ],
+      [ "Telecon", "class_telecon.html", null ],
       [ "TeleconApp", "class_telecon_app.html", null ],
       [ "teleconApp", "classtelecon_app.html", null ]
     ] ],
@@ -26,14 +25,11 @@ var hierarchy =
       [ "Telecon", "class_telecon.html", null ]
     ] ],
     [ "wxFrame", null, [
-      [ "ChartFrame", "class_chart_frame.html", null ],
-      [ "MainFrame", "class_main_frame.html", null ],
       [ "MyFrame", "class_my_frame.html", null ],
+      [ "TeleconWindow", "class_telecon_window.html", null ],
       [ "mainFrame", "classmain_frame.html", null ]
     ] ],
     [ "wxPanel", null, [
-      [ "TeleconChartPanel", "class_telecon_chart_panel.html", [
-        [ "TeleconRealTimeLineChart", "class_telecon_real_time_line_chart.html", null ]
-      ] ]
+      [ "TeleconRealTimeLineChart", "class_telecon_real_time_line_chart.html", null ]
     ] ]
 ];

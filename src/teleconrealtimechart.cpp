@@ -267,12 +267,13 @@ void TeleconRealTimeLineChart::DrawChart()
         }
     }
 
-    c->packPlotArea(0, m_titleBox->getHeight() + 5, chartWidth, chartHeight - 9); // Watermark has a constant height of 9 pixels
+    // 5 for a margin, 13 for one line of the legend (should be changed to prevent overlap with plot). 9 for height of watermark
+    c->packPlotArea(0, m_titleBox->getHeight() + 5 + 13, chartWidth, chartHeight - 9);
     
     // Include track line with legend. If the mouse is on the plot area, show the track
     // line with legend at the mouse position; otherwise, show them for the latest data
     // values (that is, at the rightmost position).
-    // int legendHeight = TrackLineLegend(c, m_chartViewer->isMouseOnPlotArea() ? m_chartViewer->getPlotAreaMouseX() : c->getPlotArea()->getRightX());
+    TrackLineLegend(c, m_chartViewer->isMouseOnPlotArea() ? m_chartViewer->getPlotAreaMouseX() : c->getPlotArea()->getRightX());
     
     if (m_chartViewer->getChart() != NULL)
     {
@@ -285,7 +286,7 @@ void TeleconRealTimeLineChart::DrawChart()
 // Draw track cursor when mouse is moving over plotarea
 void TeleconRealTimeLineChart::OnMouseMovePlotArea(wxCommandEvent &event)
 {
-    // TrackLineLegend((XYChart *)m_chartViewer->getChart(), m_chartViewer->getPlotAreaMouseX());
+    TrackLineLegend((XYChart *)m_chartViewer->getChart(), m_chartViewer->getPlotAreaMouseX());
     m_chartViewer->updateDisplay();
 }
 
@@ -324,7 +325,7 @@ void TeleconRealTimeLineChart::TrackLineLegend(XYChart *c, int mouseX)
             // We are only interested in visible data sets with names
             const char *dataName = dataSet->getDataName();
             int color = dataSet->getDataColor();
-            if (dataName && *dataName && (color != (int)Chart::Transparent))
+            if (dataName && *dataName)
             {
                 // Build the legend entry, consist of the legend icon, name and data value.
                 double dataValue = dataSet->getValue(xIndex);
@@ -438,4 +439,14 @@ vector<shared_ptr<TeleconPlot>>::iterator TeleconRealTimeLineChart::begin()
 vector<shared_ptr<TeleconPlot>>::iterator TeleconRealTimeLineChart::end()
 {
     return m_plots.end();
+}
+
+shared_ptr<TeleconPlot> TeleconRealTimeLineChart::getPlot(int index)
+{
+    return m_plots[index];
+}
+
+size_t TeleconRealTimeLineChart::getNumPlots() const
+{
+    return m_plots.size();
 }

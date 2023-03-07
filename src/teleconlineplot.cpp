@@ -22,6 +22,8 @@ void TeleconLinePlot::prepDataForDraw()
         m_xTimestamps.insertNewValue(xyPair.first);
         m_yData.insertNewValue(xyPair.second);
     }
+
+    delete dataToAdd;
 }
 
 int TeleconLinePlot::getLineWidth() const {
@@ -42,7 +44,7 @@ void TeleconLinePlot::addToChart(XYChart* chart) {
     } 
     LineLayer* layer = chart->addLineLayer();
 
-    DataSet* dataSet = layer->addDataSet(DoubleArray(&m_yData[0], m_yData.size()), chartDirColor, m_plotTitle.c_str());
+    DataSet* dataSet = layer->addDataSet(DoubleArray(&m_yData[0], (int)m_yData.size()), chartDirColor, m_plotTitle.c_str());
 
     dataSet->setLineWidth(m_lineWidth);
 
@@ -51,5 +53,5 @@ void TeleconLinePlot::addToChart(XYChart* chart) {
     }
 
     // The x-coordinates are the timeStamps.
-    layer->setXData(DoubleArray(&m_xTimestamps[0], m_xTimestamps.size()));
+    layer->setXData(DoubleArray(&m_xTimestamps[0], (int)m_xTimestamps.size()));
 }

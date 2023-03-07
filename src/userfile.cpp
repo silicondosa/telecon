@@ -67,9 +67,6 @@ int main(int argc, char* argv[])
 
 void Telecon::teleconMain()
 {
-    printf("%d\n", Chart::Cross2Shape(0.3));
-    printf("%d\n", Chart::CrossShape(0.3));
-    printf("%d\n", Chart::StarShape(5));
     TeleconWindow* window = addWindow("MyWindow");
 
     TeleconRealTimeLineChart* realTimeChart = window->addChart("Chart1", "time", "lbs");

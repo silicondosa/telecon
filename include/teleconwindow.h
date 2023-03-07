@@ -24,6 +24,9 @@ public:
     vector<TeleconRealTimeLineChart*>::iterator begin();
     vector<TeleconRealTimeLineChart*>::iterator end();
 
+    TeleconRealTimeLineChart* getChart(int index);
+    size_t getNumCharts() const;
+
     DECLARE_EVENT_TABLE()
 private:
     vector<TeleconRealTimeLineChart*> list_charts;

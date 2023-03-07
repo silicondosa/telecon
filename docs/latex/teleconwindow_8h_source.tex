@@ -1,0 +1,36 @@
+\hypertarget{teleconwindow_8h_source}{}\doxysection{teleconwindow.\+h}
+\label{teleconwindow_8h_source}\index{include/teleconwindow.h@{include/teleconwindow.h}}
+\mbox{\hyperlink{teleconwindow_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <wx/wxprec.h>}}
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00005}00005\ \textcolor{preprocessor}{\#ifndef\ WX\_PRECOMP}}
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <wx/wx.h>}}
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00007}00007\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{teleconrealtimechart_8h}{teleconrealtimechart.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00013}00013\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00015}\mbox{\hyperlink{class_telecon_window}{00015}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_telecon_window}{TeleconWindow}}\ :\ \textcolor{keyword}{public}\ wxFrame}
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00016}00016\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00017}00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00018}00018\ \ \ \ \ \mbox{\hyperlink{class_telecon_window}{TeleconWindow}}(\textcolor{keyword}{const}\ wxString\&\ title);}
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00020}00020\ \ \ \ \ \mbox{\hyperlink{class_telecon_real_time_line_chart}{TeleconRealTimeLineChart}}*\ \mbox{\hyperlink{class_telecon_window_a580a23f0c862559c6397560dcbaee290}{addChart}}(\textcolor{keywordtype}{string}\ title,\ \textcolor{keywordtype}{string}\ xlabel,\ \textcolor{keywordtype}{string}\ ylabel,\ \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{ColorSequenceMode}}\ colorSequenceMode\ =\ \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38af694240c2be72deb06f19859d21ba193}{CSM\_BLACK}},\ \textcolor{keywordtype}{int}\ dataInterval\ =\ 100,\ \textcolor{keywordtype}{int}\ memoryDepth\ =\ 1000);}
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00021}00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_window_ad428dbc95e85292aaebc4c7361c87458}{drawWindow}}();}
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00023}00023\ \ \ \ \ \textcolor{comment}{//\ Iterator\ functions}}
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00024}00024\ \ \ \ \ vector<TeleconRealTimeLineChart*>::iterator\ \mbox{\hyperlink{class_telecon_window_a325ea60144c8257aaeb4b168516fbe3c}{begin}}();}
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00025}00025\ \ \ \ \ vector<TeleconRealTimeLineChart*>::iterator\ \mbox{\hyperlink{class_telecon_window_ad6a9ef50e1bbbceeb7cca9def1782673}{end}}();}
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00027}00027\ \ \ \ \ DECLARE\_EVENT\_TABLE()}
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00028}00028\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00029}00029\ \ \ \ \ vector<TeleconRealTimeLineChart*>\ list\_charts;}
+\DoxyCodeLine{\Hypertarget{teleconwindow_8h_source_l00030}00030\ \};}
+
+\end{DoxyCode}

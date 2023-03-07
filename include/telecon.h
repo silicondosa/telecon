@@ -37,6 +37,7 @@ public:
     bool OnInit() override;
 
     TeleconWindow* getWindow(int index);
+    size_t getNumWindows() const;
 
     // Iterator functions
     vector<TeleconWindow*>::iterator begin();

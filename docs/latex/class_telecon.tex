@@ -2,7 +2,7 @@
 \label{class_telecon}\index{Telecon@{Telecon}}
 
 
-{\ttfamily \#include $<$include/wx\+Chart\+Dir\+Example/telecon.\+h$>$}
+{\ttfamily \#include $<$include/telecon.\+h$>$}
 
 Inheritance diagram for Telecon\+:\begin{figure}[H]
 \begin{center}
@@ -12,6 +12,18 @@ Inheritance diagram for Telecon\+:\begin{figure}[H]
 \end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $\ast$ \mbox{\hyperlink{class_telecon_a397fb9bcb0f25d86bfc283f38da32700}{add\+Window}} (std\+::string name)
+\item 
+bool \mbox{\hyperlink{class_telecon_a7c5aa87cdc52840d1eba1551751e7b46}{On\+Init}} () override
+\item 
+\mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $\ast$ \mbox{\hyperlink{class_telecon_af1bebce20799e33f86c9bd1813a1c634}{get\+Window}} (int index)
+\item 
+vector$<$ \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $\ast$ $>$\+::iterator \mbox{\hyperlink{class_telecon_ad97d568de61730b580b91ffe89e174a6}{begin}} ()
+\item 
+vector$<$ \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $\ast$ $>$\+::iterator \mbox{\hyperlink{class_telecon_a8f99a4468928476c6046937d3c6dc11f}{end}} ()
+\item 
+virtual void \mbox{\hyperlink{class_telecon_a4a0bb69634311e36e0076cac4e47eb57}{telecon\+Main}} ()
 \item 
 \mbox{\hyperlink{class_telecon_a1a13d754d2f95d6be675d5165e4c025e}{Telecon}} ()
 \begin{DoxyCompactList}\small\item\em Constructors. \end{DoxyCompactList}\item 
@@ -25,6 +37,13 @@ void \mbox{\hyperlink{class_telecon_a8985bbf523104f07183c5ec063bd2975}{Add\+Char
 \item 
 void \mbox{\hyperlink{class_telecon_ac00fa709acf9b5bf95521935e65da6be}{Get\+Data}} (std\+::vector$<$ Func\+Ptr $>$ \&func\+Array)
 \end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static future$<$ \mbox{\hyperlink{class_telecon}{Telecon}} $\ast$ $>$ \mbox{\hyperlink{class_telecon_ae12ac6e774fa74a00e1a9d4816161667}{telecon\+Start}} ()
+\item 
+static void \mbox{\hyperlink{class_telecon_ac81ca0e9db9a0138de1002343155ac70}{telecon\+Join}} ()
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -32,7 +51,7 @@ Includes
 
 \mbox{\hyperlink{class_telecon}{Telecon}} class declaration 
 
-Definition at line \mbox{\hyperlink{wx_chart_dir_example_2telecon_8h_source_l00046}{46}} of file \mbox{\hyperlink{wx_chart_dir_example_2telecon_8h_source}{telecon.\+h}}.
+Definition at line \mbox{\hyperlink{telecon_8h_source_l00020}{20}} of file \mbox{\hyperlink{telecon_8h_source}{telecon.\+h}}.
 
 
 
@@ -46,10 +65,6 @@ Definition at line \mbox{\hyperlink{wx_chart_dir_example_2telecon_8h_source_l000
 
 
 Constructors. 
-
-
-
-Definition at line \mbox{\hyperlink{wx_chart_dir_example_2telecon_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{wx_chart_dir_example_2telecon_8cpp_source}{telecon.\+cpp}}.
 
 \mbox{\Hypertarget{class_telecon_aae363873cda0dd58aed13376b5e4152b}\label{class_telecon_aae363873cda0dd58aed13376b5e4152b}} 
 \index{Telecon@{Telecon}!````~Telecon@{$\sim$Telecon}}
@@ -88,6 +103,26 @@ Definition at line \mbox{\hyperlink{wx_chart_dir_example_2telecon_8cpp_source_l0
 
 Definition at line \mbox{\hyperlink{wx_chart_dir_example_2telecon_8cpp_source_l00146}{146}} of file \mbox{\hyperlink{wx_chart_dir_example_2telecon_8cpp_source}{telecon.\+cpp}}.
 
+\mbox{\Hypertarget{class_telecon_a397fb9bcb0f25d86bfc283f38da32700}\label{class_telecon_a397fb9bcb0f25d86bfc283f38da32700}} 
+\index{Telecon@{Telecon}!addWindow@{addWindow}}
+\index{addWindow@{addWindow}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{addWindow()}{addWindow()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $\ast$ Telecon\+::add\+Window (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_ad97d568de61730b580b91ffe89e174a6}\label{class_telecon_ad97d568de61730b580b91ffe89e174a6}} 
+\index{Telecon@{Telecon}!begin@{begin}}
+\index{begin@{begin}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $\ast$ $>$\+::iterator Telecon\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+
 \mbox{\Hypertarget{class_telecon_a3cfa78dae936ac117b15baff8670aed0}\label{class_telecon_a3cfa78dae936ac117b15baff8670aed0}} 
 \index{Telecon@{Telecon}!createWindow@{createWindow}}
 \index{createWindow@{createWindow}!Telecon@{Telecon}}
@@ -97,6 +132,16 @@ Definition at line \mbox{\hyperlink{wx_chart_dir_example_2telecon_8cpp_source_l0
 
 
 Definition at line \mbox{\hyperlink{wx_chart_dir_example_2telecon_8cpp_source_l00071}{71}} of file \mbox{\hyperlink{wx_chart_dir_example_2telecon_8cpp_source}{telecon.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_a8f99a4468928476c6046937d3c6dc11f}\label{class_telecon_a8f99a4468928476c6046937d3c6dc11f}} 
+\index{Telecon@{Telecon}!end@{end}}
+\index{end@{end}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $\ast$ $>$\+::iterator Telecon\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00066}{66}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
 
 \mbox{\Hypertarget{class_telecon_ac00fa709acf9b5bf95521935e65da6be}\label{class_telecon_ac00fa709acf9b5bf95521935e65da6be}} 
 \index{Telecon@{Telecon}!GetData@{GetData}}
@@ -108,9 +153,62 @@ Definition at line \mbox{\hyperlink{wx_chart_dir_example_2telecon_8cpp_source_l0
 
 Definition at line \mbox{\hyperlink{wx_chart_dir_example_2telecon_8cpp_source_l00530}{530}} of file \mbox{\hyperlink{wx_chart_dir_example_2telecon_8cpp_source}{telecon.\+cpp}}.
 
+\mbox{\Hypertarget{class_telecon_af1bebce20799e33f86c9bd1813a1c634}\label{class_telecon_af1bebce20799e33f86c9bd1813a1c634}} 
+\index{Telecon@{Telecon}!getWindow@{getWindow}}
+\index{getWindow@{getWindow}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{getWindow()}{getWindow()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $\ast$ Telecon\+::get\+Window (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_a7c5aa87cdc52840d1eba1551751e7b46}\label{class_telecon_a7c5aa87cdc52840d1eba1551751e7b46}} 
+\index{Telecon@{Telecon}!OnInit@{OnInit}}
+\index{OnInit@{OnInit}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{OnInit()}{OnInit()}}
+{\footnotesize\ttfamily bool Telecon\+::\+On\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_ac81ca0e9db9a0138de1002343155ac70}\label{class_telecon_ac81ca0e9db9a0138de1002343155ac70}} 
+\index{Telecon@{Telecon}!teleconJoin@{teleconJoin}}
+\index{teleconJoin@{teleconJoin}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{teleconJoin()}{teleconJoin()}}
+{\footnotesize\ttfamily void Telecon\+::telecon\+Join (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_a4a0bb69634311e36e0076cac4e47eb57}\label{class_telecon_a4a0bb69634311e36e0076cac4e47eb57}} 
+\index{Telecon@{Telecon}!teleconMain@{teleconMain}}
+\index{teleconMain@{teleconMain}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{teleconMain()}{teleconMain()}}
+{\footnotesize\ttfamily void Telecon\+::telecon\+Main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{userfile_8cpp_source_l00068}{68}} of file \mbox{\hyperlink{userfile_8cpp_source}{userfile.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_ae12ac6e774fa74a00e1a9d4816161667}\label{class_telecon_ae12ac6e774fa74a00e1a9d4816161667}} 
+\index{Telecon@{Telecon}!teleconStart@{teleconStart}}
+\index{teleconStart@{teleconStart}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{teleconStart()}{teleconStart()}}
+{\footnotesize\ttfamily future$<$ \mbox{\hyperlink{class_telecon}{Telecon}} $\ast$ $>$ Telecon\+::telecon\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00025}{25}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
+include/\mbox{\hyperlink{telecon_8h}{telecon.\+h}}\item 
 include/wx\+Chart\+Dir\+Example/\mbox{\hyperlink{wx_chart_dir_example_2telecon_8h}{telecon.\+h}}\item 
+src/\mbox{\hyperlink{telecon_8cpp}{telecon.\+cpp}}\item 
+src/\mbox{\hyperlink{userfile_8cpp}{userfile.\+cpp}}\item 
 src/wx\+Chart\+Dir\+Example/\mbox{\hyperlink{wx_chart_dir_example_2telecon_8cpp}{telecon.\+cpp}}\end{DoxyCompactItemize}

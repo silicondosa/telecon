@@ -20,6 +20,8 @@ void TeleconScatterPlot::prepDataForDraw() {
         m_xTimestamps.insertNewValue(xyPair.first);
         m_yData.insertNewValue(xyPair.second);
     }
+
+    delete dataToAdd;
 }
 
 int TeleconScatterPlot::getSymbol() const {
@@ -32,5 +34,5 @@ int TeleconScatterPlot::getSymbolSize() const{
 
 void TeleconScatterPlot::addToChart(XYChart* chart) {
     size_t size = m_xTimestamps.size();
-    LineLayer* layer = chart->addScatterLayer(DoubleArray(&m_xTimestamps[0], m_xTimestamps.size()), DoubleArray(&m_yData[0], m_yData.size()), m_plotTitle.c_str(), m_symbol, m_symbolSize, m_fillSymbol ? m_color : Chart::Transparent, m_color);
+    LineLayer* layer = chart->addScatterLayer(DoubleArray(&m_xTimestamps[0], (int)m_xTimestamps.size()), DoubleArray(&m_yData[0], (int)m_yData.size()), m_plotTitle.c_str(), m_symbol, m_symbolSize, m_fillSymbol ? m_color : Chart::Transparent, m_color);
 }

@@ -134,10 +134,10 @@ Windows (Visual Studio 2019 or above)</h2>
 <li>Install wxWidgets according to the instructions above.</li>
 <li>Create a new empty project.</li>
 <li>Go to <code>View|Property Manager|Add Existing Property Sheet</code> and add <code>wxWidgets.prop</code> (from the downloaded development files in wxWidget's root directory) to it. Then edit the .vcxproj file to make the import path relative to the wxwin environment variable, if desired.</li>
-<li>Change the <code>Project|Properties|Linker|System|Subsystem|</code> property to <code>Windows</code>.</li>
 <li>Set <code>Project|Properties|Configuration Properties|Advanced|Character Set</code> to <code>Use Unicode Character Set</code>.</li>
-<li>Set <code>Project|Properties|Configuration Properties|General|C++ Language Standard</code> to <code>ISO C++ 17 Standard</code>, if desired.</li>
+<li>Set <code>Project|Properties|Configuration Properties|General|C++ Language Standard</code> to <code>ISO C++ 17 Standard</code>.</li>
 <li>To <code>Project|Properties|C/C++|General|Additional Include Directories|</code>, append <code>$(SolutionDir)..\include</code>, which is where you should place any needed header files. You can use a subdirectory of include instead, if desired.</li>
+<li>Add any needed source files (.c or .cpp) to <code>/src</code> or a subdirectory as needed</li>
 </ul>
 <p>If using wxMathPlot:</p><ul>
 <li>To <code>Project|Properties|C/C++|General|Additional Include Directories|</code>, append <code>$(SolutionDir)..\lib\wxMathPlot\include</code>.</li>

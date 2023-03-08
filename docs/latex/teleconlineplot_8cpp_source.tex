@@ -1,0 +1,63 @@
+\hypertarget{teleconlineplot_8cpp_source}{}\doxysection{teleconlineplot.\+cpp}
+\label{teleconlineplot_8cpp_source}\index{src/teleconlineplot.cpp@{src/teleconlineplot.cpp}}
+\mbox{\hyperlink{teleconlineplot_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{teleconlineplot_8h}{teleconlineplot.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00003}\mbox{\hyperlink{class_telecon_line_plot_aed28ffa2512a8670198f25d97b9c3215}{00003}}\ \mbox{\hyperlink{class_telecon_line_plot_aed28ffa2512a8670198f25d97b9c3215}{TeleconLinePlot::TeleconLinePlot}}(\textcolor{keywordtype}{int}\ depth,\ \textcolor{keywordtype}{int}\ color,\ \textcolor{keywordtype}{string}\ plotTitle,\ \textcolor{keywordtype}{int}\ lineWidth,\ \mbox{\hyperlink{teleconlineplot_8h_afd074c27ba0a2809258258751b754f52}{LineType}}\ lineType,\ \textcolor{keywordtype}{bool}\ hasSymbol,\ \textcolor{keywordtype}{int}\ symbol,\ \textcolor{keywordtype}{bool}\ fillSymbol,\ \textcolor{keywordtype}{int}\ symbolSize)}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00004}00004\ \ \ \ \ :\ \mbox{\hyperlink{class_telecon_plot}{TeleconPlot}}(depth,\ color,\ plotTitle),\ m\_lineWidth(lineWidth),\ m\_lineType(lineType),\ m\_hasSymbol(hasSymbol),\ m\_symbol(symbol),\ m\_fillSymbol(fillSymbol),\ m\_symbolSize(symbolSize)\ \{\}}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00006}\mbox{\hyperlink{class_telecon_line_plot_a4d71aaa9d3af413537b44413d101948c}{00006}}\ list<pair<double,\ double>>*\ \mbox{\hyperlink{class_telecon_line_plot_a4d71aaa9d3af413537b44413d101948c}{TeleconLinePlot::swapAndGetDataToAdd}}()}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00008}00008\ \ \ \ \ \textcolor{comment}{//printf("{}First\ element\ when\ swapping:\ \%f"{},\ m\_dataToAdd-\/>front().first);}}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00009}00009\ \ \ \ \ list<pair<double,\ double>>*\ newDataToAdd\ =\ \textcolor{keyword}{new}\ list<pair<double,\ double>>();}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00010}00010\ \ \ \ \ list<pair<double,\ double>>*\ oldDataToAdd\ =\ \mbox{\hyperlink{class_telecon_plot_abdcc4b41661466b49d102ea200fcbb6c}{m\_dataToAdd}};}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00012}00012\ \ \ \ \ \textcolor{keyword}{const}\ lock\_guard<mutex>\ lock(\mbox{\hyperlink{class_telecon_plot_a4a92cbee50787cca571d43854a49f320}{m\_dataToAddLock}});}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00013}00013\ \ \ \ \ \mbox{\hyperlink{class_telecon_plot_abdcc4b41661466b49d102ea200fcbb6c}{m\_dataToAdd}}\ =\ newDataToAdd;}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00014}00014\ \ \ \ \ \textcolor{keywordflow}{return}\ oldDataToAdd;}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00015}00015\ \}}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00017}\mbox{\hyperlink{class_telecon_line_plot_a9b249a2a214b697090d4345f915e4db8}{00017}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_line_plot_a9b249a2a214b697090d4345f915e4db8}{TeleconLinePlot::prepDataForDraw}}()}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00018}00018\ \{}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00019}00019\ \ \ \ \ list<pair<double,\ double>>*\ dataToAdd\ =\ \mbox{\hyperlink{class_telecon_line_plot_a4d71aaa9d3af413537b44413d101948c}{swapAndGetDataToAdd}}();}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ xyPair\ :\ *dataToAdd)\ \{}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_telecon_plot_ae7640484ea4ddaf3fea119d2e60eed31}{m\_xTimestamps}}.\mbox{\hyperlink{class_data_buffer_a4ae8a35aa51c17729e399d4a12eee94a}{insertNewValue}}(xyPair.first);}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_telecon_plot_ac215fd6747694636a33f2bd856f4d3fa}{m\_yData}}.\mbox{\hyperlink{class_data_buffer_a4ae8a35aa51c17729e399d4a12eee94a}{insertNewValue}}(xyPair.second);}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00024}00024\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{keyword}{delete}\ dataToAdd;}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00027}00027\ \}}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00029}\mbox{\hyperlink{class_telecon_line_plot_a008dd188418206e5e45da2a1392821d3}{00029}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_line_plot_a008dd188418206e5e45da2a1392821d3}{TeleconLinePlot::getLineWidth}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_telecon_line_plot_a926ef1eeb699d1cea9d270ec72a2b7e7}{m\_lineWidth}};}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00031}00031\ \}}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00033}\mbox{\hyperlink{class_telecon_line_plot_aa57da129ecea505d812d046e6e2b5f1f}{00033}}\ \mbox{\hyperlink{teleconlineplot_8h_afd074c27ba0a2809258258751b754f52}{LineType}}\ \mbox{\hyperlink{class_telecon_line_plot_aa57da129ecea505d812d046e6e2b5f1f}{TeleconLinePlot::getLineType}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_telecon_line_plot_a1f67b18962ddc442e188f8480391cd99}{m\_lineType}};}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00035}00035\ \}}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00037}\mbox{\hyperlink{class_telecon_line_plot_a15cd2b682adfac6c41438604c31c67ec}{00037}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_line_plot_a15cd2b682adfac6c41438604c31c67ec}{TeleconLinePlot::addToChart}}(XYChart*\ chart)\ \{}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00038}00038\ \ \ \ \ \textcolor{comment}{//\ This\ integer\ represents\ both\ the\ color\ and\ dash\ status\ (solid,\ dashed,\ or\ none)\ of\ the\ chart}}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{keywordtype}{int}\ chartDirColor;}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00040}00040\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_telecon_line_plot_a1f67b18962ddc442e188f8480391cd99}{m\_lineType}}\ ==\ \mbox{\hyperlink{teleconlineplot_8h_afd074c27ba0a2809258258751b754f52ad3188575e9151d64606bf543dc4c40f1}{LT\_SOLID}})\ \{}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ chartDirColor\ =\ \mbox{\hyperlink{class_telecon_plot_a99d21e4d7983dbdcff00bf4cfad51c67}{m\_color}};}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00042}00042\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ Solid\ or\ none}}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ chartDirColor\ =\ chart-\/>dashLineColor(\mbox{\hyperlink{class_telecon_plot_a99d21e4d7983dbdcff00bf4cfad51c67}{m\_color}},\ Chart::DashLine);}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00044}00044\ \ \ \ \ \}\ }
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00045}00045\ \ \ \ \ LineLayer*\ layer\ =\ chart-\/>addLineLayer();}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00047}00047\ \ \ \ \ DataSet*\ dataSet\ =\ layer-\/>addDataSet(DoubleArray(\&\mbox{\hyperlink{class_telecon_plot_ac215fd6747694636a33f2bd856f4d3fa}{m\_yData}}[0],\ (\textcolor{keywordtype}{int})\mbox{\hyperlink{class_telecon_plot_ac215fd6747694636a33f2bd856f4d3fa}{m\_yData}}.\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}()),\ chartDirColor,\ \mbox{\hyperlink{class_telecon_plot_a641261b1e4beb58d5d932e0424237234}{m\_plotTitle}}.c\_str());}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00049}00049\ \ \ \ \ dataSet-\/>setLineWidth(\mbox{\hyperlink{class_telecon_line_plot_a926ef1eeb699d1cea9d270ec72a2b7e7}{m\_lineWidth}});}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_telecon_line_plot_ae8a0300344b912779b0657ca4d0a7d7f}{m\_hasSymbol}})\ \{}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ dataSet-\/>setDataSymbol(\mbox{\hyperlink{class_telecon_line_plot_ab3385bc663779689d1064e8f768dc86d}{m\_symbol}},\ \mbox{\hyperlink{class_telecon_line_plot_a5059ee23a1635cd08a326cb5c92fe957}{m\_symbolSize}},\ \mbox{\hyperlink{class_telecon_line_plot_ab60f1ea8db8956d1bb50773aa9edcfb1}{m\_fillSymbol}}\ ?\ \mbox{\hyperlink{class_telecon_plot_a99d21e4d7983dbdcff00bf4cfad51c67}{m\_color}}\ :\ Chart::Transparent,\ \mbox{\hyperlink{class_telecon_plot_a99d21e4d7983dbdcff00bf4cfad51c67}{m\_color}});}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00053}00053\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00055}00055\ \ \ \ \ \textcolor{comment}{//\ The\ x-\/coordinates\ are\ the\ timeStamps.}}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00056}00056\ \ \ \ \ layer-\/>setXData(DoubleArray(\&\mbox{\hyperlink{class_telecon_plot_ae7640484ea4ddaf3fea119d2e60eed31}{m\_xTimestamps}}[0],\ (\textcolor{keywordtype}{int})\mbox{\hyperlink{class_telecon_plot_ae7640484ea4ddaf3fea119d2e60eed31}{m\_xTimestamps}}.\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}()));}
+\DoxyCodeLine{\Hypertarget{teleconlineplot_8cpp_source_l00057}00057\ \}}
+
+\end{DoxyCode}

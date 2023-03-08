@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['base_2ecpp_0',['base.cpp',['../base_8cpp.html',1,'']]],
-  ['base_2eh_1',['base.h',['../base_8h.html',1,'']]],
-  ['button_5fhello_2',['BUTTON_Hello',['../base_8h.html#a06fc87d81c62e9abb8790b6e5713c55bae25fa0b6fada9a0796a8311fa61e7486',1,'base.h']]],
-  ['button_5ftext_3',['BUTTON_Text',['../base_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba96ed6e0793b6496e9e567faef22e9579',1,'base.h']]]
+  ['begin_0',['begin',['../class_telecon.html#ad97d568de61730b580b91ffe89e174a6',1,'Telecon::begin()'],['../class_telecon_real_time_chart.html#ad90134a0ca03738d4c5ae2000b759098',1,'TeleconRealTimeChart::begin()'],['../class_telecon_window.html#ae927ddacbf8b228346aa1492a9f4a3c9',1,'TeleconWindow::begin()']]]
 ];

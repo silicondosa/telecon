@@ -22,7 +22,7 @@
 \DoxyCodeLine{\Hypertarget{teleconapp_8cpp_source_l00018}00018\ \textcolor{comment}{\ *\ Application\ instance\ implementation}}
 \DoxyCodeLine{\Hypertarget{teleconapp_8cpp_source_l00019}00019\ \textcolor{comment}{\ */}}
 \DoxyCodeLine{\Hypertarget{teleconapp_8cpp_source_l00020}00020\ }
-\DoxyCodeLine{\Hypertarget{teleconapp_8cpp_source_l00021}00021\ \mbox{\hyperlink{base_8cpp_a63d89b8394bc235439cb9294f6dfface}{IMPLEMENT\_APP}}(\mbox{\hyperlink{class_telecon_app}{TeleconApp}})}
+\DoxyCodeLine{\Hypertarget{teleconapp_8cpp_source_l00021}00021\ IMPLEMENT\_APP(\mbox{\hyperlink{class_telecon_app}{TeleconApp}})}
 \DoxyCodeLine{\Hypertarget{teleconapp_8cpp_source_l00022}00022\ }
 \DoxyCodeLine{\Hypertarget{teleconapp_8cpp_source_l00023}00023\ \textcolor{comment}{/*}}
 \DoxyCodeLine{\Hypertarget{teleconapp_8cpp_source_l00024}00024\ \textcolor{comment}{\ *\ TeleconApp\ type\ definition}}
@@ -104,9 +104,9 @@
 \DoxyCodeLine{\Hypertarget{teleconapp_8cpp_source_l00100}00100\ \ \ \mbox{\hyperlink{class_telecon}{Telecon}}*\ teleconDialog\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_telecon}{Telecon}}();}
 \DoxyCodeLine{\Hypertarget{teleconapp_8cpp_source_l00101}00101\ \ \ teleconDialog-\/>\mbox{\hyperlink{class_telecon_a3cfa78dae936ac117b15baff8670aed0}{createWindow}}(\textcolor{stringliteral}{"{}Telecon\ Window"{}},\ 700,\ 700);}
 \DoxyCodeLine{\Hypertarget{teleconapp_8cpp_source_l00102}00102\ \ \ teleconDialog-\/>\mbox{\hyperlink{class_telecon_a8985bbf523104f07183c5ec063bd2975}{AddChart}}(\textcolor{stringliteral}{"{}Muscle\ 1"{}},\textcolor{stringliteral}{"{}Voltages"{}});}
-\DoxyCodeLine{\Hypertarget{teleconapp_8cpp_source_l00103}00103\ \ \ teleconDialog-\/>\mbox{\hyperlink{class_telecon_a61b3c4e3a002f7f774522bb1a220a7b3}{AddPlot}}(\textcolor{stringliteral}{"{}Expected\ Tension"{}},\ \mbox{\hyperlink{base_8cpp_ac493508f4c1cf260b4caa9fd07e16159}{CreateDataPoints}},\ 0xff0000,\ (\textcolor{keywordtype}{char}*)\textcolor{stringliteral}{"{}Expected\ Tension"{}});}
-\DoxyCodeLine{\Hypertarget{teleconapp_8cpp_source_l00104}00104\ \ \ teleconDialog-\/>\mbox{\hyperlink{class_telecon_a61b3c4e3a002f7f774522bb1a220a7b3}{AddPlot}}(\textcolor{stringliteral}{"{}Actual\ Tension"{}},\ \mbox{\hyperlink{base_8cpp_ac493508f4c1cf260b4caa9fd07e16159}{CreateDataPoints}},\ 0x00cc00,\ (\textcolor{keywordtype}{char}*)\textcolor{stringliteral}{"{}Actual\ Tension"{}});}
-\DoxyCodeLine{\Hypertarget{teleconapp_8cpp_source_l00105}00105\ \ \ teleconDialog-\/>\mbox{\hyperlink{class_telecon_a61b3c4e3a002f7f774522bb1a220a7b3}{AddPlot}}(\textcolor{stringliteral}{"{}Applied\ Tension"{}},\ \mbox{\hyperlink{base_8cpp_ac493508f4c1cf260b4caa9fd07e16159}{CreateDataPoints}},\ 0x0000ff,\ (\textcolor{keywordtype}{char}*)\textcolor{stringliteral}{"{}Applied\ Tension"{}});}
+\DoxyCodeLine{\Hypertarget{teleconapp_8cpp_source_l00103}00103\ \ \ teleconDialog-\/>\mbox{\hyperlink{class_telecon_a61b3c4e3a002f7f774522bb1a220a7b3}{AddPlot}}(\textcolor{stringliteral}{"{}Expected\ Tension"{}},\ \mbox{\hyperlink{userfile_8cpp_ac493508f4c1cf260b4caa9fd07e16159}{CreateDataPoints}},\ 0xff0000,\ (\textcolor{keywordtype}{char}*)\textcolor{stringliteral}{"{}Expected\ Tension"{}});}
+\DoxyCodeLine{\Hypertarget{teleconapp_8cpp_source_l00104}00104\ \ \ teleconDialog-\/>\mbox{\hyperlink{class_telecon_a61b3c4e3a002f7f774522bb1a220a7b3}{AddPlot}}(\textcolor{stringliteral}{"{}Actual\ Tension"{}},\ \mbox{\hyperlink{userfile_8cpp_ac493508f4c1cf260b4caa9fd07e16159}{CreateDataPoints}},\ 0x00cc00,\ (\textcolor{keywordtype}{char}*)\textcolor{stringliteral}{"{}Actual\ Tension"{}});}
+\DoxyCodeLine{\Hypertarget{teleconapp_8cpp_source_l00105}00105\ \ \ teleconDialog-\/>\mbox{\hyperlink{class_telecon_a61b3c4e3a002f7f774522bb1a220a7b3}{AddPlot}}(\textcolor{stringliteral}{"{}Applied\ Tension"{}},\ \mbox{\hyperlink{userfile_8cpp_ac493508f4c1cf260b4caa9fd07e16159}{CreateDataPoints}},\ 0x0000ff,\ (\textcolor{keywordtype}{char}*)\textcolor{stringliteral}{"{}Applied\ Tension"{}});}
 \DoxyCodeLine{\Hypertarget{teleconapp_8cpp_source_l00106}00106\ \ \ teleconDialog-\/>Show();}
 \DoxyCodeLine{\Hypertarget{teleconapp_8cpp_source_l00107}00107\ \ \ SetTopWindow(teleconDialog);}
 \DoxyCodeLine{\Hypertarget{teleconapp_8cpp_source_l00108}00108\ }

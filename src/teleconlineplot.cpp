@@ -1,7 +1,30 @@
 #include "teleconlineplot.h"
 
-TeleconLinePlot::TeleconLinePlot(DoubleFuncPtr dataFuncPtr, int depth, int color, string plotTitle, int lineWidth, LineType lineType, bool hasSymbol, int symbol, int symbolSize)
-    : TeleconPlot(dataFuncPtr, depth, color, plotTitle), m_lineWidth(lineWidth), m_lineType(lineType), m_hasSymbol(hasSymbol), m_symbol(symbol), m_symbolSize(symbolSize) {}
+TeleconLinePlot::TeleconLinePlot(int depth, int color, string plotTitle, int lineWidth, LineType lineType, bool hasSymbol, int symbol, bool fillSymbol, int symbolSize)
+    : TeleconPlot(depth, color, plotTitle), m_lineWidth(lineWidth), m_lineType(lineType), m_hasSymbol(hasSymbol), m_symbol(symbol), m_fillSymbol(fillSymbol), m_symbolSize(symbolSize) {}
+
+list<pair<double, double>>* TeleconLinePlot::swapAndGetDataToAdd()
+{
+    //printf("First element when swapping: %f", m_dataToAdd->front().first);
+    list<pair<double, double>>* newDataToAdd = new list<pair<double, double>>();
+    list<pair<double, double>>* oldDataToAdd = m_dataToAdd;
+
+    const lock_guard<mutex> lock(m_dataToAddLock);
+    m_dataToAdd = newDataToAdd;
+    return oldDataToAdd;
+}
+
+void TeleconLinePlot::prepDataForDraw()
+{
+    list<pair<double, double>>* dataToAdd = swapAndGetDataToAdd();
+
+    for (const auto& xyPair : *dataToAdd) {
+        m_xTimestamps.insertNewValue(xyPair.first);
+        m_yData.insertNewValue(xyPair.second);
+    }
+
+    delete dataToAdd;
+}
 
 int TeleconLinePlot::getLineWidth() const {
     return m_lineWidth;
@@ -11,13 +34,7 @@ LineType TeleconLinePlot::getLineType() const {
     return m_lineType;
 }
 
-double TeleconLinePlot::fetchData() {
-    double newValue = m_dataFuncPtr();
-    m_yData.insertNewValue(newValue);
-    return newValue;
-}
-
-void TeleconLinePlot::addToChart(XYChart* chart, DoubleArray xData) {
+void TeleconLinePlot::addToChart(XYChart* chart) {
     // This integer represents both the color and dash status (solid, dashed, or none) of the chart
     int chartDirColor;
     if (m_lineType == LT_SOLID) {
@@ -27,14 +44,14 @@ void TeleconLinePlot::addToChart(XYChart* chart, DoubleArray xData) {
     } 
     LineLayer* layer = chart->addLineLayer();
 
-    DataSet* dataSet = layer->addDataSet(DoubleArray(&m_yData[0], m_yData.size()), chartDirColor, m_plotTitle.c_str());
+    DataSet* dataSet = layer->addDataSet(DoubleArray(&m_yData[0], (int)m_yData.size()), chartDirColor, m_plotTitle.c_str());
 
     dataSet->setLineWidth(m_lineWidth);
 
     if (m_hasSymbol) {
-        dataSet->setDataSymbol(m_symbol, m_symbolSize);
+        dataSet->setDataSymbol(m_symbol, m_symbolSize, m_fillSymbol ? m_color : Chart::Transparent, m_color);
     }
 
     // The x-coordinates are the timeStamps.
-    layer->setXData(xData);
+    layer->setXData(DoubleArray(&m_xTimestamps[0], (int)m_xTimestamps.size()));
 }

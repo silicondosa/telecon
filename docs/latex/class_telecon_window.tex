@@ -1,0 +1,155 @@
+\hypertarget{class_telecon_window}{}\doxysection{Telecon\+Window Class Reference}
+\label{class_telecon_window}\index{TeleconWindow@{TeleconWindow}}
+
+
+{\ttfamily \#include $<$include/teleconwindow.\+h$>$}
+
+Inheritance diagram for Telecon\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_telecon_window}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_telecon_window_ad3366ec24b31aff93e7c2161afd49960}{Telecon\+Window}} (const wx\+String \&title)
+\item 
+\mbox{\hyperlink{class_telecon_real_time_chart}{Telecon\+Real\+Time\+Chart}} $\ast$ \mbox{\hyperlink{class_telecon_window_a3a443be246ac2cdddd75187bc50e7f8f}{add\+Chart}} (string title, string ylabel, string xlabel=\char`\"{}\char`\"{}, int data\+Interval=100, int memory\+Depth=1000, \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} color\+Sequence\+Mode=\mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38af694240c2be72deb06f19859d21ba193}{CSM\+\_\+\+BLACK}})
+\item 
+void \mbox{\hyperlink{class_telecon_window_ad428dbc95e85292aaebc4c7361c87458}{draw\+Window}} ()
+\item 
+\mbox{\hyperlink{class_telecon_real_time_chart}{Telecon\+Real\+Time\+Chart}} $\ast$ \mbox{\hyperlink{class_telecon_window_abd302cbca6eef54e0f828d41df41b24e}{get\+Chart}} (int index)
+\item 
+size\+\_\+t \mbox{\hyperlink{class_telecon_window_ab9751dd7c8c1120afb78f8eb54d45611}{get\+Num\+Charts}} () const
+\item 
+vector$<$ \mbox{\hyperlink{class_telecon_real_time_chart}{Telecon\+Real\+Time\+Chart}} $\ast$ $>$\+::iterator \mbox{\hyperlink{class_telecon_window_ae927ddacbf8b228346aa1492a9f4a3c9}{begin}} ()
+\item 
+vector$<$ \mbox{\hyperlink{class_telecon_real_time_chart}{Telecon\+Real\+Time\+Chart}} $\ast$ $>$\+::iterator \mbox{\hyperlink{class_telecon_window_a2afbc033aebe05e7d4b8bcb30641fb3a}{end}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{teleconwindow_8h_source_l00015}{15}} of file \mbox{\hyperlink{teleconwindow_8h_source}{teleconwindow.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_telecon_window_ad3366ec24b31aff93e7c2161afd49960}\label{class_telecon_window_ad3366ec24b31aff93e7c2161afd49960}} 
+\index{TeleconWindow@{TeleconWindow}!TeleconWindow@{TeleconWindow}}
+\index{TeleconWindow@{TeleconWindow}!TeleconWindow@{TeleconWindow}}
+\doxysubsubsection{\texorpdfstring{TeleconWindow()}{TeleconWindow()}}
+{\footnotesize\ttfamily Telecon\+Window\+::\+Telecon\+Window (\begin{DoxyParamCaption}\item[{const wx\+String \&}]{title }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_telecon_window_a3a443be246ac2cdddd75187bc50e7f8f}\label{class_telecon_window_a3a443be246ac2cdddd75187bc50e7f8f}} 
+\index{TeleconWindow@{TeleconWindow}!addChart@{addChart}}
+\index{addChart@{addChart}!TeleconWindow@{TeleconWindow}}
+\doxysubsubsection{\texorpdfstring{addChart()}{addChart()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_telecon_real_time_chart}{Telecon\+Real\+Time\+Chart}} $\ast$ Telecon\+Window\+::add\+Chart (\begin{DoxyParamCaption}\item[{string}]{title,  }\item[{string}]{ylabel,  }\item[{string}]{xlabel = {\ttfamily \char`\"{}\char`\"{}},  }\item[{int}]{data\+Interval = {\ttfamily 100},  }\item[{int}]{memory\+Depth = {\ttfamily 1000},  }\item[{\mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}}}]{color\+Sequence\+Mode = {\ttfamily \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38af694240c2be72deb06f19859d21ba193}{CSM\+\_\+\+BLACK}}} }\end{DoxyParamCaption})}
+
+Adds a chart to the window. Charts will be displayed in the order added, from top to bottom.
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & the title displayed above the chart. \\
+\hline
+{\em ylabel} & the label displayed adjacent to the y-\/axis. \\
+\hline
+{\em xlabel} & the label displayed beneath the x-\/axis. \\
+\hline
+{\em data\+Interval} & the expected time, in milliseconds, between data pushes. This will only affect the area of the plot displayed, and will not cause an error if the actual time between pushes differs from this value. \\
+\hline
+{\em memory\+Depth} & the maximum number of data points that will be held in the data buffer before old values start to be dropped. \\
+\hline
+{\em color\+Sequence\+Mode} & the sequence of colors that will be used for added plots if the color is left unspecified. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the \mbox{\hyperlink{class_telecon_real_time_chart}{Telecon\+Real\+Time\+Chart}} object created. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_window_ae927ddacbf8b228346aa1492a9f4a3c9}\label{class_telecon_window_ae927ddacbf8b228346aa1492a9f4a3c9}} 
+\index{TeleconWindow@{TeleconWindow}!begin@{begin}}
+\index{begin@{begin}!TeleconWindow@{TeleconWindow}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_telecon_real_time_chart}{Telecon\+Real\+Time\+Chart}} $\ast$ $>$\+::iterator Telecon\+Window\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+For use with range-\/based for loops. \begin{DoxyReturn}{Returns}
+Iterator to the first \mbox{\hyperlink{class_telecon_real_time_chart}{Telecon\+Real\+Time\+Chart}} added. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_window_ad428dbc95e85292aaebc4c7361c87458}\label{class_telecon_window_ad428dbc95e85292aaebc4c7361c87458}} 
+\index{TeleconWindow@{TeleconWindow}!drawWindow@{drawWindow}}
+\index{drawWindow@{drawWindow}!TeleconWindow@{TeleconWindow}}
+\doxysubsubsection{\texorpdfstring{drawWindow()}{drawWindow()}}
+{\footnotesize\ttfamily void Telecon\+Window\+::draw\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Draws the charts within the window. Must be called in \mbox{\hyperlink{class_telecon_a4a0bb69634311e36e0076cac4e47eb57}{Telecon\+::telecon\+Main}} after all charts are added. 
+
+Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_window_a2afbc033aebe05e7d4b8bcb30641fb3a}\label{class_telecon_window_a2afbc033aebe05e7d4b8bcb30641fb3a}} 
+\index{TeleconWindow@{TeleconWindow}!end@{end}}
+\index{end@{end}!TeleconWindow@{TeleconWindow}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_telecon_real_time_chart}{Telecon\+Real\+Time\+Chart}} $\ast$ $>$\+::iterator Telecon\+Window\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+For use with range-\/based for loops. \begin{DoxyReturn}{Returns}
+Iterator to the element following the last \mbox{\hyperlink{class_telecon_real_time_chart}{Telecon\+Real\+Time\+Chart}} added. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_window_abd302cbca6eef54e0f828d41df41b24e}\label{class_telecon_window_abd302cbca6eef54e0f828d41df41b24e}} 
+\index{TeleconWindow@{TeleconWindow}!getChart@{getChart}}
+\index{getChart@{getChart}!TeleconWindow@{TeleconWindow}}
+\doxysubsubsection{\texorpdfstring{getChart()}{getChart()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_telecon_real_time_chart}{Telecon\+Real\+Time\+Chart}} $\ast$ Telecon\+Window\+::get\+Chart (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & the index of the \mbox{\hyperlink{class_telecon_real_time_chart}{Telecon\+Real\+Time\+Chart}} to return. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the \mbox{\hyperlink{class_telecon_real_time_chart}{Telecon\+Real\+Time\+Chart}} requested. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_window_ab9751dd7c8c1120afb78f8eb54d45611}\label{class_telecon_window_ab9751dd7c8c1120afb78f8eb54d45611}} 
+\index{TeleconWindow@{TeleconWindow}!getNumCharts@{getNumCharts}}
+\index{getNumCharts@{getNumCharts}!TeleconWindow@{TeleconWindow}}
+\doxysubsubsection{\texorpdfstring{getNumCharts()}{getNumCharts()}}
+{\footnotesize\ttfamily size\+\_\+t Telecon\+Window\+::get\+Num\+Charts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+The number of Telecon\+Real\+Time\+Charts added to the window. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00049}{49}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{teleconwindow_8h}{teleconwindow.\+h}}\item 
+src/\mbox{\hyperlink{teleconwindow_8cpp}{teleconwindow.\+cpp}}\end{DoxyCompactItemize}

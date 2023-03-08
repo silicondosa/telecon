@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['latest_0',['latest',['../class_data_buffer.html#a0139bb91e76c51708ed7f698fde22233',1,'DataBuffer::latest()'],['../class_data_buffer.html#a56c0198d393c1970e375d8141934c443',1,'DataBuffer::latest() const']]]
+  ['init_0',['Init',['../class_telecon_app.html#aac6a27d0c90f56d39c5fa2410b34906a',1,'TeleconApp']]],
+  ['insertnewvalue_1',['insertNewValue',['../class_data_buffer.html#a4ae8a35aa51c17729e399d4a12eee94a',1,'DataBuffer']]]
 ];

@@ -30,10 +30,10 @@ This project includes wx\+Chart\+Dir as a submodule. It provides components for 
 \item Install wx\+Widgets according to the instructions above.
 \item Create a new empty project.
 \item Go to {\ttfamily View$\vert$\+Property Manager$\vert$\+Add Existing Property Sheet} and add {\ttfamily wx\+Widgets.\+prop} (from the downloaded development files in wx\+Widget\textquotesingle{}s root directory) to it. Then edit the .vcxproj file to make the import path relative to the wxwin environment variable, if desired.
-\item Change the {\ttfamily Project$\vert$\+Properties$\vert$\+Linker$\vert$\+System$\vert$\+Subsystem$\vert$} property to {\ttfamily Windows}.
 \item Set {\ttfamily Project$\vert$\+Properties$\vert$\+Configuration Properties$\vert$\+Advanced$\vert$\+Character Set} to {\ttfamily Use Unicode Character Set}.
-\item Set {\ttfamily Project$\vert$\+Properties$\vert$\+Configuration Properties$\vert$\+General$\vert$\+C++ Language Standard} to {\ttfamily ISO C++ 17 Standard}, if desired.
+\item Set {\ttfamily Project$\vert$\+Properties$\vert$\+Configuration Properties$\vert$\+General$\vert$\+C++ Language Standard} to {\ttfamily ISO C++ 17 Standard}.
 \item To {\ttfamily Project$\vert$\+Properties$\vert$\+C/\+C++$\vert$\+General$\vert$\+Additional Include Directories$\vert$}, append {\ttfamily \$(Solution\+Dir)..\textbackslash{}include}, which is where you should place any needed header files. You can use a subdirectory of include instead, if desired.
+\item Add any needed source files (.c or .cpp) to {\ttfamily /src} or a subdirectory as needed
 \end{DoxyItemize}
 
 If using wx\+Math\+Plot\+:

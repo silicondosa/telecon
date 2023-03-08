@@ -27,8 +27,8 @@ using namespace std;
 #define SYMBOL_REALTIMETRACK_POSITION wxDefaultPosition
 
 // 250ms per data point, chart contains 1 min of data = 240 data points.
-static const int dataInterval = 250;
-static const int sampleSize = 240;
+static const int m_dataInterval = 250;
+static const int m_sampleSize = 240;
 
 /*
  * Telecon type definition
@@ -117,7 +117,7 @@ Telecon::AddChart(const wxString title, const wxString ylabel)
     itemBoxSizer8->Add(m_chartViewer, 1, wxGROW | wxALL, FromDIP(3));
 
     // Allocate memory for the data series and initialize to Chart::NoValue
-    m_timeStamps.resize(sampleSize, Chart::NoValue);
+    m_timeStamps.resize(m_sampleSize, Chart::NoValue);
 
 
     m_currentIndex = 0;
@@ -129,11 +129,11 @@ Telecon::AddChart(const wxString title, const wxString ylabel)
     // Set up the data acquisition mechanism. In this demo, we just use a timer to get a
     // sample every 250ms.
     m_dataRateTimer = new wxTimer(this, ID_DATA_TIMER);
-    m_dataRateTimer->Start(dataInterval);
+    m_dataRateTimer->Start(m_dataInterval);
 
     // Set up the chart update timer
     m_chartUpdateTimer = new wxTimer(this, ID_UPDATE_TIMER);
-    m_chartUpdateTimer->Start(dataInterval);
+    m_chartUpdateTimer->Start(m_dataInterval);
 
     if (GetSizer())
     {
@@ -155,7 +155,7 @@ Telecon::AddPlot(const wxString& plotname, double (*ptr)(), int plotcolor, char*
     itemFlexGridSizer3->Add(m_alphaValue, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
     m_dataValues.push_back(m_alphaValue);
 
-    vec1.resize(sampleSize, Chart::NoValue);
+    vec1.resize(m_sampleSize, Chart::NoValue);
     m_dataSeries.push_back(vec1);
     m_colorSeries.push_back(plotcolor);
     m_plottitleSeries.push_back(plottitle);
@@ -221,7 +221,7 @@ Telecon::CreatePlotControls()
     m_updatePeriodStrings.Add("1750");
     m_updatePeriodStrings.Add("2000");
     m_updatePeriod = new wxChoice(itemPanel2, ID_UPDATE_PERIOD, wxDefaultPosition, wxDefaultSize, m_updatePeriodStrings, 0);
-    m_updatePeriod->SetStringSelection(wxString::Format("%d", dataInterval));
+    m_updatePeriod->SetStringSelection(wxString::Format("%d", m_dataInterval));
     itemStaticBoxSizer1->Add(m_updatePeriod, 0, wxGROW | wxALL, FromDIP(3));
 
     itemStaticBoxSizer1->Add(3, 3, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, FromDIP(3));
@@ -293,7 +293,7 @@ Telecon::DrawChart()
     if (firstTime != Chart::NoValue)
     {
         // Set up the x-axis to show the time range in the data buffer
-        c->xAxis()->setDateScale(firstTime, firstTime + dataInterval * sampleSize / 1000);
+        c->xAxis()->setDateScale(firstTime, firstTime + m_dataInterval * m_sampleSize / 1000);
 
         // Set the x-axis label format
         c->xAxis()->setLabelFormat("{value|hh:nn:ss}");
@@ -302,12 +302,12 @@ Telecon::DrawChart()
         LineLayer* layer = c->addLineLayer();
 
         // The x-coordinates are the timeStamps.
-        layer->setXData(DoubleArray(&m_timeStamps[0], sampleSize));
+        layer->setXData(DoubleArray(&m_timeStamps[0], m_sampleSize));
 
         // The 3 data series are used to draw 3 lines.
         int i = 0;
         for (const std::vector<double>& element : m_dataSeries) {
-            layer->addDataSet(DoubleArray(&element[0], sampleSize), m_colorSeries[i], m_plottitleSeries[i]);
+            layer->addDataSet(DoubleArray(&element[0], m_sampleSize), m_colorSeries[i], m_plottitleSeries[i]);
             i++;
         }
         
@@ -549,7 +549,7 @@ Telecon::GetData(/*windowID, chartID, plotID, function ptr */std::vector<FuncPtr
         
 
         // After obtaining the new values, we need to update the data arrays.
-        if (m_currentIndex < sampleSize)
+        if (m_currentIndex < m_sampleSize)
         {
             // Store the new values in the current index position, and increment the index.
             for (const double& element : data) {
@@ -563,14 +563,14 @@ Telecon::GetData(/*windowID, chartID, plotID, function ptr */std::vector<FuncPtr
         {
             // The data arrays are full. Shift the arrays and store the values at the end.
             for (const double& element : data) {
-                ShiftData(&m_dataSeries[i][0], sampleSize, element);
+                ShiftData(&m_dataSeries[i][0], m_sampleSize, element);
                 i++;
             }
-            ShiftData(&m_timeStamps[0], sampleSize, currentTime);
+            ShiftData(&m_timeStamps[0], m_sampleSize, currentTime);
         }
 
 
-        m_nextDataTime.Add(wxTimeSpan(0, 0, 0, dataInterval));
+        m_nextDataTime.Add(wxTimeSpan(0, 0, 0, m_dataInterval));
     } while (m_nextDataTime < now);
 
     // We provide some visual feedback to the latest numbers generated, so you can see the

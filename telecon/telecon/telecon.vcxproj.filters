@@ -15,22 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\base.h">
+    <ClInclude Include="..\..\include\telecon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\TeleconBarChart.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\TeleconChart.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\TeleconChartPanel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\TeleconLineChart.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\TeleconRealTimeLineChart.h">
+    <ClInclude Include="..\..\include\teleconrealtimechart.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\databuffer.h">
@@ -45,27 +33,21 @@
     <ClInclude Include="..\..\include\teleconscatterplot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\start.h">
+    <ClInclude Include="..\..\include\colors.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\colors.h">
+    <ClInclude Include="..\..\include\teleconwindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\enums.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\base.cpp">
+    <ClCompile Include="..\..\src\telecon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\TeleconBarChart.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\TeleconChartPanel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\TeleconRealTimeLineChart.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\lib\wxchartdir\wxdemo\common\wxchartviewer.cpp">
+    <ClCompile Include="..\..\src\teleconrealtimechart.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\userfile.cpp">
@@ -80,7 +62,10 @@
     <ClCompile Include="..\..\src\teleconscatterplot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\start.cpp">
+    <ClCompile Include="..\..\src\teleconwindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\telecon-wxchartdir\wxdemo\common\wxchartviewer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

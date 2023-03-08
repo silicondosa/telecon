@@ -5,18 +5,17 @@
 #include <wx/wx.h>
 #endif
 
-#include "base.h"
+#include "telecon.h"
 
 #include <cmath>
 #include <random>
 #include <thread>
 
-#include "TeleconRealTimeLineChart.h"
+#include "teleconrealtimechart.h"
 #include "wxchartviewer.h"
-#include "start.h"
 
-
-double generateRandomDouble(double min, double max) {
+double generateRandomDouble(double min, double max)
+{
 	std::random_device rd;  // Will be used to obtain a seed for the random number engine
 	std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
 	std::uniform_real_distribution<> dis(min, max);
@@ -32,62 +31,72 @@ CreateDataPoints()
 	return dataA;
 }
 
+int main(int argc, char* argv[])
+{
+    future<Telecon*> teleconFuture = Telecon::teleconStart();
 
+    teleconFuture.wait();
 
-void ChartFrame::userAddChart(){
-    // TeleconRealTimeLineChart* realTimePanel = createRealTimePanel(wxDefaultPosition, wxDefaultSize);
-    // realTimePanel->AddChart("My Title", "ylabel");
-    // realTimePanel->AddPlot("Expected Tension", CreateDataPoints, 0xff0000, "Expected Tension");
+    Telecon* telecon = teleconFuture.get();
 
-    // TeleconRealTimeLineChart* realTimePanel2 = createRealTimePanel(wxDefaultPosition, wxDefaultSize);
-    // realTimePanel2->AddChart("My Title", "ylabel");
-    // realTimePanel2->AddPlot("Expected Tension", CreateDataPoints, 0x00b40a, "Expected Tension");
-    // realTimePanel2->AddPlot("Expected Tension", CreateDataPoints, 0xff00ff, "Expected Tension");
+    // Controller code starts here
 
-    // TeleconRealTimeLineChart* realTimePanel3 = createRealTimePanel(wxDefaultPosition, wxDefaultSize);
-    // realTimePanel3->AddChart("My Title", "ylabel");
-    // realTimePanel3->AddPlot("Expected Tension", CreateDataPoints, 0x0000ff, "Expected Tension");
+    while (true) {
+        for (auto& teleconWindow : *telecon) {
+            for (auto& teleconChart : *teleconWindow) {
+                for (auto& teleconPlot : *teleconChart) {
+                    wxDateTime now = wxDateTime::UNow(); // Needs to UNow instead of Now for millisecond precision
 
-    // addChart(realTimePanel);
-    // addChart(realTimePanel2);
-    // addChart(realTimePanel3);
+                    // Convert from wxDateTime to seconds since Unix epoch, then to ChartDirector double timestamp.
+                    // Since that loses millisecond precision, add it back in with GetMillisecond()
+                    double millis = now.GetMillisecond();
+                    double nowTimeStamp = Chart::chartTime2(now.GetTicks()) + now.GetMillisecond() / 1000.0;
+                    teleconPlot->pushData(nowTimeStamp, CreateDataPoints());
+                }
+            }
+        }
+        this_thread::sleep_for(chrono::milliseconds(100));
+    }
 
+    // Controller code ends here
+
+    Telecon::teleconJoin(); //Must be called prior to exiting main
+
+    return 0;
 }
 
-void Telecon::teleconMain(){
-
+void Telecon::teleconMain()
+{
     TeleconWindow* window = addWindow("MyWindow");
 
-    TeleconRealTimeLineChart* realTimeChart = window->addChart("Chart1", "time", "lbs");
-    realTimeChart->addLinePlot(CreateDataPoints, "Expected Tension", 0xff0000, LT_SOLID, 1);
-    realTimeChart->addLinePlot(CreateDataPoints, "Force", 0x00ff00, LT_SOLID, 5);
+    TeleconRealTimeChart* realTimeChart = window->addChart("Chart1", "lbs", "time");
+    realTimeChart->addLinePlot("Expected Tension", COLOR_BLACK, LT_SOLID, 1, SYMBOL_NO_SYMBOL, true, 5);
+    realTimeChart->addLinePlot("Force", COLOR_GREEN, LT_SOLID, 5, SYMBOL_NO_SYMBOL, true, 5);
 
-    TeleconRealTimeLineChart* realTimeChart2 = window->addChart("Second Chart", "time", "inches");
-    realTimeChart2->addLinePlot(CreateDataPoints, "Extension (expected)", -1L, Chart::CircleShape, 5, LT_SOLID, 1);
-    realTimeChart2->addLinePlot(CreateDataPoints, "Extension (actual)", 0x00ff00, LT_DASHED, 1);
+    TeleconRealTimeChart* realTimeChart2 = window->addChart("Second Chart", "inches", "time");
+    realTimeChart2->addLinePlot("Extension (expected)", COLOR_DEFAULT, LT_SOLID, 1, SYMBOL_CIRCLE, true, 5);
+    realTimeChart2->addLinePlot("Extension (actual)", COLOR_GREEN, LT_DASHED, 1, SYMBOL_NO_SYMBOL, true, 5);
 
     TeleconWindow* window2 = addWindow("Second Window");
 
-    TeleconRealTimeLineChart* realTimeChart3 = window2->addChart("Diverging Chart", "time", "ft", CSM_DIVERGING);
-    realTimeChart3->addLinePlot(CreateDataPoints, "Plot 1");
-    realTimeChart3->addLinePlot(CreateDataPoints, "Plot 2");
-    realTimeChart3->addLinePlot(CreateDataPoints, "Plot 3");
+    TeleconRealTimeChart* realTimeChart3 = window2->addChart("Diverging Chart", "ft", "time (s)", 100, 1000, CSM_DIVERGING);
+    realTimeChart3->addLinePlot("Plot 1");
+    realTimeChart3->addLinePlot("Plot 2");
+    realTimeChart3->addLinePlot("Plot 3");
+    realTimeChart3->addLinePlot("Plot 4");
+    /*realTimeChart3->addLinePlot("Plot 5");
+    realTimeChart3->addLinePlot("Plot 6");
+    realTimeChart3->addLinePlot("Plot 7");
+    realTimeChart3->addLinePlot("Plot 8");
+    realTimeChart3->addLinePlot("Plot 9");
+    realTimeChart3->addLinePlot("Plot 10");
+    realTimeChart3->addLinePlot("Plot 11");*/
 
-    TeleconRealTimeLineChart* realTimeChart4 = window2->addChart("Scatter Chart", "time", "mph");
-    realTimeChart4->addScatterPlot(CreateDataPoints, "Speed");
-    realTimeChart4->addScatterPlot(CreateDataPoints, "Velocity", 0x00ff00, Chart::DiamondShape, 3);
+    TeleconRealTimeChart* realTimeChart4 = window2->addChart("Scatter Chart", "mph", "time", 100, 1000, CSM_DIVERGING);
+    realTimeChart4->addScatterPlot("Speed", COLOR_DEFAULT, SYMBOL_CROSS, false);
+    realTimeChart4->addScatterPlot("New one", COLOR_DEFAULT, SYMBOL_CIRCLE, false);
+    realTimeChart4->addScatterPlot("Velocity", COLOR_BLUE, SYMBOL_DIAMOND, true, 3);
 
     window->drawWindow();
     window2->drawWindow();
-}
-
-
-
-int main(int argc, char *argv[])
-{       
-    teleconStart();
-
-    teleconJoin(); //Must be called prior to exiting main
-
-    return 0;
 }

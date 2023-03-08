@@ -1,67 +1,12 @@
 \hypertarget{teleconplot_8h}{}\doxysection{include/teleconplot.h File Reference}
 \label{teleconplot_8h}\index{include/teleconplot.h@{include/teleconplot.h}}
 {\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+{\ttfamily \#include $<$list$>$}\newline
+{\ttfamily \#include \char`\"{}chartdir.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}databuffer.\+h\char`\"{}}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}}
 \end{DoxyCompactItemize}
-\doxysubsection*{Typedefs}
-\begin{DoxyCompactItemize}
-\item 
-typedef double($\ast$ \mbox{\hyperlink{teleconplot_8h_af69020f6765dfdd7b0be93676167a0ed}{Double\+Func\+Ptr}}) ()
-\end{DoxyCompactItemize}
-\doxysubsection*{Enumerations}
-\begin{DoxyCompactItemize}
-\item 
-enum \mbox{\hyperlink{teleconplot_8h_afd074c27ba0a2809258258751b754f52}{Line\+Type}} \{ \mbox{\hyperlink{teleconplot_8h_afd074c27ba0a2809258258751b754f52ad3188575e9151d64606bf543dc4c40f1}{LT\+\_\+\+SOLID}}
-, \mbox{\hyperlink{teleconplot_8h_afd074c27ba0a2809258258751b754f52a2741e32e9e7536cc5b4668c1629cc341}{LT\+\_\+\+DASHED}}
-, \mbox{\hyperlink{teleconplot_8h_afd074c27ba0a2809258258751b754f52adb04dedfc7f767a9cf2a3bfbc2bd92ed}{LT\+\_\+\+NONE}}
-, \mbox{\hyperlink{teleconplot_8h_afd074c27ba0a2809258258751b754f52aba03de6d71e731d8544266543a0a9b70}{LT\+\_\+\+SCATTER}}
- \}
-\end{DoxyCompactItemize}
-
-
-\doxysubsection{Typedef Documentation}
-\mbox{\Hypertarget{teleconplot_8h_af69020f6765dfdd7b0be93676167a0ed}\label{teleconplot_8h_af69020f6765dfdd7b0be93676167a0ed}} 
-\index{teleconplot.h@{teleconplot.h}!DoubleFuncPtr@{DoubleFuncPtr}}
-\index{DoubleFuncPtr@{DoubleFuncPtr}!teleconplot.h@{teleconplot.h}}
-\doxysubsubsection{\texorpdfstring{DoubleFuncPtr}{DoubleFuncPtr}}
-{\footnotesize\ttfamily typedef double($\ast$ Double\+Func\+Ptr) ()}
-
-
-
-Definition at line \mbox{\hyperlink{teleconplot_8h_source_l00015}{15}} of file \mbox{\hyperlink{teleconplot_8h_source}{teleconplot.\+h}}.
-
-
-
-\doxysubsection{Enumeration Type Documentation}
-\mbox{\Hypertarget{teleconplot_8h_afd074c27ba0a2809258258751b754f52}\label{teleconplot_8h_afd074c27ba0a2809258258751b754f52}} 
-\index{teleconplot.h@{teleconplot.h}!LineType@{LineType}}
-\index{LineType@{LineType}!teleconplot.h@{teleconplot.h}}
-\doxysubsubsection{\texorpdfstring{LineType}{LineType}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{teleconplot_8h_afd074c27ba0a2809258258751b754f52}{Line\+Type}}}
-
-\begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{LT\_SOLID@{LT\_SOLID}!teleconplot.h@{teleconplot.h}}\index{teleconplot.h@{teleconplot.h}!LT\_SOLID@{LT\_SOLID}}}\mbox{\Hypertarget{teleconplot_8h_afd074c27ba0a2809258258751b754f52ad3188575e9151d64606bf543dc4c40f1}\label{teleconplot_8h_afd074c27ba0a2809258258751b754f52ad3188575e9151d64606bf543dc4c40f1}} 
-LT\+\_\+\+SOLID&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{LT\_DASHED@{LT\_DASHED}!teleconplot.h@{teleconplot.h}}\index{teleconplot.h@{teleconplot.h}!LT\_DASHED@{LT\_DASHED}}}\mbox{\Hypertarget{teleconplot_8h_afd074c27ba0a2809258258751b754f52a2741e32e9e7536cc5b4668c1629cc341}\label{teleconplot_8h_afd074c27ba0a2809258258751b754f52a2741e32e9e7536cc5b4668c1629cc341}} 
-LT\+\_\+\+DASHED&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{LT\_NONE@{LT\_NONE}!teleconplot.h@{teleconplot.h}}\index{teleconplot.h@{teleconplot.h}!LT\_NONE@{LT\_NONE}}}\mbox{\Hypertarget{teleconplot_8h_afd074c27ba0a2809258258751b754f52adb04dedfc7f767a9cf2a3bfbc2bd92ed}\label{teleconplot_8h_afd074c27ba0a2809258258751b754f52adb04dedfc7f767a9cf2a3bfbc2bd92ed}} 
-LT\+\_\+\+NONE&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{LT\_SCATTER@{LT\_SCATTER}!teleconplot.h@{teleconplot.h}}\index{teleconplot.h@{teleconplot.h}!LT\_SCATTER@{LT\_SCATTER}}}\mbox{\Hypertarget{teleconplot_8h_afd074c27ba0a2809258258751b754f52aba03de6d71e731d8544266543a0a9b70}\label{teleconplot_8h_afd074c27ba0a2809258258751b754f52aba03de6d71e731d8544266543a0a9b70}} 
-LT\+\_\+\+SCATTER&\\
-\hline
-
-\end{DoxyEnumFields}
-
-
-Definition at line \mbox{\hyperlink{teleconplot_8h_source_l00008}{8}} of file \mbox{\hyperlink{teleconplot_8h_source}{teleconplot.\+h}}.
-

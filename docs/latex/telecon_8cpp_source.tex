@@ -1,0 +1,83 @@
+\hypertarget{telecon_8cpp_source}{}\doxysection{telecon.\+cpp}
+\label{telecon_8cpp_source}\index{src/telecon.cpp@{src/telecon.cpp}}
+\mbox{\hyperlink{telecon_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}telecon.h"{}}}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00003}00003\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00005}00005\ shared\_ptr<thread>\ Telecon::t\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00007}00007\ \textcolor{keywordtype}{void}\ Telecon::teleconAppInit(promise<Telecon*>\ mainAppInstancePromise)}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00009}00009\ \ \ \ \ \mbox{\hyperlink{class_telecon}{Telecon}}*\ telecon\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_telecon}{Telecon}}();}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00010}00010\ \ \ \ \ wxApp::SetInstance(telecon);}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00011}00011\ \ \ \ \ \textcolor{keywordtype}{int}\ argCount\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00012}00012\ \ \ \ \ \textcolor{keywordtype}{char}**\ argv\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00013}00013\ \ \ \ \ \textcolor{keywordflow}{if}\ (!wxEntryStart(argCount,\ argv))\ \{}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}wx\ failed\ to\ start\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ wxExit();}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00016}00016\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00017}00017\ \ \ \ \ wxTheApp-\/>CallOnInit();}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{comment}{//\ Telecon\ has\ been\ initialized\ and\ we\ are\ ready\ to\ keep\ our\ promise}}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00019}00019\ \ \ \ \ mainAppInstancePromise.set\_value(telecon);}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00020}00020\ \ \ \ \ wxTheApp-\/>OnRun();}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00021}00021\ \ \ \ \ wxTheApp-\/>OnExit();}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00022}00022\ \ \ \ \ wxEntryCleanup();}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00023}00023\ \}}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00025}\mbox{\hyperlink{class_telecon_ae12ac6e774fa74a00e1a9d4816161667}{00025}}\ future<Telecon*>\ \mbox{\hyperlink{class_telecon_ae12ac6e774fa74a00e1a9d4816161667}{Telecon::teleconStart}}()}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00026}00026\ \{}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00027}00027\ \ \ \ \ promise<Telecon*>\ teleconPromise;}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00028}00028\ \ \ \ \ future<Telecon*>\ teleconFuture\ =\ teleconPromise.get\_future();}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00029}00029\ \ \ \ \ t\ =\ make\_shared<thread>(teleconAppInit,\ move(teleconPromise));}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{return}\ teleconFuture;}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00031}00031\ \}}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00033}\mbox{\hyperlink{class_telecon_ac81ca0e9db9a0138de1002343155ac70}{00033}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_ac81ca0e9db9a0138de1002343155ac70}{Telecon::teleconJoin}}()}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00034}00034\ \{}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00035}00035\ \ \ \ \ t-\/>join();}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00036}00036\ \}}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00038}\mbox{\hyperlink{class_telecon_a397fb9bcb0f25d86bfc283f38da32700}{00038}}\ \mbox{\hyperlink{class_telecon_window}{TeleconWindow}}*\ \mbox{\hyperlink{class_telecon_a397fb9bcb0f25d86bfc283f38da32700}{Telecon::addWindow}}(\textcolor{keywordtype}{string}\ name)}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00039}00039\ \{}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00040}00040\ \ \ \ \ \mbox{\hyperlink{class_telecon_window}{TeleconWindow}}*\ window\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_telecon_window}{TeleconWindow}}(name);}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00041}00041\ \ \ \ \ frameList.push\_back(window);}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{return}\ window;}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00043}00043\ \}}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00045}\mbox{\hyperlink{class_telecon_af1bebce20799e33f86c9bd1813a1c634}{00045}}\ \mbox{\hyperlink{class_telecon_window}{TeleconWindow}}*\ \mbox{\hyperlink{class_telecon_af1bebce20799e33f86c9bd1813a1c634}{Telecon::getWindow}}(\textcolor{keywordtype}{int}\ index)}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00046}00046\ \{}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{keywordflow}{return}\ frameList[index];}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00048}00048\ \}}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00050}\mbox{\hyperlink{class_telecon_aee854954e0004822dece3130a61e332e}{00050}}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_telecon_aee854954e0004822dece3130a61e332e}{Telecon::getNumWindows}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00051}00051\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00052}00052\ \ \ \ \ \textcolor{keywordflow}{return}\ frameList.size();}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00053}00053\ \}}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00055}\mbox{\hyperlink{class_telecon_a7c5aa87cdc52840d1eba1551751e7b46}{00055}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_telecon_a7c5aa87cdc52840d1eba1551751e7b46}{Telecon::OnInit}}()}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00056}00056\ \{}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00057}00057\ \ \ \ \ \mbox{\hyperlink{class_telecon_a4a0bb69634311e36e0076cac4e47eb57}{teleconMain}}();}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00059}00059\ \ \ \ \ \textcolor{keywordflow}{for}(wxFrame*\ frame\ :\ frameList)\{}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ frame-\/>Show(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00063}00063\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00064}00064\ \}}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00066}\mbox{\hyperlink{class_telecon_ad97d568de61730b580b91ffe89e174a6}{00066}}\ vector<TeleconWindow*>::iterator\ \mbox{\hyperlink{class_telecon_ad97d568de61730b580b91ffe89e174a6}{Telecon::begin}}()}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00067}00067\ \{}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00068}00068\ \ \ \ \ \textcolor{keywordflow}{return}\ frameList.begin();}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00069}00069\ \}}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00071}\mbox{\hyperlink{class_telecon_a8f99a4468928476c6046937d3c6dc11f}{00071}}\ vector<TeleconWindow*>::iterator\ \mbox{\hyperlink{class_telecon_a8f99a4468928476c6046937d3c6dc11f}{Telecon::end}}()}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00072}00072\ \{}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00073}00073\ \ \ \ \ \textcolor{keywordflow}{return}\ frameList.end();}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00074}00074\ \}}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00076}00076\ BEGIN\_EVENT\_TABLE(\mbox{\hyperlink{class_telecon_window}{TeleconWindow}},\ wxFrame)}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00077}00077\ END\_EVENT\_TABLE()}
+
+\end{DoxyCode}

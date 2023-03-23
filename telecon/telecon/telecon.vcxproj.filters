@@ -65,7 +65,7 @@
     <ClCompile Include="..\..\src\teleconwindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\lib\telecon-wxchartdir\wxdemo\common\wxchartviewer.cpp">
+    <ClCompile Include="..\..\lib\wxchartdir\wxdemo\common\wxchartviewer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

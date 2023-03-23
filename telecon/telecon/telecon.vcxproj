@@ -109,12 +109,12 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)include\msvc;$(MSBuildThisFileDirectory)include;%(AdditionalIncludeDirectories);$(SolutionDir)..\include;$(SolutionDir)..\lib\telecon-wxchartdir\include;$(SolutionDir)..\lib\telecon-wxchartdir\wxdemo\common</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)include\msvc;$(MSBuildThisFileDirectory)include;%(AdditionalIncludeDirectories);$(SolutionDir)..\include;$(SolutionDir)..\lib\wxchartdir\include;$(SolutionDir)..\lib\wxchartdir\wxdemo\common</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(wxLibOrDllDir);%(AdditionalLibraryDirectories);$(SolutionDir)..\lib\telecon-wxchartdir\lib\win64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(wxLibOrDllDir);%(AdditionalLibraryDirectories);$(SolutionDir)..\lib\wxchartdir\lib\win64</AdditionalLibraryDirectories>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;comdlg32.lib;winspool.lib;shell32.lib;shlwapi.lib;ole32.lib;oleaut32.lib;uuid.lib;advapi32.lib;version.lib;comctl32.lib;rpcrt4.lib;ws2_32.lib;wininet.lib;winmm.lib;%(AdditionalDependencies);chartdir70.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -150,7 +150,7 @@
     <ClInclude Include="..\..\include\teleconwindow.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\lib\telecon-wxchartdir\wxdemo\common\wxchartviewer.cpp" />
+    <ClCompile Include="..\..\lib\wxchartdir\wxdemo\common\wxchartviewer.cpp" />
     <ClCompile Include="..\..\src\telecon.cpp" />
     <ClCompile Include="..\..\src\teleconlineplot.cpp" />
     <ClCompile Include="..\..\src\teleconplot.cpp" />

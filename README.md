@@ -2,7 +2,7 @@
 A cross-platform near real-time telemetry and control GUI for C++ written using the [wxWidgets](https://www.wxwidgets.org/) library.
 
 ## Prerequisite list
-Telecon projects use three prerequisite packages: wxWidgets, wxMathPlot, and wxChartDir. Not every project uses every package. If using an existing project, all packages will already be set up except for wxWidgets; if creating a new project, see the steps below.
+Telecon projects use four prerequisite libraries: wxWidgets, wxMathPlot, wxChartDir, and ChartDirector. Not every project uses every library. See the steps below to set up the libraries.
 
 ## Necessary prerequisite: wxWidgets
 ### Linux
@@ -25,12 +25,18 @@ For example, to install wxWidgets 3.0 on Ubuntu 20.04 LTS, you need to run the c
 This project ships with a **modified** copy of the wxMathPlot library. It is an open-source scientific plotting library for wxWidgets. You can find it in `lib/wxMathPlot/` and is distributed under the wxWindows license. From June 2007 the project is maintained by [Davide Rondini](mailto:cdron77@users.sourceforge.net), who carries on the original work by [David Schalig](mailto:mrhill@users.sourceforge.net).
 The authors can be contacted via the [wxMathPlot's homepage](https://sourceforge.net/projects/wxmathplot).
 
-## Included prerequisite: wxChartDir
+## Included prerequisite: wxChartDir/ChartDirector
 This project includes wxChartDir as a submodule. It provides components for the integration and use of the commercial C++ library ChartDirector, available at https://github.com/utelle/wxchartdir.
 Use the --recurse-submodules flag when cloning or checking out branches to ensure that wxChartDir is modified appropriately.
 
+wxChartDir includes the trial version of [ChartDirector](https://www.advsofteng.com/index.html), a versatile charting library that provides support for many different types of plots.
+
 ## Setting up the development environment
-### Windows (Visual Studio 2019 or above)
+### Using the existing projects
+- The Telecon project is already configured for use on a 64-bit Windows machine
+- Only wxWidgets must be installed (see above)
+
+### Creating a new project (Visual Studio 2022 or above)
 - Install wxWidgets according to the instructions above.
 - Create a new empty project.
 - Go to `View|Property Manager|Add Existing Property Sheet` and add `wxWidgets.prop` (from the downloaded development files in wxWidget's root directory) to it. Then edit the .vcxproj file to make the import path relative to the wxwin environment variable, if desired.
@@ -44,11 +50,12 @@ If using wxMathPlot:
 - In the Solution Explorer, add `telecon\lib\wxMathPlot\include\mathplot.h` to Header Files
 - In the Solution Explorer, add `telecon\lib\wxMathPlot\src\mathplot.cpp` to Source Files
 
-If using wxChartDir:
+If using wxChartDir/ChartDirector:
 - To `Project|Properties|C/C++|General|Additional Include Directories|`, append `$(SolutionDir)..\lib\wxchartdir\include` and `$(SolutionDir)..\lib\wxchartdir\wxdemo\common`
-- To `Project|Properties|Linker|General|Additional Linker Directories|`, append `$(SolutionDir)..\lib\wxchartdir\lib\win64`
+- To `Project|Properties|Linker|General|Additional Linker Directories|`, append `$(SolutionDir)..\lib\wxchartdir\lib\win64`. Replace win64 with your target platform if needed
 - To `Project|Properties|Linker|Input|Additional Dependencies|`, append `chartdir70.lib`
 - In the Solution Explorer, add `telecon\lib\wxchartdir\wxdemo\common\wxchartviewer.cpp` to Source Files
+- When running you application, you will need to link the ChartDirector DLL file. This can be done in several ways. One method, used in the included project, is to copy the DLL to the output folder by setting `Project|Properties|Build Events|Post-Build Event|Command Line` to `xcopy /y "$(SolutionDir)..\lib\wxchartdir\lib\win64\chartdir70.dll" $(OutDir)`; replace win64 with your target platform if needed. Another method is to add the DLL file to the Path environment variable.
 
 ## Coding tips
 - Be sure to include the headers (`wx/wxp.h`) or precompiled headers (`wx/wxprec.h`) as necessary to the main source file.

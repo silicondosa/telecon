@@ -13,6 +13,7 @@
 
 #include "chartdir.h"
 #include "teleconrealtimechart.h"
+#include "teleconframe.h"
 #include "teleconwindow.h"
 
 using namespace std;
@@ -22,7 +23,8 @@ class Telecon : public wxApp
 private:
     static shared_ptr<thread> t;
 
-    vector<TeleconWindow*> frameList;
+    vector<TeleconWindow*> m_windows;
+    vector<TeleconFrame*> m_frames;
 
     static void teleconAppInit(promise<Telecon*> mainAppInstancePromise);
 
@@ -51,18 +53,6 @@ public:
      * \return The number of TeleconWindows added to the application.
      */
     size_t getNumWindows() const;
-
-    // Iterator functions
-    /**
-     * For use with range-based for loops.
-     * \return Iterator to the first TeleconWindow added.
-     */
-    vector<TeleconWindow*>::iterator begin();
-    /**
-     * For use with range-based for loops.
-     * \return Iterator to the element following the last TeleconWindow added.
-     */
-    vector<TeleconWindow*>::iterator end();
 
     /**
      * The initialization function for Telecon. All windows, charts, and plots should be added and drawn here.

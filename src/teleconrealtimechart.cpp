@@ -26,19 +26,15 @@ TeleconRealTimeChart::~TeleconRealTimeChart()
     m_chartUpdateTimer->Stop();
 }
 
-TeleconRealTimeChart::TeleconRealTimeChart(wxWindow *parent,
-                                                   wxWindowID winid,
-                                                   const wxPoint &pos,
-                                                   const wxSize &size,
-                                                   const wxString title,
-                                                   const wxString xLabel,
-                                                   const wxString yLabel,
-                                                   long style,
-                                                   const wxString &name,
-                                                   ColorSequenceMode colorSequenceMode,
-                                                   int dataInterval,
-                                                   int memoryDepth)
-    : wxPanel(parent, winid, pos, size, style, name), m_colorSequenceMode(colorSequenceMode), m_dataInterval(dataInterval), m_memoryDepth(memoryDepth)
+TeleconRealTimeChart::TeleconRealTimeChart(
+    TeleconChart* chart,
+    wxWindow* parent,
+    wxWindowID winid,
+    const wxPoint& pos,
+    const wxSize& size,
+    long style,
+    const wxString& name
+) : wxPanel(parent, winid, pos, size, style, name), m_chart(chart)
 {
     m_bgColour = GetBackgroundColour();
 
@@ -54,7 +50,7 @@ TeleconRealTimeChart::TeleconRealTimeChart(wxWindow *parent,
     m_chartBoxSizer = new wxBoxSizer(wxVERTICAL);
     m_topSizer->Add(m_chartBoxSizer, 1, wxGROW | wxALL, FromDIP(3));
 
-    SetUpChartBox(title, xLabel, yLabel);
+    SetUpChartBox();
 }
 
 void TeleconRealTimeChart::SetUpViewOptionsBox()
@@ -103,14 +99,14 @@ void TeleconRealTimeChart::SetUpViewOptionsBox()
 
     m_plotLatestValueFlexGridSizer = new wxFlexGridSizer(0, 2, 0, 0);
     m_viewOptionsBoxSizer->Add(m_plotLatestValueFlexGridSizer, 0, wxGROW | wxALL, FromDIP(3));
+
+    for (int i = 0; i < m_chart->getNumPlots(); i++) {
+        addLatestValueText(m_chart->getPlot(i)->getPlotTitle());
+    }
 }
 
-void TeleconRealTimeChart::SetUpChartBox(const wxString title, const wxString xlabel, const wxString ylabel)
+void TeleconRealTimeChart::SetUpChartBox()
 {
-    m_chartTitle = title;
-    m_xlabel = xlabel;
-    m_ylabel = ylabel;
-
     m_chartViewer = new wxChartViewer(this, ID_CHARTVIEWER, wxDefaultPosition, FromDIP(wxSize(600, 270)), wxTAB_TRAVERSAL | wxNO_BORDER);
     m_chartBoxSizer->Add(m_chartViewer, 1, wxGROW | wxALL, FromDIP(3));
 
@@ -206,7 +202,7 @@ void TeleconRealTimeChart::DrawChart()
 
     // Add a title to the chart using 15 pts Times New Roman Bold Italic font, with a light
     // grey (dddddd) background, black (000000) border, and a glass like raised effect.
-    m_titleBox = c->addTitle(m_chartTitle, "Times New Roman Bold Italic", 15);
+    m_titleBox = c->addTitle(m_chart->getTitle().c_str(), "Times New Roman Bold Italic", 15);
     m_titleBox->setBackground(0xdddddd, 0x000000, Chart::glassEffect());
 
     // Set the plotarea at (55, 55) and of size 520 x 185 pixels. Use white (ffffff)
@@ -220,9 +216,9 @@ void TeleconRealTimeChart::DrawChart()
     c->getLegend()->setFontSize(8);
 
     // Configure the x- and y-axes with a 10pts Arial Bold axis title
-    c->yAxis()->setTitle(m_ylabel, "Arial Bold", 10);
+    c->yAxis()->setTitle(m_chart->getYLabel().c_str(), "Arial Bold", 10);
 
-    c->xAxis()->setTitle(m_xlabel, "Arial Bold", 10);
+    c->xAxis()->setTitle(m_chart->getXLabel().c_str(), "Arial Bold", 10);
 
     // Configure the x-axis to auto-scale with at least 75 pixels between major tick and
     // 15  pixels between minor ticks. This shows more minor grid lines on the chart.
@@ -235,7 +231,8 @@ void TeleconRealTimeChart::DrawChart()
     // Now we add the data to the chart.
     bool hasData = false;
     double firstTime;
-    for (const auto& plot : m_plots) {
+    for (int i = 0; i < m_chart->getNumPlots(); i++) {
+        TeleconPlot* plot = m_chart->getPlot(i);
         plot->prepDataForDraw();
         if (plot->size() > 0 && (!hasData || plot->getEarliestTimestamp() < firstTime)) {
             firstTime = plot->getEarliestTimestamp();
@@ -243,15 +240,17 @@ void TeleconRealTimeChart::DrawChart()
         }
     }
     if (hasData) {
-        // Calculate the time range expected based on the size of the buffer and the actual total time range, and take the larger
-        double bufferTimeInterval = m_dataInterval * m_memoryDepth / 1000;
+        // Calculate the total time range, and take the larger of that and the suggested range
         double dataTimeInterval = 0.0;
-        for (const auto& plot : m_plots) {
+        for (int i = 0; i < m_chart->getNumPlots(); i++) {
+            TeleconPlot* plot = m_chart->getPlot(i);
             if (plot->size() > 0 && (plot->getLatestTimestamp() - plot->getEarliestTimestamp() > dataTimeInterval)) {
                 dataTimeInterval = plot->getLatestTimestamp() - plot->getEarliestTimestamp();
             }
         }
-        double dateScale = bufferTimeInterval > dataTimeInterval ? bufferTimeInterval : dataTimeInterval;
+        // Default timespan is given in minutes, so convert it to seconds
+        double defaultTimespanSeconds = m_chart->getDefaultTimespan() * 60.0;
+        double dateScale = defaultTimespanSeconds > dataTimeInterval ? defaultTimespanSeconds : dataTimeInterval;
         // Give a 5% margin on either side of the data
         c->xAxis()->setDateScale(firstTime- dateScale * 0.05, firstTime + dateScale * 1.05);
 
@@ -259,11 +258,10 @@ void TeleconRealTimeChart::DrawChart()
         c->xAxis()->setLabelFormat("{value|hh:nn:ss}");
 
         // The data series are used to draw lines.
-        int i = 0;
-        for (const auto& plot : m_plots) {
+        for (int i = 0; i < m_chart->getNumPlots(); i++) {
+            TeleconPlot* plot = m_chart->getPlot(i);
             plot->addToChart(c);
             m_latestValueTextCtrls[i]->SetValue(wxString::Format("%.2f", plot->getLastestValue()));
-            i++;
         }
     }
 
@@ -392,24 +390,7 @@ TeleconRealTimeChart::GetBitmapResource(const wxString &name)
     return wxNullBitmap;
 }
 
-void TeleconRealTimeChart::addLinePlot(const char * plottitle, long plotcolor, LineType lineType, int lineWidth, int symbol, bool fillSymbol, int symbolSize)
-{
-    addLatestValueText(plottitle);
-
-    int color = plotcolor == COLOR_DEFAULT ? getNextDefaultColor() : plotcolor;
-
-    m_plots.push_back(shared_ptr<TeleconPlot>(new TeleconLinePlot(m_memoryDepth, color, string(plottitle), lineWidth, lineType, symbol != Chart::NoSymbol, symbol, fillSymbol, symbolSize)));
-}
-
-void TeleconRealTimeChart::addScatterPlot(const char * plottitle, long plotcolor, int symbol, bool fillSymbol, int symbolSize) {
-    addLatestValueText(plottitle);
-
-    int color = plotcolor == COLOR_DEFAULT ? getNextDefaultColor() : plotcolor;
-
-    m_plots.push_back(shared_ptr<TeleconPlot>(new TeleconScatterPlot(m_memoryDepth, color, string(plottitle), symbol, fillSymbol, symbolSize)));
-}
-
-void TeleconRealTimeChart::addLatestValueText(const char* plottitle) {
+void TeleconRealTimeChart::addLatestValueText(string plottitle) {
     wxStaticText* latestValueLabel = new wxStaticText(this, wxID_STATIC, wxString(plottitle), wxDefaultPosition, wxDefaultSize, 0);
     m_plotLatestValueFlexGridSizer->Add(latestValueLabel, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
 
@@ -417,38 +398,4 @@ void TeleconRealTimeChart::addLatestValueText(const char* plottitle) {
     latestValueText->Enable(false);
     m_plotLatestValueFlexGridSizer->Add(latestValueText, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
     m_latestValueTextCtrls.push_back(latestValueText);
-}
-
-int TeleconRealTimeChart::getNextDefaultColor() {
-    switch (m_colorSequenceMode) {
-    case CSM_BLACK:
-        return COLOR_BLACK;
-        break;
-    case CSM_DIVERGING:
-        // Cycle through the colors in CSM_COLORS_DIVERGING, repeating upon reaching the end
-        return CSM_COLORS_DIVERGING[m_plots.size() % CSM_COLORS_DIVERGING.size()];
-        break;
-    }
-    // Should be impossible, cases are exhaustive
-    return COLOR_BLACK;
-}
-
-vector<shared_ptr<TeleconPlot>>::iterator TeleconRealTimeChart::begin()
-{
-    return m_plots.begin();
-}
-
-vector<shared_ptr<TeleconPlot>>::iterator TeleconRealTimeChart::end()
-{
-    return m_plots.end();
-}
-
-shared_ptr<TeleconPlot> TeleconRealTimeChart::getPlot(int index)
-{
-    return m_plots[index];
-}
-
-size_t TeleconRealTimeChart::getNumPlots() const
-{
-    return m_plots.size();
 }

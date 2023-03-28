@@ -1,52 +1,39 @@
 #include "teleconwindow.h"
 
-TeleconWindow::TeleconWindow(const wxString& title)
-    : wxFrame((wxFrame*)NULL, -1, title, wxDefaultPosition, wxDefaultSize)
+TeleconWindow::TeleconWindow(std::string title)
+	: m_title(title), m_hasQuit(false) {}
+
+TeleconWindow::TeleconWindow()
+	: TeleconWindow("") {}
+
+void TeleconWindow::quit()
 {
-
-    wxBoxSizer* itemBoxSizer = new wxBoxSizer(wxVERTICAL);
-    SetSizer(itemBoxSizer);
-
-    for (auto panel_element : list_charts) {
-        itemBoxSizer->Add(panel_element, 1, wxGROW);
-    }
-
-    SetSizerAndFit(itemBoxSizer);
+	m_hasQuit.store(true);
 }
 
-TeleconRealTimeChart* TeleconWindow::addChart(string title, string ylabel, string xlabel, int dataInterval, int memoryDepth, ColorSequenceMode colorSequenceMode)
+bool TeleconWindow::hasQuit()
 {
-    TeleconRealTimeChart* realTimePanel = new TeleconRealTimeChart(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, title, xlabel, ylabel, wxTAB_TRAVERSAL | wxNO_BORDER, wxASCII_STR(wxPanelNameStr), colorSequenceMode, dataInterval, memoryDepth);
-    list_charts.push_back(realTimePanel);
-    return realTimePanel;
+	return m_hasQuit.load();
 }
 
-void TeleconWindow::drawWindow()
+std::string TeleconWindow::getTitle()
 {
-    wxBoxSizer* itemBoxSizer = new wxBoxSizer(wxVERTICAL);
-    SetSizer(itemBoxSizer);
-    for (auto panel_element : list_charts) {
-        itemBoxSizer->Add(panel_element, 1, wxGROW);
-    }
-    SetSizerAndFit(itemBoxSizer);
+	return m_title;
 }
 
-vector<TeleconRealTimeChart*>::iterator TeleconWindow::begin()
+TeleconChart* TeleconWindow::addChart(std::string title, std::string xLabel, std::string yLabel, ColorSequenceMode colorSequenceMode, double defaultTimespan)
 {
-    return list_charts.begin();
+	TeleconChart* chart = new TeleconChart(title, xLabel, yLabel, colorSequenceMode, defaultTimespan);
+	m_charts.push_back(chart);
+	return chart;
 }
 
-vector<TeleconRealTimeChart*>::iterator TeleconWindow::end()
+TeleconChart* TeleconWindow::getChart(size_t index)
 {
-    return list_charts.end();
-}
-
-TeleconRealTimeChart* TeleconWindow::getChart(int index)
-{
-    return list_charts[index];
+	return m_charts[index];
 }
 
 size_t TeleconWindow::getNumCharts() const
 {
-    return list_charts.size();
+	return m_charts.size();
 }

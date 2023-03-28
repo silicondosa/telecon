@@ -38,40 +38,33 @@ void Telecon::teleconJoin()
 TeleconWindow* Telecon::addWindow(string name)
 {
     TeleconWindow* window = new TeleconWindow(name);
-    frameList.push_back(window);
+    m_windows.push_back(window);
     return window;
 }
 
 TeleconWindow* Telecon::getWindow(int index)
 {
-    return frameList[index];
+    return m_windows[index];
 }
 
 size_t Telecon::getNumWindows() const
 {
-    return frameList.size();
+    return m_windows.size();
 }
 
 bool Telecon::OnInit()
 {
     teleconMain();
 
-    for(wxFrame* frame : frameList){
+    for(TeleconWindow* window : m_windows){
+        TeleconFrame* frame = new TeleconFrame(window);
+        m_frames.push_back(frame);
+        frame->drawWindow();
         frame->Show(true);
     }
 
     return true;
 }
 
-vector<TeleconWindow*>::iterator Telecon::begin()
-{
-    return frameList.begin();
-}
-
-vector<TeleconWindow*>::iterator Telecon::end()
-{
-    return frameList.end();
-}
-
-BEGIN_EVENT_TABLE(TeleconWindow, wxFrame)
+BEGIN_EVENT_TABLE(TeleconFrame, wxFrame)
 END_EVENT_TABLE()

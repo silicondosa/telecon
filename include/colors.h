@@ -3,9 +3,7 @@
 #include <array>
 #include "enums.h"
 
-using namespace std;
-
-static const array<int, 10> CSM_COLORS_DIVERGING {
+static const std::array<int, 10> CSM_COLORS_DIVERGING {
     COLOR_DIVERGING_CRIMSON,
     COLOR_DIVERGING_SIENNA,
     COLOR_DIVERGING_ORANGE,

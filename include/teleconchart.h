@@ -46,4 +46,6 @@ public:
     TeleconScatterPlot* addScatterPlot(std::string plottitle, int memoryDepth = 1000, long plotcolor = COLOR_DEFAULT, int symbol = SYMBOL_SQUARE, bool fillSymbol = true, int symbolSize = 5);
     TeleconPlot* getPlot(int index);
     int getNumPlots();
+
+    TeleconPlot* getPlotByName(string name);
 };

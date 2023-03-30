@@ -37,3 +37,19 @@ size_t TeleconWindow::getNumCharts() const
 {
 	return m_charts.size();
 }
+
+TeleconChart* TeleconWindow::getChartByName(string name)
+{
+	for (vector<TeleconChart*>::iterator i = m_charts.begin(); i != m_charts.end(); ++i) {
+		if (name.compare((*i)->getTitle()) == 0) {
+			return *i;
+		}
+	}
+	return nullptr;
+}
+
+TeleconPlot* TeleconWindow::getPlotByName(string chartName, string plotName)
+{
+	TeleconChart* chart = getChartByName(chartName);
+	return chart == nullptr ? nullptr : chart->getPlotByName(plotName);
+}

@@ -67,3 +67,13 @@ int TeleconChart::getNumPlots()
 {
 	return m_plots.size();
 }
+
+TeleconPlot* TeleconChart::getPlotByName(string name)
+{
+	for (vector<TeleconPlot*>::iterator i = m_plots.begin(); i != m_plots.end(); ++i) {
+		if (name.compare((*i)->getPlotTitle()) == 0) {
+			return *i;
+		}
+	}
+	return nullptr;
+}

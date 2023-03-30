@@ -35,4 +35,7 @@ public:
 	TeleconChart* addChart(std::string title = "", std::string xLabel = "", std::string yLabel = "", ColorSequenceMode colorSequenceMode = CSM_BLACK, double defaultTimespan = 1.0);
 	TeleconChart* getChart(size_t index);
 	size_t getNumCharts() const;
+
+	TeleconChart* getChartByName(string name);
+	TeleconPlot* getPlotByName(string chartName, string plotName);
 };

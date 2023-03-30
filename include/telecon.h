@@ -41,7 +41,7 @@ public:
      * \param name the name that will be displayed on the window.
      * \return A pointer to the TeleconWindow object created.
      */
-    TeleconWindow* addWindow(std::string name);
+    TeleconWindow* addWindow(string name);
     bool OnInit() override;
 
     /**
@@ -53,6 +53,10 @@ public:
      * \return The number of TeleconWindows added to the application.
      */
     size_t getNumWindows() const;
+
+    TeleconWindow* getWindowByName(string name);
+    TeleconChart* getChartByName(string windowName, string chartName);
+    TeleconPlot* getPlotByName(string windowName, string chartName, string plotName);
 
     /**
      * The initialization function for Telecon. All windows, charts, and plots should be added and drawn here.

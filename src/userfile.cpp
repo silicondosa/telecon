@@ -41,23 +41,34 @@ int main(int argc, char* argv[])
 
     // Controller code starts here
 
+
     while (true) {
+        wxDateTime now = wxDateTime::UNow(); // Needs to use UNow instead of Now for millisecond precision
+
+        // Convert from wxDateTime to seconds since Unix epoch, then to ChartDirector double timestamp.
+        // Since that loses millisecond precision, add it back in with GetMillisecond()
+        double millis = now.GetMillisecond();
+        double nowTimeStamp = Chart::chartTime2(now.GetTicks()) + now.GetMillisecond() / 1000.0;
         for (int i = 0; i < telecon->getNumWindows(); i++) {
             TeleconWindow* window = telecon->getWindow(i);
             for (int j = 0; j < window->getNumCharts(); j++) {
-                TeleconChart* chart = window->getChart(j);
-                for (int k = 0; k < chart->getNumPlots(); k++) {
-                    TeleconPlot* teleconPlot = chart->getPlot(k);
-                    wxDateTime now = wxDateTime::UNow(); // Needs to use UNow instead of Now for millisecond precision
-
-                    // Convert from wxDateTime to seconds since Unix epoch, then to ChartDirector double timestamp.
-                    // Since that loses millisecond precision, add it back in with GetMillisecond()
-                    double millis = now.GetMillisecond();
-                    double nowTimeStamp = Chart::chartTime2(now.GetTicks()) + now.GetMillisecond() / 1000.0;
-                    teleconPlot->pushData(nowTimeStamp, CreateDataPoints());
+                if (!(i == 1 && j == 0)) { // Exclude chart3, which is covered below for demonstration purposes
+                    TeleconChart* chart = window->getChart(j);
+                    for (int k = 0; k < chart->getNumPlots(); k++) {
+                        TeleconPlot* teleconPlot = chart->getPlot(k);
+                        teleconPlot->pushData(nowTimeStamp, CreateDataPoints());
+                    }
                 }
             }
         }
+        TeleconPlot* plot1 = telecon->getPlotByName("Second Window", "Diverging Chart", "Plot 1");
+        TeleconPlot* plot2 = telecon->getChartByName("Second Window", "Diverging Chart")->getPlotByName("Plot 2");
+        TeleconPlot* plot3 = telecon->getWindowByName("Second Window")->getPlotByName("Diverging Chart", "Plot 3");
+        TeleconPlot* plot4 = telecon->getWindowByName("Second Window")->getChartByName("Diverging Chart")->getPlotByName("Plot 4");
+        plot1->pushData(nowTimeStamp, CreateDataPoints());
+        plot2->pushData(nowTimeStamp, CreateDataPoints());
+        plot3->pushData(nowTimeStamp, CreateDataPoints());
+        //plot4->pushData(nowTimeStamp, CreateDataPoints());
         this_thread::sleep_for(chrono::milliseconds(100));
     }
 

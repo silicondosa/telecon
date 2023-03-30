@@ -35,6 +35,9 @@ LineType TeleconLinePlot::getLineType() const {
 }
 
 void TeleconLinePlot::addToChart(XYChart* chart) {
+    if (m_yData.size() <= 0) {
+        return;
+    }
     // This integer represents both the color and dash status (solid, dashed, or none) of the chart
     int chartDirColor;
     if (m_lineType == LT_SOLID) {

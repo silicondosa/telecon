@@ -261,7 +261,9 @@ void TeleconRealTimeChart::DrawChart()
         for (int i = 0; i < m_chart->getNumPlots(); i++) {
             TeleconPlot* plot = m_chart->getPlot(i);
             plot->addToChart(c);
-            m_latestValueTextCtrls[i]->SetValue(wxString::Format("%.2f", plot->getLastestValue()));
+            if (plot->size() > 0) {
+                m_latestValueTextCtrls[i]->SetValue(wxString::Format("%.2f", plot->getLastestValue()));
+            }
         }
     }
 

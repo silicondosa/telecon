@@ -4,7 +4,7 @@
 #include <vector>
 
 #include "colors.h"
-#include "teleconplot.h"
+#include "teleconwxplot.h"
 #include "teleconlineplot.h"
 #include "teleconscatterplot.h"
 
@@ -24,7 +24,7 @@ protected:
     const ColorSequenceMode m_colorSequenceMode;
     const double m_defaultXAxisSpan;
 
-    vector<TeleconPlot*> m_plots;
+    vector<TeleconWxPlot*> m_plots;
 
     long getNextDefaultColor();
 public:
@@ -36,10 +36,10 @@ public:
     ColorSequenceMode getColorSequenceMode();
     double getDefaultXAxisSpan();
     
-    TeleconPlot* getPlot(int index);
+    TeleconWxPlot* getPlot(int index);
     int getNumPlots();
 
-    TeleconPlot* getPlotByName(string name);
+    TeleconWxPlot* getPlotByName(string name);
 
     virtual CHART_X_AXIS_TYPE getChartXAxisType() = 0;
 };

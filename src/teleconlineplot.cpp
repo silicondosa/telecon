@@ -1,7 +1,7 @@
 #include "teleconlineplot.h"
 
 TeleconLinePlot::TeleconLinePlot(int depth, int color, string plotTitle, int lineWidth, LineType lineType, bool hasSymbol, int symbol, bool fillSymbol, int symbolSize)
-    : TeleconPlot(depth, color, plotTitle), m_lineWidth(lineWidth), m_lineType(lineType), m_hasSymbol(hasSymbol), m_symbol(symbol), m_fillSymbol(fillSymbol), m_symbolSize(symbolSize) {}
+    : TeleconWxPlot(depth, color, plotTitle), m_lineWidth(lineWidth), m_lineType(lineType), m_hasSymbol(hasSymbol), m_symbol(symbol), m_fillSymbol(fillSymbol), m_symbolSize(symbolSize) {}
 
 list<pair<double, double>>* TeleconLinePlot::swapAndGetDataToAdd()
 {

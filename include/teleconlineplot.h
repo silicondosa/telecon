@@ -1,13 +1,13 @@
 #pragma once
 
-#include "teleconplot.h"
+#include "teleconwxplot.h"
 
 enum LineType {
 	LT_SOLID,
 	LT_DASHED
 };
 
-class TeleconLinePlot : public TeleconPlot {
+class TeleconLinePlot : public TeleconWxPlot {
 protected:
 	int m_lineWidth;
 	LineType m_lineType;

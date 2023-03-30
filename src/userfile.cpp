@@ -54,16 +54,16 @@ int main(int argc, char* argv[])
                 if (!(i == 1 && j == 0)) { // Exclude chart3, which is covered below for demonstration purposes
                     TeleconChart* chart = window->getChart(j);
                     for (int k = 0; k < chart->getNumPlots(); k++) {
-                        TeleconPlot* teleconPlot = chart->getPlot(k);
+                        TeleconWxPlot* teleconPlot = chart->getPlot(k);
                         teleconPlot->pushData(nowTimeStamp, CreateDataPoints());
                     }
                 }
             }
         }
-        TeleconPlot* plot1 = telecon->getPlotByName("Second Window", "Diverging Chart", "Plot 1");
-        TeleconPlot* plot2 = telecon->getChartByName("Second Window", "Diverging Chart")->getPlotByName("Plot 2");
-        TeleconPlot* plot3 = telecon->getWindowByName("Second Window")->getPlotByName("Diverging Chart", "Plot 3");
-        TeleconPlot* plot4 = telecon->getWindowByName("Second Window")->getChartByName("Diverging Chart")->getPlotByName("Plot 4");
+        TeleconWxPlot* plot1 = telecon->getPlotByName("Second Window", "Diverging Chart", "Plot 1");
+        TeleconWxPlot* plot2 = telecon->getChartByName("Second Window", "Diverging Chart")->getPlotByName("Plot 2");
+        TeleconWxPlot* plot3 = telecon->getWindowByName("Second Window")->getPlotByName("Diverging Chart", "Plot 3");
+        TeleconWxPlot* plot4 = telecon->getWindowByName("Second Window")->getChartByName("Diverging Chart")->getPlotByName("Plot 4");
         plot1->pushData(nowTimeStamp, CreateDataPoints());
         plot2->pushData(nowTimeStamp, CreateDataPoints());
         plot3->pushData(nowTimeStamp, CreateDataPoints());

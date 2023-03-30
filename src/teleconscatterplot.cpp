@@ -1,7 +1,7 @@
 #include "teleconscatterplot.h"
 
 TeleconScatterPlot::TeleconScatterPlot(int depth, int color, string plotTitle, int symbol, bool fillSymbol, int symbolSize)
-    : TeleconPlot(depth, color, plotTitle), m_symbol(symbol), m_fillSymbol(fillSymbol), m_symbolSize(symbolSize) {}
+    : TeleconWxPlot(depth, color, plotTitle), m_symbol(symbol), m_fillSymbol(fillSymbol), m_symbolSize(symbolSize) {}
 
 list<pair<double, double>>* TeleconScatterPlot::swapAndGetDataToAdd()
 {

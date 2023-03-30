@@ -48,7 +48,7 @@ TeleconChart* TeleconWindow::getChartByName(string name)
 	return nullptr;
 }
 
-TeleconPlot* TeleconWindow::getPlotByName(string chartName, string plotName)
+TeleconWxPlot* TeleconWindow::getPlotByName(string chartName, string plotName)
 {
 	TeleconChart* chart = getChartByName(chartName);
 	return chart == nullptr ? nullptr : chart->getPlotByName(plotName);

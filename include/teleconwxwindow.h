@@ -13,14 +13,14 @@
 
 using namespace std;
 
-class TeleconFrame : public wxFrame
+class TeleconWxWindow : public wxFrame
 {
 private:
     TeleconWindow* m_window;
 
     vector<TeleconWxChart*> m_charts;
 public:
-    TeleconFrame(TeleconWindow* window);
+    TeleconWxWindow(TeleconWindow* window);
 
     void drawWindow();
 

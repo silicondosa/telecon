@@ -1,9 +1,9 @@
-#include "teleconplot.h"
+#include "teleconwxplot.h"
 
-TeleconPlot::TeleconPlot(size_t depth, int color, string plotTitle)
+TeleconWxPlot::TeleconWxPlot(size_t depth, int color, string plotTitle)
 	: m_dataToAdd(new list<pair<double, double>>()), m_depth(depth), m_xTimestamps(depth), m_yData(depth), m_color(color), m_plotTitle(plotTitle) {}
 
-void TeleconPlot::pushData(double xTimestamp, double yData)
+void TeleconWxPlot::pushData(double xTimestamp, double yData)
 {
     const lock_guard<mutex> lock(m_dataToAddLock);
 
@@ -16,18 +16,18 @@ void TeleconPlot::pushData(double xTimestamp, double yData)
     // lock_guard automatically releases m_dataToAddLock when it goes out of scope
 }
 
-size_t TeleconPlot::size() const {
+size_t TeleconWxPlot::size() const {
 	return m_xTimestamps.size();
 }
 
-size_t TeleconPlot::depth() const {
+size_t TeleconWxPlot::depth() const {
 	return m_depth;
 }
 
-int TeleconPlot::getColor() const {
+int TeleconWxPlot::getColor() const {
 	return m_color;
 }
 
-const string& TeleconPlot::getPlotTitle() const {
+const string& TeleconWxPlot::getPlotTitle() const {
 	return m_plotTitle;
 }

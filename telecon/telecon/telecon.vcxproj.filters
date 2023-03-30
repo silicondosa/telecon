@@ -24,7 +24,7 @@
     <ClInclude Include="..\..\include\databuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\teleconplot.h">
+    <ClInclude Include="..\..\include\teleconwxplot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\teleconlineplot.h">
@@ -36,7 +36,7 @@
     <ClInclude Include="..\..\include\colors.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\teleconframe.h">
+    <ClInclude Include="..\..\include\teleconwxwindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\enums.h">
@@ -62,7 +62,7 @@
     <ClCompile Include="..\..\src\userfile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\teleconplot.cpp">
+    <ClCompile Include="..\..\src\teleconwxplot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\teleconlineplot.cpp">
@@ -71,7 +71,7 @@
     <ClCompile Include="..\..\src\teleconscatterplot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\teleconframe.cpp">
+    <ClCompile Include="..\..\src\teleconwxwindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\lib\wxchartdir\wxdemo\common\wxchartviewer.cpp">

@@ -37,5 +37,5 @@ public:
 	size_t getNumCharts() const;
 
 	TeleconChart* getChartByName(string name);
-	TeleconPlot* getPlotByName(string chartName, string plotName);
+	TeleconWxPlot* getPlotByName(string chartName, string plotName);
 };

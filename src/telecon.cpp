@@ -68,7 +68,7 @@ TeleconChart* Telecon::getChartByName(string windowName, string chartName)
     return window == nullptr ? nullptr : window->getChartByName(chartName);
 }
 
-TeleconPlot* Telecon::getPlotByName(string windowName, string chartName, string plotName)
+TeleconWxPlot* Telecon::getPlotByName(string windowName, string chartName, string plotName)
 {
     TeleconWindow* window = getWindowByName(windowName);
     if (window == nullptr) {
@@ -83,7 +83,7 @@ bool Telecon::OnInit()
     teleconMain();
 
     for(TeleconWindow* window : m_windows){
-        TeleconFrame* frame = new TeleconFrame(window);
+        TeleconWxWindow* frame = new TeleconWxWindow(window);
         m_frames.push_back(frame);
         frame->drawWindow();
         frame->Show(true);
@@ -92,5 +92,5 @@ bool Telecon::OnInit()
     return true;
 }
 
-BEGIN_EVENT_TABLE(TeleconFrame, wxFrame)
+BEGIN_EVENT_TABLE(TeleconWxWindow, wxFrame)
 END_EVENT_TABLE()

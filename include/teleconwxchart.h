@@ -13,7 +13,7 @@
 #include "chartdir.h"
 #include "wxchartviewer.h"
 #include "teleconchart.h"
-#include "teleconplot.h"
+#include "teleconwxplot.h"
 #include "teleconlineplot.h"
 #include "colors.h"
 #include "enums.h"

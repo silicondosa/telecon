@@ -1,8 +1,8 @@
 #pragma once
 
-#include "teleconplot.h"
+#include "teleconwxplot.h"
 
-class TeleconScatterPlot : public TeleconPlot {
+class TeleconScatterPlot : public TeleconWxPlot {
 protected:
 	int m_symbol;
     bool m_fillSymbol;

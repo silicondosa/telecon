@@ -12,7 +12,7 @@
 #include <future>
 
 #include "chartdir.h"
-#include "teleconframe.h"
+#include "teleconwxwindow.h"
 #include "teleconwindow.h"
 
 using namespace std;
@@ -23,7 +23,7 @@ private:
     static shared_ptr<thread> t;
 
     vector<TeleconWindow*> m_windows;
-    vector<TeleconFrame*> m_frames;
+    vector<TeleconWxWindow*> m_frames;
 
     static void teleconAppInit(promise<Telecon*> mainAppInstancePromise);
 
@@ -55,7 +55,7 @@ public:
 
     TeleconWindow* getWindowByName(string name);
     TeleconChart* getChartByName(string windowName, string chartName);
-    TeleconPlot* getPlotByName(string windowName, string chartName, string plotName);
+    TeleconWxPlot* getPlotByName(string windowName, string chartName, string plotName);
 
     /**
      * The initialization function for Telecon. All windows, charts, and plots should be added and drawn here.

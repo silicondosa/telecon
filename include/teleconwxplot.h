@@ -33,6 +33,7 @@ public:
     void pushData(double xTimestamp, double yData);
     virtual double getLeftmostX() = 0;
     virtual double getRightmostX() = 0;
+    virtual string getLatestValueString() = 0;
 	// Returns the current size of the data buffer
 	size_t size() const;
 	// Returns the capacity (maximum size) of the data buffer

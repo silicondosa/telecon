@@ -24,4 +24,5 @@ public:
 	LineType getLineType() const;
 	double getLeftmostX() override;
 	double getRightmostX() override;
+	string getLatestValueString() override;
 };

@@ -44,6 +44,16 @@ double TeleconWxPlotXY::getRightmostX()
     return m_xTimestamps[m_xTimestamps.size() - 1];
 }
 
+string TeleconWxPlotXY::getLatestValueString()
+{
+    // Can't believe this is still the only way to do this in C++17 (formatting directly into c++ string isn't added until C++20)
+    int size_s = std::snprintf(nullptr, 0, "%.2f", m_yData[m_yData.size() - 1]) + 1; // Extra space for '\0'
+    char* latestValueString = new char[size_s];
+    std::unique_ptr<char[]> buf(new char[size_s]);
+    std::snprintf(buf.get(), size_s, "%.2f", m_yData[m_yData.size() - 1]);
+    return string(buf.get());
+}
+
 void TeleconWxPlotXY::addToChart(XYChart* chart) {
     if (m_yData.size() <= 0) {
         return;

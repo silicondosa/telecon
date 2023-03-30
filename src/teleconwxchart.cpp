@@ -15,8 +15,6 @@
 #include "teleconwxchart.h"
 #include "wxchartviewer.h"
 
-#include "teleconscatterplot.h"
-
 using namespace std;
 
 static const int chartUpdateIntervals[8] = {250, 500, 750, 1000, 1250, 1500, 1750, 2000};
@@ -270,7 +268,7 @@ void TeleconWxChart::DrawChart()
             TeleconWxPlot* plot = m_chart->getPlot(i);
             plot->addToChart(c);
             if (plot->size() > 0) {
-                m_latestValueTextCtrls[i]->SetValue(wxString::Format("%.2f", plot->getRightmostX()));
+                m_latestValueTextCtrls[i]->SetValue(plot->getLatestValueString());
             }
         }
         break;

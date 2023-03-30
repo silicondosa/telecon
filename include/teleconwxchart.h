@@ -14,7 +14,6 @@
 #include "wxchartviewer.h"
 #include "teleconchart.h"
 #include "teleconwxplot.h"
-#include "teleconlineplot.h"
 #include "colors.h"
 #include "enums.h"
 

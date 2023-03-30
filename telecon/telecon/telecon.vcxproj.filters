@@ -51,6 +51,9 @@
     <ClInclude Include="..\..\include\teleconrealtimechart.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\teleconwxplotxy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\telecon.cpp">
@@ -83,7 +86,10 @@
     <ClCompile Include="..\..\src\teleconchart.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\include\teleconrealtimechart.cpp">
+    <ClCompile Include="..\..\src\teleconrealtimechart.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\teleconwxplotxy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -12,7 +12,6 @@
 #include <future>
 
 #include "chartdir.h"
-#include "teleconrealtimechart.h"
 #include "teleconframe.h"
 #include "teleconwindow.h"
 

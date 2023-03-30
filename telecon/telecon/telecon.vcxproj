@@ -159,17 +159,19 @@
     <ClInclude Include="..\..\include\teleconlineplot.h" />
     <ClInclude Include="..\..\include\teleconplot.h" />
     <ClInclude Include="..\..\include\teleconrealtimechart.h" />
+    <ClInclude Include="..\..\include\teleconwxchart.h" />
     <ClInclude Include="..\..\include\teleconscatterplot.h" />
     <ClInclude Include="..\..\include\teleconframe.h" />
     <ClInclude Include="..\..\include\teleconwindow.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\include\teleconrealtimechart.cpp" />
     <ClCompile Include="..\..\lib\wxchartdir\wxdemo\common\wxchartviewer.cpp" />
     <ClCompile Include="..\..\src\telecon.cpp" />
     <ClCompile Include="..\..\src\teleconchart.cpp" />
     <ClCompile Include="..\..\src\teleconlineplot.cpp" />
     <ClCompile Include="..\..\src\teleconplot.cpp" />
-    <ClCompile Include="..\..\src\teleconrealtimechart.cpp" />
+    <ClCompile Include="..\..\src\teleconwxchart.cpp" />
     <ClCompile Include="..\..\src\teleconscatterplot.cpp" />
     <ClCompile Include="..\..\src\teleconframe.cpp" />
     <ClCompile Include="..\..\src\teleconwindow.cpp" />

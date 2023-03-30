@@ -5,7 +5,7 @@
 #include <vector>
 
 #include "colors.h"
-#include "teleconchart.h"
+#include "teleconrealtimechart.h"
 
 class TeleconWindow {
 private:
@@ -32,7 +32,7 @@ public:
 	 * \param colorSequenceMode the sequence of colors that will be used for added plots if the color is left unspecified.
 	 * \return A pointer to the TeleconRealTimeChart object created.
 	 */
-	TeleconChart* addChart(std::string title = "", std::string xLabel = "", std::string yLabel = "", ColorSequenceMode colorSequenceMode = CSM_BLACK, double defaultTimespan = 1.0);
+	TeleconRealtimeChart* addRealtimeChart(std::string title = "", std::string xLabel = "", std::string yLabel = "", ColorSequenceMode colorSequenceMode = CSM_BLACK, double defaultTimespan = 1.0);
 	TeleconChart* getChart(size_t index);
 	size_t getNumCharts() const;
 

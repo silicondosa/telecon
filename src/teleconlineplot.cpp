@@ -34,6 +34,16 @@ LineType TeleconLinePlot::getLineType() const {
     return m_lineType;
 }
 
+double TeleconLinePlot::getLeftmostX()
+{
+    return m_xTimestamps[0];
+}
+
+double TeleconLinePlot::getRightmostX()
+{
+    return m_xTimestamps[m_xTimestamps.size() - 1];
+}
+
 void TeleconLinePlot::addToChart(XYChart* chart) {
     if (m_yData.size() <= 0) {
         return;

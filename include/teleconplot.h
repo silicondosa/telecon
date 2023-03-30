@@ -13,13 +13,13 @@ class TeleconPlot {
 protected:
     list<pair<double, double>>* m_dataToAdd;
     mutex m_dataToAddLock;
-    const int m_depth;
+    const size_t m_depth;
     DataBuffer<double> m_xTimestamps;
     DataBuffer<double> m_yData;
 	int m_color; // Represented as an RGB hexadecimal code (one byte per channel)
 	string m_plotTitle;
 public:
-	TeleconPlot(int depth, int color, string plotTitle);
+	TeleconPlot(size_t depth, int color, string plotTitle);
 	// Fetches all of the data out of m_dataToAdd and updates the timestamps/data buffers
     virtual void prepDataForDraw() = 0;
     // Adds a layer representing the plot to the given chart
@@ -31,13 +31,12 @@ public:
      * \param yData the datum to be added to the plot.
      */
     void pushData(double xTimestamp, double yData);
-    double getEarliestTimestamp() const;
-    double getLatestTimestamp() const;
-    double getLastestValue() const;
+    virtual double getLeftmostX() = 0;
+    virtual double getRightmostX() = 0;
 	// Returns the current size of the data buffer
 	size_t size() const;
 	// Returns the capacity (maximum size) of the data buffer
-	int depth() const;
+	size_t depth() const;
 	int getColor() const;
 	
 	const string& getPlotTitle() const;

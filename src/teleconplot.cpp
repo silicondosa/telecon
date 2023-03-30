@@ -1,6 +1,6 @@
 #include "teleconplot.h"
 
-TeleconPlot::TeleconPlot(int depth, int color, string plotTitle)
+TeleconPlot::TeleconPlot(size_t depth, int color, string plotTitle)
 	: m_dataToAdd(new list<pair<double, double>>()), m_depth(depth), m_xTimestamps(depth), m_yData(depth), m_color(color), m_plotTitle(plotTitle) {}
 
 void TeleconPlot::pushData(double xTimestamp, double yData)
@@ -16,26 +16,11 @@ void TeleconPlot::pushData(double xTimestamp, double yData)
     // lock_guard automatically releases m_dataToAddLock when it goes out of scope
 }
 
-double TeleconPlot::getEarliestTimestamp() const
-{
-    return m_xTimestamps[0];
-}
-
-double TeleconPlot::getLatestTimestamp() const
-{
-    return m_xTimestamps[(int)m_xTimestamps.size() - 1];
-}
-
-double TeleconPlot::getLastestValue() const
-{
-    return m_yData.latest();
-}
-
 size_t TeleconPlot::size() const {
 	return m_xTimestamps.size();
 }
 
-int TeleconPlot::depth() const {
+size_t TeleconPlot::depth() const {
 	return m_depth;
 }
 

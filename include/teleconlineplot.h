@@ -22,4 +22,6 @@ public:
 	void addToChart(XYChart* chart) override;
 	int getLineWidth() const;
 	LineType getLineType() const;
+	double getLeftmostX() override;
+	double getRightmostX() override;
 };

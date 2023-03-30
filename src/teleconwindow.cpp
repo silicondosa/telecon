@@ -21,9 +21,9 @@ std::string TeleconWindow::getTitle()
 	return m_title;
 }
 
-TeleconChart* TeleconWindow::addChart(std::string title, std::string xLabel, std::string yLabel, ColorSequenceMode colorSequenceMode, double defaultTimespan)
+TeleconRealtimeChart* TeleconWindow::addRealtimeChart(std::string title, std::string xLabel, std::string yLabel, ColorSequenceMode colorSequenceMode, double defaultTimespan)
 {
-	TeleconChart* chart = new TeleconChart(title, xLabel, yLabel, colorSequenceMode, defaultTimespan);
+	TeleconRealtimeChart* chart = new TeleconRealtimeChart(title, xLabel, yLabel, colorSequenceMode, defaultTimespan);
 	m_charts.push_back(chart);
 	return chart;
 }

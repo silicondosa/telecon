@@ -12,7 +12,7 @@
 #include <vector>
 #include <sstream>
 
-#include "teleconrealtimechart.h"
+#include "teleconwxchart.h"
 #include "wxchartviewer.h"
 
 #include "teleconscatterplot.h"
@@ -21,12 +21,12 @@ using namespace std;
 
 static const int chartUpdateIntervals[8] = {250, 500, 750, 1000, 1250, 1500, 1750, 2000};
 
-TeleconRealTimeChart::~TeleconRealTimeChart()
+TeleconWxChart::~TeleconWxChart()
 {
     m_chartUpdateTimer->Stop();
 }
 
-TeleconRealTimeChart::TeleconRealTimeChart(
+TeleconWxChart::TeleconWxChart(
     TeleconChart* chart,
     wxWindow* parent,
     wxWindowID winid,
@@ -53,7 +53,7 @@ TeleconRealTimeChart::TeleconRealTimeChart(
     SetUpChartBox();
 }
 
-void TeleconRealTimeChart::SetUpViewOptionsBox()
+void TeleconWxChart::SetUpViewOptionsBox()
 {
     // Add play button
     m_playButton = new wxToggleButton(m_viewOptionsBox, ID_PLAY, _(" &Run"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
@@ -105,7 +105,7 @@ void TeleconRealTimeChart::SetUpViewOptionsBox()
     }
 }
 
-void TeleconRealTimeChart::SetUpChartBox()
+void TeleconWxChart::SetUpChartBox()
 {
     m_chartViewer = new wxChartViewer(this, ID_CHARTVIEWER, wxDefaultPosition, FromDIP(wxSize(600, 270)), wxTAB_TRAVERSAL | wxNO_BORDER);
     m_chartBoxSizer->Add(m_chartViewer, 1, wxGROW | wxALL, FromDIP(3));
@@ -115,21 +115,21 @@ void TeleconRealTimeChart::SetUpChartBox()
     m_chartUpdateTimer->Start(chartUpdateIntervals[0]);
 }
 
-BEGIN_EVENT_TABLE(TeleconRealTimeChart, wxPanel)
+BEGIN_EVENT_TABLE(TeleconWxChart, wxPanel)
 
-EVT_TOGGLEBUTTON(ID_PLAY, TeleconRealTimeChart::OnPlayClick)
-EVT_TOGGLEBUTTON(ID_PAUSE, TeleconRealTimeChart::OnPauseClick)
-EVT_CHOICE(ID_UPDATE_PERIOD, TeleconRealTimeChart::OnChartUpdatePeriodSelected)
-EVT_BUTTON(wxID_SAVE, TeleconRealTimeChart::OnSave)
+EVT_TOGGLEBUTTON(ID_PLAY, TeleconWxChart::OnPlayClick)
+EVT_TOGGLEBUTTON(ID_PAUSE, TeleconWxChart::OnPauseClick)
+EVT_CHOICE(ID_UPDATE_PERIOD, TeleconWxChart::OnChartUpdatePeriodSelected)
+EVT_BUTTON(wxID_SAVE, TeleconWxChart::OnSave)
 
-EVT_TIMER(ID_UPDATE_TIMER, TeleconRealTimeChart::OnChartUpdateTimer)
-EVT_CHARTVIEWER_VIEWPORT_CHANGED(ID_CHARTVIEWER, TeleconRealTimeChart::OnViewPortChanged)
-EVT_CHARTVIEWER_MOUSEMOVE_PLOTAREA(ID_CHARTVIEWER, TeleconRealTimeChart::OnMouseMovePlotArea)
+EVT_TIMER(ID_UPDATE_TIMER, TeleconWxChart::OnChartUpdateTimer)
+EVT_CHARTVIEWER_VIEWPORT_CHANGED(ID_CHARTVIEWER, TeleconWxChart::OnViewPortChanged)
+EVT_CHARTVIEWER_MOUSEMOVE_PLOTAREA(ID_CHARTVIEWER, TeleconWxChart::OnMouseMovePlotArea)
 
 END_EVENT_TABLE()
 
 // Event handler
-void TeleconRealTimeChart::OnPlayClick(wxCommandEvent &event)
+void TeleconWxChart::OnPlayClick(wxCommandEvent &event)
 {
     m_playButton->SetValue(true);
     m_pauseButton->SetValue(false);
@@ -137,7 +137,7 @@ void TeleconRealTimeChart::OnPlayClick(wxCommandEvent &event)
 }
 
 // Event handler
-void TeleconRealTimeChart::OnPauseClick(wxCommandEvent &event)
+void TeleconWxChart::OnPauseClick(wxCommandEvent &event)
 {
     m_playButton->SetValue(false);
     m_pauseButton->SetValue(true);
@@ -145,7 +145,7 @@ void TeleconRealTimeChart::OnPauseClick(wxCommandEvent &event)
 }
 
 // Event handler
-void TeleconRealTimeChart::OnChartUpdatePeriodSelected(wxCommandEvent &event)
+void TeleconWxChart::OnChartUpdatePeriodSelected(wxCommandEvent &event)
 {
     long interval;
     (m_updatePeriodSelector->GetString(m_updatePeriodSelector->GetSelection())).ToLong(&interval);
@@ -153,7 +153,7 @@ void TeleconRealTimeChart::OnChartUpdatePeriodSelected(wxCommandEvent &event)
 }
 
 // Event handler
-void TeleconRealTimeChart::OnSave(wxCommandEvent &event)
+void TeleconWxChart::OnSave(wxCommandEvent &event)
 {
     wxFileDialog saveFileDialog(this, _("Save graphics file"), "", "chartdirector_demo",
                                 "PNG (*.png)|*.png|JPG (*.jpg)|*.jpg|GIF (*.gif)|*.gif|BMP (*.bmp)|*.bmp|SVG (*.svg)|*.svg|PDF (*.pdf)|*.pdf", wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
@@ -174,7 +174,7 @@ void TeleconRealTimeChart::OnSave(wxCommandEvent &event)
 }
 
 // Event handler
-void TeleconRealTimeChart::OnChartUpdateTimer(wxTimerEvent &event)
+void TeleconWxChart::OnChartUpdateTimer(wxTimerEvent &event)
 {
     // Will result in a call to OnViewPortChanged, which may redraw the chart if needed
     m_chartViewer->updateViewPort(true, false);
@@ -183,7 +183,7 @@ void TeleconRealTimeChart::OnChartUpdateTimer(wxTimerEvent &event)
 // Event handler
 // This event occurs if the user scrolls or zooms in or out the chart by dragging or clicking on the chart.
 // It can also be triggered by calling WinChartViewer.updateViewPort.
-void TeleconRealTimeChart::OnViewPortChanged(wxCommandEvent &event)
+void TeleconWxChart::OnViewPortChanged(wxCommandEvent &event)
 {
     if (m_chartViewer->needUpdateChart())
     {
@@ -191,7 +191,7 @@ void TeleconRealTimeChart::OnViewPortChanged(wxCommandEvent &event)
     }
 }
 
-void TeleconRealTimeChart::DrawChart()
+void TeleconWxChart::DrawChart()
 {
     static const int chartWidth = 600;
     static const int chartHeight = 270;
@@ -229,30 +229,38 @@ void TeleconRealTimeChart::DrawChart()
     c->yAxis()->setWidth(2);
 
     // Now we add the data to the chart.
-    bool hasData = false;
-    double firstTime;
-    for (int i = 0; i < m_chart->getNumPlots(); i++) {
-        TeleconPlot* plot = m_chart->getPlot(i);
-        plot->prepDataForDraw();
-        if (plot->size() > 0 && (!hasData || plot->getEarliestTimestamp() < firstTime)) {
-            firstTime = plot->getEarliestTimestamp();
-            hasData = true;
-        }
-    }
-    if (hasData) {
+    switch (m_chart->getChartXAxisType()) {
+    case CAXT_TIME:
+    {
         // Calculate the total time range, and take the larger of that and the suggested range
-        double dataTimeInterval = 0.0;
+        double firstTime = 0.0;
+        double lastTime = 0.0;
+        bool hasData = false;
         for (int i = 0; i < m_chart->getNumPlots(); i++) {
             TeleconPlot* plot = m_chart->getPlot(i);
-            if (plot->size() > 0 && (plot->getLatestTimestamp() - plot->getEarliestTimestamp() > dataTimeInterval)) {
-                dataTimeInterval = plot->getLatestTimestamp() - plot->getEarliestTimestamp();
+            // Move data from the controller thread to the UI thread
+            plot->prepDataForDraw();
+            // Update the earliest and latest data points found so far
+            if (plot->size() > 0 && !hasData) {
+                firstTime = plot->getLeftmostX();
+                lastTime = plot->getRightmostX();
+                hasData = true;
+            }
+            else {
+                if (plot->size() > 0 && plot->getLeftmostX() < firstTime) {
+                    firstTime = plot->getLeftmostX();
+                }
+                if (plot->size() > 0 && plot->getRightmostX() > lastTime) {
+                    lastTime = plot->getLeftmostX();
+                }
             }
         }
+        double dataTimespanSeconds = lastTime - firstTime;
         // Default timespan is given in minutes, so convert it to seconds
-        double defaultTimespanSeconds = m_chart->getDefaultTimespan() * 60.0;
-        double dateScale = defaultTimespanSeconds > dataTimeInterval ? defaultTimespanSeconds : dataTimeInterval;
+        double defaultTimespanSeconds = m_chart->getDefaultXAxisSpan() * 60.0;
+        double timespanSeconds = fmax(dataTimespanSeconds, defaultTimespanSeconds);
         // Give a 5% margin on either side of the data
-        c->xAxis()->setDateScale(firstTime- dateScale * 0.05, firstTime + dateScale * 1.05);
+        c->xAxis()->setDateScale(firstTime - timespanSeconds * 0.05, firstTime + timespanSeconds * 1.05);
 
         // Set the x-axis label format
         c->xAxis()->setLabelFormat("{value|hh:nn:ss}");
@@ -262,9 +270,19 @@ void TeleconRealTimeChart::DrawChart()
             TeleconPlot* plot = m_chart->getPlot(i);
             plot->addToChart(c);
             if (plot->size() > 0) {
-                m_latestValueTextCtrls[i]->SetValue(wxString::Format("%.2f", plot->getLastestValue()));
+                m_latestValueTextCtrls[i]->SetValue(wxString::Format("%.2f", plot->getRightmostX()));
             }
         }
+        break;
+    }
+    case CAXT_ARBITARY:
+        cerr << "TODO: Arbitrary x-axis type not yet implemented.";
+        exit(EXIT_FAILURE);
+        break;
+    case CAXT_BOTH:
+        cerr << "TODO: Time and non-time combined x-axis type not yet implemented.";
+        exit(EXIT_FAILURE);
+        break;
     }
 
     // 5 for a margin, 13 for one line of the legend (should be changed to prevent overlap with plot). 9 for height of watermark
@@ -284,14 +302,14 @@ void TeleconRealTimeChart::DrawChart()
 }
 
 // Draw track cursor when mouse is moving over plotarea
-void TeleconRealTimeChart::OnMouseMovePlotArea(wxCommandEvent &event)
+void TeleconWxChart::OnMouseMovePlotArea(wxCommandEvent &event)
 {
     TrackLineLegend((XYChart *)m_chartViewer->getChart(), m_chartViewer->getPlotAreaMouseX());
     m_chartViewer->updateDisplay();
 }
 
 // Draw the track line with legend
-void TeleconRealTimeChart::TrackLineLegend(XYChart *c, int mouseX)
+void TeleconWxChart::TrackLineLegend(XYChart *c, int mouseX)
 {
     // Clear the current dynamic layer and get the DrawArea object to draw on it.
     DrawArea *d = c->initDynamicLayer();
@@ -367,7 +385,7 @@ void TeleconRealTimeChart::TrackLineLegend(XYChart *c, int mouseX)
  */
 
 wxBitmap
-TeleconRealTimeChart::GetBitmapResource(const wxString &name)
+TeleconWxChart::GetBitmapResource(const wxString &name)
 {
     // Bitmap retrieval
     wxImage image;
@@ -392,7 +410,7 @@ TeleconRealTimeChart::GetBitmapResource(const wxString &name)
     return wxNullBitmap;
 }
 
-void TeleconRealTimeChart::addLatestValueText(string plottitle) {
+void TeleconWxChart::addLatestValueText(string plottitle) {
     wxStaticText* latestValueLabel = new wxStaticText(this, wxID_STATIC, wxString(plottitle), wxDefaultPosition, wxDefaultSize, 0);
     m_plotLatestValueFlexGridSizer->Add(latestValueLabel, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
 

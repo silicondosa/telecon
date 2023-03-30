@@ -11,7 +11,6 @@
 #include <random>
 #include <thread>
 
-#include "teleconrealtimechart.h"
 #include "wxchartviewer.h"
 
 double generateRandomDouble(double min, double max)
@@ -68,7 +67,7 @@ int main(int argc, char* argv[])
         plot1->pushData(nowTimeStamp, CreateDataPoints());
         plot2->pushData(nowTimeStamp, CreateDataPoints());
         plot3->pushData(nowTimeStamp, CreateDataPoints());
-        //plot4->pushData(nowTimeStamp, CreateDataPoints());
+        plot4->pushData(nowTimeStamp, CreateDataPoints());
         this_thread::sleep_for(chrono::milliseconds(100));
     }
 
@@ -83,17 +82,17 @@ void Telecon::teleconMain()
 {
     TeleconWindow* window = addWindow("MyWindow");
 
-    TeleconChart* chart1 = window->addChart("Chart1", "lbs", "time");
+    TeleconRealtimeChart* chart1 = window->addRealtimeChart("Chart1", "lbs", "time", CSM_BLACK, 100.0 / 60.0);
     chart1->addLinePlot("Expected Tension", 1000, COLOR_BLACK, LT_SOLID, 1, SYMBOL_NO_SYMBOL, true, 5);
     chart1->addLinePlot("Force", 1000, COLOR_GREEN, LT_SOLID, 5, SYMBOL_NO_SYMBOL, true, 5);
 
-    TeleconChart* chart2 = window->addChart("Second Chart", "inches", "time");
+    TeleconRealtimeChart* chart2 = window->addRealtimeChart("Second Chart", "inches", "time", CSM_BLACK, 50.0 / 60.0);
     chart2->addLinePlot("Extension (expected)", 500, COLOR_DEFAULT, LT_SOLID, 1, SYMBOL_CIRCLE, true, 5);
     chart2->addLinePlot("Extension (actual)", 500, COLOR_GREEN, LT_DASHED, 1, SYMBOL_NO_SYMBOL, true, 5);
 
     TeleconWindow* window2 = addWindow("Second Window");
 
-    TeleconChart* chart3 = window2->addChart("Diverging Chart", "ft", "time (s)", CSM_DIVERGING, 100.0 / 60.0);
+    TeleconRealtimeChart* chart3 = window2->addRealtimeChart("Diverging Chart", "ft", "time (s)", CSM_DIVERGING, 10.0 / 60.0);
     chart3->addLinePlot("Plot 1", 100);
     chart3->addLinePlot("Plot 2", 100);
     chart3->addLinePlot("Plot 3", 100);
@@ -106,7 +105,7 @@ void Telecon::teleconMain()
     realTimeChart3->addLinePlot("Plot 10");
     realTimeChart3->addLinePlot("Plot 11");*/
 
-    TeleconChart* chart4 = window2->addChart("Scatter Chart", "mph", "time", CSM_DIVERGING, 100.0 / 60.0);
+    TeleconRealtimeChart* chart4 = window2->addRealtimeChart("Scatter Chart", "mph", "time", CSM_DIVERGING, 10.0 / 60.0);
     chart4->addScatterPlot("Speed", 100, COLOR_DEFAULT, SYMBOL_CROSS, false);
     chart4->addScatterPlot("New one", 100, COLOR_DEFAULT, SYMBOL_CIRCLE, false);
     chart4->addScatterPlot("Velocity", 100, COLOR_BLUE, SYMBOL_DIAMOND, true, 3);

@@ -17,7 +17,7 @@ TeleconFrame::TeleconFrame(TeleconWindow* window)
 void TeleconFrame::drawWindow()
 {
     for (int i = 0; i < m_window->getNumCharts(); i++) {
-        TeleconRealTimeChart* chart = new TeleconRealTimeChart(m_window->getChart(i), this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL | wxNO_BORDER, wxASCII_STR(wxPanelNameStr));
+        TeleconWxChart* chart = new TeleconWxChart(m_window->getChart(i), this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL | wxNO_BORDER, wxASCII_STR(wxPanelNameStr));
         m_charts.push_back(chart);
     }
     wxBoxSizer* itemBoxSizer = new wxBoxSizer(wxVERTICAL);

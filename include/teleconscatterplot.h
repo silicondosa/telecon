@@ -15,4 +15,6 @@ public:
     void addToChart(XYChart* chart) override;
 	int getSymbol() const;
 	int getSymbolSize() const;
+	double getLeftmostX() override;
+	double getRightmostX() override;
 };

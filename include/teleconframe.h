@@ -8,7 +8,7 @@
 
 #include <string>
 
-#include "teleconrealtimechart.h"
+#include "teleconwxchart.h"
 #include "teleconwindow.h"
 
 using namespace std;
@@ -18,7 +18,7 @@ class TeleconFrame : public wxFrame
 private:
     TeleconWindow* m_window;
 
-    vector<TeleconRealTimeChart*> m_charts;
+    vector<TeleconWxChart*> m_charts;
 public:
     TeleconFrame(TeleconWindow* window);
 

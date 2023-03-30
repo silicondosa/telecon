@@ -32,6 +32,16 @@ int TeleconScatterPlot::getSymbolSize() const{
     return m_symbolSize;
 }
 
+double TeleconScatterPlot::getLeftmostX()
+{
+    return m_xTimestamps[0];
+}
+
+double TeleconScatterPlot::getRightmostX()
+{
+    return m_xTimestamps[m_xTimestamps.size() - 1];
+}
+
 void TeleconScatterPlot::addToChart(XYChart* chart) {
     if (m_yData.size() <= 0) {
         return;

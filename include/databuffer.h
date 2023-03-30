@@ -8,20 +8,18 @@ using namespace std;
 
 template <typename T> class DataBuffer {
 private:
-	int m_depth;
+	const size_t m_depth;
 	vector<T> m_dataBuffer;
 	void shiftDataAndInsert(T newValue) {
 		memmove(&m_dataBuffer[0], &m_dataBuffer[1], sizeof(T) * (m_dataBuffer.size() - 1));
 		m_dataBuffer[m_dataBuffer.size() - 1] = newValue;
 	}
 public:
-	DataBuffer(int depth) {
-		m_depth = depth;
-	}
-	T& operator[](int index) {
+	DataBuffer(size_t depth) : m_depth(depth) {}
+	T& operator[](size_t index) {
 		return m_dataBuffer[index];
 	}
-	const T& operator[](int index) const {
+	const T& operator[](size_t index) const {
 		return m_dataBuffer[index];
 	}
 	// Returns the current size of the buffer (always <= depth)
@@ -38,11 +36,5 @@ public:
 		} else {
 			shiftDataAndInsert(newValue);
 		}
-	}
-	T& latest() {
-		return m_dataBuffer[m_dataBuffer.size() - 1];
-	}
-	const T& latest() const {
-		return m_dataBuffer[m_dataBuffer.size() - 1];
 	}
 };

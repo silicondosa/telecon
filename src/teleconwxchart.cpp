@@ -318,7 +318,6 @@ void TeleconWxChart::DrawChart()
     // 5 for a margin, 13 for one line of the legend (should be changed to prevent overlap with plot). 9 for height of watermark
     //height calculated by wrapping legend string length (with added 60 for timestamp and formatting) around a fixed length of 220
     int legendline = ((legendText.str().length() + 60) / 220) + 1;
-    std::cout << legendText.str().length() << std::endl;
     c->packPlotArea(0, m_titleBox->getHeight() + 5 + 13 * legendline, chartWidth, chartHeight - 9);
     
     // Include track line with legend. If the mouse is on the plot area, show the track

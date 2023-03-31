@@ -283,8 +283,43 @@ void TeleconWxChart::DrawChart()
         break;
     }
 
+    ///Code imported from TrackLineLegend, mousex replaced with 1 as only need a general sense of plot name length
+    // Container to hold the legend entries
+    vector<string> legendEntries;
+    // Iterate through all layers to build the legend array
+    for (int i = 0; i < c->getLayerCount(); ++i)
+    {
+        Layer* layer = c->getLayerByZ(i);
+        // Iterate through all the data sets in the layer
+        for (int j = 0; j < layer->getDataSetCount(); ++j)
+        {
+            DataSet* dataSet = layer->getDataSetByZ(j);
+            // We are only interested in visible data sets with names
+            const char* dataName = dataSet->getDataName();
+            if (dataName && *dataName)
+            {
+                // Build the legend entry, consist of the legend icon, name and data value.
+                double dataValue = dataSet->getValue(1);
+                ostringstream legendEntry;
+                legendEntry << "<*block*>" << dataSet->getLegendIcon() << " " << dataName << ": " << ((dataValue == Chart::NoValue) ? "N/A" : c->formatValue(dataValue, "{value|P4}"))
+                    << "<*/*>";
+                legendEntries.push_back(legendEntry.str());
+            }
+        }
+    }
+    // Create the legend by joining the legend entries
+    ostringstream legendText;
+    for (int i = ((int)legendEntries.size()) - 1; i >= 0; --i)
+    {
+        legendText << "        " << legendEntries[i];
+    }
+    ///End Import 
+
     // 5 for a margin, 13 for one line of the legend (should be changed to prevent overlap with plot). 9 for height of watermark
-    c->packPlotArea(0, m_titleBox->getHeight() + 5 + 13, chartWidth, chartHeight - 9);
+    //height calculated by wrapping legend string length (with added 60 for timestamp and formatting) around a fixed length of 220
+    int legendline = ((legendText.str().length() + 60) / 220) + 1;
+    std::cout << legendText.str().length() << std::endl;
+    c->packPlotArea(0, m_titleBox->getHeight() + 5 + 13 * legendline, chartWidth, chartHeight - 9);
     
     // Include track line with legend. If the mouse is on the plot area, show the track
     // line with legend at the mouse position; otherwise, show them for the latest data

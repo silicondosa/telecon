@@ -89,6 +89,12 @@ void Telecon::teleconMain()
     TeleconRealtimeChart* chart2 = window->addRealtimeChart("Second Chart", "inches", "time", CSM_BLACK, 50.0 / 60.0);
     chart2->addLinePlot("Extension (expected)", 500, COLOR_DEFAULT, LT_SOLID, 1, SYMBOL_CIRCLE, true, 5);
     chart2->addLinePlot("Extension (actual)", 500, COLOR_GREEN, LT_DASHED, 1, SYMBOL_NO_SYMBOL, true, 5);
+    //test for legends
+    chart2->addLinePlot("Extension (expected) dup1", 500, COLOR_RED, LT_SOLID, 1, SYMBOL_CIRCLE, true, 5);
+    chart2->addLinePlot("Extension (actual) dup1", 500, COLOR_BLUE, LT_DASHED, 1, SYMBOL_NO_SYMBOL, true, 5);
+    chart2->addLinePlot("Extension (expected) dup2", 500, COLOR_GREEN, LT_SOLID, 1, SYMBOL_CIRCLE, true, 5);
+    chart2->addLinePlot("Extension (actual) dup2", 500, COLOR_DEFAULT, LT_DASHED, 1, SYMBOL_NO_SYMBOL, true, 5);
+
 
     TeleconWindow* window2 = addWindow("Second Window");
 

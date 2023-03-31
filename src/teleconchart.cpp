@@ -42,7 +42,7 @@ long TeleconChart::getNextDefaultColor() {
 	return COLOR_BLACK;
 }
 
-TeleconWxPlot* TeleconChart::getPlot(int index)
+TeleconPlot* TeleconChart::getPlot(int index)
 {
 	return m_plots[index];
 }
@@ -52,9 +52,9 @@ size_t TeleconChart::getNumPlots()
 	return m_plots.size();
 }
 
-TeleconWxPlot* TeleconChart::getPlotByName(string name)
+TeleconPlot* TeleconChart::getPlotByName(string name)
 {
-	for (vector<TeleconWxPlot*>::iterator i = m_plots.begin(); i != m_plots.end(); ++i) {
+	for (auto i = m_plots.begin(); i != m_plots.end(); ++i) {
 		if (name.compare((*i)->getPlotTitle()) == 0) {
 			return *i;
 		}

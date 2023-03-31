@@ -20,19 +20,16 @@ using namespace std;
 class Telecon : public wxApp
 {
 private:
-    static shared_ptr<thread> t;
+    thread t;
 
     vector<TeleconWindow*> m_windows;
     vector<TeleconWxWindow*> m_frames;
 
-    static void teleconAppInit(promise<Telecon*> mainAppInstancePromise);
-
-    // Private constructor because Telecon should only be created via teleconStart()
-    Telecon() = default;
+    void teleconAppInit();
 
 public:
-    static future<Telecon*> teleconStart();
-    static void teleconJoin();
+    void teleconStart();
+    void teleconJoin();
 
     /**
      * Adds a window to the application and returns a pointer to it. The window must later be drawn with drawWindow().
@@ -55,10 +52,5 @@ public:
 
     TeleconWindow* getWindowByName(string name);
     TeleconChart* getChartByName(string windowName, string chartName);
-    TeleconWxPlot* getPlotByName(string windowName, string chartName, string plotName);
-
-    /**
-     * The initialization function for Telecon. All windows, charts, and plots should be added and drawn here.
-     */
-    virtual void teleconMain();
+    TeleconPlot* getPlotByName(string windowName, string chartName, string plotName);
 };

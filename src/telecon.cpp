@@ -2,12 +2,9 @@
 
 using namespace std;
 
-shared_ptr<thread> Telecon::t = nullptr;
-
-void Telecon::teleconAppInit(promise<Telecon*> mainAppInstancePromise)
+void Telecon::teleconAppInit()
 {
-    Telecon* telecon = new Telecon();
-    wxApp::SetInstance(telecon);
+    wxApp::SetInstance(this);
     int argCount = 0;
     char** argv = nullptr;
     if (!wxEntryStart(argCount, argv)) {
@@ -15,24 +12,19 @@ void Telecon::teleconAppInit(promise<Telecon*> mainAppInstancePromise)
         wxExit();
     }
     wxTheApp->CallOnInit();
-    // Telecon has been initialized and we are ready to keep our promise
-    mainAppInstancePromise.set_value(telecon);
     wxTheApp->OnRun();
     wxTheApp->OnExit();
     wxEntryCleanup();
 }
 
-future<Telecon*> Telecon::teleconStart()
+void Telecon::teleconStart()
 {
-    promise<Telecon*> teleconPromise;
-    future<Telecon*> teleconFuture = teleconPromise.get_future();
-    t = make_shared<thread>(teleconAppInit, move(teleconPromise));
-    return teleconFuture;
+    t = thread(&Telecon::teleconAppInit, this);
 }
 
 void Telecon::teleconJoin()
 {
-    t->join();
+    t.join();
 }
 
 TeleconWindow* Telecon::addWindow(string name)
@@ -68,7 +60,7 @@ TeleconChart* Telecon::getChartByName(string windowName, string chartName)
     return window == nullptr ? nullptr : window->getChartByName(chartName);
 }
 
-TeleconWxPlot* Telecon::getPlotByName(string windowName, string chartName, string plotName)
+TeleconPlot* Telecon::getPlotByName(string windowName, string chartName, string plotName)
 {
     TeleconWindow* window = getWindowByName(windowName);
     if (window == nullptr) {
@@ -80,9 +72,7 @@ TeleconWxPlot* Telecon::getPlotByName(string windowName, string chartName, strin
 
 bool Telecon::OnInit()
 {
-    teleconMain();
-
-    for(TeleconWindow* window : m_windows){
+    for (TeleconWindow* window : m_windows) {
         TeleconWxWindow* frame = new TeleconWxWindow(window);
         m_frames.push_back(frame);
         frame->drawWindow();

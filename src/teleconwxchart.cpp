@@ -235,7 +235,8 @@ void TeleconWxChart::DrawChart()
         double lastTime = 0.0;
         bool hasData = false;
         for (int i = 0; i < m_chart->getNumPlots(); i++) {
-            TeleconWxPlot* plot = m_chart->getPlot(i);
+            // This should ideally be done in a more type-safe fashion
+            TeleconWxPlot* plot = dynamic_cast<TeleconWxPlot*>(m_chart->getPlot(i));
             // Move data from the controller thread to the UI thread
             plot->prepDataForDraw();
             // Update the earliest and latest data points found so far
@@ -265,7 +266,7 @@ void TeleconWxChart::DrawChart()
 
         // The data series are used to draw lines.
         for (int i = 0; i < m_chart->getNumPlots(); i++) {
-            TeleconWxPlot* plot = m_chart->getPlot(i);
+            TeleconWxPlot* plot = dynamic_cast<TeleconWxPlot*>(m_chart->getPlot(i));
             plot->addToChart(c);
             if (plot->size() > 0) {
                 m_latestValueTextCtrls[i]->SetValue(plot->getLatestValueString());

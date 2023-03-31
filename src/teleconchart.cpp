@@ -47,7 +47,7 @@ TeleconWxPlot* TeleconChart::getPlot(int index)
 	return m_plots[index];
 }
 
-int TeleconChart::getNumPlots()
+size_t TeleconChart::getNumPlots()
 {
 	return m_plots.size();
 }

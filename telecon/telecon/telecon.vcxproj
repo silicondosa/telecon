@@ -156,6 +156,10 @@
     <ClInclude Include="..\..\include\colors.h" />
     <ClInclude Include="..\..\include\databuffer.h" />
     <ClInclude Include="..\..\include\teleconchart.h" />
+    <ClInclude Include="..\..\include\teleconlineplot.h" />
+    <ClInclude Include="..\..\include\teleconlinescatterplot.h" />
+    <ClInclude Include="..\..\include\teleconplot.h" />
+    <ClInclude Include="..\..\include\teleconscatterplot.h" />
     <ClInclude Include="..\..\include\teleconwxlineplot.h" />
     <ClInclude Include="..\..\include\teleconwxplot.h" />
     <ClInclude Include="..\..\include\teleconrealtimechart.h" />

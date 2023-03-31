@@ -37,7 +37,7 @@ public:
     double getDefaultXAxisSpan();
     
     TeleconWxPlot* getPlot(int index);
-    int getNumPlots();
+    size_t getNumPlots();
 
     TeleconWxPlot* getPlotByName(string name);
 

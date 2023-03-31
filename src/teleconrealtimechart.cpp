@@ -3,7 +3,7 @@
 TeleconRealtimeChart::TeleconRealtimeChart(string title, string xLabel, string yLabel, ColorSequenceMode colorSequenceMode, double defaultTimespan)
 	: TeleconChart(title, xLabel, yLabel, colorSequenceMode, defaultTimespan) {}
 
-TeleconWxLinePlot* TeleconRealtimeChart::addLinePlot(string plottitle, int memoryDepth, long plotcolor, LineType lineType, int lineWidth, int symbol, bool fillSymbol, int symbolSize)
+TeleconLinePlot* TeleconRealtimeChart::addLinePlot(string plottitle, int memoryDepth, long plotcolor, LineType lineType, int lineWidth, int symbol, bool fillSymbol, int symbolSize)
 {
 	long color = plotcolor == COLOR_DEFAULT ? getNextDefaultColor() : plotcolor;
 	TeleconWxLinePlot* linePlot = new TeleconWxLinePlot(memoryDepth, color, plottitle, lineWidth, lineType, symbol != Chart::NoSymbol, symbol, fillSymbol, symbolSize);
@@ -11,7 +11,7 @@ TeleconWxLinePlot* TeleconRealtimeChart::addLinePlot(string plottitle, int memor
 	return linePlot;
 }
 
-TeleconWxScatterPlot* TeleconRealtimeChart::addScatterPlot(string plottitle, int memoryDepth, long plotcolor, int symbol, bool fillSymbol, int symbolSize)
+TeleconScatterPlot* TeleconRealtimeChart::addScatterPlot(string plottitle, int memoryDepth, long plotcolor, int symbol, bool fillSymbol, int symbolSize)
 {
 	long color = plotcolor == COLOR_DEFAULT ? getNextDefaultColor() : plotcolor;
 	TeleconWxScatterPlot* scatterPlot = new TeleconWxScatterPlot(memoryDepth, color, plottitle, symbol, fillSymbol, symbolSize);

@@ -4,7 +4,8 @@ using namespace std;
 
 void Telecon::teleconAppInit()
 {
-    wxApp::SetInstance(this);
+    m_teleconWxApp = new TeleconWxApp(this);
+    wxApp::SetInstance(m_teleconWxApp);
     int argCount = 0;
     char** argv = nullptr;
     if (!wxEntryStart(argCount, argv)) {
@@ -19,12 +20,12 @@ void Telecon::teleconAppInit()
 
 void Telecon::teleconStart()
 {
-    t = thread(&Telecon::teleconAppInit, this);
+    m_wxAppThread = thread(&Telecon::teleconAppInit, this);
 }
 
 void Telecon::teleconJoin()
 {
-    t.join();
+    m_wxAppThread.join();
 }
 
 TeleconWindow* Telecon::addWindow(string name)
@@ -68,18 +69,6 @@ TeleconPlot* Telecon::getPlotByName(string windowName, string chartName, string 
     }
     TeleconChart* chart = window->getChartByName(chartName);
     return chart == nullptr ? nullptr : chart->getPlotByName(plotName);
-}
-
-bool Telecon::OnInit()
-{
-    for (TeleconWindow* window : m_windows) {
-        TeleconWxWindow* frame = new TeleconWxWindow(window);
-        m_frames.push_back(frame);
-        frame->drawWindow();
-        frame->Show(true);
-    }
-
-    return true;
 }
 
 BEGIN_EVENT_TABLE(TeleconWxWindow, wxFrame)

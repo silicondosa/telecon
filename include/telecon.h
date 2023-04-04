@@ -12,18 +12,21 @@
 #include <future>
 
 #include "chartdir.h"
-#include "teleconwxwindow.h"
 #include "teleconwindow.h"
+#include "teleconwxapp.h"
+
+class TeleconWxApp; // Forward declaration needed due to circular dependency between telecon and app
 
 using namespace std;
 
-class Telecon : public wxApp
+class Telecon
 {
 private:
-    thread t;
+    thread m_wxAppThread;
+
+    TeleconWxApp* m_teleconWxApp;
 
     vector<TeleconWindow*> m_windows;
-    vector<TeleconWxWindow*> m_frames;
 
     void teleconAppInit();
 
@@ -38,7 +41,6 @@ public:
      * \return A pointer to the TeleconWindow object created.
      */
     TeleconWindow* addWindow(string name);
-    bool OnInit() override;
 
     /**
      * \param index the index of the TeleconWindow to return.

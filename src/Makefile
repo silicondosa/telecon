@@ -8,7 +8,10 @@ TEST_FLAGS = -I ../include/
 # Run export LD_LIBRARY_PATH=~/git-repos/wxchartdir/lib/linux64/
 # PROJ_DIR = ~/git-repos/telecon/
 
-OBJECTS = teleconwindow.o teleconrealtimechart.o teleconwxplot.o teleconwxlineplot.o teleconwxscatterplot.o teleconchart.o telecon.o teleconwxchart.o teleconwxplotxy.o teleconwxwindow.o
+OBJECTS = teleconwindow.o teleconrealtimechart.o teleconwxplot.o \
+		teleconwxlineplot.o teleconwxscatterplot.o teleconchart.o telecon.o \
+		teleconwxchart.o teleconwxplotxy.o teleconwxwindow.o teleconwxapp.o
+
 
 
 
@@ -23,6 +26,9 @@ run: myapp
 
 myapp: userfile.cpp $(OBJECTS) wxchartviewer.o
 	g++ -o myapp wxchartviewer.o userfile.cpp -I ../include/ $(OBJECTS) $(TEST_FLAGS) $(WX_FLAGS) $(WX_CHART_DIR_FLAGS);
+
+teleconwxapp.o: ../include/teleconwxapp.h teleconwxapp.cpp
+	g++ -c teleconwxapp.cpp -I ../include/ $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
 
 telecon.o: ../include/telecon.h telecon.cpp
 	g++ -c telecon.cpp -I ../include/ $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)

@@ -49,6 +49,7 @@ END_EVENT_TABLE()
 void
 TeleconApp::Init()
 {
+  // GTKSuppressDiagnostics();
 }
 
 
@@ -82,6 +83,7 @@ CreateDataPoints()
 bool
 TeleconApp::OnInit()
 {    
+  
 #if wxUSE_XPM
   wxImage::AddHandler(new wxXPMHandler);
 #endif

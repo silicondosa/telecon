@@ -10,6 +10,7 @@ TEST_FLAGS = -I ../include/
 
 OBJECTS = teleconwindow.o teleconrealtimechart.o teleconwxplot.o teleconwxlineplot.o teleconwxscatterplot.o teleconchart.o telecon.o teleconwxchart.o teleconwxplotxy.o teleconwxwindow.o
 
+CXXFLAGS = -g
 
 
 # base: baseapp
@@ -22,46 +23,46 @@ run: myapp
 	LD_LIBRARY_PATH=~/git-repos/wxchartdir/lib/linux64/ ./myapp
 
 myapp: userfile.cpp $(OBJECTS) wxchartviewer.o
-	g++ -o myapp wxchartviewer.o userfile.cpp -I ../include/ $(OBJECTS) $(TEST_FLAGS) $(WX_FLAGS) $(WX_CHART_DIR_FLAGS);
+	g++ $(CXXFLAGS) -o myapp wxchartviewer.o userfile.cpp -I ../include/ $(OBJECTS) $(TEST_FLAGS) $(WX_FLAGS) $(WX_CHART_DIR_FLAGS);
 
 telecon.o: ../include/telecon.h telecon.cpp
-	g++ -c telecon.cpp -I ../include/ $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
+	g++ $(CXXFLAGS) -c telecon.cpp -I ../include/ $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
 
 teleconchart.o: ../include/teleconchart.h teleconchart.cpp
-	g++ -c teleconchart.cpp -I ../include/ $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
+	g++ $(CXXFLAGS) -c teleconchart.cpp -I ../include/ $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
 
 # teleconframe.o: ../include/teleconframe.h teleconframe.cpp
 # 	g++ -c teleconframe.cpp -I ../include/ $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
 
 teleconwindow.o: ../include/teleconwindow.h teleconwindow.cpp
-	g++ -c teleconwindow.cpp -I ../include/ $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
+	g++ $(CXXFLAGS) -c teleconwindow.cpp -I ../include/ $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
 
 teleconwxwindow.o: ../include/teleconwindow.h teleconwxwindow.cpp
-	g++ -c teleconwxwindow.cpp -I ../include/ $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
+	g++ $(CXXFLAGS) -c teleconwxwindow.cpp -I ../include/ $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
 
 teleconrealtimechart.o: ../include/teleconrealtimechart.h teleconrealtimechart.cpp 
-	g++ -c teleconrealtimechart.cpp -I ../include/ $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
+	g++ $(CXXFLAGS) -c teleconrealtimechart.cpp -I ../include/ $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
 
 teleconwxplot.o: teleconwxplot.cpp ../include/teleconwxplot.h
-	g++ -c teleconwxplot.cpp -I ../include/ $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
+	g++ $(CXXFLAGS) -c teleconwxplot.cpp -I ../include/ $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
 
 teleconwxplotxy.o: teleconwxplotxy.cpp ../include/teleconwxplotxy.h
-	g++ -c teleconwxplotxy.cpp -I ../include/ $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
+	g++ $(CXXFLAGS) -c teleconwxplotxy.cpp -I ../include/ $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
 
 teleconwxchart.o: teleconwxchart.cpp ../include/teleconwxchart.h
-	g++ -c teleconwxchart.cpp -I ../include/ $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
+	g++ $(CXXFLAGS) -c teleconwxchart.cpp -I ../include/ $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
 
 teleconwxlineplot.o: teleconwxlineplot.cpp ../include/teleconwxlineplot.h
-	g++ -c teleconwxlineplot.cpp -I ../include/ $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
+	g++ $(CXXFLAGS) -c teleconwxlineplot.cpp -I ../include/ $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
 
 teleconwxscatterplot.o: teleconwxscatterplot.cpp ../include/teleconwxscatterplot.h
-	g++ -c teleconwxscatterplot.cpp -I ../include/ $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
+	g++ $(CXXFLAGS) -c teleconwxscatterplot.cpp -I ../include/ $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
 
 # start.o: start.cpp ../include/start.h
 # 	g++ -c start.cpp -I ../include/ $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
 
 wxchartviewer.o: ~/git-repos/wxchartdir/wxdemo/common/wxchartviewer.cpp
-	g++ -c ~/git-repos/wxchartdir/wxdemo/common/wxchartviewer.cpp $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
+	g++ $(CXXFLAGS) -c ~/git-repos/wxchartdir/wxdemo/common/wxchartviewer.cpp $(WX_FLAGS) $(WX_CHART_DIR_FLAGS)
 
 # telecon.o: telecon.h telecon.cpp mathplot.o 
 # 	g++ -c telecon.cpp mathplot.o $(WX_FLAGS) $(WX_CHART_DIR_FLAGS) 

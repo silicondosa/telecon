@@ -72,9 +72,13 @@ int main(int argc, char* argv[])
     telecon->teleconStart();
 
     vector<TeleconLineScatterPlot*> plots({ plot1, plot2, plot3, plot4, plot5, plot6, plot7, plot8, plot9, plot10, plot11, plot12, plot13, plot14, plot15});
-
+    // cin.clear();
     // Controller code starts here
-
+    string line;
+    // if(!std::getline(std::cin, line)){
+    //     cout << "EOF" << endl;
+    // }
+    
     while (true) {
         wxDateTime now = wxDateTime::UNow(); // Needs to use UNow instead of Now for millisecond precision
 
@@ -86,11 +90,45 @@ int main(int argc, char* argv[])
             (*i)->pushData(nowTimeStamp, CreateDataPoints());
         }
         this_thread::sleep_for(chrono::milliseconds(100));
+        if(telecon->hasStopped){
+            break;
+        }
     }
 
     // Controller code ends here
 
     telecon->teleconJoin(); //Must be called prior to exiting main
+
+
+
+
+    // Telecon* telecon1 = new Telecon();
+    // TeleconWindow* window5 = telecon1->addWindow("MyWindow");
+
+    // TeleconRealtimeChart* chart6 = window5->addRealtimeChart("Chart1", "lbs", "time", CSM_BLACK, 100.0 / 60.0);
+    // TeleconLinePlot* plot19 = chart6->addLinePlot("Expected Tension", 1000, COLOR_BLACK, LT_SOLID, 1, SYMBOL_NO_SYMBOL, true, 5);
+    // TeleconLinePlot* plot20 = chart6->addLinePlot("Force", 1000, COLOR_GREEN, LT_SOLID, 5, SYMBOL_NO_SYMBOL, true, 5);
+
+
+    // telecon1->teleconStart();
+
+    // while (true) {
+    //     wxDateTime now = wxDateTime::UNow(); // Needs to use UNow instead of Now for millisecond precision
+
+    //     // Convert from wxDateTime to seconds since Unix epoch, then to ChartDirector double timestamp.
+    //     // Since that loses millisecond precision, add it back in with GetMillisecond()
+    //     double millis = now.GetMillisecond();
+    //     double nowTimeStamp = Chart::chartTime2(now.GetTicks()) + now.GetMillisecond() / 1000.0;
+    //     plot19->pushData(nowTimeStamp, CreateDataPoints());
+    //     plot20->pushData(nowTimeStamp, CreateDataPoints());
+    //     this_thread::sleep_for(chrono::milliseconds(100));
+    //     if(telecon->hasStopped){
+    //         break;
+    //     }
+    // }
+
+    // telecon1->teleconJoin();
+
 
     return 0;
 }

@@ -11,10 +11,12 @@ void Telecon::teleconAppInit()
         cerr << "wx failed to start\n";
         wxExit();
     }
+    hasStopped = false;
     wxTheApp->CallOnInit();
     wxTheApp->OnRun();
     wxTheApp->OnExit();
-    wxEntryCleanup();
+    hasStopped = true;
+    // wxEntryCleanup();
 }
 
 void Telecon::teleconStart()
@@ -25,6 +27,7 @@ void Telecon::teleconStart()
 void Telecon::teleconJoin()
 {
     t.join();
+    wxEntryCleanup();
 }
 
 TeleconWindow* Telecon::addWindow(string name)

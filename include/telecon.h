@@ -31,6 +31,8 @@ public:
     void teleconStart();
     void teleconJoin();
 
+    bool hasStopped = false;
+
     /**
      * Adds a window to the application and returns a pointer to it. The window must later be drawn with drawWindow().
      * 

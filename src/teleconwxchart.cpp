@@ -81,7 +81,7 @@ void TeleconWxChart::SetUpViewOptionsBox()
     m_viewOptionsBoxSizer->Add(3, 3, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, FromDIP(3)); // another gap
 
     // Add graph update period selector. Note: does not affect underlying data fetch rate
-    wxStaticText *graphUpdatePeriodStaticText = new wxStaticText(m_viewOptionsBox, wxID_STATIC, _("Update Period (ms)"), wxDefaultPosition, wxDefaultSize, 0);
+    wxStaticText *graphUpdatePeriodStaticText = new wxStaticText(m_viewOptionsBox, wxID_STATIC, _("Refresh Interval (ms)"), wxDefaultPosition, wxDefaultSize, 0);
     m_viewOptionsBoxSizer->Add(graphUpdatePeriodStaticText, 0, wxALIGN_LEFT | wxALL, FromDIP(3));
 
     wxArrayString m_updatePeriodStrings;
@@ -89,13 +89,13 @@ void TeleconWxChart::SetUpViewOptionsBox()
     {
         m_updatePeriodStrings.Add(wxString::Format("%d", i));
     }
-    m_updatePeriodSelector = new wxChoice(this, ID_UPDATE_PERIOD, wxDefaultPosition, wxDefaultSize, m_updatePeriodStrings, 0);
+    m_updatePeriodSelector = new wxChoice(m_viewOptionsBox, ID_UPDATE_PERIOD, wxDefaultPosition, wxDefaultSize, m_updatePeriodStrings, 0);
     m_updatePeriodSelector->SetStringSelection(wxString::Format("%d", chartUpdateIntervals[0]));
     m_viewOptionsBoxSizer->Add(m_updatePeriodSelector, 0, wxGROW | wxALL, FromDIP(3));
 
-    m_viewOptionsBoxSizer->Add(3, 3, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, FromDIP(3));
+    m_viewOptionsBoxSizer->Add(3, FromDIP(10), 1, wxALIGN_CENTER_HORIZONTAL | wxALL, FromDIP(3));
 
-    m_plotLatestValueFlexGridSizer = new wxFlexGridSizer(0, 2, 0, 0);
+    m_plotLatestValueFlexGridSizer = new wxFlexGridSizer( 0, 2, 0, 0);
     m_viewOptionsBoxSizer->Add(m_plotLatestValueFlexGridSizer, 0, wxGROW | wxALL, FromDIP(3));
 
     for (int i = 0; i < m_chart->getNumPlots(); i++) {

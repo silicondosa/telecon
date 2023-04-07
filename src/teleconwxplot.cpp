@@ -1,7 +1,7 @@
 #include "teleconwxplot.h"
 
-TeleconWxPlot::TeleconWxPlot(size_t depth, int color, string plotTitle)
-	: m_depth(depth), m_color(color), m_plotTitle(plotTitle) {}
+TeleconWxPlot::TeleconWxPlot(string plotTitle, int color, size_t depth)
+	: m_plotTitle(plotTitle), m_color(color), m_depth(depth) {}
 
 size_t TeleconWxPlot::depth() const {
 	return m_depth;

@@ -9,5 +9,5 @@
 
 class TeleconWxScatterPlot : public TeleconWxPlotXY, virtual public TeleconScatterPlot {
 public:
-	TeleconWxScatterPlot(int depth, int color, string plotTitle, int symbol, bool fillSymbol, int symbolSize);
+	TeleconWxScatterPlot(string plotTitle, int color, int symbol, bool fillSymbol, int symbolSize, int depth);
 };

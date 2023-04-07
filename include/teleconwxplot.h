@@ -16,7 +16,7 @@ protected:
 	int m_color; // Represented as an RGB hexadecimal code (one byte per channel)
 	string m_plotTitle;
 public:
-	TeleconWxPlot(size_t depth, int color, string plotTitle);
+	TeleconWxPlot(string plotTitle, int color, size_t depth);
 	/* TeleconWxPlot interface functions*/
 	// Fetches all data out of the controller thread and adds it to make it visible to UI thread
     virtual void prepDataForDraw() = 0;

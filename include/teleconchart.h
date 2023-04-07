@@ -19,22 +19,23 @@ enum CHART_X_AXIS_TYPE {
 class TeleconChart {
 protected:
     const string m_title;
+    const double m_memoryDepthSeconds;
+    const int m_dataRateMillis;
     const string m_xLabel;
     const string m_yLabel;
     const ColorSequenceMode m_colorSequenceMode;
-    const double m_defaultXAxisSpan;
 
     vector<shared_ptr<TeleconPlot>> m_plots;
 
     long getNextDefaultColor();
 public:
-    TeleconChart(string title, string xLabel, string yLabel, ColorSequenceMode colorSequenceMode, double defaultXAxisSpan);
+    TeleconChart(string title, double memoryDepthSeconds, int dataRateMillis, string xLabel, string yLabel, ColorSequenceMode colorSequenceMode);
 
     string getTitle();
     string getXLabel();
     string getYLabel();
     ColorSequenceMode getColorSequenceMode();
-    double getDefaultXAxisSpan();
+    virtual double getDefaultXAxisSpan() = 0;
     
     shared_ptr<TeleconPlot> getPlot(int index);
     size_t getNumPlots();

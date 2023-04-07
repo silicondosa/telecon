@@ -1,4 +1,4 @@
 #include "teleconwxscatterplot.h"
 
-TeleconWxScatterPlot::TeleconWxScatterPlot(int depth, int color, string plotTitle, int symbol, bool fillSymbol, int symbolSize)
-    : TeleconWxPlotXY(depth, color, plotTitle, 0, LT_SOLID, true, symbol, fillSymbol, symbolSize) {}
+TeleconWxScatterPlot::TeleconWxScatterPlot(string plotTitle, int color, int symbol, bool fillSymbol, int symbolSize, int depth)
+    : TeleconWxPlotXY(plotTitle, color, 0, LT_SOLID, true, symbol, fillSymbol, symbolSize, depth) {}

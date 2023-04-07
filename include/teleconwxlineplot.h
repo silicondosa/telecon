@@ -8,7 +8,7 @@
 
 class TeleconWxLinePlot : public TeleconWxPlotXY, virtual public TeleconLinePlot {
 public:
-	TeleconWxLinePlot(int depth, int color, string plotTitle, int lineWidth, LineType lineType, bool hasSymbol, int symbol, bool fillSymbol, int symbolSize);
+	TeleconWxLinePlot(string plotTitle, int color, int lineWidth, LineType lineType, bool hasSymbol, int symbol, bool fillSymbol, int symbolSize, int depth);
 
 	/* Functions inherited from TeleconLinePlot */
 	int getLineWidth() const override;

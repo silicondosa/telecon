@@ -1,22 +1,30 @@
 #include "teleconrealtimechart.h"
 
-TeleconRealtimeChart::TeleconRealtimeChart(string title, string xLabel, string yLabel, ColorSequenceMode colorSequenceMode, double defaultTimespan)
-	: TeleconChart(title, xLabel, yLabel, colorSequenceMode, defaultTimespan) {}
+TeleconRealtimeChart::TeleconRealtimeChart(string title, double memoryDepthSeconds, int dataRateMillis, string xLabel, string yLabel, ColorSequenceMode colorSequenceMode)
+	: TeleconChart(title, memoryDepthSeconds, dataRateMillis, xLabel, yLabel, colorSequenceMode) {}
 
-shared_ptr<TeleconLinePlot> TeleconRealtimeChart::addLinePlot(string plottitle, int memoryDepth, long plotcolor, LineType lineType, int lineWidth, int symbol, bool fillSymbol, int symbolSize)
+shared_ptr<TeleconLinePlot> TeleconRealtimeChart::addLinePlot(string plottitle, long plotcolor, LineType lineType, int lineWidth, int symbol, bool fillSymbol, int symbolSize, int memoryDepth)
 {
 	long color = plotcolor == COLOR_DEFAULT ? getNextDefaultColor() : plotcolor;
-	shared_ptr<TeleconWxLinePlot> linePlot = make_shared<TeleconWxLinePlot>(memoryDepth, color, plottitle, lineWidth, lineType, symbol != Chart::NoSymbol, symbol, fillSymbol, symbolSize);
+	// The plus one is because of fencepost effect: in ten seconds (inclusive), sampling one data point per second, you get 11 data points
+	int depth = (int)(memoryDepth == -1 ? m_memoryDepthSeconds / (m_dataRateMillis / 1000.0) : memoryDepth) + 1;
+	shared_ptr<TeleconWxLinePlot> linePlot = make_shared<TeleconWxLinePlot>(plottitle, color, lineWidth, lineType, symbol != Chart::NoSymbol, symbol, fillSymbol, symbolSize, depth);
 	m_plots.push_back(linePlot);
 	return linePlot;
 }
 
-shared_ptr<TeleconScatterPlot> TeleconRealtimeChart::addScatterPlot(string plottitle, int memoryDepth, long plotcolor, int symbol, bool fillSymbol, int symbolSize)
+shared_ptr<TeleconScatterPlot> TeleconRealtimeChart::addScatterPlot(string plottitle, long plotcolor, int symbol, bool fillSymbol, int symbolSize, int memoryDepth)
 {
 	long color = plotcolor == COLOR_DEFAULT ? getNextDefaultColor() : plotcolor;
-	shared_ptr<TeleconWxScatterPlot> scatterPlot = make_shared<TeleconWxScatterPlot>(memoryDepth, color, plottitle, symbol, fillSymbol, symbolSize);
+	int depth = (int)(memoryDepth == -1 ? m_memoryDepthSeconds / (m_dataRateMillis / 1000.0) : memoryDepth) + 1;
+	shared_ptr<TeleconWxScatterPlot> scatterPlot = make_shared<TeleconWxScatterPlot>(plottitle, color, symbol, fillSymbol, symbolSize, depth);
 	m_plots.push_back(scatterPlot);
 	return scatterPlot;
+}
+
+double TeleconRealtimeChart::getDefaultXAxisSpan()
+{
+	return m_memoryDepthSeconds;
 }
 
 CHART_X_AXIS_TYPE TeleconRealtimeChart::getChartXAxisType()

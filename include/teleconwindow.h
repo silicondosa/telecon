@@ -38,7 +38,7 @@ public:
 	 * \param colorSequenceMode the sequence of colors that will be used for added plots if the color is left unspecified.
 	 * \return A pointer to the TeleconRealTimeChart object created.
 	 */
-	shared_ptr<TeleconRealtimeChart> addRealtimeChart(std::string title = "", std::string xLabel = "", std::string yLabel = "", ColorSequenceMode colorSequenceMode = CSM_BLACK, double defaultTimespan = 1.0);
+	shared_ptr<TeleconRealtimeChart> addRealtimeChart(std::string title = "", double memoryDepthSeconds = 60.0, int dataRateMillis = 100, std::string xLabel = "", std::string yLabel = "", ColorSequenceMode colorSequenceMode = CSM_BLACK);
 	shared_ptr<TeleconChart> getChart(size_t index);
 	size_t getNumCharts() const;
 

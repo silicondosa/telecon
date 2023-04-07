@@ -1,7 +1,7 @@
 #include "teleconwxplotxy.h"
 
-TeleconWxPlotXY::TeleconWxPlotXY(int depth, int color, string plotTitle, int lineWidth, LineType lineType, bool hasSymbol, int symbol, bool fillSymbol, int symbolSize)
-    : TeleconWxPlot(depth, color, plotTitle), m_dataToAdd(new list<pair<double, double>>), m_xTimestamps(m_depth), m_yData(m_depth), m_lineWidth(lineWidth), m_lineType(lineType), m_hasSymbol(hasSymbol), m_symbol(symbol), m_fillSymbol(fillSymbol), m_symbolSize(symbolSize) {}
+TeleconWxPlotXY::TeleconWxPlotXY(string plotTitle, int color, int lineWidth, LineType lineType, bool hasSymbol, int symbol, bool fillSymbol, int symbolSize, int depth)
+    : TeleconWxPlot(plotTitle, color, depth), m_dataToAdd(new list<pair<double, double>>), m_xTimestamps(m_depth), m_yData(m_depth), m_lineWidth(lineWidth), m_lineType(lineType), m_hasSymbol(hasSymbol), m_symbol(symbol), m_fillSymbol(fillSymbol), m_symbolSize(symbolSize) {}
 
 list<pair<double, double>>* TeleconWxPlotXY::swapAndGetDataToAdd()
 {

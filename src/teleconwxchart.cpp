@@ -260,14 +260,12 @@ void TeleconWxChart::DrawChart(bool isRefreshEnabled)
                     firstTime = plot->getLeftmostX();
                 }
                 if (plot->size() > 0 && plot->getRightmostX() > lastTime) {
-                    lastTime = plot->getLeftmostX();
+                    lastTime = plot->getRightmostX();
                 }
             }
         }
         double dataTimespanSeconds = lastTime - firstTime;
-        // Default timespan is given in minutes, so convert it to seconds
-        double defaultTimespanSeconds = m_chart->getDefaultXAxisSpan() * 60.0;
-        double timespanSeconds = fmax(dataTimespanSeconds, defaultTimespanSeconds);
+        double timespanSeconds = fmax(dataTimespanSeconds, m_chart->getDefaultXAxisSpan());
         // Give a 5% margin on either side of the data
         c->xAxis()->setDateScale(firstTime - timespanSeconds * 0.05, firstTime + timespanSeconds * 1.05);
 

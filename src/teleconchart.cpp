@@ -1,7 +1,12 @@
 #include "teleconchart.h"
 
-TeleconChart::TeleconChart(string title, string xLabel, string yLabel, ColorSequenceMode colorSequenceMode, double defaultXAxisSpan)
-	: m_title(title), m_xLabel(xLabel), m_yLabel(yLabel), m_colorSequenceMode(colorSequenceMode), m_defaultXAxisSpan(defaultXAxisSpan) {}
+TeleconChart::TeleconChart(string title, double memoryDepthSeconds, int dataRateMillis, string xLabel, string yLabel, ColorSequenceMode colorSequenceMode)
+	: m_title(title),
+	m_memoryDepthSeconds(memoryDepthSeconds),
+	m_dataRateMillis(dataRateMillis),
+	m_xLabel(xLabel),
+	m_yLabel(yLabel),
+	m_colorSequenceMode(colorSequenceMode) {}
 
 string TeleconChart::getTitle()
 {
@@ -21,11 +26,6 @@ string TeleconChart::getYLabel()
 ColorSequenceMode TeleconChart::getColorSequenceMode()
 {
 	return m_colorSequenceMode;
-}
-
-double TeleconChart::getDefaultXAxisSpan()
-{
-	return m_defaultXAxisSpan;
 }
 
 long TeleconChart::getNextDefaultColor() {

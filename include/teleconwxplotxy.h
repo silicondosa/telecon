@@ -25,7 +25,7 @@ protected:
 
 	list<pair<double, double>>* swapAndGetDataToAdd();
 public:
-	TeleconWxPlotXY(int depth, int color, string plotTitle, int lineWidth, LineType lineType, bool hasSymbol, int symbol, bool fillSymbol, int symbolSize);
+	TeleconWxPlotXY(string plotTitle, int color, int lineWidth, LineType lineType, bool hasSymbol, int symbol, bool fillSymbol, int symbolSize, int depth);
 	/* Functions inherited from TeleconWxPlot */
 	virtual void prepDataForDraw() override;
 	virtual void addToChart(XYChart* chart) override;

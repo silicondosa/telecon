@@ -1,7 +1,7 @@
 #include "teleconwxlineplot.h"
 
-TeleconWxLinePlot::TeleconWxLinePlot(int depth, int color, string plotTitle, int lineWidth, LineType lineType, bool hasSymbol, int symbol, bool fillSymbol, int symbolSize)
-    : TeleconWxPlotXY(depth, color, plotTitle, lineWidth, lineType, hasSymbol, symbol, fillSymbol, symbolSize) {}
+TeleconWxLinePlot::TeleconWxLinePlot(string plotTitle, int color, int lineWidth, LineType lineType, bool hasSymbol, int symbol, bool fillSymbol, int symbolSize, int depth)
+    : TeleconWxPlotXY(plotTitle, color, lineWidth, lineType, hasSymbol, symbol, fillSymbol, symbolSize, depth) {}
 
 int TeleconWxLinePlot::getLineWidth() const
 {

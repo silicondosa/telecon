@@ -43,9 +43,9 @@ std::string TeleconWindow::getTitle()
 	return m_title;
 }
 
-shared_ptr<TeleconRealtimeChart> TeleconWindow::addRealtimeChart(std::string title, std::string xLabel, std::string yLabel, ColorSequenceMode colorSequenceMode, double defaultTimespan)
+shared_ptr<TeleconRealtimeChart> TeleconWindow::addRealtimeChart(std::string title, double memoryDepthSeconds, int dataRateMillis, std::string xLabel, std::string yLabel, ColorSequenceMode colorSequenceMode)
 {
-	shared_ptr<TeleconRealtimeChart> chart = make_shared<TeleconRealtimeChart>(title, xLabel, yLabel, colorSequenceMode, defaultTimespan);
+	shared_ptr<TeleconRealtimeChart> chart = make_shared<TeleconRealtimeChart>(title, memoryDepthSeconds, dataRateMillis, xLabel, yLabel, colorSequenceMode);
 	m_charts.push_back(chart);
 	return chart;
 }

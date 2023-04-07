@@ -32,30 +32,31 @@ CreateDataPoints()
 
 int main(int argc, char* argv[])
 {
+    const int dataRateMillis = 1000;
     // Initialization code
     Telecon* telecon = new Telecon();
     shared_ptr<TeleconWindow> window = telecon->addWindow("MyWindow");
 
-    shared_ptr<TeleconRealtimeChart> chart1 = window->addRealtimeChart("Chart1", "lbs", "time", CSM_BLACK, 100.0 / 60.0);
-    shared_ptr<TeleconLinePlot> plot1 = chart1->addLinePlot("Expected Tension", 1000, COLOR_BLACK, LT_SOLID, 1, SYMBOL_NO_SYMBOL, true, 5);
-    shared_ptr<TeleconLinePlot> plot2 = chart1->addLinePlot("Force", 1000, COLOR_GREEN, LT_SOLID, 5, SYMBOL_NO_SYMBOL, true, 5);
+    shared_ptr<TeleconRealtimeChart> chart1 = window->addRealtimeChart("Chart1", 60.0, dataRateMillis, "lbs", "time");
+    shared_ptr<TeleconLinePlot> plot1 = chart1->addLinePlot("Expected Tension", COLOR_BLACK, LT_SOLID, 1, SYMBOL_NO_SYMBOL, true, 5);
+    shared_ptr<TeleconLinePlot> plot2 = chart1->addLinePlot("Force", COLOR_GREEN, LT_SOLID, 5, SYMBOL_NO_SYMBOL, true, 5);
 
-    shared_ptr<TeleconRealtimeChart> chart2 = window->addRealtimeChart("Second Chart", "inches", "time", CSM_BLACK, 50.0 / 60.0);
-    shared_ptr<TeleconLinePlot> plot3 = chart2->addLinePlot("Extension (expected)", 500, COLOR_DEFAULT, LT_SOLID, 1, SYMBOL_CIRCLE, true, 5);
-    shared_ptr<TeleconLinePlot> plot4 = chart2->addLinePlot("Extension (actual)", 500, COLOR_GREEN, LT_DASHED, 1, SYMBOL_NO_SYMBOL, true, 5);
+    shared_ptr<TeleconRealtimeChart> chart2 = window->addRealtimeChart("Second Chart", 60.0, dataRateMillis, "inches", "time");
+    shared_ptr<TeleconLinePlot> plot3 = chart2->addLinePlot("Extension (expected)", COLOR_DEFAULT, LT_SOLID, 1, SYMBOL_CIRCLE, true, 5);
+    shared_ptr<TeleconLinePlot> plot4 = chart2->addLinePlot("Extension (actual)", COLOR_GREEN, LT_DASHED, 1, SYMBOL_NO_SYMBOL, true, 5);
     //test for legends
-    shared_ptr<TeleconLinePlot> plot5 = chart2->addLinePlot("Extension (expected) dup1", 500, COLOR_RED, LT_SOLID, 1, SYMBOL_CIRCLE, true, 5);
-    shared_ptr<TeleconLinePlot> plot6 = chart2->addLinePlot("Extension (expected) dup2", 500, COLOR_GREEN, LT_SOLID, 1, SYMBOL_CIRCLE, true, 5);
-    shared_ptr<TeleconLinePlot> plot7 = chart2->addLinePlot("Extension (actual) dup1", 500, COLOR_BLUE, LT_DASHED, 1, SYMBOL_NO_SYMBOL, true, 5);
-    shared_ptr<TeleconLinePlot> plot8 = chart2->addLinePlot("Extension (actual) dup2", 500, COLOR_DEFAULT, LT_DASHED, 1, SYMBOL_NO_SYMBOL, true, 5);
+    shared_ptr<TeleconLinePlot> plot5 = chart2->addLinePlot("Extension (expected) dup1", COLOR_RED, LT_SOLID, 1, SYMBOL_CIRCLE, true, 5);
+    shared_ptr<TeleconLinePlot> plot6 = chart2->addLinePlot("Extension (expected) dup2", COLOR_GREEN, LT_SOLID, 1, SYMBOL_CIRCLE, true, 5);
+    shared_ptr<TeleconLinePlot> plot7 = chart2->addLinePlot("Extension (actual) dup1", COLOR_BLUE, LT_DASHED, 1, SYMBOL_NO_SYMBOL, true, 5);
+    shared_ptr<TeleconLinePlot> plot8 = chart2->addLinePlot("Extension (actual) dup2", COLOR_DEFAULT, LT_DASHED, 1, SYMBOL_NO_SYMBOL, true, 5);
 
     shared_ptr<TeleconWindow> window2 = telecon->addWindow("Second Window");
 
-    shared_ptr<TeleconRealtimeChart> chart3 = window2->addRealtimeChart("Diverging Chart", "ft", "time (s)", CSM_DIVERGING, 10.0 / 60.0);
-    shared_ptr<TeleconLinePlot> plot9 = chart3->addLinePlot("Plot 1", 100);
-    shared_ptr<TeleconLinePlot> plot10 = chart3->addLinePlot("Plot 2", 100);
-    shared_ptr<TeleconLinePlot> plot11 = chart3->addLinePlot("Plot 3", 100);
-    shared_ptr<TeleconLinePlot> plot12 = chart3->addLinePlot("Plot 4", 100);
+    shared_ptr<TeleconRealtimeChart> chart3 = window2->addRealtimeChart("Diverging Chart", 6.0, dataRateMillis, "ft", "time (s)", CSM_DIVERGING);
+    shared_ptr<TeleconLinePlot> plot9 = chart3->addLinePlot("Plot 1");
+    shared_ptr<TeleconLinePlot> plot10 = chart3->addLinePlot("Plot 2");
+    shared_ptr<TeleconLinePlot> plot11 = chart3->addLinePlot("Plot 3");
+    shared_ptr<TeleconLinePlot> plot12 = chart3->addLinePlot("Plot 4");
     /*realTimeChart3->addLinePlot("Plot 5");
     realTimeChart3->addLinePlot("Plot 6");
     realTimeChart3->addLinePlot("Plot 7");
@@ -64,10 +65,10 @@ int main(int argc, char* argv[])
     realTimeChart3->addLinePlot("Plot 10");
     realTimeChart3->addLinePlot("Plot 11");*/
 
-    shared_ptr<TeleconRealtimeChart> chart4 = window2->addRealtimeChart("Scatter Chart", "mph", "time", CSM_DIVERGING, 10.0 / 60.0);
-    shared_ptr<TeleconScatterPlot> plot13 = chart4->addScatterPlot("Speed", 100, COLOR_DEFAULT, SYMBOL_CROSS, false);
-    shared_ptr<TeleconScatterPlot> plot14 = chart4->addScatterPlot("New one", 100, COLOR_DEFAULT, SYMBOL_CIRCLE, false);
-    shared_ptr<TeleconScatterPlot> plot15 = chart4->addScatterPlot("Velocity", 100, COLOR_BLUE, SYMBOL_DIAMOND, true, 3);
+    shared_ptr<TeleconRealtimeChart> chart4 = window2->addRealtimeChart("Scatter Chart", 6.0, dataRateMillis, "mph", "time", CSM_DIVERGING);
+    shared_ptr<TeleconScatterPlot> plot13 = chart4->addScatterPlot("Speed", COLOR_DEFAULT, SYMBOL_CROSS, false);
+    shared_ptr<TeleconScatterPlot> plot14 = chart4->addScatterPlot("New one", COLOR_DEFAULT, SYMBOL_CIRCLE, false);
+    shared_ptr<TeleconScatterPlot> plot15 = chart4->addScatterPlot("Velocity", COLOR_BLUE, SYMBOL_DIAMOND, true, 3);
 
     telecon->teleconStart();
 
@@ -88,7 +89,7 @@ int main(int argc, char* argv[])
         if (telecon->hasStopped()) {
             break;
         }
-        this_thread::sleep_for(chrono::milliseconds(100));
+        this_thread::sleep_for(chrono::milliseconds(dataRateMillis));
     }
 
     // Controller code ends here

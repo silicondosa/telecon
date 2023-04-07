@@ -3,7 +3,7 @@
 using namespace std;
 
 Telecon::Telecon()
-    : m_hasStarted(false), m_hasStopped(false) {}
+    : m_teleconWxApp(nullptr), m_hasStartedInitialization(false), m_hasFinishedInitialization(false), m_hasStopped(false) {}
 
 Telecon::~Telecon()
 {
@@ -22,16 +22,31 @@ void Telecon::teleconAppInit()
         wxExit();
     }
     wxTheApp->CallOnInit();
-    m_hasStarted = true;
+    unique_lock lock(m_hasFinishedInitializationLock);
+    m_hasFinishedInitialization = true;
+    lock.unlock();
+    m_hasFinishedInitializationCV.notify_all();
     wxTheApp->OnRun();
     wxTheApp->OnExit();
     wxEntryCleanup();
     m_hasStopped = true;
+    m_hasStartedInitialization = false;
 }
 
 void Telecon::teleconStart()
 {
+    m_hasStartedInitialization = true;
+    unique_lock lock(m_hasFinishedInitializationLock);
+    m_hasFinishedInitialization = false;
+    lock.unlock();
+    m_hasStopped = false;
     m_wxAppThread = thread(&Telecon::teleconAppInit, this);
+}
+
+void Telecon::teleconStartBlocking()
+{
+    teleconStart();
+    teleconWaitUntilInitialized();
 }
 
 void Telecon::teleconStop()
@@ -47,9 +62,26 @@ void Telecon::teleconStop()
     }
 }
 
-bool Telecon::hasStarted()
+bool Telecon::hasStartedInitialization()
 {
-    return m_hasStarted;
+    return m_hasStartedInitialization;
+}
+
+bool Telecon::hasFinishedInitialization()
+{
+    lock_guard lock(m_hasFinishedInitializationLock);
+    return m_hasFinishedInitialization;
+}
+
+void Telecon::teleconWaitUntilInitialized()
+{
+    if (!m_hasStartedInitialization) {
+        cout << "telecon: Attempted to wait until Telecon object has finished initializing, but no initialization was started." << endl;
+    }
+    unique_lock lock(m_hasFinishedInitializationLock);
+    while (!m_hasFinishedInitialization) {
+        m_hasFinishedInitializationCV.wait(lock);
+    }
 }
 
 bool Telecon::hasStopped()

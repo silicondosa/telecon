@@ -24,7 +24,10 @@ class Telecon
 private:
     thread m_wxAppThread;
 
-    std::atomic_bool m_hasStarted;
+    std::atomic_bool m_hasStartedInitialization;
+    mutex m_hasFinishedInitializationLock;
+    condition_variable m_hasFinishedInitializationCV;
+    bool m_hasFinishedInitialization;
     std::atomic_bool m_hasStopped;
 
     TeleconWxApp* m_teleconWxApp;
@@ -35,11 +38,14 @@ private:
 
 public:
     void teleconStart();
+    void teleconStartBlocking();
     void teleconStop();
     Telecon();
     ~Telecon();
 
-    bool hasStarted();
+    bool hasStartedInitialization();
+    bool hasFinishedInitialization();
+    void teleconWaitUntilInitialized();
     bool hasStopped();
 
     /**

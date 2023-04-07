@@ -32,7 +32,7 @@ CreateDataPoints()
 
 int main(int argc, char* argv[])
 {
-    const int dataRateMillis = 1000;
+    const int dataRateMillis = 100;
     // Initialization code
     Telecon* telecon = new Telecon();
     shared_ptr<TeleconWindow> window = telecon->addWindow("MyWindow");

@@ -24,15 +24,23 @@ class Telecon
 private:
     thread m_wxAppThread;
 
+    std::atomic_bool m_hasStarted;
+    std::atomic_bool m_hasStopped;
+
     TeleconWxApp* m_teleconWxApp;
 
-    vector<TeleconWindow*> m_windows;
+    vector<shared_ptr<TeleconWindow>> m_windows;
 
     void teleconAppInit();
 
 public:
     void teleconStart();
-    void teleconJoin();
+    void teleconStop();
+    Telecon();
+    ~Telecon();
+
+    bool hasStarted();
+    bool hasStopped();
 
     /**
      * Adds a window to the application and returns a pointer to it. The window must later be drawn with drawWindow().
@@ -40,19 +48,19 @@ public:
      * \param name the name that will be displayed on the window.
      * \return A pointer to the TeleconWindow object created.
      */
-    TeleconWindow* addWindow(string name);
+    shared_ptr<TeleconWindow> addWindow(string name);
 
     /**
      * \param index the index of the TeleconWindow to return.
      * \return A pointer to the TeleconWindow requested.
      */
-    TeleconWindow* getWindow(int index);
+    shared_ptr<TeleconWindow> getWindow(int index);
     /**
      * \return The number of TeleconWindows added to the application.
      */
     size_t getNumWindows() const;
 
-    TeleconWindow* getWindowByName(string name);
-    TeleconChart* getChartByName(string windowName, string chartName);
-    TeleconPlot* getPlotByName(string windowName, string chartName, string plotName);
+    shared_ptr<TeleconWindow> getWindowByName(string name);
+    shared_ptr<TeleconChart> getChartByName(string windowName, string chartName);
+    shared_ptr<TeleconPlot> getPlotByName(string windowName, string chartName, string plotName);
 };

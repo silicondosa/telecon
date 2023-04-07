@@ -1,19 +1,41 @@
 #include "teleconwindow.h"
 
 TeleconWindow::TeleconWindow(std::string title)
-	: m_title(title), m_hasQuit(false) {}
+	: m_title(title), m_hasRequestedQuit(false), m_hasQuit(false) {}
 
 TeleconWindow::TeleconWindow()
 	: TeleconWindow("") {}
 
-void TeleconWindow::quit()
+void TeleconWindow::requestQuit()
 {
-	m_hasQuit.store(true);
+	m_hasRequestedQuit = true;
+}
+
+bool TeleconWindow::hasRequestedQuit()
+{
+	return m_hasRequestedQuit;
+}
+
+void TeleconWindow::setHasQuit()
+{
+	std::unique_lock lock(m_hasQuitLock);
+	m_hasQuit = true;
+	lock.unlock();
+	m_hasQuitCV.notify_all();
 }
 
 bool TeleconWindow::hasQuit()
 {
-	return m_hasQuit.load();
+	std::lock_guard lock(m_hasQuitLock);
+	return m_hasQuit;
+}
+
+void TeleconWindow::waitUntilQuit()
+{
+	std::unique_lock lock(m_hasQuitLock);
+	while (!m_hasQuit) {
+		m_hasQuitCV.wait(lock);
+	}
 }
 
 std::string TeleconWindow::getTitle()
@@ -21,14 +43,14 @@ std::string TeleconWindow::getTitle()
 	return m_title;
 }
 
-TeleconRealtimeChart* TeleconWindow::addRealtimeChart(std::string title, std::string xLabel, std::string yLabel, ColorSequenceMode colorSequenceMode, double defaultTimespan)
+shared_ptr<TeleconRealtimeChart> TeleconWindow::addRealtimeChart(std::string title, std::string xLabel, std::string yLabel, ColorSequenceMode colorSequenceMode, double defaultTimespan)
 {
-	TeleconRealtimeChart* chart = new TeleconRealtimeChart(title, xLabel, yLabel, colorSequenceMode, defaultTimespan);
+	shared_ptr<TeleconRealtimeChart> chart = make_shared<TeleconRealtimeChart>(title, xLabel, yLabel, colorSequenceMode, defaultTimespan);
 	m_charts.push_back(chart);
 	return chart;
 }
 
-TeleconChart* TeleconWindow::getChart(size_t index)
+shared_ptr<TeleconChart> TeleconWindow::getChart(size_t index)
 {
 	return m_charts[index];
 }
@@ -38,18 +60,18 @@ size_t TeleconWindow::getNumCharts() const
 	return m_charts.size();
 }
 
-TeleconChart* TeleconWindow::getChartByName(string name)
+shared_ptr<TeleconChart> TeleconWindow::getChartByName(string name)
 {
-	for (vector<TeleconChart*>::iterator i = m_charts.begin(); i != m_charts.end(); ++i) {
-		if (name.compare((*i)->getTitle()) == 0) {
-			return *i;
+	for (auto chart : m_charts) {
+		if (name.compare(chart->getTitle()) == 0) {
+			return chart;
 		}
 	}
 	return nullptr;
 }
 
-TeleconPlot* TeleconWindow::getPlotByName(string chartName, string plotName)
+shared_ptr<TeleconPlot> TeleconWindow::getPlotByName(string chartName, string plotName)
 {
-	TeleconChart* chart = getChartByName(chartName);
+	shared_ptr<TeleconChart> chart = getChartByName(chartName);
 	return chart == nullptr ? nullptr : chart->getPlotByName(plotName);
 }

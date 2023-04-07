@@ -24,7 +24,7 @@ protected:
     const ColorSequenceMode m_colorSequenceMode;
     const double m_defaultXAxisSpan;
 
-    vector<TeleconPlot*> m_plots;
+    vector<shared_ptr<TeleconPlot>> m_plots;
 
     long getNextDefaultColor();
 public:
@@ -36,10 +36,10 @@ public:
     ColorSequenceMode getColorSequenceMode();
     double getDefaultXAxisSpan();
     
-    TeleconPlot* getPlot(int index);
+    shared_ptr<TeleconPlot> getPlot(int index);
     size_t getNumPlots();
 
-    TeleconPlot* getPlotByName(string name);
+    shared_ptr<TeleconPlot> getPlotByName(string name);
 
     virtual CHART_X_AXIS_TYPE getChartXAxisType() = 0;
 };

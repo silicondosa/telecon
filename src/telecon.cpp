@@ -2,6 +2,15 @@
 
 using namespace std;
 
+Telecon::Telecon()
+    : m_hasStarted(false), m_hasStopped(false) {}
+
+Telecon::~Telecon()
+{
+    // m_teleconWxApp is automatically deleted by wxwidgets on close
+    teleconStop();
+}
+
 void Telecon::teleconAppInit()
 {
     m_teleconWxApp = new TeleconWxApp(this);
@@ -13,9 +22,11 @@ void Telecon::teleconAppInit()
         wxExit();
     }
     wxTheApp->CallOnInit();
+    m_hasStarted = true;
     wxTheApp->OnRun();
     wxTheApp->OnExit();
     wxEntryCleanup();
+    m_hasStopped = true;
 }
 
 void Telecon::teleconStart()
@@ -23,19 +34,37 @@ void Telecon::teleconStart()
     m_wxAppThread = thread(&Telecon::teleconAppInit, this);
 }
 
-void Telecon::teleconJoin()
+void Telecon::teleconStop()
 {
-    m_wxAppThread.join();
+    for (auto& window : m_windows) {
+        window->requestQuit();
+    }
+    for (auto& window : m_windows) {
+        window->waitUntilQuit();
+    }
+    if (m_wxAppThread.joinable()) {
+        m_wxAppThread.join();
+    }
 }
 
-TeleconWindow* Telecon::addWindow(string name)
+bool Telecon::hasStarted()
 {
-    TeleconWindow* window = new TeleconWindow(name);
+    return m_hasStarted;
+}
+
+bool Telecon::hasStopped()
+{
+    return m_hasStopped;
+}
+
+shared_ptr<TeleconWindow> Telecon::addWindow(string name)
+{
+    shared_ptr<TeleconWindow> window = make_shared<TeleconWindow>(name);
     m_windows.push_back(window);
     return window;
 }
 
-TeleconWindow* Telecon::getWindow(int index)
+shared_ptr<TeleconWindow> Telecon::getWindow(int index)
 {
     return m_windows[index];
 }
@@ -45,31 +74,28 @@ size_t Telecon::getNumWindows() const
     return m_windows.size();
 }
 
-TeleconWindow* Telecon::getWindowByName(string name)
+shared_ptr<TeleconWindow> Telecon::getWindowByName(string name)
 {
-    for (vector<TeleconWindow*>::iterator i = m_windows.begin(); i != m_windows.end(); ++i) {
-        if (name.compare((*i)->getTitle()) == 0) {
-            return *i;
+    for (auto window : m_windows) {
+        if (name.compare(window->getTitle()) == 0) {
+            return window;
         }
     }
     return nullptr;
 }
 
-TeleconChart* Telecon::getChartByName(string windowName, string chartName)
+shared_ptr<TeleconChart> Telecon::getChartByName(string windowName, string chartName)
 {
-    TeleconWindow* window = getWindowByName(windowName);
+    shared_ptr<TeleconWindow> window = getWindowByName(windowName);
     return window == nullptr ? nullptr : window->getChartByName(chartName);
 }
 
-TeleconPlot* Telecon::getPlotByName(string windowName, string chartName, string plotName)
+shared_ptr<TeleconPlot> Telecon::getPlotByName(string windowName, string chartName, string plotName)
 {
-    TeleconWindow* window = getWindowByName(windowName);
+    shared_ptr<TeleconWindow> window = getWindowByName(windowName);
     if (window == nullptr) {
         return nullptr;
     }
-    TeleconChart* chart = window->getChartByName(chartName);
+    shared_ptr<TeleconChart> chart = window->getChartByName(chartName);
     return chart == nullptr ? nullptr : chart->getPlotByName(plotName);
 }
-
-BEGIN_EVENT_TABLE(TeleconWxWindow, wxFrame)
-END_EVENT_TABLE()

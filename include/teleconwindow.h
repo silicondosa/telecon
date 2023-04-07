@@ -9,16 +9,22 @@
 
 class TeleconWindow {
 private:
-	std::atomic<bool> m_hasQuit;
+	std::atomic_bool m_hasRequestedQuit;
+	mutex m_hasQuitLock;
+	condition_variable m_hasQuitCV;
+	bool m_hasQuit;
 	const std::string m_title;
 
-	std::vector<TeleconChart*> m_charts;
+	std::vector<shared_ptr<TeleconChart>> m_charts;
 public:
 	TeleconWindow(std::string title);
 	TeleconWindow();
 
-	void quit();
+	void requestQuit();
+	bool hasRequestedQuit();
+	void setHasQuit();
 	bool hasQuit();
+	void waitUntilQuit();
 	std::string getTitle();
 
 	/**
@@ -32,10 +38,10 @@ public:
 	 * \param colorSequenceMode the sequence of colors that will be used for added plots if the color is left unspecified.
 	 * \return A pointer to the TeleconRealTimeChart object created.
 	 */
-	TeleconRealtimeChart* addRealtimeChart(std::string title = "", std::string xLabel = "", std::string yLabel = "", ColorSequenceMode colorSequenceMode = CSM_BLACK, double defaultTimespan = 1.0);
-	TeleconChart* getChart(size_t index);
+	shared_ptr<TeleconRealtimeChart> addRealtimeChart(std::string title = "", std::string xLabel = "", std::string yLabel = "", ColorSequenceMode colorSequenceMode = CSM_BLACK, double defaultTimespan = 1.0);
+	shared_ptr<TeleconChart> getChart(size_t index);
 	size_t getNumCharts() const;
 
-	TeleconChart* getChartByName(string name);
-	TeleconPlot* getPlotByName(string chartName, string plotName);
+	shared_ptr<TeleconChart> getChartByName(string name);
+	shared_ptr<TeleconPlot> getPlotByName(string chartName, string plotName);
 };

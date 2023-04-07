@@ -22,7 +22,7 @@ using namespace std;
 class TeleconWxChart : public wxPanel {
 public:
     TeleconWxChart(
-        TeleconChart* chart,
+        shared_ptr<TeleconChart> chart,
         wxWindow* parent,
         wxWindowID winid = wxID_ANY,
         const wxPoint& pos = wxDefaultPosition,
@@ -91,7 +91,7 @@ private:
     // wxWidgets timers
     wxTimer* m_chartUpdateTimer;
 
-    TeleconChart* m_chart;
+    shared_ptr<TeleconChart> m_chart;
 
     // Pointer to the chart viewer - main body of panel
     wxChartViewer* m_chartViewer;
@@ -99,8 +99,7 @@ private:
 
 enum
 {
-    ID_REALTIMETRACK = wxID_HIGHEST,
-    ID_CHARTVIEWER,
+    ID_CHARTVIEWER = wxID_HIGHEST + 1,
     ID_PLAY,
     ID_PAUSE,
     ID_UPDATE_PERIOD,

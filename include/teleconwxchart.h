@@ -50,16 +50,16 @@ private:
     // wxWidgets event handler functions
     void OnPlayClick(wxCommandEvent& event);
     void OnPauseClick(wxCommandEvent& event);
-    void OnChartUpdatePeriodSelected(wxCommandEvent& event);
+    void OnChartRefreshIntervalSelected(wxCommandEvent& event);
     void OnSave(wxCommandEvent& event);
-    void OnChartUpdateTimer(wxTimerEvent& event);
+    void OnChartRefreshTimer(wxTimerEvent& event);
     void OnViewPortChanged(wxCommandEvent& event); // updates the chart if it needs updating
 
     // addPlot() helper functions
     void addLatestValueText(string plottitle);
 
-    // Chart and data update functions
-    void DrawChart();
+    // Chart update function
+    void DrawChart(bool isRefreshEnabled);
     
     // Calls TrackLineLegend if necessary
     void OnMouseMovePlotArea(wxCommandEvent& event);
@@ -82,16 +82,17 @@ private:
     wxToggleButton* m_playButton;
     wxToggleButton* m_pauseButton;
     wxButton* m_saveButton;
-    wxChoice* m_updatePeriodSelector;
+    wxChoice* m_refreshIntervalSelector;
 
     // Miscellaneous wxWidgets members
     vector<wxTextCtrl*> m_latestValueTextCtrls;
     wxColour m_bgColour;
 
     // wxWidgets timers
-    wxTimer* m_chartUpdateTimer;
+    wxTimer* m_chartRefreshTimer;
 
     shared_ptr<TeleconChart> m_chart;
+    bool m_isRefreshEnabled;
 
     // Pointer to the chart viewer - main body of panel
     wxChartViewer* m_chartViewer;
@@ -102,7 +103,7 @@ enum
     ID_CHARTVIEWER = wxID_HIGHEST + 1,
     ID_PLAY,
     ID_PAUSE,
-    ID_UPDATE_PERIOD,
+    ID_REFRESH_INTERVAL,
     ID_DATA_TIMER,
-    ID_UPDATE_TIMER
+    ID_REFRESH_TIMER
 };

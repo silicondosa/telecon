@@ -32,5 +32,5 @@ public:
 };
 
 enum {
-    ID_QUIT_TIMER = ID_UPDATE_TIMER + 1
+    ID_QUIT_TIMER = ID_REFRESH_TIMER + 1
 };

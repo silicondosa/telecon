@@ -17,11 +17,11 @@
 
 using namespace std;
 
-static const int chartUpdateIntervals[8] = {250, 500, 750, 1000, 1250, 1500, 1750, 2000};
+static const int chartRefreshIntervals[8] = {250, 500, 750, 1000, 1250, 1500, 1750, 2000};
 
 TeleconWxChart::~TeleconWxChart()
 {
-    m_chartUpdateTimer->Stop();
+    m_chartRefreshTimer->Stop();
 }
 
 TeleconWxChart::TeleconWxChart(
@@ -32,7 +32,7 @@ TeleconWxChart::TeleconWxChart(
     const wxSize& size,
     long style,
     const wxString& name
-) : wxPanel(parent, winid, pos, size, style, name), m_chart(chart)
+) : wxPanel(parent, winid, pos, size, style, name), m_chart(chart), m_isRefreshEnabled(true)
 {
     m_bgColour = GetBackgroundColour();
 
@@ -80,18 +80,18 @@ void TeleconWxChart::SetUpViewOptionsBox()
 
     m_viewOptionsBoxSizer->Add(3, 3, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, FromDIP(3)); // another gap
 
-    // Add graph update period selector. Note: does not affect underlying data fetch rate
-    wxStaticText *graphUpdatePeriodStaticText = new wxStaticText(m_viewOptionsBox, wxID_STATIC, _("Refresh Interval (ms)"), wxDefaultPosition, wxDefaultSize, 0);
-    m_viewOptionsBoxSizer->Add(graphUpdatePeriodStaticText, 0, wxALIGN_LEFT | wxALL, FromDIP(3));
+    // Add graph refresh interval selector. Note: does not affect underlying data fetch rate
+    wxStaticText *graphRefreshIntervalStaticText = new wxStaticText(m_viewOptionsBox, wxID_STATIC, _("Refresh Interval (ms)"), wxDefaultPosition, wxDefaultSize, 0);
+    m_viewOptionsBoxSizer->Add(graphRefreshIntervalStaticText, 0, wxALIGN_LEFT | wxALL, FromDIP(3));
 
-    wxArrayString m_updatePeriodStrings;
-    for (auto i : chartUpdateIntervals)
+    wxArrayString m_refreshIntervalStrings;
+    for (auto i : chartRefreshIntervals)
     {
-        m_updatePeriodStrings.Add(wxString::Format("%d", i));
+        m_refreshIntervalStrings.Add(wxString::Format("%d", i));
     }
-    m_updatePeriodSelector = new wxChoice(m_viewOptionsBox, ID_UPDATE_PERIOD, wxDefaultPosition, wxDefaultSize, m_updatePeriodStrings, 0);
-    m_updatePeriodSelector->SetStringSelection(wxString::Format("%d", chartUpdateIntervals[0]));
-    m_viewOptionsBoxSizer->Add(m_updatePeriodSelector, 0, wxGROW | wxALL, FromDIP(3));
+    m_refreshIntervalSelector = new wxChoice(m_viewOptionsBox, ID_REFRESH_INTERVAL, wxDefaultPosition, wxDefaultSize, m_refreshIntervalStrings, 0);
+    m_refreshIntervalSelector->SetStringSelection(wxString::Format("%d", chartRefreshIntervals[0]));
+    m_viewOptionsBoxSizer->Add(m_refreshIntervalSelector, 0, wxGROW | wxALL, FromDIP(3));
 
     m_viewOptionsBoxSizer->Add(3, FromDIP(10), 1, wxALIGN_CENTER_HORIZONTAL | wxALL, FromDIP(3));
 
@@ -108,19 +108,19 @@ void TeleconWxChart::SetUpChartBox()
     m_chartViewer = new wxChartViewer(this, ID_CHARTVIEWER, wxDefaultPosition, FromDIP(wxSize(600, 270)), wxTAB_TRAVERSAL | wxNO_BORDER);
     m_chartBoxSizer->Add(m_chartViewer, 1, wxGROW | wxALL, FromDIP(3));
 
-    // Set up the chart update timer
-    m_chartUpdateTimer = new wxTimer(this, ID_UPDATE_TIMER);
-    m_chartUpdateTimer->Start(chartUpdateIntervals[0]);
+    // Set up the chart refresh timer
+    m_chartRefreshTimer = new wxTimer(this, ID_REFRESH_TIMER);
+    m_chartRefreshTimer->Start(chartRefreshIntervals[0]);
 }
 
 BEGIN_EVENT_TABLE(TeleconWxChart, wxPanel)
 
 EVT_TOGGLEBUTTON(ID_PLAY, TeleconWxChart::OnPlayClick)
 EVT_TOGGLEBUTTON(ID_PAUSE, TeleconWxChart::OnPauseClick)
-EVT_CHOICE(ID_UPDATE_PERIOD, TeleconWxChart::OnChartUpdatePeriodSelected)
+EVT_CHOICE(ID_REFRESH_INTERVAL, TeleconWxChart::OnChartRefreshIntervalSelected)
 EVT_BUTTON(wxID_SAVE, TeleconWxChart::OnSave)
 
-EVT_TIMER(ID_UPDATE_TIMER, TeleconWxChart::OnChartUpdateTimer)
+EVT_TIMER(ID_REFRESH_TIMER, TeleconWxChart::OnChartRefreshTimer)
 EVT_CHARTVIEWER_VIEWPORT_CHANGED(ID_CHARTVIEWER, TeleconWxChart::OnViewPortChanged)
 EVT_CHARTVIEWER_MOUSEMOVE_PLOTAREA(ID_CHARTVIEWER, TeleconWxChart::OnMouseMovePlotArea)
 
@@ -131,7 +131,7 @@ void TeleconWxChart::OnPlayClick(wxCommandEvent &event)
 {
     m_playButton->SetValue(true);
     m_pauseButton->SetValue(false);
-    m_chartUpdateTimer->Start();
+    m_isRefreshEnabled = true;
 }
 
 // Event handler
@@ -139,15 +139,15 @@ void TeleconWxChart::OnPauseClick(wxCommandEvent &event)
 {
     m_playButton->SetValue(false);
     m_pauseButton->SetValue(true);
-    m_chartUpdateTimer->Stop();
+    m_isRefreshEnabled = false;
 }
 
 // Event handler
-void TeleconWxChart::OnChartUpdatePeriodSelected(wxCommandEvent &event)
+void TeleconWxChart::OnChartRefreshIntervalSelected(wxCommandEvent &event)
 {
     long interval;
-    (m_updatePeriodSelector->GetString(m_updatePeriodSelector->GetSelection())).ToLong(&interval);
-    m_chartUpdateTimer->Start(interval);
+    (m_refreshIntervalSelector->GetString(m_refreshIntervalSelector->GetSelection())).ToLong(&interval);
+    m_chartRefreshTimer->Start(interval);
 }
 
 // Event handler
@@ -172,7 +172,7 @@ void TeleconWxChart::OnSave(wxCommandEvent &event)
 }
 
 // Event handler
-void TeleconWxChart::OnChartUpdateTimer(wxTimerEvent &event)
+void TeleconWxChart::OnChartRefreshTimer(wxTimerEvent &event)
 {
     // Will result in a call to OnViewPortChanged, which may redraw the chart if needed
     m_chartViewer->updateViewPort(true, false);
@@ -185,12 +185,24 @@ void TeleconWxChart::OnViewPortChanged(wxCommandEvent &event)
 {
     if (m_chartViewer->needUpdateChart())
     {
-        DrawChart();
+        DrawChart(m_isRefreshEnabled);
     }
 }
 
-void TeleconWxChart::DrawChart()
+void TeleconWxChart::DrawChart(bool isRefreshEnabled)
 {
+    // If refresh is not enabled, all we want to do is update the latest value text
+    for (int i = 0; i < m_chart->getNumPlots(); i++) {
+        shared_ptr<TeleconWxPlot> plot = std::dynamic_pointer_cast<TeleconWxPlot>(m_chart->getPlot(i));
+        // Move data from the controller thread to the UI thread
+        plot->prepDataForDraw();
+        if (plot->size() > 0) {
+            m_latestValueTextCtrls[i]->SetValue(plot->getLatestValueString());
+        }
+    }
+    if (!isRefreshEnabled) {
+        return;
+    }
     static const int chartWidth = 600;
     static const int chartHeight = 270;
     // Create an XYChart object 600 x 270 pixels in size, with light grey (f4f4f4)
@@ -237,8 +249,6 @@ void TeleconWxChart::DrawChart()
         for (int i = 0; i < m_chart->getNumPlots(); i++) {
             // This should ideally be done in a more type-safe fashion
             shared_ptr<TeleconWxPlot> plot = std::dynamic_pointer_cast<TeleconWxPlot>(m_chart->getPlot(i));
-            // Move data from the controller thread to the UI thread
-            plot->prepDataForDraw();
             // Update the earliest and latest data points found so far
             if (plot->size() > 0 && !hasData) {
                 firstTime = plot->getLeftmostX();
@@ -268,9 +278,6 @@ void TeleconWxChart::DrawChart()
         for (int i = 0; i < m_chart->getNumPlots(); i++) {
             shared_ptr<TeleconWxPlot> plot = std::dynamic_pointer_cast<TeleconWxPlot>(m_chart->getPlot(i));
             plot->addToChart(c);
-            if (plot->size() > 0) {
-                m_latestValueTextCtrls[i]->SetValue(plot->getLatestValueString());
-            }
         }
         break;
     }

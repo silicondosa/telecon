@@ -25,7 +25,7 @@ protected:
     const string m_yLabel;
     const ColorSequenceMode m_colorSequenceMode;
 
-    bool m_hasStartedInitialization;
+    bool m_hasStarted;
 
     vector<shared_ptr<TeleconPlot>> m_plots;
 

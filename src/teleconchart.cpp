@@ -7,7 +7,7 @@ TeleconChart::TeleconChart(string title, double memoryDepthSeconds, int dataRate
 	m_xLabel(xLabel),
 	m_yLabel(yLabel),
 	m_colorSequenceMode(colorSequenceMode),
-    m_hasStartedInitialization(false) {}
+    m_hasStarted(false) {}
 
 string TeleconChart::getTitle()
 {
@@ -45,7 +45,7 @@ long TeleconChart::getNextDefaultColor() {
 
 void TeleconChart::initialize()
 {
-    m_hasStartedInitialization = true;
+    m_hasStarted = true;
 }
 
 shared_ptr<TeleconPlot> TeleconChart::getPlot(int index)

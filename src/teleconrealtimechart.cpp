@@ -7,7 +7,7 @@ TeleconRealtimeChart::TeleconRealtimeChart(string title, double memoryDepthSecon
 
 shared_ptr<TeleconLinePlot> TeleconRealtimeChart::addLinePlot(string plottitle, long plotcolor, LineType lineType, int lineWidth, int symbol, bool fillSymbol, int symbolSize, int memoryDepth)
 {
-    if (m_hasStartedInitialization) {
+    if (m_hasStarted) {
         cout << "telecon: Telecon has already started, plots may not be added." << endl;
         return shared_ptr<TeleconLinePlot>();
     }
@@ -21,7 +21,7 @@ shared_ptr<TeleconLinePlot> TeleconRealtimeChart::addLinePlot(string plottitle, 
 
 shared_ptr<TeleconScatterPlot> TeleconRealtimeChart::addScatterPlot(string plottitle, long plotcolor, int symbol, bool fillSymbol, int symbolSize, int memoryDepth)
 {
-    if (m_hasStartedInitialization) {
+    if (m_hasStarted) {
         cout << "telecon: Telecon has already started, plots may not be added." << endl;
         return shared_ptr<TeleconScatterPlot>();
     }

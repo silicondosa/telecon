@@ -71,6 +71,7 @@ int main(int argc, char* argv[])
     shared_ptr<TeleconScatterPlot> plot15 = chart4->addScatterPlot("Velocity", COLOR_BLUE, SYMBOL_DIAMOND, true, 3);
 
     telecon->teleconStart();
+    telecon->teleconStart();
 
     telecon->addWindow("Third window");
     window2->addRealtimeChart();

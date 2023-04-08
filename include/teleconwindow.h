@@ -15,7 +15,7 @@ private:
 	bool m_hasQuit;
 	const std::string m_title;
 
-    bool m_hasStartedInitialization;
+    bool m_hasStarted;
 
 	std::vector<shared_ptr<TeleconChart>> m_charts;
 public:

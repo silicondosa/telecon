@@ -3,7 +3,7 @@
 using namespace std;
 
 Telecon::Telecon()
-    : m_teleconWxApp(nullptr), m_hasStartedInitialization(false), m_hasFinishedInitialization(false), m_hasStopped(false) {}
+    : m_teleconWxApp(nullptr), m_hasStarted(false), m_hasStopped(false) {}
 
 Telecon::~Telecon()
 {
@@ -22,10 +22,6 @@ void Telecon::teleconAppInit()
         wxExit();
     }
     wxTheApp->CallOnInit();
-    unique_lock lock(m_hasFinishedInitializationLock);
-    m_hasFinishedInitialization = true;
-    lock.unlock();
-    m_hasFinishedInitializationCV.notify_all();
     wxTheApp->OnRun();
     wxTheApp->OnExit();
     wxEntryCleanup();
@@ -34,17 +30,15 @@ void Telecon::teleconAppInit()
 
 void Telecon::teleconStart()
 {
-    m_hasStartedInitialization = true;
+    if (m_hasStarted) {
+        cout << "telecon: Telecon has already started, cannot be started again" << endl;
+        return;
+    }
+    m_hasStarted = true;
     for (auto& window : m_windows) {
         window->initialize();
     }
     m_wxAppThread = thread(&Telecon::teleconAppInit, this);
-}
-
-void Telecon::teleconStartBlocking()
-{
-    teleconStart();
-    teleconWaitUntilInitialized();
 }
 
 void Telecon::teleconStop()
@@ -60,26 +54,9 @@ void Telecon::teleconStop()
     }
 }
 
-bool Telecon::hasStartedInitialization()
+bool Telecon::hasStarted()
 {
-    return m_hasStartedInitialization;
-}
-
-bool Telecon::hasFinishedInitialization()
-{
-    lock_guard lock(m_hasFinishedInitializationLock);
-    return m_hasFinishedInitialization;
-}
-
-void Telecon::teleconWaitUntilInitialized()
-{
-    if (!m_hasStartedInitialization) {
-        cout << "telecon: Attempted to wait until Telecon object has finished initializing, but no initialization was started." << endl;
-    }
-    unique_lock lock(m_hasFinishedInitializationLock);
-    while (!m_hasFinishedInitialization) {
-        m_hasFinishedInitializationCV.wait(lock);
-    }
+    return m_hasStarted;
 }
 
 bool Telecon::hasStopped()
@@ -89,7 +66,7 @@ bool Telecon::hasStopped()
 
 shared_ptr<TeleconWindow> Telecon::addWindow(string name)
 {
-    if (m_hasStartedInitialization) {
+    if (m_hasStarted) {
         cout << "telecon: Telecon has already started, windows may not be added." << endl;
         return shared_ptr<TeleconWindow>();
     }

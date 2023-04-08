@@ -40,6 +40,12 @@ public:
     TeleconWxChart(TeleconWxChart&&) = delete;
     TeleconWxChart& operator=(TeleconWxChart&&) = delete;
 
+    // setter functions for wxwindow buttons
+    void setPlay();
+    void setPause();
+    void setRefresh();
+    void doSave();
+
     DECLARE_EVENT_TABLE()
 
 private:

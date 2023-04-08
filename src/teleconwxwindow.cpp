@@ -1,5 +1,11 @@
 #include "teleconwxwindow.h"
 
+#ifndef WX_PRECOMP
+#include <wx/wx.h>
+#endif
+
+#include <wx/tglbtn.h>
+
 static const int chartRefreshIntervals[8] = { 250, 500, 750, 1000, 1250, 1500, 1750, 2000 };
 
 TeleconWxWindow::TeleconWxWindow(shared_ptr<TeleconWindow> window)
@@ -19,7 +25,6 @@ TeleconWxWindow::TeleconWxWindow(shared_ptr<TeleconWindow> window)
     m_viewOptionsBoxSizer->Add(m_pauseButton, 0, wxGROW | wxALL, FromDIP(3));
     m_saveButton = new wxButton(m_viewOptionsBox, wxID_SAVE, _(" &Save"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
     m_viewOptionsBoxSizer->Add(m_saveButton, 0, wxGROW | wxALL, FromDIP(3));
-    m_viewOptionsBoxSizer->Add(3, 3, 1, wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3)); // another gap
     wxStaticText* graphRefreshIntervalStaticText = new wxStaticText(m_viewOptionsBox, wxID_STATIC, _("Refresh Interval (ms)"), wxDefaultPosition, wxDefaultSize, 0);
     m_viewOptionsBoxSizer->Add(graphRefreshIntervalStaticText, 0, wxALIGN_TOP | wxALL, FromDIP(3));
     wxArrayString m_refreshIntervalStrings;
@@ -54,7 +59,61 @@ BEGIN_EVENT_TABLE(TeleconWxWindow, wxFrame)
 EVT_CLOSE(TeleconWxWindow::onClose)
 EVT_TIMER(ID_QUIT_TIMER, TeleconWxWindow::checkQuit)
 
+EVT_TOGGLEBUTTON(ID_PLAY, TeleconWxWindow::OnPlayClick)
+EVT_TOGGLEBUTTON(ID_PAUSE, TeleconWxWindow::OnPauseClick)
+//EVT_CHOICE(ID_REFRESH_INTERVAL, TeleconWxWindow::OnChartRefreshIntervalSelected)
+//EVT_BUTTON(wxID_SAVE, TeleconWxWindow::OnSave)
+
 END_EVENT_TABLE()
+
+// Event handler
+void TeleconWxWindow::OnPlayClick(wxCommandEvent& event)
+{
+    m_playButton->SetValue(true);
+    m_pauseButton->SetValue(false);
+    for (int i = 0; i < m_window->getNumCharts(); i++) {
+        m_charts[i]->setPlay();
+    }
+}
+
+// Event handler
+void TeleconWxWindow::OnPauseClick(wxCommandEvent& event)
+{
+    m_playButton->SetValue(false);
+    m_pauseButton->SetValue(true);
+    for (int i = 0; i < m_window->getNumCharts(); i++) {
+        m_charts[i]->setPause();
+    }
+}
+
+//// Event handler
+//void TeleconWxWindow::OnChartRefreshIntervalSelected(wxCommandEvent& event)
+//{
+//    long interval;
+//    (m_refreshIntervalSelector->GetString(m_refreshIntervalSelector->GetSelection())).ToLong(&interval);
+//    m_chartRefreshTimer->Start(interval);
+//}
+//
+//// Event handler
+//void TeleconWxWindow::OnSave(wxCommandEvent& event)
+//{
+//    wxFileDialog saveFileDialog(this, _("Save graphics file"), "", "chartdirector_demo",
+//        "PNG (*.png)|*.png|JPG (*.jpg)|*.jpg|GIF (*.gif)|*.gif|BMP (*.bmp)|*.bmp|SVG (*.svg)|*.svg|PDF (*.pdf)|*.pdf", wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
+//    if (saveFileDialog.ShowModal() == wxID_CANCEL)
+//        return; // the user changed idea...
+//
+//    // save the current contents in the file;
+//    wxString fileName = saveFileDialog.GetPath();
+//    if (!fileName.IsEmpty())
+//    {
+//        // Save the chart
+//        BaseChart* c = m_chartViewer->getChart();
+//        if (0 != c)
+//        {
+//            c->makeChart(fileName.ToUTF8());
+//        }
+//    }
+//}
 
 void TeleconWxWindow::checkQuit(wxTimerEvent& event)
 {

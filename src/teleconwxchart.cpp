@@ -126,6 +126,21 @@ EVT_CHARTVIEWER_MOUSEMOVE_PLOTAREA(ID_CHARTVIEWER, TeleconWxChart::OnMouseMovePl
 
 END_EVENT_TABLE()
 
+void TeleconWxChart::setPlay() {
+    m_isRefreshEnabled = true;
+}
+
+void TeleconWxChart::setPause() {
+    m_isRefreshEnabled = false;
+}
+void TeleconWxChart::setRefresh() {
+
+}
+
+void TeleconWxChart::doSave() {
+
+}
+
 // Event handler
 void TeleconWxChart::OnPlayClick(wxCommandEvent &event)
 {

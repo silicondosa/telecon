@@ -33,6 +33,12 @@ private:
     wxButton* m_saveButton;
     wxChoice* m_refreshIntervalSelector;
 
+    // wxWidgets event handler functions
+    void OnPlayClick(wxCommandEvent& event);
+    void OnPauseClick(wxCommandEvent& event);
+    void OnChartRefreshIntervalSelected(wxCommandEvent& event);
+    void OnSave(wxCommandEvent& event);
+
     void checkQuit(wxTimerEvent& event);
     void onClose(wxCloseEvent& event);
 

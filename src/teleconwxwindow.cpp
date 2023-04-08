@@ -62,7 +62,7 @@ EVT_TIMER(ID_QUIT_TIMER, TeleconWxWindow::checkQuit)
 EVT_TOGGLEBUTTON(ID_PLAY, TeleconWxWindow::OnPlayClick)
 EVT_TOGGLEBUTTON(ID_PAUSE, TeleconWxWindow::OnPauseClick)
 EVT_CHOICE(ID_REFRESH_INTERVAL, TeleconWxWindow::OnChartRefreshIntervalSelected)
-//EVT_BUTTON(wxID_SAVE, TeleconWxWindow::OnSave)
+EVT_BUTTON(wxID_SAVE, TeleconWxWindow::OnSave)
 
 END_EVENT_TABLE()
 
@@ -96,26 +96,13 @@ void TeleconWxWindow::OnChartRefreshIntervalSelected(wxCommandEvent& event)
     }
 }
  
-//// Event handler
-//void TeleconWxWindow::OnSave(wxCommandEvent& event)
-//{
-//    wxFileDialog saveFileDialog(this, _("Save graphics file"), "", "chartdirector_demo",
-//        "PNG (*.png)|*.png|JPG (*.jpg)|*.jpg|GIF (*.gif)|*.gif|BMP (*.bmp)|*.bmp|SVG (*.svg)|*.svg|PDF (*.pdf)|*.pdf", wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
-//    if (saveFileDialog.ShowModal() == wxID_CANCEL)
-//        return; // the user changed idea...
-//
-//    // save the current contents in the file;
-//    wxString fileName = saveFileDialog.GetPath();
-//    if (!fileName.IsEmpty())
-//    {
-//        // Save the chart
-//        BaseChart* c = m_chartViewer->getChart();
-//        if (0 != c)
-//        {
-//            c->makeChart(fileName.ToUTF8());
-//        }
-//    }
-//}
+// Event handler
+void TeleconWxWindow::OnSave(wxCommandEvent& event)
+{
+    for (int i = 0; i < m_window->getNumCharts(); i++) {
+        m_charts[i]->doSave(i);
+    }
+}
 
 void TeleconWxWindow::checkQuit(wxTimerEvent& event)
 {

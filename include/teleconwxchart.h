@@ -44,7 +44,7 @@ public:
     void setPlay();
     void setPause();
     void setRefresh(long);
-    void doSave();
+    void doSave(int);
 
     DECLARE_EVENT_TABLE()
 
@@ -54,10 +54,6 @@ private:
     void SetUpChartBox();
 
     // wxWidgets event handler functions
-    void OnPlayClick(wxCommandEvent& event);
-    void OnPauseClick(wxCommandEvent& event);
-    void OnChartRefreshIntervalSelected(wxCommandEvent& event);
-    void OnSave(wxCommandEvent& event);
     void OnChartRefreshTimer(wxTimerEvent& event);
     void OnViewPortChanged(wxCommandEvent& event); // updates the chart if it needs updating
 
@@ -83,12 +79,6 @@ private:
     wxFlexGridSizer* m_plotLatestValueFlexGridSizer;
     wxBoxSizer* m_chartBoxSizer;
     TextBox* m_titleBox;
-
-    // wxWidgets buttons and dropdown boxes
-    wxToggleButton* m_playButton;
-    wxToggleButton* m_pauseButton;
-    wxButton* m_saveButton;
-    wxChoice* m_refreshIntervalSelector;
 
     // Miscellaneous wxWidgets members
     vector<wxTextCtrl*> m_latestValueTextCtrls;

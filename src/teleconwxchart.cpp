@@ -54,12 +54,6 @@ TeleconWxChart::TeleconWxChart(
 void TeleconWxChart::SetUpViewOptionsBox()
 {
 
-    // Add save button
-    m_saveButton = new wxButton(m_viewOptionsBox, wxID_SAVE, _(" &Save"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
-    // m_saveButton->SetBitmap(GetBitmapResource("save.png"));
-    // m_saveButton->SetBitmapMargins(FromDIP(10), FromDIP(0));
-    m_viewOptionsBoxSizer->Add(m_saveButton, 0, wxGROW | wxALL, FromDIP(3));
-
     m_plotLatestValueFlexGridSizer = new wxFlexGridSizer( 0, 2, 0, 0);
     m_viewOptionsBoxSizer->Add(m_plotLatestValueFlexGridSizer, 0, wxGROW | wxALL, FromDIP(3));
 
@@ -80,34 +74,33 @@ void TeleconWxChart::SetUpChartBox()
 
 BEGIN_EVENT_TABLE(TeleconWxChart, wxPanel)
 
-EVT_BUTTON(wxID_SAVE, TeleconWxChart::OnSave)
-
 EVT_TIMER(ID_REFRESH_TIMER, TeleconWxChart::OnChartRefreshTimer)
 EVT_CHARTVIEWER_VIEWPORT_CHANGED(ID_CHARTVIEWER, TeleconWxChart::OnViewPortChanged)
 EVT_CHARTVIEWER_MOUSEMOVE_PLOTAREA(ID_CHARTVIEWER, TeleconWxChart::OnMouseMovePlotArea)
 
 END_EVENT_TABLE()
 
+//setter function for window button
 void TeleconWxChart::setPlay() {
     m_isRefreshEnabled = true;
 }
 
+//setter function for window button
 void TeleconWxChart::setPause() {
     m_isRefreshEnabled = false;
 }
+
+//setter function for window button
+//interval var passed in as selected interval rate
 void TeleconWxChart::setRefresh(long interval) {
     m_chartRefreshTimer->Start(interval);
 }
 
-void TeleconWxChart::doSave() {
-
-}
-
-// Event handler
-void TeleconWxChart::OnSave(wxCommandEvent &event)
-{
-    wxFileDialog saveFileDialog(this, _("Save graphics file"), "", "chartdirector_demo",
-                                "PNG (*.png)|*.png|JPG (*.jpg)|*.jpg|GIF (*.gif)|*.gif|BMP (*.bmp)|*.bmp|SVG (*.svg)|*.svg|PDF (*.pdf)|*.pdf", wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
+//setter function for window button
+//i var passed in as chart #
+void TeleconWxChart::doSave(int i) {
+    wxFileDialog saveFileDialog(this, _("Save Chart " + std::to_string(i+1)), "", "chart_" + std::to_string(i + 1),
+        "PNG (*.png)|*.png|JPG (*.jpg)|*.jpg|GIF (*.gif)|*.gif|BMP (*.bmp)|*.bmp|SVG (*.svg)|*.svg|PDF (*.pdf)|*.pdf", wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
     if (saveFileDialog.ShowModal() == wxID_CANCEL)
         return; // the user changed idea...
 
@@ -116,7 +109,7 @@ void TeleconWxChart::OnSave(wxCommandEvent &event)
     if (!fileName.IsEmpty())
     {
         // Save the chart
-        BaseChart *c = m_chartViewer->getChart();
+        BaseChart* c = m_chartViewer->getChart();
         if (0 != c)
         {
             c->makeChart(fileName.ToUTF8());

@@ -43,7 +43,7 @@ public:
     // setter functions for wxwindow buttons
     void setPlay();
     void setPause();
-    void setRefresh();
+    void setRefresh(long);
     void doSave();
 
     DECLARE_EVENT_TABLE()

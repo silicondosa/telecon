@@ -61,7 +61,7 @@ EVT_TIMER(ID_QUIT_TIMER, TeleconWxWindow::checkQuit)
 
 EVT_TOGGLEBUTTON(ID_PLAY, TeleconWxWindow::OnPlayClick)
 EVT_TOGGLEBUTTON(ID_PAUSE, TeleconWxWindow::OnPauseClick)
-//EVT_CHOICE(ID_REFRESH_INTERVAL, TeleconWxWindow::OnChartRefreshIntervalSelected)
+EVT_CHOICE(ID_REFRESH_INTERVAL, TeleconWxWindow::OnChartRefreshIntervalSelected)
 //EVT_BUTTON(wxID_SAVE, TeleconWxWindow::OnSave)
 
 END_EVENT_TABLE()
@@ -86,14 +86,16 @@ void TeleconWxWindow::OnPauseClick(wxCommandEvent& event)
     }
 }
 
-//// Event handler
-//void TeleconWxWindow::OnChartRefreshIntervalSelected(wxCommandEvent& event)
-//{
-//    long interval;
-//    (m_refreshIntervalSelector->GetString(m_refreshIntervalSelector->GetSelection())).ToLong(&interval);
-//    m_chartRefreshTimer->Start(interval);
-//}
-//
+// Event handler
+void TeleconWxWindow::OnChartRefreshIntervalSelected(wxCommandEvent& event)
+{
+    long interval;
+    (m_refreshIntervalSelector->GetString(m_refreshIntervalSelector->GetSelection())).ToLong(&interval);
+    for (int i = 0; i < m_window->getNumCharts(); i++) {
+        m_charts[i]->setRefresh(interval);
+    }
+}
+ 
 //// Event handler
 //void TeleconWxWindow::OnSave(wxCommandEvent& event)
 //{

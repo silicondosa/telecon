@@ -133,8 +133,8 @@ void TeleconWxChart::setPlay() {
 void TeleconWxChart::setPause() {
     m_isRefreshEnabled = false;
 }
-void TeleconWxChart::setRefresh() {
-
+void TeleconWxChart::setRefresh(long interval) {
+    m_chartRefreshTimer->Start(interval);
 }
 
 void TeleconWxChart::doSave() {

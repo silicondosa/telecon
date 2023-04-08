@@ -22,6 +22,9 @@ private:
 
     wxTimer* m_checkQuitTimer;
 
+    // Setup functions 
+    void SetUpViewOptionsBox();
+
     //wxWidgets panels, boxes and sizers
     wxBoxSizer* m_topSizer;
     wxStaticBox* m_viewOptionsBox;

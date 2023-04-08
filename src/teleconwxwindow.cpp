@@ -17,24 +17,8 @@ TeleconWxWindow::TeleconWxWindow(shared_ptr<TeleconWindow> window)
 
     m_viewOptionsBox = new wxStaticBox(this, wxID_ANY, wxEmptyString);
     m_viewOptionsBoxSizer = new wxStaticBoxSizer(m_viewOptionsBox, wxHORIZONTAL);
-    itemBoxSizer->Add(m_viewOptionsBoxSizer, 0, wxGROW | wxALL, FromDIP(3));;
-
-    m_playButton = new wxToggleButton(m_viewOptionsBox, ID_PLAY, _(" &Run"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
-    m_viewOptionsBoxSizer->Add(m_playButton, 0, wxGROW | wxALL, FromDIP(3));
-    m_pauseButton = new wxToggleButton(m_viewOptionsBox, ID_PAUSE, _(" &Freeze"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
-    m_viewOptionsBoxSizer->Add(m_pauseButton, 0, wxGROW | wxALL, FromDIP(3));
-    m_saveButton = new wxButton(m_viewOptionsBox, wxID_SAVE, _(" &Save"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
-    m_viewOptionsBoxSizer->Add(m_saveButton, 0, wxGROW | wxALL, FromDIP(3));
-    wxStaticText* graphRefreshIntervalStaticText = new wxStaticText(m_viewOptionsBox, wxID_STATIC, _("Refresh Interval (ms)"), wxDefaultPosition, wxDefaultSize, 0);
-    m_viewOptionsBoxSizer->Add(graphRefreshIntervalStaticText, 0, wxALIGN_TOP | wxALL, FromDIP(3));
-    wxArrayString m_refreshIntervalStrings;
-    for (auto i : chartRefreshIntervals)
-    {
-        m_refreshIntervalStrings.Add(wxString::Format("%d", i));
-    }
-    m_refreshIntervalSelector = new wxChoice(m_viewOptionsBox, ID_REFRESH_INTERVAL, wxDefaultPosition, wxDefaultSize, m_refreshIntervalStrings, 0);
-    m_refreshIntervalSelector->SetStringSelection(wxString::Format("%d", chartRefreshIntervals[0]));
-    m_viewOptionsBoxSizer->Add(m_refreshIntervalSelector, 0, wxGROW | wxALL, FromDIP(3));
+    itemBoxSizer->Add(m_viewOptionsBoxSizer, 0, wxGROW | wxALL, FromDIP(3));
+    SetUpViewOptionsBox();
 
     //add charts to main sizer
     for (int i = 0; i < m_window->getNumCharts(); i++) {
@@ -48,6 +32,35 @@ TeleconWxWindow::TeleconWxWindow(shared_ptr<TeleconWindow> window)
 
     m_checkQuitTimer = new wxTimer(this, ID_QUIT_TIMER);
     m_checkQuitTimer->Start(100);
+}
+
+void TeleconWxWindow::SetUpViewOptionsBox()
+{
+
+    //play button
+    m_playButton = new wxToggleButton(m_viewOptionsBox, ID_PLAY, _(" &Run"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
+    m_viewOptionsBoxSizer->Add(m_playButton, 0, wxGROW | wxALL, FromDIP(3));
+
+    //pause button
+    m_pauseButton = new wxToggleButton(m_viewOptionsBox, ID_PAUSE, _(" &Freeze"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
+    m_viewOptionsBoxSizer->Add(m_pauseButton, 0, wxGROW | wxALL, FromDIP(3));
+
+    //save button
+    m_saveButton = new wxButton(m_viewOptionsBox, wxID_SAVE, _(" &Save"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
+    m_viewOptionsBoxSizer->Add(m_saveButton, 0, wxGROW | wxALL, FromDIP(3));
+
+    //refresh rate dropdown
+    wxStaticText* graphRefreshIntervalStaticText = new wxStaticText(m_viewOptionsBox, wxID_STATIC, _("Refresh Interval (ms)"), wxDefaultPosition, wxDefaultSize, 0);
+    m_viewOptionsBoxSizer->Add(graphRefreshIntervalStaticText, 0, wxALIGN_TOP | wxALL, FromDIP(3));
+    wxArrayString m_refreshIntervalStrings;
+    for (auto i : chartRefreshIntervals)
+    {
+        m_refreshIntervalStrings.Add(wxString::Format("%d", i));
+    }
+    m_refreshIntervalSelector = new wxChoice(m_viewOptionsBox, ID_REFRESH_INTERVAL, wxDefaultPosition, wxDefaultSize, m_refreshIntervalStrings, 0);
+    m_refreshIntervalSelector->SetStringSelection(wxString::Format("%d", chartRefreshIntervals[0]));
+    m_viewOptionsBoxSizer->Add(m_refreshIntervalSelector, 0, wxGROW | wxALL, FromDIP(3));
+    
 }
 
 TeleconWxWindow::~TeleconWxWindow() {

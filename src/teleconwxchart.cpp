@@ -53,47 +53,12 @@ TeleconWxChart::TeleconWxChart(
 
 void TeleconWxChart::SetUpViewOptionsBox()
 {
-    // Add play button
-    m_playButton = new wxToggleButton(m_viewOptionsBox, ID_PLAY, _(" &Run"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
-    // m_playButton->SetBitmap(GetBitmapResource("play.png"));
-    // m_playButton->SetBitmapMargins(FromDIP(10), FromDIP(0));
-    // Initially set the mouse to drag to scroll mode
-    m_playButton->SetValue(true);
-    m_viewOptionsBoxSizer->Add(m_playButton, 0, wxGROW | wxALL, FromDIP(3));
-
-    // Add pause button
-    m_pauseButton = new wxToggleButton(m_viewOptionsBox, ID_PAUSE, _(" &Freeze"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
-    // m_pauseButton->SetBitmap(GetBitmapResource("pause.png"));
-    // m_pauseButton->SetBitmapMargins(FromDIP(10), FromDIP(0));
-    m_pauseButton->SetValue(false);
-    m_viewOptionsBoxSizer->Add(m_pauseButton, 0, wxGROW | wxALL, FromDIP(3));
-
-    /* Add a small gap after the playand pause buttons. Gaps have nonzero proportion while buttons have zero proportion,
-    so gaps will grow but buttons won't if the window is resized */
-    m_viewOptionsBoxSizer->Add(3, 3, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, FromDIP(3));
 
     // Add save button
     m_saveButton = new wxButton(m_viewOptionsBox, wxID_SAVE, _(" &Save"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
     // m_saveButton->SetBitmap(GetBitmapResource("save.png"));
     // m_saveButton->SetBitmapMargins(FromDIP(10), FromDIP(0));
     m_viewOptionsBoxSizer->Add(m_saveButton, 0, wxGROW | wxALL, FromDIP(3));
-
-    m_viewOptionsBoxSizer->Add(3, 3, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, FromDIP(3)); // another gap
-
-    // Add graph refresh interval selector. Note: does not affect underlying data fetch rate
-    wxStaticText *graphRefreshIntervalStaticText = new wxStaticText(m_viewOptionsBox, wxID_STATIC, _("Refresh Interval (ms)"), wxDefaultPosition, wxDefaultSize, 0);
-    m_viewOptionsBoxSizer->Add(graphRefreshIntervalStaticText, 0, wxALIGN_LEFT | wxALL, FromDIP(3));
-
-    wxArrayString m_refreshIntervalStrings;
-    for (auto i : chartRefreshIntervals)
-    {
-        m_refreshIntervalStrings.Add(wxString::Format("%d", i));
-    }
-    m_refreshIntervalSelector = new wxChoice(m_viewOptionsBox, ID_REFRESH_INTERVAL, wxDefaultPosition, wxDefaultSize, m_refreshIntervalStrings, 0);
-    m_refreshIntervalSelector->SetStringSelection(wxString::Format("%d", chartRefreshIntervals[0]));
-    m_viewOptionsBoxSizer->Add(m_refreshIntervalSelector, 0, wxGROW | wxALL, FromDIP(3));
-
-    m_viewOptionsBoxSizer->Add(3, FromDIP(10), 1, wxALIGN_CENTER_HORIZONTAL | wxALL, FromDIP(3));
 
     m_plotLatestValueFlexGridSizer = new wxFlexGridSizer( 0, 2, 0, 0);
     m_viewOptionsBoxSizer->Add(m_plotLatestValueFlexGridSizer, 0, wxGROW | wxALL, FromDIP(3));
@@ -115,9 +80,6 @@ void TeleconWxChart::SetUpChartBox()
 
 BEGIN_EVENT_TABLE(TeleconWxChart, wxPanel)
 
-EVT_TOGGLEBUTTON(ID_PLAY, TeleconWxChart::OnPlayClick)
-EVT_TOGGLEBUTTON(ID_PAUSE, TeleconWxChart::OnPauseClick)
-EVT_CHOICE(ID_REFRESH_INTERVAL, TeleconWxChart::OnChartRefreshIntervalSelected)
 EVT_BUTTON(wxID_SAVE, TeleconWxChart::OnSave)
 
 EVT_TIMER(ID_REFRESH_TIMER, TeleconWxChart::OnChartRefreshTimer)
@@ -139,30 +101,6 @@ void TeleconWxChart::setRefresh(long interval) {
 
 void TeleconWxChart::doSave() {
 
-}
-
-// Event handler
-void TeleconWxChart::OnPlayClick(wxCommandEvent &event)
-{
-    m_playButton->SetValue(true);
-    m_pauseButton->SetValue(false);
-    m_isRefreshEnabled = true;
-}
-
-// Event handler
-void TeleconWxChart::OnPauseClick(wxCommandEvent &event)
-{
-    m_playButton->SetValue(false);
-    m_pauseButton->SetValue(true);
-    m_isRefreshEnabled = false;
-}
-
-// Event handler
-void TeleconWxChart::OnChartRefreshIntervalSelected(wxCommandEvent &event)
-{
-    long interval;
-    (m_refreshIntervalSelector->GetString(m_refreshIntervalSelector->GetSelection())).ToLong(&interval);
-    m_chartRefreshTimer->Start(interval);
 }
 
 // Event handler

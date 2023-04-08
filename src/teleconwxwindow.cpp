@@ -19,7 +19,7 @@ TeleconWxWindow::TeleconWxWindow(shared_ptr<TeleconWindow> window)
     m_viewOptionsBoxSizer = new wxStaticBoxSizer(m_viewOptionsBox, wxHORIZONTAL);
     itemBoxSizer->Add(m_viewOptionsBoxSizer, 0, wxGROW | wxALL, FromDIP(3));;
 
-    m_playButton = new wxToggleButton(m_viewOptionsBox, ID_PLAY, _(" &Run1111"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
+    m_playButton = new wxToggleButton(m_viewOptionsBox, ID_PLAY, _(" &Run"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
     m_viewOptionsBoxSizer->Add(m_playButton, 0, wxGROW | wxALL, FromDIP(3));
     m_pauseButton = new wxToggleButton(m_viewOptionsBox, ID_PAUSE, _(" &Freeze"), wxDefaultPosition, wxDefaultSize, wxBU_LEFT);
     m_viewOptionsBoxSizer->Add(m_pauseButton, 0, wxGROW | wxALL, FromDIP(3));

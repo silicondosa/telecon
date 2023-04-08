@@ -22,8 +22,20 @@ private:
 
     wxTimer* m_checkQuitTimer;
 
+    //wxWidgets panels, boxes and sizers
+    wxBoxSizer* m_topSizer;
+    wxStaticBox* m_viewOptionsBox;
+    wxStaticBoxSizer* m_viewOptionsBoxSizer;
+
+    // wxWidgets buttons and dropdown boxes
+    wxToggleButton* m_playButton;
+    wxToggleButton* m_pauseButton;
+    wxButton* m_saveButton;
+    wxChoice* m_refreshIntervalSelector;
+
     void checkQuit(wxTimerEvent& event);
     void onClose(wxCloseEvent& event);
+
 public:
     TeleconWxWindow(shared_ptr<TeleconWindow> window);
     ~TeleconWxWindow();

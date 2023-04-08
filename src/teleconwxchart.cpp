@@ -39,16 +39,16 @@ TeleconWxChart::TeleconWxChart(
     m_topSizer = new wxBoxSizer(wxHORIZONTAL);
     SetSizer(m_topSizer);
 
+    m_chartBoxSizer = new wxBoxSizer(wxVERTICAL);
+    m_topSizer->Add(m_chartBoxSizer, 1, wxGROW | wxALL, FromDIP(3));
+
+    SetUpChartBox();
+
     m_viewOptionsBox = new wxStaticBox(this, wxID_ANY, wxEmptyString);
     m_viewOptionsBoxSizer = new wxStaticBoxSizer(m_viewOptionsBox, wxVERTICAL);
     m_topSizer->Add(m_viewOptionsBoxSizer, 0, wxGROW | wxALL, FromDIP(3));
 
     SetUpViewOptionsBox();
-
-    m_chartBoxSizer = new wxBoxSizer(wxVERTICAL);
-    m_topSizer->Add(m_chartBoxSizer, 1, wxGROW | wxALL, FromDIP(3));
-
-    SetUpChartBox();
 }
 
 void TeleconWxChart::SetUpViewOptionsBox()

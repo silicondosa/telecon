@@ -6,7 +6,8 @@ TeleconChart::TeleconChart(string title, double memoryDepthSeconds, int dataRate
 	m_dataRateMillis(dataRateMillis),
 	m_xLabel(xLabel),
 	m_yLabel(yLabel),
-	m_colorSequenceMode(colorSequenceMode) {}
+	m_colorSequenceMode(colorSequenceMode),
+    m_hasStartedInitialization(false) {}
 
 string TeleconChart::getTitle()
 {
@@ -40,6 +41,11 @@ long TeleconChart::getNextDefaultColor() {
 	}
 	// Should be impossible, cases are exhaustive
 	return COLOR_BLACK;
+}
+
+void TeleconChart::initialize()
+{
+    m_hasStartedInitialization = true;
 }
 
 shared_ptr<TeleconPlot> TeleconChart::getPlot(int index)

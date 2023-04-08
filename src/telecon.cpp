@@ -30,16 +30,14 @@ void Telecon::teleconAppInit()
     wxTheApp->OnExit();
     wxEntryCleanup();
     m_hasStopped = true;
-    m_hasStartedInitialization = false;
 }
 
 void Telecon::teleconStart()
 {
     m_hasStartedInitialization = true;
-    unique_lock lock(m_hasFinishedInitializationLock);
-    m_hasFinishedInitialization = false;
-    lock.unlock();
-    m_hasStopped = false;
+    for (auto& window : m_windows) {
+        window->initialize();
+    }
     m_wxAppThread = thread(&Telecon::teleconAppInit, this);
 }
 
@@ -91,6 +89,10 @@ bool Telecon::hasStopped()
 
 shared_ptr<TeleconWindow> Telecon::addWindow(string name)
 {
+    if (m_hasStartedInitialization) {
+        cout << "telecon: Telecon has already started, windows may not be added." << endl;
+        return shared_ptr<TeleconWindow>();
+    }
     shared_ptr<TeleconWindow> window = make_shared<TeleconWindow>(name);
     m_windows.push_back(window);
     return window;

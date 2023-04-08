@@ -25,6 +25,8 @@ protected:
     const string m_yLabel;
     const ColorSequenceMode m_colorSequenceMode;
 
+    bool m_hasStartedInitialization;
+
     vector<shared_ptr<TeleconPlot>> m_plots;
 
     long getNextDefaultColor();
@@ -36,6 +38,8 @@ public:
     string getYLabel();
     ColorSequenceMode getColorSequenceMode();
     virtual double getDefaultXAxisSpan() = 0;
+
+    void initialize();
     
     shared_ptr<TeleconPlot> getPlot(int index);
     size_t getNumPlots();

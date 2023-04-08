@@ -72,6 +72,11 @@ int main(int argc, char* argv[])
 
     telecon->teleconStart();
 
+    telecon->addWindow("Third window");
+    window2->addRealtimeChart();
+    chart4->addLinePlot("line");
+    chart4->addScatterPlot("scatter");
+
     vector<shared_ptr<TeleconLineScatterPlot>> plots({ plot1, plot2, plot3, plot4, plot5, plot6, plot7, plot8, plot9, plot10, plot11, plot12, plot13, plot14, plot15});
 
     // Controller code starts here

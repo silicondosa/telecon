@@ -1,7 +1,9 @@
 #include "teleconwindow.h"
 
+#include <iostream>
+
 TeleconWindow::TeleconWindow(std::string title)
-	: m_title(title), m_hasRequestedQuit(false), m_hasQuit(false) {}
+	: m_title(title), m_hasRequestedQuit(false), m_hasQuit(false), m_hasStartedInitialization(false) {}
 
 TeleconWindow::TeleconWindow()
 	: TeleconWindow("") {}
@@ -43,8 +45,20 @@ std::string TeleconWindow::getTitle()
 	return m_title;
 }
 
+void TeleconWindow::initialize()
+{
+    m_hasStartedInitialization = true;
+    for (auto& chart : m_charts) {
+        chart->initialize();
+    }
+}
+
 shared_ptr<TeleconRealtimeChart> TeleconWindow::addRealtimeChart(std::string title, double memoryDepthSeconds, int dataRateMillis, std::string xLabel, std::string yLabel, ColorSequenceMode colorSequenceMode)
 {
+    if (m_hasStartedInitialization) {
+        cout << "telecon: Telecon has already started, charts may not be added." << endl;
+        return shared_ptr<TeleconRealtimeChart>();
+    }
 	shared_ptr<TeleconRealtimeChart> chart = make_shared<TeleconRealtimeChart>(title, memoryDepthSeconds, dataRateMillis, xLabel, yLabel, colorSequenceMode);
 	m_charts.push_back(chart);
 	return chart;

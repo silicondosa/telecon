@@ -15,6 +15,8 @@ private:
 	bool m_hasQuit;
 	const std::string m_title;
 
+    bool m_hasStartedInitialization;
+
 	std::vector<shared_ptr<TeleconChart>> m_charts;
 public:
 	TeleconWindow(std::string title);
@@ -26,6 +28,8 @@ public:
 	bool hasQuit();
 	void waitUntilQuit();
 	std::string getTitle();
+
+    void initialize();
 
 	/**
 	 * Adds a chart to the window. Charts will be displayed in the order added, from top to bottom.

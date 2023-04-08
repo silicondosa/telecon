@@ -98,8 +98,9 @@ void TeleconWxChart::setRefresh(long interval) {
 
 //setter function for window button
 //i var passed in as chart #
-void TeleconWxChart::doSave(int i) {
-    wxFileDialog saveFileDialog(this, _("Save Chart " + std::to_string(i+1)), "", "chart_" + std::to_string(i + 1),
+void TeleconWxChart::doSave(int i, string windowName) {
+
+    wxFileDialog saveFileDialog(this, _("Save Chart " + std::to_string(i+1)) + " of " + windowName, "", m_chart->getTitle(),
         "PNG (*.png)|*.png|JPG (*.jpg)|*.jpg|GIF (*.gif)|*.gif|BMP (*.bmp)|*.bmp|SVG (*.svg)|*.svg|PDF (*.pdf)|*.pdf", wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
     if (saveFileDialog.ShowModal() == wxID_CANCEL)
         return; // the user changed idea...
@@ -115,6 +116,7 @@ void TeleconWxChart::doSave(int i) {
             c->makeChart(fileName.ToUTF8());
         }
     }
+
 }
 
 // Event handler

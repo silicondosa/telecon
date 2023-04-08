@@ -44,7 +44,7 @@ public:
     void setPlay();
     void setPause();
     void setRefresh(long);
-    void doSave(int);
+    void doSave(int, string);
 
     DECLARE_EVENT_TABLE()
 

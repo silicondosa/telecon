@@ -99,8 +99,18 @@ void TeleconWxWindow::OnChartRefreshIntervalSelected(wxCommandEvent& event)
 // Event handler
 void TeleconWxWindow::OnSave(wxCommandEvent& event)
 {
+    //pause all to sync timestamp
     for (int i = 0; i < m_window->getNumCharts(); i++) {
-        m_charts[i]->doSave(i);
+        m_charts[i]->setPause();
+    }
+
+    for (int i = 0; i < m_window->getNumCharts(); i++) {
+        m_charts[i]->doSave(i, m_window->getTitle());
+    }
+
+    //resume all
+    for (int i = 0; i < m_window->getNumCharts(); i++) {
+        m_charts[i]->setPlay();
     }
 }
 

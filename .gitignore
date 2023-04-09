@@ -366,6 +366,7 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # VS Code files for those working on multiple tools
+.vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -386,3 +387,9 @@ FodyWeavers.xsd
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+#
+src/compile.sh
+telecon_v1/icons
+telecon_v1/*.o
+telecon_v1/teleconapp

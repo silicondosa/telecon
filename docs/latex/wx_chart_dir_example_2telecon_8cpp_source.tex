@@ -1,0 +1,594 @@
+\hypertarget{wx_chart_dir_example_2telecon_8cpp_source}{}\doxysection{telecon.\+cpp}
+\label{wx_chart_dir_example_2telecon_8cpp_source}\index{src/wxChartDirExample/telecon.cpp@{src/wxChartDirExample/telecon.cpp}}
+\mbox{\hyperlink{wx_chart_dir_example_2telecon_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00001}00001\ \textcolor{comment}{//\ For\ compilers\ that\ support\ precompilation,\ includes\ "{}wx/wx.h"{}.}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}wx/wxprec.h"{}}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#ifdef\ \_\_BORLANDC\_\_}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#pragma\ hdrstop}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ WX\_PRECOMP}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}wx/wx.h"{}}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}telecon.h"{}}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00017}00017\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}mondrian.xpm"{}}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00024}\mbox{\hyperlink{wx_chart_dir_example_2telecon_8cpp_af316702e2d653b24346d72bd2ac20c29}{00024}}\ \textcolor{preprocessor}{\#define\ SYMBOL\_REALTIMETRACK\_STYLE\ wxCAPTION|wxSYSTEM\_MENU|wxCLOSE\_BOX}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00025}\mbox{\hyperlink{wx_chart_dir_example_2telecon_8cpp_a5a0a0df9feb06f33aca8dac1d2eb56cd}{00025}}\ \textcolor{preprocessor}{\#define\ SYMBOL\_REALTIMETRACK\_IDNAME\ ID\_REALTIMETRACK}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00026}\mbox{\hyperlink{wx_chart_dir_example_2telecon_8cpp_a779d6e28ec7e776d624f404f545fb94a}{00026}}\ \textcolor{preprocessor}{\#define\ SYMBOL\_REALTIMETRACK\_SIZE\ wxSize(700,\ 320)}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00027}\mbox{\hyperlink{wx_chart_dir_example_2telecon_8cpp_a32022f2460030d67f51055fac5afbc1f}{00027}}\ \textcolor{preprocessor}{\#define\ SYMBOL\_REALTIMETRACK\_POSITION\ wxDefaultPosition}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00029}00029\ \textcolor{comment}{//\ 250ms\ per\ data\ point,\ chart\ contains\ 1\ min\ of\ data\ =\ 240\ data\ points.}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00030}00030\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ m\_dataInterval\ =\ 250;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00031}00031\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ m\_sampleSize\ =\ 240;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00033}00033\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00034}00034\ \textcolor{comment}{\ *\ Telecon\ type\ definition}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00035}00035\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00037}00037\ IMPLEMENT\_CLASS(\mbox{\hyperlink{class_telecon}{Telecon}},\ wxDialog)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00039}00039\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00040}00040\ \textcolor{comment}{\ *\ Telecon\ event\ table\ definition}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00041}00041\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00043}00043\ BEGIN\_EVENT\_TABLE(\mbox{\hyperlink{class_telecon}{Telecon}},\ wxDialog)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00045}00045\ EVT\_TOGGLEBUTTON(\mbox{\hyperlink{teleconrealtimechart_8h_a06fc87d81c62e9abb8790b6e5713c55ba8295136a6da52b0c280421c8fe22715a}{ID\_PLAY}},\ Telecon::OnPlayClick)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00046}00046\ EVT\_TOGGLEBUTTON(\mbox{\hyperlink{teleconrealtimechart_8h_a06fc87d81c62e9abb8790b6e5713c55ba98bc0750b2c1238b4507f9b09ece67a6}{ID\_PAUSE}},\ Telecon::OnPauseClick)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00047}00047\ EVT\_CHOICE(\mbox{\hyperlink{teleconrealtimechart_8h_a06fc87d81c62e9abb8790b6e5713c55ba9c850307c7c28256b124539ae9ff52cc}{ID\_UPDATE\_PERIOD}},\ Telecon::OnUpdatePeriodSelected)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00048}00048\ EVT\_BUTTON(wxID\_SAVE,\ Telecon::OnSave)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00050}00050\ EVT\_TIMER(\mbox{\hyperlink{teleconrealtimechart_8h_a06fc87d81c62e9abb8790b6e5713c55ba2d498a17f67886612376fb3d0c777cdb}{ID\_DATA\_TIMER}},\ Telecon::OnDataTimer)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00051}00051\ EVT\_TIMER(\mbox{\hyperlink{teleconrealtimechart_8h_a06fc87d81c62e9abb8790b6e5713c55ba4aa3022c869a7c5f87806fc17917f877}{ID\_UPDATE\_TIMER}},\ Telecon::OnChartUpdateTimer)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00052}00052\ EVT\_CHARTVIEWER\_VIEWPORT\_CHANGED(\mbox{\hyperlink{teleconrealtimechart_8h_a06fc87d81c62e9abb8790b6e5713c55ba12f80c74dc4c5d9996717490ba4a8f52}{ID\_CHARTVIEWER}},\ Telecon::OnViewPortChanged)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00053}00053\ EVT\_CHARTVIEWER\_MOUSEMOVE\_PLOTAREA(\mbox{\hyperlink{teleconrealtimechart_8h_a06fc87d81c62e9abb8790b6e5713c55ba12f80c74dc4c5d9996717490ba4a8f52}{ID\_CHARTVIEWER}},\ Telecon::OnMouseMovePlotArea)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00055}00055\ END\_EVENT\_TABLE()}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00057}00057\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00058}00058\ \textcolor{comment}{\ *\ Telecon\ constructors}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00059}00059\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00061}00061\ \mbox{\hyperlink{class_telecon}{Telecon}}::\mbox{\hyperlink{class_telecon}{Telecon}}()}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00062}00062\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00063}00063\ \ \ \ \ Init();}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00064}00064\ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00067}00067\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00068}00068\ \textcolor{comment}{\ *\ Telecon\ creator}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00069}00069\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00071}\mbox{\hyperlink{class_telecon_a3cfa78dae936ac117b15baff8670aed0}{00071}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_telecon_a3cfa78dae936ac117b15baff8670aed0}{Telecon::createWindow}}(\textcolor{keyword}{const}\ wxString\&\ caption,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00072}00072\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00073}00073\ \ \ \ \ wxDialog::Create(NULL,\ \mbox{\hyperlink{wx_chart_dir_example_2telecon_8cpp_a5a0a0df9feb06f33aca8dac1d2eb56cd}{SYMBOL\_REALTIMETRACK\_IDNAME}},\ caption,\ \mbox{\hyperlink{wx_chart_dir_example_2telecon_8cpp_a32022f2460030d67f51055fac5afbc1f}{SYMBOL\_REALTIMETRACK\_POSITION}},\ \mbox{\hyperlink{wx_chart_dir_example_2telecon_8cpp_a779d6e28ec7e776d624f404f545fb94a}{SYMBOL\_REALTIMETRACK\_SIZE}},\ \mbox{\hyperlink{wx_chart_dir_example_2telecon_8cpp_af316702e2d653b24346d72bd2ac20c29}{SYMBOL\_REALTIMETRACK\_STYLE}});}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00074}00074\ \ \ \ \ CreatePlotControls();}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00075}00075\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00077}00077\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00078}00078\ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00080}00080\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00081}00081\ \textcolor{comment}{\ *\ Telecon\ destructor}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00082}00082\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00084}\mbox{\hyperlink{class_telecon_aae363873cda0dd58aed13376b5e4152b}{00084}}\ \mbox{\hyperlink{class_telecon_aae363873cda0dd58aed13376b5e4152b}{Telecon::\string~Telecon}}()}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00085}00085\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00086}00086\ \ \ \ \ m\_dataRateTimer-\/>Stop();}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00087}00087\ \ \ \ \ m\_chartUpdateTimer-\/>Stop();}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00088}00088\ \ \ \ \ \textcolor{keyword}{delete}\ m\_dataRateTimer;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00089}00089\ \ \ \ \ \textcolor{keyword}{delete}\ m\_chartUpdateTimer;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00091}00091\ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_chartViewer-\/>getChart()\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00092}00092\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ m\_chartViewer-\/>getChart();}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00094}00094\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00095}00095\ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00097}00097\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00098}00098\ \textcolor{comment}{\ *\ Member\ initialisation}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00099}00099\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00101}00101\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00102}00102\ Telecon::Init()}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00103}00103\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00104}00104\ \ \ \ \ m\_updatePeriod\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00105}00105\ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00107}00107\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00108}\mbox{\hyperlink{class_telecon_a8985bbf523104f07183c5ec063bd2975}{00108}}\ \mbox{\hyperlink{class_telecon_a8985bbf523104f07183c5ec063bd2975}{Telecon::AddChart}}(\textcolor{keyword}{const}\ wxString\ title,\ \textcolor{keyword}{const}\ wxString\ ylabel)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00109}00109\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00110}00110\ \ \ \ \ m\_chartTitle\ =\ title;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00111}00111\ \ \ \ \ m\_ylabel\ =\ ylabel;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00112}00112\ \ \ \ \ wxBoxSizer*\ itemBoxSizer8\ =\ \textcolor{keyword}{new}\ wxBoxSizer(wxVERTICAL);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00113}00113\ \ \ \ \ itemBoxSizer3-\/>Add(itemBoxSizer8,\ 1,\ wxGROW\ |\ wxALL,\ FromDIP(3));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00114}00114\ \ \ \ \ m\_chartViewer\ =\ \textcolor{keyword}{new}\ wxChartViewer(itemPanel2,\ ID\_CHARTVIEWER,\ wxDefaultPosition,\ FromDIP(wxSize(600,\ 270)),\ wxTAB\_TRAVERSAL\ |\ wxNO\_BORDER);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00116}00116\ \ \ \ \ m\_chartViewer-\/>SetExtraStyle(wxWS\_EX\_VALIDATE\_RECURSIVELY);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00117}00117\ \ \ \ \ itemBoxSizer8-\/>Add(m\_chartViewer,\ 1,\ wxGROW\ |\ wxALL,\ FromDIP(3));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00119}00119\ \ \ \ \ \textcolor{comment}{//\ Allocate\ memory\ for\ the\ data\ series\ and\ initialize\ to\ Chart::NoValue}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00120}00120\ \ \ \ \ m\_timeStamps.resize(m\_sampleSize,\ Chart::NoValue);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00123}00123\ \ \ \ \ m\_currentIndex\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00125}00125\ \ \ \ \ \textcolor{comment}{//\ Set\ m\_nextDataTime\ to\ the\ current\ time.\ It\ is\ used\ by\ the\ real\ time\ random\ number}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00126}00126\ \ \ \ \ \textcolor{comment}{//\ generator\ so\ it\ knows\ what\ timestamp\ should\ be\ used\ for\ the\ next\ data\ point.}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00127}00127\ \ \ \ \ m\_nextDataTime\ =\ wxDateTime::Now();}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00129}00129\ \ \ \ \ \textcolor{comment}{//\ Set\ up\ the\ data\ acquisition\ mechanism.\ In\ this\ demo,\ we\ just\ use\ a\ timer\ to\ get\ a}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00130}00130\ \ \ \ \ \textcolor{comment}{//\ sample\ every\ 250ms.}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00131}00131\ \ \ \ \ m\_dataRateTimer\ =\ \textcolor{keyword}{new}\ wxTimer(\textcolor{keyword}{this},\ ID\_DATA\_TIMER);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00132}00132\ \ \ \ \ m\_dataRateTimer-\/>Start(m\_dataInterval);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00134}00134\ \ \ \ \ \textcolor{comment}{//\ Set\ up\ the\ chart\ update\ timer}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00135}00135\ \ \ \ \ m\_chartUpdateTimer\ =\ \textcolor{keyword}{new}\ wxTimer(\textcolor{keyword}{this},\ ID\_UPDATE\_TIMER);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00136}00136\ \ \ \ \ m\_chartUpdateTimer-\/>Start(m\_dataInterval);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00138}00138\ \ \ \ \ \textcolor{keywordflow}{if}\ (GetSizer())}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00139}00139\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ GetSizer()-\/>SetSizeHints(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00141}00141\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00142}00142\ \ \ \ \ Centre();}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00143}00143\ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00145}00145\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00146}\mbox{\hyperlink{class_telecon_a61b3c4e3a002f7f774522bb1a220a7b3}{00146}}\ \mbox{\hyperlink{class_telecon_a61b3c4e3a002f7f774522bb1a220a7b3}{Telecon::AddPlot}}(\textcolor{keyword}{const}\ wxString\&\ plotname,\ \textcolor{keywordtype}{double}\ (*ptr)(),\ \textcolor{keywordtype}{int}\ plotcolor,\ \textcolor{keywordtype}{char}*\ plottitle)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00147}00147\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00148}00148\ \ \ \ \ funcArray.push\_back(ptr);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00149}00149\ \ \ \ \ std::vector<double>\ vec1;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00150}00150\ \ \ \ \ wxStaticText*\ itemStaticText5\ =\ \textcolor{keyword}{new}\ wxStaticText(itemPanel2,\ wxID\_STATIC,\ \_(plotname),\ wxDefaultPosition,\ wxDefaultSize,\ 0);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00151}00151\ \ \ \ \ itemFlexGridSizer3-\/>Add(itemStaticText5,\ 0,\ wxALIGN\_LEFT\ |\ wxALIGN\_CENTER\_VERTICAL\ |\ wxALL,\ FromDIP(3));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00153}00153\ \ \ \ \ wxTextCtrl*\ m\_alphaValue\ =\ \textcolor{keyword}{new}\ wxTextCtrl(itemPanel2,\ wxID\_ANY,\ wxEmptyString,\ wxDefaultPosition,\ FromDIP(wxSize(60,\ -\/1)),\ wxTE\_READONLY\ |\ wxSTATIC\_BORDER);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00154}00154\ \ \ \ \ m\_alphaValue-\/>Enable(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00155}00155\ \ \ \ \ itemFlexGridSizer3-\/>Add(m\_alphaValue,\ 0,\ wxALIGN\_LEFT\ |\ wxALIGN\_CENTER\_VERTICAL\ |\ wxALL,\ FromDIP(3));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00156}00156\ \ \ \ \ m\_dataValues.push\_back(m\_alphaValue);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00158}00158\ \ \ \ \ vec1.resize(m\_sampleSize,\ Chart::NoValue);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00159}00159\ \ \ \ \ m\_dataSeries.push\_back(vec1);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00160}00160\ \ \ \ \ m\_colorSeries.push\_back(plotcolor);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00161}00161\ \ \ \ \ m\_plottitleSeries.push\_back(plottitle);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00162}00162\ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00164}00164\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00165}00165\ \textcolor{comment}{\ *\ Control\ creation\ for\ Telecon}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00166}00166\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00168}00168\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00169}00169\ Telecon::CreatePlotControls()}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00170}00170\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00171}00171\ \ \ \ \ SetIcon(wxICON(mondrian));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00172}00172\ \ \ \ \ \mbox{\hyperlink{class_telecon}{Telecon}}*\ itemFrame1\ =\ \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00174}00174\ \ \ \ \ wxBoxSizer*\ itemBoxSizer1\ =\ \textcolor{keyword}{new}\ wxBoxSizer(wxVERTICAL);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00175}00175\ \ \ \ \ itemFrame1-\/>SetSizer(itemBoxSizer1);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00177}00177\ \ \ \ \ itemPanel2\ =\ \textcolor{keyword}{new}\ wxPanel(itemFrame1,\ wxID\_ANY,\ wxDefaultPosition,\ wxDefaultSize,\ wxNO\_BORDER\ |\ wxTAB\_TRAVERSAL);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00178}00178\ \ \ \ \ itemPanel2-\/>SetExtraStyle(wxWS\_EX\_VALIDATE\_RECURSIVELY);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00179}00179\ \ \ \ \ itemBoxSizer1-\/>Add(itemPanel2,\ 1,\ wxGROW\ |\ wxALL,\ 0);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00180}00180\ \ \ \ \ m\_bgColour\ =\ itemPanel2-\/>GetBackgroundColour();}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00182}00182\ \ \ \ \ itemBoxSizer3\ =\ \textcolor{keyword}{new}\ wxBoxSizer(wxHORIZONTAL);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00183}00183\ \ \ \ \ itemPanel2-\/>SetSizer(itemBoxSizer3);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00185}00185\ \ \ \ \ wxStaticBox*\ itemStaticBoxSizer1Static\ =\ \textcolor{keyword}{new}\ wxStaticBox(itemPanel2,\ wxID\_ANY,\ wxEmptyString);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00186}00186\ \ \ \ \ wxStaticBoxSizer*\ itemStaticBoxSizer1\ =\ \textcolor{keyword}{new}\ wxStaticBoxSizer(itemStaticBoxSizer1Static,\ wxVERTICAL);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00187}00187\ \ \ \ \ itemBoxSizer3-\/>Add(itemStaticBoxSizer1,\ 0,\ wxGROW\ |\ wxALL,\ FromDIP(3));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00189}00189\ \ \ \ \ m\_playButton\ =\ \textcolor{keyword}{new}\ wxToggleButton(itemPanel2,\ ID\_PLAY,\ \_(\textcolor{stringliteral}{"{}\ \&Run"{}}),\ wxDefaultPosition,\ wxDefaultSize,\ wxBU\_LEFT);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00190}00190\ \ \ \ \ m\_playButton-\/>SetBitmap(GetBitmapResource(\textcolor{stringliteral}{"{}play.png"{}}));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00191}00191\ \ \ \ \ m\_playButton-\/>SetBitmapMargins(FromDIP(10),\ FromDIP(0));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00192}00192\ \ \ \ \ \textcolor{comment}{//\ Initially\ set\ the\ mouse\ to\ drag\ to\ scroll\ mode}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00193}00193\ \ \ \ \ m\_playButton-\/>SetValue(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00194}00194\ \ \ \ \ itemStaticBoxSizer1-\/>Add(m\_playButton,\ 0,\ wxGROW\ |\ wxALL,\ FromDIP(3));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00196}00196\ \ \ \ \ m\_pauseButton\ =\ \textcolor{keyword}{new}\ wxToggleButton(itemPanel2,\ ID\_PAUSE,\ \_(\textcolor{stringliteral}{"{}\ \&Freeze"{}}),\ wxDefaultPosition,\ wxDefaultSize,\ wxBU\_LEFT);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00197}00197\ \ \ \ \ m\_pauseButton-\/>SetBitmap(GetBitmapResource(\textcolor{stringliteral}{"{}pause.png"{}}));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00198}00198\ \ \ \ \ m\_pauseButton-\/>SetBitmapMargins(FromDIP(10),\ FromDIP(0));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00199}00199\ \ \ \ \ m\_pauseButton-\/>SetValue(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00200}00200\ \ \ \ \ itemStaticBoxSizer1-\/>Add(m\_pauseButton,\ 0,\ wxGROW\ |\ wxALL,\ FromDIP(3));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00202}00202\ \ \ \ \ itemStaticBoxSizer1-\/>Add(3,\ 3,\ 1,\ wxALIGN\_CENTER\_HORIZONTAL\ |\ wxALL,\ FromDIP(3));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00204}00204\ \ \ \ \ m\_saveButton\ =\ \textcolor{keyword}{new}\ wxButton(itemPanel2,\ wxID\_SAVE,\ \_(\textcolor{stringliteral}{"{}\ \&Save"{}}),\ wxDefaultPosition,\ wxDefaultSize,\ wxBU\_LEFT);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00205}00205\ \ \ \ \ m\_saveButton-\/>SetBitmap(GetBitmapResource(\textcolor{stringliteral}{"{}save.png"{}}));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00206}00206\ \ \ \ \ m\_saveButton-\/>SetBitmapMargins(FromDIP(10),\ FromDIP(0));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00207}00207\ \ \ \ \ itemStaticBoxSizer1-\/>Add(m\_saveButton,\ 0,\ wxGROW\ |\ wxALL,\ FromDIP(3));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00208}00208\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00209}00209\ \ \ \ \ itemStaticBoxSizer1-\/>Add(3,\ 3,\ 1,\ wxALIGN\_CENTER\_HORIZONTAL\ |\ wxALL,\ FromDIP(3));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00211}00211\ \ \ \ \ wxStaticText*\ itemStaticText4\ =\ \textcolor{keyword}{new}\ wxStaticText(itemPanel2,\ wxID\_STATIC,\ \_(\textcolor{stringliteral}{"{}Update\ Period\ (ms)"{}}),\ wxDefaultPosition,\ wxDefaultSize,\ 0);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00212}00212\ \ \ \ \ itemStaticBoxSizer1-\/>Add(itemStaticText4,\ 0,\ wxALIGN\_LEFT\ |\ wxALL,\ FromDIP(3));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00213}00213\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00214}00214\ \ \ \ \ wxArrayString\ m\_updatePeriodStrings;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00215}00215\ \ \ \ \ m\_updatePeriodStrings.Add(\textcolor{stringliteral}{"{}250"{}});}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00216}00216\ \ \ \ \ m\_updatePeriodStrings.Add(\textcolor{stringliteral}{"{}500"{}});}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00217}00217\ \ \ \ \ m\_updatePeriodStrings.Add(\textcolor{stringliteral}{"{}750"{}});}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00218}00218\ \ \ \ \ m\_updatePeriodStrings.Add(\textcolor{stringliteral}{"{}1000"{}});}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00219}00219\ \ \ \ \ m\_updatePeriodStrings.Add(\textcolor{stringliteral}{"{}1250"{}});}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00220}00220\ \ \ \ \ m\_updatePeriodStrings.Add(\textcolor{stringliteral}{"{}1500"{}});}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00221}00221\ \ \ \ \ m\_updatePeriodStrings.Add(\textcolor{stringliteral}{"{}1750"{}});}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00222}00222\ \ \ \ \ m\_updatePeriodStrings.Add(\textcolor{stringliteral}{"{}2000"{}});}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00223}00223\ \ \ \ \ m\_updatePeriod\ =\ \textcolor{keyword}{new}\ wxChoice(itemPanel2,\ ID\_UPDATE\_PERIOD,\ wxDefaultPosition,\ wxDefaultSize,\ m\_updatePeriodStrings,\ 0);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00224}00224\ \ \ \ \ m\_updatePeriod-\/>SetStringSelection(wxString::Format(\textcolor{stringliteral}{"{}\%d"{}},\ m\_dataInterval));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00225}00225\ \ \ \ \ itemStaticBoxSizer1-\/>Add(m\_updatePeriod,\ 0,\ wxGROW\ |\ wxALL,\ FromDIP(3));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00226}00226\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00227}00227\ \ \ \ \ itemStaticBoxSizer1-\/>Add(3,\ 3,\ 1,\ wxALIGN\_CENTER\_HORIZONTAL\ |\ wxALL,\ FromDIP(3));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00228}00228\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00229}00229\ \ \ \ \ itemFlexGridSizer3\ =\ \textcolor{keyword}{new}\ wxFlexGridSizer(0,\ 2,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00230}00230\ \ \ \ \ itemStaticBoxSizer1-\/>Add(itemFlexGridSizer3,\ 0,\ wxGROW\ |\ wxALL,\ FromDIP(3));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00231}00231\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00232}00232\ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00234}00234\ \textcolor{comment}{//\ The\ ViewPortChanged\ event\ handler.\ This\ event\ occurs\ if\ the\ user\ scrolls\ or\ zooms\ in}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00235}00235\ \textcolor{comment}{//\ or\ out\ the\ chart\ by\ dragging\ or\ clicking\ on\ the\ chart.\ It\ can\ also\ be\ triggered\ by}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00236}00236\ \textcolor{comment}{//\ calling\ WinChartViewer.updateViewPort.}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00237}00237\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00238}00238\ Telecon::OnViewPortChanged(wxCommandEvent\&\ event)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00239}00239\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00240}00240\ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_chartViewer-\/>needUpdateChart())}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00241}00241\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00242}00242\ \ \ \ \ \ \ \ \ DrawChart();}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00243}00243\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00244}00244\ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00246}00246\ \textcolor{comment}{//\ Update\ the\ chart.\ Instead\ of\ drawing\ the\ chart\ directly,\ we\ call\ updateViewPort,\ which}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00247}00247\ \textcolor{comment}{//\ will\ trigger\ a\ ViewPortChanged\ signal.\ We\ update\ the\ chart\ in\ the\ signal\ handler}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00248}00248\ \textcolor{comment}{//\ "{}drawChart"{}.\ This\ can\ take\ advantage\ of\ the\ built-\/in\ rate\ control\ in\ wxChartViewer\ to}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00249}00249\ \textcolor{comment}{//\ ensure\ a\ smooth\ user\ interface,\ even\ for\ extremely\ high\ update\ rate.\ (See\ the}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00250}00250\ \textcolor{comment}{//\ documentation\ on\ wxChartViewer.setUpdateInterval).}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00251}00251\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00252}00252\ Telecon::UpdateChart()}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00253}00253\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00254}00254\ \ \ \ \ m\_chartViewer-\/>updateViewPort(\textcolor{keyword}{true},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00255}00255\ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00256}00256\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00257}00257\ \textcolor{comment}{//\ Draw\ the\ chart\ and\ display\ it\ in\ the\ given\ viewer}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00258}00258\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00259}00259\ Telecon::DrawChart()}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00260}00260\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00261}00261\ \ \ \ \ \textcolor{comment}{//\ Create\ an\ XYChart\ object\ 600\ x\ 270\ pixels\ in\ size,\ with\ light\ grey\ (f4f4f4)\ }}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00262}00262\ \ \ \ \ \textcolor{comment}{//\ background,\ black\ (000000)\ border,\ 1\ pixel\ raised\ effect,\ and\ with\ a\ rounded\ frame.}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00263}00263\ \ \ \ \ XYChart*\ c\ =\ \textcolor{keyword}{new}\ XYChart(520,\ 270,\ 0xf4f4f4,\ 0x000000,\ 1);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00264}00264\ \ \ \ \ c-\/>setRoundedFrame((m\_bgColour.Red()\ <<\ 16)\ +\ (m\_bgColour.Green()\ <<\ 8)\ +\ m\_bgColour.Blue());}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00265}00265\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00266}00266\ \ \ \ \ \textcolor{comment}{//\ Set\ the\ plotarea\ at\ (55,\ 55)\ and\ of\ size\ 520\ x\ 185\ pixels.\ Use\ white\ (ffffff)\ }}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00267}00267\ \ \ \ \ \textcolor{comment}{//\ background.\ Enable\ both\ horizontal\ and\ vertical\ grids\ by\ setting\ their\ colors\ to\ }}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00268}00268\ \ \ \ \ \textcolor{comment}{//\ grey\ (cccccc).\ Set\ clipping\ mode\ to\ clip\ the\ data\ lines\ to\ the\ plot\ area.}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00269}00269\ \ \ \ \ c-\/>setPlotArea(55,\ 55,\ 520,\ 185,\ 0xffffff,\ -\/1,\ -\/1,\ 0xcccccc,\ 0xcccccc);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00270}00270\ \ \ \ \ c-\/>setClipping();}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00272}00272\ \ \ \ \ \textcolor{comment}{//\ Add\ a\ title\ to\ the\ chart\ using\ 15\ pts\ Times\ New\ Roman\ Bold\ Italic\ font,\ with\ a\ light}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00273}00273\ \ \ \ \ \textcolor{comment}{//\ grey\ (dddddd)\ background,\ black\ (000000)\ border,\ and\ a\ glass\ like\ raised\ effect.}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00274}00274\ \ \ \ \ c-\/>addTitle(m\_chartTitle,\ \textcolor{stringliteral}{"{}Times\ New\ Roman\ Bold\ Italic"{}},\ 15}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00275}00275\ \ \ \ \ )-\/>setBackground(0xdddddd,\ 0x000000,\ Chart::glassEffect());}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00276}00276\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00277}00277\ \ \ \ \ \textcolor{comment}{//\ Set\ the\ reference\ font\ size\ of\ the\ legend\ box}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00278}00278\ \ \ \ \ c-\/>getLegend()-\/>setFontSize(8);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00279}00279\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00280}00280\ \ \ \ \ \textcolor{comment}{//\ Configure\ the\ y-\/axis\ with\ a\ 10pts\ Arial\ Bold\ axis\ title}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00281}00281\ \ \ \ \ c-\/>yAxis()-\/>setTitle(m\_ylabel,\ \textcolor{stringliteral}{"{}Arial\ Bold"{}},\ 10);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00282}00282\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00283}00283\ \ \ \ \ \textcolor{comment}{//\ Configure\ the\ x-\/axis\ to\ auto-\/scale\ with\ at\ least\ 75\ pixels\ between\ major\ tick\ and\ }}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00284}00284\ \ \ \ \ \textcolor{comment}{//\ 15\ \ pixels\ between\ minor\ ticks.\ This\ shows\ more\ minor\ grid\ lines\ on\ the\ chart.}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00285}00285\ \ \ \ \ c-\/>xAxis()-\/>setTickDensity(75,\ 15);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00286}00286\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00287}00287\ \ \ \ \ \textcolor{comment}{//\ Set\ the\ axes\ width\ to\ 2\ pixels}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00288}00288\ \ \ \ \ c-\/>xAxis()-\/>setWidth(2);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00289}00289\ \ \ \ \ c-\/>yAxis()-\/>setWidth(2);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00290}00290\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00291}00291\ \ \ \ \ \textcolor{comment}{//\ Now\ we\ add\ the\ data\ to\ the\ chart.\ }}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00292}00292\ \ \ \ \ \textcolor{keywordtype}{double}\ firstTime\ =\ m\_timeStamps[0];}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00293}00293\ \ \ \ \ \textcolor{keywordflow}{if}\ (firstTime\ !=\ Chart::NoValue)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00294}00294\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00295}00295\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Set\ up\ the\ x-\/axis\ to\ show\ the\ time\ range\ in\ the\ data\ buffer}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00296}00296\ \ \ \ \ \ \ \ \ c-\/>xAxis()-\/>setDateScale(firstTime,\ firstTime\ +\ m\_dataInterval\ *\ m\_sampleSize\ /\ 1000);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00297}00297\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00298}00298\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Set\ the\ x-\/axis\ label\ format}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00299}00299\ \ \ \ \ \ \ \ \ c-\/>xAxis()-\/>setLabelFormat(\textcolor{stringliteral}{"{}\{value|hh:nn:ss\}"{}});}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00300}00300\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00301}00301\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ a\ line\ layer\ to\ plot\ the\ lines}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00302}00302\ \ \ \ \ \ \ \ \ LineLayer*\ layer\ =\ c-\/>addLineLayer();}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00303}00303\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00304}00304\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ x-\/coordinates\ are\ the\ timeStamps.}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00305}00305\ \ \ \ \ \ \ \ \ layer-\/>setXData(DoubleArray(\&m\_timeStamps[0],\ m\_sampleSize));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00306}00306\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00307}00307\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ 3\ data\ series\ are\ used\ to\ draw\ 3\ lines.}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00308}00308\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00309}00309\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ std::vector<double>\&\ element\ :\ m\_dataSeries)\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00310}00310\ \ \ \ \ \ \ \ \ \ \ \ \ layer-\/>addDataSet(DoubleArray(\&element[0],\ m\_sampleSize),\ m\_colorSeries[i],\ m\_plottitleSeries[i]);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00311}00311\ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00312}00312\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00313}00313\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00314}00314\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00315}00315\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00316}00316\ \ \ \ \ \textcolor{comment}{//\ Include\ track\ line\ with\ legend.\ If\ the\ mouse\ is\ on\ the\ plot\ area,\ show\ the\ track\ }}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00317}00317\ \ \ \ \ \textcolor{comment}{//\ line\ with\ legend\ at\ the\ mouse\ position;\ otherwise,\ show\ them\ for\ the\ latest\ data}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00318}00318\ \ \ \ \ \textcolor{comment}{//\ values\ (that\ is,\ at\ the\ rightmost\ position).}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00319}00319\ \ \ \ \ TrackLineLegend(c,\ m\_chartViewer-\/>isMouseOnPlotArea()\ ?\ m\_chartViewer-\/>getPlotAreaMouseX()\ :}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00320}00320\ \ \ \ \ \ \ \ \ c-\/>getPlotArea()-\/>getRightX());}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00321}00321\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00322}00322\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00323}00323\ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_chartViewer-\/>getChart()\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00324}00324\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00325}00325\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ m\_chartViewer-\/>getChart();}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00326}00326\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00327}00327\ \ \ \ \ \textcolor{comment}{//\ Set\ the\ chart\ image\ to\ the\ WinChartViewer}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00328}00328\ \ \ \ \ m\_chartViewer-\/>setChart(c);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00329}00329\ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00330}00330\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00331}00331\ \textcolor{comment}{//\ Draw\ the\ track\ line\ with\ legend}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00332}00332\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00333}00333\ Telecon::TrackLineLegend(XYChart*\ c,\ \textcolor{keywordtype}{int}\ mouseX)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00334}00334\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00335}00335\ \ \ \ \ \textcolor{comment}{//\ Clear\ the\ current\ dynamic\ layer\ and\ get\ the\ DrawArea\ object\ to\ draw\ on\ it.}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00336}00336\ \ \ \ \ DrawArea*\ d\ =\ c-\/>initDynamicLayer();}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00337}00337\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00338}00338\ \ \ \ \ \textcolor{comment}{//\ The\ plot\ area\ object}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00339}00339\ \ \ \ \ PlotArea*\ plotArea\ =\ c-\/>getPlotArea();}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00340}00340\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00341}00341\ \ \ \ \ \textcolor{comment}{//\ Get\ the\ data\ x-\/value\ that\ is\ nearest\ to\ the\ mouse,\ and\ find\ its\ pixel\ coordinate.}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00342}00342\ \ \ \ \ \textcolor{keywordtype}{double}\ xValue\ =\ c-\/>getNearestXValue(mouseX);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00343}00343\ \ \ \ \ \textcolor{keywordtype}{int}\ xCoor\ =\ c-\/>getXCoor(xValue);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00344}00344\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00345}00345\ \ \ \ \ \textcolor{comment}{//\ Draw\ a\ vertical\ track\ line\ at\ the\ x-\/position}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00346}00346\ \ \ \ \ d-\/>vline(plotArea-\/>getTopY(),\ plotArea-\/>getBottomY(),\ xCoor,\ d-\/>dashLineColor(0x000000,\ 0x0101));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00347}00347\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00348}00348\ \ \ \ \ \textcolor{comment}{//\ Container\ to\ hold\ the\ legend\ entries}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00349}00349\ \ \ \ \ vector<string>\ legendEntries;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00350}00350\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00351}00351\ \ \ \ \ \textcolor{comment}{//\ Iterate\ through\ all\ layers\ to\ build\ the\ legend\ array}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00352}00352\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ c-\/>getLayerCount();\ ++i)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00353}00353\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00354}00354\ \ \ \ \ \ \ \ \ Layer*\ layer\ =\ c-\/>getLayerByZ(i);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00355}00355\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00356}00356\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ data\ array\ index\ of\ the\ x-\/value}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00357}00357\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ xIndex\ =\ layer-\/>getXIndexOf(xValue);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00358}00358\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00359}00359\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Iterate\ through\ all\ the\ data\ sets\ in\ the\ layer}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00360}00360\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ layer-\/>getDataSetCount();\ ++j)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00361}00361\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00362}00362\ \ \ \ \ \ \ \ \ \ \ \ \ DataSet*\ dataSet\ =\ layer-\/>getDataSetByZ(j);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00363}00363\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00364}00364\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ are\ only\ interested\ in\ visible\ data\ sets\ with\ names}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00365}00365\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ dataName\ =\ dataSet-\/>getDataName();}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00366}00366\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ color\ =\ dataSet-\/>getDataColor();}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00367}00367\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dataName\ \&\&\ *dataName\ \&\&\ (color\ !=\ (\textcolor{keywordtype}{int})Chart::Transparent))}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00368}00368\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00369}00369\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Build\ the\ legend\ entry,\ consist\ of\ the\ legend\ icon,\ name\ and\ data\ value.}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00370}00370\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dataValue\ =\ dataSet-\/>getValue(xIndex);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00371}00371\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ostringstream\ legendEntry;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00372}00372\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ legendEntry\ <<\ \textcolor{stringliteral}{"{}<*block*>"{}}\ <<\ dataSet-\/>getLegendIcon()\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ dataName\ <<\ \textcolor{stringliteral}{"{}:\ "{}}\ <<}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00373}00373\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((dataValue\ ==\ Chart::NoValue)\ ?\ \textcolor{stringliteral}{"{}N/A"{}}\ :\ c-\/>formatValue(dataValue,\ \textcolor{stringliteral}{"{}\{value|P4\}"{}}))}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00374}00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}<*/*>"{}};}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00375}00375\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ legendEntries.push\_back(legendEntry.str());}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00376}00376\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00377}00377\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Draw\ a\ track\ dot\ for\ data\ points\ within\ the\ plot\ area}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00378}00378\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ yCoor\ =\ c-\/>getYCoor(dataSet-\/>getPosition(xIndex),\ dataSet-\/>getUseYAxis());}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00379}00379\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((yCoor\ >=\ plotArea-\/>getTopY())\ \&\&\ (yCoor\ <=\ plotArea-\/>getBottomY()))}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00380}00380\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00381}00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d-\/>circle(xCoor,\ yCoor,\ 4,\ 4,\ color,\ color);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00382}00382\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00383}00383\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00384}00384\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00385}00385\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00386}00386\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00387}00387\ \ \ \ \ \textcolor{comment}{//\ Create\ the\ legend\ by\ joining\ the\ legend\ entries}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00388}00388\ \ \ \ \ ostringstream\ legendText;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00389}00389\ \ \ \ \ legendText\ <<\ \textcolor{stringliteral}{"{}<*block,maxWidth="{}}\ <<\ plotArea-\/>getWidth()\ <<\ \textcolor{stringliteral}{"{}*><*block*><*font=Arial\ Bold*>["{}}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00390}00390\ \ \ \ \ \ \ \ \ <<\ c-\/>xAxis()-\/>getFormattedLabel(xValue,\ \textcolor{stringliteral}{"{}hh:nn:ss"{}})\ <<\ \textcolor{stringliteral}{"{}]<*/*>"{}};}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00391}00391\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ ((\textcolor{keywordtype}{int})legendEntries.size())\ -\/\ 1;\ i\ >=\ 0;\ -\/-\/i)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00392}00392\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00393}00393\ \ \ \ \ \ \ \ \ legendText\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ "{}}\ <<\ legendEntries[i];}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00394}00394\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00395}00395\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00396}00396\ \ \ \ \ \textcolor{comment}{//\ Display\ the\ legend\ on\ the\ top\ of\ the\ plot\ area}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00397}00397\ \ \ \ \ TTFText*\ t\ =\ d-\/>text(legendText.str().c\_str(),\ \textcolor{stringliteral}{"{}Arial"{}},\ 8);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00398}00398\ \ \ \ \ t-\/>draw(plotArea-\/>getLeftX()\ +\ 5,\ plotArea-\/>getTopY()\ -\/\ 3,\ 0x000000,\ Chart::BottomLeft);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00399}00399\ \ \ \ \ t-\/>destroy();}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00400}00400\ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00401}00401\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00402}00402\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00403}00403\ \textcolor{comment}{\ *\ Get\ bitmap\ resources}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00404}00404\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00405}00405\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00406}00406\ wxBitmap}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00407}00407\ Telecon::GetBitmapResource(\textcolor{keyword}{const}\ wxString\&\ name)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00408}00408\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00409}00409\ \ \ \ \ \textcolor{comment}{//\ Bitmap\ retrieval}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00410}00410\ \ \ \ \ wxImage\ image;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00411}00411\ \ \ \ \ \textcolor{keywordflow}{if}\ (name\ ==\ wxT(\textcolor{stringliteral}{"{}play.png"{}}))}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00412}00412\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00413}00413\ \ \ \ \ \ \ \ \ image.LoadFile(wxT(\textcolor{stringliteral}{"{}./icons/play.png"{}}),\ wxBITMAP\_TYPE\_PNG);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00414}00414\ \ \ \ \ \ \ \ \ image.Rescale(FromDIP(16),\ FromDIP(16));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00415}00415\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ wxBitmap(image);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00416}00416\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00417}00417\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (name\ ==\ wxT(\textcolor{stringliteral}{"{}pause.png"{}}))}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00418}00418\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00419}00419\ \ \ \ \ \ \ \ \ image.LoadFile(wxT(\textcolor{stringliteral}{"{}./icons/pause.png"{}}),\ wxBITMAP\_TYPE\_PNG);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00420}00420\ \ \ \ \ \ \ \ \ image.Rescale(FromDIP(16),\ FromDIP(16));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00421}00421\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ wxBitmap(image);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00422}00422\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00423}00423\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (name\ ==\ wxT(\textcolor{stringliteral}{"{}save.png"{}}))}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00424}00424\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00425}00425\ \ \ \ \ \ \ \ \ image.LoadFile(wxT(\textcolor{stringliteral}{"{}./icons/save\_icon.png"{}}),\ wxBITMAP\_TYPE\_PNG);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00426}00426\ \ \ \ \ \ \ \ \ image.Rescale(FromDIP(16),\ FromDIP(16));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00427}00427\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ wxBitmap(image);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00428}00428\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00429}00429\ \ \ \ \ \textcolor{keywordflow}{return}\ wxNullBitmap;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00430}00430\ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00431}00431\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00432}00432\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00433}00433\ \textcolor{comment}{\ *\ wxEVT\_COMMAND\_BUTTON\_CLICKED\ event\ handler\ for\ ID\_PLAY}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00434}00434\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00435}00435\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00436}00436\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00437}00437\ Telecon::OnPlayClick(wxCommandEvent\&\ event)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00438}00438\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00439}00439\ \ \ \ \ m\_playButton-\/>SetValue(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00440}00440\ \ \ \ \ m\_pauseButton-\/>SetValue(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00441}00441\ \ \ \ \ OnRunFreezeChanged(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00442}00442\ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00443}00443\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00444}00444\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00445}00445\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00446}00446\ \textcolor{comment}{\ *\ wxEVT\_COMMAND\_BUTTON\_CLICKED\ event\ handler\ for\ ID\_PAUSE}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00447}00447\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00448}00448\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00449}00449\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00450}00450\ Telecon::OnPauseClick(wxCommandEvent\&\ event)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00451}00451\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00452}00452\ \ \ \ \ m\_playButton-\/>SetValue(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00453}00453\ \ \ \ \ m\_pauseButton-\/>SetValue(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00454}00454\ \ \ \ \ OnRunFreezeChanged(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00455}00455\ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00456}00456\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00457}00457\ \textcolor{comment}{//\ The\ Run\ or\ Freeze\ button\ is\ pressed}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00458}00458\ \textcolor{keywordtype}{void}\ Telecon::OnRunFreezeChanged(\textcolor{keywordtype}{bool}\ run)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00459}00459\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00460}00460\ \ \ \ \ \textcolor{keywordflow}{if}\ (run)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00461}00461\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00462}00462\ \ \ \ \ \ \ \ \ m\_chartUpdateTimer-\/>Start();}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00463}00463\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00464}00464\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00465}00465\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00466}00466\ \ \ \ \ \ \ \ \ m\_chartUpdateTimer-\/>Stop();}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00467}00467\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00468}00468\ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00469}00469\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00470}00470\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00471}00471\ \textcolor{comment}{\ *\ wxEVT\_COMMAND\_CHOICE\_SELECTED\ event\ handler\ for\ ID\_UPDATE\_PERIOD}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00472}00472\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00473}00473\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00474}00474\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00475}00475\ Telecon::OnUpdatePeriodSelected(wxCommandEvent\&\ event)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00476}00476\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00477}00477\ \ \ \ \ OnUpdatePeriodChanged(m\_updatePeriod-\/>GetString(m\_updatePeriod-\/>GetSelection()));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00478}00478\ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00479}00479\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00480}00480\ \textcolor{comment}{//\ User\ changes\ the\ chart\ update\ period}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00481}00481\ \textcolor{keywordtype}{void}\ Telecon::OnUpdatePeriodChanged(\textcolor{keyword}{const}\ wxString\&\ text)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00482}00482\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00483}00483\ \ \ \ \ \textcolor{keywordtype}{long}\ interval;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00484}00484\ \ \ \ \ text.ToLong(\&interval);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00485}00485\ \ \ \ \ m\_chartUpdateTimer-\/>Start(interval);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00486}00486\ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00487}00487\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00488}00488\ \textcolor{keywordtype}{void}\ Telecon::OnChartUpdateTimer(wxTimerEvent\&\ event)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00489}00489\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00490}00490\ \ \ \ \ UpdateChart();}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00491}00491\ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00492}00492\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00493}00493\ \textcolor{keywordtype}{void}\ Telecon::OnDataTimer(wxTimerEvent\&\ event)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00494}00494\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00495}00495\ \ \ \ \ \mbox{\hyperlink{class_telecon_ac00fa709acf9b5bf95521935e65da6be}{GetData}}(funcArray);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00496}00496\ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00497}00497\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00498}00498\ \textcolor{comment}{//\ The\ Save\ button\ is\ pressed}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00499}00499\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00500}00500\ Telecon::OnSave(wxCommandEvent\&\ event)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00501}00501\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00502}00502\ \ \ \ \ wxFileDialog\ saveFileDialog(\textcolor{keyword}{this},\ \_(\textcolor{stringliteral}{"{}Save\ graphics\ file"{}}),\ \textcolor{stringliteral}{"{}"{}},\ \textcolor{stringliteral}{"{}chartdirector\_demo"{}},}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00503}00503\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}PNG\ (*.png)|*.png|JPG\ (*.jpg)|*.jpg|GIF\ (*.gif)|*.gif|BMP\ (*.bmp)|*.bmp|SVG\ (*.svg)|*.svg|PDF\ (*.pdf)|*.pdf"{}},\ wxFD\_SAVE\ |\ wxFD\_OVERWRITE\_PROMPT);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00504}00504\ \ \ \ \ \textcolor{keywordflow}{if}\ (saveFileDialog.ShowModal()\ ==\ wxID\_CANCEL)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00505}00505\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \ \ \ \ \textcolor{comment}{//\ the\ user\ changed\ idea...}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00506}00506\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00507}00507\ \ \ \ \ \textcolor{comment}{//\ save\ the\ current\ contents\ in\ the\ file;}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00508}00508\ \ \ \ \ wxString\ fileName\ =\ saveFileDialog.GetPath();}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00509}00509\ \ \ \ \ \textcolor{keywordflow}{if}\ (!fileName.IsEmpty())}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00510}00510\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00511}00511\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Save\ the\ chart}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00512}00512\ \ \ \ \ \ \ \ \ BaseChart*\ c\ =\ m\_chartViewer-\/>getChart();}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00513}00513\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (0\ !=\ c)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00514}00514\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00515}00515\ \ \ \ \ \ \ \ \ \ \ \ \ c-\/>makeChart(fileName.ToUTF8());}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00516}00516\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00517}00517\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00518}00518\ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00519}00519\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00520}00520\ \textcolor{comment}{//\ A\ utility\ to\ shift\ a\ new\ data\ value\ into\ a\ data\ array}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00521}00521\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00522}00522\ ShiftData(\textcolor{keywordtype}{double}*\ data,\ \textcolor{keywordtype}{int}\ len,\ \textcolor{keywordtype}{double}\ newValue)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00523}00523\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00524}00524\ \ \ \ \ memmove(data,\ data\ +\ 1,\ \textcolor{keyword}{sizeof}(*data)\ *\ (len\ -\/\ 1));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00525}00525\ \ \ \ \ data[len\ -\/\ 1]\ =\ newValue;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00526}00526\ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00527}00527\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00528}00528\ \textcolor{comment}{//\ Shift\ new\ data\ values\ into\ the\ real\ time\ data\ series}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00529}00529\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00530}\mbox{\hyperlink{class_telecon_ac00fa709acf9b5bf95521935e65da6be}{00530}}\ \mbox{\hyperlink{class_telecon_ac00fa709acf9b5bf95521935e65da6be}{Telecon::GetData}}(\textcolor{comment}{/*windowID,\ chartID,\ plotID,\ function\ ptr\ */}std::vector<FuncPtr>\&\ funcArray)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00531}00531\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00532}00532\ \ \ \ \ \textcolor{comment}{//\ The\ current\ time}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00533}00533\ \ \ \ \ wxDateTime\ now\ =\ wxDateTime::Now();}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00534}00534\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00535}00535\ \ \ \ \ \textcolor{comment}{//\ This\ is\ our\ formula\ for\ the\ random\ number\ generator}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00536}00536\ \ \ \ \ \textcolor{keywordflow}{do}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00537}00537\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00538}00538\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ need\ the\ currentTime\ in\ millisecond\ resolution}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00539}00539\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ currentTime\ =\ Chart::chartTime2(m\_nextDataTime.GetTicks())}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00540}00540\ \ \ \ \ \ \ \ \ \ \ \ \ +\ m\_nextDataTime.GetMillisecond()\ /\ 1000.0;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00541}00541\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00542}00542\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00543}00543\ \ \ \ \ \ \ \ \ std::vector<double>\ data;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00544}00544\ \ \ \ \ \ \ \ \ \textcolor{comment}{//double\ dataA\ =\ 20\ +\ cos(p\ *\ 129241)\ *\ 10\ +\ 1\ /\ (cos(p)\ *\ cos(p)\ +\ 0.01);}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00545}00545\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ func\ :\ funcArray)\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00546}00546\ \ \ \ \ \ \ \ \ \ \ \ \ data.push\_back(func());}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00547}00547\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00548}00548\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00549}00549\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00550}00550\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00551}00551\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ After\ obtaining\ the\ new\ values,\ we\ need\ to\ update\ the\ data\ arrays.}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00552}00552\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_currentIndex\ <\ m\_sampleSize)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00553}00553\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00554}00554\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Store\ the\ new\ values\ in\ the\ current\ index\ position,\ and\ increment\ the\ index.}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00555}00555\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\&\ element\ :\ data)\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00556}00556\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_dataSeries[i][m\_currentIndex]\ =\ element;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00557}00557\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00558}00558\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00559}00559\ \ \ \ \ \ \ \ \ \ \ \ \ m\_timeStamps[m\_currentIndex]\ =\ currentTime;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00560}00560\ \ \ \ \ \ \ \ \ \ \ \ \ ++m\_currentIndex;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00561}00561\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00562}00562\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00563}00563\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00564}00564\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ data\ arrays\ are\ full.\ Shift\ the\ arrays\ and\ store\ the\ values\ at\ the\ end.}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00565}00565\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\&\ element\ :\ data)\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00566}00566\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ShiftData(\&m\_dataSeries[i][0],\ m\_sampleSize,\ element);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00567}00567\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00568}00568\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00569}00569\ \ \ \ \ \ \ \ \ \ \ \ \ ShiftData(\&m\_timeStamps[0],\ m\_sampleSize,\ currentTime);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00570}00570\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00571}00571\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00572}00572\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00573}00573\ \ \ \ \ \ \ \ \ m\_nextDataTime.Add(wxTimeSpan(0,\ 0,\ 0,\ m\_dataInterval));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00574}00574\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (m\_nextDataTime\ <\ now);}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00575}00575\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00576}00576\ \ \ \ \ \textcolor{comment}{//\ We\ provide\ some\ visual\ feedback\ to\ the\ latest\ numbers\ generated,\ so\ you\ can\ see\ the}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00577}00577\ \ \ \ \ \textcolor{comment}{//\ data\ being\ generated.}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00578}00578\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00579}00579\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&element\ :\ m\_dataValues)\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00580}00580\ \ \ \ \ \ \ \ \ wxTextCtrl*\ m\_alphaValue\ =\ element;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00581}00581\ \ \ \ \ \ \ \ \ m\_alphaValue-\/>SetValue(wxString::Format(\textcolor{stringliteral}{"{}\%.2f"{}},\ m\_dataSeries[0][m\_currentIndex\ -\/\ 1]));}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00582}00582\ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00583}00583\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00584}00584\ \}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00585}00585\ }
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00586}00586\ \textcolor{comment}{//\ Draw\ track\ cursor\ when\ mouse\ is\ moving\ over\ plotarea}}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00587}00587\ \textcolor{keywordtype}{void}\ Telecon::OnMouseMovePlotArea(wxCommandEvent\&\ event)}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00588}00588\ \{}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00589}00589\ \ \ \ \ TrackLineLegend((XYChart*)m\_chartViewer-\/>getChart(),\ m\_chartViewer-\/>getPlotAreaMouseX());}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00590}00590\ \ \ \ \ m\_chartViewer-\/>updateDisplay();}
+\DoxyCodeLine{\Hypertarget{wx_chart_dir_example_2telecon_8cpp_source_l00591}00591\ \}}
+
+\end{DoxyCode}

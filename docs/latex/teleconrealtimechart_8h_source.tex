@@ -1,0 +1,23 @@
+\hypertarget{teleconrealtimechart_8h_source}{}\doxysection{teleconrealtimechart.\+h}
+\label{teleconrealtimechart_8h_source}\index{include/teleconrealtimechart.h@{include/teleconrealtimechart.h}}
+\mbox{\hyperlink{teleconrealtimechart_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{teleconchart_8h}{teleconchart.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8h_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8h_source_l00005}\mbox{\hyperlink{class_telecon_realtime_chart}{00005}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_telecon_realtime_chart}{TeleconRealtimeChart}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_telecon_chart}{TeleconChart}}\ \{}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8h_source_l00006}00006\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8h_source_l00007}00007\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8h_source_l00008}00008\ \ \ \ \ \mbox{\hyperlink{class_telecon_realtime_chart}{TeleconRealtimeChart}}(\textcolor{keywordtype}{string}\ title,\ \textcolor{keywordtype}{double}\ memoryDepthSeconds\ =\ 60.0,\ \textcolor{keywordtype}{int}\ dataRateMillis\ =\ 100,\ \textcolor{keywordtype}{string}\ xLabel\ =\ \textcolor{stringliteral}{"{}"{}},\ \textcolor{keywordtype}{string}\ yLabel\ =\ \textcolor{stringliteral}{"{}"{}},\ \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{ColorSequenceMode}}\ colorSequenceMode\ =\ \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38af694240c2be72deb06f19859d21ba193}{CSM\_BLACK}});}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8h_source_l00009}00009\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8h_source_l00021}00021\ \ \ \ \ shared\_ptr<TeleconLinePlot>\ \mbox{\hyperlink{class_telecon_realtime_chart_a1769d4f09f07121868c313555811b450}{addLinePlot}}(std::string\ plottitle,\ \textcolor{keywordtype}{long}\ plotcolor\ =\ \mbox{\hyperlink{include_2enums_8h_ab983350d6d1201c0ebd709320e7a0d50a0b8d8b18037efc3cdb5dd0313e7c67dc}{COLOR\_DEFAULT}},\ \mbox{\hyperlink{teleconlineplot_8h_afd074c27ba0a2809258258751b754f52}{LineType}}\ lineType\ =\ \mbox{\hyperlink{teleconlineplot_8h_afd074c27ba0a2809258258751b754f52ad3188575e9151d64606bf543dc4c40f1}{LT\_SOLID}},\ \textcolor{keywordtype}{int}\ lineWidth\ =\ 1,\ \textcolor{keywordtype}{int}\ symbol\ =\ \mbox{\hyperlink{include_2enums_8h_af6eda4cba3beb96340903aa3c851f1c8a666bb08379feb5797dfec199a2479b6a}{SYMBOL\_NO\_SYMBOL}},\ \textcolor{keywordtype}{bool}\ fillSymbol\ =\ \textcolor{keyword}{true},\ \textcolor{keywordtype}{int}\ symbolSize\ =\ 5,\ \textcolor{keywordtype}{int}\ memoryDepth\ =\ -\/1);}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8h_source_l00022}00022\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8h_source_l00028}00028\ \ \ \ \ shared\_ptr<TeleconScatterPlot>\ \mbox{\hyperlink{class_telecon_realtime_chart_a30869b0b75cdcf6a5ef0b8c4a7f81699}{addScatterPlot}}(std::string\ plottitle,\ \textcolor{keywordtype}{long}\ plotcolor\ =\ \mbox{\hyperlink{include_2enums_8h_ab983350d6d1201c0ebd709320e7a0d50a0b8d8b18037efc3cdb5dd0313e7c67dc}{COLOR\_DEFAULT}},\ \textcolor{keywordtype}{int}\ symbol\ =\ \mbox{\hyperlink{include_2enums_8h_af6eda4cba3beb96340903aa3c851f1c8a99f28de5afd5242b9ffdd1dbc7b4daf4}{SYMBOL\_SQUARE}},\ \textcolor{keywordtype}{bool}\ fillSymbol\ =\ \textcolor{keyword}{true},\ \textcolor{keywordtype}{int}\ symbolSize\ =\ 5,\ \textcolor{keywordtype}{int}\ memoryDepth\ =\ -\/1);}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8h_source_l00036}00036\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_telecon_realtime_chart_a6bf55049d06e4e2fe74a3906c85cf7a0}{getDefaultXAxisSpan}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8h_source_l00044}00044\ \ \ \ \ \mbox{\hyperlink{teleconchart_8h_af187b130538d6f7efc8cbe12cfa5ff4a}{CHART\_X\_AXIS\_TYPE}}\ \mbox{\hyperlink{class_telecon_realtime_chart_ae6eb873f64e852cf645bac0e6a89208e}{getChartXAxisType}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{teleconrealtimechart_8h_source_l00045}00045\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,63 @@
+\hypertarget{wx_widgets_example_2telecon_8h_source}{}\doxysection{telecon.\+h}
+\label{wx_widgets_example_2telecon_8h_source}\index{include/wxWidgetsExample/telecon.h@{include/wxWidgetsExample/telecon.h}}
+\mbox{\hyperlink{wx_widgets_example_2telecon_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00003}00003\ \textcolor{preprocessor}{\#ifndef\ TELECON\_H}}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00004}\mbox{\hyperlink{wx_widgets_example_2telecon_8h_a93cc53cfba07d1a7ce1582098fdce0ed}{00004}}\ \textcolor{preprocessor}{\#define\ TELECON\_H}}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <wx/wxprec.h>}}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ WX\_PRECOMP}}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <wx/wx.h>}}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00010}00010\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !WX\_PRECOMP}}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <mathplot.h>}}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00014}\mbox{\hyperlink{wx_widgets_example_2telecon_8h_af0b5cfa4242ae7f98ba80fd23ef8afa9}{00014}}\ \textcolor{preprocessor}{\#define\ APP\_NAME\ "{}telecon"{}}}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00015}\mbox{\hyperlink{wx_widgets_example_2telecon_8h_ab7519a1f140aaf216d4d5aca58249a03}{00015}}\ \textcolor{preprocessor}{\#define\ ICON\_LOC\ "{}../resources/telecon\_icon.png"{}}}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00020}\mbox{\hyperlink{classtelecon_app}{00020}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtelecon_app}{teleconApp}}\ :\ \textcolor{keyword}{public}\ wxApp}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00021}00021\ \{}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00022}00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00024}00024\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtelecon_app_a3ec13927136d97cb06b8e67fac3d972f}{OnInit}}();}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00025}00025\ \};}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00030}\mbox{\hyperlink{classmain_frame}{00030}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmain_frame}{mainFrame}}\ :\ \textcolor{keyword}{public}\ wxFrame}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00031}00031\ \{}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00032}00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00033}00033\ \ \ \ \ \mbox{\hyperlink{classmain_frame_a98064ded0926fdbb5b2e6238bc3e2ac5}{mainFrame}}();}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00035}00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmain_frame_a4c50c9d49a93a23b24be38a373010621}{OnAbout}}(wxCommandEvent\&\ event);}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00036}00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmain_frame_aa6fbf2702446ecc7dc1726b54ffb3da3}{OnQuit}}(wxCommandEvent\&\ event);}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00037}00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmain_frame_a2960bef3a6f4a32f0328b2e9f4802a51}{OnPrintPreview}}(wxCommandEvent\&\ event);}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00038}00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmain_frame_a309049304a99e2af4d45d8e9d9e66e95}{OnPrint}}(wxCommandEvent\&\ event);}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00039}00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmain_frame_ac538da17c57b1b8acb237cee78ab82aa}{OnFit}}(wxCommandEvent\&\ event);}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00040}00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmain_frame_ad14e47931de105450a8a5da4ad8ff1d8}{OnAlignXAxis}}(wxCommandEvent\&\ event);}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00041}00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmain_frame_ac5c4709d868b773eedad1ad49ce046b7}{OnAlignYAxis}}(wxCommandEvent\&\ event);}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00042}00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmain_frame_a9510970035f41868746ce646bf05323a}{OnToggleGrid}}(wxCommandEvent\&\ event);}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00043}00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmain_frame_a65ed669a9b2dbee3687fddb804e9fc2a}{OnToggleScrollbars}}(wxCommandEvent\&\ event);}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00044}00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmain_frame_abd7323964c8841ba8c42b1ed83f79a2f}{OnToggleInfoLayer}}(wxCommandEvent\&\ event);}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00045}00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmain_frame_ae038bbaba52d28a4793ed324f7e4b436}{OnSaveScreenshot}}(wxCommandEvent\&\ event);}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00046}00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmain_frame_a12c9497cf5d38aa9cec76dc759a3a381}{OnToggleLissajoux}}(wxCommandEvent\&\ event);}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00047}00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmain_frame_acd38a3db3a9437756e4c8cb7fc83099d}{OnToggleSine}}(wxCommandEvent\&\ event);}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00048}00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmain_frame_a5b0d7d2fde9265281095546007dcba05}{OnToggleCosine}}(wxCommandEvent\&\ event);}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00049}00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmain_frame_a5a703ba01b5797427aa1b00ac1228714}{OnBlackTheme}}(wxCommandEvent\&\ event);}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00051}\mbox{\hyperlink{classmain_frame_a43adefc2080c3eeecfd7d674d73e45f5}{00051}}\ \ \ \ \ mpWindow*\ \mbox{\hyperlink{classmain_frame_a43adefc2080c3eeecfd7d674d73e45f5}{m\_plot}};}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00052}\mbox{\hyperlink{classmain_frame_abdd16b76d138b133a597086c6b2c4838}{00052}}\ \ \ \ \ wxTextCtrl*\ \mbox{\hyperlink{classmain_frame_abdd16b76d138b133a597086c6b2c4838}{m\_log}};}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00054}00054\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00055}00055\ \ \ \ \ \textcolor{keywordtype}{int}\ axesPos[2];}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00056}00056\ \ \ \ \ \textcolor{keywordtype}{bool}\ ticks;}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00057}00057\ \ \ \ \ mpInfoCoords*\ nfo;\ \textcolor{comment}{//\ mpInfoLayer*\ nfo;}}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00058}00058\ \ \ \ \ DECLARE\_DYNAMIC\_CLASS(\mbox{\hyperlink{classmain_frame}{mainFrame}})}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00059}00059\ \ \ \ \ DECLARE\_EVENT\_TABLE()}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00060}00060\ \};}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00063}00063\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !TELECON\_H}}
+\DoxyCodeLine{\Hypertarget{wx_widgets_example_2telecon_8h_source_l00064}00064\ }
+
+\end{DoxyCode}

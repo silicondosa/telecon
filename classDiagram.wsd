@@ -1,0 +1,103 @@
+
+@startuml ClassDiagram
+
+
+class Telecon {
+    - vector<teleconWindow> windowList;
+    + add_window();
+
+}
+
+class TeleconWindow {
+    - vector<teleconChart> chartList;
+    -TeleconViewOptions TeleconViewOptions
+    -teleconWindow attributes
+    + void add_chart();
+}
+
+class TeleconViewOptions {
+    -playButton
+    -pauseButtton
+    -backgroundColor
+}
+class TeleconWindowAttributes{
+    -width
+    -height
+    -length
+}
+
+class TeleconControls{
+    + addButton()
+    + addSlider()
+    + addDatabox()
+
+}
+
+abstract class TeleconChart {
+    -vector<teleconPlot> plotList;
+    + addPlot(teleconPlot plot, int color = -1, ... );
+    + virtual void setUp();
+}
+
+class LineChart extends TeleconChart {
+    setUp();
+}
+class ScatterChart extends TeleconChart {
+    setUp();
+}
+class BarChart extends TeleconChart  {
+    setUp();
+}
+
+
+abstract class TeleconPlot {
+    + teleconPlot(plotType type, )
+    + virtual void display();
+}
+
+abstract class RealTimePlot extends TeleconPlot{
+    - int (*funcptr)() datasource;
+    - double dataInterval
+    + add_data_source(void (*function)());
+}
+
+abstract class StaticPlot extends TeleconPlot{
+    - double x[];
+    - double y[];
+    - double z[];
+    + addData(double[] x, double y[], double z = null)
+
+}
+
+class LineRealTimePlot extends RealTimePlot {
+    -display()
+}
+class ScatterRealTimePlot extends RealTimePlot {
+    -display()
+}
+class LineStaticPlot extends StaticPlot {
+    -display()
+}
+class ScatterStaticPlot extends StaticPlot {
+    -display();
+}
+
+' enum plotType {
+'     SCATTER
+'     BAR 
+'     LINE
+'     REALTIME
+'     ...
+' }
+
+TeleconPlot *- TeleconChart: 1 or more
+TeleconChart *- TeleconWindow: 1 or more
+Telecon "1" -- "1..*" TeleconWindow 
+
+TeleconControls *- TeleconWindow
+
+TeleconViewOptions *- TeleconWindow
+TeleconWindowAttributes *- TeleconWindow
+
+
+@enduml

@@ -1,0 +1,145 @@
+\hypertarget{class_chart_frame}{}\doxysection{Chart\+Frame Class Reference}
+\label{class_chart_frame}\index{ChartFrame@{ChartFrame}}
+
+
+{\ttfamily \#include $<$include/base.\+h$>$}
+
+Inheritance diagram for Chart\+Frame\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_chart_frame}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chart_frame_aad546759597ebc6ce8f88567612ba34f}{Chart\+Frame}} (const wx\+String \&title)
+\item 
+void \mbox{\hyperlink{class_chart_frame_a675aeb7ec9a3eeefbf148e95516e7914}{populate\+Chart}} ()
+\item 
+\mbox{\hyperlink{class_telecon_real_time_line_chart}{Telecon\+Real\+Time\+Line\+Chart}} $\ast$ \mbox{\hyperlink{class_chart_frame_ad40ec4e8a23f72903ac4587f5a47dc68}{create\+Real\+Time\+Chart}} ()
+\item 
+void \mbox{\hyperlink{class_chart_frame_ab81d99b5bdd4b90e4b82ef5fe385601a}{draw\+Window}} ()
+\item 
+virtual void \mbox{\hyperlink{class_chart_frame_a9e519ccd5d26ec061cd881c8ded653e6}{user\+Add\+Chart}} ()
+\item 
+void \mbox{\hyperlink{class_chart_frame_a6546afb55058c87ba31f5626f2e70a85}{add\+Chart}} (\mbox{\hyperlink{class_telecon_real_time_line_chart}{Telecon\+Real\+Time\+Line\+Chart}} $\ast$)
+\item 
+\mbox{\hyperlink{class_telecon_real_time_line_chart}{Telecon\+Real\+Time\+Line\+Chart}} $\ast$ \mbox{\hyperlink{class_chart_frame_a1cb7251dab29c830c3d50acbd948786a}{add\+Chart}} (std\+::string title, std\+::string ylabel)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ Base\+Chart $\ast$ $>$ \mbox{\hyperlink{class_chart_frame_acfe91573d6c3ef8527d23dea2b43cbea}{charts}}
+\item 
+Base\+Chart $\ast$ \mbox{\hyperlink{class_chart_frame_ae0944146de818442cd046aa913692cbc}{my\+\_\+chart}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{base_8h_source_l00022}{22}} of file \mbox{\hyperlink{base_8h_source}{base.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_chart_frame_aad546759597ebc6ce8f88567612ba34f}\label{class_chart_frame_aad546759597ebc6ce8f88567612ba34f}} 
+\index{ChartFrame@{ChartFrame}!ChartFrame@{ChartFrame}}
+\index{ChartFrame@{ChartFrame}!ChartFrame@{ChartFrame}}
+\doxysubsubsection{\texorpdfstring{ChartFrame()}{ChartFrame()}}
+{\footnotesize\ttfamily Chart\+Frame\+::\+Chart\+Frame (\begin{DoxyParamCaption}\item[{const wx\+String \&}]{title }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{base_8cpp_source_l00127}{127}} of file \mbox{\hyperlink{base_8cpp_source}{base.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_chart_frame_a1cb7251dab29c830c3d50acbd948786a}\label{class_chart_frame_a1cb7251dab29c830c3d50acbd948786a}} 
+\index{ChartFrame@{ChartFrame}!addChart@{addChart}}
+\index{addChart@{addChart}!ChartFrame@{ChartFrame}}
+\doxysubsubsection{\texorpdfstring{addChart()}{addChart()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_telecon_real_time_line_chart}{Telecon\+Real\+Time\+Line\+Chart}} $\ast$ Chart\+Frame\+::add\+Chart (\begin{DoxyParamCaption}\item[{std\+::string}]{title,  }\item[{std\+::string}]{ylabel }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_chart_frame_a6546afb55058c87ba31f5626f2e70a85}\label{class_chart_frame_a6546afb55058c87ba31f5626f2e70a85}} 
+\index{ChartFrame@{ChartFrame}!addChart@{addChart}}
+\index{addChart@{addChart}!ChartFrame@{ChartFrame}}
+\doxysubsubsection{\texorpdfstring{addChart()}{addChart()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Chart\+Frame\+::add\+Chart (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_telecon_real_time_line_chart}{Telecon\+Real\+Time\+Line\+Chart}} $\ast$}]{chart\+Panel }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{base_8cpp_source_l00204}{204}} of file \mbox{\hyperlink{base_8cpp_source}{base.\+cpp}}.
+
+\mbox{\Hypertarget{class_chart_frame_ad40ec4e8a23f72903ac4587f5a47dc68}\label{class_chart_frame_ad40ec4e8a23f72903ac4587f5a47dc68}} 
+\index{ChartFrame@{ChartFrame}!createRealTimeChart@{createRealTimeChart}}
+\index{createRealTimeChart@{createRealTimeChart}!ChartFrame@{ChartFrame}}
+\doxysubsubsection{\texorpdfstring{createRealTimeChart()}{createRealTimeChart()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_telecon_real_time_line_chart}{Telecon\+Real\+Time\+Line\+Chart}} $\ast$ Chart\+Frame\+::create\+Real\+Time\+Chart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{base_8cpp_source_l00198}{198}} of file \mbox{\hyperlink{base_8cpp_source}{base.\+cpp}}.
+
+\mbox{\Hypertarget{class_chart_frame_ab81d99b5bdd4b90e4b82ef5fe385601a}\label{class_chart_frame_ab81d99b5bdd4b90e4b82ef5fe385601a}} 
+\index{ChartFrame@{ChartFrame}!drawWindow@{drawWindow}}
+\index{drawWindow@{drawWindow}!ChartFrame@{ChartFrame}}
+\doxysubsubsection{\texorpdfstring{drawWindow()}{drawWindow()}}
+{\footnotesize\ttfamily void Chart\+Frame\+::draw\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{base_8cpp_source_l00189}{189}} of file \mbox{\hyperlink{base_8cpp_source}{base.\+cpp}}.
+
+\mbox{\Hypertarget{class_chart_frame_a675aeb7ec9a3eeefbf148e95516e7914}\label{class_chart_frame_a675aeb7ec9a3eeefbf148e95516e7914}} 
+\index{ChartFrame@{ChartFrame}!populateChart@{populateChart}}
+\index{populateChart@{populateChart}!ChartFrame@{ChartFrame}}
+\doxysubsubsection{\texorpdfstring{populateChart()}{populateChart()}}
+{\footnotesize\ttfamily void Chart\+Frame\+::populate\+Chart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{base_8cpp_source_l00215}{215}} of file \mbox{\hyperlink{base_8cpp_source}{base.\+cpp}}.
+
+\mbox{\Hypertarget{class_chart_frame_a9e519ccd5d26ec061cd881c8ded653e6}\label{class_chart_frame_a9e519ccd5d26ec061cd881c8ded653e6}} 
+\index{ChartFrame@{ChartFrame}!userAddChart@{userAddChart}}
+\index{userAddChart@{userAddChart}!ChartFrame@{ChartFrame}}
+\doxysubsubsection{\texorpdfstring{userAddChart()}{userAddChart()}}
+{\footnotesize\ttfamily void Chart\+Frame\+::user\+Add\+Chart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{userfile_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{userfile_8cpp_source}{userfile.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_chart_frame_acfe91573d6c3ef8527d23dea2b43cbea}\label{class_chart_frame_acfe91573d6c3ef8527d23dea2b43cbea}} 
+\index{ChartFrame@{ChartFrame}!charts@{charts}}
+\index{charts@{charts}!ChartFrame@{ChartFrame}}
+\doxysubsubsection{\texorpdfstring{charts}{charts}}
+{\footnotesize\ttfamily std\+::vector$<$Base\+Chart$\ast$$>$ Chart\+Frame\+::charts}
+
+
+
+Definition at line \mbox{\hyperlink{base_8h_source_l00028}{28}} of file \mbox{\hyperlink{base_8h_source}{base.\+h}}.
+
+\mbox{\Hypertarget{class_chart_frame_ae0944146de818442cd046aa913692cbc}\label{class_chart_frame_ae0944146de818442cd046aa913692cbc}} 
+\index{ChartFrame@{ChartFrame}!my\_chart@{my\_chart}}
+\index{my\_chart@{my\_chart}!ChartFrame@{ChartFrame}}
+\doxysubsubsection{\texorpdfstring{my\_chart}{my\_chart}}
+{\footnotesize\ttfamily Base\+Chart$\ast$ Chart\+Frame\+::my\+\_\+chart}
+
+
+
+Definition at line \mbox{\hyperlink{base_8h_source_l00029}{29}} of file \mbox{\hyperlink{base_8h_source}{base.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{base_8h}{base.\+h}}\item 
+src/\mbox{\hyperlink{base_8cpp}{base.\+cpp}}\item 
+src/\mbox{\hyperlink{userfile_8cpp}{userfile.\+cpp}}\end{DoxyCompactItemize}

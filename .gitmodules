@@ -1,0 +1,3 @@
+[submodule "lib/wxchartdir"]
+	path = lib/wxchartdir
+	url = https://github.com/utelle/wxchartdir

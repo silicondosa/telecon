@@ -1,0 +1,232 @@
+\hypertarget{class_telecon}{}\doxysection{Telecon Class Reference}
+\label{class_telecon}\index{Telecon@{Telecon}}
+
+
+{\ttfamily \#include $<$include/telecon.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_telecon_a17d48d9395606bf0b9a526950f1df0f1}{telecon\+Start}} ()
+\item 
+void \mbox{\hyperlink{class_telecon_ae8e37edb38dd36ec134ac770f827dfeb}{telecon\+Stop}} ()
+\item 
+\mbox{\hyperlink{class_telecon_a1a13d754d2f95d6be675d5165e4c025e}{Telecon}} ()
+\item 
+\mbox{\hyperlink{class_telecon_aae363873cda0dd58aed13376b5e4152b}{$\sim$\+Telecon}} ()
+\item 
+bool \mbox{\hyperlink{class_telecon_a4e7f44f91777f60ce3de1921ffafa39e}{has\+Started}} ()
+\item 
+bool \mbox{\hyperlink{class_telecon_a7506c1f81501bc2d7ac5fa416809d5ec}{has\+Stopped}} ()
+\item 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $>$ \mbox{\hyperlink{class_telecon_aec146a459b32c194874b8c1a60a139ca}{add\+Window}} (string name)
+\item 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $>$ \mbox{\hyperlink{class_telecon_a4e268e27cfd1420b9d6e5cb8f6f94d2e}{get\+Window}} (int index)
+\item 
+size\+\_\+t \mbox{\hyperlink{class_telecon_aee854954e0004822dece3130a61e332e}{get\+Num\+Windows}} () const
+\item 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $>$ \mbox{\hyperlink{class_telecon_ae895c607a872a31022bea2e182eab27f}{get\+Window\+By\+Name}} (string name)
+\item 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} $>$ \mbox{\hyperlink{class_telecon_ab83bf47e29f4a14c97a78b0e2d8d3013}{get\+Chart\+By\+Name}} (string window\+Name, string chart\+Name)
+\item 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ \mbox{\hyperlink{class_telecon_ae479f7f3668aa391e1211b42b8ad85d3}{get\+Plot\+By\+Name}} (string window\+Name, string chart\+Name, string plot\+Name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{telecon_8h_source_l00022}{22}} of file \mbox{\hyperlink{telecon_8h_source}{telecon.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_telecon_a1a13d754d2f95d6be675d5165e4c025e}\label{class_telecon_a1a13d754d2f95d6be675d5165e4c025e}} 
+\index{Telecon@{Telecon}!Telecon@{Telecon}}
+\index{Telecon@{Telecon}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{Telecon()}{Telecon()}}
+{\footnotesize\ttfamily Telecon\+::\+Telecon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructs a new empty \mbox{\hyperlink{class_telecon}{Telecon}} object with no windows. 
+
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_aae363873cda0dd58aed13376b5e4152b}\label{class_telecon_aae363873cda0dd58aed13376b5e4152b}} 
+\index{Telecon@{Telecon}!````~Telecon@{$\sim$Telecon}}
+\index{````~Telecon@{$\sim$Telecon}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{$\sim$Telecon()}{~Telecon()}}
+{\footnotesize\ttfamily Telecon\+::$\sim$\+Telecon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_telecon_aec146a459b32c194874b8c1a60a139ca}\label{class_telecon_aec146a459b32c194874b8c1a60a139ca}} 
+\index{Telecon@{Telecon}!addWindow@{addWindow}}
+\index{addWindow@{addWindow}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{addWindow()}{addWindow()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $>$ Telecon\+::add\+Window (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})}
+
+Adds a window to the application that will be displayed when telecon\+Start is called. Should not be called after telecon\+Start.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the name that will be displayed on the window. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} object created. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00067}{67}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_ab83bf47e29f4a14c97a78b0e2d8d3013}\label{class_telecon_ab83bf47e29f4a14c97a78b0e2d8d3013}} 
+\index{Telecon@{Telecon}!getChartByName@{getChartByName}}
+\index{getChartByName@{getChartByName}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{getChartByName()}{getChartByName()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} $>$ Telecon\+::get\+Chart\+By\+Name (\begin{DoxyParamCaption}\item[{string}]{window\+Name,  }\item[{string}]{chart\+Name }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em window\+Name} & the name of the \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} in which to search for a chart with the given name. If multiple windows share the same name, no guarantee is made about which will be returned. \\
+\hline
+{\em chart\+Name} & the name of the \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} to return. If multiple charts share the same name, no guarantee is made about which will be returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a chart with the given name, or a null pointer if no chart in the given window has that name. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00098}{98}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_aee854954e0004822dece3130a61e332e}\label{class_telecon_aee854954e0004822dece3130a61e332e}} 
+\index{Telecon@{Telecon}!getNumWindows@{getNumWindows}}
+\index{getNumWindows@{getNumWindows}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{getNumWindows()}{getNumWindows()}}
+{\footnotesize\ttfamily size\+\_\+t Telecon\+::get\+Num\+Windows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+The number of Telecon\+Windows added to the application. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00083}{83}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_ae479f7f3668aa391e1211b42b8ad85d3}\label{class_telecon_ae479f7f3668aa391e1211b42b8ad85d3}} 
+\index{Telecon@{Telecon}!getPlotByName@{getPlotByName}}
+\index{getPlotByName@{getPlotByName}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{getPlotByName()}{getPlotByName()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ Telecon\+::get\+Plot\+By\+Name (\begin{DoxyParamCaption}\item[{string}]{window\+Name,  }\item[{string}]{chart\+Name,  }\item[{string}]{plot\+Name }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em window\+Name} & the name of the \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} in which to search for a plot with the given name. If multiple windows share the same name, no guarantee is made about which will be returned. \\
+\hline
+{\em chart\+Name} & the name of the \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} in which to search for a plot with the given name. If multiple charts share the same name, no guarantee is made about which will be returned. \\
+\hline
+{\em plot\+Name} & the name of the \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} to return. If multiple plots share the same name, no guarantee is made about which will be returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a plot with the given name, or a null pointer if no plot in the given chart and window has that name. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00104}{104}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_a4e268e27cfd1420b9d6e5cb8f6f94d2e}\label{class_telecon_a4e268e27cfd1420b9d6e5cb8f6f94d2e}} 
+\index{Telecon@{Telecon}!getWindow@{getWindow}}
+\index{getWindow@{getWindow}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{getWindow()}{getWindow()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $>$ Telecon\+::get\+Window (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & the index of the \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} to return, relative to the order added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} requested. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00078}{78}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_ae895c607a872a31022bea2e182eab27f}\label{class_telecon_ae895c607a872a31022bea2e182eab27f}} 
+\index{Telecon@{Telecon}!getWindowByName@{getWindowByName}}
+\index{getWindowByName@{getWindowByName}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{getWindowByName()}{getWindowByName()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $>$ Telecon\+::get\+Window\+By\+Name (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the name of the \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} to return. If multiple windows share the same name, no guarantee is made about which will be returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a window with the given name, or a null pointer if no window has that name. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00088}{88}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_a4e7f44f91777f60ce3de1921ffafa39e}\label{class_telecon_a4e7f44f91777f60ce3de1921ffafa39e}} 
+\index{Telecon@{Telecon}!hasStarted@{hasStarted}}
+\index{hasStarted@{hasStarted}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{hasStarted()}{hasStarted()}}
+{\footnotesize\ttfamily bool Telecon\+::has\+Started (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Returns true if the \mbox{\hyperlink{class_telecon}{Telecon}} object has already started (or finished) initializing displayed windows, or false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_a7506c1f81501bc2d7ac5fa416809d5ec}\label{class_telecon_a7506c1f81501bc2d7ac5fa416809d5ec}} 
+\index{Telecon@{Telecon}!hasStopped@{hasStopped}}
+\index{hasStopped@{hasStopped}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{hasStopped()}{hasStopped()}}
+{\footnotesize\ttfamily bool Telecon\+::has\+Stopped (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Returns true if all windows have been closed (either manually by the user or by telecon\+Stop) and \mbox{\hyperlink{class_telecon}{Telecon}} has finished its subsequent cleanup.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_telecon_ae8e37edb38dd36ec134ac770f827dfeb}{Telecon\+::telecon\+Stop}} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00062}{62}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_a17d48d9395606bf0b9a526950f1df0f1}\label{class_telecon_a17d48d9395606bf0b9a526950f1df0f1}} 
+\index{Telecon@{Telecon}!teleconStart@{teleconStart}}
+\index{teleconStart@{teleconStart}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{teleconStart()}{teleconStart()}}
+{\footnotesize\ttfamily void Telecon\+::telecon\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Starts the actual windows that display content, based on the \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} objects previously added. This function should only be called once. 
+
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_ae8e37edb38dd36ec134ac770f827dfeb}\label{class_telecon_ae8e37edb38dd36ec134ac770f827dfeb}} 
+\index{Telecon@{Telecon}!teleconStop@{teleconStop}}
+\index{teleconStop@{teleconStop}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{teleconStop()}{teleconStop()}}
+{\footnotesize\ttfamily void Telecon\+::telecon\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Closes any windows that are still open and exits running. When this function returns, the \mbox{\hyperlink{class_telecon}{Telecon}} object can be safely deleted. 
+
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{telecon_8h}{telecon.\+h}}\item 
+src/\mbox{\hyperlink{telecon_8cpp}{telecon.\+cpp}}\end{DoxyCompactItemize}

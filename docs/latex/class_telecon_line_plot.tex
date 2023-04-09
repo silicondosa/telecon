@@ -1,0 +1,103 @@
+\hypertarget{class_telecon_line_plot}{}\doxysection{Telecon\+Line\+Plot Class Reference}
+\label{class_telecon_line_plot}\index{TeleconLinePlot@{TeleconLinePlot}}
+
+
+{\ttfamily \#include $<$include/teleconlineplot.\+h$>$}
+
+Inheritance diagram for Telecon\+Line\+Plot\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_telecon_line_plot}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual int \mbox{\hyperlink{class_telecon_line_plot_ac7ebe860040d9e908b0cc1a1e0892584}{get\+Line\+Width}} () const =0
+\item 
+virtual \mbox{\hyperlink{teleconlineplot_8h_afd074c27ba0a2809258258751b754f52}{Line\+Type}} \mbox{\hyperlink{class_telecon_line_plot_a24d441ff5ee74a24ad03523635b5a8f1}{get\+Line\+Type}} () const =0
+\item 
+virtual bool \mbox{\hyperlink{class_telecon_line_plot_aa2ed31208772b312092042e0d1db5287}{has\+Symbol}} () const =0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_telecon_line_scatter_plot}{Telecon\+Line\+Scatter\+Plot}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_telecon_line_scatter_plot_ab61103291346f58f8f411201810c06d7}{push\+Data}} (double x\+Timestamp, double y\+Data)=0
+\item 
+virtual bool \mbox{\hyperlink{class_telecon_line_scatter_plot_a787215c8d7c072416d5d088afce0b07b}{is\+Symbol\+Filled}} () const =0
+\item 
+virtual int \mbox{\hyperlink{class_telecon_line_scatter_plot_a2733f6ed53a20ddf8267206c0c146c23}{get\+Symbol}} () const =0
+\item 
+virtual int \mbox{\hyperlink{class_telecon_line_scatter_plot_a67185743e3a42bb7188cd9b2ec1c6795}{get\+Symbol\+Size}} () const =0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_telecon_plot_a582e5ae4fd4923f82956fc37679d3809}{size}} () const =0
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_telecon_plot_a531aaccd7cd6f98e32c1a315900b5c49}{depth}} () const =0
+\item 
+virtual int \mbox{\hyperlink{class_telecon_plot_ae573ed05240f7e135a50ef0ee632a6bb}{get\+Color}} () const =0
+\item 
+virtual const string \mbox{\hyperlink{class_telecon_plot_ab8c7d77c2ab3091765bf560f29306d7e}{get\+Plot\+Title}} () const =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{teleconlineplot_8h_source_l00010}{10}} of file \mbox{\hyperlink{teleconlineplot_8h_source}{teleconlineplot.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_telecon_line_plot_a24d441ff5ee74a24ad03523635b5a8f1}\label{class_telecon_line_plot_a24d441ff5ee74a24ad03523635b5a8f1}} 
+\index{TeleconLinePlot@{TeleconLinePlot}!getLineType@{getLineType}}
+\index{getLineType@{getLineType}!TeleconLinePlot@{TeleconLinePlot}}
+\doxysubsubsection{\texorpdfstring{getLineType()}{getLineType()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{teleconlineplot_8h_afd074c27ba0a2809258258751b754f52}{Line\+Type}} Telecon\+Line\+Plot\+::get\+Line\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Virtual getter function for plot line type.
+
+\begin{DoxyReturn}{Returns}
+line type as Line\+Type object 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_telecon_wx_line_plot_ad81d109dec01d657f9089b7b96edc61b}{Telecon\+Wx\+Line\+Plot}}.
+
+\mbox{\Hypertarget{class_telecon_line_plot_ac7ebe860040d9e908b0cc1a1e0892584}\label{class_telecon_line_plot_ac7ebe860040d9e908b0cc1a1e0892584}} 
+\index{TeleconLinePlot@{TeleconLinePlot}!getLineWidth@{getLineWidth}}
+\index{getLineWidth@{getLineWidth}!TeleconLinePlot@{TeleconLinePlot}}
+\doxysubsubsection{\texorpdfstring{getLineWidth()}{getLineWidth()}}
+{\footnotesize\ttfamily virtual int Telecon\+Line\+Plot\+::get\+Line\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Virtual getter function for plot line width.
+
+\begin{DoxyReturn}{Returns}
+line width as int 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_telecon_wx_line_plot_a2bb6962c1acb96ad74efec5092922703}{Telecon\+Wx\+Line\+Plot}}.
+
+\mbox{\Hypertarget{class_telecon_line_plot_aa2ed31208772b312092042e0d1db5287}\label{class_telecon_line_plot_aa2ed31208772b312092042e0d1db5287}} 
+\index{TeleconLinePlot@{TeleconLinePlot}!hasSymbol@{hasSymbol}}
+\index{hasSymbol@{hasSymbol}!TeleconLinePlot@{TeleconLinePlot}}
+\doxysubsubsection{\texorpdfstring{hasSymbol()}{hasSymbol()}}
+{\footnotesize\ttfamily virtual bool Telecon\+Line\+Plot\+::has\+Symbol (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Virtual getter function to see if plot has a symbol.
+
+\begin{DoxyReturn}{Returns}
+symbol status as bool 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_telecon_wx_line_plot_ad5d4988d53e4cd9395281498d542a8ec}{Telecon\+Wx\+Line\+Plot}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{teleconlineplot_8h}{teleconlineplot.\+h}}\end{DoxyCompactItemize}

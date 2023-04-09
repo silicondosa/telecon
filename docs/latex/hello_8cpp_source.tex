@@ -1,0 +1,118 @@
+\hypertarget{hello_8cpp_source}{}\doxysection{hello.\+cpp}
+\label{hello_8cpp_source}\index{src/wxWidgetsExample/hello.cpp@{src/wxWidgetsExample/hello.cpp}}
+\mbox{\hyperlink{hello_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00001}00001\ \textcolor{comment}{//\ wxWidgets\ "{}Hello\ World"{}\ Program}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00003}00003\ \textcolor{comment}{//\ For\ compilers\ that\ support\ precompilation,\ includes\ "{}wx/wx.h"{}.}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <wx/wxprec.h>}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#ifndef\ WX\_PRECOMP}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <wx/wx.h>}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00010}00010\ \textcolor{comment}{//\ myApp\ needed\ for\ every\ new\ program\ and\ derived\ from\ weApp\ -\/\ Overridden\ Oninit\ function\ is\ where\ user\ program\ functionalities\ begin}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00011}\mbox{\hyperlink{class_my_app}{00011}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_my_app}{MyApp}}\ :\ \textcolor{keyword}{public}\ wxApp}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00012}00012\ \{}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00013}00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00014}00014\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_my_app_a79fa75d1155f0e85e20f2869538296d6}{OnInit}}();}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00015}00015\ \};}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00017}00017\ \textcolor{comment}{//\ Main\ window\ derived\ from\ wxFrame.\ Reacting\ to\ events\ done\ by\ "{}event\ handler"{}\ functions\ each\ events\ -\/\ hello,\ exit\ and\ about.}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00018}00018\ \textcolor{comment}{//\ All\ programs\ should\ have\ an\ exit\ and\ about\ events.\ Also\ note\ that\ these\ functions\ need\ not\ be\ virtual\ or\ public.}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00019}\mbox{\hyperlink{class_my_frame}{00019}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_my_frame}{MyFrame}}\ :\ \textcolor{keyword}{public}\ wxFrame}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00020}00020\ \{}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00021}00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00022}00022\ \ \ \ \ \mbox{\hyperlink{class_my_frame_aeb2b4ff8a8437835f3f0c394db581ebf}{MyFrame}}();}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00024}00024\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00025}00025\ \ \ \ \ \textcolor{keywordtype}{void}\ OnHello(wxCommandEvent\&\ event);}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{void}\ OnExit(wxCommandEvent\&\ event);}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{keywordtype}{void}\ OnAbout(wxCommandEvent\&\ event);}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00028}00028\ \};}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00030}00030\ \textcolor{comment}{//\ Any\ class\ that\ wishes\ to\ respond\ to\ events\ (such\ as\ mouse\ clicks/menu\ messages/button)\ must\ declare\ an\ ID\ in\ the\ event\ table\ here.}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00031}00031\ \textcolor{comment}{//\ Notice\ that\ the\ 'exit'\ and\ 'about'\ events\ don't\ need\ to\ define\ IDs.\ Their\ IDs\ are\ automatically\ assigned.}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00032}00032\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00033}00033\ \{}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00034}00034\ \ \ \ \ \mbox{\hyperlink{hello_8cpp_a99fb83031ce9923c84392b4e92f956b5af16c628a845e3aa25649cb1e76236469}{ID\_Hello}}\ =\ 1}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00035}\mbox{\hyperlink{hello_8cpp_a99fb83031ce9923c84392b4e92f956b5af16c628a845e3aa25649cb1e76236469}{00035}}\ \};}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00037}00037\ \textcolor{comment}{//\ Implements\ the\ main\ function\ which\ creates\ an\ application\ instance\ and\ starts\ the\ GUI\ event\ loop,\ then\ calls\ the\ OnInit\ function}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00038}\mbox{\hyperlink{hello_8cpp_adb9631f126f6a1c902aac936b0d3aaf7}{00038}}\ \mbox{\hyperlink{hello_8cpp_adb9631f126f6a1c902aac936b0d3aaf7}{wxIMPLEMENT\_APP}}(\mbox{\hyperlink{class_my_app}{MyApp}});}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00040}00040\ \textcolor{comment}{//\ All\ user-\/specific\ code\ execution\ begins\ here.\ Overrides\ the\ inherited\ OnInit()\ function.}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00041}00041\ \textcolor{comment}{//\ Everything\ from\ a\ splash\ screen\ to\ creating\ the\ main\ window\ can\ done\ here.}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00042}00042\ \textcolor{comment}{//\ Note\ that\ a\ frame\ is\ the\ basic\ building\ block\ of\ all\ windows.}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00043}00043\ \textcolor{comment}{//\ Frames\ are\ created\ hidden\ first,\ allowing\ us\ to\ build\ out\ the\ frame\ before\ making\ it\ visible.}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00044}\mbox{\hyperlink{class_my_app_a79fa75d1155f0e85e20f2869538296d6}{00044}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_my_app_a79fa75d1155f0e85e20f2869538296d6}{MyApp::OnInit}}()}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00045}00045\ \{}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00046}00046\ \ \ \ \ \mbox{\hyperlink{class_my_frame}{MyFrame}}*\ frame\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_my_frame}{MyFrame}}();}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00047}00047\ \ \ \ \ frame-\/>Show(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00049}00049\ \}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00051}00051\ \textcolor{comment}{//\ Every\ frame\ (building\ block\ for\ a\ window)\ is\ derived\ from\ the\ wxFrame\ class.}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00052}00052\ \textcolor{comment}{//\ All\ elements\ (buttons,\ sliders,\ menus,\ menu\ items,\ status\ bar,\ text\ boxes,\ image\ viewers,\ plots,\ etc.)\ need\ to\ be\ bound\ to\ a\ frame.}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00053}00053\ \textcolor{comment}{//\ Once\ again,\ remember\ that\ each\ element\ that\ needs\ to\ respond\ to\ events\ must\ also\ have\ an\ event\ handler\ and\ event\ ID.}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00054}00054\ \textcolor{comment}{//\ Standard\ items\ such\ as\ exit\ and\ about\ (also\ copy,\ cut,\ paste,\ etc.)\ have\ default\ IDs.\ They\ still\ need\ event\ handlers\ though.}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00055}\mbox{\hyperlink{class_my_frame_aeb2b4ff8a8437835f3f0c394db581ebf}{00055}}\ \mbox{\hyperlink{class_my_frame_aeb2b4ff8a8437835f3f0c394db581ebf}{MyFrame::MyFrame}}()}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00056}00056\ \ \ \ \ :\ wxFrame(NULL,\ wxID\_ANY,\ \textcolor{stringliteral}{"{}Hello\ World"{}})}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00057}00057\ \{}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{comment}{//\ Create\ a\ File\ menu\ and\ append\ menu\ items\ to\ it.}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ note\ that\ the\ "{}Quit/Exit"{}\ menu\ item\ has\ a\ default\ ID.}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00060}00060\ \ \ \ \ wxMenu*\ menuFile\ =\ \textcolor{keyword}{new}\ wxMenu;}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00061}00061\ \ \ \ \ menuFile-\/>Append(\mbox{\hyperlink{hello_8cpp_a99fb83031ce9923c84392b4e92f956b5af16c628a845e3aa25649cb1e76236469}{ID\_Hello}},\ \textcolor{stringliteral}{"{}\&Hello...\(\backslash\)tCtrl-\/H"{}},}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Help\ string\ shown\ in\ status\ bar\ for\ this\ menu\ item"{}});}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00063}00063\ \ \ \ \ menuFile-\/>AppendSeparator();}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00064}00064\ \ \ \ \ menuFile-\/>Append(wxID\_EXIT);}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00066}00066\ \ \ \ \ \textcolor{comment}{//\ Create\ a\ help\ menu.}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Note\ that\ the\ "{}about"{}\ menu\ item\ has\ default\ ID.}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00068}00068\ \ \ \ \ wxMenu*\ menuHelp\ =\ \textcolor{keyword}{new}\ wxMenu;}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00069}00069\ \ \ \ \ menuHelp-\/>Append(wxID\_ABOUT);}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00071}00071\ \ \ \ \ \textcolor{comment}{//\ Create\ menu\ bar,\ append\ menus\ to\ it,\ and\ set\ it\ to\ frame.}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00072}00072\ \ \ \ \ wxMenuBar*\ menuBar\ =\ \textcolor{keyword}{new}\ wxMenuBar;}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00073}00073\ \ \ \ \ menuBar-\/>Append(menuFile,\ \textcolor{stringliteral}{"{}\&File"{}});}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00074}00074\ \ \ \ \ menuBar-\/>Append(menuHelp,\ \textcolor{stringliteral}{"{}\&Help"{}});}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00076}00076\ \ \ \ \ SetMenuBar(menuBar);}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00078}00078\ \ \ \ \ \textcolor{comment}{//\ Create\ and\ set\ a\ status\ bar\ for\ context-\/dependant\ help\ text}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00079}00079\ \ \ \ \ CreateStatusBar();}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00080}00080\ \ \ \ \ SetStatusText(\textcolor{stringliteral}{"{}Welcome\ to\ wxWidgets!"{}});}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00082}00082\ \ \ \ \ \textcolor{comment}{//\ Bind\ event\ handler\ functions\ to\ event\ IDs.}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ There\ are\ many\ types\ of\ events.\ These\ are\ all\ wxEVT\_MENU\ events.}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ use\ a\ function\ point\ pointer\ to\ the\ event\ handler\ routine\ and\ call\ it\ on\ the\ object\ of\ choice\ (our\ own\ object\ here\ -\/\ so,\ using\ 'this').}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00085}00085\ \ \ \ \ Bind(wxEVT\_MENU,\ \&MyFrame::OnHello,\ \textcolor{keyword}{this},\ \mbox{\hyperlink{hello_8cpp_a99fb83031ce9923c84392b4e92f956b5af16c628a845e3aa25649cb1e76236469}{ID\_Hello}});}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00086}00086\ \ \ \ \ Bind(wxEVT\_MENU,\ \&MyFrame::OnAbout,\ \textcolor{keyword}{this},\ wxID\_ABOUT);}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00087}00087\ \ \ \ \ Bind(wxEVT\_MENU,\ \&MyFrame::OnExit,\ \textcolor{keyword}{this},\ wxID\_EXIT);}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00088}00088\ \}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00090}00090\ \textcolor{comment}{//\ Event\ handler\ implementations}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00092}00092\ \textcolor{comment}{//\ Event\ handler\ for\ the\ exit\ menu\ item}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00093}00093\ \textcolor{keywordtype}{void}\ MyFrame::OnExit(wxCommandEvent\&\ event)}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00094}00094\ \{}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00095}00095\ \ \ \ \ \textcolor{comment}{//\ The\ parameter\ 'true'\ force\ closes\ the\ main\ window\ when\ the\ menu\ item\ is\ clicked}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ no\ other\ window\ is\ left,\ the\ application\ will\ quit}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00097}00097\ \ \ \ \ Close(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00098}00098\ \}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00100}00100\ \textcolor{comment}{//\ Event\ handler\ for\ the\ about\ menu\ item}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00101}00101\ \textcolor{keywordtype}{void}\ MyFrame::OnAbout(wxCommandEvent\&\ event)}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00102}00102\ \{}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00103}00103\ \ \ \ \ \textcolor{comment}{//\ Create\ a\ message\ box\ pop-\/up\ with\ the\ appropriate\ message\ and\ title}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00104}00104\ \ \ \ \ wxMessageBox(\textcolor{stringliteral}{"{}This\ is\ a\ wxWidgets\ Hello\ World\ example"{}},}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}About\ Hello\ World"{}},\ wxOK\ |\ wxICON\_INFORMATION);}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00106}00106\ \}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00108}00108\ \textcolor{comment}{//\ Event\ handler\ for\ the\ Hello\ button}}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00109}00109\ \textcolor{keywordtype}{void}\ MyFrame::OnHello(wxCommandEvent\&\ event)}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00110}00110\ \{}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00111}00111\ \ \ \ \ wxLogMessage(\textcolor{stringliteral}{"{}Hello\ world\ from\ wxWidgets!"{}});}
+\DoxyCodeLine{\Hypertarget{hello_8cpp_source_l00112}00112\ \}}
+
+\end{DoxyCode}

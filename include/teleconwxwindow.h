@@ -20,8 +20,6 @@ private:
 
     vector<TeleconWxChart*> m_charts;
 
-    wxTimer* m_checkQuitTimer;
-
     // Setup functions 
     void SetUpViewOptionsBox();
 
@@ -45,16 +43,18 @@ private:
     void OnChartRefreshIntervalSelected(wxCommandEvent& event);
     void OnSave(wxCommandEvent& event);
 
-    void checkQuit(wxTimerEvent& event);
+    void refreshCharts(wxTimerEvent& event);
     void onClose(wxCloseEvent& event);
 
 public:
     TeleconWxWindow(shared_ptr<TeleconWindow> window);
-    ~TeleconWxWindow();
 
     DECLARE_EVENT_TABLE()
 };
 
 enum {
-    ID_QUIT_TIMER = ID_REFRESH_TIMER + 1
+    ID_REFRESH_TIMER = ID_CHARTVIEWER + 1,
+    ID_PLAY,
+    ID_PAUSE,
+    ID_REFRESH_INTERVAL
 };

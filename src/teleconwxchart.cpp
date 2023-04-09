@@ -19,11 +19,6 @@ using namespace std;
 
 static const int chartRefreshIntervals[8] = {250, 500, 750, 1000, 1250, 1500, 1750, 2000};
 
-TeleconWxChart::~TeleconWxChart()
-{
-    m_chartRefreshTimer->Stop();
-}
-
 TeleconWxChart::TeleconWxChart(
     shared_ptr<TeleconChart> chart,
     wxWindow* parent,
@@ -67,15 +62,10 @@ void TeleconWxChart::SetUpChartBox()
 {
     m_chartViewer = new wxChartViewer(this, ID_CHARTVIEWER, wxDefaultPosition, FromDIP(wxSize(600, 270)), wxTAB_TRAVERSAL | wxNO_BORDER);
     m_chartBoxSizer->Add(m_chartViewer, 1, wxGROW | wxALL, FromDIP(3));
-
-    // Set up the chart refresh timer
-    m_chartRefreshTimer = new wxTimer(this, ID_REFRESH_TIMER);
-    m_chartRefreshTimer->Start(chartRefreshIntervals[0]);
 }
 
 BEGIN_EVENT_TABLE(TeleconWxChart, wxPanel)
 
-EVT_TIMER(ID_REFRESH_TIMER, TeleconWxChart::OnChartRefreshTimer)
 EVT_CHARTVIEWER_VIEWPORT_CHANGED(ID_CHARTVIEWER, TeleconWxChart::OnViewPortChanged)
 EVT_CHARTVIEWER_MOUSEMOVE_PLOTAREA(ID_CHARTVIEWER, TeleconWxChart::OnMouseMovePlotArea)
 
@@ -89,12 +79,6 @@ void TeleconWxChart::setPlay() {
 //setter function for window button
 void TeleconWxChart::setPause() {
     m_isRefreshEnabled = false;
-}
-
-//setter function for window button
-//interval var passed in as selected interval rate
-void TeleconWxChart::setRefresh(long interval) {
-    m_chartRefreshTimer->Start(interval);
 }
 
 //setter function for window button
@@ -117,11 +101,10 @@ void TeleconWxChart::doSave(int i, string windowName) {
             c->makeChart(fileName.ToUTF8());
         }
     }
-
 }
 
 // Event handler
-void TeleconWxChart::OnChartRefreshTimer(wxTimerEvent &event)
+void TeleconWxChart::OnChartRefreshTimer()
 {
     // Will result in a call to OnViewPortChanged, which may redraw the chart if needed
     m_chartViewer->updateViewPort(true, false);

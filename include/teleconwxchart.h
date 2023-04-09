@@ -31,19 +31,11 @@ public:
         const wxString& name = wxASCII_STR(wxPanelNameStr)
     );
 
-    /// Destructor
-    ~TeleconWxChart();
-    // Copy & move constructors and assignment operators are unneeded, and are deleted to comply with Rule of Five
-    // See: https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)
-    TeleconWxChart(TeleconWxChart&) = delete;
-    TeleconWxChart& operator=(TeleconWxChart&) = delete;
-    TeleconWxChart(TeleconWxChart&&) = delete;
-    TeleconWxChart& operator=(TeleconWxChart&&) = delete;
+    void OnChartRefreshTimer();
 
     // setter functions for wxwindow buttons
     void setPlay();
     void setPause();
-    void setRefresh(long);
     void doSave(int, string);
 
     DECLARE_EVENT_TABLE()
@@ -54,7 +46,6 @@ private:
     void SetUpChartBox();
 
     // wxWidgets event handler functions
-    void OnChartRefreshTimer(wxTimerEvent& event);
     void OnViewPortChanged(wxCommandEvent& event); // updates the chart if it needs updating
 
     // addPlot() helper functions
@@ -84,9 +75,6 @@ private:
     vector<wxTextCtrl*> m_latestValueTextCtrls;
     wxColour m_bgColour;
 
-    // wxWidgets timers
-    wxTimer* m_chartRefreshTimer;
-
     shared_ptr<TeleconChart> m_chart;
     bool m_isRefreshEnabled;
 
@@ -96,10 +84,5 @@ private:
 
 enum
 {
-    ID_CHARTVIEWER = wxID_HIGHEST + 1,
-    ID_PLAY,
-    ID_PAUSE,
-    ID_REFRESH_INTERVAL,
-    ID_DATA_TIMER,
-    ID_REFRESH_TIMER
+    ID_CHARTVIEWER = wxID_HIGHEST + 1
 };

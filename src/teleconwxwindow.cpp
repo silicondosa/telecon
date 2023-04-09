@@ -30,8 +30,8 @@ TeleconWxWindow::TeleconWxWindow(shared_ptr<TeleconWindow> window)
     }
     SetSizerAndFit(itemBoxSizer);
 
-    m_checkQuitTimer = new wxTimer(this, ID_QUIT_TIMER);
-    m_checkQuitTimer->Start(100);
+    m_chartRefreshTimer = new wxTimer(this, ID_REFRESH_TIMER);
+    m_chartRefreshTimer->Start(chartRefreshIntervals[0]);
 }
 
 void TeleconWxWindow::SetUpViewOptionsBox()
@@ -63,14 +63,10 @@ void TeleconWxWindow::SetUpViewOptionsBox()
     
 }
 
-TeleconWxWindow::~TeleconWxWindow() {
-    m_checkQuitTimer->Stop();
-}
-
 BEGIN_EVENT_TABLE(TeleconWxWindow, wxFrame)
 
 EVT_CLOSE(TeleconWxWindow::onClose)
-EVT_TIMER(ID_QUIT_TIMER, TeleconWxWindow::checkQuit)
+EVT_TIMER(ID_REFRESH_TIMER, TeleconWxWindow::refreshCharts)
 
 EVT_TOGGLEBUTTON(ID_PLAY, TeleconWxWindow::OnPlayClick)
 EVT_TOGGLEBUTTON(ID_PAUSE, TeleconWxWindow::OnPauseClick)
@@ -104,9 +100,7 @@ void TeleconWxWindow::OnChartRefreshIntervalSelected(wxCommandEvent& event)
 {
     long interval;
     (m_refreshIntervalSelector->GetString(m_refreshIntervalSelector->GetSelection())).ToLong(&interval);
-    for (int i = 0; i < m_window->getNumCharts(); i++) {
-        m_charts[i]->setRefresh(interval);
-    }
+    m_chartRefreshTimer->Start(interval);
 }
  
 // Event handler
@@ -127,15 +121,21 @@ void TeleconWxWindow::OnSave(wxCommandEvent& event)
     }
 }
 
-void TeleconWxWindow::checkQuit(wxTimerEvent& event)
+void TeleconWxWindow::refreshCharts(wxTimerEvent& event)
 {
     if (m_window->hasRequestedQuit()) {
         Close();
+        return;
+    }
+    for (auto chart : m_charts) {
+        chart->OnChartRefreshTimer();
     }
 }
 
 void TeleconWxWindow::onClose(wxCloseEvent& event)
 {
     m_window->setHasQuit();
+    m_chartRefreshTimer->Stop();
+    wxTheApp->ScheduleForDestruction(m_chartRefreshTimer);
     event.Skip();
 }

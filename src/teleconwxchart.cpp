@@ -53,7 +53,8 @@ TeleconWxChart::TeleconWxChart(
 
 void TeleconWxChart::SetUpViewOptionsBox()
 {
-
+    wxStaticText* latestValueGroupLabel = new wxStaticText(this, wxID_STATIC, wxString("Latest Values"), wxDefaultPosition, wxDefaultSize, 0);
+    m_viewOptionsBoxSizer->Add(latestValueGroupLabel, 0, wxALIGN_CENTER | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
     m_plotLatestValueFlexGridSizer = new wxFlexGridSizer( 0, 2, 0, 0);
     m_viewOptionsBoxSizer->Add(m_plotLatestValueFlexGridSizer, 0, wxGROW | wxALL, FromDIP(3));
 

@@ -37,11 +37,11 @@ int main(int argc, char* argv[])
     Telecon* telecon = new Telecon();
     shared_ptr<TeleconWindow> window = telecon->addWindow("MyWindow");
 
-    shared_ptr<TeleconRealtimeChart> chart1 = window->addRealtimeChart("Chart1", 60.0, dataRateMillis, "lbs", "time");
+    shared_ptr<TeleconRealtimeChart> chart1 = window->addRealtimeChart("Chart1", 60.0, dataRateMillis, "time (s)", "lbs");
     shared_ptr<TeleconLinePlot> plot1 = chart1->addLinePlot("Expected Tension", COLOR_BLACK, LT_SOLID, 1, SYMBOL_NO_SYMBOL, true, 5);
     shared_ptr<TeleconLinePlot> plot2 = chart1->addLinePlot("Force", COLOR_GREEN, LT_SOLID, 5, SYMBOL_NO_SYMBOL, true, 5);
 
-    shared_ptr<TeleconRealtimeChart> chart2 = window->addRealtimeChart("Second Chart", 60.0, dataRateMillis, "inches", "time");
+    shared_ptr<TeleconRealtimeChart> chart2 = window->addRealtimeChart("Second Chart", 60.0, dataRateMillis, "time (s)", "inches");
     shared_ptr<TeleconLinePlot> plot3 = chart2->addLinePlot("Extension (expected)", COLOR_DEFAULT, LT_SOLID, 1, SYMBOL_CIRCLE, true, 5);
     shared_ptr<TeleconLinePlot> plot4 = chart2->addLinePlot("Extension (actual)", COLOR_GREEN, LT_DASHED, 1, SYMBOL_NO_SYMBOL, true, 5);
     //test for legends
@@ -52,7 +52,7 @@ int main(int argc, char* argv[])
 
     shared_ptr<TeleconWindow> window2 = telecon->addWindow("Second Window");
 
-    shared_ptr<TeleconRealtimeChart> chart3 = window2->addRealtimeChart("Diverging Chart", 6.0, dataRateMillis, "ft", "time (s)", CSM_DIVERGING);
+    shared_ptr<TeleconRealtimeChart> chart3 = window2->addRealtimeChart("Diverging Chart", 6.0, dataRateMillis, "time (s)", "ft", CSM_DIVERGING);
     shared_ptr<TeleconLinePlot> plot9 = chart3->addLinePlot("Plot 1");
     shared_ptr<TeleconLinePlot> plot10 = chart3->addLinePlot("Plot 2");
     shared_ptr<TeleconLinePlot> plot11 = chart3->addLinePlot("Plot 3");
@@ -65,7 +65,7 @@ int main(int argc, char* argv[])
     realTimeChart3->addLinePlot("Plot 10");
     realTimeChart3->addLinePlot("Plot 11");*/
 
-    shared_ptr<TeleconRealtimeChart> chart4 = window2->addRealtimeChart("Scatter Chart", 6.0, dataRateMillis, "mph", "time", CSM_DIVERGING);
+    shared_ptr<TeleconRealtimeChart> chart4 = window2->addRealtimeChart("Scatter Chart", 6.0, dataRateMillis, "time (s)", "mph", CSM_DIVERGING);
     shared_ptr<TeleconScatterPlot> plot13 = chart4->addScatterPlot("Speed", COLOR_DEFAULT, SYMBOL_CROSS, false);
     shared_ptr<TeleconScatterPlot> plot14 = chart4->addScatterPlot("New one", COLOR_DEFAULT, SYMBOL_CIRCLE, false);
     shared_ptr<TeleconScatterPlot> plot15 = chart4->addScatterPlot("Velocity", COLOR_BLUE, SYMBOL_DIAMOND, true, 3);
@@ -78,19 +78,25 @@ int main(int argc, char* argv[])
     chart4->addLinePlot("line");
     chart4->addScatterPlot("scatter");
 
-    vector<shared_ptr<TeleconLineScatterPlot>> plots({ plot1, plot2, plot3, plot4, plot5, plot6, plot7, plot8, plot9, plot10, plot11, plot12, plot13, plot14, plot15});
+    vector<shared_ptr<TeleconLineScatterPlot>> absoluteTimePlots({ plot1, plot2, plot3, plot4, plot5, plot6, plot7, plot8 });
+    vector<shared_ptr<TeleconLineScatterPlot>> relativeTimePlots({ plot9, plot10, plot11, plot12, plot13, plot14, plot15 });
 
     // Controller code starts here
+    wxDateTime start = wxDateTime::UNow();
+    double startTimestamp = Chart::chartTime2(start.GetTicks()) + start.GetMillisecond() / 1000.0;
 
     while (true) {
         wxDateTime now = wxDateTime::UNow(); // Needs to use UNow instead of Now for millisecond precision
 
         // Convert from wxDateTime to seconds since Unix epoch, then to ChartDirector double timestamp.
         // Since that loses millisecond precision, add it back in with GetMillisecond()
-        double millis = now.GetMillisecond();
-        double nowTimeStamp = Chart::chartTime2(now.GetTicks()) + now.GetMillisecond() / 1000.0;
-        for (auto i = plots.begin(); i != plots.end(); ++i) {
-            (*i)->pushData(nowTimeStamp, CreateDataPoints());
+        double nowTimestampAbsolute = Chart::chartTime2(now.GetTicks()) + now.GetMillisecond() / 1000.0;
+        double nowTimestampRelative = nowTimestampAbsolute - startTimestamp;
+        for (auto absoluteTimePlot : absoluteTimePlots) {
+            absoluteTimePlot->pushData(nowTimestampAbsolute, CreateDataPoints());
+        }
+        for (auto relativeTimePlot : relativeTimePlots) {
+            relativeTimePlot->pushData(nowTimestampRelative, CreateDataPoints());
         }
         if (telecon->hasStopped()) {
             break;
@@ -100,7 +106,7 @@ int main(int argc, char* argv[])
 
     // Controller code ends here
 
-    telecon->teleconStop(); //Must be called prior to exiting main
+    telecon->teleconStop();
 
     delete telecon;
 

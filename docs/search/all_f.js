@@ -1,30 +1,4 @@
 var searchData=
 [
-  ['telecon_0',['telecon',['../index.html',1,'']]],
-  ['telecon_1',['Telecon',['../class_telecon.html#a1a13d754d2f95d6be675d5165e4c025e',1,'Telecon::Telecon()'],['../class_telecon.html',1,'Telecon']]],
-  ['telecon_2ecpp_2',['telecon.cpp',['../wx_widgets_example_2telecon_8cpp.html',1,'(Global Namespace)'],['../telecon_8cpp.html',1,'(Global Namespace)'],['../wx_chart_dir_example_2telecon_8cpp.html',1,'(Global Namespace)']]],
-  ['telecon_2eh_3',['telecon.h',['../telecon_8h.html',1,'(Global Namespace)'],['../wx_chart_dir_example_2telecon_8h.html',1,'(Global Namespace)'],['../wx_widgets_example_2telecon_8h.html',1,'(Global Namespace)']]],
-  ['telecon_5fh_4',['TELECON_H',['../wx_widgets_example_2telecon_8h.html#a93cc53cfba07d1a7ce1582098fdce0ed',1,'telecon.h']]],
-  ['teleconapp_5',['teleconApp',['../classtelecon_app.html',1,'']]],
-  ['teleconapp_6',['TeleconApp',['../class_telecon_app.html',1,'TeleconApp'],['../class_telecon_app.html#ab55d26d9305da7e9326c29a069f76735',1,'TeleconApp::TeleconApp()']]],
-  ['teleconapp_2ecpp_7',['teleconapp.cpp',['../teleconapp_8cpp.html',1,'']]],
-  ['teleconapp_2eh_8',['teleconapp.h',['../teleconapp_8h.html',1,'']]],
-  ['teleconjoin_9',['teleconJoin',['../class_telecon.html#ac81ca0e9db9a0138de1002343155ac70',1,'Telecon']]],
-  ['teleconlineplot_10',['TeleconLinePlot',['../class_telecon_line_plot.html',1,'TeleconLinePlot'],['../class_telecon_line_plot.html#aed28ffa2512a8670198f25d97b9c3215',1,'TeleconLinePlot::TeleconLinePlot()']]],
-  ['teleconlineplot_2ecpp_11',['teleconlineplot.cpp',['../teleconlineplot_8cpp.html',1,'']]],
-  ['teleconlineplot_2eh_12',['teleconlineplot.h',['../teleconlineplot_8h.html',1,'']]],
-  ['teleconmain_13',['teleconMain',['../class_telecon.html#a4a0bb69634311e36e0076cac4e47eb57',1,'Telecon']]],
-  ['teleconplot_14',['TeleconPlot',['../class_telecon_plot.html',1,'TeleconPlot'],['../class_telecon_plot.html#a311a00ca8b3974b8f12af4f8df4c1f05',1,'TeleconPlot::TeleconPlot()']]],
-  ['teleconplot_2ecpp_15',['teleconplot.cpp',['../teleconplot_8cpp.html',1,'']]],
-  ['teleconplot_2eh_16',['teleconplot.h',['../teleconplot_8h.html',1,'']]],
-  ['teleconrealtimechart_17',['TeleconRealTimeChart',['../class_telecon_real_time_chart.html',1,'TeleconRealTimeChart'],['../class_telecon_real_time_chart.html#a58f1ba71960f3cc8ffcb5d877103eba5',1,'TeleconRealTimeChart::TeleconRealTimeChart(wxWindow *parent, wxWindowID winid=wxID_ANY, const wxPoint &amp;pos=wxDefaultPosition, const wxSize &amp;size=wxDefaultSize, const wxString title=&quot;&quot;, const wxString xLabel=&quot;&quot;, const wxString yLabel=&quot;&quot;, long style=wxTAB_TRAVERSAL|wxNO_BORDER, const wxString &amp;name=wxASCII_STR(wxPanelNameStr), ColorSequenceMode colorSequenceMode=CSM_BLACK, int dataInterval=100, int memoryDepth=1000)'],['../class_telecon_real_time_chart.html#a08117ebc68d61dd6aa2f93a4ec034cc2',1,'TeleconRealTimeChart::TeleconRealTimeChart(TeleconRealTimeChart &amp;)=delete'],['../class_telecon_real_time_chart.html#a8f532b0fb78a163780f0d88f28d746d3',1,'TeleconRealTimeChart::TeleconRealTimeChart(TeleconRealTimeChart &amp;&amp;)=delete']]],
-  ['teleconrealtimechart_2ecpp_18',['teleconrealtimechart.cpp',['../teleconrealtimechart_8cpp.html',1,'']]],
-  ['teleconrealtimechart_2eh_19',['teleconrealtimechart.h',['../teleconrealtimechart_8h.html',1,'']]],
-  ['teleconscatterplot_20',['TeleconScatterPlot',['../class_telecon_scatter_plot.html',1,'TeleconScatterPlot'],['../class_telecon_scatter_plot.html#a30a330e150c75e9af442b92c9fee0ceb',1,'TeleconScatterPlot::TeleconScatterPlot()']]],
-  ['teleconscatterplot_2ecpp_21',['teleconscatterplot.cpp',['../teleconscatterplot_8cpp.html',1,'']]],
-  ['teleconscatterplot_2eh_22',['teleconscatterplot.h',['../teleconscatterplot_8h.html',1,'']]],
-  ['teleconstart_23',['teleconStart',['../class_telecon.html#ae12ac6e774fa74a00e1a9d4816161667',1,'Telecon']]],
-  ['teleconwindow_24',['TeleconWindow',['../class_telecon_window.html',1,'TeleconWindow'],['../class_telecon_window.html#ad3366ec24b31aff93e7c2161afd49960',1,'TeleconWindow::TeleconWindow()']]],
-  ['teleconwindow_2ecpp_25',['teleconwindow.cpp',['../teleconwindow_8cpp.html',1,'']]],
-  ['teleconwindow_2eh_26',['teleconwindow.h',['../teleconwindow_8h.html',1,'']]]
+  ['waituntilquit_0',['waitUntilQuit',['../class_telecon_window.html#a53eb0df50cc63f31ee05edef1a3ae0ba',1,'TeleconWindow']]]
 ];

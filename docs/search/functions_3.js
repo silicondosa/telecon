@@ -1,6 +1,29 @@
 var searchData=
 [
-  ['databuffer_0',['DataBuffer',['../class_data_buffer.html#aded1119a0fe882bf4d1a2c64ad9a1edc',1,'DataBuffer']]],
-  ['depth_1',['depth',['../class_data_buffer.html#a43bc240ccaec253d56435f473a8ca428',1,'DataBuffer::depth()'],['../class_telecon_plot.html#a172cac1b5fb93d7c5321e5ccef35d36e',1,'TeleconPlot::depth()']]],
-  ['drawwindow_2',['drawWindow',['../class_telecon_window.html#ad428dbc95e85292aaebc4c7361c87458',1,'TeleconWindow']]]
+  ['generaterandomdouble_0',['generateRandomDouble',['../userfile_8cpp.html#aba678328bd9c8013c3bb4b37fab7ec8d',1,'userfile.cpp']]],
+  ['getchart_1',['getChart',['../class_telecon_window.html#ac5c083d7bbdf47e61e10c3c0034b2e35',1,'TeleconWindow']]],
+  ['getchartbyname_2',['getChartByName',['../class_telecon.html#ab83bf47e29f4a14c97a78b0e2d8d3013',1,'Telecon::getChartByName()'],['../class_telecon_window.html#acd7ae4dd6f73c1232e59410a564d60d2',1,'TeleconWindow::getChartByName()']]],
+  ['getchartxaxistype_3',['getChartXAxisType',['../class_telecon_chart.html#a5f2f3541ceb9b18a532e80d8ee805586',1,'TeleconChart::getChartXAxisType()'],['../class_telecon_realtime_chart.html#ae6eb873f64e852cf645bac0e6a89208e',1,'TeleconRealtimeChart::getChartXAxisType()']]],
+  ['getcolor_4',['getColor',['../class_telecon_plot.html#ae573ed05240f7e135a50ef0ee632a6bb',1,'TeleconPlot::getColor()'],['../class_telecon_wx_plot.html#a2b9b1bfe38bca3e1bde912f18c3d4f93',1,'TeleconWxPlot::getColor()']]],
+  ['getcolorsequencemode_5',['getColorSequenceMode',['../class_telecon_chart.html#aba46b8cf2bbba5dff77aa8e62d0a9fc6',1,'TeleconChart']]],
+  ['getdefaultxaxisspan_6',['getDefaultXAxisSpan',['../class_telecon_chart.html#abfeeb8c29606422ce614a3599e07e198',1,'TeleconChart::getDefaultXAxisSpan()'],['../class_telecon_realtime_chart.html#a6bf55049d06e4e2fe74a3906c85cf7a0',1,'TeleconRealtimeChart::getDefaultXAxisSpan()']]],
+  ['getlatestvaluestring_7',['getLatestValueString',['../class_telecon_wx_plot.html#a410fe69ad4b7475a7fdaf65d550c6bf9',1,'TeleconWxPlot::getLatestValueString()'],['../class_telecon_wx_plot_x_y.html#a56cd0adf78eb541eb7c76f187bda7773',1,'TeleconWxPlotXY::getLatestValueString()']]],
+  ['getleftmostx_8',['getLeftmostX',['../class_telecon_wx_plot.html#ad6ae2ae2b72e48fef8101322ca3d2134',1,'TeleconWxPlot::getLeftmostX()'],['../class_telecon_wx_plot_x_y.html#ad9b1f58e0492bd224d804ad5b55f4922',1,'TeleconWxPlotXY::getLeftmostX()']]],
+  ['getlinetype_9',['getLineType',['../class_telecon_line_plot.html#a24d441ff5ee74a24ad03523635b5a8f1',1,'TeleconLinePlot::getLineType()'],['../class_telecon_wx_line_plot.html#ad81d109dec01d657f9089b7b96edc61b',1,'TeleconWxLinePlot::getLineType()']]],
+  ['getlinewidth_10',['getLineWidth',['../class_telecon_line_plot.html#ac7ebe860040d9e908b0cc1a1e0892584',1,'TeleconLinePlot::getLineWidth()'],['../class_telecon_wx_line_plot.html#a2bb6962c1acb96ad74efec5092922703',1,'TeleconWxLinePlot::getLineWidth()']]],
+  ['getnextdefaultcolor_11',['getNextDefaultColor',['../class_telecon_chart.html#a6efbe7f200b8bf283e47e60da71d6e45',1,'TeleconChart']]],
+  ['getnumcharts_12',['getNumCharts',['../class_telecon_window.html#ab9751dd7c8c1120afb78f8eb54d45611',1,'TeleconWindow']]],
+  ['getnumplots_13',['getNumPlots',['../class_telecon_chart.html#abed3e9f9ca52e351ba4ca6a510250530',1,'TeleconChart']]],
+  ['getnumwindows_14',['getNumWindows',['../class_telecon.html#aee854954e0004822dece3130a61e332e',1,'Telecon']]],
+  ['getplot_15',['getPlot',['../class_telecon_chart.html#ac9b2e34588a68d39df3144b32d98fc9b',1,'TeleconChart']]],
+  ['getplotbyname_16',['getPlotByName',['../class_telecon.html#ae479f7f3668aa391e1211b42b8ad85d3',1,'Telecon::getPlotByName()'],['../class_telecon_chart.html#a68684c5c612a7ed173ccee9fce9d1347',1,'TeleconChart::getPlotByName()'],['../class_telecon_window.html#afc1a1e1a551a06824f4fe2f88b3c296f',1,'TeleconWindow::getPlotByName()']]],
+  ['getplottitle_17',['getPlotTitle',['../class_telecon_plot.html#ab8c7d77c2ab3091765bf560f29306d7e',1,'TeleconPlot::getPlotTitle()'],['../class_telecon_wx_plot.html#adc847425a9a4f1d90fec82651014d39d',1,'TeleconWxPlot::getPlotTitle() const override']]],
+  ['getrightmostx_18',['getRightmostX',['../class_telecon_wx_plot.html#aff59ec394a722ffff9e9d637ef58721e',1,'TeleconWxPlot::getRightmostX()'],['../class_telecon_wx_plot_x_y.html#ab991ba2422935fa715dcb268bac7abc7',1,'TeleconWxPlotXY::getRightmostX()']]],
+  ['getsymbol_19',['getSymbol',['../class_telecon_line_scatter_plot.html#a2733f6ed53a20ddf8267206c0c146c23',1,'TeleconLineScatterPlot::getSymbol()'],['../class_telecon_wx_plot_x_y.html#aae6d9e760860b42df2afc876ff53365d',1,'TeleconWxPlotXY::getSymbol()']]],
+  ['getsymbolsize_20',['getSymbolSize',['../class_telecon_line_scatter_plot.html#a67185743e3a42bb7188cd9b2ec1c6795',1,'TeleconLineScatterPlot::getSymbolSize()'],['../class_telecon_wx_plot_x_y.html#a5c6bfb4151105f42c6242dd71932df73',1,'TeleconWxPlotXY::getSymbolSize()']]],
+  ['gettitle_21',['getTitle',['../class_telecon_chart.html#ab5bf85c9390c53ca53befb5beb41ffde',1,'TeleconChart::getTitle()'],['../class_telecon_window.html#ac7c1481d3d53920cfd3fd1df18e2dadb',1,'TeleconWindow::getTitle()']]],
+  ['getwindow_22',['getWindow',['../class_telecon.html#a4e268e27cfd1420b9d6e5cb8f6f94d2e',1,'Telecon']]],
+  ['getwindowbyname_23',['getWindowByName',['../class_telecon.html#ae895c607a872a31022bea2e182eab27f',1,'Telecon']]],
+  ['getxlabel_24',['getXLabel',['../class_telecon_chart.html#ab757ee6b5a716f1bdf3f55a8fa11bea7',1,'TeleconChart']]],
+  ['getylabel_25',['getYLabel',['../class_telecon_chart.html#a43dc64adbcce4a75dc7c0620f3fcb516',1,'TeleconChart']]]
 ];

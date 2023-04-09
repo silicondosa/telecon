@@ -2,7 +2,7 @@
 \label{class_telecon_chart}\index{TeleconChart@{TeleconChart}}
 
 
-{\ttfamily \#include $<$include/\+Telecon\+Chart.\+h$>$}
+{\ttfamily \#include $<$include/teleconchart.\+h$>$}
 
 Inheritance diagram for Telecon\+Chart\+:\begin{figure}[H]
 \begin{center}
@@ -13,45 +13,326 @@ Inheritance diagram for Telecon\+Chart\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_telecon_chart_ad281148dc98852fcbf2800f1084e1ac6}{Telecon\+Chart}} ()
+\mbox{\hyperlink{class_telecon_chart_ae0660503fc138e53101ec2abb4271920}{Telecon\+Chart}} (string title, double memory\+Depth\+Seconds, int data\+Rate\+Millis, string x\+Label, string y\+Label, \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} color\+Sequence\+Mode)
 \item 
-virtual XYChart $\ast$ \mbox{\hyperlink{class_telecon_chart_aceb9713e50e93851e9951d5e76477bc1}{make\+Chart}} ()=0
+string \mbox{\hyperlink{class_telecon_chart_ab5bf85c9390c53ca53befb5beb41ffde}{get\+Title}} ()
+\item 
+string \mbox{\hyperlink{class_telecon_chart_ab757ee6b5a716f1bdf3f55a8fa11bea7}{get\+XLabel}} ()
+\item 
+string \mbox{\hyperlink{class_telecon_chart_a43dc64adbcce4a75dc7c0620f3fcb516}{get\+YLabel}} ()
+\item 
+\mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} \mbox{\hyperlink{class_telecon_chart_aba46b8cf2bbba5dff77aa8e62d0a9fc6}{get\+Color\+Sequence\+Mode}} ()
+\item 
+virtual double \mbox{\hyperlink{class_telecon_chart_abfeeb8c29606422ce614a3599e07e198}{get\+Default\+XAxis\+Span}} ()=0
+\item 
+virtual \mbox{\hyperlink{teleconchart_8h_af187b130538d6f7efc8cbe12cfa5ff4a}{CHART\+\_\+\+X\+\_\+\+AXIS\+\_\+\+TYPE}} \mbox{\hyperlink{class_telecon_chart_a5f2f3541ceb9b18a532e80d8ee805586}{get\+Chart\+XAxis\+Type}} ()=0
+\item 
+void \mbox{\hyperlink{class_telecon_chart_ac833b24aa16da530a531a22fcafa1f52}{initialize}} ()
+\item 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ \mbox{\hyperlink{class_telecon_chart_ac9b2e34588a68d39df3144b32d98fc9b}{get\+Plot}} (int index)
+\item 
+size\+\_\+t \mbox{\hyperlink{class_telecon_chart_abed3e9f9ca52e351ba4ca6a510250530}{get\+Num\+Plots}} ()
+\item 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ \mbox{\hyperlink{class_telecon_chart_a68684c5c612a7ed173ccee9fce9d1347}{get\+Plot\+By\+Name}} (string name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+long \mbox{\hyperlink{class_telecon_chart_a6efbe7f200b8bf283e47e60da71d6e45}{get\+Next\+Default\+Color}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const string \mbox{\hyperlink{class_telecon_chart_a4d0876969c79d7f2123c8b5d924e0f9a}{m\+\_\+title}}
+\item 
+const double \mbox{\hyperlink{class_telecon_chart_aab73cda8ba07aefb2968811c9e5a90a8}{m\+\_\+memory\+Depth\+Seconds}}
+\item 
+const int \mbox{\hyperlink{class_telecon_chart_a18e0b8e340d53010e58f4f8120defea1}{m\+\_\+data\+Rate\+Millis}}
+\item 
+const string \mbox{\hyperlink{class_telecon_chart_acda7f85097a6f77f9a66937c09b21794}{m\+\_\+x\+Label}}
+\item 
+const string \mbox{\hyperlink{class_telecon_chart_a09089bd72af66ca9ae488191c188d851}{m\+\_\+y\+Label}}
+\item 
+const \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} \mbox{\hyperlink{class_telecon_chart_a5a502369abdc755468a305349eb34676}{m\+\_\+color\+Sequence\+Mode}}
+\item 
+bool \mbox{\hyperlink{class_telecon_chart_af315b4acbdefb53894bd06e78e96e682}{m\+\_\+has\+Started}}
+\item 
+vector$<$ shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ $>$ \mbox{\hyperlink{class_telecon_chart_ab8e44cc492bc62c52c5cece30e126f0d}{m\+\_\+plots}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 
 
-Definition at line \mbox{\hyperlink{_telecon_chart_8h_source_l00007}{7}} of file \mbox{\hyperlink{_telecon_chart_8h_source}{Telecon\+Chart.\+h}}.
+Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00019}{19}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
 
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_telecon_chart_ad281148dc98852fcbf2800f1084e1ac6}\label{class_telecon_chart_ad281148dc98852fcbf2800f1084e1ac6}} 
+\mbox{\Hypertarget{class_telecon_chart_ae0660503fc138e53101ec2abb4271920}\label{class_telecon_chart_ae0660503fc138e53101ec2abb4271920}} 
 \index{TeleconChart@{TeleconChart}!TeleconChart@{TeleconChart}}
 \index{TeleconChart@{TeleconChart}!TeleconChart@{TeleconChart}}
 \doxysubsubsection{\texorpdfstring{TeleconChart()}{TeleconChart()}}
-{\footnotesize\ttfamily Telecon\+Chart\+::\+Telecon\+Chart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Telecon\+Chart\+::\+Telecon\+Chart (\begin{DoxyParamCaption}\item[{string}]{title,  }\item[{double}]{memory\+Depth\+Seconds,  }\item[{int}]{data\+Rate\+Millis,  }\item[{string}]{x\+Label,  }\item[{string}]{y\+Label,  }\item[{\mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}}}]{color\+Sequence\+Mode }\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{_telecon_chart_8h_source_l00009}{9}} of file \mbox{\hyperlink{_telecon_chart_8h_source}{Telecon\+Chart.\+h}}.
+Definition at line \mbox{\hyperlink{teleconchart_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{teleconchart_8cpp_source}{teleconchart.\+cpp}}.
 
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_telecon_chart_aceb9713e50e93851e9951d5e76477bc1}\label{class_telecon_chart_aceb9713e50e93851e9951d5e76477bc1}} 
-\index{TeleconChart@{TeleconChart}!makeChart@{makeChart}}
-\index{makeChart@{makeChart}!TeleconChart@{TeleconChart}}
-\doxysubsubsection{\texorpdfstring{makeChart()}{makeChart()}}
-{\footnotesize\ttfamily virtual XYChart $\ast$ Telecon\+Chart\+::make\+Chart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+\mbox{\Hypertarget{class_telecon_chart_a5f2f3541ceb9b18a532e80d8ee805586}\label{class_telecon_chart_a5f2f3541ceb9b18a532e80d8ee805586}} 
+\index{TeleconChart@{TeleconChart}!getChartXAxisType@{getChartXAxisType}}
+\index{getChartXAxisType@{getChartXAxisType}!TeleconChart@{TeleconChart}}
+\doxysubsubsection{\texorpdfstring{getChartXAxisType()}{getChartXAxisType()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{teleconchart_8h_af187b130538d6f7efc8cbe12cfa5ff4a}{CHART\+\_\+\+X\+\_\+\+AXIS\+\_\+\+TYPE}} Telecon\+Chart\+::get\+Chart\+XAxis\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Virtual getter function for default x axis type.
+
+\begin{DoxyReturn}{Returns}
+default x axis type as CHART\+\_\+\+X\+\_\+\+AXIS\+\_\+\+TYPE object 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_telecon_realtime_chart_ae6eb873f64e852cf645bac0e6a89208e}{Telecon\+Realtime\+Chart}}.
+
+\mbox{\Hypertarget{class_telecon_chart_aba46b8cf2bbba5dff77aa8e62d0a9fc6}\label{class_telecon_chart_aba46b8cf2bbba5dff77aa8e62d0a9fc6}} 
+\index{TeleconChart@{TeleconChart}!getColorSequenceMode@{getColorSequenceMode}}
+\index{getColorSequenceMode@{getColorSequenceMode}!TeleconChart@{TeleconChart}}
+\doxysubsubsection{\texorpdfstring{getColorSequenceMode()}{getColorSequenceMode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} Telecon\+Chart\+::get\+Color\+Sequence\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter function for chart color sequence mode.
+
+\begin{DoxyReturn}{Returns}
+color sequence mode as a Color\+Sequence\+Mode object 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{teleconchart_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{teleconchart_8cpp_source}{teleconchart.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_chart_abfeeb8c29606422ce614a3599e07e198}\label{class_telecon_chart_abfeeb8c29606422ce614a3599e07e198}} 
+\index{TeleconChart@{TeleconChart}!getDefaultXAxisSpan@{getDefaultXAxisSpan}}
+\index{getDefaultXAxisSpan@{getDefaultXAxisSpan}!TeleconChart@{TeleconChart}}
+\doxysubsubsection{\texorpdfstring{getDefaultXAxisSpan()}{getDefaultXAxisSpan()}}
+{\footnotesize\ttfamily virtual double Telecon\+Chart\+::get\+Default\+XAxis\+Span (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Virtual getter function for default x axis span.
+
+\begin{DoxyReturn}{Returns}
+default x axis span as double 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_telecon_realtime_chart_a6bf55049d06e4e2fe74a3906c85cf7a0}{Telecon\+Realtime\+Chart}}.
+
+\mbox{\Hypertarget{class_telecon_chart_a6efbe7f200b8bf283e47e60da71d6e45}\label{class_telecon_chart_a6efbe7f200b8bf283e47e60da71d6e45}} 
+\index{TeleconChart@{TeleconChart}!getNextDefaultColor@{getNextDefaultColor}}
+\index{getNextDefaultColor@{getNextDefaultColor}!TeleconChart@{TeleconChart}}
+\doxysubsubsection{\texorpdfstring{getNextDefaultColor()}{getNextDefaultColor()}}
+{\footnotesize\ttfamily long Telecon\+Chart\+::get\+Next\+Default\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 
-Implemented in \mbox{\hyperlink{class_telecon_bar_chart_a7ada860bc526d8ea84a615115faf00d1}{Telecon\+Bar\+Chart}}, and \mbox{\hyperlink{class_telecon_line_chart_ab50414f5b405cdf3e24d56cadcf4eb52}{Telecon\+Line\+Chart}}.
+Definition at line \mbox{\hyperlink{teleconchart_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{teleconchart_8cpp_source}{teleconchart.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_chart_abed3e9f9ca52e351ba4ca6a510250530}\label{class_telecon_chart_abed3e9f9ca52e351ba4ca6a510250530}} 
+\index{TeleconChart@{TeleconChart}!getNumPlots@{getNumPlots}}
+\index{getNumPlots@{getNumPlots}!TeleconChart@{TeleconChart}}
+\doxysubsubsection{\texorpdfstring{getNumPlots()}{getNumPlots()}}
+{\footnotesize\ttfamily size\+\_\+t Telecon\+Chart\+::get\+Num\+Plots (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter function that returns the number of plots currently stored in the chart.
+
+\begin{DoxyReturn}{Returns}
+number of plots as size\+\_\+t 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{teleconchart_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{teleconchart_8cpp_source}{teleconchart.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_chart_ac9b2e34588a68d39df3144b32d98fc9b}\label{class_telecon_chart_ac9b2e34588a68d39df3144b32d98fc9b}} 
+\index{TeleconChart@{TeleconChart}!getPlot@{getPlot}}
+\index{getPlot@{getPlot}!TeleconChart@{TeleconChart}}
+\doxysubsubsection{\texorpdfstring{getPlot()}{getPlot()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ Telecon\+Chart\+::get\+Plot (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Getter function that returns a plot of the chart given a specified index.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & of plot as int \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a shared\+\_\+ptr to the \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} object plot 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{teleconchart_8cpp_source_l00051}{51}} of file \mbox{\hyperlink{teleconchart_8cpp_source}{teleconchart.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_chart_a68684c5c612a7ed173ccee9fce9d1347}\label{class_telecon_chart_a68684c5c612a7ed173ccee9fce9d1347}} 
+\index{TeleconChart@{TeleconChart}!getPlotByName@{getPlotByName}}
+\index{getPlotByName@{getPlotByName}!TeleconChart@{TeleconChart}}
+\doxysubsubsection{\texorpdfstring{getPlotByName()}{getPlotByName()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ Telecon\+Chart\+::get\+Plot\+By\+Name (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})}
+
+Getter function that returns a plot of the chart given a specified plot name.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & of plot as string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a shared\+\_\+ptr to the \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} object plot 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{teleconchart_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{teleconchart_8cpp_source}{teleconchart.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_chart_ab5bf85c9390c53ca53befb5beb41ffde}\label{class_telecon_chart_ab5bf85c9390c53ca53befb5beb41ffde}} 
+\index{TeleconChart@{TeleconChart}!getTitle@{getTitle}}
+\index{getTitle@{getTitle}!TeleconChart@{TeleconChart}}
+\doxysubsubsection{\texorpdfstring{getTitle()}{getTitle()}}
+{\footnotesize\ttfamily string Telecon\+Chart\+::get\+Title (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter function for chart title.
+
+\begin{DoxyReturn}{Returns}
+title as a string 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{teleconchart_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{teleconchart_8cpp_source}{teleconchart.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_chart_ab757ee6b5a716f1bdf3f55a8fa11bea7}\label{class_telecon_chart_ab757ee6b5a716f1bdf3f55a8fa11bea7}} 
+\index{TeleconChart@{TeleconChart}!getXLabel@{getXLabel}}
+\index{getXLabel@{getXLabel}!TeleconChart@{TeleconChart}}
+\doxysubsubsection{\texorpdfstring{getXLabel()}{getXLabel()}}
+{\footnotesize\ttfamily string Telecon\+Chart\+::get\+XLabel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter function for chart x-\/axis label.
+
+\begin{DoxyReturn}{Returns}
+x-\/axis label as a string 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{teleconchart_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{teleconchart_8cpp_source}{teleconchart.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_chart_a43dc64adbcce4a75dc7c0620f3fcb516}\label{class_telecon_chart_a43dc64adbcce4a75dc7c0620f3fcb516}} 
+\index{TeleconChart@{TeleconChart}!getYLabel@{getYLabel}}
+\index{getYLabel@{getYLabel}!TeleconChart@{TeleconChart}}
+\doxysubsubsection{\texorpdfstring{getYLabel()}{getYLabel()}}
+{\footnotesize\ttfamily string Telecon\+Chart\+::get\+YLabel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter function for chart y-\/axis label.
+
+\begin{DoxyReturn}{Returns}
+y-\/axis label as a string 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{teleconchart_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{teleconchart_8cpp_source}{teleconchart.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_chart_ac833b24aa16da530a531a22fcafa1f52}\label{class_telecon_chart_ac833b24aa16da530a531a22fcafa1f52}} 
+\index{TeleconChart@{TeleconChart}!initialize@{initialize}}
+\index{initialize@{initialize}!TeleconChart@{TeleconChart}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily void Telecon\+Chart\+::initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Initializer function. Sets m\+\_\+has\+Started to true. 
+
+Definition at line \mbox{\hyperlink{teleconchart_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{teleconchart_8cpp_source}{teleconchart.\+cpp}}.
 
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_telecon_chart_a5a502369abdc755468a305349eb34676}\label{class_telecon_chart_a5a502369abdc755468a305349eb34676}} 
+\index{TeleconChart@{TeleconChart}!m\_colorSequenceMode@{m\_colorSequenceMode}}
+\index{m\_colorSequenceMode@{m\_colorSequenceMode}!TeleconChart@{TeleconChart}}
+\doxysubsubsection{\texorpdfstring{m\_colorSequenceMode}{m\_colorSequenceMode}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} Telecon\+Chart\+::m\+\_\+color\+Sequence\+Mode\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00026}{26}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
+
+\mbox{\Hypertarget{class_telecon_chart_a18e0b8e340d53010e58f4f8120defea1}\label{class_telecon_chart_a18e0b8e340d53010e58f4f8120defea1}} 
+\index{TeleconChart@{TeleconChart}!m\_dataRateMillis@{m\_dataRateMillis}}
+\index{m\_dataRateMillis@{m\_dataRateMillis}!TeleconChart@{TeleconChart}}
+\doxysubsubsection{\texorpdfstring{m\_dataRateMillis}{m\_dataRateMillis}}
+{\footnotesize\ttfamily const int Telecon\+Chart\+::m\+\_\+data\+Rate\+Millis\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00023}{23}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
+
+\mbox{\Hypertarget{class_telecon_chart_af315b4acbdefb53894bd06e78e96e682}\label{class_telecon_chart_af315b4acbdefb53894bd06e78e96e682}} 
+\index{TeleconChart@{TeleconChart}!m\_hasStarted@{m\_hasStarted}}
+\index{m\_hasStarted@{m\_hasStarted}!TeleconChart@{TeleconChart}}
+\doxysubsubsection{\texorpdfstring{m\_hasStarted}{m\_hasStarted}}
+{\footnotesize\ttfamily bool Telecon\+Chart\+::m\+\_\+has\+Started\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00028}{28}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
+
+\mbox{\Hypertarget{class_telecon_chart_aab73cda8ba07aefb2968811c9e5a90a8}\label{class_telecon_chart_aab73cda8ba07aefb2968811c9e5a90a8}} 
+\index{TeleconChart@{TeleconChart}!m\_memoryDepthSeconds@{m\_memoryDepthSeconds}}
+\index{m\_memoryDepthSeconds@{m\_memoryDepthSeconds}!TeleconChart@{TeleconChart}}
+\doxysubsubsection{\texorpdfstring{m\_memoryDepthSeconds}{m\_memoryDepthSeconds}}
+{\footnotesize\ttfamily const double Telecon\+Chart\+::m\+\_\+memory\+Depth\+Seconds\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00022}{22}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
+
+\mbox{\Hypertarget{class_telecon_chart_ab8e44cc492bc62c52c5cece30e126f0d}\label{class_telecon_chart_ab8e44cc492bc62c52c5cece30e126f0d}} 
+\index{TeleconChart@{TeleconChart}!m\_plots@{m\_plots}}
+\index{m\_plots@{m\_plots}!TeleconChart@{TeleconChart}}
+\doxysubsubsection{\texorpdfstring{m\_plots}{m\_plots}}
+{\footnotesize\ttfamily vector$<$shared\+\_\+ptr$<$\mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}}$>$ $>$ Telecon\+Chart\+::m\+\_\+plots\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00030}{30}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
+
+\mbox{\Hypertarget{class_telecon_chart_a4d0876969c79d7f2123c8b5d924e0f9a}\label{class_telecon_chart_a4d0876969c79d7f2123c8b5d924e0f9a}} 
+\index{TeleconChart@{TeleconChart}!m\_title@{m\_title}}
+\index{m\_title@{m\_title}!TeleconChart@{TeleconChart}}
+\doxysubsubsection{\texorpdfstring{m\_title}{m\_title}}
+{\footnotesize\ttfamily const string Telecon\+Chart\+::m\+\_\+title\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00021}{21}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
+
+\mbox{\Hypertarget{class_telecon_chart_acda7f85097a6f77f9a66937c09b21794}\label{class_telecon_chart_acda7f85097a6f77f9a66937c09b21794}} 
+\index{TeleconChart@{TeleconChart}!m\_xLabel@{m\_xLabel}}
+\index{m\_xLabel@{m\_xLabel}!TeleconChart@{TeleconChart}}
+\doxysubsubsection{\texorpdfstring{m\_xLabel}{m\_xLabel}}
+{\footnotesize\ttfamily const string Telecon\+Chart\+::m\+\_\+x\+Label\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00024}{24}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
+
+\mbox{\Hypertarget{class_telecon_chart_a09089bd72af66ca9ae488191c188d851}\label{class_telecon_chart_a09089bd72af66ca9ae488191c188d851}} 
+\index{TeleconChart@{TeleconChart}!m\_yLabel@{m\_yLabel}}
+\index{m\_yLabel@{m\_yLabel}!TeleconChart@{TeleconChart}}
+\doxysubsubsection{\texorpdfstring{m\_yLabel}{m\_yLabel}}
+{\footnotesize\ttfamily const string Telecon\+Chart\+::m\+\_\+y\+Label\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00025}{25}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/\mbox{\hyperlink{_telecon_chart_8h}{Telecon\+Chart.\+h}}\end{DoxyCompactItemize}
+include/\mbox{\hyperlink{teleconchart_8h}{teleconchart.\+h}}\item 
+src/\mbox{\hyperlink{teleconchart_8cpp}{teleconchart.\+cpp}}\end{DoxyCompactItemize}

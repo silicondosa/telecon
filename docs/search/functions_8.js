@@ -1,9 +1,5 @@
 var searchData=
 [
-  ['main_0',['main',['../userfile_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'userfile.cpp']]],
-  ['mainframe_1',['mainFrame',['../classmain_frame.html#a98064ded0926fdbb5b2e6238bc3e2ac5',1,'mainFrame']]],
-  ['mycosinverse_2',['MyCOSinverse',['../class_my_c_o_sinverse.html#aa2e98ddb62e2cb5d57122efb3e87e6c5',1,'MyCOSinverse']]],
-  ['myframe_3',['MyFrame',['../class_my_frame.html#aeb2b4ff8a8437835f3f0c394db581ebf',1,'MyFrame']]],
-  ['mylissajoux_4',['MyLissajoux',['../class_my_lissajoux.html#a45fdeafe2f65bec6a247c2e0625c11a5',1,'MyLissajoux']]],
-  ['mysin_5',['MySIN',['../class_my_s_i_n.html#a4b56e9e28c7448e7a06d5b9e3a7766b6',1,'MySIN']]]
+  ['prepdatafordraw_0',['prepDataForDraw',['../class_telecon_wx_plot.html#ae87396c2c2ad0a0bc940a7484e0734a2',1,'TeleconWxPlot::prepDataForDraw()'],['../class_telecon_wx_plot_x_y.html#ac9254248dbbda8263a740ac688f96877',1,'TeleconWxPlotXY::prepDataForDraw()']]],
+  ['pushdata_1',['pushData',['../class_telecon_line_scatter_plot.html#ab61103291346f58f8f411201810c06d7',1,'TeleconLineScatterPlot::pushData()'],['../class_telecon_wx_plot_x_y.html#ac3a02bfe252116f6f09ea8ad0bd312a7',1,'TeleconWxPlotXY::pushData()']]]
 ];

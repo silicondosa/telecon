@@ -92,7 +92,6 @@ $(document).ready(function(){initNavTree('class_telecon_plot.html',''); initResi
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_telecon_plot-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">TeleconPlot Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
@@ -105,96 +104,38 @@ Inheritance diagram for TeleconPlot:</div>
  <div class="center">
   <img src="class_telecon_plot.png" usemap="#TeleconPlot_map" alt=""/>
   <map id="TeleconPlot_map" name="TeleconPlot_map">
-<area href="class_telecon_line_plot.html" alt="TeleconLinePlot" shape="rect" coords="0,56,118,80"/>
-<area href="class_telecon_scatter_plot.html" alt="TeleconScatterPlot" shape="rect" coords="128,56,246,80"/>
+<area href="class_telecon_line_scatter_plot.html" alt="TeleconLineScatterPlot" shape="rect" coords="152,56,294,80"/>
+<area href="class_telecon_wx_plot.html" alt="TeleconWxPlot" shape="rect" coords="684,56,826,80"/>
+<area href="class_telecon_line_plot.html" alt="TeleconLinePlot" shape="rect" coords="0,112,142,136"/>
+<area href="class_telecon_scatter_plot.html" alt="TeleconScatterPlot" shape="rect" coords="152,112,294,136"/>
+<area href="class_telecon_wx_plot_x_y.html" alt="TeleconWxPlotXY" shape="rect" coords="380,112,522,136"/>
+<area href="class_telecon_wx_plot_x_y.html" alt="TeleconWxPlotXY" shape="rect" coords="684,112,826,136"/>
+<area href="class_telecon_wx_line_plot.html" alt="TeleconWxLinePlot" shape="rect" coords="0,168,142,192"/>
+<area href="class_telecon_wx_scatter_plot.html" alt="TeleconWxScatterPlot" shape="rect" coords="152,168,294,192"/>
+<area href="class_telecon_wx_line_plot.html" alt="TeleconWxLinePlot" shape="rect" coords="304,168,446,192"/>
+<area href="class_telecon_wx_scatter_plot.html" alt="TeleconWxScatterPlot" shape="rect" coords="456,168,598,192"/>
+<area href="class_telecon_wx_line_plot.html" alt="TeleconWxLinePlot" shape="rect" coords="608,168,750,192"/>
+<area href="class_telecon_wx_scatter_plot.html" alt="TeleconWxScatterPlot" shape="rect" coords="760,168,902,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a311a00ca8b3974b8f12af4f8df4c1f05"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_plot.html#a311a00ca8b3974b8f12af4f8df4c1f05">TeleconPlot</a> (int <a class="el" href="class_telecon_plot.html#a172cac1b5fb93d7c5321e5ccef35d36e">depth</a>, int color, string plotTitle)</td></tr>
-<tr class="separator:a311a00ca8b3974b8f12af4f8df4c1f05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb84706ff4a12f8d68b35ebbbdea0b00"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_plot.html#abb84706ff4a12f8d68b35ebbbdea0b00">prepDataForDraw</a> ()=0</td></tr>
-<tr class="separator:abb84706ff4a12f8d68b35ebbbdea0b00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac04a622c4e5cac1c546bacab6490f993"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_plot.html#ac04a622c4e5cac1c546bacab6490f993">addToChart</a> (XYChart *chart)=0</td></tr>
-<tr class="separator:ac04a622c4e5cac1c546bacab6490f993"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bd8e8b22001472883929c536e336646"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_plot.html#a1bd8e8b22001472883929c536e336646">pushData</a> (double xTimestamp, double yData)</td></tr>
-<tr class="separator:a1bd8e8b22001472883929c536e336646"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afaf628947336be360a097b8c75514cd2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_plot.html#afaf628947336be360a097b8c75514cd2">getEarliestTimestamp</a> () const</td></tr>
-<tr class="separator:afaf628947336be360a097b8c75514cd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71660e79b16c4e59678988da61860318"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_plot.html#a71660e79b16c4e59678988da61860318">getLatestTimestamp</a> () const</td></tr>
-<tr class="separator:a71660e79b16c4e59678988da61860318"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d8a356316e355c8341387d89fd187f1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_plot.html#a5d8a356316e355c8341387d89fd187f1">getLastestValue</a> () const</td></tr>
-<tr class="separator:a5d8a356316e355c8341387d89fd187f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ec8a9bca1bc9a42e12e4518a4626f9c"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_plot.html#a6ec8a9bca1bc9a42e12e4518a4626f9c">size</a> () const</td></tr>
-<tr class="separator:a6ec8a9bca1bc9a42e12e4518a4626f9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a172cac1b5fb93d7c5321e5ccef35d36e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_plot.html#a172cac1b5fb93d7c5321e5ccef35d36e">depth</a> () const</td></tr>
-<tr class="separator:a172cac1b5fb93d7c5321e5ccef35d36e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7589e69696be75f9dc99cb9fd8cd1f62"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_plot.html#a7589e69696be75f9dc99cb9fd8cd1f62">getColor</a> () const</td></tr>
-<tr class="separator:a7589e69696be75f9dc99cb9fd8cd1f62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e4ae130b0e05ca73f3a8afb4b3c54ba"><td class="memItemLeft" align="right" valign="top">const string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_plot.html#a5e4ae130b0e05ca73f3a8afb4b3c54ba">getPlotTitle</a> () const</td></tr>
-<tr class="separator:a5e4ae130b0e05ca73f3a8afb4b3c54ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:abdcc4b41661466b49d102ea200fcbb6c"><td class="memItemLeft" align="right" valign="top">list&lt; pair&lt; double, double &gt; &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_plot.html#abdcc4b41661466b49d102ea200fcbb6c">m_dataToAdd</a></td></tr>
-<tr class="separator:abdcc4b41661466b49d102ea200fcbb6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a92cbee50787cca571d43854a49f320"><td class="memItemLeft" align="right" valign="top">mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_plot.html#a4a92cbee50787cca571d43854a49f320">m_dataToAddLock</a></td></tr>
-<tr class="separator:a4a92cbee50787cca571d43854a49f320"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c9b98d05fab79d8308d5ad1e4ac369e"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_plot.html#a0c9b98d05fab79d8308d5ad1e4ac369e">m_depth</a></td></tr>
-<tr class="separator:a0c9b98d05fab79d8308d5ad1e4ac369e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7640484ea4ddaf3fea119d2e60eed31"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_data_buffer.html">DataBuffer</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_plot.html#ae7640484ea4ddaf3fea119d2e60eed31">m_xTimestamps</a></td></tr>
-<tr class="separator:ae7640484ea4ddaf3fea119d2e60eed31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac215fd6747694636a33f2bd856f4d3fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_data_buffer.html">DataBuffer</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_plot.html#ac215fd6747694636a33f2bd856f4d3fa">m_yData</a></td></tr>
-<tr class="separator:ac215fd6747694636a33f2bd856f4d3fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99d21e4d7983dbdcff00bf4cfad51c67"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_plot.html#a99d21e4d7983dbdcff00bf4cfad51c67">m_color</a></td></tr>
-<tr class="separator:a99d21e4d7983dbdcff00bf4cfad51c67"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a641261b1e4beb58d5d932e0424237234"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_plot.html#a641261b1e4beb58d5d932e0424237234">m_plotTitle</a></td></tr>
-<tr class="separator:a641261b1e4beb58d5d932e0424237234"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a582e5ae4fd4923f82956fc37679d3809"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_plot.html#a582e5ae4fd4923f82956fc37679d3809">size</a> () const =0</td></tr>
+<tr class="separator:a582e5ae4fd4923f82956fc37679d3809"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a531aaccd7cd6f98e32c1a315900b5c49"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_plot.html#a531aaccd7cd6f98e32c1a315900b5c49">depth</a> () const =0</td></tr>
+<tr class="separator:a531aaccd7cd6f98e32c1a315900b5c49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae573ed05240f7e135a50ef0ee632a6bb"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_plot.html#ae573ed05240f7e135a50ef0ee632a6bb">getColor</a> () const =0</td></tr>
+<tr class="separator:ae573ed05240f7e135a50ef0ee632a6bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8c7d77c2ab3091765bf560f29306d7e"><td class="memItemLeft" align="right" valign="top">virtual const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_plot.html#ab8c7d77c2ab3091765bf560f29306d7e">getPlotTitle</a> () const =0</td></tr>
+<tr class="separator:ab8c7d77c2ab3091765bf560f29306d7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="teleconplot_8h_source.html#l00012">12</a> of file <a class="el" href="teleconplot_8h_source.html">teleconplot.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a311a00ca8b3974b8f12af4f8df4c1f05" name="a311a00ca8b3974b8f12af4f8df4c1f05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a311a00ca8b3974b8f12af4f8df4c1f05">&#9670;&#160;</a></span>TeleconPlot()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TeleconPlot::TeleconPlot </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>depth</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>color</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>plotTitle</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="teleconplot_8cpp_source.html#l00003">3</a> of file <a class="el" href="teleconplot_8cpp_source.html">teleconplot.cpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac04a622c4e5cac1c546bacab6490f993" name="ac04a622c4e5cac1c546bacab6490f993"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac04a622c4e5cac1c546bacab6490f993">&#9670;&#160;</a></span>addToChart()</h2>
+<p class="definition">Definition at line <a class="el" href="teleconplot_8h_source.html#l00007">7</a> of file <a class="el" href="teleconplot_8h_source.html">teleconplot.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a531aaccd7cd6f98e32c1a315900b5c49" name="a531aaccd7cd6f98e32c1a315900b5c49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a531aaccd7cd6f98e32c1a315900b5c49">&#9670;&#160;</a></span>depth()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -203,11 +144,10 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void TeleconPlot::addToChart </td>
+          <td class="memname">virtual size_t TeleconPlot::depth </td>
           <td>(</td>
-          <td class="paramtype">XYChart *&#160;</td>
-          <td class="paramname"><em>chart</em></td><td>)</td>
-          <td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -217,126 +157,12 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_telecon_line_plot.html#a15cd2b682adfac6c41438604c31c67ec">TeleconLinePlot</a>, and <a class="el" href="class_telecon_scatter_plot.html#a053129e5e60732507c347c50b18ea76b">TeleconScatterPlot</a>.</p>
+<p>Implemented in <a class="el" href="class_telecon_wx_plot.html#a3f09ba9a7d15253b9ebabf26f8c7e3a0">TeleconWxPlot</a>.</p>
 
 </div>
 </div>
-<a id="a172cac1b5fb93d7c5321e5ccef35d36e" name="a172cac1b5fb93d7c5321e5ccef35d36e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a172cac1b5fb93d7c5321e5ccef35d36e">&#9670;&#160;</a></span>depth()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int TeleconPlot::depth </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="teleconplot_8cpp_source.html#l00038">38</a> of file <a class="el" href="teleconplot_8cpp_source.html">teleconplot.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a7589e69696be75f9dc99cb9fd8cd1f62" name="a7589e69696be75f9dc99cb9fd8cd1f62"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7589e69696be75f9dc99cb9fd8cd1f62">&#9670;&#160;</a></span>getColor()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int TeleconPlot::getColor </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="teleconplot_8cpp_source.html#l00042">42</a> of file <a class="el" href="teleconplot_8cpp_source.html">teleconplot.cpp</a>.</p>
-
-</div>
-</div>
-<a id="afaf628947336be360a097b8c75514cd2" name="afaf628947336be360a097b8c75514cd2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afaf628947336be360a097b8c75514cd2">&#9670;&#160;</a></span>getEarliestTimestamp()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double TeleconPlot::getEarliestTimestamp </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="teleconplot_8cpp_source.html#l00019">19</a> of file <a class="el" href="teleconplot_8cpp_source.html">teleconplot.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a5d8a356316e355c8341387d89fd187f1" name="a5d8a356316e355c8341387d89fd187f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d8a356316e355c8341387d89fd187f1">&#9670;&#160;</a></span>getLastestValue()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double TeleconPlot::getLastestValue </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="teleconplot_8cpp_source.html#l00029">29</a> of file <a class="el" href="teleconplot_8cpp_source.html">teleconplot.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a71660e79b16c4e59678988da61860318" name="a71660e79b16c4e59678988da61860318"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71660e79b16c4e59678988da61860318">&#9670;&#160;</a></span>getLatestTimestamp()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double TeleconPlot::getLatestTimestamp </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="teleconplot_8cpp_source.html#l00024">24</a> of file <a class="el" href="teleconplot_8cpp_source.html">teleconplot.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a5e4ae130b0e05ca73f3a8afb4b3c54ba" name="a5e4ae130b0e05ca73f3a8afb4b3c54ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e4ae130b0e05ca73f3a8afb4b3c54ba">&#9670;&#160;</a></span>getPlotTitle()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const string &amp; TeleconPlot::getPlotTitle </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="teleconplot_8cpp_source.html#l00046">46</a> of file <a class="el" href="teleconplot_8cpp_source.html">teleconplot.cpp</a>.</p>
-
-</div>
-</div>
-<a id="abb84706ff4a12f8d68b35ebbbdea0b00" name="abb84706ff4a12f8d68b35ebbbdea0b00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb84706ff4a12f8d68b35ebbbdea0b00">&#9670;&#160;</a></span>prepDataForDraw()</h2>
+<a id="ae573ed05240f7e135a50ef0ee632a6bb" name="ae573ed05240f7e135a50ef0ee632a6bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae573ed05240f7e135a50ef0ee632a6bb">&#9670;&#160;</a></span>getColor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -345,10 +171,10 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void TeleconPlot::prepDataForDraw </td>
+          <td class="memname">virtual int TeleconPlot::getColor </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -358,62 +184,39 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_telecon_line_plot.html#a9b249a2a214b697090d4345f915e4db8">TeleconLinePlot</a>, and <a class="el" href="class_telecon_scatter_plot.html#aa283b2aca402dee796ffb776e481c59d">TeleconScatterPlot</a>.</p>
+<p>Implemented in <a class="el" href="class_telecon_wx_plot.html#a2b9b1bfe38bca3e1bde912f18c3d4f93">TeleconWxPlot</a>.</p>
 
 </div>
 </div>
-<a id="a1bd8e8b22001472883929c536e336646" name="a1bd8e8b22001472883929c536e336646"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1bd8e8b22001472883929c536e336646">&#9670;&#160;</a></span>pushData()</h2>
+<a id="ab8c7d77c2ab3091765bf560f29306d7e" name="ab8c7d77c2ab3091765bf560f29306d7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8c7d77c2ab3091765bf560f29306d7e">&#9670;&#160;</a></span>getPlotTitle()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void TeleconPlot::pushData </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>xTimestamp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>yData</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="teleconplot_8cpp_source.html#l00006">6</a> of file <a class="el" href="teleconplot_8cpp_source.html">teleconplot.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a6ec8a9bca1bc9a42e12e4518a4626f9c" name="a6ec8a9bca1bc9a42e12e4518a4626f9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ec8a9bca1bc9a42e12e4518a4626f9c">&#9670;&#160;</a></span>size()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t TeleconPlot::size </td>
+          <td class="memname">virtual const string TeleconPlot::getPlotTitle </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="teleconplot_8cpp_source.html#l00034">34</a> of file <a class="el" href="teleconplot_8cpp_source.html">teleconplot.cpp</a>.</p>
+<p>Implemented in <a class="el" href="class_telecon_wx_plot.html#adc847425a9a4f1d90fec82651014d39d">TeleconWxPlot</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a99d21e4d7983dbdcff00bf4cfad51c67" name="a99d21e4d7983dbdcff00bf4cfad51c67"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99d21e4d7983dbdcff00bf4cfad51c67">&#9670;&#160;</a></span>m_color</h2>
+<a id="a582e5ae4fd4923f82956fc37679d3809" name="a582e5ae4fd4923f82956fc37679d3809"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a582e5ae4fd4923f82956fc37679d3809">&#9670;&#160;</a></span>size()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -422,167 +225,25 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int TeleconPlot::m_color</td>
+          <td class="memname">virtual size_t TeleconPlot::size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="teleconplot_8h_source.html#l00019">19</a> of file <a class="el" href="teleconplot_8h_source.html">teleconplot.h</a>.</p>
+<p>Implemented in <a class="el" href="class_telecon_wx_plot_x_y.html#a42bc96d49be8ff9b6e880da77f7275f2">TeleconWxPlotXY</a>.</p>
 
 </div>
 </div>
-<a id="abdcc4b41661466b49d102ea200fcbb6c" name="abdcc4b41661466b49d102ea200fcbb6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abdcc4b41661466b49d102ea200fcbb6c">&#9670;&#160;</a></span>m_dataToAdd</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">list&lt;pair&lt;double, double&gt; &gt;* TeleconPlot::m_dataToAdd</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="teleconplot_8h_source.html#l00014">14</a> of file <a class="el" href="teleconplot_8h_source.html">teleconplot.h</a>.</p>
-
-</div>
-</div>
-<a id="a4a92cbee50787cca571d43854a49f320" name="a4a92cbee50787cca571d43854a49f320"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a92cbee50787cca571d43854a49f320">&#9670;&#160;</a></span>m_dataToAddLock</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">mutex TeleconPlot::m_dataToAddLock</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="teleconplot_8h_source.html#l00015">15</a> of file <a class="el" href="teleconplot_8h_source.html">teleconplot.h</a>.</p>
-
-</div>
-</div>
-<a id="a0c9b98d05fab79d8308d5ad1e4ac369e" name="a0c9b98d05fab79d8308d5ad1e4ac369e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c9b98d05fab79d8308d5ad1e4ac369e">&#9670;&#160;</a></span>m_depth</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int TeleconPlot::m_depth</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="teleconplot_8h_source.html#l00016">16</a> of file <a class="el" href="teleconplot_8h_source.html">teleconplot.h</a>.</p>
-
-</div>
-</div>
-<a id="a641261b1e4beb58d5d932e0424237234" name="a641261b1e4beb58d5d932e0424237234"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a641261b1e4beb58d5d932e0424237234">&#9670;&#160;</a></span>m_plotTitle</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">string TeleconPlot::m_plotTitle</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="teleconplot_8h_source.html#l00020">20</a> of file <a class="el" href="teleconplot_8h_source.html">teleconplot.h</a>.</p>
-
-</div>
-</div>
-<a id="ae7640484ea4ddaf3fea119d2e60eed31" name="ae7640484ea4ddaf3fea119d2e60eed31"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7640484ea4ddaf3fea119d2e60eed31">&#9670;&#160;</a></span>m_xTimestamps</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_data_buffer.html">DataBuffer</a>&lt;double&gt; TeleconPlot::m_xTimestamps</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="teleconplot_8h_source.html#l00017">17</a> of file <a class="el" href="teleconplot_8h_source.html">teleconplot.h</a>.</p>
-
-</div>
-</div>
-<a id="ac215fd6747694636a33f2bd856f4d3fa" name="ac215fd6747694636a33f2bd856f4d3fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac215fd6747694636a33f2bd856f4d3fa">&#9670;&#160;</a></span>m_yData</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_data_buffer.html">DataBuffer</a>&lt;double&gt; TeleconPlot::m_yData</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="teleconplot_8h_source.html#l00018">18</a> of file <a class="el" href="teleconplot_8h_source.html">teleconplot.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/<a class="el" href="teleconplot_8h_source.html">teleconplot.h</a></li>
-<li>src/<a class="el" href="teleconplot_8cpp_source.html">teleconplot.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

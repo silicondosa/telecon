@@ -1,0 +1,40 @@
+\hypertarget{teleconwxplot_8h_source}{}\doxysection{teleconwxplot.\+h}
+\label{teleconwxplot_8h_source}\index{include/teleconwxplot.h@{include/teleconwxplot.h}}
+\mbox{\hyperlink{teleconwxplot_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}chartdir.h"{}}}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{databuffer_8h}{databuffer.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{teleconplot_8h}{teleconplot.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00011}00011\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00013}\mbox{\hyperlink{class_telecon_wx_plot}{00013}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_telecon_wx_plot}{TeleconWxPlot}}\ :\ \textcolor{keyword}{virtual}\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_telecon_plot}{TeleconPlot}}\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00014}00014\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00015}\mbox{\hyperlink{class_telecon_wx_plot_a98ac5de8141d27f155c3d8a297fa1052}{00015}}\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_telecon_wx_plot_a98ac5de8141d27f155c3d8a297fa1052}{m\_depth}};}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00016}\mbox{\hyperlink{class_telecon_wx_plot_a6b0694f380d54c0bfdb6d182934eeaf0}{00016}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_wx_plot_a6b0694f380d54c0bfdb6d182934eeaf0}{m\_color}};\ \textcolor{comment}{//\ Represented\ as\ an\ RGB\ hexadecimal\ code\ (one\ byte\ per\ channel)}}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00017}\mbox{\hyperlink{class_telecon_wx_plot_a3601667f3fff47879712bf4f043699fa}{00017}}\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_wx_plot_a3601667f3fff47879712bf4f043699fa}{m\_plotTitle}};}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00018}00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00019}00019\ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_plot}{TeleconWxPlot}}(\textcolor{keywordtype}{string}\ plotTitle,\ \textcolor{keywordtype}{int}\ color,\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_telecon_wx_plot_a3f09ba9a7d15253b9ebabf26f8c7e3a0}{depth}});}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00020}00020\ \ \ \ \ \textcolor{comment}{/*\ TeleconWxPlot\ interface\ functions*/}}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00021}00021\ \ \ \ \ \textcolor{comment}{//\ Fetches\ all\ data\ out\ of\ the\ controller\ thread\ and\ adds\ it\ to\ make\ it\ visible\ to\ UI\ thread}}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00022}\mbox{\hyperlink{class_telecon_wx_plot_ae87396c2c2ad0a0bc940a7484e0734a2}{00022}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_wx_plot_ae87396c2c2ad0a0bc940a7484e0734a2}{prepDataForDraw}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00023}00023\ \ \ \ \ \textcolor{comment}{//\ Adds\ a\ layer\ representing\ the\ plot\ to\ the\ given\ chart}}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00024}\mbox{\hyperlink{class_telecon_wx_plot_a29380c087e2d6252ff1dafe2b13f98ff}{00024}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_wx_plot_a29380c087e2d6252ff1dafe2b13f98ff}{addToChart}}(XYChart*\ chart)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00025}\mbox{\hyperlink{class_telecon_wx_plot_ad6ae2ae2b72e48fef8101322ca3d2134}{00025}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_telecon_wx_plot_ad6ae2ae2b72e48fef8101322ca3d2134}{getLeftmostX}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00026}\mbox{\hyperlink{class_telecon_wx_plot_aff59ec394a722ffff9e9d637ef58721e}{00026}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_telecon_wx_plot_aff59ec394a722ffff9e9d637ef58721e}{getRightmostX}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00027}\mbox{\hyperlink{class_telecon_wx_plot_a410fe69ad4b7475a7fdaf65d550c6bf9}{00027}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_wx_plot_a410fe69ad4b7475a7fdaf65d550c6bf9}{getLatestValueString}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00029}00029\ \ \ \ \ \textcolor{comment}{/*\ Functions\ inherited\ from\ TeleconPlot\ */}}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00030}00030\ \ \ \ \ \textcolor{comment}{//\ size()\ remains\ abstract;}}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00031}00031\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_telecon_wx_plot_a3f09ba9a7d15253b9ebabf26f8c7e3a0}{depth}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00032}00032\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_wx_plot_a2b9b1bfe38bca3e1bde912f18c3d4f93}{getColor}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00033}00033\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_wx_plot_adc847425a9a4f1d90fec82651014d39d}{getPlotTitle}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{teleconwxplot_8h_source_l00034}00034\ \};}
+
+\end{DoxyCode}

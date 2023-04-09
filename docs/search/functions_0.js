@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['addchart_0',['AddChart',['../class_telecon.html#a8985bbf523104f07183c5ec063bd2975',1,'Telecon']]],
-  ['addchart_1',['addChart',['../class_telecon_window.html#a3a443be246ac2cdddd75187bc50e7f8f',1,'TeleconWindow']]],
-  ['addlineplot_2',['addLinePlot',['../class_telecon_real_time_chart.html#a942a44f101bafd2d42be463db62804e6',1,'TeleconRealTimeChart']]],
-  ['addplot_3',['AddPlot',['../class_telecon.html#a61b3c4e3a002f7f774522bb1a220a7b3',1,'Telecon']]],
-  ['addscatterplot_4',['addScatterPlot',['../class_telecon_real_time_chart.html#a0c4e1de2091869789d3339d830598aa1',1,'TeleconRealTimeChart']]],
-  ['addtochart_5',['addToChart',['../class_telecon_line_plot.html#a15cd2b682adfac6c41438604c31c67ec',1,'TeleconLinePlot::addToChart()'],['../class_telecon_plot.html#ac04a622c4e5cac1c546bacab6490f993',1,'TeleconPlot::addToChart()'],['../class_telecon_scatter_plot.html#a053129e5e60732507c347c50b18ea76b',1,'TeleconScatterPlot::addToChart()']]],
-  ['addwindow_6',['addWindow',['../class_telecon.html#a397fb9bcb0f25d86bfc283f38da32700',1,'Telecon']]]
+  ['addlineplot_0',['addLinePlot',['../class_telecon_realtime_chart.html#a1769d4f09f07121868c313555811b450',1,'TeleconRealtimeChart']]],
+  ['addrealtimechart_1',['addRealtimeChart',['../class_telecon_window.html#aaab31256371ead70513e272d2b67677c',1,'TeleconWindow']]],
+  ['addscatterplot_2',['addScatterPlot',['../class_telecon_realtime_chart.html#a30869b0b75cdcf6a5ef0b8c4a7f81699',1,'TeleconRealtimeChart']]],
+  ['addtochart_3',['addToChart',['../class_telecon_wx_plot.html#a29380c087e2d6252ff1dafe2b13f98ff',1,'TeleconWxPlot::addToChart()'],['../class_telecon_wx_plot_x_y.html#a75e38814ec961f892886a4fc171bce12',1,'TeleconWxPlotXY::addToChart()']]],
+  ['addwindow_4',['addWindow',['../class_telecon.html#aec146a459b32c194874b8c1a60a139ca',1,'Telecon']]]
 ];

@@ -2,34 +2,35 @@ var hierarchy =
 [
     [ "DataBuffer< T >", "class_data_buffer.html", null ],
     [ "DataBuffer< double >", "class_data_buffer.html", null ],
-    [ "mpFX", null, [
-      [ "MySIN", "class_my_s_i_n.html", null ]
-    ] ],
-    [ "mpFXY", null, [
-      [ "MyLissajoux", "class_my_lissajoux.html", null ]
-    ] ],
-    [ "mpFY", null, [
-      [ "MyCOSinverse", "class_my_c_o_sinverse.html", null ]
+    [ "Telecon", "class_telecon.html", null ],
+    [ "TeleconChart", "class_telecon_chart.html", [
+      [ "TeleconRealtimeChart", "class_telecon_realtime_chart.html", null ]
     ] ],
     [ "TeleconPlot", "class_telecon_plot.html", [
-      [ "TeleconLinePlot", "class_telecon_line_plot.html", null ],
-      [ "TeleconScatterPlot", "class_telecon_scatter_plot.html", null ]
+      [ "TeleconLineScatterPlot", "class_telecon_line_scatter_plot.html", [
+        [ "TeleconLinePlot", "class_telecon_line_plot.html", [
+          [ "TeleconWxLinePlot", "class_telecon_wx_line_plot.html", null ]
+        ] ],
+        [ "TeleconScatterPlot", "class_telecon_scatter_plot.html", [
+          [ "TeleconWxScatterPlot", "class_telecon_wx_scatter_plot.html", null ]
+        ] ],
+        [ "TeleconWxPlotXY", "class_telecon_wx_plot_x_y.html", [
+          [ "TeleconWxLinePlot", "class_telecon_wx_line_plot.html", null ],
+          [ "TeleconWxScatterPlot", "class_telecon_wx_scatter_plot.html", null ]
+        ] ]
+      ] ],
+      [ "TeleconWxPlot", "class_telecon_wx_plot.html", [
+        [ "TeleconWxPlotXY", "class_telecon_wx_plot_x_y.html", null ]
+      ] ]
     ] ],
+    [ "TeleconWindow", "class_telecon_window.html", null ],
     [ "wxApp", null, [
-      [ "MyApp", "class_my_app.html", null ],
-      [ "Telecon", "class_telecon.html", null ],
-      [ "TeleconApp", "class_telecon_app.html", null ],
-      [ "teleconApp", "classtelecon_app.html", null ]
-    ] ],
-    [ "wxDialog", null, [
-      [ "Telecon", "class_telecon.html", null ]
+      [ "TeleconWxApp", "class_telecon_wx_app.html", null ]
     ] ],
     [ "wxFrame", null, [
-      [ "MyFrame", "class_my_frame.html", null ],
-      [ "TeleconWindow", "class_telecon_window.html", null ],
-      [ "mainFrame", "classmain_frame.html", null ]
+      [ "TeleconWxWindow", "class_telecon_wx_window.html", null ]
     ] ],
     [ "wxPanel", null, [
-      [ "TeleconRealTimeChart", "class_telecon_real_time_chart.html", null ]
+      [ "TeleconWxChart", "class_telecon_wx_chart.html", null ]
     ] ]
 ];

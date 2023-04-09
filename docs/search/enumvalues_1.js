@@ -1,25 +1,10 @@
 var searchData=
 [
-  ['id_5fabout_0',['ID_ABOUT',['../wx_widgets_example_2telecon_8cpp.html#abc6126af1d45847bc59afa0aa3216b04a54f5151dd6fb2ac3de653137ec5f6bc9',1,'telecon.cpp']]],
-  ['id_5falign_5fx_5faxis_1',['ID_ALIGN_X_AXIS',['../wx_widgets_example_2telecon_8cpp.html#abc6126af1d45847bc59afa0aa3216b04ac7e8fef04d8d380c19954bbaf46e7b0d',1,'telecon.cpp']]],
-  ['id_5falign_5fy_5faxis_2',['ID_ALIGN_Y_AXIS',['../wx_widgets_example_2telecon_8cpp.html#abc6126af1d45847bc59afa0aa3216b04aa7acc66459204cf549e28008b4b9a5d8',1,'telecon.cpp']]],
-  ['id_5fblack_5ftheme_3',['ID_BLACK_THEME',['../wx_widgets_example_2telecon_8cpp.html#abc6126af1d45847bc59afa0aa3216b04a8a8ecc15b2daf502196ea9387cc04721',1,'telecon.cpp']]],
-  ['id_5fchartviewer_4',['ID_CHARTVIEWER',['../teleconrealtimechart_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba12f80c74dc4c5d9996717490ba4a8f52',1,'teleconrealtimechart.h']]],
-  ['id_5fdata_5ftimer_5',['ID_DATA_TIMER',['../teleconrealtimechart_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba2d498a17f67886612376fb3d0c777cdb',1,'teleconrealtimechart.h']]],
-  ['id_5fhello_6',['ID_Hello',['../hello_8cpp.html#a99fb83031ce9923c84392b4e92f956b5af16c628a845e3aa25649cb1e76236469',1,'hello.cpp']]],
-  ['id_5fpause_7',['ID_PAUSE',['../teleconrealtimechart_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba98bc0750b2c1238b4507f9b09ece67a6',1,'teleconrealtimechart.h']]],
-  ['id_5fplay_8',['ID_PLAY',['../teleconrealtimechart_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba8295136a6da52b0c280421c8fe22715a',1,'teleconrealtimechart.h']]],
-  ['id_5fprint_9',['ID_PRINT',['../wx_widgets_example_2telecon_8cpp.html#abc6126af1d45847bc59afa0aa3216b04a40f7f632ad6fd01d83e545e6d6dc117f',1,'telecon.cpp']]],
-  ['id_5fprint_5fpreview_10',['ID_PRINT_PREVIEW',['../wx_widgets_example_2telecon_8cpp.html#abc6126af1d45847bc59afa0aa3216b04ace5862539e2f9f935228f6b88dcedff0',1,'telecon.cpp']]],
-  ['id_5fquit_11',['ID_QUIT',['../wx_widgets_example_2telecon_8cpp.html#abc6126af1d45847bc59afa0aa3216b04a83239b68f9cf2a66145ad0faa65cf168',1,'telecon.cpp']]],
-  ['id_5frealtimetrack_12',['ID_REALTIMETRACK',['../teleconrealtimechart_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba2d9029a34d74f179eb4c10780890895c',1,'teleconrealtimechart.h']]],
-  ['id_5fsave_5fscreenshot_13',['ID_SAVE_SCREENSHOT',['../wx_widgets_example_2telecon_8cpp.html#abc6126af1d45847bc59afa0aa3216b04aa85712e3559b82b8dccc9d4d26587376',1,'telecon.cpp']]],
-  ['id_5ftoggle_5fcosine_14',['ID_TOGGLE_COSINE',['../wx_widgets_example_2telecon_8cpp.html#abc6126af1d45847bc59afa0aa3216b04a422713c31c050c7db29986c86d684ad2',1,'telecon.cpp']]],
-  ['id_5ftoggle_5fgrid_15',['ID_TOGGLE_GRID',['../wx_widgets_example_2telecon_8cpp.html#abc6126af1d45847bc59afa0aa3216b04ab7450dbfd174235f395de7d874d16042',1,'telecon.cpp']]],
-  ['id_5ftoggle_5finfo_16',['ID_TOGGLE_INFO',['../wx_widgets_example_2telecon_8cpp.html#abc6126af1d45847bc59afa0aa3216b04a6ffc95cdc49cb219d7c6329d4c33d29c',1,'telecon.cpp']]],
-  ['id_5ftoggle_5flissajoux_17',['ID_TOGGLE_LISSAJOUX',['../wx_widgets_example_2telecon_8cpp.html#abc6126af1d45847bc59afa0aa3216b04acc833e124b16d87285ef5cb6e1f86bf5',1,'telecon.cpp']]],
-  ['id_5ftoggle_5fscrollbars_18',['ID_TOGGLE_SCROLLBARS',['../wx_widgets_example_2telecon_8cpp.html#abc6126af1d45847bc59afa0aa3216b04aa900ffc7d96ac5ae1932d948d6123b9a',1,'telecon.cpp']]],
-  ['id_5ftoggle_5fsine_19',['ID_TOGGLE_SINE',['../wx_widgets_example_2telecon_8cpp.html#abc6126af1d45847bc59afa0aa3216b04a3900420baf0aab3424be3dda79e604ed',1,'telecon.cpp']]],
-  ['id_5fupdate_5fperiod_20',['ID_UPDATE_PERIOD',['../teleconrealtimechart_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba9c850307c7c28256b124539ae9ff52cc',1,'teleconrealtimechart.h']]],
-  ['id_5fupdate_5ftimer_21',['ID_UPDATE_TIMER',['../teleconrealtimechart_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba4aa3022c869a7c5f87806fc17917f877',1,'teleconrealtimechart.h']]]
+  ['id_5fchartviewer_0',['ID_CHARTVIEWER',['../teleconwxchart_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba12f80c74dc4c5d9996717490ba4a8f52',1,'teleconwxchart.h']]],
+  ['id_5fdata_5ftimer_1',['ID_DATA_TIMER',['../teleconwxchart_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba2d498a17f67886612376fb3d0c777cdb',1,'teleconwxchart.h']]],
+  ['id_5fpause_2',['ID_PAUSE',['../teleconwxchart_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba98bc0750b2c1238b4507f9b09ece67a6',1,'teleconwxchart.h']]],
+  ['id_5fplay_3',['ID_PLAY',['../teleconwxchart_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba8295136a6da52b0c280421c8fe22715a',1,'teleconwxchart.h']]],
+  ['id_5fquit_5ftimer_4',['ID_QUIT_TIMER',['../teleconwxwindow_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a7bf7f1e0ab759e4a6334a3034900b318',1,'teleconwxwindow.h']]],
+  ['id_5frefresh_5finterval_5',['ID_REFRESH_INTERVAL',['../teleconwxchart_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba44e2beffa71c1fa3e23088bc30660691',1,'teleconwxchart.h']]],
+  ['id_5frefresh_5ftimer_6',['ID_REFRESH_TIMER',['../teleconwxchart_8h.html#a06fc87d81c62e9abb8790b6e5713c55baf4191bbccaa7963ee84f00359bf0f506',1,'teleconwxchart.h']]]
 ];

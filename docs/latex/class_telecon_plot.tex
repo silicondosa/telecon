@@ -7,250 +7,72 @@
 Inheritance diagram for Telecon\+Plot\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{class_telecon_plot}
+\includegraphics[height=2.488889cm]{class_telecon_plot}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_telecon_plot_a311a00ca8b3974b8f12af4f8df4c1f05}{Telecon\+Plot}} (int \mbox{\hyperlink{class_telecon_plot_a172cac1b5fb93d7c5321e5ccef35d36e}{depth}}, int color, string plot\+Title)
+virtual size\+\_\+t \mbox{\hyperlink{class_telecon_plot_a582e5ae4fd4923f82956fc37679d3809}{size}} () const =0
 \item 
-virtual void \mbox{\hyperlink{class_telecon_plot_abb84706ff4a12f8d68b35ebbbdea0b00}{prep\+Data\+For\+Draw}} ()=0
+virtual size\+\_\+t \mbox{\hyperlink{class_telecon_plot_a531aaccd7cd6f98e32c1a315900b5c49}{depth}} () const =0
 \item 
-virtual void \mbox{\hyperlink{class_telecon_plot_ac04a622c4e5cac1c546bacab6490f993}{add\+To\+Chart}} (XYChart $\ast$chart)=0
+virtual int \mbox{\hyperlink{class_telecon_plot_ae573ed05240f7e135a50ef0ee632a6bb}{get\+Color}} () const =0
 \item 
-void \mbox{\hyperlink{class_telecon_plot_a1bd8e8b22001472883929c536e336646}{push\+Data}} (double x\+Timestamp, double y\+Data)
-\item 
-double \mbox{\hyperlink{class_telecon_plot_afaf628947336be360a097b8c75514cd2}{get\+Earliest\+Timestamp}} () const
-\item 
-double \mbox{\hyperlink{class_telecon_plot_a71660e79b16c4e59678988da61860318}{get\+Latest\+Timestamp}} () const
-\item 
-double \mbox{\hyperlink{class_telecon_plot_a5d8a356316e355c8341387d89fd187f1}{get\+Lastest\+Value}} () const
-\item 
-size\+\_\+t \mbox{\hyperlink{class_telecon_plot_a6ec8a9bca1bc9a42e12e4518a4626f9c}{size}} () const
-\item 
-int \mbox{\hyperlink{class_telecon_plot_a172cac1b5fb93d7c5321e5ccef35d36e}{depth}} () const
-\item 
-int \mbox{\hyperlink{class_telecon_plot_a7589e69696be75f9dc99cb9fd8cd1f62}{get\+Color}} () const
-\item 
-const string \& \mbox{\hyperlink{class_telecon_plot_a5e4ae130b0e05ca73f3a8afb4b3c54ba}{get\+Plot\+Title}} () const
-\end{DoxyCompactItemize}
-\doxysubsection*{Protected Attributes}
-\begin{DoxyCompactItemize}
-\item 
-list$<$ pair$<$ double, double $>$ $>$ $\ast$ \mbox{\hyperlink{class_telecon_plot_abdcc4b41661466b49d102ea200fcbb6c}{m\+\_\+data\+To\+Add}}
-\item 
-mutex \mbox{\hyperlink{class_telecon_plot_a4a92cbee50787cca571d43854a49f320}{m\+\_\+data\+To\+Add\+Lock}}
-\item 
-const int \mbox{\hyperlink{class_telecon_plot_a0c9b98d05fab79d8308d5ad1e4ac369e}{m\+\_\+depth}}
-\item 
-\mbox{\hyperlink{class_data_buffer}{Data\+Buffer}}$<$ double $>$ \mbox{\hyperlink{class_telecon_plot_ae7640484ea4ddaf3fea119d2e60eed31}{m\+\_\+x\+Timestamps}}
-\item 
-\mbox{\hyperlink{class_data_buffer}{Data\+Buffer}}$<$ double $>$ \mbox{\hyperlink{class_telecon_plot_ac215fd6747694636a33f2bd856f4d3fa}{m\+\_\+y\+Data}}
-\item 
-int \mbox{\hyperlink{class_telecon_plot_a99d21e4d7983dbdcff00bf4cfad51c67}{m\+\_\+color}}
-\item 
-string \mbox{\hyperlink{class_telecon_plot_a641261b1e4beb58d5d932e0424237234}{m\+\_\+plot\+Title}}
+virtual const string \mbox{\hyperlink{class_telecon_plot_ab8c7d77c2ab3091765bf560f29306d7e}{get\+Plot\+Title}} () const =0
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 
 
-Definition at line \mbox{\hyperlink{teleconplot_8h_source_l00012}{12}} of file \mbox{\hyperlink{teleconplot_8h_source}{teleconplot.\+h}}.
-
-
-
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_telecon_plot_a311a00ca8b3974b8f12af4f8df4c1f05}\label{class_telecon_plot_a311a00ca8b3974b8f12af4f8df4c1f05}} 
-\index{TeleconPlot@{TeleconPlot}!TeleconPlot@{TeleconPlot}}
-\index{TeleconPlot@{TeleconPlot}!TeleconPlot@{TeleconPlot}}
-\doxysubsubsection{\texorpdfstring{TeleconPlot()}{TeleconPlot()}}
-{\footnotesize\ttfamily Telecon\+Plot\+::\+Telecon\+Plot (\begin{DoxyParamCaption}\item[{int}]{depth,  }\item[{int}]{color,  }\item[{string}]{plot\+Title }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{teleconplot_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{teleconplot_8cpp_source}{teleconplot.\+cpp}}.
+Definition at line \mbox{\hyperlink{teleconplot_8h_source_l00007}{7}} of file \mbox{\hyperlink{teleconplot_8h_source}{teleconplot.\+h}}.
 
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_telecon_plot_ac04a622c4e5cac1c546bacab6490f993}\label{class_telecon_plot_ac04a622c4e5cac1c546bacab6490f993}} 
-\index{TeleconPlot@{TeleconPlot}!addToChart@{addToChart}}
-\index{addToChart@{addToChart}!TeleconPlot@{TeleconPlot}}
-\doxysubsubsection{\texorpdfstring{addToChart()}{addToChart()}}
-{\footnotesize\ttfamily virtual void Telecon\+Plot\+::add\+To\+Chart (\begin{DoxyParamCaption}\item[{XYChart $\ast$}]{chart }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-
-
-Implemented in \mbox{\hyperlink{class_telecon_line_plot_a15cd2b682adfac6c41438604c31c67ec}{Telecon\+Line\+Plot}}, and \mbox{\hyperlink{class_telecon_scatter_plot_a053129e5e60732507c347c50b18ea76b}{Telecon\+Scatter\+Plot}}.
-
-\mbox{\Hypertarget{class_telecon_plot_a172cac1b5fb93d7c5321e5ccef35d36e}\label{class_telecon_plot_a172cac1b5fb93d7c5321e5ccef35d36e}} 
+\mbox{\Hypertarget{class_telecon_plot_a531aaccd7cd6f98e32c1a315900b5c49}\label{class_telecon_plot_a531aaccd7cd6f98e32c1a315900b5c49}} 
 \index{TeleconPlot@{TeleconPlot}!depth@{depth}}
 \index{depth@{depth}!TeleconPlot@{TeleconPlot}}
 \doxysubsubsection{\texorpdfstring{depth()}{depth()}}
-{\footnotesize\ttfamily int Telecon\+Plot\+::depth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily virtual size\+\_\+t Telecon\+Plot\+::depth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
-Definition at line \mbox{\hyperlink{teleconplot_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{teleconplot_8cpp_source}{teleconplot.\+cpp}}.
+Implemented in \mbox{\hyperlink{class_telecon_wx_plot_a3f09ba9a7d15253b9ebabf26f8c7e3a0}{Telecon\+Wx\+Plot}}.
 
-\mbox{\Hypertarget{class_telecon_plot_a7589e69696be75f9dc99cb9fd8cd1f62}\label{class_telecon_plot_a7589e69696be75f9dc99cb9fd8cd1f62}} 
+\mbox{\Hypertarget{class_telecon_plot_ae573ed05240f7e135a50ef0ee632a6bb}\label{class_telecon_plot_ae573ed05240f7e135a50ef0ee632a6bb}} 
 \index{TeleconPlot@{TeleconPlot}!getColor@{getColor}}
 \index{getColor@{getColor}!TeleconPlot@{TeleconPlot}}
 \doxysubsubsection{\texorpdfstring{getColor()}{getColor()}}
-{\footnotesize\ttfamily int Telecon\+Plot\+::get\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily virtual int Telecon\+Plot\+::get\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
-Definition at line \mbox{\hyperlink{teleconplot_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{teleconplot_8cpp_source}{teleconplot.\+cpp}}.
+Implemented in \mbox{\hyperlink{class_telecon_wx_plot_a2b9b1bfe38bca3e1bde912f18c3d4f93}{Telecon\+Wx\+Plot}}.
 
-\mbox{\Hypertarget{class_telecon_plot_afaf628947336be360a097b8c75514cd2}\label{class_telecon_plot_afaf628947336be360a097b8c75514cd2}} 
-\index{TeleconPlot@{TeleconPlot}!getEarliestTimestamp@{getEarliestTimestamp}}
-\index{getEarliestTimestamp@{getEarliestTimestamp}!TeleconPlot@{TeleconPlot}}
-\doxysubsubsection{\texorpdfstring{getEarliestTimestamp()}{getEarliestTimestamp()}}
-{\footnotesize\ttfamily double Telecon\+Plot\+::get\+Earliest\+Timestamp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
-
-
-Definition at line \mbox{\hyperlink{teleconplot_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{teleconplot_8cpp_source}{teleconplot.\+cpp}}.
-
-\mbox{\Hypertarget{class_telecon_plot_a5d8a356316e355c8341387d89fd187f1}\label{class_telecon_plot_a5d8a356316e355c8341387d89fd187f1}} 
-\index{TeleconPlot@{TeleconPlot}!getLastestValue@{getLastestValue}}
-\index{getLastestValue@{getLastestValue}!TeleconPlot@{TeleconPlot}}
-\doxysubsubsection{\texorpdfstring{getLastestValue()}{getLastestValue()}}
-{\footnotesize\ttfamily double Telecon\+Plot\+::get\+Lastest\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
-
-
-Definition at line \mbox{\hyperlink{teleconplot_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{teleconplot_8cpp_source}{teleconplot.\+cpp}}.
-
-\mbox{\Hypertarget{class_telecon_plot_a71660e79b16c4e59678988da61860318}\label{class_telecon_plot_a71660e79b16c4e59678988da61860318}} 
-\index{TeleconPlot@{TeleconPlot}!getLatestTimestamp@{getLatestTimestamp}}
-\index{getLatestTimestamp@{getLatestTimestamp}!TeleconPlot@{TeleconPlot}}
-\doxysubsubsection{\texorpdfstring{getLatestTimestamp()}{getLatestTimestamp()}}
-{\footnotesize\ttfamily double Telecon\+Plot\+::get\+Latest\+Timestamp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
-
-
-Definition at line \mbox{\hyperlink{teleconplot_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{teleconplot_8cpp_source}{teleconplot.\+cpp}}.
-
-\mbox{\Hypertarget{class_telecon_plot_a5e4ae130b0e05ca73f3a8afb4b3c54ba}\label{class_telecon_plot_a5e4ae130b0e05ca73f3a8afb4b3c54ba}} 
+\mbox{\Hypertarget{class_telecon_plot_ab8c7d77c2ab3091765bf560f29306d7e}\label{class_telecon_plot_ab8c7d77c2ab3091765bf560f29306d7e}} 
 \index{TeleconPlot@{TeleconPlot}!getPlotTitle@{getPlotTitle}}
 \index{getPlotTitle@{getPlotTitle}!TeleconPlot@{TeleconPlot}}
 \doxysubsubsection{\texorpdfstring{getPlotTitle()}{getPlotTitle()}}
-{\footnotesize\ttfamily const string \& Telecon\+Plot\+::get\+Plot\+Title (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily virtual const string Telecon\+Plot\+::get\+Plot\+Title (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
-Definition at line \mbox{\hyperlink{teleconplot_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{teleconplot_8cpp_source}{teleconplot.\+cpp}}.
+Implemented in \mbox{\hyperlink{class_telecon_wx_plot_adc847425a9a4f1d90fec82651014d39d}{Telecon\+Wx\+Plot}}.
 
-\mbox{\Hypertarget{class_telecon_plot_abb84706ff4a12f8d68b35ebbbdea0b00}\label{class_telecon_plot_abb84706ff4a12f8d68b35ebbbdea0b00}} 
-\index{TeleconPlot@{TeleconPlot}!prepDataForDraw@{prepDataForDraw}}
-\index{prepDataForDraw@{prepDataForDraw}!TeleconPlot@{TeleconPlot}}
-\doxysubsubsection{\texorpdfstring{prepDataForDraw()}{prepDataForDraw()}}
-{\footnotesize\ttfamily virtual void Telecon\+Plot\+::prep\+Data\+For\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-
-
-Implemented in \mbox{\hyperlink{class_telecon_line_plot_a9b249a2a214b697090d4345f915e4db8}{Telecon\+Line\+Plot}}, and \mbox{\hyperlink{class_telecon_scatter_plot_aa283b2aca402dee796ffb776e481c59d}{Telecon\+Scatter\+Plot}}.
-
-\mbox{\Hypertarget{class_telecon_plot_a1bd8e8b22001472883929c536e336646}\label{class_telecon_plot_a1bd8e8b22001472883929c536e336646}} 
-\index{TeleconPlot@{TeleconPlot}!pushData@{pushData}}
-\index{pushData@{pushData}!TeleconPlot@{TeleconPlot}}
-\doxysubsubsection{\texorpdfstring{pushData()}{pushData()}}
-{\footnotesize\ttfamily void Telecon\+Plot\+::push\+Data (\begin{DoxyParamCaption}\item[{double}]{x\+Timestamp,  }\item[{double}]{y\+Data }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{teleconplot_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{teleconplot_8cpp_source}{teleconplot.\+cpp}}.
-
-\mbox{\Hypertarget{class_telecon_plot_a6ec8a9bca1bc9a42e12e4518a4626f9c}\label{class_telecon_plot_a6ec8a9bca1bc9a42e12e4518a4626f9c}} 
+\mbox{\Hypertarget{class_telecon_plot_a582e5ae4fd4923f82956fc37679d3809}\label{class_telecon_plot_a582e5ae4fd4923f82956fc37679d3809}} 
 \index{TeleconPlot@{TeleconPlot}!size@{size}}
 \index{size@{size}!TeleconPlot@{TeleconPlot}}
 \doxysubsubsection{\texorpdfstring{size()}{size()}}
-{\footnotesize\ttfamily size\+\_\+t Telecon\+Plot\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily virtual size\+\_\+t Telecon\+Plot\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
-Definition at line \mbox{\hyperlink{teleconplot_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{teleconplot_8cpp_source}{teleconplot.\+cpp}}.
+Implemented in \mbox{\hyperlink{class_telecon_wx_plot_x_y_a42bc96d49be8ff9b6e880da77f7275f2}{Telecon\+Wx\+Plot\+XY}}.
 
 
 
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{class_telecon_plot_a99d21e4d7983dbdcff00bf4cfad51c67}\label{class_telecon_plot_a99d21e4d7983dbdcff00bf4cfad51c67}} 
-\index{TeleconPlot@{TeleconPlot}!m\_color@{m\_color}}
-\index{m\_color@{m\_color}!TeleconPlot@{TeleconPlot}}
-\doxysubsubsection{\texorpdfstring{m\_color}{m\_color}}
-{\footnotesize\ttfamily int Telecon\+Plot\+::m\+\_\+color\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-Definition at line \mbox{\hyperlink{teleconplot_8h_source_l00019}{19}} of file \mbox{\hyperlink{teleconplot_8h_source}{teleconplot.\+h}}.
-
-\mbox{\Hypertarget{class_telecon_plot_abdcc4b41661466b49d102ea200fcbb6c}\label{class_telecon_plot_abdcc4b41661466b49d102ea200fcbb6c}} 
-\index{TeleconPlot@{TeleconPlot}!m\_dataToAdd@{m\_dataToAdd}}
-\index{m\_dataToAdd@{m\_dataToAdd}!TeleconPlot@{TeleconPlot}}
-\doxysubsubsection{\texorpdfstring{m\_dataToAdd}{m\_dataToAdd}}
-{\footnotesize\ttfamily list$<$pair$<$double, double$>$ $>$$\ast$ Telecon\+Plot\+::m\+\_\+data\+To\+Add\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-Definition at line \mbox{\hyperlink{teleconplot_8h_source_l00014}{14}} of file \mbox{\hyperlink{teleconplot_8h_source}{teleconplot.\+h}}.
-
-\mbox{\Hypertarget{class_telecon_plot_a4a92cbee50787cca571d43854a49f320}\label{class_telecon_plot_a4a92cbee50787cca571d43854a49f320}} 
-\index{TeleconPlot@{TeleconPlot}!m\_dataToAddLock@{m\_dataToAddLock}}
-\index{m\_dataToAddLock@{m\_dataToAddLock}!TeleconPlot@{TeleconPlot}}
-\doxysubsubsection{\texorpdfstring{m\_dataToAddLock}{m\_dataToAddLock}}
-{\footnotesize\ttfamily mutex Telecon\+Plot\+::m\+\_\+data\+To\+Add\+Lock\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-Definition at line \mbox{\hyperlink{teleconplot_8h_source_l00015}{15}} of file \mbox{\hyperlink{teleconplot_8h_source}{teleconplot.\+h}}.
-
-\mbox{\Hypertarget{class_telecon_plot_a0c9b98d05fab79d8308d5ad1e4ac369e}\label{class_telecon_plot_a0c9b98d05fab79d8308d5ad1e4ac369e}} 
-\index{TeleconPlot@{TeleconPlot}!m\_depth@{m\_depth}}
-\index{m\_depth@{m\_depth}!TeleconPlot@{TeleconPlot}}
-\doxysubsubsection{\texorpdfstring{m\_depth}{m\_depth}}
-{\footnotesize\ttfamily const int Telecon\+Plot\+::m\+\_\+depth\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-Definition at line \mbox{\hyperlink{teleconplot_8h_source_l00016}{16}} of file \mbox{\hyperlink{teleconplot_8h_source}{teleconplot.\+h}}.
-
-\mbox{\Hypertarget{class_telecon_plot_a641261b1e4beb58d5d932e0424237234}\label{class_telecon_plot_a641261b1e4beb58d5d932e0424237234}} 
-\index{TeleconPlot@{TeleconPlot}!m\_plotTitle@{m\_plotTitle}}
-\index{m\_plotTitle@{m\_plotTitle}!TeleconPlot@{TeleconPlot}}
-\doxysubsubsection{\texorpdfstring{m\_plotTitle}{m\_plotTitle}}
-{\footnotesize\ttfamily string Telecon\+Plot\+::m\+\_\+plot\+Title\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-Definition at line \mbox{\hyperlink{teleconplot_8h_source_l00020}{20}} of file \mbox{\hyperlink{teleconplot_8h_source}{teleconplot.\+h}}.
-
-\mbox{\Hypertarget{class_telecon_plot_ae7640484ea4ddaf3fea119d2e60eed31}\label{class_telecon_plot_ae7640484ea4ddaf3fea119d2e60eed31}} 
-\index{TeleconPlot@{TeleconPlot}!m\_xTimestamps@{m\_xTimestamps}}
-\index{m\_xTimestamps@{m\_xTimestamps}!TeleconPlot@{TeleconPlot}}
-\doxysubsubsection{\texorpdfstring{m\_xTimestamps}{m\_xTimestamps}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_data_buffer}{Data\+Buffer}}$<$double$>$ Telecon\+Plot\+::m\+\_\+x\+Timestamps\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-Definition at line \mbox{\hyperlink{teleconplot_8h_source_l00017}{17}} of file \mbox{\hyperlink{teleconplot_8h_source}{teleconplot.\+h}}.
-
-\mbox{\Hypertarget{class_telecon_plot_ac215fd6747694636a33f2bd856f4d3fa}\label{class_telecon_plot_ac215fd6747694636a33f2bd856f4d3fa}} 
-\index{TeleconPlot@{TeleconPlot}!m\_yData@{m\_yData}}
-\index{m\_yData@{m\_yData}!TeleconPlot@{TeleconPlot}}
-\doxysubsubsection{\texorpdfstring{m\_yData}{m\_yData}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_data_buffer}{Data\+Buffer}}$<$double$>$ Telecon\+Plot\+::m\+\_\+y\+Data\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-Definition at line \mbox{\hyperlink{teleconplot_8h_source_l00018}{18}} of file \mbox{\hyperlink{teleconplot_8h_source}{teleconplot.\+h}}.
-
-
-
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/\mbox{\hyperlink{teleconplot_8h}{teleconplot.\+h}}\item 
-src/\mbox{\hyperlink{teleconplot_8cpp}{teleconplot.\+cpp}}\end{DoxyCompactItemize}
+include/\mbox{\hyperlink{teleconplot_8h}{teleconplot.\+h}}\end{DoxyCompactItemize}

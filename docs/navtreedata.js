@@ -31,11 +31,12 @@ var NAVTREE =
       [ "Windows", "index.html#autotoc_md4", null ]
     ] ],
     [ "Included prerequisite: wxMathPlot library", "index.html#autotoc_md5", null ],
-    [ "Included prerequisite: wxChartDir", "index.html#autotoc_md6", null ],
+    [ "Included prerequisite: wxChartDir/ChartDirector", "index.html#autotoc_md6", null ],
     [ "Setting up the development environment", "index.html#autotoc_md7", [
-      [ "Windows (Visual Studio 2019 or above)", "index.html#autotoc_md8", null ]
+      [ "Using the existing projects", "index.html#autotoc_md8", null ],
+      [ "Creating a new project (Visual Studio 2022 or above)", "index.html#autotoc_md9", null ]
     ] ],
-    [ "Coding tips", "index.html#autotoc_md9", null ],
+    [ "Coding tips", "index.html#autotoc_md10", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -52,8 +53,7 @@ var NAVTREE =
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
         [ "Enumerations", "globals_enum.html", null ],
-        [ "Enumerator", "globals_eval.html", null ],
-        [ "Macros", "globals_defs.html", null ]
+        [ "Enumerator", "globals_eval.html", null ]
       ] ]
     ] ]
   ] ]
@@ -62,7 +62,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"wx_widgets_example_2telecon_8h.html"
+"src_2enums_8h.html#ab983350d6d1201c0ebd709320e7a0d50ab806801dfbfced3c56e75d3ea3f3c7b3"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -3,6 +3,12 @@
 TeleconWxPlotXY::TeleconWxPlotXY(string plotTitle, int color, int lineWidth, LineType lineType, bool hasSymbol, int symbol, bool fillSymbol, int symbolSize, int depth)
     : TeleconWxPlot(plotTitle, color, depth), m_dataToAdd(new list<pair<double, double>>), m_xTimestamps(m_depth), m_yData(m_depth), m_lineWidth(lineWidth), m_lineType(lineType), m_hasSymbol(hasSymbol), m_symbol(symbol), m_fillSymbol(fillSymbol), m_symbolSize(symbolSize) {}
 
+TeleconWxPlotXY::~TeleconWxPlotXY()
+{
+    const lock_guard<mutex> lock(m_dataToAddLock);
+    delete m_dataToAdd;
+}
+
 list<pair<double, double>>* TeleconWxPlotXY::swapAndGetDataToAdd()
 {
     //printf("First element when swapping: %f", m_dataToAdd->front().first);
@@ -40,7 +46,6 @@ string TeleconWxPlotXY::getLatestValueString() const
 {
     // Can't believe this is still the only way to do this in C++17 (formatting directly into c++ string isn't added until C++20)
     int size_s = std::snprintf(nullptr, 0, "%.2f", m_yData[m_yData.size() - 1]) + 1; // Extra space for '\0'
-    char* latestValueString = new char[size_s];
     std::unique_ptr<char[]> buf(new char[size_s]);
     std::snprintf(buf.get(), size_s, "%.2f", m_yData[m_yData.size() - 1]);
     return string(buf.get());

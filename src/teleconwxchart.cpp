@@ -46,6 +46,11 @@ TeleconWxChart::TeleconWxChart(
     SetUpViewOptionsBox();
 }
 
+TeleconWxChart::~TeleconWxChart()
+{
+    delete m_chartViewer->getChart();
+}
+
 void TeleconWxChart::SetUpViewOptionsBox()
 {
     wxStaticText* latestValueGroupLabel = new wxStaticText(this, wxID_STATIC, wxString("Latest Values"), wxDefaultPosition, wxDefaultSize, 0);

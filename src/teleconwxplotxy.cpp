@@ -11,7 +11,6 @@ TeleconWxPlotXY::~TeleconWxPlotXY()
 
 list<pair<double, double>>* TeleconWxPlotXY::swapAndGetDataToAdd()
 {
-    //printf("First element when swapping: %f", m_dataToAdd->front().first);
     list<pair<double, double>>* newDataToAdd = new list<pair<double, double>>();
     list<pair<double, double>>* oldDataToAdd = m_dataToAdd;
 
@@ -51,6 +50,11 @@ string TeleconWxPlotXY::getLatestValueString() const
     return string(buf.get());
 }
 
+bool TeleconWxPlotXY::isIncludedInLegend() const
+{
+    return true;
+}
+
 void TeleconWxPlotXY::addToChart(XYChart* chart) {
     if (m_yData.size() <= 0) {
         return;
@@ -65,7 +69,7 @@ void TeleconWxPlotXY::addToChart(XYChart* chart) {
     }
     LineLayer* layer = chart->addLineLayer();
 
-    DataSet* dataSet = layer->addDataSet(DoubleArray(&m_yData[0], (int)m_yData.size()), chartDirColor, m_plotTitle.c_str());
+    DataSet* dataSet = layer->addDataSet(DoubleArray(&m_yData[0], (int)m_yData.size()), chartDirColor, (string("\\") + m_plotTitle).c_str());
 
     dataSet->setLineWidth(m_lineWidth);
 
@@ -88,7 +92,7 @@ void TeleconWxPlotXY::pushData(double xTimestamp, double yData)
 
     m_dataToAdd->push_back(make_pair(xTimestamp, yData));
 
-    if ((int)m_dataToAdd->size() > m_depth) {
+    if (m_dataToAdd->size() > m_depth) {
         m_dataToAdd->pop_front();
     }
 

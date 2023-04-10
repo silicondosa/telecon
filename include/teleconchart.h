@@ -5,8 +5,6 @@
 
 #include "colors.h"
 #include "teleconwxplot.h"
-#include "teleconwxlineplot.h"
-#include "teleconwxscatterplot.h"
 
 using namespace std;
 

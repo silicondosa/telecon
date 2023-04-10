@@ -33,6 +33,7 @@ public:
 	virtual double getLeftmostX() const override;
 	virtual double getRightmostX() const override;
 	virtual string getLatestValueString() const override;
+    virtual bool isIncludedInLegend() const override;
 
 	/* Functions inherited from TeleconPlot*/
 	virtual size_t size() const override;

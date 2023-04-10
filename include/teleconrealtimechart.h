@@ -1,6 +1,9 @@
 #pragma once
 
 #include "teleconchart.h"
+#include "teleconwxlineplot.h"
+#include "teleconwxscatterplot.h"
+#include "teleconwxrasterplot.h"
 
 class TeleconRealtimeChart : public TeleconChart {
 protected:
@@ -35,6 +38,8 @@ public:
      * \sa TeleconRealTimeChart::addLinePlot
      */
     shared_ptr<TeleconScatterPlot> addScatterPlot(std::string plottitle, long plotcolor = COLOR_DEFAULT, int symbol = SYMBOL_SQUARE, bool fillSymbol = true, int symbolSize = 5, int memoryDepth = -1);
+
+    shared_ptr<TeleconRasterPlot> addRasterPlot(std::string plottitle, double yValue, long plotcolor = COLOR_DEFAULT, int symbol = SYMBOL_CIRCLE, bool fillSymbol = true, int symbolSize = 5, int memoryDepth = -1);
 
     /**
      * Getter function that returns the default width of the chart, to be used when few or no data have been provided.

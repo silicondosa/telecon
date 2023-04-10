@@ -15,19 +15,19 @@
 
 double generateRandomDouble(double min, double max)
 {
-	std::random_device rd;  // Will be used to obtain a seed for the random number engine
-	std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
-	std::uniform_real_distribution<> dis(min, max);
-	return dis(gen);
+    std::random_device rd;  // Will be used to obtain a seed for the random number engine
+    std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
+    std::uniform_real_distribution<> dis(min, max);
+    return dis(gen);
 }
 
 double
 CreateDataPoints()
 {
-	double randomDouble = generateRandomDouble(0.0, 20.0);
-	double p = randomDouble;
-	double dataA = 20 + cos(p * 129241) * 10 + 1 / (cos(p) * cos(p) + 0.01);
-	return dataA;
+    double randomDouble = generateRandomDouble(0.0, 20.0);
+    double p = randomDouble;
+    double dataA = 20 + cos(p * 129241) * 10 + 1 / (cos(p) * cos(p) + 0.01);
+    return dataA;
 }
 
 int main(int argc, char* argv[])
@@ -70,6 +70,14 @@ int main(int argc, char* argv[])
     shared_ptr<TeleconScatterPlot> plot14 = chart4->addScatterPlot("New one", COLOR_DEFAULT, SYMBOL_CIRCLE, false);
     shared_ptr<TeleconScatterPlot> plot15 = chart4->addScatterPlot("Velocity", COLOR_BLUE, SYMBOL_DIAMOND, true, 3);
 
+    vector<shared_ptr<TeleconRasterPlot>> rasterPlots;
+    shared_ptr<TeleconWindow> window3 = telecon->addWindow("Third Window");
+
+    shared_ptr<TeleconRealtimeChart> chart5 = window3->addRealtimeChart("Raster Chart", 60.0, dataRateMillis, "time (s)", "Neuron", CSM_BLACK);
+    for (int i = 0; i < 1000; ++i) {
+        rasterPlots.push_back(chart5->addRasterPlot("", i, -1L, SYMBOL_CIRCLE, true, 1));
+    }
+
     telecon->teleconStart();
     telecon->teleconStart();
 
@@ -97,6 +105,10 @@ int main(int argc, char* argv[])
         }
         for (auto relativeTimePlot : relativeTimePlots) {
             relativeTimePlot->pushData(nowTimestampRelative, CreateDataPoints());
+        }
+        for (auto rasterPlot : rasterPlots) {
+            // Using a sine wave with some added noise to give the raster plots a recognizable pattern and not just look like random dots
+            rasterPlot->pushData(nowTimestampAbsolute, (40.0 * sin(nowTimestampAbsolute) + CreateDataPoints()) > 100.0);
         }
         if (telecon->hasStopped()) {
             break;

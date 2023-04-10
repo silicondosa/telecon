@@ -25,6 +25,7 @@ public:
     virtual double getLeftmostX() const = 0;
     virtual double getRightmostX() const = 0;
     virtual string getLatestValueString() const = 0;
+    virtual bool isIncludedInLegend() const = 0;
 
     /* Functions inherited from TeleconPlot */
 	// size() remains abstract;

@@ -9,6 +9,7 @@
 #include <wx/tglbtn.h>
 
 #include <memory>
+#include <map>
 
 #include "chartdir.h"
 #include "wxchartviewer.h"
@@ -43,14 +44,14 @@ public:
 
 private:
     // Setup functions 
-    void SetUpViewOptionsBox();
+    void SetUpLatestValueBox();
     void SetUpChartBox();
 
     // wxWidgets event handler functions
     void OnViewPortChanged(wxCommandEvent& event); // updates the chart if it needs updating
 
     // addPlot() helper functions
-    void addLatestValueText(string plottitle);
+    void addLatestValueText(int index, string plottitle);
 
     // Chart update function
     void DrawChart(bool isRefreshEnabled);
@@ -73,7 +74,7 @@ private:
     TextBox* m_titleBox;
 
     // Miscellaneous wxWidgets members
-    vector<wxTextCtrl*> m_latestValueTextCtrls;
+    unordered_map<int, wxTextCtrl*> m_latestValueTextCtrls; // Maps index in chart to control
     wxColour m_bgColour;
 
     shared_ptr<TeleconChart> m_chart;

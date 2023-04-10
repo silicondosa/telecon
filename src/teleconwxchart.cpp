@@ -43,7 +43,17 @@ TeleconWxChart::TeleconWxChart(
     m_viewOptionsBoxSizer = new wxStaticBoxSizer(m_viewOptionsBox, wxVERTICAL);
     m_topSizer->Add(m_viewOptionsBoxSizer, 0, wxGROW | wxALL, FromDIP(3));
 
-    SetUpViewOptionsBox();
+    bool hasLegendPlot = false;
+    for (int i = 0; i < m_chart->getNumPlots(); i++) {
+        auto plot = dynamic_pointer_cast<TeleconWxPlot>(m_chart->getPlot(i));
+        if (plot->isIncludedInLegend()) {
+            hasLegendPlot = true;
+            break;
+        }
+    }
+    if (hasLegendPlot) {
+        SetUpLatestValueBox();
+    }
 }
 
 TeleconWxChart::~TeleconWxChart()
@@ -51,7 +61,7 @@ TeleconWxChart::~TeleconWxChart()
     delete m_chartViewer->getChart();
 }
 
-void TeleconWxChart::SetUpViewOptionsBox()
+void TeleconWxChart::SetUpLatestValueBox()
 {
     wxStaticText* latestValueGroupLabel = new wxStaticText(this, wxID_STATIC, wxString("Latest Values"), wxDefaultPosition, wxDefaultSize, 0);
     m_viewOptionsBoxSizer->Add(latestValueGroupLabel, 0, wxALIGN_CENTER | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
@@ -59,7 +69,10 @@ void TeleconWxChart::SetUpViewOptionsBox()
     m_viewOptionsBoxSizer->Add(m_plotLatestValueFlexGridSizer, 0, wxGROW | wxALL, FromDIP(3));
 
     for (int i = 0; i < m_chart->getNumPlots(); i++) {
-        addLatestValueText(m_chart->getPlot(i)->getPlotTitle());
+        auto plot = dynamic_pointer_cast<TeleconWxPlot>(m_chart->getPlot(i));
+        if (plot->isIncludedInLegend()) {
+            addLatestValueText(i, m_chart->getPlot(i)->getPlotTitle());
+        }
     }
 }
 
@@ -134,7 +147,9 @@ void TeleconWxChart::DrawChart(bool isRefreshEnabled)
         // Move data from the controller thread to the UI thread
         plot->prepDataForDraw();
         if (plot->size() > 0) {
-            m_latestValueTextCtrls[i]->SetValue(plot->getLatestValueString());
+            if (m_latestValueTextCtrls.count(i) > 0) {
+                m_latestValueTextCtrls[i]->SetValue(plot->getLatestValueString());
+            }
         }
     }
     if (!isRefreshEnabled) {
@@ -241,10 +256,17 @@ void TeleconWxChart::DrawChart(bool isRefreshEnabled)
             const char* dataName = dataSet->getDataName();
             if (dataName && *dataName)
             {
+                string dataNameString(dataName);
+                size_t includeTitleSlashIndex = dataNameString.find_first_of('\\');
+                string includeTitleString = dataNameString.substr(0, includeTitleSlashIndex);
+                if (includeTitleString.compare("notitle") == 0) {
+                    // Don't display title for this plot
+                    continue;
+                }
                 // Build the legend entry, consist of the legend icon, name and data value.
                 double dataValue = dataSet->getValue(1);
                 ostringstream legendEntry;
-                legendEntry << "<*block*>" << dataSet->getLegendIcon() << " " << dataName << ": " << ((dataValue == Chart::NoValue) ? "N/A" : c->formatValue(dataValue, "{value|P4}"))
+                legendEntry << "<*block*>" << dataSet->getLegendIcon() << " " << dataNameString << ": " << ((dataValue == Chart::NoValue) ? "N/A" : c->formatValue(dataValue, "{value|P4}"))
                     << "<*/*>";
                 legendEntries.push_back(legendEntry.str());
             }
@@ -322,10 +344,18 @@ void TeleconWxChart::TrackLineLegend(XYChart *c, int mouseX)
             int color = dataSet->getDataColor();
             if (dataName && *dataName)
             {
+                string dataNameString(dataName);
+                size_t includeTitleSlashIndex = dataNameString.find_first_of('\\');
+                string includeTitleString = dataNameString.substr(0, includeTitleSlashIndex);
+                if (includeTitleString.compare("notitle") == 0) {
+                    // Don't display title for this plot
+                    continue;
+                }
+                dataNameString = dataNameString.substr(includeTitleSlashIndex + 1);
                 // Build the legend entry, consist of the legend icon, name and data value.
                 double dataValue = dataSet->getValue(xIndex);
                 ostringstream legendEntry;
-                legendEntry << "<*block*>" << dataSet->getLegendIcon() << " " << dataName << ": " << ((dataValue == Chart::NoValue) ? "N/A" : c->formatValue(dataValue, "{value|P4}"))
+                legendEntry << "<*block*>" << dataSet->getLegendIcon() << " " << dataNameString << ": " << ((dataValue == Chart::NoValue) ? "N/A" : c->formatValue(dataValue, "{value|P4}"))
                             << "<*/*>";
                 legendEntries.push_back(legendEntry.str());
 
@@ -385,12 +415,12 @@ TeleconWxChart::GetBitmapResource(const wxString &name)
     return wxNullBitmap;
 }
 
-void TeleconWxChart::addLatestValueText(string plottitle) {
+void TeleconWxChart::addLatestValueText(int index, string plottitle) {
     wxStaticText* latestValueLabel = new wxStaticText(this, wxID_STATIC, wxString(plottitle), wxDefaultPosition, wxDefaultSize, 0);
     m_plotLatestValueFlexGridSizer->Add(latestValueLabel, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
 
     wxTextCtrl* latestValueText = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, FromDIP(wxSize(60, -1)), wxTE_READONLY | wxSTATIC_BORDER);
     latestValueText->Enable(false);
     m_plotLatestValueFlexGridSizer->Add(latestValueText, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
-    m_latestValueTextCtrls.push_back(latestValueText);
+    m_latestValueTextCtrls.insert(pair(index, latestValueText));
 }

@@ -32,6 +32,19 @@ shared_ptr<TeleconScatterPlot> TeleconRealtimeChart::addScatterPlot(string plott
 	return scatterPlot;
 }
 
+shared_ptr<TeleconRasterPlot> TeleconRealtimeChart::addRasterPlot(string plottitle, double yValue, long plotcolor, int symbol, bool fillSymbol, int symbolSize, int memoryDepth)
+{
+    if (m_hasStarted) {
+        cout << "telecon: Telecon has already started, plots may not be added." << endl;
+        return shared_ptr<TeleconRasterPlot>();
+    }
+    long color = plotcolor == COLOR_DEFAULT ? getNextDefaultColor() : plotcolor;
+    int depth = (int)(memoryDepth == -1 ? m_memoryDepthSeconds / (m_dataRateMillis / 1000.0) : memoryDepth) + 1;
+    shared_ptr<TeleconRasterPlot> rasterPlot = make_shared<TeleconWxRasterPlot>(plottitle, yValue, color, symbol, fillSymbol, symbolSize, depth);
+    m_plots.push_back(rasterPlot);
+    return rasterPlot;
+}
+
 double TeleconRealtimeChart::getDefaultXAxisSpan()
 {
 	return m_memoryDepthSeconds;

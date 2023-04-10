@@ -26,6 +26,8 @@ bool \mbox{\hyperlink{class_telecon_wx_line_plot_ad5d4988d53e4cd9395281498d542a8
 \item 
 \mbox{\hyperlink{class_telecon_wx_plot_x_y_a6dda11b21f52b5807b570a609bd40a9a}{Telecon\+Wx\+Plot\+XY}} (string plot\+Title, int color, int line\+Width, \mbox{\hyperlink{teleconlineplot_8h_afd074c27ba0a2809258258751b754f52}{Line\+Type}} line\+Type, bool has\+Symbol, int symbol, bool fill\+Symbol, int symbol\+Size, int \mbox{\hyperlink{class_telecon_wx_plot_a3f09ba9a7d15253b9ebabf26f8c7e3a0}{depth}})
 \item 
+\mbox{\hyperlink{class_telecon_wx_plot_x_y_ae95bbff94e6abe2dd8afa419761278dc}{$\sim$\+Telecon\+Wx\+Plot\+XY}} ()
+\item 
 virtual void \mbox{\hyperlink{class_telecon_wx_plot_x_y_ac9254248dbbda8263a740ac688f96877}{prep\+Data\+For\+Draw}} () override
 \item 
 virtual void \mbox{\hyperlink{class_telecon_wx_plot_x_y_a75e38814ec961f892886a4fc171bce12}{add\+To\+Chart}} (XYChart $\ast$chart) override
@@ -162,10 +164,10 @@ Definition at line \mbox{\hyperlink{teleconwxlineplot_8cpp_source_l00003}{3}} of
 \doxysubsubsection{\texorpdfstring{getLineType()}{getLineType()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{teleconlineplot_8h_afd074c27ba0a2809258258751b754f52}{Line\+Type}} Telecon\+Wx\+Line\+Plot\+::get\+Line\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Virtual getter function for plot line type.
+Getter function for plot line type (solid or dashed).
 
 \begin{DoxyReturn}{Returns}
-line type as Line\+Type object 
+Line type. 
 \end{DoxyReturn}
 
 
@@ -181,10 +183,10 @@ Definition at line \mbox{\hyperlink{teleconwxlineplot_8cpp_source_l00011}{11}} o
 \doxysubsubsection{\texorpdfstring{getLineWidth()}{getLineWidth()}}
 {\footnotesize\ttfamily int Telecon\+Wx\+Line\+Plot\+::get\+Line\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Virtual getter function for plot line width.
+Getter function for plot line width.
 
 \begin{DoxyReturn}{Returns}
-line width as int 
+Line width in pixels. 
 \end{DoxyReturn}
 
 
@@ -200,10 +202,10 @@ Definition at line \mbox{\hyperlink{teleconwxlineplot_8cpp_source_l00006}{6}} of
 \doxysubsubsection{\texorpdfstring{hasSymbol()}{hasSymbol()}}
 {\footnotesize\ttfamily bool Telecon\+Wx\+Line\+Plot\+::has\+Symbol (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Virtual getter function to see if plot has a symbol.
+Getter function to see if plot has a symbol. If not, only the line will be displayed.
 
 \begin{DoxyReturn}{Returns}
-symbol status as bool 
+True if a symbol will be drawn, or false otherwise. 
 \end{DoxyReturn}
 
 

@@ -2,6 +2,9 @@
 
 #include "teleconlinescatterplot.h"
 
+/**
+ * Describes whether the given line plot uses a solid line or a dashed line to connect points.
+ */
 enum LineType {
 	LT_SOLID,
 	LT_DASHED
@@ -11,23 +14,23 @@ class TeleconLinePlot : virtual public TeleconLineScatterPlot {
 public:
 
 	/**
-	 * Virtual getter function for plot line width.
+	 * Getter function for plot line width.
 	 * 
-	 * \return line width as int
+	 * \return Line width in pixels.
 	 */
 	virtual int getLineWidth() const = 0;
 
 	/**
-	 * Virtual getter function for plot line type.
+	 * Getter function for plot line type (solid or dashed).
 	 *
-	 * \return line type as LineType object
+	 * \return Line type.
 	 */
 	virtual LineType getLineType() const = 0;
 
 	/**
-	 * Virtual getter function to see if plot has a symbol.
+	 * Getter function to see if plot has a symbol. If not, only the line will be displayed.
 	 *
-	 * \return symbol status as bool
+	 * \return True if a symbol will be drawn, or false otherwise.
 	 */
 	virtual bool hasSymbol() const = 0;
 

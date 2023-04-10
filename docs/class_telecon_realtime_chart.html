@@ -220,6 +220,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Constructor for <a class="el" href="class_telecon_realtime_chart.html">TeleconRealtimeChart</a>. See the parent constructor, which has the same values.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_telecon_chart.html#ae0660503fc138e53101ec2abb4271920">TeleconChart::TeleconChart</a> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="teleconrealtimechart_8cpp_source.html#l00005">5</a> of file <a class="el" href="teleconrealtimechart_8cpp_source.html">teleconrealtimechart.cpp</a>.</p>
 
@@ -291,15 +293,16 @@ Additional Inherited Members</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">plottitle</td><td>the title of the plot, which will be displayed in the legend. </td></tr>
-    <tr><td class="paramname">plotcolor</td><td>the color of the plot. Can be specified as an ARGB hexcode or by the provided COLOR enum. </td></tr>
+    <tr><td class="paramname">plotcolor</td><td>the color of the plot. Can be specified as an ARGB hexcode or by the provided COLOR enum. A value of COLORS::COLOR_DEFAULT means the color will be automatically determined based on the ColorSequenceMode of the chart. </td></tr>
     <tr><td class="paramname">lineType</td><td>the type of the line, eiher solid or dashed. </td></tr>
     <tr><td class="paramname">lineWidth</td><td>the width of the line in pixels. </td></tr>
-    <tr><td class="paramname">symbol</td><td>the symbol used on each data point. Can be specified by the provided SYMBOL enum. </td></tr>
+    <tr><td class="paramname">symbol</td><td>the symbol used on each data point. The exact interpretation of integer values will depend on the underlying interpretation, except for values specified by the provided SYMBOL enum. For the default implementation, wxChartDir, the symbol values are the same as the ChartDirector shapes. </td></tr>
     <tr><td class="paramname">fillSymbol</td><td>if true, the symbol will (if drawn) be filled with the same color as the line. If false, the cener of the symbol will be transparent. </td></tr>
     <tr><td class="paramname">symbolSize</td><td>the size of the symbol (if drawn) in pixels. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://www.advsofteng.com/doc/cdpydoc/shapespec.htm">https://www.advsofteng.com/doc/cdpydoc/shapespec.htm</a> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="teleconrealtimechart_8cpp_source.html#l00008">8</a> of file <a class="el" href="teleconrealtimechart_8cpp_source.html">teleconrealtimechart.cpp</a>.</p>
 
@@ -383,8 +386,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Getter function that returns x axis type. Overide <a class="el" href="class_telecon_chart.html">TeleconChart</a>'s <a class="el" href="class_telecon_realtime_chart.html#ae6eb873f64e852cf645bac0e6a89208e">getChartXAxisType()</a> virtual function.</p>
-<dl class="section return"><dt>Returns</dt><dd>CAXT_TIME as a CHART_X_AXIS_TYPE object </dd></dl>
+<p>Getter function that returns x axis type (whether it displays time or arbitrary data on the x-axis). For a realtime chart, guaranteed to return time type.</p>
+<dl class="section return"><dt>Returns</dt><dd>Chart x-axis type (guaranteed to be CAXT_TIME) </dd></dl>
 
 <p>Implements <a class="el" href="class_telecon_chart.html#a5f2f3541ceb9b18a532e80d8ee805586">TeleconChart</a>.</p>
 
@@ -414,8 +417,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Getter function that returns x axis span. Overide <a class="el" href="class_telecon_chart.html">TeleconChart</a>'s <a class="el" href="class_telecon_realtime_chart.html#a6bf55049d06e4e2fe74a3906c85cf7a0">getDefaultXAxisSpan()</a> virtual function.</p>
-<dl class="section return"><dt>Returns</dt><dd>m_memoryDepthSeconds as a double </dd></dl>
+<p>Getter function that returns the default width of the chart, to be used when few or no data have been provided. For a realtime chart, this is measured in seconds, and is provided in the constructor as memoryDepthSeconds.</p>
+<dl class="section return"><dt>Returns</dt><dd>The number of seconds that the chart will use as its default width. </dd></dl>
 
 <p>Implements <a class="el" href="class_telecon_chart.html#abfeeb8c29606422ce614a3599e07e198">TeleconChart</a>.</p>
 

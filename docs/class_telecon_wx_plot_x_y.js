@@ -1,6 +1,7 @@
 var class_telecon_wx_plot_x_y =
 [
     [ "TeleconWxPlotXY", "class_telecon_wx_plot_x_y.html#a6dda11b21f52b5807b570a609bd40a9a", null ],
+    [ "~TeleconWxPlotXY", "class_telecon_wx_plot_x_y.html#ae95bbff94e6abe2dd8afa419761278dc", null ],
     [ "addToChart", "class_telecon_wx_plot_x_y.html#a75e38814ec961f892886a4fc171bce12", null ],
     [ "getLatestValueString", "class_telecon_wx_plot_x_y.html#a56cd0adf78eb541eb7c76f187bda7773", null ],
     [ "getLeftmostX", "class_telecon_wx_plot_x_y.html#ad9b1f58e0492bd224d804ad5b55f4922", null ],

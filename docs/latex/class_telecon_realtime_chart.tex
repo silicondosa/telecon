@@ -89,6 +89,11 @@ Definition at line \mbox{\hyperlink{teleconrealtimechart_8h_source_l00005}{5}} o
 \doxysubsubsection{\texorpdfstring{TeleconRealtimeChart()}{TeleconRealtimeChart()}}
 {\footnotesize\ttfamily Telecon\+Realtime\+Chart\+::\+Telecon\+Realtime\+Chart (\begin{DoxyParamCaption}\item[{string}]{title,  }\item[{double}]{memory\+Depth\+Seconds = {\ttfamily 60.0},  }\item[{int}]{data\+Rate\+Millis = {\ttfamily 100},  }\item[{string}]{x\+Label = {\ttfamily \char`\"{}\char`\"{}},  }\item[{string}]{y\+Label = {\ttfamily \char`\"{}\char`\"{}},  }\item[{\mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}}}]{color\+Sequence\+Mode = {\ttfamily \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38af694240c2be72deb06f19859d21ba193}{CSM\+\_\+\+BLACK}}} }\end{DoxyParamCaption})}
 
+Constructor for \mbox{\hyperlink{class_telecon_realtime_chart}{Telecon\+Realtime\+Chart}}. See the parent constructor, which has the same values.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_telecon_chart_ae0660503fc138e53101ec2abb4271920}{Telecon\+Chart\+::\+Telecon\+Chart}} 
+\end{DoxySeeAlso}
 
 
 Definition at line \mbox{\hyperlink{teleconrealtimechart_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{teleconrealtimechart_8cpp_source}{teleconrealtimechart.\+cpp}}.
@@ -108,19 +113,22 @@ Adds a line plot to the chart with the given parameters.
 \begin{DoxyParams}{Parameters}
 {\em plottitle} & the title of the plot, which will be displayed in the legend. \\
 \hline
-{\em plotcolor} & the color of the plot. Can be specified as an ARGB hexcode or by the provided COLOR enum. \\
+{\em plotcolor} & the color of the plot. Can be specified as an ARGB hexcode or by the provided COLOR enum. A value of COLORS\+::\+COLOR\+\_\+\+DEFAULT means the color will be automatically determined based on the Color\+Sequence\+Mode of the chart. \\
 \hline
 {\em line\+Type} & the type of the line, eiher solid or dashed. \\
 \hline
 {\em line\+Width} & the width of the line in pixels. \\
 \hline
-{\em symbol} & the symbol used on each data point. Can be specified by the provided SYMBOL enum. \\
+{\em symbol} & the symbol used on each data point. The exact interpretation of integer values will depend on the underlying interpretation, except for values specified by the provided SYMBOL enum. For the default implementation, wx\+Chart\+Dir, the symbol values are the same as the Chart\+Director shapes. \\
 \hline
 {\em fill\+Symbol} & if true, the symbol will (if drawn) be filled with the same color as the line. If false, the cener of the symbol will be transparent. \\
 \hline
 {\em symbol\+Size} & the size of the symbol (if drawn) in pixels. \\
 \hline
 \end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\href{https://www.advsofteng.com/doc/cdpydoc/shapespec.htm}{\texttt{ https\+://www.\+advsofteng.\+com/doc/cdpydoc/shapespec.\+htm}} 
+\end{DoxySeeAlso}
 
 
 Definition at line \mbox{\hyperlink{teleconrealtimechart_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{teleconrealtimechart_8cpp_source}{teleconrealtimechart.\+cpp}}.
@@ -146,10 +154,10 @@ Definition at line \mbox{\hyperlink{teleconrealtimechart_8cpp_source_l00022}{22}
 \doxysubsubsection{\texorpdfstring{getChartXAxisType()}{getChartXAxisType()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{teleconchart_8h_af187b130538d6f7efc8cbe12cfa5ff4a}{CHART\+\_\+\+X\+\_\+\+AXIS\+\_\+\+TYPE}} Telecon\+Realtime\+Chart\+::get\+Chart\+XAxis\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Getter function that returns x axis type. Overide \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}}\textquotesingle{}s \mbox{\hyperlink{class_telecon_realtime_chart_ae6eb873f64e852cf645bac0e6a89208e}{get\+Chart\+XAxis\+Type()}} virtual function.
+Getter function that returns x axis type (whether it displays time or arbitrary data on the x-\/axis). For a realtime chart, guaranteed to return time type.
 
 \begin{DoxyReturn}{Returns}
-CAXT\+\_\+\+TIME as a CHART\+\_\+\+X\+\_\+\+AXIS\+\_\+\+TYPE object 
+Chart x-\/axis type (guaranteed to be CAXT\+\_\+\+TIME) 
 \end{DoxyReturn}
 
 
@@ -165,10 +173,10 @@ Definition at line \mbox{\hyperlink{teleconrealtimechart_8cpp_source_l00040}{40}
 \doxysubsubsection{\texorpdfstring{getDefaultXAxisSpan()}{getDefaultXAxisSpan()}}
 {\footnotesize\ttfamily double Telecon\+Realtime\+Chart\+::get\+Default\+XAxis\+Span (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Getter function that returns x axis span. Overide \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}}\textquotesingle{}s \mbox{\hyperlink{class_telecon_realtime_chart_a6bf55049d06e4e2fe74a3906c85cf7a0}{get\+Default\+XAxis\+Span()}} virtual function.
+Getter function that returns the default width of the chart, to be used when few or no data have been provided. For a realtime chart, this is measured in seconds, and is provided in the constructor as memory\+Depth\+Seconds.
 
 \begin{DoxyReturn}{Returns}
-m\+\_\+memory\+Depth\+Seconds as a double 
+The number of seconds that the chart will use as its default width. 
 \end{DoxyReturn}
 
 

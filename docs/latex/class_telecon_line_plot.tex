@@ -46,7 +46,7 @@ virtual const string \mbox{\hyperlink{class_telecon_plot_ab8c7d77c2ab3091765bf56
 \doxysubsection{Detailed Description}
 
 
-Definition at line \mbox{\hyperlink{teleconlineplot_8h_source_l00010}{10}} of file \mbox{\hyperlink{teleconlineplot_8h_source}{teleconlineplot.\+h}}.
+Definition at line \mbox{\hyperlink{teleconlineplot_8h_source_l00013}{13}} of file \mbox{\hyperlink{teleconlineplot_8h_source}{teleconlineplot.\+h}}.
 
 
 
@@ -57,10 +57,10 @@ Definition at line \mbox{\hyperlink{teleconlineplot_8h_source_l00010}{10}} of fi
 \doxysubsubsection{\texorpdfstring{getLineType()}{getLineType()}}
 {\footnotesize\ttfamily virtual \mbox{\hyperlink{teleconlineplot_8h_afd074c27ba0a2809258258751b754f52}{Line\+Type}} Telecon\+Line\+Plot\+::get\+Line\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-Virtual getter function for plot line type.
+Getter function for plot line type (solid or dashed).
 
 \begin{DoxyReturn}{Returns}
-line type as Line\+Type object 
+Line type. 
 \end{DoxyReturn}
 
 
@@ -72,10 +72,10 @@ Implemented in \mbox{\hyperlink{class_telecon_wx_line_plot_ad81d109dec01d657f908
 \doxysubsubsection{\texorpdfstring{getLineWidth()}{getLineWidth()}}
 {\footnotesize\ttfamily virtual int Telecon\+Line\+Plot\+::get\+Line\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-Virtual getter function for plot line width.
+Getter function for plot line width.
 
 \begin{DoxyReturn}{Returns}
-line width as int 
+Line width in pixels. 
 \end{DoxyReturn}
 
 
@@ -87,10 +87,10 @@ Implemented in \mbox{\hyperlink{class_telecon_wx_line_plot_a2bb6962c1acb96ad74ef
 \doxysubsubsection{\texorpdfstring{hasSymbol()}{hasSymbol()}}
 {\footnotesize\ttfamily virtual bool Telecon\+Line\+Plot\+::has\+Symbol (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-Virtual getter function to see if plot has a symbol.
+Getter function to see if plot has a symbol. If not, only the line will be displayed.
 
 \begin{DoxyReturn}{Returns}
-symbol status as bool 
+True if a symbol will be drawn, or false otherwise. 
 \end{DoxyReturn}
 
 

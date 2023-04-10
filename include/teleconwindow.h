@@ -34,23 +34,19 @@ public:
 	TeleconWindow();
 
 	/**
-	 * Setter function to set requested quit boolean value (m_hasRequestedQuit) to true.
+	 * Requests that the given window should be closed. On the next chart refresh, the implementation should close the window.
 	 * 
 	 */
 	void requestQuit();
 
 	/**
-	 * Helper function that returns the requested quit boolean value (m_hasRequestedQuit).
-	 * Used to determine if quit has been requested.
-	 * 
-	 * \return 
+	 * \return True if requestQuit has been called, or false otherwise.
 	 */
 	bool hasRequestedQuit();
 
 	/**
-	 * Setter function that makes the quit status true.
-	 * Inside lock for thread safety, and notifys all threads on completion.
-	 * 
+	 * Indicates that the given window has been closed, either manually by the user or in response to requestQuit.
+	 * This function will be called by the implementation; it should never be called directly by the user.
 	 */
 	void setHasQuit();
 
@@ -58,73 +54,64 @@ public:
 	 * Helper function that returns if the window has quit.
 	 * Inisde lock for thread safety.
 	 * 
-	 * \return m_hasQuit as bool
+	 * \return True if the window has been closed, either manually by the user or in response to requestQuit, or false otherwise.
 	 */
 	bool hasQuit();
 
 	/**
-	 * Helper function that loops until the window has quit.
-	 * Used so other parts of the program can wait until the window has successfully quit.
+	 * Blocks the calling thread until this window has been closed (i.e. hasQuit returns true).
 	 * 
 	 */
 	void waitUntilQuit();
 
 	/**
-	 * Getter function that returns the window title as a string.
-	 * 
-	 * \return 
+	 * \return The title of the window
 	 */
 	std::string getTitle();
 
 	/**
-	 * Initializer function. Calls initialize on all chart objects of the window.
+	 * Initializer function. After this has been called, no further changes to the window may be made.
+     * This function will be called by the parent Telecon object, and likely should not be called directly by the user.
 	 * 
 	 */
     void initialize();
 
-	/**
-	 * Adds a chart to the window. Charts will be displayed in the order added, from top to bottom.
-	 *
-	 * \param title the title displayed above the chart.
-	 * \param ylabel the label displayed adjacent to the y-axis.
-	 * \param xlabel the label displayed beneath the x-axis.
-	 * \param dataInterval the expected time, in milliseconds, between data pushes. This will only affect the area of the plot displayed, and will not cause an error if the actual time between pushes differs from this value.
-	 * \param memoryDepth the maximum number of data points that will be held in the data buffer before old values start to be dropped.
-	 * \param colorSequenceMode the sequence of colors that will be used for added plots if the color is left unspecified.
-	 * \return A pointer to the TeleconRealTimeChart object created.
-	 */
+    /**
+     * Adds a chart to the window. Charts will be displayed in the order added, from top to bottom.
+     * 
+     * \param title the title displayed above the chart.
+     * \param memoryDepthSeconds the default number of seconds for which to store data.
+     * This can be overridden on individual plots, but may result in odd spacing if non-default values are used.
+     * \param dataRateMillis the rate at which data will be provided to the plots via pushData functions.
+     * If the actual data rate differs from the value provided here, it will result in spacing issues but no fatal errors.
+     * \param xLabel the label displayed beneath the x-axis.
+     * \param yLabel the label displayed adjacent to the y-axis.
+     * \param colorSequenceMode Describes how plots using the default color will be colored. For a full description, see TeleconChart::TeleconChart.
+     * \return A pointer to the TeleconRealTimeChart object created.
+     */
 	shared_ptr<TeleconRealtimeChart> addRealtimeChart(std::string title = "", double memoryDepthSeconds = 60.0, int dataRateMillis = 100, std::string xLabel = "", std::string yLabel = "", ColorSequenceMode colorSequenceMode = CSM_BLACK);
 	
 	/**
-	 * Getter function that returns a chart of the window given a specified index.
-	 *
-	 * \param index of chart as int
-	 * \return a shared_ptr to the TeleconChart object chart
+     * \param index the index of the TeleconChart to return, relative to the order added.
+     * \return A pointer to the TeleconChart requested.
 	 */
 	shared_ptr<TeleconChart> getChart(size_t index);
 
 	/**
-	 * Getter function that returns the number of charts in the window.
-	 * 
-	 * \return m_charts.size as size_t
+	 * \return The number of TeleconCharts added to the window.
 	 */
 	size_t getNumCharts() const;
 
 	/**
-	 * Getter function that returns a chart of the window given a specified chart name.
-	 *
-	 * \param name of chart as string
-	 * \return a shared_ptr to the TeleconChart object chart
+     * \param name the name of the TeleconChart to return. If multiple windows share the same name, no guarantee is made about which will be returned.
+     * \return A pointer to a chart with the given name, or a null pointer if no chart has that name.
 	 */
 	shared_ptr<TeleconChart> getChartByName(string name);
 
 	/**
-	 * Getter funtion that returns a plot of a chart of the window given a plot name and chart name.
-	 * Uses TeleconChart's getChartByName() function.
-	 * 
-	 * \param chartName as string
-	 * \param plotName as string
-	 * \return a shared_ptr to the TeleconPlot object plot
+     * \param chartName the name of the TeleconChart in which to search for a plot with the given name. If multiple charts share the same name, no guarantee is made about which will be returned.
+     * \param plotName the name of the TeleconPlot to return. If multiple plots share the same name, no guarantee is made about which will be returned.
+     * \return A pointer to a plot with the given name, or a null pointer if no plot in the given chart and window has that name.
 	 */
 	shared_ptr<TeleconPlot> getPlotByName(string chartName, string plotName);
 };

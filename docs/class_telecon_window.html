@@ -235,11 +235,11 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">title</td><td>the title displayed above the chart. </td></tr>
-    <tr><td class="paramname">ylabel</td><td>the label displayed adjacent to the y-axis. </td></tr>
-    <tr><td class="paramname">xlabel</td><td>the label displayed beneath the x-axis. </td></tr>
-    <tr><td class="paramname">dataInterval</td><td>the expected time, in milliseconds, between data pushes. This will only affect the area of the plot displayed, and will not cause an error if the actual time between pushes differs from this value. </td></tr>
-    <tr><td class="paramname">memoryDepth</td><td>the maximum number of data points that will be held in the data buffer before old values start to be dropped. </td></tr>
-    <tr><td class="paramname">colorSequenceMode</td><td>the sequence of colors that will be used for added plots if the color is left unspecified. </td></tr>
+    <tr><td class="paramname">memoryDepthSeconds</td><td>the default number of seconds for which to store data. This can be overridden on individual plots, but may result in odd spacing if non-default values are used. </td></tr>
+    <tr><td class="paramname">dataRateMillis</td><td>the rate at which data will be provided to the plots via pushData functions. If the actual data rate differs from the value provided here, it will result in spacing issues but no fatal errors. </td></tr>
+    <tr><td class="paramname">xLabel</td><td>the label displayed beneath the x-axis. </td></tr>
+    <tr><td class="paramname">yLabel</td><td>the label displayed adjacent to the y-axis. </td></tr>
+    <tr><td class="paramname">colorSequenceMode</td><td>Describes how plots using the default color will be colored. For a full description, see <a class="el" href="class_telecon_chart.html#ae0660503fc138e53101ec2abb4271920">TeleconChart::TeleconChart</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -264,14 +264,13 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Getter function that returns a chart of the window given a specified index.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>of chart as int </td></tr>
+    <tr><td class="paramname">index</td><td>the index of the <a class="el" href="class_telecon_chart.html">TeleconChart</a> to return, relative to the order added. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>a shared_ptr to the <a class="el" href="class_telecon_chart.html">TeleconChart</a> object chart </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the <a class="el" href="class_telecon_chart.html">TeleconChart</a> requested. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="teleconwindow_8cpp_source.html#l00067">67</a> of file <a class="el" href="teleconwindow_8cpp_source.html">teleconwindow.cpp</a>.</p>
 
@@ -292,14 +291,13 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Getter function that returns a chart of the window given a specified chart name.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">name</td><td>of chart as string </td></tr>
+    <tr><td class="paramname">name</td><td>the name of the <a class="el" href="class_telecon_chart.html">TeleconChart</a> to return. If multiple windows share the same name, no guarantee is made about which will be returned. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>a shared_ptr to the <a class="el" href="class_telecon_chart.html">TeleconChart</a> object chart </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to a chart with the given name, or a null pointer if no chart has that name. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="teleconwindow_8cpp_source.html#l00077">77</a> of file <a class="el" href="teleconwindow_8cpp_source.html">teleconwindow.cpp</a>.</p>
 
@@ -319,8 +317,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Getter function that returns the number of charts in the window.</p>
-<dl class="section return"><dt>Returns</dt><dd>m_charts.size as size_t </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of TeleconCharts added to the window. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="teleconwindow_8cpp_source.html#l00072">72</a> of file <a class="el" href="teleconwindow_8cpp_source.html">teleconwindow.cpp</a>.</p>
 
@@ -351,15 +348,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Getter funtion that returns a plot of a chart of the window given a plot name and chart name. Uses <a class="el" href="class_telecon_chart.html">TeleconChart</a>'s <a class="el" href="class_telecon_window.html#acd7ae4dd6f73c1232e59410a564d60d2">getChartByName()</a> function.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">chartName</td><td>as string </td></tr>
-    <tr><td class="paramname">plotName</td><td>as string </td></tr>
+    <tr><td class="paramname">chartName</td><td>the name of the <a class="el" href="class_telecon_chart.html">TeleconChart</a> in which to search for a plot with the given name. If multiple charts share the same name, no guarantee is made about which will be returned. </td></tr>
+    <tr><td class="paramname">plotName</td><td>the name of the <a class="el" href="class_telecon_plot.html">TeleconPlot</a> to return. If multiple plots share the same name, no guarantee is made about which will be returned. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>a shared_ptr to the <a class="el" href="class_telecon_plot.html">TeleconPlot</a> object plot </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to a plot with the given name, or a null pointer if no plot in the given chart and window has that name. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="teleconwindow_8cpp_source.html#l00087">87</a> of file <a class="el" href="teleconwindow_8cpp_source.html">teleconwindow.cpp</a>.</p>
 
@@ -379,8 +375,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Getter function that returns the window title as a string.</p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The title of the window </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="teleconwindow_8cpp_source.html#l00043">43</a> of file <a class="el" href="teleconwindow_8cpp_source.html">teleconwindow.cpp</a>.</p>
 
@@ -401,7 +396,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Helper function that returns if the window has quit. Inisde lock for thread safety.</p>
-<dl class="section return"><dt>Returns</dt><dd>m_hasQuit as bool </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the window has been closed, either manually by the user or in response to requestQuit, or false otherwise. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="teleconwindow_8cpp_source.html#l00029">29</a> of file <a class="el" href="teleconwindow_8cpp_source.html">teleconwindow.cpp</a>.</p>
 
@@ -421,8 +416,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Helper function that returns the requested quit boolean value (m_hasRequestedQuit). Used to determine if quit has been requested.</p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if requestQuit has been called, or false otherwise. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="teleconwindow_8cpp_source.html#l00016">16</a> of file <a class="el" href="teleconwindow_8cpp_source.html">teleconwindow.cpp</a>.</p>
 
@@ -442,7 +436,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Initializer function. Calls initialize on all chart objects of the window. </p>
+<p>Initializer function. After this has been called, no further changes to the window may be made. This function will be called by the parent <a class="el" href="class_telecon.html">Telecon</a> object, and likely should not be called directly by the user. </p>
 
 <p class="definition">Definition at line <a class="el" href="teleconwindow_8cpp_source.html#l00048">48</a> of file <a class="el" href="teleconwindow_8cpp_source.html">teleconwindow.cpp</a>.</p>
 
@@ -462,7 +456,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Setter function to set requested quit boolean value (m_hasRequestedQuit) to true. </p>
+<p>Requests that the given window should be closed. On the next chart refresh, the implementation should close the window. </p>
 
 <p class="definition">Definition at line <a class="el" href="teleconwindow_8cpp_source.html#l00011">11</a> of file <a class="el" href="teleconwindow_8cpp_source.html">teleconwindow.cpp</a>.</p>
 
@@ -482,7 +476,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Setter function that makes the quit status true. Inside lock for thread safety, and notifys all threads on completion. </p>
+<p>Indicates that the given window has been closed, either manually by the user or in response to requestQuit. This function will be called by the implementation; it should never be called directly by the user. </p>
 
 <p class="definition">Definition at line <a class="el" href="teleconwindow_8cpp_source.html#l00021">21</a> of file <a class="el" href="teleconwindow_8cpp_source.html">teleconwindow.cpp</a>.</p>
 
@@ -502,7 +496,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Helper function that loops until the window has quit. Used so other parts of the program can wait until the window has successfully quit. </p>
+<p>Blocks the calling thread until this window has been closed (i.e. hasQuit returns true). </p>
 
 <p class="definition">Definition at line <a class="el" href="teleconwindow_8cpp_source.html#l00035">35</a> of file <a class="el" href="teleconwindow_8cpp_source.html">teleconwindow.cpp</a>.</p>
 

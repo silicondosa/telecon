@@ -48,10 +48,10 @@ Definition at line \mbox{\hyperlink{teleconlinescatterplot_8h_source_l00005}{5}}
 \doxysubsubsection{\texorpdfstring{getSymbol()}{getSymbol()}}
 {\footnotesize\ttfamily virtual int Telecon\+Line\+Scatter\+Plot\+::get\+Symbol (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-Virtual getter function to return symbol.
+Getter function to return the type of symbol used (e.\+g., square, circle, tirangle).
 
 \begin{DoxyReturn}{Returns}
-symbol as int 
+Symbol, in the format described in \mbox{\hyperlink{class_telecon_realtime_chart_a1769d4f09f07121868c313555811b450}{Telecon\+Realtime\+Chart\+::add\+Line\+Plot}}. 
 \end{DoxyReturn}
 
 
@@ -63,10 +63,10 @@ Implemented in \mbox{\hyperlink{class_telecon_wx_plot_x_y_aae6d9e760860b42df2afc
 \doxysubsubsection{\texorpdfstring{getSymbolSize()}{getSymbolSize()}}
 {\footnotesize\ttfamily virtual int Telecon\+Line\+Scatter\+Plot\+::get\+Symbol\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-Virtual getter function to return symbol size.
+Getter function to return symbol size.
 
 \begin{DoxyReturn}{Returns}
-symbol size as int 
+Symbol size in pixels. 
 \end{DoxyReturn}
 
 
@@ -78,10 +78,10 @@ Implemented in \mbox{\hyperlink{class_telecon_wx_plot_x_y_a5c6bfb4151105f42c6242
 \doxysubsubsection{\texorpdfstring{isSymbolFilled()}{isSymbolFilled()}}
 {\footnotesize\ttfamily virtual bool Telecon\+Line\+Scatter\+Plot\+::is\+Symbol\+Filled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-Virtual getter function to return if symbol is filled.
+Getter function to return if symbol is filled or only an outline.
 
 \begin{DoxyReturn}{Returns}
-symbol filled as bool 
+True if the symbol is filled, or false otherwise. 
 \end{DoxyReturn}
 
 
@@ -93,13 +93,13 @@ Implemented in \mbox{\hyperlink{class_telecon_wx_plot_x_y_aa1e8b06c2c01235b6e383
 \doxysubsubsection{\texorpdfstring{pushData()}{pushData()}}
 {\footnotesize\ttfamily virtual void Telecon\+Line\+Scatter\+Plot\+::push\+Data (\begin{DoxyParamCaption}\item[{double}]{x\+Timestamp,  }\item[{double}]{y\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-Virtual function to push data (y\+Data) into the plot at a certain time (x\+Timestamp).
+Function to push a single data point (y\+Data) into the plot at a certain time (x\+Timestamp).
 
 
 \begin{DoxyParams}{Parameters}
-{\em x\+Timestamp} & as double \\
+{\em x\+Timestamp} & Time the data point was generated, in seconds. The exact interpretation of the time will depend on the implementation; the default implementation (wx\+Chart\+Dir) interprets it as seconds since January 1st, year 1. \\
 \hline
-{\em y\+Data} & as double \\
+{\em y\+Data} & The value that will be displayed. \\
 \hline
 \end{DoxyParams}
 

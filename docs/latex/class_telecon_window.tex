@@ -87,15 +87,15 @@ Adds a chart to the window. Charts will be displayed in the order added, from to
 \begin{DoxyParams}{Parameters}
 {\em title} & the title displayed above the chart. \\
 \hline
-{\em ylabel} & the label displayed adjacent to the y-\/axis. \\
+{\em memory\+Depth\+Seconds} & the default number of seconds for which to store data. This can be overridden on individual plots, but may result in odd spacing if non-\/default values are used. \\
 \hline
-{\em xlabel} & the label displayed beneath the x-\/axis. \\
+{\em data\+Rate\+Millis} & the rate at which data will be provided to the plots via push\+Data functions. If the actual data rate differs from the value provided here, it will result in spacing issues but no fatal errors. \\
 \hline
-{\em data\+Interval} & the expected time, in milliseconds, between data pushes. This will only affect the area of the plot displayed, and will not cause an error if the actual time between pushes differs from this value. \\
+{\em x\+Label} & the label displayed beneath the x-\/axis. \\
 \hline
-{\em memory\+Depth} & the maximum number of data points that will be held in the data buffer before old values start to be dropped. \\
+{\em y\+Label} & the label displayed adjacent to the y-\/axis. \\
 \hline
-{\em color\+Sequence\+Mode} & the sequence of colors that will be used for added plots if the color is left unspecified. \\
+{\em color\+Sequence\+Mode} & Describes how plots using the default color will be colored. For a full description, see \mbox{\hyperlink{class_telecon_chart_ae0660503fc138e53101ec2abb4271920}{Telecon\+Chart\+::\+Telecon\+Chart}}. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -111,15 +111,13 @@ Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00056}{56}} of fi
 \doxysubsubsection{\texorpdfstring{getChart()}{getChart()}}
 {\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} $>$ Telecon\+Window\+::get\+Chart (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
 
-Getter function that returns a chart of the window given a specified index.
-
 
 \begin{DoxyParams}{Parameters}
-{\em index} & of chart as int \\
+{\em index} & the index of the \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} to return, relative to the order added. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-a shared\+\_\+ptr to the \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} object chart 
+A pointer to the \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} requested. 
 \end{DoxyReturn}
 
 
@@ -131,15 +129,13 @@ Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00067}{67}} of fi
 \doxysubsubsection{\texorpdfstring{getChartByName()}{getChartByName()}}
 {\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} $>$ Telecon\+Window\+::get\+Chart\+By\+Name (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})}
 
-Getter function that returns a chart of the window given a specified chart name.
-
 
 \begin{DoxyParams}{Parameters}
-{\em name} & of chart as string \\
+{\em name} & the name of the \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} to return. If multiple windows share the same name, no guarantee is made about which will be returned. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-a shared\+\_\+ptr to the \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} object chart 
+A pointer to a chart with the given name, or a null pointer if no chart has that name. 
 \end{DoxyReturn}
 
 
@@ -151,10 +147,8 @@ Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00077}{77}} of fi
 \doxysubsubsection{\texorpdfstring{getNumCharts()}{getNumCharts()}}
 {\footnotesize\ttfamily size\+\_\+t Telecon\+Window\+::get\+Num\+Charts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Getter function that returns the number of charts in the window.
-
 \begin{DoxyReturn}{Returns}
-m\+\_\+charts.\+size as size\+\_\+t 
+The number of Telecon\+Charts added to the window. 
 \end{DoxyReturn}
 
 
@@ -166,17 +160,15 @@ Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00072}{72}} of fi
 \doxysubsubsection{\texorpdfstring{getPlotByName()}{getPlotByName()}}
 {\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ Telecon\+Window\+::get\+Plot\+By\+Name (\begin{DoxyParamCaption}\item[{string}]{chart\+Name,  }\item[{string}]{plot\+Name }\end{DoxyParamCaption})}
 
-Getter funtion that returns a plot of a chart of the window given a plot name and chart name. Uses \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}}\textquotesingle{}s \mbox{\hyperlink{class_telecon_window_acd7ae4dd6f73c1232e59410a564d60d2}{get\+Chart\+By\+Name()}} function.
-
 
 \begin{DoxyParams}{Parameters}
-{\em chart\+Name} & as string \\
+{\em chart\+Name} & the name of the \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} in which to search for a plot with the given name. If multiple charts share the same name, no guarantee is made about which will be returned. \\
 \hline
-{\em plot\+Name} & as string \\
+{\em plot\+Name} & the name of the \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} to return. If multiple plots share the same name, no guarantee is made about which will be returned. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-a shared\+\_\+ptr to the \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} object plot 
+A pointer to a plot with the given name, or a null pointer if no plot in the given chart and window has that name. 
 \end{DoxyReturn}
 
 
@@ -188,10 +180,8 @@ Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00087}{87}} of fi
 \doxysubsubsection{\texorpdfstring{getTitle()}{getTitle()}}
 {\footnotesize\ttfamily std\+::string Telecon\+Window\+::get\+Title (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Getter function that returns the window title as a string.
-
 \begin{DoxyReturn}{Returns}
-
+The title of the window 
 \end{DoxyReturn}
 
 
@@ -206,7 +196,7 @@ Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00043}{43}} of fi
 Helper function that returns if the window has quit. Inisde lock for thread safety.
 
 \begin{DoxyReturn}{Returns}
-m\+\_\+has\+Quit as bool 
+True if the window has been closed, either manually by the user or in response to request\+Quit, or false otherwise. 
 \end{DoxyReturn}
 
 
@@ -218,10 +208,8 @@ Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00029}{29}} of fi
 \doxysubsubsection{\texorpdfstring{hasRequestedQuit()}{hasRequestedQuit()}}
 {\footnotesize\ttfamily bool Telecon\+Window\+::has\+Requested\+Quit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Helper function that returns the requested quit boolean value (m\+\_\+has\+Requested\+Quit). Used to determine if quit has been requested.
-
 \begin{DoxyReturn}{Returns}
-
+True if request\+Quit has been called, or false otherwise. 
 \end{DoxyReturn}
 
 
@@ -233,7 +221,7 @@ Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00016}{16}} of fi
 \doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
 {\footnotesize\ttfamily void Telecon\+Window\+::initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Initializer function. Calls initialize on all chart objects of the window. 
+Initializer function. After this has been called, no further changes to the window may be made. This function will be called by the parent \mbox{\hyperlink{class_telecon}{Telecon}} object, and likely should not be called directly by the user. 
 
 Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00048}{48}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
 
@@ -243,7 +231,7 @@ Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00048}{48}} of fi
 \doxysubsubsection{\texorpdfstring{requestQuit()}{requestQuit()}}
 {\footnotesize\ttfamily void Telecon\+Window\+::request\+Quit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Setter function to set requested quit boolean value (m\+\_\+has\+Requested\+Quit) to true. 
+Requests that the given window should be closed. On the next chart refresh, the implementation should close the window. 
 
 Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
 
@@ -253,7 +241,7 @@ Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00011}{11}} of fi
 \doxysubsubsection{\texorpdfstring{setHasQuit()}{setHasQuit()}}
 {\footnotesize\ttfamily void Telecon\+Window\+::set\+Has\+Quit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Setter function that makes the quit status true. Inside lock for thread safety, and notifys all threads on completion. 
+Indicates that the given window has been closed, either manually by the user or in response to request\+Quit. This function will be called by the implementation; it should never be called directly by the user. 
 
 Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
 
@@ -263,7 +251,7 @@ Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00021}{21}} of fi
 \doxysubsubsection{\texorpdfstring{waitUntilQuit()}{waitUntilQuit()}}
 {\footnotesize\ttfamily void Telecon\+Window\+::wait\+Until\+Quit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Helper function that loops until the window has quit. Used so other parts of the program can wait until the window has successfully quit. 
+Blocks the calling thread until this window has been closed (i.\+e. has\+Quit returns true). 
 
 Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
 

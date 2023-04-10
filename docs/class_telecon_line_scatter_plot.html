@@ -161,8 +161,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Virtual getter function to return symbol.</p>
-<dl class="section return"><dt>Returns</dt><dd>symbol as int </dd></dl>
+<p>Getter function to return the type of symbol used (e.g., square, circle, tirangle).</p>
+<dl class="section return"><dt>Returns</dt><dd>Symbol, in the format described in <a class="el" href="class_telecon_realtime_chart.html#a1769d4f09f07121868c313555811b450">TeleconRealtimeChart::addLinePlot</a>. </dd></dl>
 
 <p>Implemented in <a class="el" href="class_telecon_wx_plot_x_y.html#aae6d9e760860b42df2afc876ff53365d">TeleconWxPlotXY</a>.</p>
 
@@ -190,8 +190,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Virtual getter function to return symbol size.</p>
-<dl class="section return"><dt>Returns</dt><dd>symbol size as int </dd></dl>
+<p>Getter function to return symbol size.</p>
+<dl class="section return"><dt>Returns</dt><dd>Symbol size in pixels. </dd></dl>
 
 <p>Implemented in <a class="el" href="class_telecon_wx_plot_x_y.html#a5c6bfb4151105f42c6242dd71932df73">TeleconWxPlotXY</a>.</p>
 
@@ -219,8 +219,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Virtual getter function to return if symbol is filled.</p>
-<dl class="section return"><dt>Returns</dt><dd>symbol filled as bool </dd></dl>
+<p>Getter function to return if symbol is filled or only an outline.</p>
+<dl class="section return"><dt>Returns</dt><dd>True if the symbol is filled, or false otherwise. </dd></dl>
 
 <p>Implemented in <a class="el" href="class_telecon_wx_plot_x_y.html#aa1e8b06c2c01235b6e383d02b50261d9">TeleconWxPlotXY</a>.</p>
 
@@ -259,11 +259,11 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Virtual function to push data (yData) into the plot at a certain time (xTimestamp).</p>
+<p>Function to push a single data point (yData) into the plot at a certain time (xTimestamp).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">xTimestamp</td><td>as double </td></tr>
-    <tr><td class="paramname">yData</td><td>as double </td></tr>
+    <tr><td class="paramname">xTimestamp</td><td>Time the data point was generated, in seconds. The exact interpretation of the time will depend on the implementation; the default implementation (wxChartDir) interprets it as seconds since January 1st, year 1. </td></tr>
+    <tr><td class="paramname">yData</td><td>The value that will be displayed. </td></tr>
   </table>
   </dd>
 </dl>

@@ -199,7 +199,6 @@ void TeleconWxChart::DrawChart(bool isRefreshEnabled)
         double lastTime = 0.0;
         bool hasData = false;
         for (int i = 0; i < m_chart->getNumPlots(); i++) {
-            // This should ideally be done in a more type-safe fashion
             shared_ptr<TeleconWxPlot> plot = std::dynamic_pointer_cast<TeleconWxPlot>(m_chart->getPlot(i));
             // Update the earliest and latest data points found so far
             if (plot->size() > 0 && !hasData) {
@@ -223,17 +222,10 @@ void TeleconWxChart::DrawChart(bool isRefreshEnabled)
 
         // Set the x-axis label format
         c->xAxis()->setLabelFormat("{value|hh:nn:ss}");
-
-        // The data series are used to draw lines.
-        for (int i = 0; i < m_chart->getNumPlots(); i++) {
-            shared_ptr<TeleconWxPlot> plot = std::dynamic_pointer_cast<TeleconWxPlot>(m_chart->getPlot(i));
-            plot->addToChart(c);
-        }
         break;
     }
-    case CAXT_ARBITARY:
-        cerr << "TODO: Arbitrary x-axis type not yet implemented.";
-        exit(EXIT_FAILURE);
+    case CAXT_ARBITRARY:
+        // We don't need to set the x-axis width because it will be set automatically by ChartDirector
         break;
     case CAXT_BOTH:
         cerr << "TODO: Time and non-time combined x-axis type not yet implemented.";
@@ -241,6 +233,12 @@ void TeleconWxChart::DrawChart(bool isRefreshEnabled)
         break;
     }
 
+    // The data series are used to draw lines.
+    for (int i = 0; i < m_chart->getNumPlots(); i++) {
+        shared_ptr<TeleconWxPlot> plot = std::dynamic_pointer_cast<TeleconWxPlot>(m_chart->getPlot(i));
+        plot->addToChart(c);
+    }
+    
     ///Code imported from TrackLineLegend, mousex replaced with 1 as only need a general sense of plot name length
     // Container to hold the legend entries
     vector<string> legendEntries;
@@ -419,7 +417,7 @@ void TeleconWxChart::addLatestValueText(int index, string plottitle) {
     wxStaticText* latestValueLabel = new wxStaticText(this, wxID_STATIC, wxString(plottitle), wxDefaultPosition, wxDefaultSize, 0);
     m_plotLatestValueFlexGridSizer->Add(latestValueLabel, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
 
-    wxTextCtrl* latestValueText = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, FromDIP(wxSize(60, -1)), wxTE_READONLY | wxSTATIC_BORDER);
+    wxTextCtrl* latestValueText = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, FromDIP(wxSize(100, -1)), wxTE_READONLY | wxSTATIC_BORDER);
     latestValueText->Enable(false);
     m_plotLatestValueFlexGridSizer->Add(latestValueText, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
     m_latestValueTextCtrls.insert(pair(index, latestValueText));

@@ -6,6 +6,7 @@
 
 #include "colors.h"
 #include "teleconrealtimechart.h"
+#include "telecondatachart.h"
 
 class TeleconWindow {
 private:
@@ -77,7 +78,9 @@ public:
     void initialize();
 
     /**
-     * Adds a chart to the window. Charts will be displayed in the order added, from top to bottom.
+     * Adds a realtime chart to the window.
+     * Realtime charts have time data on the x-axis.
+     * Charts will be displayed in the order added, from top to bottom.
      * 
      * \param title the title displayed above the chart.
      * \param memoryDepthSeconds the default number of seconds for which to store data.
@@ -87,9 +90,19 @@ public:
      * \param xLabel the label displayed beneath the x-axis.
      * \param yLabel the label displayed adjacent to the y-axis.
      * \param colorSequenceMode Describes how plots using the default color will be colored. For a full description, see TeleconChart::TeleconChart.
-     * \return A pointer to the TeleconRealTimeChart object created.
+     * \return A pointer to the TeleconRealtimeChart object created.
      */
 	shared_ptr<TeleconRealtimeChart> addRealtimeChart(std::string title = "", double memoryDepthSeconds = 60.0, int dataRateMillis = 100, std::string xLabel = "", std::string yLabel = "", ColorSequenceMode colorSequenceMode = CSM_BLACK);
+
+    /**
+     * Adds a data chart to the window.
+     * Data charts have arbitrary non-time data on the x-axis.
+     * For parameters, see addRealtimeChart, which has the same parameters.
+     * 
+     * \return A pointer to the TeleconDataChart object created.
+     * \sa TeleconWindow::addRealtimeChart
+     */
+    shared_ptr<TeleconDataChart> addDataChart(std::string title = "", double memoryDepthSeconds = 60.0, int dataRateMillis = 100, std::string xLabel = "", std::string yLabel = "", ColorSequenceMode colorSequenceMode = CSM_BLACK);
 	
 	/**
      * \param index the index of the TeleconChart to return, relative to the order added.

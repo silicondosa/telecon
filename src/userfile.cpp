@@ -70,13 +70,21 @@ int main(int argc, char* argv[])
     shared_ptr<TeleconScatterPlot> plot14 = chart4->addScatterPlot("New one", COLOR_DEFAULT, SYMBOL_CIRCLE, false);
     shared_ptr<TeleconScatterPlot> plot15 = chart4->addScatterPlot("Velocity", COLOR_BLUE, SYMBOL_DIAMOND, true, 3);
 
-    vector<shared_ptr<TeleconRasterPlot>> rasterPlots;
     shared_ptr<TeleconWindow> window3 = telecon->addWindow("Third Window");
 
     shared_ptr<TeleconRealtimeChart> chart5 = window3->addRealtimeChart("Raster Chart", 60.0, dataRateMillis, "time (s)", "Neuron", CSM_BLACK);
+    
+    vector<shared_ptr<TeleconRasterPlot>> rasterPlots;
     for (int i = 0; i < 1000; ++i) {
-        rasterPlots.push_back(chart5->addRasterPlot("", i, -1L, SYMBOL_CIRCLE, true, 1));
+        rasterPlots.push_back(chart5->addRasterPlot("", i));
     }
+
+    shared_ptr<TeleconDataChart> chart6 = window3->addDataChart("Temporal Phase Portrait", 6.0, dataRateMillis, "amount spent ($)", "grade (%)", CSM_DIVERGING);
+    vector<shared_ptr<TeleconPhasePortraitPlot>> phasePortraits;
+    phasePortraits.push_back(chart6->addPhasePortraitPlot("Student A"));
+    phasePortraits.push_back(chart6->addPhasePortraitPlot("Student B"));
+    phasePortraits.push_back(chart6->addPhasePortraitPlot("Student C"));
+    phasePortraits.push_back(chart6->addPhasePortraitPlot("Student D"));
 
     telecon->teleconStart();
     telecon->teleconStart();
@@ -109,6 +117,9 @@ int main(int argc, char* argv[])
         for (auto rasterPlot : rasterPlots) {
             // Using a sine wave with some added noise to give the raster plots a recognizable pattern and not just look like random dots
             rasterPlot->pushData(nowTimestampAbsolute, (40.0 * sin(nowTimestampAbsolute) + CreateDataPoints()) > 100.0);
+        }
+        for (auto phasePortrait : phasePortraits) {
+            phasePortrait->pushData(nowTimestampRelative, CreateDataPoints(), CreateDataPoints());
         }
         if (telecon->hasStopped()) {
             break;

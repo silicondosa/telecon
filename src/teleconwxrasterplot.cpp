@@ -11,11 +11,10 @@ list<pair<double, bool>>* TeleconWxRasterPlot::swapAndGetDataToAdd()
 }
 
 TeleconWxRasterPlot::TeleconWxRasterPlot(string plotTitle, double yValue, int color, int symbol, bool fillSymbol, int symbolSize, int depth)
-    : TeleconWxPlot(plotTitle, color, depth), m_dataToAdd(new list<pair<double, bool>>), m_xTimestamps(depth), m_yValue(yValue), m_latestValue(false), m_yValueArray(nullptr), m_symbol(symbol), m_fillSymbol(fillSymbol), m_symbolSize(symbolSize) {}
+    : TeleconWxPlot(plotTitle, color, depth), m_dataToAdd(new list<pair<double, bool>>), m_xTimestamps(depth), m_yValue(yValue), m_yValueBuffer(depth), m_symbol(symbol), m_fillSymbol(fillSymbol), m_symbolSize(symbolSize) {}
 
 TeleconWxRasterPlot::~TeleconWxRasterPlot()
 {
-    delete m_yValueArray;
     const lock_guard<mutex> lock(m_dataToAddLock);
     delete m_dataToAdd;
 }
@@ -35,10 +34,8 @@ void TeleconWxRasterPlot::prepDataForDraw()
     list<pair<double, bool>>* dataToAdd = swapAndGetDataToAdd();
 
     for (const auto& activationValue : *dataToAdd) {
-        if (activationValue.second) {
-            m_xTimestamps.insertNewValue(activationValue.first);
-        }
-        m_latestValue = activationValue.second;
+        m_xTimestamps.insertNewValue(activationValue.first);
+        m_yValueBuffer.insertNewValue(activationValue.second ? m_yValue : Chart::NoValue);
     }
 
     delete dataToAdd;
@@ -49,10 +46,7 @@ void TeleconWxRasterPlot::addToChart(XYChart* chart)
     if (m_xTimestamps.size() <= 0) {
         return;
     }
-    delete m_yValueArray;
-    m_yValueArray = new double[m_xTimestamps.size()]();
-    std::fill_n(m_yValueArray, m_xTimestamps.size(), m_yValue);
-    ScatterLayer* layer = chart->addScatterLayer(DoubleArray(&m_xTimestamps[0], (int)m_xTimestamps.size()), DoubleArray(m_yValueArray, (int)m_xTimestamps.size()), (string("notitle\\") + m_plotTitle).c_str(), m_symbol, m_symbolSize, m_fillSymbol ? m_color : Chart::Transparent, m_color);
+    ScatterLayer* layer = chart->addScatterLayer(DoubleArray(&m_xTimestamps[0], (int)m_xTimestamps.size()), DoubleArray(&m_yValueBuffer[0], (int)m_yValueBuffer.size()), (string("notitle\\") + m_plotTitle).c_str(), m_symbol, m_symbolSize, m_fillSymbol ? m_color : Chart::Transparent, m_color);
 }
 
 double TeleconWxRasterPlot::getLeftmostX() const
@@ -67,10 +61,10 @@ double TeleconWxRasterPlot::getRightmostX() const
 
 string TeleconWxRasterPlot::getLatestValueString() const
 {
-    if (m_latestValue) {
-        return "active";
+    if (m_yValueBuffer[m_yValueBuffer.size() - 1] == Chart::NoValue) {
+        return "inactive";
     }
-    return "inactive";
+    return "active";
 }
 
 bool TeleconWxRasterPlot::isIncludedInLegend() const

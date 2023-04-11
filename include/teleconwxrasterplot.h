@@ -14,9 +14,8 @@ private:
     list<pair<double, bool>>* m_dataToAdd;
     mutex m_dataToAddLock;
     DataBuffer<double> m_xTimestamps;
+    DataBuffer<double> m_yValueBuffer;
     double m_yValue;
-    bool m_latestValue;
-    double* m_yValueArray;
 
     // Display options member values
     bool m_fillSymbol;

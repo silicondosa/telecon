@@ -13,7 +13,7 @@ using namespace std;
  */
 enum CHART_X_AXIS_TYPE {
     CAXT_TIME, // x axis represents a timespan
-    CAXT_ARBITARY, // x axis represents some arbitrary non-time data
+    CAXT_ARBITRARY, // x axis represents some arbitrary non-time data
     CAXT_BOTH // x axis may represent both time and non-time data for different plots
 };
 

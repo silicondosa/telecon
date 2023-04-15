@@ -19,6 +19,9 @@ class TeleconWxApp; // Forward declaration needed due to circular dependency bet
 
 using namespace std;
 
+/**
+ * Main class object that contains a vector of windows.
+ */
 class Telecon
 {
 private:

@@ -1,0 +1,68 @@
+\hypertarget{class_telecon_phase_portrait_plot}{}\doxysection{Telecon\+Phase\+Portrait\+Plot Class Reference}
+\label{class_telecon_phase_portrait_plot}\index{TeleconPhasePortraitPlot@{TeleconPhasePortraitPlot}}
+
+
+{\ttfamily \#include $<$include/teleconphaseportraitplot.\+h$>$}
+
+Inheritance diagram for Telecon\+Phase\+Portrait\+Plot\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_telecon_phase_portrait_plot}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_telecon_phase_portrait_plot_a23cbe250c74c5cf118e698acc77a56c4}{push\+Data}} (double timestamp, double x\+Data, double y\+Data)=0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_telecon_plot_a582e5ae4fd4923f82956fc37679d3809}{size}} () const =0
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_telecon_plot_a531aaccd7cd6f98e32c1a315900b5c49}{depth}} () const =0
+\item 
+virtual int \mbox{\hyperlink{class_telecon_plot_ae573ed05240f7e135a50ef0ee632a6bb}{get\+Color}} () const =0
+\item 
+virtual const string \mbox{\hyperlink{class_telecon_plot_ab8c7d77c2ab3091765bf560f29306d7e}{get\+Plot\+Title}} () const =0
+\item 
+virtual bool \mbox{\hyperlink{class_telecon_plot_a24f3e2d92ad1cddfa3d50be3685cb100}{is\+Symbol\+Filled}} () const =0
+\item 
+virtual int \mbox{\hyperlink{class_telecon_plot_a639cf9cda48ed159e59c7035a72ec386}{get\+Symbol}} () const =0
+\item 
+virtual int \mbox{\hyperlink{class_telecon_plot_aaf214d96bec86cd37efb445cdd999539}{get\+Symbol\+Size}} () const =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{teleconphaseportraitplot_8h_source_l00005}{5}} of file \mbox{\hyperlink{teleconphaseportraitplot_8h_source}{teleconphaseportraitplot.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_telecon_phase_portrait_plot_a23cbe250c74c5cf118e698acc77a56c4}\label{class_telecon_phase_portrait_plot_a23cbe250c74c5cf118e698acc77a56c4}} 
+\index{TeleconPhasePortraitPlot@{TeleconPhasePortraitPlot}!pushData@{pushData}}
+\index{pushData@{pushData}!TeleconPhasePortraitPlot@{TeleconPhasePortraitPlot}}
+\doxysubsubsection{\texorpdfstring{pushData()}{pushData()}}
+{\footnotesize\ttfamily virtual void Telecon\+Phase\+Portrait\+Plot\+::push\+Data (\begin{DoxyParamCaption}\item[{double}]{timestamp,  }\item[{double}]{x\+Data,  }\item[{double}]{y\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Function to push a single activation data point into the plot at a certain time (x\+Timestamp).
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+Timestamp} & time the data point was generated, in seconds. The exact interpretation of the time will depend on the implementation; the default implementation (wx\+Chart\+Dir) interprets it as seconds since January 1st, year 1. \\
+\hline
+{\em is\+Active} & true if the data point is active and should be displayed. If false the data point will not be displayed. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_telecon_wx_phase_portrait_plot_aba3d8f91955634caaa077a22f8bb8f5f}{Telecon\+Wx\+Phase\+Portrait\+Plot}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{teleconphaseportraitplot_8h}{teleconphaseportraitplot.\+h}}\end{DoxyCompactItemize}

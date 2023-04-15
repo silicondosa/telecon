@@ -17,50 +17,51 @@
 \DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00013}00013\ }
 \DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00014}00014\ \textcolor{keyword}{using\ namespace\ }std;}
 \DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00015}00015\ }
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00016}\mbox{\hyperlink{class_telecon_wx_window}{00016}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_telecon_wx_window}{TeleconWxWindow}}\ :\ \textcolor{keyword}{public}\ wxFrame}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00017}00017\ \{}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00018}00018\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00019}00019\ \ \ \ \ shared\_ptr<TeleconWindow>\ m\_window;}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00020}00020\ }
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00021}00021\ \ \ \ \ vector<TeleconWxChart*>\ m\_charts;}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00022}00022\ }
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00023}00023\ \ \ \ \ \textcolor{comment}{//\ Setup\ functions\ }}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00024}00024\ \ \ \ \ \textcolor{keywordtype}{void}\ SetUpViewOptionsBox();}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00019}\mbox{\hyperlink{class_telecon_wx_window}{00019}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_telecon_wx_window}{TeleconWxWindow}}\ :\ \textcolor{keyword}{public}\ wxFrame}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00020}00020\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00021}00021\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00022}00022\ \ \ \ \ shared\_ptr<TeleconWindow>\ m\_window;}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00024}00024\ \ \ \ \ vector<TeleconWxChart*>\ m\_charts;}
 \DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00025}00025\ }
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00026}00026\ \ \ \ \ \textcolor{comment}{//wxWidgets\ panels,\ boxes\ and\ sizers}}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00027}00027\ \ \ \ \ wxBoxSizer*\ m\_topSizer;}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00028}00028\ \ \ \ \ wxStaticBox*\ m\_viewOptionsBox;}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00029}00029\ \ \ \ \ wxStaticBoxSizer*\ m\_viewOptionsBoxSizer;}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00030}00030\ }
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00031}00031\ \ \ \ \ \textcolor{comment}{//\ wxWidgets\ buttons\ and\ dropdown\ boxes}}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00032}00032\ \ \ \ \ wxToggleButton*\ m\_playButton;}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00033}00033\ \ \ \ \ wxToggleButton*\ m\_pauseButton;}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00034}00034\ \ \ \ \ wxButton*\ m\_saveButton;}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00035}00035\ \ \ \ \ wxChoice*\ m\_refreshIntervalSelector;}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00036}00036\ }
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00037}00037\ \ \ \ \ \textcolor{comment}{//\ wxWidgets\ timers}}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00038}00038\ \ \ \ \ wxTimer*\ m\_chartRefreshTimer;}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00026}00026\ \ \ \ \ \textcolor{comment}{//\ Setup\ functions\ }}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00027}00027\ \ \ \ \ \textcolor{keywordtype}{void}\ SetUpViewOptionsBox();}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00029}00029\ \ \ \ \ \textcolor{comment}{//wxWidgets\ panels,\ boxes\ and\ sizers}}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00030}00030\ \ \ \ \ wxBoxSizer*\ m\_topSizer;}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00031}00031\ \ \ \ \ wxStaticBox*\ m\_viewOptionsBox;}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00032}00032\ \ \ \ \ wxStaticBoxSizer*\ m\_viewOptionsBoxSizer;}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00034}00034\ \ \ \ \ \textcolor{comment}{//\ wxWidgets\ buttons\ and\ dropdown\ boxes}}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00035}00035\ \ \ \ \ wxToggleButton*\ m\_playButton;}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00036}00036\ \ \ \ \ wxToggleButton*\ m\_pauseButton;}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00037}00037\ \ \ \ \ wxButton*\ m\_saveButton;}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00038}00038\ \ \ \ \ wxChoice*\ m\_refreshIntervalSelector;}
 \DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00039}00039\ }
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00040}00040\ \ \ \ \ \textcolor{comment}{//\ wxWidgets\ event\ handler\ functions}}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00041}00041\ \ \ \ \ \textcolor{keywordtype}{void}\ OnPlayClick(wxCommandEvent\&\ event);}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00042}00042\ \ \ \ \ \textcolor{keywordtype}{void}\ OnPauseClick(wxCommandEvent\&\ event);}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00043}00043\ \ \ \ \ \textcolor{keywordtype}{void}\ OnChartRefreshIntervalSelected(wxCommandEvent\&\ event);}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00044}00044\ \ \ \ \ \textcolor{keywordtype}{void}\ OnSave(wxCommandEvent\&\ event);}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00045}00045\ }
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00046}00046\ \ \ \ \ \textcolor{keywordtype}{void}\ refreshCharts(wxTimerEvent\&\ event);}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00047}00047\ \ \ \ \ \textcolor{keywordtype}{void}\ onClose(wxCloseEvent\&\ event);}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00040}00040\ \ \ \ \ \textcolor{comment}{//\ wxWidgets\ timers}}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00041}00041\ \ \ \ \ wxTimer*\ m\_chartRefreshTimer;}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00043}00043\ \ \ \ \ \textcolor{comment}{//\ wxWidgets\ event\ handler\ functions}}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00044}00044\ \ \ \ \ \textcolor{keywordtype}{void}\ OnPlayClick(wxCommandEvent\&\ event);}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00045}00045\ \ \ \ \ \textcolor{keywordtype}{void}\ OnPauseClick(wxCommandEvent\&\ event);}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00046}00046\ \ \ \ \ \textcolor{keywordtype}{void}\ OnChartRefreshIntervalSelected(wxCommandEvent\&\ event);}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00047}00047\ \ \ \ \ \textcolor{keywordtype}{void}\ OnSave(wxCommandEvent\&\ event);}
 \DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00048}00048\ }
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00049}00049\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00050}00050\ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_window}{TeleconWxWindow}}(shared\_ptr<TeleconWindow>\ window);}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00049}00049\ \ \ \ \ \textcolor{keywordtype}{void}\ refreshCharts(wxTimerEvent\&\ event);}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00050}00050\ \ \ \ \ \textcolor{keywordtype}{void}\ onClose(wxCloseEvent\&\ event);}
 \DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00051}00051\ }
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00052}00052\ \ \ \ \ DECLARE\_EVENT\_TABLE()}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00053}00053\ \};}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00054}00054\ }
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00055}00055\ \textcolor{keyword}{enum}\ \{}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00056}\mbox{\hyperlink{teleconwxwindow_8h_adf764cbdea00d65edcd07bb9953ad2b7af4191bbccaa7963ee84f00359bf0f506}{00056}}\ \ \ \ \ \mbox{\hyperlink{teleconwxwindow_8h_adf764cbdea00d65edcd07bb9953ad2b7af4191bbccaa7963ee84f00359bf0f506}{ID\_REFRESH\_TIMER}}\ =\ \mbox{\hyperlink{teleconwxchart_8h_a06fc87d81c62e9abb8790b6e5713c55ba12f80c74dc4c5d9996717490ba4a8f52}{ID\_CHARTVIEWER}}\ +\ 1,}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00057}\mbox{\hyperlink{teleconwxwindow_8h_adf764cbdea00d65edcd07bb9953ad2b7a8295136a6da52b0c280421c8fe22715a}{00057}}\ \ \ \ \ \mbox{\hyperlink{teleconwxwindow_8h_adf764cbdea00d65edcd07bb9953ad2b7a8295136a6da52b0c280421c8fe22715a}{ID\_PLAY}},}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00058}\mbox{\hyperlink{teleconwxwindow_8h_adf764cbdea00d65edcd07bb9953ad2b7a98bc0750b2c1238b4507f9b09ece67a6}{00058}}\ \ \ \ \ \mbox{\hyperlink{teleconwxwindow_8h_adf764cbdea00d65edcd07bb9953ad2b7a98bc0750b2c1238b4507f9b09ece67a6}{ID\_PAUSE}},}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00059}00059\ \ \ \ \ \mbox{\hyperlink{teleconwxwindow_8h_adf764cbdea00d65edcd07bb9953ad2b7a44e2beffa71c1fa3e23088bc30660691}{ID\_REFRESH\_INTERVAL}}}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00060}\mbox{\hyperlink{teleconwxwindow_8h_adf764cbdea00d65edcd07bb9953ad2b7a44e2beffa71c1fa3e23088bc30660691}{00060}}\ \};}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00052}00052\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00059}00059\ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_window}{TeleconWxWindow}}(shared\_ptr<TeleconWindow>\ window);}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00061}00061\ \ \ \ \ DECLARE\_EVENT\_TABLE()}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00062}00062\ \};}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00064}00064\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00065}\mbox{\hyperlink{teleconwxwindow_8h_adf764cbdea00d65edcd07bb9953ad2b7af4191bbccaa7963ee84f00359bf0f506}{00065}}\ \ \ \ \ \mbox{\hyperlink{teleconwxwindow_8h_adf764cbdea00d65edcd07bb9953ad2b7af4191bbccaa7963ee84f00359bf0f506}{ID\_REFRESH\_TIMER}}\ =\ \mbox{\hyperlink{teleconwxchart_8h_a06fc87d81c62e9abb8790b6e5713c55ba12f80c74dc4c5d9996717490ba4a8f52}{ID\_CHARTVIEWER}}\ +\ 1,}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00066}\mbox{\hyperlink{teleconwxwindow_8h_adf764cbdea00d65edcd07bb9953ad2b7a8295136a6da52b0c280421c8fe22715a}{00066}}\ \ \ \ \ \mbox{\hyperlink{teleconwxwindow_8h_adf764cbdea00d65edcd07bb9953ad2b7a8295136a6da52b0c280421c8fe22715a}{ID\_PLAY}},}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00067}\mbox{\hyperlink{teleconwxwindow_8h_adf764cbdea00d65edcd07bb9953ad2b7a98bc0750b2c1238b4507f9b09ece67a6}{00067}}\ \ \ \ \ \mbox{\hyperlink{teleconwxwindow_8h_adf764cbdea00d65edcd07bb9953ad2b7a98bc0750b2c1238b4507f9b09ece67a6}{ID\_PAUSE}},}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00068}00068\ \ \ \ \ \mbox{\hyperlink{teleconwxwindow_8h_adf764cbdea00d65edcd07bb9953ad2b7a44e2beffa71c1fa3e23088bc30660691}{ID\_REFRESH\_INTERVAL}}}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8h_source_l00069}\mbox{\hyperlink{teleconwxwindow_8h_adf764cbdea00d65edcd07bb9953ad2b7a44e2beffa71c1fa3e23088bc30660691}{00069}}\ \};}
 
 \end{DoxyCode}

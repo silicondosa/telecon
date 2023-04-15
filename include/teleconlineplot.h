@@ -10,6 +10,9 @@ enum LineType {
 	LT_DASHED
 };
 
+/**
+ * Line plot implementation that inherits from TeleconLineScatterPlot.
+ */
 class TeleconLinePlot : virtual public TeleconLineScatterPlot {
 public:
 

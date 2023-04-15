@@ -3,6 +3,9 @@
 #include "teleconchart.h"
 #include "teleconwxphaseportraitplot.h"
 
+/**
+ * Chart implementation for charts with non-time data on the x-axis, inherits from TeleconChart. More suitable for phase portrait plots
+ */
 class TeleconDataChart : public TeleconChart
 {
 protected:

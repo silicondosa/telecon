@@ -17,6 +17,9 @@ enum CHART_X_AXIS_TYPE {
     CAXT_BOTH // x axis may represent both time and non-time data for different plots
 };
 
+/**
+ * Chart implementation. Has title, data rate, x/y labels, color, and vector of plots.
+ */
 class TeleconChart {
 protected:
     const string m_title;
@@ -115,7 +118,7 @@ public:
     /**
      * Getter function that returns a plot of the chart given a specified plot name.
      *
-     * \param name of plot as string
+     * \param name name of plot as string
      * \return a shared_ptr to the TeleconPlot object plot
      */
     shared_ptr<TeleconPlot> getPlotByName(string name);

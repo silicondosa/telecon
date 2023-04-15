@@ -13,6 +13,9 @@
 
 using namespace std;
 
+/**
+ * Window GUI implementation that inherits from WxFrame.
+ */
 class TeleconWxWindow : public wxFrame
 {
 private:
@@ -47,6 +50,12 @@ private:
     void onClose(wxCloseEvent& event);
 
 public:
+
+    /**
+     * Constructor that takes in a Telecon Window pointer.
+     * 
+     * \param window shared_ptr<TeleconWindow>
+     */
     TeleconWxWindow(shared_ptr<TeleconWindow> window);
 
     DECLARE_EVENT_TABLE()

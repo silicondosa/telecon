@@ -1,19 +1,25 @@
 var annotated_dup =
 [
     [ "DataBuffer", "class_data_buffer.html", "class_data_buffer" ],
+    [ "PhasePortraitDataPoint", "struct_phase_portrait_data_point.html", "struct_phase_portrait_data_point" ],
     [ "Telecon", "class_telecon.html", "class_telecon" ],
     [ "TeleconChart", "class_telecon_chart.html", "class_telecon_chart" ],
+    [ "TeleconDataChart", "class_telecon_data_chart.html", "class_telecon_data_chart" ],
     [ "TeleconLinePlot", "class_telecon_line_plot.html", "class_telecon_line_plot" ],
     [ "TeleconLineScatterPlot", "class_telecon_line_scatter_plot.html", "class_telecon_line_scatter_plot" ],
+    [ "TeleconPhasePortraitPlot", "class_telecon_phase_portrait_plot.html", "class_telecon_phase_portrait_plot" ],
     [ "TeleconPlot", "class_telecon_plot.html", "class_telecon_plot" ],
+    [ "TeleconRasterPlot", "class_telecon_raster_plot.html", "class_telecon_raster_plot" ],
     [ "TeleconRealtimeChart", "class_telecon_realtime_chart.html", "class_telecon_realtime_chart" ],
     [ "TeleconScatterPlot", "class_telecon_scatter_plot.html", null ],
     [ "TeleconWindow", "class_telecon_window.html", "class_telecon_window" ],
     [ "TeleconWxApp", "class_telecon_wx_app.html", "class_telecon_wx_app" ],
     [ "TeleconWxChart", "class_telecon_wx_chart.html", "class_telecon_wx_chart" ],
     [ "TeleconWxLinePlot", "class_telecon_wx_line_plot.html", "class_telecon_wx_line_plot" ],
+    [ "TeleconWxPhasePortraitPlot", "class_telecon_wx_phase_portrait_plot.html", "class_telecon_wx_phase_portrait_plot" ],
     [ "TeleconWxPlot", "class_telecon_wx_plot.html", "class_telecon_wx_plot" ],
     [ "TeleconWxPlotXY", "class_telecon_wx_plot_x_y.html", "class_telecon_wx_plot_x_y" ],
+    [ "TeleconWxRasterPlot", "class_telecon_wx_raster_plot.html", "class_telecon_wx_raster_plot" ],
     [ "TeleconWxScatterPlot", "class_telecon_wx_scatter_plot.html", "class_telecon_wx_scatter_plot" ],
     [ "TeleconWxWindow", "class_telecon_wx_window.html", "class_telecon_wx_window" ]
 ];

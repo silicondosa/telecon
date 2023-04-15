@@ -2,8 +2,12 @@
 
 #include "teleconplot.h"
 
+/**
+ * Raster plot implementation, inherits from TeleconPlot.
+ */
 class TeleconRasterPlot : virtual public TeleconPlot {
 public:
+
     /**
      * Function to push a single activation data point into the plot at a certain time (xTimestamp).
      *

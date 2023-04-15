@@ -20,9 +20,9 @@ bool \mbox{\hyperlink{class_telecon_wx_app_a398c3c7d17f011c4488f2600da3aa9e2}{On
 
 
 \doxysubsection{Detailed Description}
+Main GUI for telecon object, inherits from wx\+App. Contains a vector of Telecon\+Wx\+Windows (m\+\_\+frames) 
 
-
-Definition at line \mbox{\hyperlink{teleconwxapp_8h_source_l00015}{15}} of file \mbox{\hyperlink{teleconwxapp_8h_source}{teleconwxapp.\+h}}.
+Definition at line \mbox{\hyperlink{teleconwxapp_8h_source_l00018}{18}} of file \mbox{\hyperlink{teleconwxapp_8h_source}{teleconwxapp.\+h}}.
 
 
 
@@ -33,6 +33,13 @@ Definition at line \mbox{\hyperlink{teleconwxapp_8h_source_l00015}{15}} of file 
 \doxysubsubsection{\texorpdfstring{TeleconWxApp()}{TeleconWxApp()}}
 {\footnotesize\ttfamily Telecon\+Wx\+App\+::\+Telecon\+Wx\+App (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_telecon}{Telecon}} $\ast$}]{telecon }\end{DoxyParamCaption})}
 
+Constructor that takes in a telecon object pointer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em telecon} & type Telecon$\ast$ \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{teleconwxapp_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{teleconwxapp_8cpp_source}{teleconwxapp.\+cpp}}.
@@ -46,6 +53,11 @@ Definition at line \mbox{\hyperlink{teleconwxapp_8cpp_source_l00003}{3}} of file
 \doxysubsubsection{\texorpdfstring{OnInit()}{OnInit()}}
 {\footnotesize\ttfamily bool Telecon\+Wx\+App\+::\+On\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
 
+Initialization function that overrides wx\+App\textquotesingle{}s \mbox{\hyperlink{class_telecon_wx_app_a398c3c7d17f011c4488f2600da3aa9e2}{On\+Init()}} function.
+
+\begin{DoxyReturn}{Returns}
+true after done initializing 
+\end{DoxyReturn}
 
 
 Definition at line \mbox{\hyperlink{teleconwxapp_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{teleconwxapp_8cpp_source}{teleconwxapp.\+cpp}}.

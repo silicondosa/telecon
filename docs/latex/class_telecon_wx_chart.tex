@@ -23,14 +23,14 @@ void \mbox{\hyperlink{class_telecon_wx_chart_a3ffc4a088d9162f8822eabb30ec5ed15}{
 \item 
 void \mbox{\hyperlink{class_telecon_wx_chart_a107853fb490241f40f9cab5f83d39872}{set\+Pause}} ()
 \item 
-void \mbox{\hyperlink{class_telecon_wx_chart_aaf488f96b90d352c78cf92abd5f65779}{do\+Save}} (int, string)
+void \mbox{\hyperlink{class_telecon_wx_chart_affaa2b5cf06c9989b21442d955506bc6}{do\+Save}} (int i, string window\+Name)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+Chart GUI implementation, inherits from wx\+Panel. 
 
-
-Definition at line \mbox{\hyperlink{teleconwxchart_8h_source_l00022}{22}} of file \mbox{\hyperlink{teleconwxchart_8h_source}{teleconwxchart.\+h}}.
+Definition at line \mbox{\hyperlink{teleconwxchart_8h_source_l00026}{26}} of file \mbox{\hyperlink{teleconwxchart_8h_source}{teleconwxchart.\+h}}.
 
 
 
@@ -41,6 +41,25 @@ Definition at line \mbox{\hyperlink{teleconwxchart_8h_source_l00022}{22}} of fil
 \doxysubsubsection{\texorpdfstring{TeleconWxChart()}{TeleconWxChart()}}
 {\footnotesize\ttfamily Telecon\+Wx\+Chart\+::\+Telecon\+Wx\+Chart (\begin{DoxyParamCaption}\item[{shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} $>$}]{chart,  }\item[{wx\+Window $\ast$}]{parent,  }\item[{wx\+Window\+ID}]{winid = {\ttfamily wxID\+\_\+ANY},  }\item[{const wx\+Point \&}]{pos = {\ttfamily wxDefaultPosition},  }\item[{const wx\+Size \&}]{size = {\ttfamily wxDefaultSize},  }\item[{long}]{style = {\ttfamily wxTAB\+\_\+TRAVERSAL~$\vert$~wxNO\+\_\+BORDER},  }\item[{const wx\+String \&}]{name = {\ttfamily wxASCII\+\_\+STR(wxPanelNameStr)} }\end{DoxyParamCaption})}
 
+Constructor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em chart} & \\
+\hline
+{\em parent} & \\
+\hline
+{\em winid} & \\
+\hline
+{\em pos} & \\
+\hline
+{\em size} & \\
+\hline
+{\em style} & \\
+\hline
+{\em name} & \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{teleconwxchart_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{teleconwxchart_8cpp_source}{teleconwxchart.\+cpp}}.
@@ -51,22 +70,31 @@ Definition at line \mbox{\hyperlink{teleconwxchart_8cpp_source_l00022}{22}} of f
 \doxysubsubsection{\texorpdfstring{$\sim$TeleconWxChart()}{~TeleconWxChart()}}
 {\footnotesize\ttfamily Telecon\+Wx\+Chart\+::$\sim$\+Telecon\+Wx\+Chart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+Default deconstructor. 
 
-
-Definition at line \mbox{\hyperlink{teleconwxchart_8cpp_source_l00049}{49}} of file \mbox{\hyperlink{teleconwxchart_8cpp_source}{teleconwxchart.\+cpp}}.
+Definition at line \mbox{\hyperlink{teleconwxchart_8cpp_source_l00059}{59}} of file \mbox{\hyperlink{teleconwxchart_8cpp_source}{teleconwxchart.\+cpp}}.
 
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_telecon_wx_chart_aaf488f96b90d352c78cf92abd5f65779}\label{class_telecon_wx_chart_aaf488f96b90d352c78cf92abd5f65779}} 
+\mbox{\Hypertarget{class_telecon_wx_chart_affaa2b5cf06c9989b21442d955506bc6}\label{class_telecon_wx_chart_affaa2b5cf06c9989b21442d955506bc6}} 
 \index{TeleconWxChart@{TeleconWxChart}!doSave@{doSave}}
 \index{doSave@{doSave}!TeleconWxChart@{TeleconWxChart}}
 \doxysubsubsection{\texorpdfstring{doSave()}{doSave()}}
 {\footnotesize\ttfamily void Telecon\+Wx\+Chart\+::do\+Save (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{string}]{window\+Name }\end{DoxyParamCaption})}
 
+Helper function that saves the chart as a file, used in \mbox{\hyperlink{class_telecon_wx_window}{Telecon\+Wx\+Window}}.
 
 
-Definition at line \mbox{\hyperlink{teleconwxchart_8cpp_source_l00091}{91}} of file \mbox{\hyperlink{teleconwxchart_8cpp_source}{teleconwxchart.\+cpp}}.
+\begin{DoxyParams}{Parameters}
+{\em i} & which order the current chart is in in its window as int (for user to see) \\
+\hline
+{\em window\+Name} & the window name of the chart (for user to see) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{teleconwxchart_8cpp_source_l00104}{104}} of file \mbox{\hyperlink{teleconwxchart_8cpp_source}{teleconwxchart.\+cpp}}.
 
 \mbox{\Hypertarget{class_telecon_wx_chart_a89319d656a2a8221f889bdbe55abe22c}\label{class_telecon_wx_chart_a89319d656a2a8221f889bdbe55abe22c}} 
 \index{TeleconWxChart@{TeleconWxChart}!OnChartRefreshTimer@{OnChartRefreshTimer}}
@@ -74,9 +102,9 @@ Definition at line \mbox{\hyperlink{teleconwxchart_8cpp_source_l00091}{91}} of f
 \doxysubsubsection{\texorpdfstring{OnChartRefreshTimer()}{OnChartRefreshTimer()}}
 {\footnotesize\ttfamily void Telecon\+Wx\+Chart\+::\+On\+Chart\+Refresh\+Timer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+Function to redraw the chart if needed. 
 
-
-Definition at line \mbox{\hyperlink{teleconwxchart_8cpp_source_l00112}{112}} of file \mbox{\hyperlink{teleconwxchart_8cpp_source}{teleconwxchart.\+cpp}}.
+Definition at line \mbox{\hyperlink{teleconwxchart_8cpp_source_l00125}{125}} of file \mbox{\hyperlink{teleconwxchart_8cpp_source}{teleconwxchart.\+cpp}}.
 
 \mbox{\Hypertarget{class_telecon_wx_chart_a107853fb490241f40f9cab5f83d39872}\label{class_telecon_wx_chart_a107853fb490241f40f9cab5f83d39872}} 
 \index{TeleconWxChart@{TeleconWxChart}!setPause@{setPause}}
@@ -84,9 +112,9 @@ Definition at line \mbox{\hyperlink{teleconwxchart_8cpp_source_l00112}{112}} of 
 \doxysubsubsection{\texorpdfstring{setPause()}{setPause()}}
 {\footnotesize\ttfamily void Telecon\+Wx\+Chart\+::set\+Pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+Setter function for pause status, used in \mbox{\hyperlink{class_telecon_wx_window}{Telecon\+Wx\+Window}}. 
 
-
-Definition at line \mbox{\hyperlink{teleconwxchart_8cpp_source_l00085}{85}} of file \mbox{\hyperlink{teleconwxchart_8cpp_source}{teleconwxchart.\+cpp}}.
+Definition at line \mbox{\hyperlink{teleconwxchart_8cpp_source_l00098}{98}} of file \mbox{\hyperlink{teleconwxchart_8cpp_source}{teleconwxchart.\+cpp}}.
 
 \mbox{\Hypertarget{class_telecon_wx_chart_a3ffc4a088d9162f8822eabb30ec5ed15}\label{class_telecon_wx_chart_a3ffc4a088d9162f8822eabb30ec5ed15}} 
 \index{TeleconWxChart@{TeleconWxChart}!setPlay@{setPlay}}
@@ -94,9 +122,9 @@ Definition at line \mbox{\hyperlink{teleconwxchart_8cpp_source_l00085}{85}} of f
 \doxysubsubsection{\texorpdfstring{setPlay()}{setPlay()}}
 {\footnotesize\ttfamily void Telecon\+Wx\+Chart\+::set\+Play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+Setter function for play status, used in \mbox{\hyperlink{class_telecon_wx_window}{Telecon\+Wx\+Window}}. 
 
-
-Definition at line \mbox{\hyperlink{teleconwxchart_8cpp_source_l00080}{80}} of file \mbox{\hyperlink{teleconwxchart_8cpp_source}{teleconwxchart.\+cpp}}.
+Definition at line \mbox{\hyperlink{teleconwxchart_8cpp_source_l00093}{93}} of file \mbox{\hyperlink{teleconwxchart_8cpp_source}{teleconwxchart.\+cpp}}.
 
 
 

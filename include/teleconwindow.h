@@ -8,6 +8,9 @@
 #include "teleconrealtimechart.h"
 #include "telecondatachart.h"
 
+/**
+ * Window implementation that has a title and vector of charts
+ */
 class TeleconWindow {
 private:
 	std::atomic_bool m_hasRequestedQuit;

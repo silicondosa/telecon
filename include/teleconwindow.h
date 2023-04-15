@@ -3,6 +3,7 @@
 #include <string>
 #include <atomic>
 #include <vector>
+#include <condition_variable>
 
 #include "colors.h"
 #include "teleconrealtimechart.h"

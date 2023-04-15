@@ -35,6 +35,12 @@ int main(int argc, char* argv[])
     const int dataRateMillis = 100;
     // Initialization code
     Telecon* telecon = new Telecon();
+
+    shared_ptr<TeleconControls> controls = telecon->addControls("MyControls");
+    shared_ptr<TeleconToggle> toggle1 = controls->addToggle("Toggle 1");
+    shared_ptr<TeleconToggle> toggle2 = controls->addToggle("Toggle 2");
+    shared_ptr<TeleconSlider> slider1 = controls->addSlider("Slider 1", 0, 100,50);
+
     shared_ptr<TeleconWindow> window = telecon->addWindow("MyWindow");
 
     shared_ptr<TeleconRealtimeChart> chart1 = window->addRealtimeChart("Chart1", 60.0, dataRateMillis, "time (s)", "lbs");
@@ -57,21 +63,22 @@ int main(int argc, char* argv[])
     shared_ptr<TeleconLinePlot> plot10 = chart3->addLinePlot("Plot 2");
     shared_ptr<TeleconLinePlot> plot11 = chart3->addLinePlot("Plot 3");
     shared_ptr<TeleconLinePlot> plot12 = chart3->addLinePlot("Plot 4");
-    /*realTimeChart3->addLinePlot("Plot 5");
-    realTimeChart3->addLinePlot("Plot 6");
-    realTimeChart3->addLinePlot("Plot 7");
-    realTimeChart3->addLinePlot("Plot 8");
-    realTimeChart3->addLinePlot("Plot 9");
-    realTimeChart3->addLinePlot("Plot 10");
-    realTimeChart3->addLinePlot("Plot 11");*/
+ 
 
     shared_ptr<TeleconRealtimeChart> chart4 = window2->addRealtimeChart("Scatter Chart", 6.0, dataRateMillis, "time (s)", "mph", CSM_DIVERGING);
     shared_ptr<TeleconScatterPlot> plot13 = chart4->addScatterPlot("Speed", COLOR_DEFAULT, SYMBOL_CROSS, false);
     shared_ptr<TeleconScatterPlot> plot14 = chart4->addScatterPlot("New one", COLOR_DEFAULT, SYMBOL_CIRCLE, false);
     shared_ptr<TeleconScatterPlot> plot15 = chart4->addScatterPlot("Velocity", COLOR_BLUE, SYMBOL_DIAMOND, true, 3);
+    
 
     telecon->teleconStart();
     telecon->teleconStart();
+
+    // while(true){
+    //     this_thread::sleep_for(chrono::milliseconds(200));
+    //     // cout << "Toggle 1 state: " << toggle1->state << "    Toggle 2 state: " << toggle2->state << endl;
+    //     cout << "Slider 1 state: " << slider1->current_state << endl;
+    // }
 
     telecon->addWindow("Third window");
     window2->addRealtimeChart();

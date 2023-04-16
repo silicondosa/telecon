@@ -10,8 +10,8 @@ list<PhasePortraitDataPoint>* TeleconWxPhasePortraitPlot::swapAndGetDataToAdd()
     return oldDataToAdd;
 }
 
-TeleconWxPhasePortraitPlot::TeleconWxPhasePortraitPlot(string plotTitle, int color, int symbol, bool fillSymbol, int symbolSize, int depth)
-    : TeleconWxPlot(plotTitle, color, depth), m_dataToAdd(new list<PhasePortraitDataPoint>()), m_timestamps(depth), m_xData(depth), m_yData(depth), m_symbol(symbol), m_fillSymbol(fillSymbol), m_symbolSize(symbolSize){}
+TeleconWxPhasePortraitPlot::TeleconWxPhasePortraitPlot(string plotTitle, int color, int lineWidth, LineType lineType, bool hasSymbol, int symbol, bool fillSymbol, int symbolSize, int depth)
+    : TeleconWxPlot(plotTitle, color, depth), m_dataToAdd(new list<PhasePortraitDataPoint>()), m_timestamps(depth), m_xData(depth), m_yData(depth), m_lineWidth(lineWidth), m_lineType(lineType), m_hasSymbol(hasSymbol), m_symbol(symbol), m_fillSymbol(fillSymbol), m_symbolSize(symbolSize) {}
 
 TeleconWxPhasePortraitPlot::~TeleconWxPhasePortraitPlot()
 {
@@ -42,7 +42,23 @@ void TeleconWxPhasePortraitPlot::addToChart(XYChart * chart)
     if (m_timestamps.size() <= 0) {
         return;
     }
-    ScatterLayer* layer = chart->addScatterLayer(DoubleArray(&m_xData[0], (int)m_xData.size()), DoubleArray(&m_yData[0], (int)m_yData.size()), (string("\\") + m_plotTitle).c_str(), m_symbol, m_symbolSize, m_fillSymbol ? m_color : Chart::Transparent, m_color);
+    int chartDirColor;
+    if (m_lineType == LT_SOLID) {
+        chartDirColor = m_color;
+    } else { // Solid or none
+        chartDirColor = chart->dashLineColor(m_color, Chart::DashLine);
+    }
+    LineLayer* layer = chart->addLineLayer();
+
+    DataSet* dataSet = layer->addDataSet(DoubleArray(&m_yData[0], (int)m_yData.size()), chartDirColor, (string("\\") + m_plotTitle).c_str());
+
+    dataSet->setLineWidth(m_lineWidth);
+
+    if (m_hasSymbol) {
+        dataSet->setDataSymbol(m_symbol, m_symbolSize, m_fillSymbol ? m_color : Chart::Transparent, m_color);
+    }
+
+    layer->setXData(DoubleArray(&m_xData[0], (int)m_xData.size()));
 }
 
 double TeleconWxPhasePortraitPlot::getLeftmostX() const

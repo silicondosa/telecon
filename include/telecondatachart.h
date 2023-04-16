@@ -29,7 +29,7 @@ public:
      * \param symbolSize the size of the symbol (if drawn) in pixels.
      * \sa https://www.advsofteng.com/doc/cdpydoc/shapespec.htm
      */
-    shared_ptr<TeleconPhasePortraitPlot> addPhasePortraitPlot(std::string plottitle, long plotcolor = COLOR_DEFAULT, int symbol = SYMBOL_SQUARE, bool fillSymbol = true, int symbolSize = 5, int memoryDepth = -1);
+    shared_ptr<TeleconPhasePortraitPlot> addPhasePortraitPlot(std::string plottitle, long plotcolor = COLOR_DEFAULT, int lineWidth = 2, LineType lineType = LT_SOLID, int symbol = SYMBOL_SQUARE, bool fillSymbol = true, int symbolSize = 5, int memoryDepth = -1);
 
     /**
      * Getter function that returns the default width of the chart, to be used when few or no data have been provided.

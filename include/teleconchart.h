@@ -9,12 +9,11 @@
 using namespace std;
 
 /**
- * The type of the chart: whether it has time data on the x-axis, arbitrary non-time data, or both.
+ * The type of the chart: whether it has time data on the x-axis,or arbitrary non-time data.
  */
 enum CHART_X_AXIS_TYPE {
     CAXT_TIME, // x axis represents a timespan
     CAXT_ARBITRARY, // x axis represents some arbitrary non-time data
-    CAXT_BOTH // x axis may represent both time and non-time data for different plots
 };
 
 class TeleconChart {

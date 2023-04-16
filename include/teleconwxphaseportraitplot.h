@@ -1,6 +1,7 @@
 #pragma once
 
 #include "teleconwxplot.h"
+#include "teleconlineplot.h"
 #include "teleconphaseportraitplot.h"
 
 // Prevents compiler warnings about inheritance from multiple overlapping classes
@@ -25,13 +26,16 @@ private:
     DataBuffer<double> m_yData;
 
     // Display options member values
+    LineType m_lineType;
+    int m_lineWidth;
+    bool m_hasSymbol;
     bool m_fillSymbol;
     int m_symbol;
     int m_symbolSize;
 
     list<PhasePortraitDataPoint>* swapAndGetDataToAdd();
 public:
-    TeleconWxPhasePortraitPlot(string plotTitle, int color, int symbol, bool fillSymbol, int symbolSize, int depth);
+    TeleconWxPhasePortraitPlot(string plotTitle, int color, int lineWidth, LineType lineType, bool hasSymbol, int symbol, bool fillSymbol, int symbolSize, int depth);
     ~TeleconWxPhasePortraitPlot();
 
     // Inherited via TeleconWxPlot

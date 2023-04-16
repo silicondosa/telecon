@@ -225,11 +225,8 @@ void TeleconWxChart::DrawChart(bool isRefreshEnabled)
         break;
     }
     case CAXT_ARBITRARY:
-        // We don't need to set the x-axis width because it will be set automatically by ChartDirector
-        break;
-    case CAXT_BOTH:
-        cerr << "TODO: Time and non-time combined x-axis type not yet implemented.";
-        exit(EXIT_FAILURE);
+        // Give 5% margin on either side of the data and don't mandate that the 0 point be included in the scale
+        c->xAxis()->setAutoScale(0.05, 0.05, 0);
         break;
     }
 
@@ -369,8 +366,16 @@ void TeleconWxChart::TrackLineLegend(XYChart *c, int mouseX)
 
     // Create the legend by joining the legend entries
     ostringstream legendText;
-    legendText << "<*block,maxWidth=" << plotArea->getWidth() << "*><*block*><*font=Arial Bold*>["
-               << c->xAxis()->getFormattedLabel(xValue, "hh:nn:ss") << "]<*/*>";
+    legendText << "<*block,maxWidth=" << plotArea->getWidth() << "*><*block*><*font=Arial Bold*>[";
+    switch (m_chart->getChartXAxisType()) {
+    case CAXT_TIME:
+        legendText << c->xAxis()->getFormattedLabel(xValue, "hh:nn:ss");
+        break;
+    case CAXT_ARBITRARY:
+        legendText << xValue;
+        break;
+    }
+    legendText << "]<*/*>";
     for (int i = ((int)legendEntries.size()) - 1; i >= 0; --i)
     {
         legendText << "        " << legendEntries[i];

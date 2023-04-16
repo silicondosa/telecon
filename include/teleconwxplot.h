@@ -64,6 +64,11 @@ public:
 	 */
     virtual string getLatestValueString() const = 0;
 
+	/**
+	 * Helper function to know if the plot is included in the legend.
+	 * 
+	 * \return included in legend status as bool
+	 */
     virtual bool isIncludedInLegend() const = 0;
 
     /* Functions inherited from TeleconPlot */

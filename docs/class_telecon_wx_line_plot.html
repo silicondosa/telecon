@@ -231,8 +231,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a3601667f3fff47879712bf4f043699fa inherit pro_attribs_class_telecon_wx_plot"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="teleconwxlineplot_8h_source.html#l00009">9</a> of file <a class="el" href="teleconwxlineplot_8h_source.html">teleconwxlineplot.h</a>.</p>
+<div class="textblock"><p>Line Plot and GUI implementation, inherits from <a class="el" href="class_telecon_wx_plot_x_y.html">TeleconWxPlotXY</a> and <a class="el" href="class_telecon_line_plot.html">TeleconLinePlot</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="teleconwxlineplot_8h_source.html#l00012">12</a> of file <a class="el" href="teleconwxlineplot_8h_source.html">teleconwxlineplot.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4fdfd918fd67e1ce35946d3ba56145ef" name="a4fdfd918fd67e1ce35946d3ba56145ef"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4fdfd918fd67e1ce35946d3ba56145ef">&#9670;&#160;</a></span>TeleconWxLinePlot()</h2>
@@ -301,6 +302,21 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Constructor that creates a line plot object.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">plotTitle</td><td>title of the plot as string </td></tr>
+    <tr><td class="paramname">color</td><td>color of the plot as int (enum) </td></tr>
+    <tr><td class="paramname">lineWidth</td><td>width of the plot line as int </td></tr>
+    <tr><td class="paramname">lineType</td><td>the type of the plot line as type LineType </td></tr>
+    <tr><td class="paramname">hasSymbol</td><td>whether the plot has a symbol or not as bool </td></tr>
+    <tr><td class="paramname">symbol</td><td>symbol type as int (enum) </td></tr>
+    <tr><td class="paramname">fillSymbol</td><td>whether or not the plot line is filled or dotted as bool </td></tr>
+    <tr><td class="paramname">symbolSize</td><td>symbol size as an int </td></tr>
+    <tr><td class="paramname">depth</td><td>depth of the internal buffer as int </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="teleconwxlineplot_8cpp_source.html#l00003">3</a> of file <a class="el" href="teleconwxlineplot_8cpp_source.html">teleconwxlineplot.cpp</a>.</p>
 
@@ -330,7 +346,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Getter function for plot line type (solid or dashed).</p>
-<dl class="section return"><dt>Returns</dt><dd>Line type. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Line type as type LineType. </dd></dl>
 
 <p>Implements <a class="el" href="class_telecon_line_plot.html#a24d441ff5ee74a24ad03523635b5a8f1">TeleconLinePlot</a>.</p>
 
@@ -361,7 +377,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Getter function for plot line width.</p>
-<dl class="section return"><dt>Returns</dt><dd>Line width in pixels. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Line width in pixels as int. </dd></dl>
 
 <p>Implements <a class="el" href="class_telecon_line_plot.html#ac7ebe860040d9e908b0cc1a1e0892584">TeleconLinePlot</a>.</p>
 
@@ -392,7 +408,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Getter function to see if plot has a symbol. If not, only the line will be displayed.</p>
-<dl class="section return"><dt>Returns</dt><dd>True if a symbol will be drawn, or false otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if a symbol will be drawn, or false otherwise as bool. </dd></dl>
 
 <p>Implements <a class="el" href="class_telecon_line_plot.html#aa2ed31208772b312092042e0d1db5287">TeleconLinePlot</a>.</p>
 

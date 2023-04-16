@@ -142,9 +142,9 @@ string \mbox{\hyperlink{class_telecon_wx_plot_a3601667f3fff47879712bf4f043699fa}
 
 
 \doxysubsection{Detailed Description}
+Line Plot and GUI implementation, inherits from \mbox{\hyperlink{class_telecon_wx_plot_x_y}{Telecon\+Wx\+Plot\+XY}} and \mbox{\hyperlink{class_telecon_line_plot}{Telecon\+Line\+Plot}}. 
 
-
-Definition at line \mbox{\hyperlink{teleconwxlineplot_8h_source_l00009}{9}} of file \mbox{\hyperlink{teleconwxlineplot_8h_source}{teleconwxlineplot.\+h}}.
+Definition at line \mbox{\hyperlink{teleconwxlineplot_8h_source_l00012}{12}} of file \mbox{\hyperlink{teleconwxlineplot_8h_source}{teleconwxlineplot.\+h}}.
 
 
 
@@ -155,6 +155,29 @@ Definition at line \mbox{\hyperlink{teleconwxlineplot_8h_source_l00009}{9}} of f
 \doxysubsubsection{\texorpdfstring{TeleconWxLinePlot()}{TeleconWxLinePlot()}}
 {\footnotesize\ttfamily Telecon\+Wx\+Line\+Plot\+::\+Telecon\+Wx\+Line\+Plot (\begin{DoxyParamCaption}\item[{string}]{plot\+Title,  }\item[{int}]{color,  }\item[{int}]{line\+Width,  }\item[{\mbox{\hyperlink{teleconlineplot_8h_afd074c27ba0a2809258258751b754f52}{Line\+Type}}}]{line\+Type,  }\item[{bool}]{has\+Symbol,  }\item[{int}]{symbol,  }\item[{bool}]{fill\+Symbol,  }\item[{int}]{symbol\+Size,  }\item[{int}]{depth }\end{DoxyParamCaption})}
 
+Constructor that creates a line plot object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em plot\+Title} & title of the plot as string \\
+\hline
+{\em color} & color of the plot as int (enum) \\
+\hline
+{\em line\+Width} & width of the plot line as int \\
+\hline
+{\em line\+Type} & the type of the plot line as type Line\+Type \\
+\hline
+{\em has\+Symbol} & whether the plot has a symbol or not as bool \\
+\hline
+{\em symbol} & symbol type as int (enum) \\
+\hline
+{\em fill\+Symbol} & whether or not the plot line is filled or dotted as bool \\
+\hline
+{\em symbol\+Size} & symbol size as an int \\
+\hline
+{\em depth} & depth of the internal buffer as int \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{teleconwxlineplot_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{teleconwxlineplot_8cpp_source}{teleconwxlineplot.\+cpp}}.
@@ -171,7 +194,7 @@ Definition at line \mbox{\hyperlink{teleconwxlineplot_8cpp_source_l00003}{3}} of
 Getter function for plot line type (solid or dashed).
 
 \begin{DoxyReturn}{Returns}
-Line type. 
+Line type as type Line\+Type. 
 \end{DoxyReturn}
 
 
@@ -190,7 +213,7 @@ Definition at line \mbox{\hyperlink{teleconwxlineplot_8cpp_source_l00011}{11}} o
 Getter function for plot line width.
 
 \begin{DoxyReturn}{Returns}
-Line width in pixels. 
+Line width in pixels as int. 
 \end{DoxyReturn}
 
 
@@ -209,7 +232,7 @@ Definition at line \mbox{\hyperlink{teleconwxlineplot_8cpp_source_l00006}{6}} of
 Getter function to see if plot has a symbol. If not, only the line will be displayed.
 
 \begin{DoxyReturn}{Returns}
-True if a symbol will be drawn, or false otherwise. 
+True if a symbol will be drawn, or false otherwise as bool. 
 \end{DoxyReturn}
 
 

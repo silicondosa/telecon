@@ -8,6 +8,7 @@ var class_telecon_wx_plot_x_y =
     [ "getRightmostX", "class_telecon_wx_plot_x_y.html#ab991ba2422935fa715dcb268bac7abc7", null ],
     [ "getSymbol", "class_telecon_wx_plot_x_y.html#aae6d9e760860b42df2afc876ff53365d", null ],
     [ "getSymbolSize", "class_telecon_wx_plot_x_y.html#a5c6bfb4151105f42c6242dd71932df73", null ],
+    [ "isIncludedInLegend", "class_telecon_wx_plot_x_y.html#abbc011152234a0b5cc08d48503081055", null ],
     [ "isSymbolFilled", "class_telecon_wx_plot_x_y.html#aa1e8b06c2c01235b6e383d02b50261d9", null ],
     [ "prepDataForDraw", "class_telecon_wx_plot_x_y.html#ac9254248dbbda8263a740ac688f96877", null ],
     [ "pushData", "class_telecon_wx_plot_x_y.html#ac3a02bfe252116f6f09ea8ad0bd312a7", null ],

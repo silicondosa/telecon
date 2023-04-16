@@ -117,12 +117,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3ffc4a088d9162f8822eabb30ec5ed15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a107853fb490241f40f9cab5f83d39872"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_wx_chart.html#a107853fb490241f40f9cab5f83d39872">setPause</a> ()</td></tr>
 <tr class="separator:a107853fb490241f40f9cab5f83d39872"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf488f96b90d352c78cf92abd5f65779"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_wx_chart.html#aaf488f96b90d352c78cf92abd5f65779">doSave</a> (int, string)</td></tr>
-<tr class="separator:aaf488f96b90d352c78cf92abd5f65779"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affaa2b5cf06c9989b21442d955506bc6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_wx_chart.html#affaa2b5cf06c9989b21442d955506bc6">doSave</a> (int i, string windowName)</td></tr>
+<tr class="separator:affaa2b5cf06c9989b21442d955506bc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="teleconwxchart_8h_source.html#l00022">22</a> of file <a class="el" href="teleconwxchart_8h_source.html">teleconwxchart.h</a>.</p>
+<div class="textblock"><p>Chart GUI implementation, inherits from wxPanel. </p>
+
+<p class="definition">Definition at line <a class="el" href="teleconwxchart_8h_source.html#l00026">26</a> of file <a class="el" href="teleconwxchart_8h_source.html">teleconwxchart.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac7de1043694c409472c1ccc9ae9b4cab" name="ac7de1043694c409472c1ccc9ae9b4cab"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac7de1043694c409472c1ccc9ae9b4cab">&#9670;&#160;</a></span>TeleconWxChart()</h2>
@@ -179,6 +180,19 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Constructor.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chart</td><td></td></tr>
+    <tr><td class="paramname">parent</td><td></td></tr>
+    <tr><td class="paramname">winid</td><td></td></tr>
+    <tr><td class="paramname">pos</td><td></td></tr>
+    <tr><td class="paramname">size</td><td></td></tr>
+    <tr><td class="paramname">style</td><td></td></tr>
+    <tr><td class="paramname">name</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="teleconwxchart_8cpp_source.html#l00022">22</a> of file <a class="el" href="teleconwxchart_8cpp_source.html">teleconwxchart.cpp</a>.</p>
 
@@ -198,14 +212,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Default deconstructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="teleconwxchart_8cpp_source.html#l00049">49</a> of file <a class="el" href="teleconwxchart_8cpp_source.html">teleconwxchart.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconwxchart_8cpp_source.html#l00059">59</a> of file <a class="el" href="teleconwxchart_8cpp_source.html">teleconwxchart.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aaf488f96b90d352c78cf92abd5f65779" name="aaf488f96b90d352c78cf92abd5f65779"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf488f96b90d352c78cf92abd5f65779">&#9670;&#160;</a></span>doSave()</h2>
+<a id="affaa2b5cf06c9989b21442d955506bc6" name="affaa2b5cf06c9989b21442d955506bc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affaa2b5cf06c9989b21442d955506bc6">&#9670;&#160;</a></span>doSave()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -229,8 +244,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Helper function that saves the chart as a file, used in <a class="el" href="class_telecon_wx_window.html">TeleconWxWindow</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>which order the current chart is in in its window as int (for user to see) </td></tr>
+    <tr><td class="paramname">windowName</td><td>the window name of the chart (for user to see) </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="teleconwxchart_8cpp_source.html#l00091">91</a> of file <a class="el" href="teleconwxchart_8cpp_source.html">teleconwxchart.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconwxchart_8cpp_source.html#l00104">104</a> of file <a class="el" href="teleconwxchart_8cpp_source.html">teleconwxchart.cpp</a>.</p>
 
 </div>
 </div>
@@ -248,8 +271,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Function to redraw the chart if needed. </p>
 
-<p class="definition">Definition at line <a class="el" href="teleconwxchart_8cpp_source.html#l00112">112</a> of file <a class="el" href="teleconwxchart_8cpp_source.html">teleconwxchart.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconwxchart_8cpp_source.html#l00125">125</a> of file <a class="el" href="teleconwxchart_8cpp_source.html">teleconwxchart.cpp</a>.</p>
 
 </div>
 </div>
@@ -267,8 +291,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Setter function for pause status, used in <a class="el" href="class_telecon_wx_window.html">TeleconWxWindow</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="teleconwxchart_8cpp_source.html#l00085">85</a> of file <a class="el" href="teleconwxchart_8cpp_source.html">teleconwxchart.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconwxchart_8cpp_source.html#l00098">98</a> of file <a class="el" href="teleconwxchart_8cpp_source.html">teleconwxchart.cpp</a>.</p>
 
 </div>
 </div>
@@ -286,8 +311,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Setter function for play status, used in <a class="el" href="class_telecon_wx_window.html">TeleconWxWindow</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="teleconwxchart_8cpp_source.html#l00080">80</a> of file <a class="el" href="teleconwxchart_8cpp_source.html">teleconwxchart.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconwxchart_8cpp_source.html#l00093">93</a> of file <a class="el" href="teleconwxchart_8cpp_source.html">teleconwxchart.cpp</a>.</p>
 
 </div>
 </div>

@@ -2,6 +2,10 @@
 
 #include "teleconplot.h"
 
+/**
+ * Plot implementation that takes in data as data + timestamp, inherits from TeleconPlot.
+ * Only line plots and scatter plots use this type of data for now.
+ */
 class TeleconLineScatterPlot : virtual public TeleconPlot {
 public:
     /**

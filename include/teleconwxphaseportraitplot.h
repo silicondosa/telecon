@@ -9,10 +9,24 @@
 // We perform diamond inheritance, which can cause issues, but the way we do it is safe (only one definition for each function)
 # pragma warning( disable : 4250)
 
+/**
+ * Data point struct for phase portrait plots.
+ */
 struct PhasePortraitDataPoint
 {
+    /**
+     * Timestamp as a double.
+     */
     double timestamp;
+
+    /**
+     * x value as a double.
+     */
     double xData;
+
+    /**
+     * y value as a double.
+     */
     double yData;
 };
 

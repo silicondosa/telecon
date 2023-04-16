@@ -1,0 +1,52 @@
+\hypertarget{teleconwxrasterplot_8h_source}{}\doxysection{teleconwxrasterplot.\+h}
+\label{teleconwxrasterplot_8h_source}\index{include/teleconwxrasterplot.h@{include/teleconwxrasterplot.h}}
+\mbox{\hyperlink{teleconwxrasterplot_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{teleconwxplot_8h}{teleconwxplot.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{teleconrasterplot_8h}{teleconrasterplot.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00006}00006\ \textcolor{comment}{//\ Prevents\ compiler\ warnings\ about\ inheritance\ from\ multiple\ overlapping\ classes}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00007}00007\ \textcolor{comment}{//\ We\ perform\ diamond\ inheritance,\ which\ can\ cause\ issues,\ but\ the\ way\ we\ do\ it\ is\ safe\ (only\ one\ definition\ for\ each\ function)}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00008}00008\ \textcolor{preprocessor}{\#\ pragma\ warning(\ disable\ :\ 4250)}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00010}\mbox{\hyperlink{class_telecon_wx_raster_plot}{00010}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_telecon_wx_raster_plot}{TeleconWxRasterPlot}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_telecon_wx_plot}{TeleconWxPlot}},\ \textcolor{keyword}{virtual}\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_telecon_raster_plot}{TeleconRasterPlot}}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00011}00011\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00012}00012\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00013}00013\ \ \ \ \ \textcolor{comment}{//\ XY\ Data\ member\ values}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00014}00014\ \ \ \ \ list<pair<double,\ bool>>*\ m\_dataToAdd;}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00015}00015\ \ \ \ \ mutex\ m\_dataToAddLock;}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00016}00016\ \ \ \ \ \mbox{\hyperlink{class_data_buffer}{DataBuffer<double>}}\ m\_xTimestamps;}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00017}00017\ \ \ \ \ \mbox{\hyperlink{class_data_buffer}{DataBuffer<double>}}\ m\_yValueBuffer;}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00018}00018\ \ \ \ \ \textcolor{keywordtype}{double}\ m\_yValue;}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00020}00020\ \ \ \ \ \textcolor{comment}{//\ Display\ options\ member\ values}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00021}00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_fillSymbol;}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00022}00022\ \ \ \ \ \textcolor{keywordtype}{int}\ m\_symbol;}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00023}00023\ \ \ \ \ \textcolor{keywordtype}{int}\ m\_symbolSize;}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00025}00025\ \ \ \ \ list<pair<double,\ bool>>*\ swapAndGetDataToAdd();}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00026}00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00027}00027\ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_raster_plot}{TeleconWxRasterPlot}}(\textcolor{keywordtype}{string}\ plotTitle,\ \textcolor{keywordtype}{double}\ yValue,\ \textcolor{keywordtype}{int}\ color,\ \textcolor{keywordtype}{int}\ symbol,\ \textcolor{keywordtype}{bool}\ fillSymbol,\ \textcolor{keywordtype}{int}\ symbolSize,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_wx_plot_a3f09ba9a7d15253b9ebabf26f8c7e3a0}{depth}});}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00028}00028\ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_raster_plot_aa9046e1a93709c8c670fca4df512faa4}{\string~TeleconWxRasterPlot}}();}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00030}00030\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_telecon_wx_raster_plot_a20de1cbd91acb2b4e49871fdf8c0afac}{getYValue}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00032}00032\ \ \ \ \ \textcolor{comment}{//\ Inherited\ via\ TeleconWxPlot}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00033}00033\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_telecon_wx_raster_plot_a75e498c612cf889622ae6315ce615fed}{size}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00034}00034\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_wx_raster_plot_a1d8b62d4c8e21417b2d06cc00c39ca3f}{prepDataForDraw}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00035}00035\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_wx_raster_plot_a351d4d2ba1de3d496d721caf96068260}{addToChart}}(XYChart*\ chart)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00036}00036\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_telecon_wx_raster_plot_a7fd19f78ea541a1442869f4cc3433461}{getLeftmostX}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00037}00037\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_telecon_wx_raster_plot_accddd56c60e3615a4d877cfb2670ea39}{getRightmostX}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00038}00038\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_wx_raster_plot_a23f33f747f2e7b9f90f83d8635928f24}{getLatestValueString}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00039}00039\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_telecon_wx_raster_plot_a089b71dbe2b0021f379bde603a4d8290}{isIncludedInLegend}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00041}00041\ \ \ \ \ \textcolor{comment}{//\ Inherited\ via\ TeleconRasterPlot}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00042}00042\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_wx_raster_plot_a9b458415ce61c1f36eab7b9f5970a803}{pushData}}(\textcolor{keywordtype}{double}\ xTimestamp,\ \textcolor{keywordtype}{bool}\ isActive\ =\ \textcolor{keyword}{true})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00043}00043\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_telecon_wx_raster_plot_a4cd3a7da59f5412e54d82d0b1d6ba09f}{isSymbolFilled}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00044}00044\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_wx_raster_plot_aec2661d89122d8760831688616529187}{getSymbol}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00045}00045\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_wx_raster_plot_a623331c0f1ddabe841763e258c48e391}{getSymbolSize}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8h_source_l00046}00046\ \};}
+
+\end{DoxyCode}

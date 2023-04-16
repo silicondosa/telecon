@@ -104,18 +104,18 @@ Inheritance diagram for TeleconPlot:</div>
  <div class="center">
   <img src="class_telecon_plot.png" usemap="#TeleconPlot_map" alt=""/>
   <map id="TeleconPlot_map" name="TeleconPlot_map">
-<area href="class_telecon_line_scatter_plot.html" alt="TeleconLineScatterPlot" shape="rect" coords="152,56,294,80"/>
-<area href="class_telecon_wx_plot.html" alt="TeleconWxPlot" shape="rect" coords="684,56,826,80"/>
-<area href="class_telecon_line_plot.html" alt="TeleconLinePlot" shape="rect" coords="0,112,142,136"/>
-<area href="class_telecon_scatter_plot.html" alt="TeleconScatterPlot" shape="rect" coords="152,112,294,136"/>
-<area href="class_telecon_wx_plot_x_y.html" alt="TeleconWxPlotXY" shape="rect" coords="380,112,522,136"/>
-<area href="class_telecon_wx_plot_x_y.html" alt="TeleconWxPlotXY" shape="rect" coords="684,112,826,136"/>
-<area href="class_telecon_wx_line_plot.html" alt="TeleconWxLinePlot" shape="rect" coords="0,168,142,192"/>
-<area href="class_telecon_wx_scatter_plot.html" alt="TeleconWxScatterPlot" shape="rect" coords="152,168,294,192"/>
-<area href="class_telecon_wx_line_plot.html" alt="TeleconWxLinePlot" shape="rect" coords="304,168,446,192"/>
-<area href="class_telecon_wx_scatter_plot.html" alt="TeleconWxScatterPlot" shape="rect" coords="456,168,598,192"/>
-<area href="class_telecon_wx_line_plot.html" alt="TeleconWxLinePlot" shape="rect" coords="608,168,750,192"/>
-<area href="class_telecon_wx_scatter_plot.html" alt="TeleconWxScatterPlot" shape="rect" coords="760,168,902,192"/>
+<area href="class_telecon_line_scatter_plot.html" alt="TeleconLineScatterPlot" shape="rect" coords="0,56,171,80"/>
+<area href="class_telecon_phase_portrait_plot.html" alt="TeleconPhasePortraitPlot" shape="rect" coords="362,56,533,80"/>
+<area href="class_telecon_raster_plot.html" alt="TeleconRasterPlot" shape="rect" coords="543,56,714,80"/>
+<area href="class_telecon_wx_plot.html" alt="TeleconWxPlot" shape="rect" coords="724,56,895,80"/>
+<area href="class_telecon_line_plot.html" alt="TeleconLinePlot" shape="rect" coords="181,112,352,136"/>
+<area href="class_telecon_scatter_plot.html" alt="TeleconScatterPlot" shape="rect" coords="181,168,352,192"/>
+<area href="class_telecon_wx_plot_x_y.html" alt="TeleconWxPlotXY" shape="rect" coords="181,224,352,248"/>
+<area href="class_telecon_wx_phase_portrait_plot.html" alt="TeleconWxPhasePortraitPlot" shape="rect" coords="362,112,533,136"/>
+<area href="class_telecon_wx_raster_plot.html" alt="TeleconWxRasterPlot" shape="rect" coords="543,112,714,136"/>
+<area href="class_telecon_wx_phase_portrait_plot.html" alt="TeleconWxPhasePortraitPlot" shape="rect" coords="905,112,1076,136"/>
+<area href="class_telecon_wx_plot_x_y.html" alt="TeleconWxPlotXY" shape="rect" coords="905,168,1076,192"/>
+<area href="class_telecon_wx_raster_plot.html" alt="TeleconWxRasterPlot" shape="rect" coords="905,224,1076,248"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -129,10 +129,17 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae573ed05240f7e135a50ef0ee632a6bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8c7d77c2ab3091765bf560f29306d7e"><td class="memItemLeft" align="right" valign="top">virtual const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_plot.html#ab8c7d77c2ab3091765bf560f29306d7e">getPlotTitle</a> () const =0</td></tr>
 <tr class="separator:ab8c7d77c2ab3091765bf560f29306d7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24f3e2d92ad1cddfa3d50be3685cb100"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_plot.html#a24f3e2d92ad1cddfa3d50be3685cb100">isSymbolFilled</a> () const =0</td></tr>
+<tr class="separator:a24f3e2d92ad1cddfa3d50be3685cb100"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a639cf9cda48ed159e59c7035a72ec386"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_plot.html#a639cf9cda48ed159e59c7035a72ec386">getSymbol</a> () const =0</td></tr>
+<tr class="separator:a639cf9cda48ed159e59c7035a72ec386"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf214d96bec86cd37efb445cdd999539"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_plot.html#aaf214d96bec86cd37efb445cdd999539">getSymbolSize</a> () const =0</td></tr>
+<tr class="separator:aaf214d96bec86cd37efb445cdd999539"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="teleconplot_8h_source.html#l00007">7</a> of file <a class="el" href="teleconplot_8h_source.html">teleconplot.h</a>.</p>
+<div class="textblock"><p>Implementation of a singular plot. </p>
+
+<p class="definition">Definition at line <a class="el" href="teleconplot_8h_source.html#l00010">10</a> of file <a class="el" href="teleconplot_8h_source.html">teleconplot.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a531aaccd7cd6f98e32c1a315900b5c49" name="a531aaccd7cd6f98e32c1a315900b5c49"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a531aaccd7cd6f98e32c1a315900b5c49">&#9670;&#160;</a></span>depth()</h2>
@@ -156,6 +163,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Getter function for depth, the capacity(maximum size) of the data buffer(s)</p>
+<dl class="section return"><dt>Returns</dt><dd>depth as type size_t. </dd></dl>
 
 <p>Implemented in <a class="el" href="class_telecon_wx_plot.html#a3f09ba9a7d15253b9ebabf26f8c7e3a0">TeleconWxPlot</a>.</p>
 
@@ -183,6 +192,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Getter function for the color of the plot.</p>
+<dl class="section return"><dt>Returns</dt><dd>color value as an int (enum) </dd></dl>
 
 <p>Implemented in <a class="el" href="class_telecon_wx_plot.html#a2b9b1bfe38bca3e1bde912f18c3d4f93">TeleconWxPlot</a>.</p>
 
@@ -210,8 +221,97 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Getter function for the title of the plot.</p>
+<dl class="section return"><dt>Returns</dt><dd>title as a string </dd></dl>
 
 <p>Implemented in <a class="el" href="class_telecon_wx_plot.html#adc847425a9a4f1d90fec82651014d39d">TeleconWxPlot</a>.</p>
+
+</div>
+</div>
+<a id="a639cf9cda48ed159e59c7035a72ec386" name="a639cf9cda48ed159e59c7035a72ec386"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a639cf9cda48ed159e59c7035a72ec386">&#9670;&#160;</a></span>getSymbol()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int TeleconPlot::getSymbol </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Getter function to return the type of symbol used (e.g., square, circle, triangle).</p>
+<dl class="section return"><dt>Returns</dt><dd>Symbol as int, in the format described in <a class="el" href="class_telecon_realtime_chart.html#a1769d4f09f07121868c313555811b450">TeleconRealtimeChart::addLinePlot</a>. </dd></dl>
+
+<p>Implemented in <a class="el" href="class_telecon_wx_phase_portrait_plot.html#a358a551d64495598c6c6476692eea339">TeleconWxPhasePortraitPlot</a>, <a class="el" href="class_telecon_wx_plot_x_y.html#aae6d9e760860b42df2afc876ff53365d">TeleconWxPlotXY</a>, and <a class="el" href="class_telecon_wx_raster_plot.html#aec2661d89122d8760831688616529187">TeleconWxRasterPlot</a>.</p>
+
+</div>
+</div>
+<a id="aaf214d96bec86cd37efb445cdd999539" name="aaf214d96bec86cd37efb445cdd999539"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf214d96bec86cd37efb445cdd999539">&#9670;&#160;</a></span>getSymbolSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int TeleconPlot::getSymbolSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Getter function of the symbol size in pixels</p>
+<dl class="section return"><dt>Returns</dt><dd>symbol size as int. </dd></dl>
+
+<p>Implemented in <a class="el" href="class_telecon_wx_phase_portrait_plot.html#a1cbe7aef2b28decabb54139713383919">TeleconWxPhasePortraitPlot</a>, <a class="el" href="class_telecon_wx_plot_x_y.html#a5c6bfb4151105f42c6242dd71932df73">TeleconWxPlotXY</a>, and <a class="el" href="class_telecon_wx_raster_plot.html#a623331c0f1ddabe841763e258c48e391">TeleconWxRasterPlot</a>.</p>
+
+</div>
+</div>
+<a id="a24f3e2d92ad1cddfa3d50be3685cb100" name="a24f3e2d92ad1cddfa3d50be3685cb100"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24f3e2d92ad1cddfa3d50be3685cb100">&#9670;&#160;</a></span>isSymbolFilled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool TeleconPlot::isSymbolFilled </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Function to see if the plot symbol is filled or not</p>
+<dl class="section return"><dt>Returns</dt><dd>True if the symbol is filled, or False if the center of th symbol will be transparent. </dd></dl>
+
+<p>Implemented in <a class="el" href="class_telecon_wx_phase_portrait_plot.html#a363e09efeeb600c6f630bdb1b1dd67af">TeleconWxPhasePortraitPlot</a>, <a class="el" href="class_telecon_wx_plot_x_y.html#aa1e8b06c2c01235b6e383d02b50261d9">TeleconWxPlotXY</a>, and <a class="el" href="class_telecon_wx_raster_plot.html#a4cd3a7da59f5412e54d82d0b1d6ba09f">TeleconWxRasterPlot</a>.</p>
 
 </div>
 </div>
@@ -237,8 +337,10 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Getter function for current size of the data buffer(s)</p>
+<dl class="section return"><dt>Returns</dt><dd>size as type size_t. </dd></dl>
 
-<p>Implemented in <a class="el" href="class_telecon_wx_plot_x_y.html#a42bc96d49be8ff9b6e880da77f7275f2">TeleconWxPlotXY</a>.</p>
+<p>Implemented in <a class="el" href="class_telecon_wx_phase_portrait_plot.html#a46f27380601e92c0fea740cb2bf6a645">TeleconWxPhasePortraitPlot</a>, <a class="el" href="class_telecon_wx_plot_x_y.html#a42bc96d49be8ff9b6e880da77f7275f2">TeleconWxPlotXY</a>, and <a class="el" href="class_telecon_wx_raster_plot.html#a75e498c612cf889622ae6315ce615fed">TeleconWxRasterPlot</a>.</p>
 
 </div>
 </div>

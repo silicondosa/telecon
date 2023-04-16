@@ -121,6 +121,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a807b87958ab2b8dafd8aa84f13e5d04e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaab31256371ead70513e272d2b67677c"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_telecon_realtime_chart.html">TeleconRealtimeChart</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_window.html#aaab31256371ead70513e272d2b67677c">addRealtimeChart</a> (std::string title=&quot;&quot;, double memoryDepthSeconds=60.0, int dataRateMillis=100, std::string xLabel=&quot;&quot;, std::string yLabel=&quot;&quot;, <a class="el" href="colors_8h.html#a8160ef72c1dba53251eb9ad02be83c38">ColorSequenceMode</a> colorSequenceMode=<a class="el" href="colors_8h.html#a8160ef72c1dba53251eb9ad02be83c38af694240c2be72deb06f19859d21ba193">CSM_BLACK</a>)</td></tr>
 <tr class="separator:aaab31256371ead70513e272d2b67677c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac51bdc921ccc978c97934b7d5ecd6153"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_telecon_data_chart.html">TeleconDataChart</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_window.html#ac51bdc921ccc978c97934b7d5ecd6153">addDataChart</a> (std::string title=&quot;&quot;, double memoryDepthSeconds=60.0, int dataRateMillis=100, std::string xLabel=&quot;&quot;, std::string yLabel=&quot;&quot;, <a class="el" href="colors_8h.html#a8160ef72c1dba53251eb9ad02be83c38">ColorSequenceMode</a> colorSequenceMode=<a class="el" href="colors_8h.html#a8160ef72c1dba53251eb9ad02be83c38af694240c2be72deb06f19859d21ba193">CSM_BLACK</a>)</td></tr>
+<tr class="separator:ac51bdc921ccc978c97934b7d5ecd6153"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5c083d7bbdf47e61e10c3c0034b2e35"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_telecon_chart.html">TeleconChart</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_window.html#ac5c083d7bbdf47e61e10c3c0034b2e35">getChart</a> (size_t index)</td></tr>
 <tr class="separator:ac5c083d7bbdf47e61e10c3c0034b2e35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9751dd7c8c1120afb78f8eb54d45611"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_window.html#ab9751dd7c8c1120afb78f8eb54d45611">getNumCharts</a> () const</td></tr>
@@ -131,8 +133,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:afc1a1e1a551a06824f4fe2f88b3c296f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="teleconwindow_8h_source.html#l00010">10</a> of file <a class="el" href="teleconwindow_8h_source.html">teleconwindow.h</a>.</p>
+<div class="textblock"><p>Window implementation that has a title and vector of charts </p>
+
+<p class="definition">Definition at line <a class="el" href="teleconwindow_8h_source.html#l00014">14</a> of file <a class="el" href="teleconwindow_8h_source.html">teleconwindow.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9402114ebb3b336b8d57ef79a041d962" name="a9402114ebb3b336b8d57ef79a041d962"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9402114ebb3b336b8d57ef79a041d962">&#9670;&#160;</a></span>TeleconWindow() <span class="overload">[1/2]</span></h2>
@@ -182,6 +185,63 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac51bdc921ccc978c97934b7d5ecd6153" name="ac51bdc921ccc978c97934b7d5ecd6153"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac51bdc921ccc978c97934b7d5ecd6153">&#9670;&#160;</a></span>addDataChart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">shared_ptr&lt; <a class="el" href="class_telecon_data_chart.html">TeleconDataChart</a> &gt; TeleconWindow::addDataChart </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>title</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>memoryDepthSeconds</em> = <code>60.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dataRateMillis</em> = <code>100</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>xLabel</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>yLabel</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="colors_8h.html#a8160ef72c1dba53251eb9ad02be83c38">ColorSequenceMode</a>&#160;</td>
+          <td class="paramname"><em>colorSequenceMode</em> = <code><a class="el" href="colors_8h.html#a8160ef72c1dba53251eb9ad02be83c38af694240c2be72deb06f19859d21ba193">CSM_BLACK</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Adds a data chart to the window. Data charts have arbitrary non-time data on the x-axis. For parameters, see addRealtimeChart, which has the same parameters.</p>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the <a class="el" href="class_telecon_data_chart.html">TeleconDataChart</a> object created. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_telecon_window.html#aaab31256371ead70513e272d2b67677c">TeleconWindow::addRealtimeChart</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="teleconwindow_8cpp_source.html#l00067">67</a> of file <a class="el" href="teleconwindow_8cpp_source.html">teleconwindow.cpp</a>.</p>
+
+</div>
+</div>
 <a id="aaab31256371ead70513e272d2b67677c" name="aaab31256371ead70513e272d2b67677c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaab31256371ead70513e272d2b67677c">&#9670;&#160;</a></span>addRealtimeChart()</h2>
 
@@ -231,7 +291,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Adds a chart to the window. Charts will be displayed in the order added, from top to bottom.</p>
+<p>Adds a realtime chart to the window. Realtime charts have time data on the x-axis. Charts will be displayed in the order added, from top to bottom.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">title</td><td>the title displayed above the chart. </td></tr>
@@ -243,7 +303,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to the TeleconRealTimeChart object created. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the <a class="el" href="class_telecon_realtime_chart.html">TeleconRealtimeChart</a> object created. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="teleconwindow_8cpp_source.html#l00056">56</a> of file <a class="el" href="teleconwindow_8cpp_source.html">teleconwindow.cpp</a>.</p>
 
@@ -272,7 +332,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the <a class="el" href="class_telecon_chart.html">TeleconChart</a> requested. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="teleconwindow_8cpp_source.html#l00067">67</a> of file <a class="el" href="teleconwindow_8cpp_source.html">teleconwindow.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconwindow_8cpp_source.html#l00078">78</a> of file <a class="el" href="teleconwindow_8cpp_source.html">teleconwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -299,7 +359,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to a chart with the given name, or a null pointer if no chart has that name. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="teleconwindow_8cpp_source.html#l00077">77</a> of file <a class="el" href="teleconwindow_8cpp_source.html">teleconwindow.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconwindow_8cpp_source.html#l00088">88</a> of file <a class="el" href="teleconwindow_8cpp_source.html">teleconwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -319,7 +379,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>The number of TeleconCharts added to the window. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="teleconwindow_8cpp_source.html#l00072">72</a> of file <a class="el" href="teleconwindow_8cpp_source.html">teleconwindow.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconwindow_8cpp_source.html#l00083">83</a> of file <a class="el" href="teleconwindow_8cpp_source.html">teleconwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -357,7 +417,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to a plot with the given name, or a null pointer if no plot in the given chart and window has that name. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="teleconwindow_8cpp_source.html#l00087">87</a> of file <a class="el" href="teleconwindow_8cpp_source.html">teleconwindow.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconwindow_8cpp_source.html#l00098">98</a> of file <a class="el" href="teleconwindow_8cpp_source.html">teleconwindow.cpp</a>.</p>
 
 </div>
 </div>

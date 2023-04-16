@@ -20,8 +20,23 @@
 
 using namespace std;
 
+/**
+ * Chart GUI implementation, inherits from wxPanel.
+ */
 class TeleconWxChart : public wxPanel {
 public:
+
+    /**
+     * Constructor.
+     * 
+     * \param chart
+     * \param parent
+     * \param winid
+     * \param pos
+     * \param size
+     * \param style
+     * \param name
+     */
     TeleconWxChart(
         shared_ptr<TeleconChart> chart,
         wxWindow* parent,
@@ -31,14 +46,36 @@ public:
         long style = wxTAB_TRAVERSAL | wxNO_BORDER,
         const wxString& name = wxASCII_STR(wxPanelNameStr)
     );
+
+    /**
+     * Default deconstructor.
+     * 
+     */
     ~TeleconWxChart();
 
+    /**
+     * Function to redraw the chart if needed.
+     * 
+     */
     void OnChartRefreshTimer();
 
-    // setter functions for wxwindow buttons
+    /**
+     * Setter function for play status, used in TeleconWxWindow.
+     */
     void setPlay();
+
+    /**
+     * Setter function for pause status, used in TeleconWxWindow.
+     */
     void setPause();
-    void doSave(int, string);
+
+    /**
+     * Helper function that saves the chart as a file, used in TeleconWxWindow.
+     * 
+     * \param i which order the current chart is in in its window as int (for user to see)
+     * \param windowName the window name of the chart (for user to see)
+     */
+    void doSave(int i, string windowName);
 
     DECLARE_EVENT_TABLE()
 

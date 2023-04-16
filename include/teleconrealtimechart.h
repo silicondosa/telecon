@@ -5,6 +5,9 @@
 #include "teleconwxscatterplot.h"
 #include "teleconwxrasterplot.h"
 
+/**
+ * Chart implementation with time on the x-axis (more suitable for real time data), inherits from TeleconChart. Used by line, scatter, and raster plots.
+ */
 class TeleconRealtimeChart : public TeleconChart {
 public:
     /**

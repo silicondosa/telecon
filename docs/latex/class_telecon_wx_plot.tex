@@ -25,6 +25,8 @@ virtual double \mbox{\hyperlink{class_telecon_wx_plot_aff59ec394a722ffff9e9d637e
 \item 
 virtual string \mbox{\hyperlink{class_telecon_wx_plot_a410fe69ad4b7475a7fdaf65d550c6bf9}{get\+Latest\+Value\+String}} () const =0
 \item 
+virtual bool \mbox{\hyperlink{class_telecon_wx_plot_aa8fa72958a60748a62999a1e994f3852}{is\+Included\+In\+Legend}} () const =0
+\item 
 virtual size\+\_\+t \mbox{\hyperlink{class_telecon_wx_plot_a3f09ba9a7d15253b9ebabf26f8c7e3a0}{depth}} () const override
 \item 
 virtual int \mbox{\hyperlink{class_telecon_wx_plot_a2b9b1bfe38bca3e1bde912f18c3d4f93}{get\+Color}} () const override
@@ -41,6 +43,12 @@ virtual size\+\_\+t \mbox{\hyperlink{class_telecon_plot_a531aaccd7cd6f98e32c1a31
 virtual int \mbox{\hyperlink{class_telecon_plot_ae573ed05240f7e135a50ef0ee632a6bb}{get\+Color}} () const =0
 \item 
 virtual const string \mbox{\hyperlink{class_telecon_plot_ab8c7d77c2ab3091765bf560f29306d7e}{get\+Plot\+Title}} () const =0
+\item 
+virtual bool \mbox{\hyperlink{class_telecon_plot_a24f3e2d92ad1cddfa3d50be3685cb100}{is\+Symbol\+Filled}} () const =0
+\item 
+virtual int \mbox{\hyperlink{class_telecon_plot_a639cf9cda48ed159e59c7035a72ec386}{get\+Symbol}} () const =0
+\item 
+virtual int \mbox{\hyperlink{class_telecon_plot_aaf214d96bec86cd37efb445cdd999539}{get\+Symbol\+Size}} () const =0
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
@@ -54,9 +62,9 @@ string \mbox{\hyperlink{class_telecon_wx_plot_a3601667f3fff47879712bf4f043699fa}
 
 
 \doxysubsection{Detailed Description}
+Plot GUI that inherits from \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}}. 
 
-
-Definition at line \mbox{\hyperlink{teleconwxplot_8h_source_l00013}{13}} of file \mbox{\hyperlink{teleconwxplot_8h_source}{teleconwxplot.\+h}}.
+Definition at line \mbox{\hyperlink{teleconwxplot_8h_source_l00016}{16}} of file \mbox{\hyperlink{teleconwxplot_8h_source}{teleconwxplot.\+h}}.
 
 
 
@@ -67,6 +75,17 @@ Definition at line \mbox{\hyperlink{teleconwxplot_8h_source_l00013}{13}} of file
 \doxysubsubsection{\texorpdfstring{TeleconWxPlot()}{TeleconWxPlot()}}
 {\footnotesize\ttfamily Telecon\+Wx\+Plot\+::\+Telecon\+Wx\+Plot (\begin{DoxyParamCaption}\item[{string}]{plot\+Title,  }\item[{int}]{color,  }\item[{size\+\_\+t}]{depth }\end{DoxyParamCaption})}
 
+Constructor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em plot\+Title} & title of the plot as string \\
+\hline
+{\em color} & color as an int (enum) \\
+\hline
+{\em depth} & depth of the plot databuffer as type size\+\_\+t \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{teleconwxplot_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{teleconwxplot_8cpp_source}{teleconwxplot.\+cpp}}.
@@ -80,9 +99,16 @@ Definition at line \mbox{\hyperlink{teleconwxplot_8cpp_source_l00003}{3}} of fil
 \doxysubsubsection{\texorpdfstring{addToChart()}{addToChart()}}
 {\footnotesize\ttfamily virtual void Telecon\+Wx\+Plot\+::add\+To\+Chart (\begin{DoxyParamCaption}\item[{XYChart $\ast$}]{chart }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
+Adds a layer representing the plot to the given chart.
 
 
-Implemented in \mbox{\hyperlink{class_telecon_wx_plot_x_y_a75e38814ec961f892886a4fc171bce12}{Telecon\+Wx\+Plot\+XY}}.
+\begin{DoxyParams}{Parameters}
+{\em chart} & of type XYChart$\ast$ \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_telecon_wx_phase_portrait_plot_a0e33db8dc9be9c34e1a4338ad0911776}{Telecon\+Wx\+Phase\+Portrait\+Plot}}, \mbox{\hyperlink{class_telecon_wx_plot_x_y_a75e38814ec961f892886a4fc171bce12}{Telecon\+Wx\+Plot\+XY}}, and \mbox{\hyperlink{class_telecon_wx_raster_plot_a351d4d2ba1de3d496d721caf96068260}{Telecon\+Wx\+Raster\+Plot}}.
 
 \mbox{\Hypertarget{class_telecon_wx_plot_a3f09ba9a7d15253b9ebabf26f8c7e3a0}\label{class_telecon_wx_plot_a3f09ba9a7d15253b9ebabf26f8c7e3a0}} 
 \index{TeleconWxPlot@{TeleconWxPlot}!depth@{depth}}
@@ -90,6 +116,11 @@ Implemented in \mbox{\hyperlink{class_telecon_wx_plot_x_y_a75e38814ec961f892886a
 \doxysubsubsection{\texorpdfstring{depth()}{depth()}}
 {\footnotesize\ttfamily size\+\_\+t Telecon\+Wx\+Plot\+::depth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+\mbox{\hyperlink{class_telecon_plot_a582e5ae4fd4923f82956fc37679d3809}{size()}} remains abstract.
+
+\begin{DoxyReturn}{Returns}
+depth of type size\+\_\+t 
+\end{DoxyReturn}
 
 
 Implements \mbox{\hyperlink{class_telecon_plot_a531aaccd7cd6f98e32c1a315900b5c49}{Telecon\+Plot}}.
@@ -104,6 +135,11 @@ Definition at line \mbox{\hyperlink{teleconwxplot_8cpp_source_l00006}{6}} of fil
 \doxysubsubsection{\texorpdfstring{getColor()}{getColor()}}
 {\footnotesize\ttfamily int Telecon\+Wx\+Plot\+::get\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+Getter function for plot color.
+
+\begin{DoxyReturn}{Returns}
+color as int (enum) 
+\end{DoxyReturn}
 
 
 Implements \mbox{\hyperlink{class_telecon_plot_ae573ed05240f7e135a50ef0ee632a6bb}{Telecon\+Plot}}.
@@ -118,9 +154,14 @@ Definition at line \mbox{\hyperlink{teleconwxplot_8cpp_source_l00010}{10}} of fi
 \doxysubsubsection{\texorpdfstring{getLatestValueString()}{getLatestValueString()}}
 {\footnotesize\ttfamily virtual string Telecon\+Wx\+Plot\+::get\+Latest\+Value\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
+Getter function for latest value.
+
+\begin{DoxyReturn}{Returns}
+latest value as a string 
+\end{DoxyReturn}
 
 
-Implemented in \mbox{\hyperlink{class_telecon_wx_plot_x_y_a56cd0adf78eb541eb7c76f187bda7773}{Telecon\+Wx\+Plot\+XY}}.
+Implemented in \mbox{\hyperlink{class_telecon_wx_phase_portrait_plot_a7c4ca609ee43c3fc007fe653b04c83e0}{Telecon\+Wx\+Phase\+Portrait\+Plot}}, \mbox{\hyperlink{class_telecon_wx_plot_x_y_a56cd0adf78eb541eb7c76f187bda7773}{Telecon\+Wx\+Plot\+XY}}, and \mbox{\hyperlink{class_telecon_wx_raster_plot_a23f33f747f2e7b9f90f83d8635928f24}{Telecon\+Wx\+Raster\+Plot}}.
 
 \mbox{\Hypertarget{class_telecon_wx_plot_ad6ae2ae2b72e48fef8101322ca3d2134}\label{class_telecon_wx_plot_ad6ae2ae2b72e48fef8101322ca3d2134}} 
 \index{TeleconWxPlot@{TeleconWxPlot}!getLeftmostX@{getLeftmostX}}
@@ -128,9 +169,14 @@ Implemented in \mbox{\hyperlink{class_telecon_wx_plot_x_y_a56cd0adf78eb541eb7c76
 \doxysubsubsection{\texorpdfstring{getLeftmostX()}{getLeftmostX()}}
 {\footnotesize\ttfamily virtual double Telecon\+Wx\+Plot\+::get\+LeftmostX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
+Getter function for left most x.
+
+\begin{DoxyReturn}{Returns}
+left most x value as double 
+\end{DoxyReturn}
 
 
-Implemented in \mbox{\hyperlink{class_telecon_wx_plot_x_y_ad9b1f58e0492bd224d804ad5b55f4922}{Telecon\+Wx\+Plot\+XY}}.
+Implemented in \mbox{\hyperlink{class_telecon_wx_phase_portrait_plot_aaccba899c53b57d4ddd278b01603677e}{Telecon\+Wx\+Phase\+Portrait\+Plot}}, \mbox{\hyperlink{class_telecon_wx_plot_x_y_ad9b1f58e0492bd224d804ad5b55f4922}{Telecon\+Wx\+Plot\+XY}}, and \mbox{\hyperlink{class_telecon_wx_raster_plot_a7fd19f78ea541a1442869f4cc3433461}{Telecon\+Wx\+Raster\+Plot}}.
 
 \mbox{\Hypertarget{class_telecon_wx_plot_adc847425a9a4f1d90fec82651014d39d}\label{class_telecon_wx_plot_adc847425a9a4f1d90fec82651014d39d}} 
 \index{TeleconWxPlot@{TeleconWxPlot}!getPlotTitle@{getPlotTitle}}
@@ -138,6 +184,11 @@ Implemented in \mbox{\hyperlink{class_telecon_wx_plot_x_y_ad9b1f58e0492bd224d804
 \doxysubsubsection{\texorpdfstring{getPlotTitle()}{getPlotTitle()}}
 {\footnotesize\ttfamily const string Telecon\+Wx\+Plot\+::get\+Plot\+Title (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+Getter function for plot title.
+
+\begin{DoxyReturn}{Returns}
+title as string 
+\end{DoxyReturn}
 
 
 Implements \mbox{\hyperlink{class_telecon_plot_ab8c7d77c2ab3091765bf560f29306d7e}{Telecon\+Plot}}.
@@ -152,9 +203,29 @@ Definition at line \mbox{\hyperlink{teleconwxplot_8cpp_source_l00014}{14}} of fi
 \doxysubsubsection{\texorpdfstring{getRightmostX()}{getRightmostX()}}
 {\footnotesize\ttfamily virtual double Telecon\+Wx\+Plot\+::get\+RightmostX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
+Getter function for right most x.
+
+\begin{DoxyReturn}{Returns}
+right most x value as a double 
+\end{DoxyReturn}
 
 
-Implemented in \mbox{\hyperlink{class_telecon_wx_plot_x_y_ab991ba2422935fa715dcb268bac7abc7}{Telecon\+Wx\+Plot\+XY}}.
+Implemented in \mbox{\hyperlink{class_telecon_wx_phase_portrait_plot_a46dd18630a648a332fbfe4d3ca6abd18}{Telecon\+Wx\+Phase\+Portrait\+Plot}}, \mbox{\hyperlink{class_telecon_wx_plot_x_y_ab991ba2422935fa715dcb268bac7abc7}{Telecon\+Wx\+Plot\+XY}}, and \mbox{\hyperlink{class_telecon_wx_raster_plot_accddd56c60e3615a4d877cfb2670ea39}{Telecon\+Wx\+Raster\+Plot}}.
+
+\mbox{\Hypertarget{class_telecon_wx_plot_aa8fa72958a60748a62999a1e994f3852}\label{class_telecon_wx_plot_aa8fa72958a60748a62999a1e994f3852}} 
+\index{TeleconWxPlot@{TeleconWxPlot}!isIncludedInLegend@{isIncludedInLegend}}
+\index{isIncludedInLegend@{isIncludedInLegend}!TeleconWxPlot@{TeleconWxPlot}}
+\doxysubsubsection{\texorpdfstring{isIncludedInLegend()}{isIncludedInLegend()}}
+{\footnotesize\ttfamily virtual bool Telecon\+Wx\+Plot\+::is\+Included\+In\+Legend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Helper function to know if the plot is included in the legend.
+
+\begin{DoxyReturn}{Returns}
+included in legend status as bool 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_telecon_wx_phase_portrait_plot_a1686cc0a7c392cefa71ccd034189db8e}{Telecon\+Wx\+Phase\+Portrait\+Plot}}, \mbox{\hyperlink{class_telecon_wx_plot_x_y_abbc011152234a0b5cc08d48503081055}{Telecon\+Wx\+Plot\+XY}}, and \mbox{\hyperlink{class_telecon_wx_raster_plot_a089b71dbe2b0021f379bde603a4d8290}{Telecon\+Wx\+Raster\+Plot}}.
 
 \mbox{\Hypertarget{class_telecon_wx_plot_ae87396c2c2ad0a0bc940a7484e0734a2}\label{class_telecon_wx_plot_ae87396c2c2ad0a0bc940a7484e0734a2}} 
 \index{TeleconWxPlot@{TeleconWxPlot}!prepDataForDraw@{prepDataForDraw}}
@@ -162,9 +233,9 @@ Implemented in \mbox{\hyperlink{class_telecon_wx_plot_x_y_ab991ba2422935fa715dcb
 \doxysubsubsection{\texorpdfstring{prepDataForDraw()}{prepDataForDraw()}}
 {\footnotesize\ttfamily virtual void Telecon\+Wx\+Plot\+::prep\+Data\+For\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
+Fetches all data out of the controller threadand adds it to make it visible to UI thread. 
 
-
-Implemented in \mbox{\hyperlink{class_telecon_wx_plot_x_y_ac9254248dbbda8263a740ac688f96877}{Telecon\+Wx\+Plot\+XY}}.
+Implemented in \mbox{\hyperlink{class_telecon_wx_phase_portrait_plot_ae8aad42121f3924a551b5c1cf2305255}{Telecon\+Wx\+Phase\+Portrait\+Plot}}, \mbox{\hyperlink{class_telecon_wx_plot_x_y_ac9254248dbbda8263a740ac688f96877}{Telecon\+Wx\+Plot\+XY}}, and \mbox{\hyperlink{class_telecon_wx_raster_plot_a1d8b62d4c8e21417b2d06cc00c39ca3f}{Telecon\+Wx\+Raster\+Plot}}.
 
 
 
@@ -177,7 +248,7 @@ Implemented in \mbox{\hyperlink{class_telecon_wx_plot_x_y_ac9254248dbbda8263a740
 
 
 
-Definition at line \mbox{\hyperlink{teleconwxplot_8h_source_l00016}{16}} of file \mbox{\hyperlink{teleconwxplot_8h_source}{teleconwxplot.\+h}}.
+Definition at line \mbox{\hyperlink{teleconwxplot_8h_source_l00019}{19}} of file \mbox{\hyperlink{teleconwxplot_8h_source}{teleconwxplot.\+h}}.
 
 \mbox{\Hypertarget{class_telecon_wx_plot_a98ac5de8141d27f155c3d8a297fa1052}\label{class_telecon_wx_plot_a98ac5de8141d27f155c3d8a297fa1052}} 
 \index{TeleconWxPlot@{TeleconWxPlot}!m\_depth@{m\_depth}}
@@ -187,7 +258,7 @@ Definition at line \mbox{\hyperlink{teleconwxplot_8h_source_l00016}{16}} of file
 
 
 
-Definition at line \mbox{\hyperlink{teleconwxplot_8h_source_l00015}{15}} of file \mbox{\hyperlink{teleconwxplot_8h_source}{teleconwxplot.\+h}}.
+Definition at line \mbox{\hyperlink{teleconwxplot_8h_source_l00018}{18}} of file \mbox{\hyperlink{teleconwxplot_8h_source}{teleconwxplot.\+h}}.
 
 \mbox{\Hypertarget{class_telecon_wx_plot_a3601667f3fff47879712bf4f043699fa}\label{class_telecon_wx_plot_a3601667f3fff47879712bf4f043699fa}} 
 \index{TeleconWxPlot@{TeleconWxPlot}!m\_plotTitle@{m\_plotTitle}}
@@ -197,7 +268,7 @@ Definition at line \mbox{\hyperlink{teleconwxplot_8h_source_l00015}{15}} of file
 
 
 
-Definition at line \mbox{\hyperlink{teleconwxplot_8h_source_l00017}{17}} of file \mbox{\hyperlink{teleconwxplot_8h_source}{teleconwxplot.\+h}}.
+Definition at line \mbox{\hyperlink{teleconwxplot_8h_source_l00020}{20}} of file \mbox{\hyperlink{teleconwxplot_8h_source}{teleconwxplot.\+h}}.
 
 
 

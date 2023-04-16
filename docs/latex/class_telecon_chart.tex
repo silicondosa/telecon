@@ -62,9 +62,9 @@ vector$<$ shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}
 
 
 \doxysubsection{Detailed Description}
+Chart implementation. Has title, data rate, x/y labels, color, and vector of plots. 
 
-
-Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00022}{22}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
+Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00023}{23}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
 
 
 
@@ -112,7 +112,7 @@ Default x-\/axis type.
 \end{DoxyReturn}
 
 
-Implemented in \mbox{\hyperlink{class_telecon_realtime_chart_ae6eb873f64e852cf645bac0e6a89208e}{Telecon\+Realtime\+Chart}}.
+Implemented in \mbox{\hyperlink{class_telecon_data_chart_a9ae19d71b788ac499c7de363bdd7bfd1}{Telecon\+Data\+Chart}}, and \mbox{\hyperlink{class_telecon_realtime_chart_ae6eb873f64e852cf645bac0e6a89208e}{Telecon\+Realtime\+Chart}}.
 
 \mbox{\Hypertarget{class_telecon_chart_aba46b8cf2bbba5dff77aa8e62d0a9fc6}\label{class_telecon_chart_aba46b8cf2bbba5dff77aa8e62d0a9fc6}} 
 \index{TeleconChart@{TeleconChart}!getColorSequenceMode@{getColorSequenceMode}}
@@ -148,7 +148,7 @@ default x-\/axis span as double
 \end{DoxySeeAlso}
 
 
-Implemented in \mbox{\hyperlink{class_telecon_realtime_chart_a6bf55049d06e4e2fe74a3906c85cf7a0}{Telecon\+Realtime\+Chart}}.
+Implemented in \mbox{\hyperlink{class_telecon_data_chart_a1055faa3d0e0b1a488815b082866bf8c}{Telecon\+Data\+Chart}}, and \mbox{\hyperlink{class_telecon_realtime_chart_a6bf55049d06e4e2fe74a3906c85cf7a0}{Telecon\+Realtime\+Chart}}.
 
 \mbox{\Hypertarget{class_telecon_chart_a6efbe7f200b8bf283e47e60da71d6e45}\label{class_telecon_chart_a6efbe7f200b8bf283e47e60da71d6e45}} 
 \index{TeleconChart@{TeleconChart}!getNextDefaultColor@{getNextDefaultColor}}
@@ -201,7 +201,7 @@ Getter function that returns a plot of the chart given a specified plot name.
 
 
 \begin{DoxyParams}{Parameters}
-{\em name} & of plot as string \\
+{\em name} & name of plot as string \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -277,7 +277,7 @@ Definition at line \mbox{\hyperlink{teleconchart_8cpp_source_l00046}{46}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00029}{29}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
+Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00030}{30}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
 
 \mbox{\Hypertarget{class_telecon_chart_a18e0b8e340d53010e58f4f8120defea1}\label{class_telecon_chart_a18e0b8e340d53010e58f4f8120defea1}} 
 \index{TeleconChart@{TeleconChart}!m\_dataRateMillis@{m\_dataRateMillis}}
@@ -287,7 +287,7 @@ Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00029}{29}} of file 
 
 
 
-Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00026}{26}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
+Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00027}{27}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
 
 \mbox{\Hypertarget{class_telecon_chart_af315b4acbdefb53894bd06e78e96e682}\label{class_telecon_chart_af315b4acbdefb53894bd06e78e96e682}} 
 \index{TeleconChart@{TeleconChart}!m\_hasStarted@{m\_hasStarted}}
@@ -297,7 +297,7 @@ Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00026}{26}} of file 
 
 
 
-Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00031}{31}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
+Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00032}{32}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
 
 \mbox{\Hypertarget{class_telecon_chart_aab73cda8ba07aefb2968811c9e5a90a8}\label{class_telecon_chart_aab73cda8ba07aefb2968811c9e5a90a8}} 
 \index{TeleconChart@{TeleconChart}!m\_memoryDepthSeconds@{m\_memoryDepthSeconds}}
@@ -307,7 +307,7 @@ Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00031}{31}} of file 
 
 
 
-Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00025}{25}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
+Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00026}{26}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
 
 \mbox{\Hypertarget{class_telecon_chart_ab8e44cc492bc62c52c5cece30e126f0d}\label{class_telecon_chart_ab8e44cc492bc62c52c5cece30e126f0d}} 
 \index{TeleconChart@{TeleconChart}!m\_plots@{m\_plots}}
@@ -317,7 +317,7 @@ Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00025}{25}} of file 
 
 
 
-Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00033}{33}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
+Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00034}{34}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
 
 \mbox{\Hypertarget{class_telecon_chart_a4d0876969c79d7f2123c8b5d924e0f9a}\label{class_telecon_chart_a4d0876969c79d7f2123c8b5d924e0f9a}} 
 \index{TeleconChart@{TeleconChart}!m\_title@{m\_title}}
@@ -327,7 +327,7 @@ Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00033}{33}} of file 
 
 
 
-Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00024}{24}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
+Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00025}{25}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
 
 \mbox{\Hypertarget{class_telecon_chart_acda7f85097a6f77f9a66937c09b21794}\label{class_telecon_chart_acda7f85097a6f77f9a66937c09b21794}} 
 \index{TeleconChart@{TeleconChart}!m\_xLabel@{m\_xLabel}}
@@ -337,7 +337,7 @@ Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00024}{24}} of file 
 
 
 
-Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00027}{27}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
+Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00028}{28}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
 
 \mbox{\Hypertarget{class_telecon_chart_a09089bd72af66ca9ae488191c188d851}\label{class_telecon_chart_a09089bd72af66ca9ae488191c188d851}} 
 \index{TeleconChart@{TeleconChart}!m\_yLabel@{m\_yLabel}}
@@ -347,7 +347,7 @@ Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00027}{27}} of file 
 
 
 
-Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00028}{28}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
+Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00029}{29}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
 
 
 

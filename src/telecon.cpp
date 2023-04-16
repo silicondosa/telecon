@@ -110,3 +110,17 @@ shared_ptr<TeleconPlot> Telecon::getPlotByName(string windowName, string chartNa
     shared_ptr<TeleconChart> chart = window->getChartByName(chartName);
     return chart == nullptr ? nullptr : chart->getPlotByName(plotName);
 }
+
+shared_ptr<TeleconControls> Telecon::addControls(string name){
+    shared_ptr<TeleconControls> telecon_controls= make_shared<TeleconControls>(name);
+    m_controls.push_back(telecon_controls);
+    return telecon_controls;
+}
+
+shared_ptr<TeleconControls> Telecon::getControls(int index){
+    return m_controls[index];
+}
+
+size_t Telecon::getNumControls() {
+    return m_controls.size();
+}

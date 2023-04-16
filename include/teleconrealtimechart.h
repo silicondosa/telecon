@@ -29,16 +29,16 @@ public:
      * \param symbolSize the size of the symbol (if drawn) in pixels.
      * \sa https://www.advsofteng.com/doc/cdpydoc/shapespec.htm
      */
-    shared_ptr<TeleconLinePlot> addLinePlot(std::string plottitle, long plotcolor = COLOR_DEFAULT, LineType lineType = LT_SOLID, int lineWidth = 1, int symbol = SYMBOL_NO_SYMBOL, bool fillSymbol = true, int symbolSize = 5, int memoryDepth = -1);
+    shared_ptr<TeleconLinePlot> addLinePlot(std::string plottitle, long plotcolor = COLOR_DEFAULT, LineType lineType = LT_SOLID, int lineWidth = 1, int symbol = SYMBOL_NO_SYMBOL, bool fillSymbol = true, int symbolSize = 5, size_t memoryDepth = -1);
     
     /**
      * Adds a scatter plot to the chart with the given parameters. Parameters, where present, are identical to those in addLinePlot.
      *
      * \sa TeleconRealTimeChart::addLinePlot
      */
-    shared_ptr<TeleconScatterPlot> addScatterPlot(std::string plottitle, long plotcolor = COLOR_DEFAULT, int symbol = SYMBOL_SQUARE, bool fillSymbol = true, int symbolSize = 5, int memoryDepth = -1);
+    shared_ptr<TeleconScatterPlot> addScatterPlot(std::string plottitle, long plotcolor = COLOR_DEFAULT, int symbol = SYMBOL_SQUARE, bool fillSymbol = true, int symbolSize = 5, size_t memoryDepth = -1);
 
-    shared_ptr<TeleconRasterPlot> addRasterPlot(std::string plottitle, double yValue, long plotcolor = COLOR_DEFAULT, int symbol = SYMBOL_CIRCLE, bool fillSymbol = true, int symbolSize = 1, int memoryDepth = -1);
+    shared_ptr<TeleconRasterPlot> addRasterPlot(std::string plottitle, double yValue, long plotcolor = COLOR_DEFAULT, int symbol = SYMBOL_CIRCLE, bool fillSymbol = true, int symbolSize = 1, size_t memoryDepth = -1);
 
     /**
      * Getter function that returns the default width of the chart, to be used when few or no data have been provided.

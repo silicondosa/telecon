@@ -5,7 +5,7 @@
 TeleconRealtimeChart::TeleconRealtimeChart(string title, double memoryDepthSeconds, int dataRateMillis, string xLabel, string yLabel, ColorSequenceMode colorSequenceMode)
 	: TeleconChart(title, memoryDepthSeconds, dataRateMillis, xLabel, yLabel, colorSequenceMode) {}
 
-shared_ptr<TeleconLinePlot> TeleconRealtimeChart::addLinePlot(string plottitle, long plotcolor, LineType lineType, int lineWidth, int symbol, bool fillSymbol, int symbolSize, int memoryDepth)
+shared_ptr<TeleconLinePlot> TeleconRealtimeChart::addLinePlot(string plottitle, long plotcolor, LineType lineType, int lineWidth, int symbol, bool fillSymbol, int symbolSize, size_t memoryDepth)
 {
     if (m_hasStarted) {
         cout << "telecon: Telecon has already started, plots may not be added." << endl;
@@ -19,7 +19,7 @@ shared_ptr<TeleconLinePlot> TeleconRealtimeChart::addLinePlot(string plottitle, 
 	return linePlot;
 }
 
-shared_ptr<TeleconScatterPlot> TeleconRealtimeChart::addScatterPlot(string plottitle, long plotcolor, int symbol, bool fillSymbol, int symbolSize, int memoryDepth)
+shared_ptr<TeleconScatterPlot> TeleconRealtimeChart::addScatterPlot(string plottitle, long plotcolor, int symbol, bool fillSymbol, int symbolSize, size_t memoryDepth)
 {
     if (m_hasStarted) {
         cout << "telecon: Telecon has already started, plots may not be added." << endl;
@@ -32,7 +32,7 @@ shared_ptr<TeleconScatterPlot> TeleconRealtimeChart::addScatterPlot(string plott
 	return scatterPlot;
 }
 
-shared_ptr<TeleconRasterPlot> TeleconRealtimeChart::addRasterPlot(string plottitle, double yValue, long plotcolor, int symbol, bool fillSymbol, int symbolSize, int memoryDepth)
+shared_ptr<TeleconRasterPlot> TeleconRealtimeChart::addRasterPlot(string plottitle, double yValue, long plotcolor, int symbol, bool fillSymbol, int symbolSize, size_t memoryDepth)
 {
     if (m_hasStarted) {
         cout << "telecon: Telecon has already started, plots may not be added." << endl;

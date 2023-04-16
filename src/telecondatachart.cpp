@@ -5,7 +5,7 @@
 TeleconDataChart::TeleconDataChart(string title, double memoryDepthSeconds, int dataRateMillis, string xLabel, string yLabel, ColorSequenceMode colorSequenceMode)
     : TeleconChart(title, memoryDepthSeconds, dataRateMillis, xLabel, yLabel, colorSequenceMode) {}
 
-shared_ptr<TeleconPhasePortraitPlot> TeleconDataChart::addPhasePortraitPlot(std::string plottitle, long plotcolor, int lineWidth, LineType lineType, int symbol, bool fillSymbol, int symbolSize, int memoryDepth)
+shared_ptr<TeleconPhasePortraitPlot> TeleconDataChart::addPhasePortraitPlot(std::string plottitle, long plotcolor, int lineWidth, LineType lineType, int symbol, bool fillSymbol, int symbolSize, size_t memoryDepth)
 {
     if (m_hasStarted) {
         cout << "telecon: Telecon has already started, plots may not be added." << endl;

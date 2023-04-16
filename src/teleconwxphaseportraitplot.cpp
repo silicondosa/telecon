@@ -1,23 +1,7 @@
 #include "teleconwxphaseportraitplot.h"
 
-list<PhasePortraitDataPoint>* TeleconWxPhasePortraitPlot::swapAndGetDataToAdd()
-{
-    list<PhasePortraitDataPoint>* newDataToAdd = new list<PhasePortraitDataPoint>();
-    list<PhasePortraitDataPoint>* oldDataToAdd = m_dataToAdd;
-
-    const lock_guard<mutex> lock(m_dataToAddLock);
-    m_dataToAdd = newDataToAdd;
-    return oldDataToAdd;
-}
-
-TeleconWxPhasePortraitPlot::TeleconWxPhasePortraitPlot(string plotTitle, int color, int lineWidth, LineType lineType, bool hasSymbol, int symbol, bool fillSymbol, int symbolSize, int depth)
-    : TeleconWxPlot(plotTitle, color, depth), m_dataToAdd(new list<PhasePortraitDataPoint>()), m_timestamps(depth), m_xData(depth), m_yData(depth), m_lineWidth(lineWidth), m_lineType(lineType), m_hasSymbol(hasSymbol), m_symbol(symbol), m_fillSymbol(fillSymbol), m_symbolSize(symbolSize) {}
-
-TeleconWxPhasePortraitPlot::~TeleconWxPhasePortraitPlot()
-{
-    const lock_guard<mutex> lock(m_dataToAddLock);
-    delete m_dataToAdd;
-}
+TeleconWxPhasePortraitPlot::TeleconWxPhasePortraitPlot(string plotTitle, int color, int lineWidth, LineType lineType, bool hasSymbol, int symbol, bool fillSymbol, int symbolSize, size_t depth)
+    : TeleconWxPlot(plotTitle, color, depth), m_dataToAdd(depth), m_timestamps(depth), m_xData(depth), m_yData(depth), m_lineWidth(lineWidth), m_lineType(lineType), m_hasSymbol(hasSymbol), m_symbol(symbol), m_fillSymbol(fillSymbol), m_symbolSize(symbolSize) {}
 
 size_t TeleconWxPhasePortraitPlot::size() const
 {
@@ -26,15 +10,13 @@ size_t TeleconWxPhasePortraitPlot::size() const
 
 void TeleconWxPhasePortraitPlot::prepDataForDraw()
 {
-    list<PhasePortraitDataPoint>* dataToAdd = swapAndGetDataToAdd();
+    shared_ptr<list<PhasePortraitDataPoint>> dataToAdd = m_dataToAdd.getDataAndClearList();
 
     for (const auto& dataPoint : *dataToAdd) {
         m_timestamps.insertNewValue(dataPoint.timestamp);
         m_xData.insertNewValue(dataPoint.xData);
         m_yData.insertNewValue(dataPoint.yData);
     }
-
-    delete dataToAdd;
 }
 
 void TeleconWxPhasePortraitPlot::addToChart(XYChart * chart)
@@ -97,13 +79,7 @@ bool TeleconWxPhasePortraitPlot::isIncludedInLegend() const
 
 void TeleconWxPhasePortraitPlot::pushData(double timestamp, double xData, double yData)
 {
-    const lock_guard<mutex> lock(m_dataToAddLock);
-
-    m_dataToAdd->push_back({ timestamp, xData, yData });
-
-    if (m_dataToAdd->size() > m_depth) {
-        m_dataToAdd->pop_front();
-    }
+    m_dataToAdd.addDataPoint({ timestamp, xData, yData });
 }
 
 bool TeleconWxPhasePortraitPlot::isSymbolFilled() const

@@ -1,34 +1,16 @@
 #include "teleconwxplotxy.h"
 
-TeleconWxPlotXY::TeleconWxPlotXY(string plotTitle, int color, int lineWidth, LineType lineType, bool hasSymbol, int symbol, bool fillSymbol, int symbolSize, int depth)
-    : TeleconWxPlot(plotTitle, color, depth), m_dataToAdd(new list<pair<double, double>>), m_xTimestamps(m_depth), m_yData(m_depth), m_lineWidth(lineWidth), m_lineType(lineType), m_hasSymbol(hasSymbol), m_symbol(symbol), m_fillSymbol(fillSymbol), m_symbolSize(symbolSize) {}
-
-TeleconWxPlotXY::~TeleconWxPlotXY()
-{
-    const lock_guard<mutex> lock(m_dataToAddLock);
-    delete m_dataToAdd;
-}
-
-list<pair<double, double>>* TeleconWxPlotXY::swapAndGetDataToAdd()
-{
-    list<pair<double, double>>* newDataToAdd = new list<pair<double, double>>();
-    list<pair<double, double>>* oldDataToAdd = m_dataToAdd;
-
-    const lock_guard<mutex> lock(m_dataToAddLock);
-    m_dataToAdd = newDataToAdd;
-    return oldDataToAdd;
-}
+TeleconWxPlotXY::TeleconWxPlotXY(string plotTitle, int color, int lineWidth, LineType lineType, bool hasSymbol, int symbol, bool fillSymbol, int symbolSize, size_t depth)
+    : TeleconWxPlot(plotTitle, color, depth), m_dataToAdd(m_depth), m_xTimestamps(m_depth), m_yData(m_depth), m_lineWidth(lineWidth), m_lineType(lineType), m_hasSymbol(hasSymbol), m_symbol(symbol), m_fillSymbol(fillSymbol), m_symbolSize(symbolSize) {}
 
 void TeleconWxPlotXY::prepDataForDraw()
 {
-    list<pair<double, double>>* dataToAdd = swapAndGetDataToAdd();
+    shared_ptr<list<XYPlotDataPoint>> dataToAdd = m_dataToAdd.getDataAndClearList();
 
     for (const auto& xyPair : *dataToAdd) {
-        m_xTimestamps.insertNewValue(xyPair.first);
-        m_yData.insertNewValue(xyPair.second);
+        m_xTimestamps.insertNewValue(xyPair.xTimestamp);
+        m_yData.insertNewValue(xyPair.yData);
     }
-
-    delete dataToAdd;
 }
 
 double TeleconWxPlotXY::getLeftmostX() const
@@ -88,15 +70,7 @@ size_t TeleconWxPlotXY::size() const
 
 void TeleconWxPlotXY::pushData(double xTimestamp, double yData)
 {
-    const lock_guard<mutex> lock(m_dataToAddLock);
-
-    m_dataToAdd->push_back(make_pair(xTimestamp, yData));
-
-    if (m_dataToAdd->size() > m_depth) {
-        m_dataToAdd->pop_front();
-    }
-
-    // lock_guard automatically releases m_dataToAddLock when it goes out of scope
+    m_dataToAdd.addDataPoint({ xTimestamp, yData });
 }
 
 bool TeleconWxPlotXY::isSymbolFilled() const

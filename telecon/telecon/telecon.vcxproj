@@ -151,6 +151,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\include\datatoaddlist.h" />
     <ClInclude Include="..\..\include\enums.h" />
     <ClInclude Include="..\..\include\telecon.h" />
     <ClInclude Include="..\..\include\colors.h" />

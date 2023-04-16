@@ -3,6 +3,7 @@
 #include "teleconwxplot.h"
 #include "teleconlineplot.h"
 #include "teleconphaseportraitplot.h"
+#include "datatoaddlist.h"
 
 // Prevents compiler warnings about inheritance from multiple overlapping classes
 // We perform diamond inheritance, which can cause issues, but the way we do it is safe (only one definition for each function)
@@ -19,8 +20,7 @@ class TeleconWxPhasePortraitPlot : public TeleconWxPlot, virtual public TeleconP
 {
 private:
     // XY Data member values
-    list<PhasePortraitDataPoint>* m_dataToAdd;
-    mutex m_dataToAddLock;
+    DataToAddList<PhasePortraitDataPoint> m_dataToAdd;
     DataBuffer<double> m_timestamps;
     DataBuffer<double> m_xData;
     DataBuffer<double> m_yData;
@@ -33,10 +33,8 @@ private:
     int m_symbol;
     int m_symbolSize;
 
-    list<PhasePortraitDataPoint>* swapAndGetDataToAdd();
 public:
-    TeleconWxPhasePortraitPlot(string plotTitle, int color, int lineWidth, LineType lineType, bool hasSymbol, int symbol, bool fillSymbol, int symbolSize, int depth);
-    ~TeleconWxPhasePortraitPlot();
+    TeleconWxPhasePortraitPlot(string plotTitle, int color, int lineWidth, LineType lineType, bool hasSymbol, int symbol, bool fillSymbol, int symbolSize, size_t depth);
 
     // Inherited via TeleconWxPlot
     virtual size_t size() const override;

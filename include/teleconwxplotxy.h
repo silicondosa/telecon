@@ -2,16 +2,22 @@
 
 #include "teleconwxplot.h"
 #include "teleconlineplot.h"
+#include "datatoaddlist.h"
 
 // Prevents compiler warnings about inheritance from multiple overlapping classes
 // We perform diamond inheritance, which can cause issues, but the way we do it is safe (only one definition for each function)
 # pragma warning( disable : 4250)
 
+struct XYPlotDataPoint
+{
+    double xTimestamp;
+    double yData;
+};
+
 class TeleconWxPlotXY : public TeleconWxPlot, virtual public TeleconLineScatterPlot {
 protected:
 	// XY Data member values
-	list<pair<double, double>>* m_dataToAdd;
-	mutex m_dataToAddLock;
+	DataToAddList<XYPlotDataPoint> m_dataToAdd;
 	DataBuffer<double> m_xTimestamps;
 	DataBuffer<double> m_yData;
 
@@ -22,11 +28,8 @@ protected:
 	bool m_fillSymbol;
 	int m_symbol;
 	int m_symbolSize;
-
-	list<pair<double, double>>* swapAndGetDataToAdd();
 public:
-	TeleconWxPlotXY(string plotTitle, int color, int lineWidth, LineType lineType, bool hasSymbol, int symbol, bool fillSymbol, int symbolSize, int depth);
-    ~TeleconWxPlotXY();
+	TeleconWxPlotXY(string plotTitle, int color, int lineWidth, LineType lineType, bool hasSymbol, int symbol, bool fillSymbol, int symbolSize, size_t depth);
     /* Functions inherited from TeleconWxPlot */
 	virtual void prepDataForDraw() override;
 	virtual void addToChart(XYChart* chart) override;

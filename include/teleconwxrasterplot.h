@@ -2,17 +2,23 @@
 
 #include "teleconwxplot.h"
 #include "teleconrasterplot.h"
+#include "datatoaddlist.h"
 
 // Prevents compiler warnings about inheritance from multiple overlapping classes
 // We perform diamond inheritance, which can cause issues, but the way we do it is safe (only one definition for each function)
 # pragma warning( disable : 4250)
 
+struct RasterDataPoint
+{
+    double xTimestamp;
+    bool isActive;
+};
+
 class TeleconWxRasterPlot : public TeleconWxPlot, virtual public TeleconRasterPlot
 {
 private:
     // XY Data member values
-    list<pair<double, bool>>* m_dataToAdd;
-    mutex m_dataToAddLock;
+    DataToAddList<RasterDataPoint> m_dataToAdd;
     DataBuffer<double> m_xTimestamps;
     DataBuffer<double> m_yValueBuffer;
     double m_yValue;
@@ -22,10 +28,8 @@ private:
     int m_symbol;
     int m_symbolSize;
 
-    list<pair<double, bool>>* swapAndGetDataToAdd();
 public:
-    TeleconWxRasterPlot(string plotTitle, double yValue, int color, int symbol, bool fillSymbol, int symbolSize, int depth);
-    ~TeleconWxRasterPlot();
+    TeleconWxRasterPlot(string plotTitle, double yValue, int color, int symbol, bool fillSymbol, int symbolSize, size_t depth);
 
     double getYValue() const;
 

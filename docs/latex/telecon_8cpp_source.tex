@@ -114,5 +114,19 @@
 \DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00110}00110\ \ \ \ \ shared\_ptr<TeleconChart>\ chart\ =\ window-\/>getChartByName(chartName);}
 \DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00111}00111\ \ \ \ \ \textcolor{keywordflow}{return}\ chart\ ==\ \textcolor{keyword}{nullptr}\ ?\ nullptr\ :\ chart-\/>getPlotByName(plotName);}
 \DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00112}00112\ \}}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00114}\mbox{\hyperlink{class_telecon_aa566973f4e9fa1f508eba8b861538036}{00114}}\ shared\_ptr<TeleconControls>\ \mbox{\hyperlink{class_telecon_aa566973f4e9fa1f508eba8b861538036}{Telecon::addControls}}(\textcolor{keywordtype}{string}\ name)\{}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00115}00115\ \ \ \ \ shared\_ptr<TeleconControls>\ telecon\_controls=\ make\_shared<TeleconControls>(name);}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00116}00116\ \ \ \ \ m\_controls.push\_back(telecon\_controls);}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00117}00117\ \ \ \ \ \textcolor{keywordflow}{return}\ telecon\_controls;}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00118}00118\ \}}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00120}\mbox{\hyperlink{class_telecon_a88ade5d08712d0bf47fac09cbe581cb0}{00120}}\ shared\_ptr<TeleconControls>\ \mbox{\hyperlink{class_telecon_a88ade5d08712d0bf47fac09cbe581cb0}{Telecon::getControls}}(\textcolor{keywordtype}{int}\ index)\{}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00121}00121\ \ \ \ \ \textcolor{keywordflow}{return}\ m\_controls[index];}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00122}00122\ \}}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00124}\mbox{\hyperlink{class_telecon_afcd66c21817fc7d669e359c8eae52dc8}{00124}}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_telecon_afcd66c21817fc7d669e359c8eae52dc8}{Telecon::getNumControls}}()\ \{}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00125}00125\ \ \ \ \ \textcolor{keywordflow}{return}\ m\_controls.size();}
+\DoxyCodeLine{\Hypertarget{telecon_8cpp_source_l00126}00126\ \}}
 
 \end{DoxyCode}

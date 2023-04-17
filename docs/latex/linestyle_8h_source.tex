@@ -1,0 +1,36 @@
+\hypertarget{linestyle_8h_source}{}\doxysection{linestyle.\+h}
+\label{linestyle_8h_source}\index{include/linestyle.h@{include/linestyle.h}}
+\mbox{\hyperlink{linestyle_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{enums_8h}{enums.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00008}00008\ \textcolor{comment}{/*\ Implementation\ note:\ this\ is\ a\ full\ class,\ rather\ than\ just\ a\ struct,\ to\ leave\ open\ the\ future\ possibility\ of\ managing\ thread\ safety\ with\ locks.}}
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00009}00009\ \textcolor{comment}{Currently,\ thread\ safety\ for\ plots\ is\ managed\ by\ marking\ line\ styles\ constant\ after\ construction.\ */}}
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00010}\mbox{\hyperlink{class_line_style}{00010}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_line_style}{LineStyle}}}
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00011}00011\ \{}
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00012}00012\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00013}00013\ \ \ \ \ \textcolor{comment}{//\ The\ color\ of\ the\ line,\ represented\ as\ described\ in\ PlotColor}}
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00014}00014\ \ \ \ \ \textcolor{keywordtype}{int}\ m\_lineColor;}
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00015}00015\ \ \ \ \ \textcolor{comment}{//\ The\ width\ of\ the\ line\ in\ pixels}}
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00016}00016\ \ \ \ \ \textcolor{keywordtype}{int}\ m\_lineWidth;}
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00017}00017\ \ \ \ \ \textcolor{comment}{//\ The\ type\ of\ the\ line,\ as\ described\ in\ PlotLineType}}
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00018}00018\ \ \ \ \ \mbox{\hyperlink{enums_8h_a7fdcd88c8bd2b12efccd824d774bdb44}{PlotLineType}}\ m\_lineType;}
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00019}00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00029}00029\ \ \ \ \ \mbox{\hyperlink{class_line_style}{LineStyle}}(\textcolor{keywordtype}{int}\ lineColor\ =\ \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a0b8d8b18037efc3cdb5dd0313e7c67dc}{COLOR\_DEFAULT}},\ \textcolor{keywordtype}{int}\ lineWidth\ =\ 1,\ \mbox{\hyperlink{enums_8h_a7fdcd88c8bd2b12efccd824d774bdb44}{PlotLineType}}\ lineType\ =\ \mbox{\hyperlink{enums_8h_a7fdcd88c8bd2b12efccd824d774bdb44ad3188575e9151d64606bf543dc4c40f1}{LT\_SOLID}});}
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00030}00030\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00036}00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_line_style_a45ebe5df25155e653987a7ebf8c58d12}{setLineColor}}(\textcolor{keywordtype}{int}\ lineColor);}
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00037}00037\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00041}00041\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_line_style_a20e3a8fcb73e58d5d38666fda9c1b83b}{getLineColor}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00048}00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_line_style_a0556994a3bc381b245cb2ba3883572bb}{setLineWidth}}(\textcolor{keywordtype}{int}\ lineWidth);}
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00053}00053\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_line_style_a4ba9344c1350bcd3cd4a1a1f81044bea}{getLineWidth}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00060}00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_line_style_af2528fd12890b6d75fb308512cbc1a8d}{setLineType}}(\mbox{\hyperlink{enums_8h_a7fdcd88c8bd2b12efccd824d774bdb44}{PlotLineType}}\ lineType);}
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00065}00065\ \ \ \ \ \mbox{\hyperlink{enums_8h_a7fdcd88c8bd2b12efccd824d774bdb44}{PlotLineType}}\ \mbox{\hyperlink{class_line_style_a6de370fcf47ce57f4961f04657fba352}{getLineType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{linestyle_8h_source_l00066}00066\ \};}
+
+\end{DoxyCode}

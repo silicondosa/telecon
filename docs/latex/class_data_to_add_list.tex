@@ -1,0 +1,119 @@
+\hypertarget{class_data_to_add_list}{}\doxysection{Data\+To\+Add\+List\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\label{class_data_to_add_list}\index{DataToAddList$<$ T $>$@{DataToAddList$<$ T $>$}}
+
+
+{\ttfamily \#include $<$include/datatoaddlist.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_data_to_add_list_a317eca7e8cd0a11f24c40f7189242b6c}{Data\+To\+Add\+List}} (size\+\_\+t depth)
+\item 
+void \mbox{\hyperlink{class_data_to_add_list_ad27b97cc4f4b4c97e3b0f27a3efd2867}{add\+Data\+Point}} (T data\+Point)
+\item 
+shared\+\_\+ptr$<$ list$<$ T $>$ $>$ \mbox{\hyperlink{class_data_to_add_list_af64704fad254310a822747bea4b55f52}{get\+Data\+And\+Clear\+List}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{class_data_to_add_list_adfea39831a99661c8ae314a153dfd6d1}{get\+Size}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{class_data_to_add_list_a6316b170deaddbae5b302eccd00e388c}{get\+Depth}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Data\+To\+Add\+List$<$ T $>$}
+Header-\/only template class to add data to plots in a thread-\/safe fashion. For use with Telecon\+Plots. 
+
+Definition at line \mbox{\hyperlink{datatoaddlist_8h_source_l00011}{11}} of file \mbox{\hyperlink{datatoaddlist_8h_source}{datatoaddlist.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_data_to_add_list_a317eca7e8cd0a11f24c40f7189242b6c}\label{class_data_to_add_list_a317eca7e8cd0a11f24c40f7189242b6c}} 
+\index{DataToAddList$<$ T $>$@{DataToAddList$<$ T $>$}!DataToAddList@{DataToAddList}}
+\index{DataToAddList@{DataToAddList}!DataToAddList$<$ T $>$@{DataToAddList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{DataToAddList()}{DataToAddList()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_data_to_add_list}{Data\+To\+Add\+List}}$<$ T $>$\mbox{\hyperlink{class_data_to_add_list}{\+::\+Data\+To\+Add\+List}} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{depth }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructs a \mbox{\hyperlink{class_data_to_add_list}{Data\+To\+Add\+List}} with the given maximum size.
+
+
+\begin{DoxyParams}{Parameters}
+{\em depth} & the depth (maximum size) of the list. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{datatoaddlist_8h_source_l00034}{34}} of file \mbox{\hyperlink{datatoaddlist_8h_source}{datatoaddlist.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_data_to_add_list_ad27b97cc4f4b4c97e3b0f27a3efd2867}\label{class_data_to_add_list_ad27b97cc4f4b4c97e3b0f27a3efd2867}} 
+\index{DataToAddList$<$ T $>$@{DataToAddList$<$ T $>$}!addDataPoint@{addDataPoint}}
+\index{addDataPoint@{addDataPoint}!DataToAddList$<$ T $>$@{DataToAddList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addDataPoint()}{addDataPoint()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_data_to_add_list}{Data\+To\+Add\+List}}$<$ T $>$\+::add\+Data\+Point (\begin{DoxyParamCaption}\item[{T}]{data\+Point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds a data point to the list to be drawn later.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+Point} & the data point to be added. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{datatoaddlist_8h_source_l00041}{41}} of file \mbox{\hyperlink{datatoaddlist_8h_source}{datatoaddlist.\+h}}.
+
+\mbox{\Hypertarget{class_data_to_add_list_af64704fad254310a822747bea4b55f52}\label{class_data_to_add_list_af64704fad254310a822747bea4b55f52}} 
+\index{DataToAddList$<$ T $>$@{DataToAddList$<$ T $>$}!getDataAndClearList@{getDataAndClearList}}
+\index{getDataAndClearList@{getDataAndClearList}!DataToAddList$<$ T $>$@{DataToAddList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getDataAndClearList()}{getDataAndClearList()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+shared\+\_\+ptr$<$ list$<$ T $>$ $>$ \mbox{\hyperlink{class_data_to_add_list}{Data\+To\+Add\+List}}$<$ T $>$\+::get\+Data\+And\+Clear\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Clears the list, and returns its previous contents. Should be called before a plot is drawn to the screen.
+
+\begin{DoxyReturn}{Returns}
+A pointer to a list of every data point added since the last time the list was cleared. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{datatoaddlist_8h_source_l00057}{57}} of file \mbox{\hyperlink{datatoaddlist_8h_source}{datatoaddlist.\+h}}.
+
+\mbox{\Hypertarget{class_data_to_add_list_a6316b170deaddbae5b302eccd00e388c}\label{class_data_to_add_list_a6316b170deaddbae5b302eccd00e388c}} 
+\index{DataToAddList$<$ T $>$@{DataToAddList$<$ T $>$}!getDepth@{getDepth}}
+\index{getDepth@{getDepth}!DataToAddList$<$ T $>$@{DataToAddList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getDepth()}{getDepth()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+size\+\_\+t \mbox{\hyperlink{class_data_to_add_list}{Data\+To\+Add\+List}}$<$ T $>$\+::get\+Depth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+The depth (maximum possible size) of the buffer (always \texorpdfstring{$>$}{>}= size). 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{datatoaddlist_8h_source_l00079}{79}} of file \mbox{\hyperlink{datatoaddlist_8h_source}{datatoaddlist.\+h}}.
+
+\mbox{\Hypertarget{class_data_to_add_list_adfea39831a99661c8ae314a153dfd6d1}\label{class_data_to_add_list_adfea39831a99661c8ae314a153dfd6d1}} 
+\index{DataToAddList$<$ T $>$@{DataToAddList$<$ T $>$}!getSize@{getSize}}
+\index{getSize@{getSize}!DataToAddList$<$ T $>$@{DataToAddList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+size\+\_\+t \mbox{\hyperlink{class_data_to_add_list}{Data\+To\+Add\+List}}$<$ T $>$\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+The current size of the buffer (always \texorpdfstring{$<$}{<}= depth). 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{datatoaddlist_8h_source_l00070}{70}} of file \mbox{\hyperlink{datatoaddlist_8h_source}{datatoaddlist.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{datatoaddlist_8h}{datatoaddlist.\+h}}\end{DoxyCompactItemize}

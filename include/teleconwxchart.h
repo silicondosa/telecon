@@ -22,20 +22,22 @@ using namespace std;
 
 /**
  * Chart GUI implementation, inherits from wxPanel.
+ * 
+ * This is an implementation class and should not be interacted with directly by the user.
  */
 class TeleconWxChart : public wxPanel {
 public:
 
     /**
-     * Constructor.
-     * 
-     * \param chart
-     * \param parent
-     * \param winid
-     * \param pos
-     * \param size
-     * \param style
-     * \param name
+     * Constructs the chart based on the specification of the provided ::TeleconChart object.
+     *
+     * \param chart a pointer to the ::TeleconChart object representing the chart.
+     * \param parent the wxWidgets parent of this wxPanel.
+     * \param winid the wxWidgets window id of this panel. Not used by this app, so set to wxID_ANY.
+     * \param pos the wxWidgets position of the wxPanel. Left as default.
+     * \param size the wxWidgets size of the wxPanel. Left as default.
+     * \param style the wxWidgets style of the wxPanel. Left as default.
+     * \param name the wxWidgets name of the wxPanel. Not to be confused with the actual title of the chart, as set in ::TeleconChart, which is separate; this value is unused by our app.
      */
     TeleconWxChart(
         shared_ptr<TeleconChart> chart,
@@ -48,32 +50,30 @@ public:
     );
 
     /**
-     * Default deconstructor.
-     * 
+     * Deconstructs the chart.
      */
     ~TeleconWxChart();
 
     /**
-     * Function to redraw the chart if needed.
-     * 
+     * Function to redraw the chart if needed upon timer timeout.
      */
     void OnChartRefreshTimer();
 
     /**
-     * Setter function for play status, used in TeleconWxWindow.
+     * Sets the chart to play values (update).
      */
     void setPlay();
 
     /**
-     * Setter function for pause status, used in TeleconWxWindow.
+     * Sets the chart to stop playing values (freeze).
      */
     void setPause();
 
     /**
      * Helper function that saves the chart as a file, used in TeleconWxWindow.
      * 
-     * \param i which order the current chart is in in its window as int (for user to see)
-     * \param windowName the window name of the chart (for user to see)
+     * \param i the index of the current chart in in its window
+     * \param windowName the name of the parent window of the chart
      */
     void doSave(int i, string windowName);
 

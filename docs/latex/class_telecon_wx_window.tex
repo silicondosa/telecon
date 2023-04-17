@@ -18,9 +18,11 @@ Inheritance diagram for Telecon\+Wx\+Window\+:\begin{figure}[H]
 
 
 \doxysubsection{Detailed Description}
-Window GUI implementation that inherits from Wx\+Frame. 
+Window GUI implementation, inherits from wx\+Frame.
 
-Definition at line \mbox{\hyperlink{teleconwxwindow_8h_source_l00019}{19}} of file \mbox{\hyperlink{teleconwxwindow_8h_source}{teleconwxwindow.\+h}}.
+This is an implementation class and should not be interacted with directly by the user. 
+
+Definition at line \mbox{\hyperlink{teleconwxwindow_8h_source_l00021}{21}} of file \mbox{\hyperlink{teleconwxwindow_8h_source}{teleconwxwindow.\+h}}.
 
 
 
@@ -31,11 +33,11 @@ Definition at line \mbox{\hyperlink{teleconwxwindow_8h_source_l00019}{19}} of fi
 \doxysubsubsection{\texorpdfstring{TeleconWxWindow()}{TeleconWxWindow()}}
 {\footnotesize\ttfamily Telecon\+Wx\+Window\+::\+Telecon\+Wx\+Window (\begin{DoxyParamCaption}\item[{shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $>$}]{window }\end{DoxyParamCaption})}
 
-Constructor that takes in a \mbox{\hyperlink{class_telecon}{Telecon}} Window pointer.
+Constructs the window based on the specification of the provided \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} object.
 
 
 \begin{DoxyParams}{Parameters}
-{\em window} & shared\+\_\+ptr$<$\+Telecon\+Window$>$ \\
+{\em window} & A pointer to the \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} object representing the window. \\
 \hline
 \end{DoxyParams}
 

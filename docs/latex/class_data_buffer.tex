@@ -24,7 +24,7 @@ void \mbox{\hyperlink{class_data_buffer_a4ae8a35aa51c17729e399d4a12eee94a}{inser
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$typename T$>$\newline
 class Data\+Buffer$<$ T $>$}
-\mbox{\hyperlink{class_data_buffer}{Data\+Buffer}} template used for buffering data from data source to be used in the plots. 
+Header-\/only template class representing a fixed-\/size buffer, used to buffer data for the plots. 
 
 Definition at line \mbox{\hyperlink{databuffer_8h_source_l00012}{12}} of file \mbox{\hyperlink{databuffer_8h_source}{databuffer.\+h}}.
 
@@ -38,16 +38,16 @@ Definition at line \mbox{\hyperlink{databuffer_8h_source_l00012}{12}} of file \m
 {\footnotesize\ttfamily template$<$typename T $>$ \\
 \mbox{\hyperlink{class_data_buffer}{Data\+Buffer}}$<$ T $>$\mbox{\hyperlink{class_data_buffer}{\+::\+Data\+Buffer}} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{depth }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Constructor that takes in depth as parameter.
+Constructs a \mbox{\hyperlink{class_data_buffer}{Data\+Buffer}} with the given maximum size.
 
 
 \begin{DoxyParams}{Parameters}
-{\em depth} & depth of the databuffer \\
+{\em depth} & the depth (maximum size) of the databuffer. \\
 \hline
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{databuffer_8h_source_l00043}{43}} of file \mbox{\hyperlink{databuffer_8h_source}{databuffer.\+h}}.
+Definition at line \mbox{\hyperlink{databuffer_8h_source_l00031}{31}} of file \mbox{\hyperlink{databuffer_8h_source}{databuffer.\+h}}.
 
 
 
@@ -59,14 +59,12 @@ Definition at line \mbox{\hyperlink{databuffer_8h_source_l00043}{43}} of file \m
 {\footnotesize\ttfamily template$<$typename T $>$ \\
 size\+\_\+t \mbox{\hyperlink{class_data_buffer}{Data\+Buffer}}$<$ T $>$\+::depth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-Getter function for buffer depth (m\+\_\+depth).
-
 \begin{DoxyReturn}{Returns}
-the maximum possible size of the buffer(always \texorpdfstring{$>$}{>}= size) 
+The depth (maximum possible size) of the buffer (always \texorpdfstring{$>$}{>}= size). 
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{databuffer_8h_source_l00071}{71}} of file \mbox{\hyperlink{databuffer_8h_source}{databuffer.\+h}}.
+Definition at line \mbox{\hyperlink{databuffer_8h_source_l00067}{67}} of file \mbox{\hyperlink{databuffer_8h_source}{databuffer.\+h}}.
 
 \mbox{\Hypertarget{class_data_buffer_a4ae8a35aa51c17729e399d4a12eee94a}\label{class_data_buffer_a4ae8a35aa51c17729e399d4a12eee94a}} 
 \index{DataBuffer$<$ T $>$@{DataBuffer$<$ T $>$}!insertNewValue@{insertNewValue}}
@@ -75,16 +73,16 @@ Definition at line \mbox{\hyperlink{databuffer_8h_source_l00071}{71}} of file \m
 {\footnotesize\ttfamily template$<$typename T $>$ \\
 void \mbox{\hyperlink{class_data_buffer}{Data\+Buffer}}$<$ T $>$\+::insert\+New\+Value (\begin{DoxyParamCaption}\item[{T}]{new\+Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Function to push back a value into the databuffer.
+Pushes back a value into the databuffer. Will insert the value at the end, dropping the oldest value if need be.
 
 
 \begin{DoxyParams}{Parameters}
-{\em new\+Value} & generic type to push back into the buffer \\
+{\em new\+Value} & value to push back into the buffer. \\
 \hline
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{databuffer_8h_source_l00080}{80}} of file \mbox{\hyperlink{databuffer_8h_source}{databuffer.\+h}}.
+Definition at line \mbox{\hyperlink{databuffer_8h_source_l00077}{77}} of file \mbox{\hyperlink{databuffer_8h_source}{databuffer.\+h}}.
 
 \mbox{\Hypertarget{class_data_buffer_aafd06b02f9db22d3aee7ab46e79e1275}\label{class_data_buffer_aafd06b02f9db22d3aee7ab46e79e1275}} 
 \index{DataBuffer$<$ T $>$@{DataBuffer$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
@@ -93,9 +91,24 @@ Definition at line \mbox{\hyperlink{databuffer_8h_source_l00080}{80}} of file \m
 {\footnotesize\ttfamily template$<$typename T $>$ \\
 T \& \mbox{\hyperlink{class_data_buffer}{Data\+Buffer}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+Index operator, gets the value in buffer at given index at returns it as a reference. In most cases, this should not be used. If possible, prefer constant index operator (for reading) or insert\+New\+Value (for writing).
 
 
-Definition at line \mbox{\hyperlink{databuffer_8h_source_l00044}{44}} of file \mbox{\hyperlink{databuffer_8h_source}{databuffer.\+h}}.
+\begin{DoxyParams}{Parameters}
+{\em index} & index of value to get. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value at index. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_data_buffer_aaabbfb0d9e9b60ed694eca913765bbdf}{Data\+Buffer\+::operator\mbox{[}$\,$\mbox{]}(size\+\_\+t index) const}} 
+
+\mbox{\hyperlink{class_data_buffer_a4ae8a35aa51c17729e399d4a12eee94a}{Data\+Buffer\+::insert\+New\+Value}} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{databuffer_8h_source_l00043}{43}} of file \mbox{\hyperlink{databuffer_8h_source}{databuffer.\+h}}.
 
 \mbox{\Hypertarget{class_data_buffer_aaabbfb0d9e9b60ed694eca913765bbdf}\label{class_data_buffer_aaabbfb0d9e9b60ed694eca913765bbdf}} 
 \index{DataBuffer$<$ T $>$@{DataBuffer$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
@@ -104,7 +117,7 @@ Definition at line \mbox{\hyperlink{databuffer_8h_source_l00044}{44}} of file \m
 {\footnotesize\ttfamily template$<$typename T $>$ \\
 const T \& \mbox{\hyperlink{class_data_buffer}{Data\+Buffer}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-Index operator, gets the value in buffer at given index.
+Constant index operator, gets the value in buffer at given index and returns it as a constant reference.
 
 
 \begin{DoxyParams}{Parameters}
@@ -112,11 +125,11 @@ Index operator, gets the value in buffer at given index.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-value address at index 
+The value at index 
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{databuffer_8h_source_l00054}{54}} of file \mbox{\hyperlink{databuffer_8h_source}{databuffer.\+h}}.
+Definition at line \mbox{\hyperlink{databuffer_8h_source_l00053}{53}} of file \mbox{\hyperlink{databuffer_8h_source}{databuffer.\+h}}.
 
 \mbox{\Hypertarget{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}\label{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}} 
 \index{DataBuffer$<$ T $>$@{DataBuffer$<$ T $>$}!size@{size}}
@@ -125,14 +138,12 @@ Definition at line \mbox{\hyperlink{databuffer_8h_source_l00054}{54}} of file \m
 {\footnotesize\ttfamily template$<$typename T $>$ \\
 size\+\_\+t \mbox{\hyperlink{class_data_buffer}{Data\+Buffer}}$<$ T $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-Getter function for buffer size.
-
 \begin{DoxyReturn}{Returns}
-the current size of the buffer (always \texorpdfstring{$<$}{<}= depth) 
+The current size of the buffer (always \texorpdfstring{$<$}{<}= depth). 
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{databuffer_8h_source_l00062}{62}} of file \mbox{\hyperlink{databuffer_8h_source}{databuffer.\+h}}.
+Definition at line \mbox{\hyperlink{databuffer_8h_source_l00060}{60}} of file \mbox{\hyperlink{databuffer_8h_source}{databuffer.\+h}}.
 
 
 

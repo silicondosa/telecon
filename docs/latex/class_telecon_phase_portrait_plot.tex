@@ -14,6 +14,8 @@ Inheritance diagram for Telecon\+Phase\+Portrait\+Plot\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 virtual void \mbox{\hyperlink{class_telecon_phase_portrait_plot_a23cbe250c74c5cf118e698acc77a56c4}{push\+Data}} (double timestamp, double x\+Data, double y\+Data)=0
+\item 
+virtual shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_line_style}{Line\+Style}} $>$ \mbox{\hyperlink{class_telecon_phase_portrait_plot_a16dcfc05cb2c077744ce1e5a7e783e5e}{get\+Line\+Style}} () const =0
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}}}
 \begin{DoxyCompactItemize}
@@ -22,39 +24,55 @@ virtual size\+\_\+t \mbox{\hyperlink{class_telecon_plot_a582e5ae4fd4923f82956fc3
 \item 
 virtual size\+\_\+t \mbox{\hyperlink{class_telecon_plot_a531aaccd7cd6f98e32c1a315900b5c49}{depth}} () const =0
 \item 
-virtual int \mbox{\hyperlink{class_telecon_plot_ae573ed05240f7e135a50ef0ee632a6bb}{get\+Color}} () const =0
-\item 
 virtual const string \mbox{\hyperlink{class_telecon_plot_ab8c7d77c2ab3091765bf560f29306d7e}{get\+Plot\+Title}} () const =0
 \item 
-virtual bool \mbox{\hyperlink{class_telecon_plot_a24f3e2d92ad1cddfa3d50be3685cb100}{is\+Symbol\+Filled}} () const =0
+virtual shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} $>$ \mbox{\hyperlink{class_telecon_plot_ab754dc0b368eef40072b1aedfd3bf434}{get\+Symbol\+Style}} () const =0
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
 \item 
-virtual int \mbox{\hyperlink{class_telecon_plot_a639cf9cda48ed159e59c7035a72ec386}{get\+Symbol}} () const =0
+static const \mbox{\hyperlink{class_line_style}{Line\+Style}} \mbox{\hyperlink{class_telecon_phase_portrait_plot_a8627e24e0d391f481214f2bfc6376dce}{default\+Line\+Style}} = \mbox{\hyperlink{class_line_style}{Line\+Style}}()
 \item 
-virtual int \mbox{\hyperlink{class_telecon_plot_aaf214d96bec86cd37efb445cdd999539}{get\+Symbol\+Size}} () const =0
+static const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \mbox{\hyperlink{class_telecon_phase_portrait_plot_abe7debbf503b15449257dca1dca932f0}{default\+Symbol\+Style}} = \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}}(\mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40ba99f28de5afd5242b9ffdd1dbc7b4daf4}{SYMBOL\+\_\+\+SQUARE}})
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+The user-\/level interface for interacting with temporal phase portraits. A temporal phase portrait is a sequence of 3-\/dimensional points that consist of a timestamp and two values, displayed on the x-\/ and y-\/axes. The points may be connected by a line (by default they are), and represented with a symbol (by the default they are). 
 
-
-Definition at line \mbox{\hyperlink{teleconphaseportraitplot_8h_source_l00005}{5}} of file \mbox{\hyperlink{teleconphaseportraitplot_8h_source}{teleconphaseportraitplot.\+h}}.
+Definition at line \mbox{\hyperlink{teleconphaseportraitplot_8h_source_l00011}{11}} of file \mbox{\hyperlink{teleconphaseportraitplot_8h_source}{teleconphaseportraitplot.\+h}}.
 
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_telecon_phase_portrait_plot_a16dcfc05cb2c077744ce1e5a7e783e5e}\label{class_telecon_phase_portrait_plot_a16dcfc05cb2c077744ce1e5a7e783e5e}} 
+\index{TeleconPhasePortraitPlot@{TeleconPhasePortraitPlot}!getLineStyle@{getLineStyle}}
+\index{getLineStyle@{getLineStyle}!TeleconPhasePortraitPlot@{TeleconPhasePortraitPlot}}
+\doxysubsubsection{\texorpdfstring{getLineStyle()}{getLineStyle()}}
+{\footnotesize\ttfamily virtual shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_line_style}{Line\+Style}} $>$ Telecon\+Phase\+Portrait\+Plot\+::get\+Line\+Style (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{class_line_style}{Line\+Style}} representing how the line connecting points (if any) should be displayed. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_telecon_wx_phase_portrait_plot_a2c1d40737bc7369cc893f58889eac53b}{Telecon\+Wx\+Phase\+Portrait\+Plot}}.
+
 \mbox{\Hypertarget{class_telecon_phase_portrait_plot_a23cbe250c74c5cf118e698acc77a56c4}\label{class_telecon_phase_portrait_plot_a23cbe250c74c5cf118e698acc77a56c4}} 
 \index{TeleconPhasePortraitPlot@{TeleconPhasePortraitPlot}!pushData@{pushData}}
 \index{pushData@{pushData}!TeleconPhasePortraitPlot@{TeleconPhasePortraitPlot}}
 \doxysubsubsection{\texorpdfstring{pushData()}{pushData()}}
 {\footnotesize\ttfamily virtual void Telecon\+Phase\+Portrait\+Plot\+::push\+Data (\begin{DoxyParamCaption}\item[{double}]{timestamp,  }\item[{double}]{x\+Data,  }\item[{double}]{y\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-Function to push a single activation data point into the plot at a certain time (x\+Timestamp).
+Function to push a single data point (x\+Data, y\+Data) into the plot at a certain time (timestamp).
 
 
 \begin{DoxyParams}{Parameters}
-{\em x\+Timestamp} & time the data point was generated, in seconds. The exact interpretation of the time will depend on the implementation; the default implementation (wx\+Chart\+Dir) interprets it as seconds since January 1st, year 1. \\
+{\em timestamp} & Time the data point was generated, represented as seconds since an epoch. The epoch used will depend on the implementation; the default implementation (wx\+Chart\+Dir) uses January 1st, year 1. However, since charts display only hours, minutes, and seconds, for short time spans (less than a day), the epoch could be user-\/defined (for example, the beginning of the experiment which is producing data). Data points must be inserted with the timestamps in ascending order (the same order that they were created). \\
 \hline
-{\em is\+Active} & true if the data point is active and should be displayed. If false the data point will not be displayed. \\
+{\em x\+Data} & The x value that will be displayed. \\
+\hline
+{\em y\+Data} & The y value that will be displayed. \\
 \hline
 \end{DoxyParams}
 
@@ -63,6 +81,30 @@ Implemented in \mbox{\hyperlink{class_telecon_wx_phase_portrait_plot_aba3d8f9195
 
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_telecon_phase_portrait_plot_a8627e24e0d391f481214f2bfc6376dce}\label{class_telecon_phase_portrait_plot_a8627e24e0d391f481214f2bfc6376dce}} 
+\index{TeleconPhasePortraitPlot@{TeleconPhasePortraitPlot}!defaultLineStyle@{defaultLineStyle}}
+\index{defaultLineStyle@{defaultLineStyle}!TeleconPhasePortraitPlot@{TeleconPhasePortraitPlot}}
+\doxysubsubsection{\texorpdfstring{defaultLineStyle}{defaultLineStyle}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_line_style}{Line\+Style}} Telecon\+Phase\+Portrait\+Plot\+::default\+Line\+Style = \mbox{\hyperlink{class_line_style}{Line\+Style}}()\hspace{0.3cm}{\ttfamily [static]}}
+
+The default \mbox{\hyperlink{class_line_style}{Line\+Style}} used to represent temporal phase portraits, which is a solid line, of the default color, 5 pixels wide. 
+
+Definition at line \mbox{\hyperlink{teleconphaseportraitplot_8h_source_l00015}{15}} of file \mbox{\hyperlink{teleconphaseportraitplot_8h_source}{teleconphaseportraitplot.\+h}}.
+
+\mbox{\Hypertarget{class_telecon_phase_portrait_plot_abe7debbf503b15449257dca1dca932f0}\label{class_telecon_phase_portrait_plot_abe7debbf503b15449257dca1dca932f0}} 
+\index{TeleconPhasePortraitPlot@{TeleconPhasePortraitPlot}!defaultSymbolStyle@{defaultSymbolStyle}}
+\index{defaultSymbolStyle@{defaultSymbolStyle}!TeleconPhasePortraitPlot@{TeleconPhasePortraitPlot}}
+\doxysubsubsection{\texorpdfstring{defaultSymbolStyle}{defaultSymbolStyle}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} Telecon\+Phase\+Portrait\+Plot\+::default\+Symbol\+Style = \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}}(\mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40ba99f28de5afd5242b9ffdd1dbc7b4daf4}{SYMBOL\+\_\+\+SQUARE}})\hspace{0.3cm}{\ttfamily [static]}}
+
+The default \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} used to represent temporal phase portraits, which is a solid square of the default color, 5 pixels wide. 
+
+Definition at line \mbox{\hyperlink{teleconphaseportraitplot_8h_source_l00017}{17}} of file \mbox{\hyperlink{teleconphaseportraitplot_8h_source}{teleconphaseportraitplot.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/\mbox{\hyperlink{teleconphaseportraitplot_8h}{teleconphaseportraitplot.\+h}}\end{DoxyCompactItemize}
+include/\mbox{\hyperlink{teleconphaseportraitplot_8h}{teleconphaseportraitplot.\+h}}\item 
+src/\mbox{\hyperlink{teleconphaseportrait_8cpp}{teleconphaseportrait.\+cpp}}\end{DoxyCompactItemize}

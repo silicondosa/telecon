@@ -5,9 +5,6 @@
 TeleconWindow::TeleconWindow(std::string title)
 	: m_title(title), m_hasRequestedQuit(false), m_hasQuit(false), m_hasStarted(false) {}
 
-TeleconWindow::TeleconWindow()
-	: TeleconWindow("") {}
-
 void TeleconWindow::requestQuit()
 {
 	m_hasRequestedQuit = true;

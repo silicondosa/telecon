@@ -1,7 +1,7 @@
 var class_telecon_chart =
 [
     [ "TeleconChart", "class_telecon_chart.html#ae0660503fc138e53101ec2abb4271920", null ],
-    [ "getChartXAxisType", "class_telecon_chart.html#a5f2f3541ceb9b18a532e80d8ee805586", null ],
+    [ "getChartXAxisType", "class_telecon_chart.html#a8968d74709f6969e442cba648ef8a3c1", null ],
     [ "getColorSequenceMode", "class_telecon_chart.html#aba46b8cf2bbba5dff77aa8e62d0a9fc6", null ],
     [ "getDefaultXAxisSpan", "class_telecon_chart.html#abfeeb8c29606422ce614a3599e07e198", null ],
     [ "getNextDefaultColor", "class_telecon_chart.html#a6efbe7f200b8bf283e47e60da71d6e45", null ],

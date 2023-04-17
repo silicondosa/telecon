@@ -63,7 +63,7 @@ double TeleconRealtimeChart::getDefaultXAxisSpan()
 	return m_memoryDepthSeconds;
 }
 
-CHART_X_AXIS_TYPE TeleconRealtimeChart::getChartXAxisType()
+ChartXAxisType TeleconRealtimeChart::getChartXAxisType()
 {
 	return CAXT_TIME;
 }

@@ -9,28 +9,35 @@
 \DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00005}\mbox{\hyperlink{class_telecon_data_chart_a0052c34e22f70fbe5c721496b755cfc4}{00005}}\ \mbox{\hyperlink{class_telecon_data_chart_a0052c34e22f70fbe5c721496b755cfc4}{TeleconDataChart::TeleconDataChart}}(\textcolor{keywordtype}{string}\ title,\ \textcolor{keywordtype}{double}\ memoryDepthSeconds,\ \textcolor{keywordtype}{int}\ dataRateMillis,\ \textcolor{keywordtype}{string}\ xLabel,\ \textcolor{keywordtype}{string}\ yLabel,\ \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{ColorSequenceMode}}\ colorSequenceMode)}
 \DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00006}00006\ \ \ \ \ :\ \mbox{\hyperlink{class_telecon_chart}{TeleconChart}}(title,\ memoryDepthSeconds,\ dataRateMillis,\ xLabel,\ yLabel,\ colorSequenceMode)\ \{\}}
 \DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00007}00007\ }
-\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00008}\mbox{\hyperlink{class_telecon_data_chart_aae9087f453838d5742c53c5f0b8f9bec}{00008}}\ shared\_ptr<TeleconPhasePortraitPlot>\ \mbox{\hyperlink{class_telecon_data_chart_aae9087f453838d5742c53c5f0b8f9bec}{TeleconDataChart::addPhasePortraitPlot}}(std::string\ plottitle,\ \textcolor{keywordtype}{long}\ plotcolor,\ \textcolor{keywordtype}{int}\ symbol,\ \textcolor{keywordtype}{bool}\ fillSymbol,\ \textcolor{keywordtype}{int}\ symbolSize,\ \textcolor{keywordtype}{int}\ memoryDepth)}
+\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00008}\mbox{\hyperlink{class_telecon_data_chart_a0cc4e57eb9e364198629ee1e67676732}{00008}}\ shared\_ptr<TeleconPhasePortraitPlot>\ \mbox{\hyperlink{class_telecon_data_chart_a0cc4e57eb9e364198629ee1e67676732}{TeleconDataChart::addPhasePortraitPlot}}(std::string\ plottitle,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_line_style}{LineStyle}}\&\ lineStyle,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_symbol_style}{SymbolStyle}}\&\ symbolStyle,\ \textcolor{keywordtype}{size\_t}\ memoryDepth)}
 \DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00009}00009\ \{}
 \DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00010}00010\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_telecon_chart_af315b4acbdefb53894bd06e78e96e682}{m\_hasStarted}})\ \{}
 \DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00011}00011\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}telecon:\ Telecon\ has\ already\ started,\ plots\ may\ not\ be\ added."{}}\ <<\ endl;}
 \DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ shared\_ptr<TeleconPhasePortraitPlot>();}
 \DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00013}00013\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00014}00014\ \ \ \ \ \textcolor{keywordtype}{long}\ color\ =\ plotcolor\ ==\ \mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a0b8d8b18037efc3cdb5dd0313e7c67dc}{COLOR\_DEFAULT}}\ ?\ \mbox{\hyperlink{class_telecon_chart_a6efbe7f200b8bf283e47e60da71d6e45}{getNextDefaultColor}}()\ :\ plotcolor;}
-\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00015}00015\ \ \ \ \ \textcolor{comment}{//\ The\ plus\ one\ is\ because\ of\ fencepost\ effect:\ in\ ten\ seconds\ (inclusive),\ sampling\ one\ data\ point\ per\ second,\ you\ get\ 11\ data\ points}}
-\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00016}00016\ \ \ \ \ \textcolor{keywordtype}{int}\ depth\ =\ (int)(memoryDepth\ ==\ -\/1\ ?\ \mbox{\hyperlink{class_telecon_chart_aab73cda8ba07aefb2968811c9e5a90a8}{m\_memoryDepthSeconds}}\ /\ (\mbox{\hyperlink{class_telecon_chart_a18e0b8e340d53010e58f4f8120defea1}{m\_dataRateMillis}}\ /\ 1000.0)\ :\ memoryDepth)\ +\ 1;}
-\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00017}00017\ \ \ \ \ shared\_ptr<TeleconPhasePortraitPlot>\ phasePortrait\ =\ make\_shared<TeleconWxPhasePortraitPlot>(plottitle,\ color,\ symbol,\ fillSymbol,\ symbolSize,\ depth);}
-\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00018}00018\ \ \ \ \ \mbox{\hyperlink{class_telecon_chart_ab8e44cc492bc62c52c5cece30e126f0d}{m\_plots}}.push\_back(phasePortrait);}
-\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00019}00019\ \ \ \ \ \textcolor{keywordflow}{return}\ phasePortrait;}
-\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00020}00020\ \}}
-\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00021}00021\ }
-\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00022}\mbox{\hyperlink{class_telecon_data_chart_a1055faa3d0e0b1a488815b082866bf8c}{00022}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_telecon_data_chart_a1055faa3d0e0b1a488815b082866bf8c}{TeleconDataChart::getDefaultXAxisSpan}}()}
-\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00023}00023\ \{}
-\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{return}\ 0.0;}
-\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00025}00025\ \}}
-\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00026}00026\ }
-\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00027}\mbox{\hyperlink{class_telecon_data_chart_a9ae19d71b788ac499c7de363bdd7bfd1}{00027}}\ \mbox{\hyperlink{teleconchart_8h_af187b130538d6f7efc8cbe12cfa5ff4a}{CHART\_X\_AXIS\_TYPE}}\ \mbox{\hyperlink{class_telecon_data_chart_a9ae19d71b788ac499c7de363bdd7bfd1}{TeleconDataChart::getChartXAxisType}}()}
-\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00028}00028\ \{}
-\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{teleconchart_8h_af187b130538d6f7efc8cbe12cfa5ff4aac0533b61af42845647a9973f5e3c8433}{CAXT\_TIME}};}
-\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00030}00030\ \}}
+\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00014}00014\ \ \ \ \ \mbox{\hyperlink{class_line_style}{LineStyle}}\ plotLineStyle(lineStyle);}
+\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00015}00015\ \ \ \ \ \mbox{\hyperlink{class_symbol_style}{SymbolStyle}}\ plotSymbolStyle(symbolStyle);}
+\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00016}00016\ \ \ \ \ \textcolor{keywordflow}{if}\ (lineStyle.\mbox{\hyperlink{class_line_style_a20e3a8fcb73e58d5d38666fda9c1b83b}{getLineColor}}()\ ==\ \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a0b8d8b18037efc3cdb5dd0313e7c67dc}{COLOR\_DEFAULT}})\ \{}
+\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ plotLineStyle.\mbox{\hyperlink{class_line_style_a45ebe5df25155e653987a7ebf8c58d12}{setLineColor}}(\mbox{\hyperlink{class_telecon_chart_a6efbe7f200b8bf283e47e60da71d6e45}{getNextDefaultColor}}());}
+\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00018}00018\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00019}00019\ \ \ \ \ \textcolor{keywordflow}{if}\ (symbolStyle.\mbox{\hyperlink{class_symbol_style_a80ad1d9c9feb5e4c25a23a58bf0c02f0}{getSymbolColor}}()\ ==\ \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a0b8d8b18037efc3cdb5dd0313e7c67dc}{COLOR\_DEFAULT}})\ \{}
+\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ plotSymbolStyle.\mbox{\hyperlink{class_symbol_style_ac388640d601e0506158f7534699e5eb3}{setSymbolColor}}(plotLineStyle.\mbox{\hyperlink{class_line_style_a20e3a8fcb73e58d5d38666fda9c1b83b}{getLineColor}}());}
+\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00021}00021\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00022}00022\ \ \ \ \ \textcolor{comment}{//\ The\ plus\ one\ is\ because\ of\ fencepost\ effect:\ in\ ten\ seconds\ (inclusive),\ sampling\ one\ data\ point\ per\ second,\ you\ get\ 11\ data\ points}}
+\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00023}00023\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ depth\ =\ memoryDepth\ ==\ -\/1\ ?\ (size\_t)(\mbox{\hyperlink{class_telecon_chart_aab73cda8ba07aefb2968811c9e5a90a8}{m\_memoryDepthSeconds}}\ /\ (\mbox{\hyperlink{class_telecon_chart_a18e0b8e340d53010e58f4f8120defea1}{m\_dataRateMillis}}\ /\ 1000.0)\ +\ 1)\ :\ memoryDepth;}
+\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00024}00024\ \ \ \ \ shared\_ptr<TeleconPhasePortraitPlot>\ phasePortrait\ =\ make\_shared<TeleconWxPhasePortraitPlot>(plottitle,\ depth,\ plotLineStyle,\ plotSymbolStyle);}
+\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00025}00025\ \ \ \ \ \mbox{\hyperlink{class_telecon_chart_ab8e44cc492bc62c52c5cece30e126f0d}{m\_plots}}.push\_back(phasePortrait);}
+\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{return}\ phasePortrait;}
+\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00027}00027\ \}}
+\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00029}\mbox{\hyperlink{class_telecon_data_chart_a1055faa3d0e0b1a488815b082866bf8c}{00029}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_telecon_data_chart_a1055faa3d0e0b1a488815b082866bf8c}{TeleconDataChart::getDefaultXAxisSpan}}()}
+\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00030}00030\ \{}
+\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{return}\ 0.0;}
+\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00032}00032\ \}}
+\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00034}\mbox{\hyperlink{class_telecon_data_chart_a75dd30e37d0e1709c0241bdfc050c1d5}{00034}}\ \mbox{\hyperlink{teleconchart_8h_a54534a1398c95ca6d61f6ac68e610b7e}{ChartXAxisType}}\ \mbox{\hyperlink{class_telecon_data_chart_a75dd30e37d0e1709c0241bdfc050c1d5}{TeleconDataChart::getChartXAxisType}}()}
+\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00035}00035\ \{}
+\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{teleconchart_8h_a54534a1398c95ca6d61f6ac68e610b7ea9e15a0f8d03fd9ea0e80dbffd35c2c94}{CAXT\_ARBITRARY}};}
+\DoxyCodeLine{\Hypertarget{telecondatachart_8cpp_source_l00037}00037\ \}}
 
 \end{DoxyCode}

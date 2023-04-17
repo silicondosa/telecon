@@ -7,9 +7,7 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_telecon_window_a9402114ebb3b336b8d57ef79a041d962}{Telecon\+Window}} (std\+::string title)
-\item 
-\mbox{\hyperlink{class_telecon_window_a01542c4987d56c17ad082245b637a960}{Telecon\+Window}} ()
+\mbox{\hyperlink{class_telecon_window_a2bdc5362c99c951052b7dddce2efa859}{Telecon\+Window}} (std\+::string title=\char`\"{}\char`\"{})
 \item 
 void \mbox{\hyperlink{class_telecon_window_a86848112a81a9dfeac71808d107fc0c3}{request\+Quit}} ()
 \item 
@@ -40,39 +38,29 @@ shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ \mbo
 
 
 \doxysubsection{Detailed Description}
-Window implementation that has a title and vector of charts 
+The user-\/level window interface. It describes features such as the title and whether the window is still open. 
 
-Definition at line \mbox{\hyperlink{teleconwindow_8h_source_l00014}{14}} of file \mbox{\hyperlink{teleconwindow_8h_source}{teleconwindow.\+h}}.
+Definition at line \mbox{\hyperlink{teleconwindow_8h_source_l00016}{16}} of file \mbox{\hyperlink{teleconwindow_8h_source}{teleconwindow.\+h}}.
 
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_telecon_window_a9402114ebb3b336b8d57ef79a041d962}\label{class_telecon_window_a9402114ebb3b336b8d57ef79a041d962}} 
+\mbox{\Hypertarget{class_telecon_window_a2bdc5362c99c951052b7dddce2efa859}\label{class_telecon_window_a2bdc5362c99c951052b7dddce2efa859}} 
 \index{TeleconWindow@{TeleconWindow}!TeleconWindow@{TeleconWindow}}
 \index{TeleconWindow@{TeleconWindow}!TeleconWindow@{TeleconWindow}}
-\doxysubsubsection{\texorpdfstring{TeleconWindow()}{TeleconWindow()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily Telecon\+Window\+::\+Telecon\+Window (\begin{DoxyParamCaption}\item[{std\+::string}]{title }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{TeleconWindow()}{TeleconWindow()}}
+{\footnotesize\ttfamily Telecon\+Window\+::\+Telecon\+Window (\begin{DoxyParamCaption}\item[{std\+::string}]{title = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
 
 Constructs a new window element with given title.
 
 
 \begin{DoxyParams}{Parameters}
-{\em title} & \\
+{\em title} & the title displayed on top of the window. \\
 \hline
 \end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
-
-\mbox{\Hypertarget{class_telecon_window_a01542c4987d56c17ad082245b637a960}\label{class_telecon_window_a01542c4987d56c17ad082245b637a960}} 
-\index{TeleconWindow@{TeleconWindow}!TeleconWindow@{TeleconWindow}}
-\index{TeleconWindow@{TeleconWindow}!TeleconWindow@{TeleconWindow}}
-\doxysubsubsection{\texorpdfstring{TeleconWindow()}{TeleconWindow()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily Telecon\+Window\+::\+Telecon\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-Default constructor that creates a window element with a blank title. 
-
-Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
 
 
 
@@ -93,7 +81,7 @@ A pointer to the \mbox{\hyperlink{class_telecon_data_chart}{Telecon\+Data\+Chart
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00067}{67}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00064}{64}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
 
 \mbox{\Hypertarget{class_telecon_window_aaab31256371ead70513e272d2b67677c}\label{class_telecon_window_aaab31256371ead70513e272d2b67677c}} 
 \index{TeleconWindow@{TeleconWindow}!addRealtimeChart@{addRealtimeChart}}
@@ -107,15 +95,15 @@ Adds a realtime chart to the window. Realtime charts have time data on the x-\/a
 \begin{DoxyParams}{Parameters}
 {\em title} & the title displayed above the chart. \\
 \hline
-{\em memory\+Depth\+Seconds} & the default number of seconds for which to store data. This can be overridden on individual plots, but may result in odd spacing if non-\/default values are used. \\
+{\em memory\+Depth\+Seconds} & the default number of seconds for which data will be remembered by plots added to this chart. This default can be overridden manually when a plot is being added. \\
 \hline
-{\em data\+Rate\+Millis} & the rate at which data will be provided to the plots via push\+Data functions. If the actual data rate differs from the value provided here, it will result in spacing issues but no fatal errors. \\
+{\em data\+Rate\+Millis} & the rate at which data will be sent to the plots on the chart. Used only to calculate the starting width of the chart; the actual rate at which data are sent may safely differ. \\
 \hline
-{\em x\+Label} & the label displayed beneath the x-\/axis. \\
+{\em x\+Label} & the label displayed below the x-\/axis. \\
 \hline
 {\em y\+Label} & the label displayed adjacent to the y-\/axis. \\
 \hline
-{\em color\+Sequence\+Mode} & Describes how plots using the default color will be colored. For a full description, see \mbox{\hyperlink{class_telecon_chart_ae0660503fc138e53101ec2abb4271920}{Telecon\+Chart\+::\+Telecon\+Chart}}. \\
+{\em color\+Sequence\+Mode} & describes how plots using the default color will be colored. See \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} for more details. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -123,7 +111,7 @@ A pointer to the \mbox{\hyperlink{class_telecon_realtime_chart}{Telecon\+Realtim
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00053}{53}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
 
 \mbox{\Hypertarget{class_telecon_window_ac5c083d7bbdf47e61e10c3c0034b2e35}\label{class_telecon_window_ac5c083d7bbdf47e61e10c3c0034b2e35}} 
 \index{TeleconWindow@{TeleconWindow}!getChart@{getChart}}
@@ -141,7 +129,7 @@ A pointer to the \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} requeste
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00078}{78}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00075}{75}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
 
 \mbox{\Hypertarget{class_telecon_window_acd7ae4dd6f73c1232e59410a564d60d2}\label{class_telecon_window_acd7ae4dd6f73c1232e59410a564d60d2}} 
 \index{TeleconWindow@{TeleconWindow}!getChartByName@{getChartByName}}
@@ -159,7 +147,7 @@ A pointer to a chart with the given name, or a null pointer if no chart has that
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00088}{88}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00085}{85}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
 
 \mbox{\Hypertarget{class_telecon_window_ab9751dd7c8c1120afb78f8eb54d45611}\label{class_telecon_window_ab9751dd7c8c1120afb78f8eb54d45611}} 
 \index{TeleconWindow@{TeleconWindow}!getNumCharts@{getNumCharts}}
@@ -172,7 +160,7 @@ The number of Telecon\+Charts added to the window.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00083}{83}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00080}{80}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
 
 \mbox{\Hypertarget{class_telecon_window_afc1a1e1a551a06824f4fe2f88b3c296f}\label{class_telecon_window_afc1a1e1a551a06824f4fe2f88b3c296f}} 
 \index{TeleconWindow@{TeleconWindow}!getPlotByName@{getPlotByName}}
@@ -192,7 +180,7 @@ A pointer to a plot with the given name, or a null pointer if no plot in the giv
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00098}{98}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00095}{95}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
 
 \mbox{\Hypertarget{class_telecon_window_ac7c1481d3d53920cfd3fd1df18e2dadb}\label{class_telecon_window_ac7c1481d3d53920cfd3fd1df18e2dadb}} 
 \index{TeleconWindow@{TeleconWindow}!getTitle@{getTitle}}
@@ -201,11 +189,11 @@ Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00098}{98}} of fi
 {\footnotesize\ttfamily std\+::string Telecon\+Window\+::get\+Title (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyReturn}{Returns}
-The title of the window 
+The title displayed on top of the window 
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
 
 \mbox{\Hypertarget{class_telecon_window_a727d3b00dd934cd08b33e483427b501a}\label{class_telecon_window_a727d3b00dd934cd08b33e483427b501a}} 
 \index{TeleconWindow@{TeleconWindow}!hasQuit@{hasQuit}}
@@ -220,7 +208,7 @@ True if the window has been closed, either manually by the user or in response t
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00026}{26}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
 
 \mbox{\Hypertarget{class_telecon_window_af774c0541f883c33cf15c0e3e08ebf40}\label{class_telecon_window_af774c0541f883c33cf15c0e3e08ebf40}} 
 \index{TeleconWindow@{TeleconWindow}!hasRequestedQuit@{hasRequestedQuit}}
@@ -233,7 +221,7 @@ True if request\+Quit has been called, or false otherwise.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
 
 \mbox{\Hypertarget{class_telecon_window_a807b87958ab2b8dafd8aa84f13e5d04e}\label{class_telecon_window_a807b87958ab2b8dafd8aa84f13e5d04e}} 
 \index{TeleconWindow@{TeleconWindow}!initialize@{initialize}}
@@ -241,9 +229,9 @@ Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00016}{16}} of fi
 \doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
 {\footnotesize\ttfamily void Telecon\+Window\+::initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Initializer function. After this has been called, no further changes to the window may be made. This function will be called by the parent \mbox{\hyperlink{class_telecon}{Telecon}} object, and likely should not be called directly by the user. 
+Initializer function. After this has been called, no further changes to the window may be made. This function will be called by the parent \mbox{\hyperlink{class_telecon}{Telecon}} object, and normally should not be called directly by the user. 
 
-Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00048}{48}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
 
 \mbox{\Hypertarget{class_telecon_window_a86848112a81a9dfeac71808d107fc0c3}\label{class_telecon_window_a86848112a81a9dfeac71808d107fc0c3}} 
 \index{TeleconWindow@{TeleconWindow}!requestQuit@{requestQuit}}
@@ -251,9 +239,9 @@ Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00048}{48}} of fi
 \doxysubsubsection{\texorpdfstring{requestQuit()}{requestQuit()}}
 {\footnotesize\ttfamily void Telecon\+Window\+::request\+Quit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Requests that the given window should be closed. On the next chart refresh, the implementation should close the window. 
+Requests that the given window should be closed. On the next chart refresh, the app\textquotesingle{}s implementation should close the window. 
 
-Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
 
 \mbox{\Hypertarget{class_telecon_window_a04702615f238323fed9c4e8ad7182130}\label{class_telecon_window_a04702615f238323fed9c4e8ad7182130}} 
 \index{TeleconWindow@{TeleconWindow}!setHasQuit@{setHasQuit}}
@@ -263,7 +251,7 @@ Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00011}{11}} of fi
 
 Indicates that the given window has been closed, either manually by the user or in response to request\+Quit. This function will be called by the implementation; it should never be called directly by the user. 
 
-Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
 
 \mbox{\Hypertarget{class_telecon_window_a53eb0df50cc63f31ee05edef1a3ae0ba}\label{class_telecon_window_a53eb0df50cc63f31ee05edef1a3ae0ba}} 
 \index{TeleconWindow@{TeleconWindow}!waitUntilQuit@{waitUntilQuit}}
@@ -273,7 +261,7 @@ Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00021}{21}} of fi
 
 Blocks the calling thread until this window has been closed (i.\+e. has\+Quit returns true). 
 
-Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
 
 
 

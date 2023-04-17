@@ -10,7 +10,8 @@
 #include "telecondatachart.h"
 
 /**
- * Window implementation that has a title and vector of charts
+ * The user-level window interface.
+ * It describes features such as the title and whether the window is still open.
  */
 class TeleconWindow {
 private:
@@ -28,18 +29,12 @@ public:
 	/**
 	 * Constructs a new window element with given title.
 	 * 
-	 * \param title
+	 * \param title the title displayed on top of the window.
 	 */
-	TeleconWindow(std::string title);
+	TeleconWindow(std::string title = "");
 
 	/**
-	 * Default constructor that creates a window element with a blank title.
-	 * 
-	 */
-	TeleconWindow();
-
-	/**
-	 * Requests that the given window should be closed. On the next chart refresh, the implementation should close the window.
+	 * Requests that the given window should be closed. On the next chart refresh, the app's implementation should close the window.
 	 * 
 	 */
 	void requestQuit();
@@ -65,19 +60,17 @@ public:
 
 	/**
 	 * Blocks the calling thread until this window has been closed (i.e. hasQuit returns true).
-	 * 
 	 */
 	void waitUntilQuit();
 
 	/**
-	 * \return The title of the window
+	 * \return The title displayed on top of the window
 	 */
 	std::string getTitle();
 
 	/**
 	 * Initializer function. After this has been called, no further changes to the window may be made.
-     * This function will be called by the parent Telecon object, and likely should not be called directly by the user.
-	 * 
+     * This function will be called by the parent Telecon object, and normally should not be called directly by the user.
 	 */
     void initialize();
 
@@ -87,13 +80,14 @@ public:
      * Charts will be displayed in the order added, from top to bottom.
      * 
      * \param title the title displayed above the chart.
-     * \param memoryDepthSeconds the default number of seconds for which to store data.
-     * This can be overridden on individual plots, but may result in odd spacing if non-default values are used.
-     * \param dataRateMillis the rate at which data will be provided to the plots via pushData functions.
-     * If the actual data rate differs from the value provided here, it will result in spacing issues but no fatal errors.
-     * \param xLabel the label displayed beneath the x-axis.
+     * \param memoryDepthSeconds the default number of seconds for which data will be remembered by plots added to this chart.
+     * This default can be overridden manually when a plot is being added.
+     * \param dataRateMillis the rate at which data will be sent to the plots on the chart.
+     * Used only to calculate the starting width of the chart; the actual rate at which data are sent may safely differ.
+     * \param xLabel the label displayed below the x-axis.
      * \param yLabel the label displayed adjacent to the y-axis.
-     * \param colorSequenceMode Describes how plots using the default color will be colored. For a full description, see TeleconChart::TeleconChart.
+     * \param colorSequenceMode describes how plots using the default color will be colored.
+     * See ::ColorSequenceMode for more details.
      * \return A pointer to the TeleconRealtimeChart object created.
      */
 	shared_ptr<TeleconRealtimeChart> addRealtimeChart(std::string title = "", double memoryDepthSeconds = 60.0, int dataRateMillis = 100, std::string xLabel = "", std::string yLabel = "", ColorSequenceMode colorSequenceMode = CSM_BLACK);

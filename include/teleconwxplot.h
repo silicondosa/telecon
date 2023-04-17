@@ -13,17 +13,44 @@
 using namespace std;
 
 /**
- * Plot GUI that inherits from TeleconPlot.
+ * Plot GUI implementation, inherits from TeleconPlot.
+ * 
+ * This is an implementation class and should not be interacted with directly by the user.
  */
 class TeleconWxPlot : virtual public TeleconPlot {
 protected:
+    /** The depth (maximum size) of the plot. */
     const size_t m_depth;
+    /** The title of the plot, as displayed in the legend. */
 	string m_plotTitle;
+    /** The ::SymbolStyle representing how the symbol representing points (if any) should be displayed. */
     shared_ptr<SymbolStyle> m_symbolStyle;
 
+    /** Helper function to extract the ChartDirector representation of a symbol from the Telecon representation of a symbol. */
     static int getChartDirSymbolFromPlotSymbol(PlotSymbol symbol);
 public:
+    /**
+     * Helper function to enable code reuse for similar plots which involve both a symbol and a line.
+     * 
+     * \param chart the chart to which to draw the plot.
+     * \param plotTitle the title of the plot, as displayed in the legend.
+     * \param includeInLegend if true, the given plot will be included in the legend.
+     * \param xArray an array of the x-values of the data points.
+     * \param yArray an array of the y-values of the data points.
+     * \param lineStyle describes how the line connecting the data points (if any) should be displayed.
+     * \param symbolStyle describes how the symbol representing the data points (if any) should be displayed.
+     */
     static void addLinePlotToChart(XYChart* chart, string plotTitle, bool includeInLegend, DoubleArray xArray, DoubleArray yArray, shared_ptr<const LineStyle> lineStyle, shared_ptr<const SymbolStyle> symbolStyle);
+    /**
+     * Helper function to enable code reuse for similar plots which involve only a symbol.
+     *
+     * \param chart the chart to which to draw the plot.
+     * \param plotTitle the title of the plot, as displayed in the legend.
+     * \param includeInLegend if true, the given plot will be included in the legend.
+     * \param xArray an array of the x-values of the data points.
+     * \param yArray an array of the y-values of the data points.
+     * \param symbolStyle describes how the symbol representing the data points (if any) should be displayed.
+     */
     static void addScatterPlotToChart(XYChart* chart, string plotTitle, bool includeInLegend, DoubleArray xArray, DoubleArray yArray, shared_ptr<const SymbolStyle> symbolStyle);
 
 	/**
@@ -37,62 +64,55 @@ public:
 	/* TeleconWxPlot interface functions*/
 
 	/**
-	 * Fetches all data out of the controller threadand adds it to make it visible to UI thread.
-	 * 
+	 * Fetches all data out of the controller thread and adds it to make it visible to UI thread.
+	 * Should be called before drawing the plot with TeleconWxPlot::addToChart.
 	 */
     virtual void prepDataForDraw() = 0;
 
     /**
-     * Adds a layer representing the plot to the given chart.
+     * Draws this plot to the given chart.
      * 
-     * \param chart of type XYChart* 
+     * \param chart The chart to which to draw this plot.
      */
 	virtual void addToChart(XYChart* chart) = 0;
 
 	/**
 	 * Getter function for left most x.
 	 * 
-	 * \return left most x value as double
+	 * \return Left most x-value, which may be based either on the timestamp or on the x-data, depending on the type of the plot.
 	 */
     virtual double getLeftmostX() const = 0;
 
-	/**
-	 * Getter function for right most x.
-	 * 
-	 * \return right most x value as a double
-	 */
+    /**
+     * Getter function for right most x.
+     *
+     * \return Right most x-value, which may be based either on the timestamp or on the x-data, depending on the type of the plot.
+     */
     virtual double getRightmostX() const = 0;
 
 	/**
-	 * Getter function for latest value.
-	 * 
-	 * \return latest value as a string
+	 * \return A string representation of the latest value added to the plot, including only the actual data, not the timestamp.
 	 */
     virtual string getLatestValueString() const = 0;
 
 	/**
-	 * Helper function to know if the plot is included in the legend.
-	 * 
-	 * \return included in legend status as bool
+	 * \return True if this plot should be included in the legend, or false otherwise.
 	 */
     virtual bool isIncludedInLegend() const = 0;
 
-    /* Functions inherited from TeleconPlot */
-
-    // Inherited via TeleconRasterPlot
 	/**
-	 * size() remains abstract.
-	 * 
-	 * \return depth of type size_t
-	 */
+	 * \return The depth (maximum size) of the plot.
+     * \note TeleconPlot::size remains abstract.
+     */
 	virtual size_t depth() const override;
 
 	/**
-	 * Getter function for plot title.
-	 * 
-	 * \return title as string
+	 * \return The title of the plot, as displayed in the legend.
 	 */
 	virtual const string getPlotTitle() const override;
 
+    /**
+     * \return The ::SymbolStyle representing how the symbol representing points (if any) should be displayed.
+     */
     virtual shared_ptr<const SymbolStyle> getSymbolStyle() const;
 };

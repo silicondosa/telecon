@@ -15,77 +15,72 @@ struct ScatterPlotDataPoint
 };
 
 /**
- * Scatter plot and GUI implementation, inherits from TeleconWxPlotXY and TeleconScatterPlot.
+ * Scatter plot GUI implementation.
+ *
+ * This is an implementation class and should not be interacted with directly by the user.
  */
 class TeleconWxScatterPlot : public TeleconWxPlot, virtual public TeleconScatterPlot {
 protected:
-    // XY Data member values
+    /** The data to be added to the plot upon the next update. */
     DataToAddList<ScatterPlotDataPoint> m_dataToAdd;
+    /** The timestamps of the data points that have been added to the plot. */
     DataBuffer<double> m_xTimestamps;
+    /** The data of the data points that have been added to the plot. */
     DataBuffer<double> m_yData;
 public:
 
-	/**
-	 * Constructor that creates a scatter plot object.
-	 * 
-	 * \param plotTitle title of the plot as string
-	 * \param color color of the plot line as int (enum)
-	 * \param symbol symbol type of the plot as int (enum)
-	 * \param fillSymbol whether or not the plot line is filled or dotted as bool
-	 * \param symbolSize symbol size as an int
-	 * \param depth depth of the internal buffer as int
-	 */
+    /**
+     * Constructs a scatter plot object.
+     *
+     * \param plotTitle the title of the plot, as displayed in the legend.
+     * \param depth the depth (maximum size) of the plot. Always >= size.
+     * \param symbolStyle the ::SymbolStyle representing how the symbol representing points (if any) should be displayed.
+     */
 	TeleconWxScatterPlot(string plotTitle, size_t depth, const SymbolStyle& symbolStyle);
 
     // Inherited via TeleconWxPlot
     /**
-     * Fetches all data out of the controller threadand adds it to make it visible to UI thread.
-     *
+     * \copydoc TeleconWxPlot::prepDataForDraw
      */
     virtual void prepDataForDraw() override;
 
     /**
-     * Adds a layer representing the plot to the given chart.
-     *
-     * \param chart of type XYChart*
+     * \copydoc TeleconWxPlot::addToChart
      */
     virtual void addToChart(XYChart* chart) override;
 
     /**
-     * Getter function for left most x.
+     * \copydoc TeleconWxPlot::getLeftmostX
      *
-     * \return left most x value as double
+     * For line plots, returns the oldest timestamp.
      */
     virtual double getLeftmostX() const override;
 
     /**
-     * Getter function for right most x.
+     * \copydoc TeleconWxPlot::getRightmostX
      *
-     * \return right most x value as a double
+     * For line plots, returns the newest timestamp.
      */
     virtual double getRightmostX() const override;
 
     /**
-     * Getter function for latest value.
-     *
-     * \return latest value as a string
+     * \copydoc TeleconWxPlot::getLatestValueString
      */
     virtual string getLatestValueString() const override;
 
     /**
-     * Helper function to know if the plot is included in the legend.
-     *
-     * \return included in legend status as bool
+     * \copydoc TeleconWxPlot::isIncludedInLegend
      */
     virtual bool isIncludedInLegend() const override;
 
+    // Inherited via TeleconScatterPlot
     /**
-     * Getter funcction for size of the plot.
-     *
-     * \return size of the plot as type size_t
+     * \copydoc TeleconPlot::size
      */
     virtual size_t size() const override;
 
-    // Inherited via TeleconScatterPlot
+    /**
+     * \copydoc TeleconScatterPlot::pushData
+     */
     virtual void pushData(double xTimestamp, double yData) override;
 };

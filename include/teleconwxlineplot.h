@@ -8,91 +8,91 @@
 // We perform diamond inheritance, which can cause issues, but the way we do it is safe (only one definition for each function)
 # pragma warning( disable : 4250)
 
+/** Helper struct for the data-to-add list */
 struct LinePlotDataPoint
 {
+    /** The timestamp at which the data point was created, described in TeleconLinePlot::pushData */
     double xTimestamp;
+    /** The data carried by the data point */
     double yData;
 };
 
 /**
- * Line Plot and GUI implementation, inherits from TeleconWxPlotXY and TeleconLinePlot.
+ * Line plot GUI implementation.
+ * 
+ * This is an implementation class and should not be interacted with directly by the user.
  */
 class TeleconWxLinePlot : public TeleconWxPlot, virtual public TeleconLinePlot {
 protected:
+    /** The data to be added to the plot upon the next update. */
     DataToAddList<LinePlotDataPoint> m_dataToAdd;
+    /** The timestamps of the data points that have been added to the plot. */
     DataBuffer<double> m_xTimestamps;
+    /** The data of the data points that have been added to the plot. */
     DataBuffer<double> m_yData;
 
+    /** The ::LineStyle representing how the line connecting points (if any) should be displayed. */
     shared_ptr<LineStyle> m_lineStyle;
 public:
 
 	/**
-	 * Constructor that creates a line plot object.
+	 * Constructs a line plot object.
 	 *
-	 * \param plotTitle title of the plot as string
-	 * \param color color of the plot as int (enum)
-	 * \param lineWidth width of the plot line as int
-	 * \param lineType the type of the plot line as type LineType
-	 * \param hasSymbol whether the plot has a symbol or not as bool
-	 * \param symbol symbol type as int (enum)
-	 * \param fillSymbol whether or not the plot line is filled or dotted as bool
-	 * \param symbolSize symbol size as an int
-	 * \param depth depth of the internal buffer as int
+	 * \param plotTitle the title of the plot, as displayed in the legend.
+	 * \param depth the depth (maximum size) of the plot. Always >= size.
+	 * \param lineStyle the ::LineStyle representing how the line connecting points (if any) should be displayed.
+	 * \param symbolStyle the ::SymbolStyle representing how the symbol representing points (if any) should be displayed.
 	 */
 	TeleconWxLinePlot(string plotTitle, size_t depth, const LineStyle& lineStyle, const SymbolStyle& symbolStyle);
 
     // Inherited via TeleconWxPlot
     /**
-     * Fetches all data out of the controller threadand adds it to make it visible to UI thread.
-     *
+     * \copydoc TeleconWxPlot::prepDataForDraw
      */
     virtual void prepDataForDraw() override;
 
     /**
-     * Adds a layer representing the plot to the given chart.
-     *
-     * \param chart of type XYChart*
+     * \copydoc TeleconWxPlot::addToChart
      */
     virtual void addToChart(XYChart* chart) override;
 
     /**
-     * Getter function for left most x.
-     *
-     * \return left most x value as double
+     * \copydoc TeleconWxPlot::getLeftmostX
+     * 
+     * For line plots, returns the oldest timestamp.
      */
     virtual double getLeftmostX() const override;
 
     /**
-     * Getter function for right most x.
+     * \copydoc TeleconWxPlot::getRightmostX
      *
-     * \return right most x value as a double
+     * For line plots, returns the newest timestamp.
      */
     virtual double getRightmostX() const override;
 
     /**
-     * Getter function for latest value.
-     *
-     * \return latest value as a string
+     * \copydoc TeleconWxPlot::getLatestValueString
      */
     virtual string getLatestValueString() const override;
 
     /**
-     * Helper function to know if the plot is included in the legend.
-     *
-     * \return included in legend status as bool
+     * \copydoc TeleconWxPlot::isIncludedInLegend
      */
     virtual bool isIncludedInLegend() const override;
 
+    // Inherited via TeleconLinePlot
     /**
-     * Getter funcction for size of the plot.
-     *
-     * \return size of the plot as type size_t
+     * \copydoc TeleconPlot::size
      */
     virtual size_t size() const override;
 
-    // Inherited via TeleconScatterPlot
+    /**
+     * \copydoc TeleconLinePlot::pushData
+     */
     virtual void pushData(double xTimestamp, double yData) override;
 
-    // Inherited via TeleconLinePlot
+    /**
+     * \copydoc TeleconLinePlot::getLineStyle
+     */
     virtual shared_ptr<const LineStyle> getLineStyle() const override;
 };

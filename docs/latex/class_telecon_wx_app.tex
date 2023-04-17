@@ -20,9 +20,13 @@ bool \mbox{\hyperlink{class_telecon_wx_app_a398c3c7d17f011c4488f2600da3aa9e2}{On
 
 
 \doxysubsection{Detailed Description}
-Main GUI for telecon object, inherits from wx\+App. Contains a vector of Telecon\+Wx\+Windows (m\+\_\+frames) 
+Main GUI for telecon object, inherits from wx\+App. Holds references to all subsections of the app, such as Telecon\+Wx\+Windows.
 
-Definition at line \mbox{\hyperlink{teleconwxapp_8h_source_l00018}{18}} of file \mbox{\hyperlink{teleconwxapp_8h_source}{teleconwxapp.\+h}}.
+As opposed to \mbox{\hyperlink{class_telecon}{Telecon}}, this object is an {\itshape implementation} of the data described in \mbox{\hyperlink{class_telecon}{Telecon}} and related objects. It is created automatically by \mbox{\hyperlink{class_telecon}{Telecon}}, and should not be interacted with directly by the user.
+
+This class, and all classes starting with the prefix Telecon\+Wx, are wx\+Chart\+Dir-\/based implementations of charts and plots. In the future, \mbox{\hyperlink{class_telecon}{Telecon}} may support other implementations using other frameworks, which would use the same user-\/level objects to interact (such as \mbox{\hyperlink{class_telecon}{Telecon}}, \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}}, \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}}, and \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}}). 
+
+Definition at line \mbox{\hyperlink{teleconwxapp_8h_source_l00026}{26}} of file \mbox{\hyperlink{teleconwxapp_8h_source}{teleconwxapp.\+h}}.
 
 
 
@@ -33,11 +37,11 @@ Definition at line \mbox{\hyperlink{teleconwxapp_8h_source_l00018}{18}} of file 
 \doxysubsubsection{\texorpdfstring{TeleconWxApp()}{TeleconWxApp()}}
 {\footnotesize\ttfamily Telecon\+Wx\+App\+::\+Telecon\+Wx\+App (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_telecon}{Telecon}} $\ast$}]{telecon }\end{DoxyParamCaption})}
 
-Constructor that takes in a telecon object pointer.
+Constructs the app based on the specification of the provided \mbox{\hyperlink{class_telecon}{Telecon}} object.
 
 
 \begin{DoxyParams}{Parameters}
-{\em telecon} & type Telecon$\ast$ \\
+{\em telecon} & A pointer to the \mbox{\hyperlink{class_telecon}{Telecon}} object representing the app. \\
 \hline
 \end{DoxyParams}
 
@@ -53,10 +57,10 @@ Definition at line \mbox{\hyperlink{teleconwxapp_8cpp_source_l00003}{3}} of file
 \doxysubsubsection{\texorpdfstring{OnInit()}{OnInit()}}
 {\footnotesize\ttfamily bool Telecon\+Wx\+App\+::\+On\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
 
-Initialization function that overrides wx\+App\textquotesingle{}s \mbox{\hyperlink{class_telecon_wx_app_a398c3c7d17f011c4488f2600da3aa9e2}{On\+Init()}} function.
+Initializes the app, adding windows according to the specifications of the \mbox{\hyperlink{class_telecon}{Telecon}} object.
 
 \begin{DoxyReturn}{Returns}
-true after done initializing 
+True (initialization completed successfully). 
 \end{DoxyReturn}
 
 

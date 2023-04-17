@@ -97,120 +97,116 @@ $(document).ready(function(){initNavTree('teleconwindow_8cpp_source.html',''); i
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="class_telecon_window.html#a9402114ebb3b336b8d57ef79a041d962">    5</a></span><a class="code hl_function" href="class_telecon_window.html#a01542c4987d56c17ad082245b637a960">TeleconWindow::TeleconWindow</a>(std::string title)</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="class_telecon_window.html#a2bdc5362c99c951052b7dddce2efa859">    5</a></span><a class="code hl_function" href="class_telecon_window.html#a2bdc5362c99c951052b7dddce2efa859">TeleconWindow::TeleconWindow</a>(std::string title)</div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    : m_title(title), m_hasRequestedQuit(false), m_hasQuit(false), m_hasStarted(false) {}</div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_telecon_window.html#a01542c4987d56c17ad082245b637a960">    8</a></span><a class="code hl_function" href="class_telecon_window.html#a01542c4987d56c17ad082245b637a960">TeleconWindow::TeleconWindow</a>()</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    : <a class="code hl_class" href="class_telecon_window.html">TeleconWindow</a>(<span class="stringliteral">&quot;&quot;</span>) {}</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="class_telecon_window.html#a86848112a81a9dfeac71808d107fc0c3">   11</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_telecon_window.html#a86848112a81a9dfeac71808d107fc0c3">TeleconWindow::requestQuit</a>()</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    m_hasRequestedQuit = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>}</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_telecon_window.html#af774c0541f883c33cf15c0e3e08ebf40">   16</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_telecon_window.html#af774c0541f883c33cf15c0e3e08ebf40">TeleconWindow::hasRequestedQuit</a>()</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordflow">return</span> m_hasRequestedQuit;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>}</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="class_telecon_window.html#a04702615f238323fed9c4e8ad7182130">   21</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_telecon_window.html#a04702615f238323fed9c4e8ad7182130">TeleconWindow::setHasQuit</a>()</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    std::unique_lock lock(m_hasQuitLock);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    m_hasQuit = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    lock.unlock();</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    m_hasQuitCV.notify_all();</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>}</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_telecon_window.html#a727d3b00dd934cd08b33e483427b501a">   29</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_telecon_window.html#a727d3b00dd934cd08b33e483427b501a">TeleconWindow::hasQuit</a>()</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>{</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    std::lock_guard lock(m_hasQuitLock);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">return</span> m_hasQuit;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="class_telecon_window.html#a53eb0df50cc63f31ee05edef1a3ae0ba">   35</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_telecon_window.html#a53eb0df50cc63f31ee05edef1a3ae0ba">TeleconWindow::waitUntilQuit</a>()</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    std::unique_lock lock(m_hasQuitLock);</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordflow">while</span> (!m_hasQuit) {</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        m_hasQuitCV.wait(lock);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    }</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="class_telecon_window.html#ac7c1481d3d53920cfd3fd1df18e2dadb">   43</a></span>std::string <a class="code hl_function" href="class_telecon_window.html#ac7c1481d3d53920cfd3fd1df18e2dadb">TeleconWindow::getTitle</a>()</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>{</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordflow">return</span> m_title;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>}</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="class_telecon_window.html#a807b87958ab2b8dafd8aa84f13e5d04e">   48</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_telecon_window.html#a807b87958ab2b8dafd8aa84f13e5d04e">TeleconWindow::initialize</a>()</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>{</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    m_hasStarted = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; chart : m_charts) {</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        chart-&gt;initialize();</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>}</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="class_telecon_window.html#aaab31256371ead70513e272d2b67677c">   56</a></span>shared_ptr&lt;TeleconRealtimeChart&gt; <a class="code hl_function" href="class_telecon_window.html#aaab31256371ead70513e272d2b67677c">TeleconWindow::addRealtimeChart</a>(std::string title, <span class="keywordtype">double</span> memoryDepthSeconds, <span class="keywordtype">int</span> dataRateMillis, std::string xLabel, std::string yLabel, <a class="code hl_enumeration" href="colors_8h.html#a8160ef72c1dba53251eb9ad02be83c38">ColorSequenceMode</a> colorSequenceMode)</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>{</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordflow">if</span> (m_hasStarted) {</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        cout &lt;&lt; <span class="stringliteral">&quot;telecon: Telecon has already started, charts may not be added.&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordflow">return</span> shared_ptr&lt;TeleconRealtimeChart&gt;();</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    }</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    shared_ptr&lt;TeleconRealtimeChart&gt; chart = make_shared&lt;TeleconRealtimeChart&gt;(title, memoryDepthSeconds, dataRateMillis, xLabel, yLabel, colorSequenceMode);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    m_charts.push_back(chart);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordflow">return</span> chart;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>}</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="class_telecon_window.html#ac51bdc921ccc978c97934b7d5ecd6153">   67</a></span>shared_ptr&lt;TeleconDataChart&gt; <a class="code hl_function" href="class_telecon_window.html#ac51bdc921ccc978c97934b7d5ecd6153">TeleconWindow::addDataChart</a>(std::string title, <span class="keywordtype">double</span> memoryDepthSeconds, <span class="keywordtype">int</span> dataRateMillis, std::string xLabel, std::string yLabel, <a class="code hl_enumeration" href="colors_8h.html#a8160ef72c1dba53251eb9ad02be83c38">ColorSequenceMode</a> colorSequenceMode)</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>{</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordflow">if</span> (m_hasStarted) {</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        cout &lt;&lt; <span class="stringliteral">&quot;telecon: Telecon has already started, charts may not be added.&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">return</span> shared_ptr&lt;TeleconDataChart&gt;();</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    }</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    shared_ptr&lt;TeleconDataChart&gt; chart = make_shared&lt;TeleconDataChart&gt;(title, memoryDepthSeconds, dataRateMillis, xLabel, yLabel, colorSequenceMode);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    m_charts.push_back(chart);</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordflow">return</span> chart;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>}</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="class_telecon_window.html#ac5c083d7bbdf47e61e10c3c0034b2e35">   78</a></span>shared_ptr&lt;TeleconChart&gt; <a class="code hl_function" href="class_telecon_window.html#ac5c083d7bbdf47e61e10c3c0034b2e35">TeleconWindow::getChart</a>(<span class="keywordtype">size_t</span> index)</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>{</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordflow">return</span> m_charts[index];</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>}</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="class_telecon_window.html#ab9751dd7c8c1120afb78f8eb54d45611">   83</a></span><span class="keywordtype">size_t</span> <a class="code hl_function" href="class_telecon_window.html#ab9751dd7c8c1120afb78f8eb54d45611">TeleconWindow::getNumCharts</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordflow">return</span> m_charts.size();</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="class_telecon_window.html#acd7ae4dd6f73c1232e59410a564d60d2">   88</a></span>shared_ptr&lt;TeleconChart&gt; <a class="code hl_function" href="class_telecon_window.html#acd7ae4dd6f73c1232e59410a564d60d2">TeleconWindow::getChartByName</a>(<span class="keywordtype">string</span> name)</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>{</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> chart : m_charts) {</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keywordflow">if</span> (name.compare(chart-&gt;getTitle()) == 0) {</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            <span class="keywordflow">return</span> chart;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        }</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    }</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>}</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="class_telecon_window.html#afc1a1e1a551a06824f4fe2f88b3c296f">   98</a></span>shared_ptr&lt;TeleconPlot&gt; <a class="code hl_function" href="class_telecon_window.html#afc1a1e1a551a06824f4fe2f88b3c296f">TeleconWindow::getPlotByName</a>(<span class="keywordtype">string</span> chartName, <span class="keywordtype">string</span> plotName)</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>{</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    shared_ptr&lt;TeleconChart&gt; chart = <a class="code hl_function" href="class_telecon_window.html#acd7ae4dd6f73c1232e59410a564d60d2">getChartByName</a>(chartName);</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordflow">return</span> chart == <span class="keyword">nullptr</span> ? nullptr : chart-&gt;getPlotByName(plotName);</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>}</div>
-<div class="ttc" id="aclass_telecon_window_html"><div class="ttname"><a href="class_telecon_window.html">TeleconWindow</a></div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8h_source.html#l00014">teleconwindow.h:14</a></div></div>
-<div class="ttc" id="aclass_telecon_window_html_a01542c4987d56c17ad082245b637a960"><div class="ttname"><a href="class_telecon_window.html#a01542c4987d56c17ad082245b637a960">TeleconWindow::TeleconWindow</a></div><div class="ttdeci">TeleconWindow()</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00008">teleconwindow.cpp:8</a></div></div>
-<div class="ttc" id="aclass_telecon_window_html_a04702615f238323fed9c4e8ad7182130"><div class="ttname"><a href="class_telecon_window.html#a04702615f238323fed9c4e8ad7182130">TeleconWindow::setHasQuit</a></div><div class="ttdeci">void setHasQuit()</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00021">teleconwindow.cpp:21</a></div></div>
-<div class="ttc" id="aclass_telecon_window_html_a53eb0df50cc63f31ee05edef1a3ae0ba"><div class="ttname"><a href="class_telecon_window.html#a53eb0df50cc63f31ee05edef1a3ae0ba">TeleconWindow::waitUntilQuit</a></div><div class="ttdeci">void waitUntilQuit()</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00035">teleconwindow.cpp:35</a></div></div>
-<div class="ttc" id="aclass_telecon_window_html_a727d3b00dd934cd08b33e483427b501a"><div class="ttname"><a href="class_telecon_window.html#a727d3b00dd934cd08b33e483427b501a">TeleconWindow::hasQuit</a></div><div class="ttdeci">bool hasQuit()</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00029">teleconwindow.cpp:29</a></div></div>
-<div class="ttc" id="aclass_telecon_window_html_a807b87958ab2b8dafd8aa84f13e5d04e"><div class="ttname"><a href="class_telecon_window.html#a807b87958ab2b8dafd8aa84f13e5d04e">TeleconWindow::initialize</a></div><div class="ttdeci">void initialize()</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00048">teleconwindow.cpp:48</a></div></div>
-<div class="ttc" id="aclass_telecon_window_html_a86848112a81a9dfeac71808d107fc0c3"><div class="ttname"><a href="class_telecon_window.html#a86848112a81a9dfeac71808d107fc0c3">TeleconWindow::requestQuit</a></div><div class="ttdeci">void requestQuit()</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00011">teleconwindow.cpp:11</a></div></div>
-<div class="ttc" id="aclass_telecon_window_html_aaab31256371ead70513e272d2b67677c"><div class="ttname"><a href="class_telecon_window.html#aaab31256371ead70513e272d2b67677c">TeleconWindow::addRealtimeChart</a></div><div class="ttdeci">shared_ptr&lt; TeleconRealtimeChart &gt; addRealtimeChart(std::string title=&quot;&quot;, double memoryDepthSeconds=60.0, int dataRateMillis=100, std::string xLabel=&quot;&quot;, std::string yLabel=&quot;&quot;, ColorSequenceMode colorSequenceMode=CSM_BLACK)</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00056">teleconwindow.cpp:56</a></div></div>
-<div class="ttc" id="aclass_telecon_window_html_ab9751dd7c8c1120afb78f8eb54d45611"><div class="ttname"><a href="class_telecon_window.html#ab9751dd7c8c1120afb78f8eb54d45611">TeleconWindow::getNumCharts</a></div><div class="ttdeci">size_t getNumCharts() const</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00083">teleconwindow.cpp:83</a></div></div>
-<div class="ttc" id="aclass_telecon_window_html_ac51bdc921ccc978c97934b7d5ecd6153"><div class="ttname"><a href="class_telecon_window.html#ac51bdc921ccc978c97934b7d5ecd6153">TeleconWindow::addDataChart</a></div><div class="ttdeci">shared_ptr&lt; TeleconDataChart &gt; addDataChart(std::string title=&quot;&quot;, double memoryDepthSeconds=60.0, int dataRateMillis=100, std::string xLabel=&quot;&quot;, std::string yLabel=&quot;&quot;, ColorSequenceMode colorSequenceMode=CSM_BLACK)</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00067">teleconwindow.cpp:67</a></div></div>
-<div class="ttc" id="aclass_telecon_window_html_ac5c083d7bbdf47e61e10c3c0034b2e35"><div class="ttname"><a href="class_telecon_window.html#ac5c083d7bbdf47e61e10c3c0034b2e35">TeleconWindow::getChart</a></div><div class="ttdeci">shared_ptr&lt; TeleconChart &gt; getChart(size_t index)</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00078">teleconwindow.cpp:78</a></div></div>
-<div class="ttc" id="aclass_telecon_window_html_ac7c1481d3d53920cfd3fd1df18e2dadb"><div class="ttname"><a href="class_telecon_window.html#ac7c1481d3d53920cfd3fd1df18e2dadb">TeleconWindow::getTitle</a></div><div class="ttdeci">std::string getTitle()</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00043">teleconwindow.cpp:43</a></div></div>
-<div class="ttc" id="aclass_telecon_window_html_acd7ae4dd6f73c1232e59410a564d60d2"><div class="ttname"><a href="class_telecon_window.html#acd7ae4dd6f73c1232e59410a564d60d2">TeleconWindow::getChartByName</a></div><div class="ttdeci">shared_ptr&lt; TeleconChart &gt; getChartByName(string name)</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00088">teleconwindow.cpp:88</a></div></div>
-<div class="ttc" id="aclass_telecon_window_html_af774c0541f883c33cf15c0e3e08ebf40"><div class="ttname"><a href="class_telecon_window.html#af774c0541f883c33cf15c0e3e08ebf40">TeleconWindow::hasRequestedQuit</a></div><div class="ttdeci">bool hasRequestedQuit()</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00016">teleconwindow.cpp:16</a></div></div>
-<div class="ttc" id="aclass_telecon_window_html_afc1a1e1a551a06824f4fe2f88b3c296f"><div class="ttname"><a href="class_telecon_window.html#afc1a1e1a551a06824f4fe2f88b3c296f">TeleconWindow::getPlotByName</a></div><div class="ttdeci">shared_ptr&lt; TeleconPlot &gt; getPlotByName(string chartName, string plotName)</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00098">teleconwindow.cpp:98</a></div></div>
-<div class="ttc" id="acolors_8h_html_a8160ef72c1dba53251eb9ad02be83c38"><div class="ttname"><a href="colors_8h.html#a8160ef72c1dba53251eb9ad02be83c38">ColorSequenceMode</a></div><div class="ttdeci">ColorSequenceMode</div><div class="ttdef"><b>Definition:</b> <a href="colors_8h_source.html#l00019">colors.h:20</a></div></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_telecon_window.html#a86848112a81a9dfeac71808d107fc0c3">    8</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_telecon_window.html#a86848112a81a9dfeac71808d107fc0c3">TeleconWindow::requestQuit</a>()</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    m_hasRequestedQuit = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>}</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_telecon_window.html#af774c0541f883c33cf15c0e3e08ebf40">   13</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_telecon_window.html#af774c0541f883c33cf15c0e3e08ebf40">TeleconWindow::hasRequestedQuit</a>()</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordflow">return</span> m_hasRequestedQuit;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>}</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_telecon_window.html#a04702615f238323fed9c4e8ad7182130">   18</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_telecon_window.html#a04702615f238323fed9c4e8ad7182130">TeleconWindow::setHasQuit</a>()</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    std::unique_lock lock(m_hasQuitLock);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    m_hasQuit = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    lock.unlock();</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    m_hasQuitCV.notify_all();</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>}</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_telecon_window.html#a727d3b00dd934cd08b33e483427b501a">   26</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_telecon_window.html#a727d3b00dd934cd08b33e483427b501a">TeleconWindow::hasQuit</a>()</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>{</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    std::lock_guard lock(m_hasQuitLock);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordflow">return</span> m_hasQuit;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>}</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_telecon_window.html#a53eb0df50cc63f31ee05edef1a3ae0ba">   32</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_telecon_window.html#a53eb0df50cc63f31ee05edef1a3ae0ba">TeleconWindow::waitUntilQuit</a>()</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>{</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    std::unique_lock lock(m_hasQuitLock);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordflow">while</span> (!m_hasQuit) {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        m_hasQuitCV.wait(lock);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    }</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>}</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="class_telecon_window.html#ac7c1481d3d53920cfd3fd1df18e2dadb">   40</a></span>std::string <a class="code hl_function" href="class_telecon_window.html#ac7c1481d3d53920cfd3fd1df18e2dadb">TeleconWindow::getTitle</a>()</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>{</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordflow">return</span> m_title;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>}</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="class_telecon_window.html#a807b87958ab2b8dafd8aa84f13e5d04e">   45</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_telecon_window.html#a807b87958ab2b8dafd8aa84f13e5d04e">TeleconWindow::initialize</a>()</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>{</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    m_hasStarted = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; chart : m_charts) {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        chart-&gt;initialize();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>}</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="class_telecon_window.html#aaab31256371ead70513e272d2b67677c">   53</a></span>shared_ptr&lt;TeleconRealtimeChart&gt; <a class="code hl_function" href="class_telecon_window.html#aaab31256371ead70513e272d2b67677c">TeleconWindow::addRealtimeChart</a>(std::string title, <span class="keywordtype">double</span> memoryDepthSeconds, <span class="keywordtype">int</span> dataRateMillis, std::string xLabel, std::string yLabel, <a class="code hl_enumeration" href="colors_8h.html#a8160ef72c1dba53251eb9ad02be83c38">ColorSequenceMode</a> colorSequenceMode)</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>{</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordflow">if</span> (m_hasStarted) {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        cout &lt;&lt; <span class="stringliteral">&quot;telecon: Telecon has already started, charts may not be added.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">return</span> shared_ptr&lt;TeleconRealtimeChart&gt;();</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    shared_ptr&lt;TeleconRealtimeChart&gt; chart = make_shared&lt;TeleconRealtimeChart&gt;(title, memoryDepthSeconds, dataRateMillis, xLabel, yLabel, colorSequenceMode);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    m_charts.push_back(chart);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordflow">return</span> chart;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>}</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="class_telecon_window.html#ac51bdc921ccc978c97934b7d5ecd6153">   64</a></span>shared_ptr&lt;TeleconDataChart&gt; <a class="code hl_function" href="class_telecon_window.html#ac51bdc921ccc978c97934b7d5ecd6153">TeleconWindow::addDataChart</a>(std::string title, <span class="keywordtype">double</span> memoryDepthSeconds, <span class="keywordtype">int</span> dataRateMillis, std::string xLabel, std::string yLabel, <a class="code hl_enumeration" href="colors_8h.html#a8160ef72c1dba53251eb9ad02be83c38">ColorSequenceMode</a> colorSequenceMode)</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>{</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordflow">if</span> (m_hasStarted) {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        cout &lt;&lt; <span class="stringliteral">&quot;telecon: Telecon has already started, charts may not be added.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="keywordflow">return</span> shared_ptr&lt;TeleconDataChart&gt;();</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    shared_ptr&lt;TeleconDataChart&gt; chart = make_shared&lt;TeleconDataChart&gt;(title, memoryDepthSeconds, dataRateMillis, xLabel, yLabel, colorSequenceMode);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    m_charts.push_back(chart);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordflow">return</span> chart;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>}</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="class_telecon_window.html#ac5c083d7bbdf47e61e10c3c0034b2e35">   75</a></span>shared_ptr&lt;TeleconChart&gt; <a class="code hl_function" href="class_telecon_window.html#ac5c083d7bbdf47e61e10c3c0034b2e35">TeleconWindow::getChart</a>(<span class="keywordtype">size_t</span> index)</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>{</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordflow">return</span> m_charts[index];</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>}</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="class_telecon_window.html#ab9751dd7c8c1120afb78f8eb54d45611">   80</a></span><span class="keywordtype">size_t</span> <a class="code hl_function" href="class_telecon_window.html#ab9751dd7c8c1120afb78f8eb54d45611">TeleconWindow::getNumCharts</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordflow">return</span> m_charts.size();</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>}</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="class_telecon_window.html#acd7ae4dd6f73c1232e59410a564d60d2">   85</a></span>shared_ptr&lt;TeleconChart&gt; <a class="code hl_function" href="class_telecon_window.html#acd7ae4dd6f73c1232e59410a564d60d2">TeleconWindow::getChartByName</a>(<span class="keywordtype">string</span> name)</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>{</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> chart : m_charts) {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordflow">if</span> (name.compare(chart-&gt;getTitle()) == 0) {</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <span class="keywordflow">return</span> chart;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        }</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    }</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>}</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="class_telecon_window.html#afc1a1e1a551a06824f4fe2f88b3c296f">   95</a></span>shared_ptr&lt;TeleconPlot&gt; <a class="code hl_function" href="class_telecon_window.html#afc1a1e1a551a06824f4fe2f88b3c296f">TeleconWindow::getPlotByName</a>(<span class="keywordtype">string</span> chartName, <span class="keywordtype">string</span> plotName)</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>{</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    shared_ptr&lt;TeleconChart&gt; chart = <a class="code hl_function" href="class_telecon_window.html#acd7ae4dd6f73c1232e59410a564d60d2">getChartByName</a>(chartName);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordflow">return</span> chart == <span class="keyword">nullptr</span> ? nullptr : chart-&gt;getPlotByName(plotName);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>}</div>
+<div class="ttc" id="aclass_telecon_window_html_a04702615f238323fed9c4e8ad7182130"><div class="ttname"><a href="class_telecon_window.html#a04702615f238323fed9c4e8ad7182130">TeleconWindow::setHasQuit</a></div><div class="ttdeci">void setHasQuit()</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00018">teleconwindow.cpp:18</a></div></div>
+<div class="ttc" id="aclass_telecon_window_html_a2bdc5362c99c951052b7dddce2efa859"><div class="ttname"><a href="class_telecon_window.html#a2bdc5362c99c951052b7dddce2efa859">TeleconWindow::TeleconWindow</a></div><div class="ttdeci">TeleconWindow(std::string title=&quot;&quot;)</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00005">teleconwindow.cpp:5</a></div></div>
+<div class="ttc" id="aclass_telecon_window_html_a53eb0df50cc63f31ee05edef1a3ae0ba"><div class="ttname"><a href="class_telecon_window.html#a53eb0df50cc63f31ee05edef1a3ae0ba">TeleconWindow::waitUntilQuit</a></div><div class="ttdeci">void waitUntilQuit()</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00032">teleconwindow.cpp:32</a></div></div>
+<div class="ttc" id="aclass_telecon_window_html_a727d3b00dd934cd08b33e483427b501a"><div class="ttname"><a href="class_telecon_window.html#a727d3b00dd934cd08b33e483427b501a">TeleconWindow::hasQuit</a></div><div class="ttdeci">bool hasQuit()</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00026">teleconwindow.cpp:26</a></div></div>
+<div class="ttc" id="aclass_telecon_window_html_a807b87958ab2b8dafd8aa84f13e5d04e"><div class="ttname"><a href="class_telecon_window.html#a807b87958ab2b8dafd8aa84f13e5d04e">TeleconWindow::initialize</a></div><div class="ttdeci">void initialize()</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00045">teleconwindow.cpp:45</a></div></div>
+<div class="ttc" id="aclass_telecon_window_html_a86848112a81a9dfeac71808d107fc0c3"><div class="ttname"><a href="class_telecon_window.html#a86848112a81a9dfeac71808d107fc0c3">TeleconWindow::requestQuit</a></div><div class="ttdeci">void requestQuit()</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00008">teleconwindow.cpp:8</a></div></div>
+<div class="ttc" id="aclass_telecon_window_html_aaab31256371ead70513e272d2b67677c"><div class="ttname"><a href="class_telecon_window.html#aaab31256371ead70513e272d2b67677c">TeleconWindow::addRealtimeChart</a></div><div class="ttdeci">shared_ptr&lt; TeleconRealtimeChart &gt; addRealtimeChart(std::string title=&quot;&quot;, double memoryDepthSeconds=60.0, int dataRateMillis=100, std::string xLabel=&quot;&quot;, std::string yLabel=&quot;&quot;, ColorSequenceMode colorSequenceMode=CSM_BLACK)</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00053">teleconwindow.cpp:53</a></div></div>
+<div class="ttc" id="aclass_telecon_window_html_ab9751dd7c8c1120afb78f8eb54d45611"><div class="ttname"><a href="class_telecon_window.html#ab9751dd7c8c1120afb78f8eb54d45611">TeleconWindow::getNumCharts</a></div><div class="ttdeci">size_t getNumCharts() const</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00080">teleconwindow.cpp:80</a></div></div>
+<div class="ttc" id="aclass_telecon_window_html_ac51bdc921ccc978c97934b7d5ecd6153"><div class="ttname"><a href="class_telecon_window.html#ac51bdc921ccc978c97934b7d5ecd6153">TeleconWindow::addDataChart</a></div><div class="ttdeci">shared_ptr&lt; TeleconDataChart &gt; addDataChart(std::string title=&quot;&quot;, double memoryDepthSeconds=60.0, int dataRateMillis=100, std::string xLabel=&quot;&quot;, std::string yLabel=&quot;&quot;, ColorSequenceMode colorSequenceMode=CSM_BLACK)</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00064">teleconwindow.cpp:64</a></div></div>
+<div class="ttc" id="aclass_telecon_window_html_ac5c083d7bbdf47e61e10c3c0034b2e35"><div class="ttname"><a href="class_telecon_window.html#ac5c083d7bbdf47e61e10c3c0034b2e35">TeleconWindow::getChart</a></div><div class="ttdeci">shared_ptr&lt; TeleconChart &gt; getChart(size_t index)</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00075">teleconwindow.cpp:75</a></div></div>
+<div class="ttc" id="aclass_telecon_window_html_ac7c1481d3d53920cfd3fd1df18e2dadb"><div class="ttname"><a href="class_telecon_window.html#ac7c1481d3d53920cfd3fd1df18e2dadb">TeleconWindow::getTitle</a></div><div class="ttdeci">std::string getTitle()</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00040">teleconwindow.cpp:40</a></div></div>
+<div class="ttc" id="aclass_telecon_window_html_acd7ae4dd6f73c1232e59410a564d60d2"><div class="ttname"><a href="class_telecon_window.html#acd7ae4dd6f73c1232e59410a564d60d2">TeleconWindow::getChartByName</a></div><div class="ttdeci">shared_ptr&lt; TeleconChart &gt; getChartByName(string name)</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00085">teleconwindow.cpp:85</a></div></div>
+<div class="ttc" id="aclass_telecon_window_html_af774c0541f883c33cf15c0e3e08ebf40"><div class="ttname"><a href="class_telecon_window.html#af774c0541f883c33cf15c0e3e08ebf40">TeleconWindow::hasRequestedQuit</a></div><div class="ttdeci">bool hasRequestedQuit()</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00013">teleconwindow.cpp:13</a></div></div>
+<div class="ttc" id="aclass_telecon_window_html_afc1a1e1a551a06824f4fe2f88b3c296f"><div class="ttname"><a href="class_telecon_window.html#afc1a1e1a551a06824f4fe2f88b3c296f">TeleconWindow::getPlotByName</a></div><div class="ttdeci">shared_ptr&lt; TeleconPlot &gt; getPlotByName(string chartName, string plotName)</div><div class="ttdef"><b>Definition:</b> <a href="teleconwindow_8cpp_source.html#l00095">teleconwindow.cpp:95</a></div></div>
+<div class="ttc" id="acolors_8h_html_a8160ef72c1dba53251eb9ad02be83c38"><div class="ttname"><a href="colors_8h.html#a8160ef72c1dba53251eb9ad02be83c38">ColorSequenceMode</a></div><div class="ttdeci">ColorSequenceMode</div><div class="ttdef"><b>Definition:</b> <a href="colors_8h_source.html#l00024">colors.h:25</a></div></div>
 <div class="ttc" id="ateleconwindow_8h_html"><div class="ttname"><a href="teleconwindow_8h.html">teleconwindow.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

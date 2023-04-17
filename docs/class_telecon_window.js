@@ -1,7 +1,6 @@
 var class_telecon_window =
 [
-    [ "TeleconWindow", "class_telecon_window.html#a9402114ebb3b336b8d57ef79a041d962", null ],
-    [ "TeleconWindow", "class_telecon_window.html#a01542c4987d56c17ad082245b637a960", null ],
+    [ "TeleconWindow", "class_telecon_window.html#a2bdc5362c99c951052b7dddce2efa859", null ],
     [ "addDataChart", "class_telecon_window.html#ac51bdc921ccc978c97934b7d5ecd6153", null ],
     [ "addRealtimeChart", "class_telecon_window.html#aaab31256371ead70513e272d2b67677c", null ],
     [ "getChart", "class_telecon_window.html#ac5c083d7bbdf47e61e10c3c0034b2e35", null ],

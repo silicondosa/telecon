@@ -30,13 +30,23 @@ shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $>$ 
 shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} $>$ \mbox{\hyperlink{class_telecon_ab83bf47e29f4a14c97a78b0e2d8d3013}{get\+Chart\+By\+Name}} (string window\+Name, string chart\+Name)
 \item 
 shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ \mbox{\hyperlink{class_telecon_ae479f7f3668aa391e1211b42b8ad85d3}{get\+Plot\+By\+Name}} (string window\+Name, string chart\+Name, string plot\+Name)
+\item 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_controls}{Telecon\+Controls}} $>$ \mbox{\hyperlink{class_telecon_aa566973f4e9fa1f508eba8b861538036}{add\+Controls}} (string name)
+\item 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_controls}{Telecon\+Controls}} $>$ \mbox{\hyperlink{class_telecon_a88ade5d08712d0bf47fac09cbe581cb0}{get\+Controls}} (int index)
+\item 
+size\+\_\+t \mbox{\hyperlink{class_telecon_afcd66c21817fc7d669e359c8eae52dc8}{get\+Num\+Controls}} ()
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Main class object that contains a vector of windows. 
+This is the primary user-\/level entry point for all \mbox{\hyperlink{class_telecon}{Telecon}} behavior. This class creates and manages windows, which in turn create and manage lower-\/level items such as charts and plots.
 
-Definition at line \mbox{\hyperlink{telecon_8h_source_l00025}{25}} of file \mbox{\hyperlink{telecon_8h_source}{telecon.\+h}}.
+There should only ever be one \mbox{\hyperlink{class_telecon}{Telecon}} object active (started) at a time. After a \mbox{\hyperlink{class_telecon}{Telecon}} object is stopped or deleted, it is safe to start another if necessary. However, each object can only be run once. After the object is stopped, it may not be started again.
+
+\mbox{\hyperlink{class_telecon}{Telecon}} is inherently thread-\/safe with regard to the controller (calling) thread and the UI thread (which is created and managed by \mbox{\hyperlink{class_telecon}{Telecon}}). However, if a \mbox{\hyperlink{class_telecon}{Telecon}} object is used by multiple controller threads, external synchronization must be used to prevent concurrent access to member functions. 
+
+Definition at line \mbox{\hyperlink{telecon_8h_source_l00034}{34}} of file \mbox{\hyperlink{telecon_8h_source}{telecon.\+h}}.
 
 
 
@@ -57,13 +67,33 @@ Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00005}{5}} of file \mbo
 \doxysubsubsection{\texorpdfstring{$\sim$Telecon()}{~Telecon()}}
 {\footnotesize\ttfamily Telecon\+::$\sim$\+Telecon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-
+Closes and windows that are still open and exits, then deletes the \mbox{\hyperlink{class_telecon}{Telecon}} object. This may be a long-\/running operation if there are still windows open. 
 
 Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
 
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_telecon_aa566973f4e9fa1f508eba8b861538036}\label{class_telecon_aa566973f4e9fa1f508eba8b861538036}} 
+\index{Telecon@{Telecon}!addControls@{addControls}}
+\index{addControls@{addControls}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{addControls()}{addControls()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_controls}{Telecon\+Controls}} $>$ Telecon\+::add\+Controls (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})}
+
+Adds a controls window to the application that will be displayed when telecon\+Start is called. Should not be called after telecon\+Start.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the name that will be displayed on the window. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the \mbox{\hyperlink{class_telecon_controls}{Telecon\+Controls}} object created. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00114}{114}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+
 \mbox{\Hypertarget{class_telecon_aec146a459b32c194874b8c1a60a139ca}\label{class_telecon_aec146a459b32c194874b8c1a60a139ca}} 
 \index{Telecon@{Telecon}!addWindow@{addWindow}}
 \index{addWindow@{addWindow}!Telecon@{Telecon}}
@@ -103,6 +133,37 @@ A pointer to a chart with the given name, or a null pointer if no chart in the g
 
 
 Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00098}{98}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_a88ade5d08712d0bf47fac09cbe581cb0}\label{class_telecon_a88ade5d08712d0bf47fac09cbe581cb0}} 
+\index{Telecon@{Telecon}!getControls@{getControls}}
+\index{getControls@{getControls}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{getControls()}{getControls()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_controls}{Telecon\+Controls}} $>$ Telecon\+::get\+Controls (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & the index of the \mbox{\hyperlink{class_telecon_controls}{Telecon\+Controls}} to return, relative to the order added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the \mbox{\hyperlink{class_telecon_controls}{Telecon\+Controls}} requested. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00120}{120}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_afcd66c21817fc7d669e359c8eae52dc8}\label{class_telecon_afcd66c21817fc7d669e359c8eae52dc8}} 
+\index{Telecon@{Telecon}!getNumControls@{getNumControls}}
+\index{getNumControls@{getNumControls}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{getNumControls()}{getNumControls()}}
+{\footnotesize\ttfamily size\+\_\+t Telecon\+::get\+Num\+Controls (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+The number of \mbox{\hyperlink{class_telecon_controls}{Telecon\+Controls}} added to the application. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00124}{124}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
 
 \mbox{\Hypertarget{class_telecon_aee854954e0004822dece3130a61e332e}\label{class_telecon_aee854954e0004822dece3130a61e332e}} 
 \index{Telecon@{Telecon}!getNumWindows@{getNumWindows}}
@@ -182,7 +243,7 @@ Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00088}{88}} of file \mb
 {\footnotesize\ttfamily bool Telecon\+::has\+Started (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyReturn}{Returns}
-Returns true if the \mbox{\hyperlink{class_telecon}{Telecon}} object has already started (or finished) initializing displayed windows, or false otherwise. 
+Returns true if the \mbox{\hyperlink{class_telecon}{Telecon}} object has already started (or finished) initializing displayed windows, or false before then. 
 \end{DoxyReturn}
 
 
@@ -220,7 +281,7 @@ Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00031}{31}} of file \mb
 \doxysubsubsection{\texorpdfstring{teleconStop()}{teleconStop()}}
 {\footnotesize\ttfamily void Telecon\+::telecon\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Closes any windows that are still open and exits running. When this function returns, the \mbox{\hyperlink{class_telecon}{Telecon}} object can be safely deleted. 
+Closes any windows that are still open and exits. 
 
 Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
 

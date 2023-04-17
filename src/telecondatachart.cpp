@@ -31,7 +31,7 @@ double TeleconDataChart::getDefaultXAxisSpan()
     return 0.0;
 }
 
-CHART_X_AXIS_TYPE TeleconDataChart::getChartXAxisType()
+ChartXAxisType TeleconDataChart::getChartXAxisType()
 {
     return CAXT_ARBITRARY;
 }

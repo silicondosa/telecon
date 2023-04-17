@@ -116,7 +116,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T&gt;<br />
-class DataBuffer&lt; T &gt;</div><p><a class="el" href="class_data_buffer.html">DataBuffer</a> template used for buffering data from data source to be used in the plots. </p>
+class DataBuffer&lt; T &gt;</div><p>Header-only template class representing a fixed-size buffer, used to buffer data for the plots. </p>
 
 <p class="definition">Definition at line <a class="el" href="databuffer_8h_source.html#l00012">12</a> of file <a class="el" href="databuffer_8h_source.html">databuffer.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -145,15 +145,15 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Constructor that takes in depth as parameter.</p>
+<p>Constructs a <a class="el" href="class_data_buffer.html">DataBuffer</a> with the given maximum size.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">depth</td><td>depth of the databuffer </td></tr>
+    <tr><td class="paramname">depth</td><td>the depth (maximum size) of the databuffer. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="databuffer_8h_source.html#l00043">43</a> of file <a class="el" href="databuffer_8h_source.html">databuffer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="databuffer_8h_source.html#l00031">31</a> of file <a class="el" href="databuffer_8h_source.html">databuffer.h</a>.</p>
 
 </div>
 </div>
@@ -182,10 +182,9 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Getter function for buffer depth (m_depth).</p>
-<dl class="section return"><dt>Returns</dt><dd>the maximum possible size of the buffer(always &gt;= size) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The depth (maximum possible size) of the buffer (always &gt;= size). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="databuffer_8h_source.html#l00071">71</a> of file <a class="el" href="databuffer_8h_source.html">databuffer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="databuffer_8h_source.html#l00067">67</a> of file <a class="el" href="databuffer_8h_source.html">databuffer.h</a>.</p>
 
 </div>
 </div>
@@ -214,15 +213,15 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Function to push back a value into the databuffer.</p>
+<p>Pushes back a value into the databuffer. Will insert the value at the end, dropping the oldest value if need be.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">newValue</td><td>generic type to push back into the buffer </td></tr>
+    <tr><td class="paramname">newValue</td><td>value to push back into the buffer. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="databuffer_8h_source.html#l00080">80</a> of file <a class="el" href="databuffer_8h_source.html">databuffer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="databuffer_8h_source.html#l00077">77</a> of file <a class="el" href="databuffer_8h_source.html">databuffer.h</a>.</p>
 
 </div>
 </div>
@@ -251,8 +250,19 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Index operator, gets the value in buffer at given index at returns it as a reference. In most cases, this should not be used. If possible, prefer constant index operator (for reading) or insertNewValue (for writing).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>index of value to get. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The value at index. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_data_buffer.html#aaabbfb0d9e9b60ed694eca913765bbdf">DataBuffer::operator[](size_t index) const</a> </dd>
+<dd>
+<a class="el" href="class_data_buffer.html#a4ae8a35aa51c17729e399d4a12eee94a">DataBuffer::insertNewValue</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="databuffer_8h_source.html#l00044">44</a> of file <a class="el" href="databuffer_8h_source.html">databuffer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="databuffer_8h_source.html#l00043">43</a> of file <a class="el" href="databuffer_8h_source.html">databuffer.h</a>.</p>
 
 </div>
 </div>
@@ -281,16 +291,16 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Index operator, gets the value in buffer at given index.</p>
+<p>Constant index operator, gets the value in buffer at given index and returns it as a constant reference.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">index</td><td>index of value to get </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>value address at index </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The value at index </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="databuffer_8h_source.html#l00054">54</a> of file <a class="el" href="databuffer_8h_source.html">databuffer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="databuffer_8h_source.html#l00053">53</a> of file <a class="el" href="databuffer_8h_source.html">databuffer.h</a>.</p>
 
 </div>
 </div>
@@ -318,10 +328,9 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Getter function for buffer size.</p>
-<dl class="section return"><dt>Returns</dt><dd>the current size of the buffer (always &lt;= depth) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The current size of the buffer (always &lt;= depth). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="databuffer_8h_source.html#l00062">62</a> of file <a class="el" href="databuffer_8h_source.html">databuffer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="databuffer_8h_source.html#l00060">60</a> of file <a class="el" href="databuffer_8h_source.html">databuffer.h</a>.</p>
 
 </div>
 </div>

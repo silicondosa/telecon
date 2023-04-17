@@ -8,30 +8,28 @@
 using namespace std;
 
 /**
- * Implementation of a singular plot.
+ * Abstract class of the user-level interface for interacting with plots.
+ * All types of plots inherit from this class.
  */
 class TeleconPlot {
 public:
     /**
-     * Getter function for current size of the data buffer(s)
-     * 
-     * \return size as type size_t.
+     * \return Current size of the plot (number of data points). Always <= depth.
      */
     virtual size_t size() const = 0;
 
     /**
-     * Getter function for depth, the capacity(maximum size) of the data buffer(s)
-     * 
-     * \return depth as type size_t.
+     * \return Depth (maximum size) of the plot. Always >= size.
      */
     virtual size_t depth() const = 0;
 
     /**
-     * Getter function for the title of the plot.
-     * 
-     * \return title as a string
+     * \return The title of the plot, as displayed in the legend.
      */
     virtual const string getPlotTitle() const = 0;
 
+    /**
+     * \return The ::SymbolStyle representing how the symbol representing points (if any) should be displayed.
+     */
     virtual shared_ptr<const SymbolStyle> getSymbolStyle() const = 0;
 };

@@ -13,9 +13,11 @@
 
 using namespace std;
 
-/**
- * Window GUI implementation that inherits from WxFrame.
- */
+ /**
+  * Window GUI implementation, inherits from wxFrame.
+  * 
+  * This is an implementation class and should not be interacted with directly by the user.
+  */
 class TeleconWxWindow : public wxFrame
 {
 private:
@@ -52,9 +54,9 @@ private:
 public:
 
     /**
-     * Constructor that takes in a Telecon Window pointer.
-     * 
-     * \param window shared_ptr<TeleconWindow>
+     * Constructs the window based on the specification of the provided ::TeleconWindow object.
+     *
+     * \param window A pointer to the ::TeleconWindow object representing the window.
      */
     TeleconWxWindow(shared_ptr<TeleconWindow> window);
 

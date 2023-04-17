@@ -1,0 +1,191 @@
+\hypertarget{class_symbol_style}{}\doxysection{Symbol\+Style Class Reference}
+\label{class_symbol_style}\index{SymbolStyle@{SymbolStyle}}
+
+
+{\ttfamily \#include $<$include/symbolstyle.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_symbol_style_a9e4f0106cbaaf127b2e1eac0bcdaa30f}{Symbol\+Style}} (\mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40b}{Plot\+Symbol}} symbol=\mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40baeedd6d364526e38cfbb1f678cf9b2849}{SYMBOL\+\_\+\+CIRCLE}}, int symbol\+Color=\mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a0b8d8b18037efc3cdb5dd0313e7c67dc}{COLOR\+\_\+\+DEFAULT}}, bool fill\+Symbol=true, int symbol\+Size=5)
+\item 
+void \mbox{\hyperlink{class_symbol_style_aa45c4b94c051803e7496d4811bcab32a}{set\+Symbol}} (\mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40b}{Plot\+Symbol}} symbol)
+\item 
+\mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40b}{Plot\+Symbol}} \mbox{\hyperlink{class_symbol_style_a0f66b554646695b4fcb2faee012608f6}{get\+Symbol}} () const
+\item 
+void \mbox{\hyperlink{class_symbol_style_ac388640d601e0506158f7534699e5eb3}{set\+Symbol\+Color}} (int symbol\+Color)
+\item 
+int \mbox{\hyperlink{class_symbol_style_a80ad1d9c9feb5e4c25a23a58bf0c02f0}{get\+Symbol\+Color}} () const
+\item 
+void \mbox{\hyperlink{class_symbol_style_a7c373e5992d1160a654a028ac80d1d93}{set\+Fill\+Symbol}} (bool fill\+Symbol)
+\item 
+bool \mbox{\hyperlink{class_symbol_style_aa0c6a6eea813c3a718b24359b748c86a}{get\+Fill\+Symbol}} () const
+\item 
+void \mbox{\hyperlink{class_symbol_style_a4402751c17acbe13b66ce16e1c20a9a0}{set\+Symbol\+Size}} (int symbol\+Size)
+\item 
+int \mbox{\hyperlink{class_symbol_style_a5e5548acb5099bf438e77c8fc3fed01d}{get\+Symbol\+Size}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class to represent what the symbol that a plot uses to mark data points should look like. 
+
+Definition at line \mbox{\hyperlink{symbolstyle_8h_source_l00010}{10}} of file \mbox{\hyperlink{symbolstyle_8h_source}{symbolstyle.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_symbol_style_a9e4f0106cbaaf127b2e1eac0bcdaa30f}\label{class_symbol_style_a9e4f0106cbaaf127b2e1eac0bcdaa30f}} 
+\index{SymbolStyle@{SymbolStyle}!SymbolStyle@{SymbolStyle}}
+\index{SymbolStyle@{SymbolStyle}!SymbolStyle@{SymbolStyle}}
+\doxysubsubsection{\texorpdfstring{SymbolStyle()}{SymbolStyle()}}
+{\footnotesize\ttfamily Symbol\+Style\+::\+Symbol\+Style (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40b}{Plot\+Symbol}}}]{symbol = {\ttfamily \mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40baeedd6d364526e38cfbb1f678cf9b2849}{SYMBOL\+\_\+\+CIRCLE}}},  }\item[{int}]{symbol\+Color = {\ttfamily \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a0b8d8b18037efc3cdb5dd0313e7c67dc}{COLOR\+\_\+\+DEFAULT}}},  }\item[{bool}]{fill\+Symbol = {\ttfamily true},  }\item[{int}]{symbol\+Size = {\ttfamily 5} }\end{DoxyParamCaption})}
+
+Constructs a \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} with the given parameters.
+
+If no symbol is desired, set the symbol to Plot\+Symbol\+::\+SYMBOL\+\_\+\+NO\+\_\+\+SYMBOL.
+
+
+\begin{DoxyParams}{Parameters}
+{\em symbol} & the symbol used, as described in \mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40b}{Plot\+Symbol}}. \\
+\hline
+{\em symbol\+Color} & the color of the symbol, represented as described in \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8}{Plot\+Color}}. \\
+\hline
+{\em fill\+Symbol} & true if the interior of the symbol will be colored, false if it will be left transparent. \\
+\hline
+{\em symbol\+Size} & the size of the symbol in pixels. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{symbolstyle_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{symbolstyle_8cpp_source}{symbolstyle.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_symbol_style_aa0c6a6eea813c3a718b24359b748c86a}\label{class_symbol_style_aa0c6a6eea813c3a718b24359b748c86a}} 
+\index{SymbolStyle@{SymbolStyle}!getFillSymbol@{getFillSymbol}}
+\index{getFillSymbol@{getFillSymbol}!SymbolStyle@{SymbolStyle}}
+\doxysubsubsection{\texorpdfstring{getFillSymbol()}{getFillSymbol()}}
+{\footnotesize\ttfamily bool Symbol\+Style\+::get\+Fill\+Symbol (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+True if the interior of the symbol will be colored, false if it will be left transparent. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{symbolstyle_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{symbolstyle_8cpp_source}{symbolstyle.\+cpp}}.
+
+\mbox{\Hypertarget{class_symbol_style_a0f66b554646695b4fcb2faee012608f6}\label{class_symbol_style_a0f66b554646695b4fcb2faee012608f6}} 
+\index{SymbolStyle@{SymbolStyle}!getSymbol@{getSymbol}}
+\index{getSymbol@{getSymbol}!SymbolStyle@{SymbolStyle}}
+\doxysubsubsection{\texorpdfstring{getSymbol()}{getSymbol()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40b}{Plot\+Symbol}} Symbol\+Style\+::get\+Symbol (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+The symbol used, as described in \mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40b}{Plot\+Symbol}}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{symbolstyle_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{symbolstyle_8cpp_source}{symbolstyle.\+cpp}}.
+
+\mbox{\Hypertarget{class_symbol_style_a80ad1d9c9feb5e4c25a23a58bf0c02f0}\label{class_symbol_style_a80ad1d9c9feb5e4c25a23a58bf0c02f0}} 
+\index{SymbolStyle@{SymbolStyle}!getSymbolColor@{getSymbolColor}}
+\index{getSymbolColor@{getSymbolColor}!SymbolStyle@{SymbolStyle}}
+\doxysubsubsection{\texorpdfstring{getSymbolColor()}{getSymbolColor()}}
+{\footnotesize\ttfamily int Symbol\+Style\+::get\+Symbol\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+The color of the symbol, represented as described in \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8}{Plot\+Color}}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{symbolstyle_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{symbolstyle_8cpp_source}{symbolstyle.\+cpp}}.
+
+\mbox{\Hypertarget{class_symbol_style_a5e5548acb5099bf438e77c8fc3fed01d}\label{class_symbol_style_a5e5548acb5099bf438e77c8fc3fed01d}} 
+\index{SymbolStyle@{SymbolStyle}!getSymbolSize@{getSymbolSize}}
+\index{getSymbolSize@{getSymbolSize}!SymbolStyle@{SymbolStyle}}
+\doxysubsubsection{\texorpdfstring{getSymbolSize()}{getSymbolSize()}}
+{\footnotesize\ttfamily int Symbol\+Style\+::get\+Symbol\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+The size of the symbol in pixels. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{symbolstyle_8cpp_source_l00041}{41}} of file \mbox{\hyperlink{symbolstyle_8cpp_source}{symbolstyle.\+cpp}}.
+
+\mbox{\Hypertarget{class_symbol_style_a7c373e5992d1160a654a028ac80d1d93}\label{class_symbol_style_a7c373e5992d1160a654a028ac80d1d93}} 
+\index{SymbolStyle@{SymbolStyle}!setFillSymbol@{setFillSymbol}}
+\index{setFillSymbol@{setFillSymbol}!SymbolStyle@{SymbolStyle}}
+\doxysubsubsection{\texorpdfstring{setFillSymbol()}{setFillSymbol()}}
+{\footnotesize\ttfamily void Symbol\+Style\+::set\+Fill\+Symbol (\begin{DoxyParamCaption}\item[{bool}]{fill\+Symbol }\end{DoxyParamCaption})}
+
+Setter for fill symbol.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fill\+Symbol} & true if the interior of the symbol will be colored, false if it will be left transparent. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{symbolstyle_8cpp_source_l00026}{26}} of file \mbox{\hyperlink{symbolstyle_8cpp_source}{symbolstyle.\+cpp}}.
+
+\mbox{\Hypertarget{class_symbol_style_aa45c4b94c051803e7496d4811bcab32a}\label{class_symbol_style_aa45c4b94c051803e7496d4811bcab32a}} 
+\index{SymbolStyle@{SymbolStyle}!setSymbol@{setSymbol}}
+\index{setSymbol@{setSymbol}!SymbolStyle@{SymbolStyle}}
+\doxysubsubsection{\texorpdfstring{setSymbol()}{setSymbol()}}
+{\footnotesize\ttfamily void Symbol\+Style\+::set\+Symbol (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40b}{Plot\+Symbol}}}]{symbol }\end{DoxyParamCaption})}
+
+Setter for symbol.
+
+
+\begin{DoxyParams}{Parameters}
+{\em symbol} & the symbol used, as described in \mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40b}{Plot\+Symbol}}. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{symbolstyle_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{symbolstyle_8cpp_source}{symbolstyle.\+cpp}}.
+
+\mbox{\Hypertarget{class_symbol_style_ac388640d601e0506158f7534699e5eb3}\label{class_symbol_style_ac388640d601e0506158f7534699e5eb3}} 
+\index{SymbolStyle@{SymbolStyle}!setSymbolColor@{setSymbolColor}}
+\index{setSymbolColor@{setSymbolColor}!SymbolStyle@{SymbolStyle}}
+\doxysubsubsection{\texorpdfstring{setSymbolColor()}{setSymbolColor()}}
+{\footnotesize\ttfamily void Symbol\+Style\+::set\+Symbol\+Color (\begin{DoxyParamCaption}\item[{int}]{symbol\+Color }\end{DoxyParamCaption})}
+
+Setter for symbol color.
+
+
+\begin{DoxyParams}{Parameters}
+{\em symbol\+Color} & the color of the symbol, represented as described in \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8}{Plot\+Color}}. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{symbolstyle_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{symbolstyle_8cpp_source}{symbolstyle.\+cpp}}.
+
+\mbox{\Hypertarget{class_symbol_style_a4402751c17acbe13b66ce16e1c20a9a0}\label{class_symbol_style_a4402751c17acbe13b66ce16e1c20a9a0}} 
+\index{SymbolStyle@{SymbolStyle}!setSymbolSize@{setSymbolSize}}
+\index{setSymbolSize@{setSymbolSize}!SymbolStyle@{SymbolStyle}}
+\doxysubsubsection{\texorpdfstring{setSymbolSize()}{setSymbolSize()}}
+{\footnotesize\ttfamily void Symbol\+Style\+::set\+Symbol\+Size (\begin{DoxyParamCaption}\item[{int}]{symbol\+Size }\end{DoxyParamCaption})}
+
+Setter for symbol size.
+
+
+\begin{DoxyParams}{Parameters}
+{\em symbol\+Size} & the size of the symbol in pixels. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{symbolstyle_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{symbolstyle_8cpp_source}{symbolstyle.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{symbolstyle_8h}{symbolstyle.\+h}}\item 
+src/\mbox{\hyperlink{symbolstyle_8cpp}{symbolstyle.\+cpp}}\end{DoxyCompactItemize}

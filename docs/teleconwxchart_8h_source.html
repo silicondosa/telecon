@@ -115,21 +115,21 @@ $(document).ready(function(){initNavTree('teleconwxchart_8h_source.html',''); in
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">using namespace </span>std;</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_telecon_wx_chart.html">   26</a></span><span class="keyword">class </span><a class="code hl_class" href="class_telecon_wx_chart.html">TeleconWxChart</a> : <span class="keyword">public</span> wxPanel {</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_class" href="class_telecon_wx_chart.html">TeleconWxChart</a>(</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        shared_ptr&lt;TeleconChart&gt; chart,</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        wxWindow* parent,</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        wxWindowID winid = wxID_ANY,</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keyword">const</span> wxPoint&amp; pos = wxDefaultPosition,</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keyword">const</span> wxSize&amp; size = wxDefaultSize,</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordtype">long</span> style = wxTAB_TRAVERSAL | wxNO_BORDER,</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">const</span> wxString&amp; name = wxASCII_STR(wxPanelNameStr)</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    );</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_function" href="class_telecon_wx_chart.html#a9da8fc0339b316b55323ef8c68e7e654">~TeleconWxChart</a>();</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_telecon_wx_chart.html">   28</a></span><span class="keyword">class </span><a class="code hl_class" href="class_telecon_wx_chart.html">TeleconWxChart</a> : <span class="keyword">public</span> wxPanel {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="class_telecon_wx_chart.html">TeleconWxChart</a>(</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        shared_ptr&lt;TeleconChart&gt; chart,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        wxWindow* parent,</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        wxWindowID winid = wxID_ANY,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keyword">const</span> wxPoint&amp; pos = wxDefaultPosition,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">const</span> wxSize&amp; size = wxDefaultSize,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordtype">long</span> style = wxTAB_TRAVERSAL | wxNO_BORDER,</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keyword">const</span> wxString&amp; name = wxASCII_STR(wxPanelNameStr)</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    );</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_function" href="class_telecon_wx_chart.html#a9da8fc0339b316b55323ef8c68e7e654">~TeleconWxChart</a>();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_telecon_wx_chart.html#a89319d656a2a8221f889bdbe55abe22c">OnChartRefreshTimer</a>();</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_telecon_wx_chart.html#a3ffc4a088d9162f8822eabb30ec5ed15">setPlay</a>();</div>
@@ -185,7 +185,7 @@ $(document).ready(function(){initNavTree('teleconwxchart_8h_source.html',''); in
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>{</div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <a class="code hl_enumvalue" href="teleconwxchart_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba12f80c74dc4c5d9996717490ba4a8f52">ID_CHARTVIEWER</a> = wxID_HIGHEST + 1</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="teleconwxchart_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba12f80c74dc4c5d9996717490ba4a8f52">  127</a></span>};</div>
-<div class="ttc" id="aclass_telecon_wx_chart_html"><div class="ttname"><a href="class_telecon_wx_chart.html">TeleconWxChart</a></div><div class="ttdef"><b>Definition:</b> <a href="teleconwxchart_8h_source.html#l00026">teleconwxchart.h:26</a></div></div>
+<div class="ttc" id="aclass_telecon_wx_chart_html"><div class="ttname"><a href="class_telecon_wx_chart.html">TeleconWxChart</a></div><div class="ttdef"><b>Definition:</b> <a href="teleconwxchart_8h_source.html#l00028">teleconwxchart.h:28</a></div></div>
 <div class="ttc" id="aclass_telecon_wx_chart_html_a107853fb490241f40f9cab5f83d39872"><div class="ttname"><a href="class_telecon_wx_chart.html#a107853fb490241f40f9cab5f83d39872">TeleconWxChart::setPause</a></div><div class="ttdeci">void setPause()</div><div class="ttdef"><b>Definition:</b> <a href="teleconwxchart_8cpp_source.html#l00098">teleconwxchart.cpp:98</a></div></div>
 <div class="ttc" id="aclass_telecon_wx_chart_html_a3ffc4a088d9162f8822eabb30ec5ed15"><div class="ttname"><a href="class_telecon_wx_chart.html#a3ffc4a088d9162f8822eabb30ec5ed15">TeleconWxChart::setPlay</a></div><div class="ttdeci">void setPlay()</div><div class="ttdef"><b>Definition:</b> <a href="teleconwxchart_8cpp_source.html#l00093">teleconwxchart.cpp:93</a></div></div>
 <div class="ttc" id="aclass_telecon_wx_chart_html_a89319d656a2a8221f889bdbe55abe22c"><div class="ttname"><a href="class_telecon_wx_chart.html#a89319d656a2a8221f889bdbe55abe22c">TeleconWxChart::OnChartRefreshTimer</a></div><div class="ttdeci">void OnChartRefreshTimer()</div><div class="ttdef"><b>Definition:</b> <a href="teleconwxchart_8cpp_source.html#l00125">teleconwxchart.cpp:125</a></div></div>

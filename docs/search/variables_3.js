@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ydata_0',['yData',['../struct_phase_portrait_data_point.html#a5ddcef17508c580888566a66f3e73c3b',1,'PhasePortraitDataPoint']]]
+  ['isactive_0',['isActive',['../struct_raster_data_point.html#a9f1485384a21558c9e62a13b087066cc',1,'RasterDataPoint']]]
 ];

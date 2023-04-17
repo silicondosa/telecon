@@ -7,22 +7,15 @@
 Inheritance diagram for Telecon\+Line\+Plot\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=4.000000cm]{class_telecon_line_plot}
+\includegraphics[height=3.000000cm]{class_telecon_line_plot}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-virtual int \mbox{\hyperlink{class_telecon_line_plot_ac7ebe860040d9e908b0cc1a1e0892584}{get\+Line\+Width}} () const =0
+virtual void \mbox{\hyperlink{class_telecon_line_plot_a91d10407c37f168127968e69f309022f}{push\+Data}} (double x\+Timestamp, double y\+Data)=0
 \item 
-virtual \mbox{\hyperlink{teleconlineplot_8h_afd074c27ba0a2809258258751b754f52}{Line\+Type}} \mbox{\hyperlink{class_telecon_line_plot_a24d441ff5ee74a24ad03523635b5a8f1}{get\+Line\+Type}} () const =0
-\item 
-virtual bool \mbox{\hyperlink{class_telecon_line_plot_aa2ed31208772b312092042e0d1db5287}{has\+Symbol}} () const =0
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_telecon_line_scatter_plot}{Telecon\+Line\+Scatter\+Plot}}}
-\begin{DoxyCompactItemize}
-\item 
-virtual void \mbox{\hyperlink{class_telecon_line_scatter_plot_ab61103291346f58f8f411201810c06d7}{push\+Data}} (double x\+Timestamp, double y\+Data)=0
+virtual shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_line_style}{Line\+Style}} $>$ \mbox{\hyperlink{class_telecon_line_plot_a3f3f0300e1b4794541bee87edb63ef9c}{get\+Line\+Style}} () const =0
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}}}
 \begin{DoxyCompactItemize}
@@ -31,73 +24,85 @@ virtual size\+\_\+t \mbox{\hyperlink{class_telecon_plot_a582e5ae4fd4923f82956fc3
 \item 
 virtual size\+\_\+t \mbox{\hyperlink{class_telecon_plot_a531aaccd7cd6f98e32c1a315900b5c49}{depth}} () const =0
 \item 
-virtual int \mbox{\hyperlink{class_telecon_plot_ae573ed05240f7e135a50ef0ee632a6bb}{get\+Color}} () const =0
-\item 
 virtual const string \mbox{\hyperlink{class_telecon_plot_ab8c7d77c2ab3091765bf560f29306d7e}{get\+Plot\+Title}} () const =0
 \item 
-virtual bool \mbox{\hyperlink{class_telecon_plot_a24f3e2d92ad1cddfa3d50be3685cb100}{is\+Symbol\+Filled}} () const =0
+virtual shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} $>$ \mbox{\hyperlink{class_telecon_plot_ab754dc0b368eef40072b1aedfd3bf434}{get\+Symbol\+Style}} () const =0
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
 \item 
-virtual int \mbox{\hyperlink{class_telecon_plot_a639cf9cda48ed159e59c7035a72ec386}{get\+Symbol}} () const =0
+static const \mbox{\hyperlink{class_line_style}{Line\+Style}} \mbox{\hyperlink{class_telecon_line_plot_a4d8d0842e948de67fa4690ff9f78a727}{default\+Line\+Style}} = \mbox{\hyperlink{class_line_style}{Line\+Style}}()
 \item 
-virtual int \mbox{\hyperlink{class_telecon_plot_aaf214d96bec86cd37efb445cdd999539}{get\+Symbol\+Size}} () const =0
+static const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \mbox{\hyperlink{class_telecon_line_plot_a7177818e8221ae649f4e0b5945015b7f}{default\+Symbol\+Style}} = \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}}(\mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40ba666bb08379feb5797dfec199a2479b6a}{SYMBOL\+\_\+\+NO\+\_\+\+SYMBOL}})
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Line plot implementation that inherits from \mbox{\hyperlink{class_telecon_line_scatter_plot}{Telecon\+Line\+Scatter\+Plot}}. 
+The user-\/level interface for interacting with line plots. A line plot is a sequence of 2-\/dimensional points that consist of a timestamp, displayed on the x-\/axis, and a value, displayed on the y-\/axis. The points may be connected by a line (by default they are), and represented with a symbol (by the default they are not). 
 
-Definition at line \mbox{\hyperlink{teleconlineplot_8h_source_l00016}{16}} of file \mbox{\hyperlink{teleconlineplot_8h_source}{teleconlineplot.\+h}}.
+Definition at line \mbox{\hyperlink{teleconlineplot_8h_source_l00012}{12}} of file \mbox{\hyperlink{teleconlineplot_8h_source}{teleconlineplot.\+h}}.
 
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_telecon_line_plot_a24d441ff5ee74a24ad03523635b5a8f1}\label{class_telecon_line_plot_a24d441ff5ee74a24ad03523635b5a8f1}} 
-\index{TeleconLinePlot@{TeleconLinePlot}!getLineType@{getLineType}}
-\index{getLineType@{getLineType}!TeleconLinePlot@{TeleconLinePlot}}
-\doxysubsubsection{\texorpdfstring{getLineType()}{getLineType()}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{teleconlineplot_8h_afd074c27ba0a2809258258751b754f52}{Line\+Type}} Telecon\+Line\+Plot\+::get\+Line\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-Getter function for plot line type (solid or dashed).
+\mbox{\Hypertarget{class_telecon_line_plot_a3f3f0300e1b4794541bee87edb63ef9c}\label{class_telecon_line_plot_a3f3f0300e1b4794541bee87edb63ef9c}} 
+\index{TeleconLinePlot@{TeleconLinePlot}!getLineStyle@{getLineStyle}}
+\index{getLineStyle@{getLineStyle}!TeleconLinePlot@{TeleconLinePlot}}
+\doxysubsubsection{\texorpdfstring{getLineStyle()}{getLineStyle()}}
+{\footnotesize\ttfamily virtual shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_line_style}{Line\+Style}} $>$ Telecon\+Line\+Plot\+::get\+Line\+Style (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 \begin{DoxyReturn}{Returns}
-Line type as type Line\+Type. 
+The \mbox{\hyperlink{class_line_style}{Line\+Style}} representing how the line connecting points (if any) should be displayed. 
 \end{DoxyReturn}
 
 
-Implemented in \mbox{\hyperlink{class_telecon_wx_line_plot_ad81d109dec01d657f9089b7b96edc61b}{Telecon\+Wx\+Line\+Plot}}.
+Implemented in \mbox{\hyperlink{class_telecon_wx_line_plot_ac2268403bac788db2334c994fff7b7e8}{Telecon\+Wx\+Line\+Plot}}.
 
-\mbox{\Hypertarget{class_telecon_line_plot_ac7ebe860040d9e908b0cc1a1e0892584}\label{class_telecon_line_plot_ac7ebe860040d9e908b0cc1a1e0892584}} 
-\index{TeleconLinePlot@{TeleconLinePlot}!getLineWidth@{getLineWidth}}
-\index{getLineWidth@{getLineWidth}!TeleconLinePlot@{TeleconLinePlot}}
-\doxysubsubsection{\texorpdfstring{getLineWidth()}{getLineWidth()}}
-{\footnotesize\ttfamily virtual int Telecon\+Line\+Plot\+::get\+Line\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+\mbox{\Hypertarget{class_telecon_line_plot_a91d10407c37f168127968e69f309022f}\label{class_telecon_line_plot_a91d10407c37f168127968e69f309022f}} 
+\index{TeleconLinePlot@{TeleconLinePlot}!pushData@{pushData}}
+\index{pushData@{pushData}!TeleconLinePlot@{TeleconLinePlot}}
+\doxysubsubsection{\texorpdfstring{pushData()}{pushData()}}
+{\footnotesize\ttfamily virtual void Telecon\+Line\+Plot\+::push\+Data (\begin{DoxyParamCaption}\item[{double}]{x\+Timestamp,  }\item[{double}]{y\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-Getter function for plot line width.
-
-\begin{DoxyReturn}{Returns}
-Line width in pixels as int. 
-\end{DoxyReturn}
+Function to push a single data point (y\+Data) into the plot at a certain time (x\+Timestamp).
 
 
-Implemented in \mbox{\hyperlink{class_telecon_wx_line_plot_a2bb6962c1acb96ad74efec5092922703}{Telecon\+Wx\+Line\+Plot}}.
-
-\mbox{\Hypertarget{class_telecon_line_plot_aa2ed31208772b312092042e0d1db5287}\label{class_telecon_line_plot_aa2ed31208772b312092042e0d1db5287}} 
-\index{TeleconLinePlot@{TeleconLinePlot}!hasSymbol@{hasSymbol}}
-\index{hasSymbol@{hasSymbol}!TeleconLinePlot@{TeleconLinePlot}}
-\doxysubsubsection{\texorpdfstring{hasSymbol()}{hasSymbol()}}
-{\footnotesize\ttfamily virtual bool Telecon\+Line\+Plot\+::has\+Symbol (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-Getter function to see if plot has a symbol. If not, only the line will be displayed.
-
-\begin{DoxyReturn}{Returns}
-True if a symbol will be drawn, or false otherwise as bool. 
-\end{DoxyReturn}
+\begin{DoxyParams}{Parameters}
+{\em x\+Timestamp} & Time the data point was generated, represented as seconds since an epoch. The epoch used will depend on the implementation; the default implementation (wx\+Chart\+Dir) uses January 1st, year 1. However, since charts display only hours, minutes, and seconds, for short time spans (less than a day), the epoch could be user-\/defined (for example, the beginning of the experiment which is producing data). Data points must be inserted with the timestamps in ascending order (the same order that they were created). \\
+\hline
+{\em y\+Data} & The value that will be displayed. \\
+\hline
+\end{DoxyParams}
 
 
-Implemented in \mbox{\hyperlink{class_telecon_wx_line_plot_ad5d4988d53e4cd9395281498d542a8ec}{Telecon\+Wx\+Line\+Plot}}.
+Implemented in \mbox{\hyperlink{class_telecon_wx_line_plot_a679547174e97f62e0c088aae9016de2d}{Telecon\+Wx\+Line\+Plot}}.
 
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_telecon_line_plot_a4d8d0842e948de67fa4690ff9f78a727}\label{class_telecon_line_plot_a4d8d0842e948de67fa4690ff9f78a727}} 
+\index{TeleconLinePlot@{TeleconLinePlot}!defaultLineStyle@{defaultLineStyle}}
+\index{defaultLineStyle@{defaultLineStyle}!TeleconLinePlot@{TeleconLinePlot}}
+\doxysubsubsection{\texorpdfstring{defaultLineStyle}{defaultLineStyle}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_line_style}{Line\+Style}} Telecon\+Line\+Plot\+::default\+Line\+Style = \mbox{\hyperlink{class_line_style}{Line\+Style}}()\hspace{0.3cm}{\ttfamily [static]}}
+
+The default \mbox{\hyperlink{class_line_style}{Line\+Style}} used to represent line plots, which is a solid line, of the default color, 5 pixels wide. 
+
+Definition at line \mbox{\hyperlink{teleconlineplot_8h_source_l00015}{15}} of file \mbox{\hyperlink{teleconlineplot_8h_source}{teleconlineplot.\+h}}.
+
+\mbox{\Hypertarget{class_telecon_line_plot_a7177818e8221ae649f4e0b5945015b7f}\label{class_telecon_line_plot_a7177818e8221ae649f4e0b5945015b7f}} 
+\index{TeleconLinePlot@{TeleconLinePlot}!defaultSymbolStyle@{defaultSymbolStyle}}
+\index{defaultSymbolStyle@{defaultSymbolStyle}!TeleconLinePlot@{TeleconLinePlot}}
+\doxysubsubsection{\texorpdfstring{defaultSymbolStyle}{defaultSymbolStyle}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} Telecon\+Line\+Plot\+::default\+Symbol\+Style = \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}}(\mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40ba666bb08379feb5797dfec199a2479b6a}{SYMBOL\+\_\+\+NO\+\_\+\+SYMBOL}})\hspace{0.3cm}{\ttfamily [static]}}
+
+The default \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} used to represent line plots, which has no symbols. 
+
+Definition at line \mbox{\hyperlink{teleconlineplot_8h_source_l00017}{17}} of file \mbox{\hyperlink{teleconlineplot_8h_source}{teleconlineplot.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/\mbox{\hyperlink{teleconlineplot_8h}{teleconlineplot.\+h}}\end{DoxyCompactItemize}
+include/\mbox{\hyperlink{teleconlineplot_8h}{teleconlineplot.\+h}}\item 
+src/\mbox{\hyperlink{teleconlineplot_8cpp}{teleconlineplot.\+cpp}}\end{DoxyCompactItemize}

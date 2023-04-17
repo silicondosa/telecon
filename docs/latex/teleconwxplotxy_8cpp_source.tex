@@ -7,106 +7,115 @@
 \DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00003}\mbox{\hyperlink{class_telecon_wx_plot_x_y_a6dda11b21f52b5807b570a609bd40a9a}{00003}}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_a6dda11b21f52b5807b570a609bd40a9a}{TeleconWxPlotXY::TeleconWxPlotXY}}(\textcolor{keywordtype}{string}\ plotTitle,\ \textcolor{keywordtype}{int}\ color,\ \textcolor{keywordtype}{int}\ lineWidth,\ \mbox{\hyperlink{teleconlineplot_8h_afd074c27ba0a2809258258751b754f52}{LineType}}\ lineType,\ \textcolor{keywordtype}{bool}\ hasSymbol,\ \textcolor{keywordtype}{int}\ symbol,\ \textcolor{keywordtype}{bool}\ fillSymbol,\ \textcolor{keywordtype}{int}\ symbolSize,\ \textcolor{keywordtype}{int}\ depth)}
 \DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00004}00004\ \ \ \ \ :\ \mbox{\hyperlink{class_telecon_wx_plot}{TeleconWxPlot}}(plotTitle,\ color,\ depth),\ m\_dataToAdd(new\ list<pair<double,\ double>>),\ m\_xTimestamps(m\_depth),\ m\_yData(m\_depth),\ m\_lineWidth(lineWidth),\ m\_lineType(lineType),\ m\_hasSymbol(hasSymbol),\ m\_symbol(symbol),\ m\_fillSymbol(fillSymbol),\ m\_symbolSize(symbolSize)\ \{\}}
 \DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00005}00005\ }
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00006}\mbox{\hyperlink{class_telecon_wx_plot_x_y_a5e8d756e2fd85e4404b2fb2201b9eb35}{00006}}\ list<pair<double,\ double>>*\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_a5e8d756e2fd85e4404b2fb2201b9eb35}{TeleconWxPlotXY::swapAndGetDataToAdd}}()}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00006}\mbox{\hyperlink{class_telecon_wx_plot_x_y_ae95bbff94e6abe2dd8afa419761278dc}{00006}}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_ae95bbff94e6abe2dd8afa419761278dc}{TeleconWxPlotXY::\string~TeleconWxPlotXY}}()}
 \DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00007}00007\ \{}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00008}00008\ \ \ \ \ \textcolor{comment}{//printf("{}First\ element\ when\ swapping:\ \%f"{},\ m\_dataToAdd-\/>front().first);}}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00009}00009\ \ \ \ \ list<pair<double,\ double>>*\ newDataToAdd\ =\ \textcolor{keyword}{new}\ list<pair<double,\ double>>();}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00010}00010\ \ \ \ \ list<pair<double,\ double>>*\ oldDataToAdd\ =\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_afe91913839cbdbcecb591073f34a17e1}{m\_dataToAdd}};}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00008}00008\ \ \ \ \ \textcolor{keyword}{const}\ lock\_guard<mutex>\ lock(\mbox{\hyperlink{class_telecon_wx_plot_x_y_ab7863fbbba3d092302f22cad3987f5ac}{m\_dataToAddLock}});}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00009}00009\ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_afe91913839cbdbcecb591073f34a17e1}{m\_dataToAdd}};}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00010}00010\ \}}
 \DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00011}00011\ }
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00012}00012\ \ \ \ \ \textcolor{keyword}{const}\ lock\_guard<mutex>\ lock(\mbox{\hyperlink{class_telecon_wx_plot_x_y_ab7863fbbba3d092302f22cad3987f5ac}{m\_dataToAddLock}});}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00013}00013\ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_plot_x_y_afe91913839cbdbcecb591073f34a17e1}{m\_dataToAdd}}\ =\ newDataToAdd;}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00014}00014\ \ \ \ \ \textcolor{keywordflow}{return}\ oldDataToAdd;}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00015}00015\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00012}\mbox{\hyperlink{class_telecon_wx_plot_x_y_a5e8d756e2fd85e4404b2fb2201b9eb35}{00012}}\ list<pair<double,\ double>>*\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_a5e8d756e2fd85e4404b2fb2201b9eb35}{TeleconWxPlotXY::swapAndGetDataToAdd}}()}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00014}00014\ \ \ \ \ list<pair<double,\ double>>*\ newDataToAdd\ =\ \textcolor{keyword}{new}\ list<pair<double,\ double>>();}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00015}00015\ \ \ \ \ list<pair<double,\ double>>*\ oldDataToAdd\ =\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_afe91913839cbdbcecb591073f34a17e1}{m\_dataToAdd}};}
 \DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00016}00016\ }
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00017}\mbox{\hyperlink{class_telecon_wx_plot_x_y_ac9254248dbbda8263a740ac688f96877}{00017}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_ac9254248dbbda8263a740ac688f96877}{TeleconWxPlotXY::prepDataForDraw}}()}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00018}00018\ \{}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00019}00019\ \ \ \ \ list<pair<double,\ double>>*\ dataToAdd\ =\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_a5e8d756e2fd85e4404b2fb2201b9eb35}{swapAndGetDataToAdd}}();}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00020}00020\ }
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ xyPair\ :\ *dataToAdd)\ \{}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_plot_x_y_ac05fab4ebac6fcbb5c6a8bad5f58ba78}{m\_xTimestamps}}.\mbox{\hyperlink{class_data_buffer_a4ae8a35aa51c17729e399d4a12eee94a}{insertNewValue}}(xyPair.first);}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_plot_x_y_adbed84c3ab23371f707ba64e06c6775c}{m\_yData}}.\mbox{\hyperlink{class_data_buffer_a4ae8a35aa51c17729e399d4a12eee94a}{insertNewValue}}(xyPair.second);}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00024}00024\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00017}00017\ \ \ \ \ \textcolor{keyword}{const}\ lock\_guard<mutex>\ lock(\mbox{\hyperlink{class_telecon_wx_plot_x_y_ab7863fbbba3d092302f22cad3987f5ac}{m\_dataToAddLock}});}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00018}00018\ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_plot_x_y_afe91913839cbdbcecb591073f34a17e1}{m\_dataToAdd}}\ =\ newDataToAdd;}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00019}00019\ \ \ \ \ \textcolor{keywordflow}{return}\ oldDataToAdd;}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00020}00020\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00022}\mbox{\hyperlink{class_telecon_wx_plot_x_y_ac9254248dbbda8263a740ac688f96877}{00022}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_ac9254248dbbda8263a740ac688f96877}{TeleconWxPlotXY::prepDataForDraw}}()}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00023}00023\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00024}00024\ \ \ \ \ list<pair<double,\ double>>*\ dataToAdd\ =\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_a5e8d756e2fd85e4404b2fb2201b9eb35}{swapAndGetDataToAdd}}();}
 \DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00025}00025\ }
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{keyword}{delete}\ dataToAdd;}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00027}00027\ \}}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00028}00028\ }
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00029}\mbox{\hyperlink{class_telecon_wx_plot_x_y_ad9b1f58e0492bd224d804ad5b55f4922}{00029}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_ad9b1f58e0492bd224d804ad5b55f4922}{TeleconWxPlotXY::getLeftmostX}}()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00030}00030\ \textcolor{keyword}{}\{}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_ac05fab4ebac6fcbb5c6a8bad5f58ba78}{m\_xTimestamps}}[0];}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ xyPair\ :\ *dataToAdd)\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_plot_x_y_ac05fab4ebac6fcbb5c6a8bad5f58ba78}{m\_xTimestamps}}.\mbox{\hyperlink{class_data_buffer_a4ae8a35aa51c17729e399d4a12eee94a}{insertNewValue}}(xyPair.first);}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_plot_x_y_adbed84c3ab23371f707ba64e06c6775c}{m\_yData}}.\mbox{\hyperlink{class_data_buffer_a4ae8a35aa51c17729e399d4a12eee94a}{insertNewValue}}(xyPair.second);}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00029}00029\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{keyword}{delete}\ dataToAdd;}
 \DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00032}00032\ \}}
 \DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00033}00033\ }
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00034}\mbox{\hyperlink{class_telecon_wx_plot_x_y_ab991ba2422935fa715dcb268bac7abc7}{00034}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_ab991ba2422935fa715dcb268bac7abc7}{TeleconWxPlotXY::getRightmostX}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00034}\mbox{\hyperlink{class_telecon_wx_plot_x_y_ad9b1f58e0492bd224d804ad5b55f4922}{00034}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_ad9b1f58e0492bd224d804ad5b55f4922}{TeleconWxPlotXY::getLeftmostX}}()\textcolor{keyword}{\ const}}
 \DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00035}00035\ \textcolor{keyword}{}\{}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_ac05fab4ebac6fcbb5c6a8bad5f58ba78}{m\_xTimestamps}}[\mbox{\hyperlink{class_telecon_wx_plot_x_y_ac05fab4ebac6fcbb5c6a8bad5f58ba78}{m\_xTimestamps}}.\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}()\ -\/\ 1];}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_ac05fab4ebac6fcbb5c6a8bad5f58ba78}{m\_xTimestamps}}[0];}
 \DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00037}00037\ \}}
 \DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00038}00038\ }
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00039}\mbox{\hyperlink{class_telecon_wx_plot_x_y_a56cd0adf78eb541eb7c76f187bda7773}{00039}}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_a56cd0adf78eb541eb7c76f187bda7773}{TeleconWxPlotXY::getLatestValueString}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00039}\mbox{\hyperlink{class_telecon_wx_plot_x_y_ab991ba2422935fa715dcb268bac7abc7}{00039}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_ab991ba2422935fa715dcb268bac7abc7}{TeleconWxPlotXY::getRightmostX}}()\textcolor{keyword}{\ const}}
 \DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00040}00040\ \textcolor{keyword}{}\{}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00041}00041\ \ \ \ \ \textcolor{comment}{//\ Can't\ believe\ this\ is\ still\ the\ only\ way\ to\ do\ this\ in\ C++17\ (formatting\ directly\ into\ c++\ string\ isn't\ added\ until\ C++20)}}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{keywordtype}{int}\ size\_s\ =\ std::snprintf(\textcolor{keyword}{nullptr},\ 0,\ \textcolor{stringliteral}{"{}\%.2f"{}},\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_adbed84c3ab23371f707ba64e06c6775c}{m\_yData}}[\mbox{\hyperlink{class_telecon_wx_plot_x_y_adbed84c3ab23371f707ba64e06c6775c}{m\_yData}}.\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}()\ -\/\ 1])\ +\ 1;\ \textcolor{comment}{//\ Extra\ space\ for\ '\(\backslash\)0'}}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00043}00043\ \ \ \ \ \textcolor{keywordtype}{char}*\ latestValueString\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{char}[size\_s];}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00044}00044\ \ \ \ \ std::unique\_ptr<char[]>\ buf(\textcolor{keyword}{new}\ \textcolor{keywordtype}{char}[size\_s]);}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00045}00045\ \ \ \ \ std::snprintf(buf.get(),\ size\_s,\ \textcolor{stringliteral}{"{}\%.2f"{}},\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_adbed84c3ab23371f707ba64e06c6775c}{m\_yData}}[\mbox{\hyperlink{class_telecon_wx_plot_x_y_adbed84c3ab23371f707ba64e06c6775c}{m\_yData}}.\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}()\ -\/\ 1]);}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00046}00046\ \ \ \ \ \textcolor{keywordflow}{return}\ string(buf.get());}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00047}00047\ \}}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00048}00048\ }
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00049}\mbox{\hyperlink{class_telecon_wx_plot_x_y_a75e38814ec961f892886a4fc171bce12}{00049}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_a75e38814ec961f892886a4fc171bce12}{TeleconWxPlotXY::addToChart}}(XYChart*\ chart)\ \{}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00050}00050\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_telecon_wx_plot_x_y_adbed84c3ab23371f707ba64e06c6775c}{m\_yData}}.\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}()\ <=\ 0)\ \{}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00052}00052\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{comment}{//\ This\ integer\ represents\ both\ the\ color\ and\ dash\ status\ (solid,\ dashed,\ or\ none)\ of\ the\ chart}}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00054}00054\ \ \ \ \ \textcolor{keywordtype}{int}\ chartDirColor;}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_telecon_wx_plot_x_y_a79b0d54ba60f9c2690d839b9d87a726e}{m\_lineType}}\ ==\ \mbox{\hyperlink{teleconlineplot_8h_afd074c27ba0a2809258258751b754f52ad3188575e9151d64606bf543dc4c40f1}{LT\_SOLID}})\ \{}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ chartDirColor\ =\ \mbox{\hyperlink{class_telecon_wx_plot_a6b0694f380d54c0bfdb6d182934eeaf0}{m\_color}};}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00057}00057\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ Solid\ or\ none}}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ chartDirColor\ =\ chart-\/>dashLineColor(\mbox{\hyperlink{class_telecon_wx_plot_a6b0694f380d54c0bfdb6d182934eeaf0}{m\_color}},\ Chart::DashLine);}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00060}00060\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00061}00061\ \ \ \ \ LineLayer*\ layer\ =\ chart-\/>addLineLayer();}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00062}00062\ }
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00063}00063\ \ \ \ \ DataSet*\ dataSet\ =\ layer-\/>addDataSet(DoubleArray(\&\mbox{\hyperlink{class_telecon_wx_plot_x_y_adbed84c3ab23371f707ba64e06c6775c}{m\_yData}}[0],\ (\textcolor{keywordtype}{int})\mbox{\hyperlink{class_telecon_wx_plot_x_y_adbed84c3ab23371f707ba64e06c6775c}{m\_yData}}.\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}()),\ chartDirColor,\ \mbox{\hyperlink{class_telecon_wx_plot_a3601667f3fff47879712bf4f043699fa}{m\_plotTitle}}.c\_str());}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00064}00064\ }
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00065}00065\ \ \ \ \ dataSet-\/>setLineWidth(\mbox{\hyperlink{class_telecon_wx_plot_x_y_a6d4553f706b57477fac23ebdc1361992}{m\_lineWidth}});}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00066}00066\ }
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_telecon_wx_plot_x_y_afba5935bf8849cb5bff69ad93d406cce}{m\_hasSymbol}})\ \{}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ dataSet-\/>setDataSymbol(\mbox{\hyperlink{class_telecon_wx_plot_x_y_a7aec91f04553e572959a219ca67b38eb}{m\_symbol}},\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_a71bf004fd7ee3a6ec4eaa55af602ea96}{m\_symbolSize}},\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_a38ebb0cc796dba05d584434d51560690}{m\_fillSymbol}}\ ?\ \mbox{\hyperlink{class_telecon_wx_plot_a6b0694f380d54c0bfdb6d182934eeaf0}{m\_color}}\ :\ Chart::Transparent,\ \mbox{\hyperlink{class_telecon_wx_plot_a6b0694f380d54c0bfdb6d182934eeaf0}{m\_color}});}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00041}00041\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_ac05fab4ebac6fcbb5c6a8bad5f58ba78}{m\_xTimestamps}}[\mbox{\hyperlink{class_telecon_wx_plot_x_y_ac05fab4ebac6fcbb5c6a8bad5f58ba78}{m\_xTimestamps}}.\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}()\ -\/\ 1];}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00042}00042\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00044}\mbox{\hyperlink{class_telecon_wx_plot_x_y_a56cd0adf78eb541eb7c76f187bda7773}{00044}}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_a56cd0adf78eb541eb7c76f187bda7773}{TeleconWxPlotXY::getLatestValueString}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00045}00045\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00046}00046\ \ \ \ \ \textcolor{comment}{//\ Can't\ believe\ this\ is\ still\ the\ only\ way\ to\ do\ this\ in\ C++17\ (formatting\ directly\ into\ c++\ string\ isn't\ added\ until\ C++20)}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{keywordtype}{int}\ size\_s\ =\ std::snprintf(\textcolor{keyword}{nullptr},\ 0,\ \textcolor{stringliteral}{"{}\%.2f"{}},\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_adbed84c3ab23371f707ba64e06c6775c}{m\_yData}}[\mbox{\hyperlink{class_telecon_wx_plot_x_y_adbed84c3ab23371f707ba64e06c6775c}{m\_yData}}.\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}()\ -\/\ 1])\ +\ 1;\ \textcolor{comment}{//\ Extra\ space\ for\ '\(\backslash\)0'}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00048}00048\ \ \ \ \ std::unique\_ptr<char[]>\ buf(\textcolor{keyword}{new}\ \textcolor{keywordtype}{char}[size\_s]);}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00049}00049\ \ \ \ \ std::snprintf(buf.get(),\ size\_s,\ \textcolor{stringliteral}{"{}\%.2f"{}},\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_adbed84c3ab23371f707ba64e06c6775c}{m\_yData}}[\mbox{\hyperlink{class_telecon_wx_plot_x_y_adbed84c3ab23371f707ba64e06c6775c}{m\_yData}}.\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}()\ -\/\ 1]);}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00050}00050\ \ \ \ \ \textcolor{keywordflow}{return}\ string(buf.get());}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00051}00051\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00053}\mbox{\hyperlink{class_telecon_wx_plot_x_y_abbc011152234a0b5cc08d48503081055}{00053}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_abbc011152234a0b5cc08d48503081055}{TeleconWxPlotXY::isIncludedInLegend}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00054}00054\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00056}00056\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00058}\mbox{\hyperlink{class_telecon_wx_plot_x_y_a75e38814ec961f892886a4fc171bce12}{00058}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_a75e38814ec961f892886a4fc171bce12}{TeleconWxPlotXY::addToChart}}(XYChart*\ chart)\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00059}00059\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_telecon_wx_plot_x_y_adbed84c3ab23371f707ba64e06c6775c}{m\_yData}}.\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}()\ <=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00062}00062\ \ \ \ \ \textcolor{comment}{//\ This\ integer\ represents\ both\ the\ color\ and\ dash\ status\ (solid,\ dashed,\ or\ none)\ of\ the\ chart}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00063}00063\ \ \ \ \ \textcolor{keywordtype}{int}\ chartDirColor;}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00064}00064\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_telecon_wx_plot_x_y_a79b0d54ba60f9c2690d839b9d87a726e}{m\_lineType}}\ ==\ \mbox{\hyperlink{teleconlineplot_8h_afd074c27ba0a2809258258751b754f52ad3188575e9151d64606bf543dc4c40f1}{LT\_SOLID}})\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ chartDirColor\ =\ \mbox{\hyperlink{class_telecon_wx_plot_a6b0694f380d54c0bfdb6d182934eeaf0}{m\_color}};}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00066}00066\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ Solid\ or\ none}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ chartDirColor\ =\ chart-\/>dashLineColor(\mbox{\hyperlink{class_telecon_wx_plot_a6b0694f380d54c0bfdb6d182934eeaf0}{m\_color}},\ Chart::DashLine);}
 \DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00069}00069\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00070}00070\ }
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00071}00071\ \ \ \ \ \textcolor{comment}{//\ The\ x-\/coordinates\ are\ the\ timeStamps.}}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00072}00072\ \ \ \ \ layer-\/>setXData(DoubleArray(\&\mbox{\hyperlink{class_telecon_wx_plot_x_y_ac05fab4ebac6fcbb5c6a8bad5f58ba78}{m\_xTimestamps}}[0],\ (\textcolor{keywordtype}{int})\mbox{\hyperlink{class_telecon_wx_plot_x_y_ac05fab4ebac6fcbb5c6a8bad5f58ba78}{m\_xTimestamps}}.\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}()));}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00073}00073\ \}}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00074}00074\ }
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00075}\mbox{\hyperlink{class_telecon_wx_plot_x_y_a42bc96d49be8ff9b6e880da77f7275f2}{00075}}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_a42bc96d49be8ff9b6e880da77f7275f2}{TeleconWxPlotXY::size}}()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00076}00076\ \textcolor{keyword}{}\{}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00077}00077\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_ac05fab4ebac6fcbb5c6a8bad5f58ba78}{m\_xTimestamps}}.\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}();}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00078}00078\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00070}00070\ \ \ \ \ LineLayer*\ layer\ =\ chart-\/>addLineLayer();}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00072}00072\ \ \ \ \ DataSet*\ dataSet\ =\ layer-\/>addDataSet(DoubleArray(\&\mbox{\hyperlink{class_telecon_wx_plot_x_y_adbed84c3ab23371f707ba64e06c6775c}{m\_yData}}[0],\ (\textcolor{keywordtype}{int})\mbox{\hyperlink{class_telecon_wx_plot_x_y_adbed84c3ab23371f707ba64e06c6775c}{m\_yData}}.\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}()),\ chartDirColor,\ (\textcolor{keywordtype}{string}(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)"{}})\ +\ \mbox{\hyperlink{class_telecon_wx_plot_a3601667f3fff47879712bf4f043699fa}{m\_plotTitle}}).c\_str());}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00074}00074\ \ \ \ \ dataSet-\/>setLineWidth(\mbox{\hyperlink{class_telecon_wx_plot_x_y_a6d4553f706b57477fac23ebdc1361992}{m\_lineWidth}});}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00076}00076\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_telecon_wx_plot_x_y_afba5935bf8849cb5bff69ad93d406cce}{m\_hasSymbol}})\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ dataSet-\/>setDataSymbol(\mbox{\hyperlink{class_telecon_wx_plot_x_y_a7aec91f04553e572959a219ca67b38eb}{m\_symbol}},\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_a71bf004fd7ee3a6ec4eaa55af602ea96}{m\_symbolSize}},\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_a38ebb0cc796dba05d584434d51560690}{m\_fillSymbol}}\ ?\ \mbox{\hyperlink{class_telecon_wx_plot_a6b0694f380d54c0bfdb6d182934eeaf0}{m\_color}}\ :\ Chart::Transparent,\ \mbox{\hyperlink{class_telecon_wx_plot_a6b0694f380d54c0bfdb6d182934eeaf0}{m\_color}});}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00078}00078\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00079}00079\ }
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00080}\mbox{\hyperlink{class_telecon_wx_plot_x_y_ac3a02bfe252116f6f09ea8ad0bd312a7}{00080}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_ac3a02bfe252116f6f09ea8ad0bd312a7}{TeleconWxPlotXY::pushData}}(\textcolor{keywordtype}{double}\ xTimestamp,\ \textcolor{keywordtype}{double}\ yData)}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00081}00081\ \{}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00082}00082\ \ \ \ \ \textcolor{keyword}{const}\ lock\_guard<mutex>\ lock(\mbox{\hyperlink{class_telecon_wx_plot_x_y_ab7863fbbba3d092302f22cad3987f5ac}{m\_dataToAddLock}});}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00080}00080\ \ \ \ \ \textcolor{comment}{//\ The\ x-\/coordinates\ are\ the\ timeStamps.}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00081}00081\ \ \ \ \ layer-\/>setXData(DoubleArray(\&\mbox{\hyperlink{class_telecon_wx_plot_x_y_ac05fab4ebac6fcbb5c6a8bad5f58ba78}{m\_xTimestamps}}[0],\ (\textcolor{keywordtype}{int})\mbox{\hyperlink{class_telecon_wx_plot_x_y_ac05fab4ebac6fcbb5c6a8bad5f58ba78}{m\_xTimestamps}}.\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}()));}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00082}00082\ \}}
 \DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00083}00083\ }
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00084}00084\ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_plot_x_y_afe91913839cbdbcecb591073f34a17e1}{m\_dataToAdd}}-\/>push\_back(make\_pair(xTimestamp,\ yData));}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00085}00085\ }
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00086}00086\ \ \ \ \ \textcolor{keywordflow}{if}\ ((\textcolor{keywordtype}{int})\mbox{\hyperlink{class_telecon_wx_plot_x_y_afe91913839cbdbcecb591073f34a17e1}{m\_dataToAdd}}-\/>size()\ >\ \mbox{\hyperlink{class_telecon_wx_plot_a98ac5de8141d27f155c3d8a297fa1052}{m\_depth}})\ \{}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_plot_x_y_afe91913839cbdbcecb591073f34a17e1}{m\_dataToAdd}}-\/>pop\_front();}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00088}00088\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00089}00089\ }
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00090}00090\ \ \ \ \ \textcolor{comment}{//\ lock\_guard\ automatically\ releases\ m\_dataToAddLock\ when\ it\ goes\ out\ of\ scope}}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00091}00091\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00084}\mbox{\hyperlink{class_telecon_wx_plot_x_y_a42bc96d49be8ff9b6e880da77f7275f2}{00084}}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_a42bc96d49be8ff9b6e880da77f7275f2}{TeleconWxPlotXY::size}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00085}00085\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00086}00086\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_ac05fab4ebac6fcbb5c6a8bad5f58ba78}{m\_xTimestamps}}.\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}();}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00087}00087\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00089}\mbox{\hyperlink{class_telecon_wx_plot_x_y_ac3a02bfe252116f6f09ea8ad0bd312a7}{00089}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_ac3a02bfe252116f6f09ea8ad0bd312a7}{TeleconWxPlotXY::pushData}}(\textcolor{keywordtype}{double}\ xTimestamp,\ \textcolor{keywordtype}{double}\ yData)}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00090}00090\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00091}00091\ \ \ \ \ \textcolor{keyword}{const}\ lock\_guard<mutex>\ lock(\mbox{\hyperlink{class_telecon_wx_plot_x_y_ab7863fbbba3d092302f22cad3987f5ac}{m\_dataToAddLock}});}
 \DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00092}00092\ }
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00093}\mbox{\hyperlink{class_telecon_wx_plot_x_y_aa1e8b06c2c01235b6e383d02b50261d9}{00093}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_aa1e8b06c2c01235b6e383d02b50261d9}{TeleconWxPlotXY::isSymbolFilled}}()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00094}00094\ \textcolor{keyword}{}\{}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00095}00095\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_a38ebb0cc796dba05d584434d51560690}{m\_fillSymbol}};}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00096}00096\ \}}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00097}00097\ }
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00098}\mbox{\hyperlink{class_telecon_wx_plot_x_y_aae6d9e760860b42df2afc876ff53365d}{00098}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_aae6d9e760860b42df2afc876ff53365d}{TeleconWxPlotXY::getSymbol}}()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00099}00099\ \textcolor{keyword}{}\{}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00100}00100\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_a7aec91f04553e572959a219ca67b38eb}{m\_symbol}};}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00101}00101\ \}}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00102}00102\ }
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00103}\mbox{\hyperlink{class_telecon_wx_plot_x_y_a5c6bfb4151105f42c6242dd71932df73}{00103}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_a5c6bfb4151105f42c6242dd71932df73}{TeleconWxPlotXY::getSymbolSize}}()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00104}00104\ \textcolor{keyword}{}\{}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00105}00105\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_a71bf004fd7ee3a6ec4eaa55af602ea96}{m\_symbolSize}};}
-\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00106}00106\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00093}00093\ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_plot_x_y_afe91913839cbdbcecb591073f34a17e1}{m\_dataToAdd}}-\/>push\_back(make\_pair(xTimestamp,\ yData));}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00095}00095\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_telecon_wx_plot_x_y_afe91913839cbdbcecb591073f34a17e1}{m\_dataToAdd}}-\/>size()\ >\ \mbox{\hyperlink{class_telecon_wx_plot_a98ac5de8141d27f155c3d8a297fa1052}{m\_depth}})\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_plot_x_y_afe91913839cbdbcecb591073f34a17e1}{m\_dataToAdd}}-\/>pop\_front();}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00097}00097\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00099}00099\ \ \ \ \ \textcolor{comment}{//\ lock\_guard\ automatically\ releases\ m\_dataToAddLock\ when\ it\ goes\ out\ of\ scope}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00100}00100\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00102}\mbox{\hyperlink{class_telecon_wx_plot_x_y_aa1e8b06c2c01235b6e383d02b50261d9}{00102}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_aa1e8b06c2c01235b6e383d02b50261d9}{TeleconWxPlotXY::isSymbolFilled}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00103}00103\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00104}00104\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_a38ebb0cc796dba05d584434d51560690}{m\_fillSymbol}};}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00105}00105\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00107}\mbox{\hyperlink{class_telecon_wx_plot_x_y_aae6d9e760860b42df2afc876ff53365d}{00107}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_aae6d9e760860b42df2afc876ff53365d}{TeleconWxPlotXY::getSymbol}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00108}00108\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00109}00109\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_a7aec91f04553e572959a219ca67b38eb}{m\_symbol}};}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00110}00110\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00112}\mbox{\hyperlink{class_telecon_wx_plot_x_y_a5c6bfb4151105f42c6242dd71932df73}{00112}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_a5c6bfb4151105f42c6242dd71932df73}{TeleconWxPlotXY::getSymbolSize}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00113}00113\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00114}00114\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_telecon_wx_plot_x_y_a71bf004fd7ee3a6ec4eaa55af602ea96}{m\_symbolSize}};}
+\DoxyCodeLine{\Hypertarget{teleconwxplotxy_8cpp_source_l00115}00115\ \}}
 
 \end{DoxyCode}

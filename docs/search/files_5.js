@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['userfile_2ecpp_0',['userfile.cpp',['../userfile_8cpp.html',1,'']]]
+  ['symbolstyle_2ecpp_0',['symbolstyle.cpp',['../symbolstyle_8cpp.html',1,'']]],
+  ['symbolstyle_2eh_1',['symbolstyle.h',['../symbolstyle_8h.html',1,'']]]
 ];

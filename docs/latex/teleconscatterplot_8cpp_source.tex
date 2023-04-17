@@ -4,41 +4,6 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{teleconscatterplot_8h}{teleconscatterplot.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00002}00002\ }
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00003}\mbox{\hyperlink{class_telecon_scatter_plot_a30a330e150c75e9af442b92c9fee0ceb}{00003}}\ \mbox{\hyperlink{class_telecon_scatter_plot_a30a330e150c75e9af442b92c9fee0ceb}{TeleconScatterPlot::TeleconScatterPlot}}(\textcolor{keywordtype}{int}\ depth,\ \textcolor{keywordtype}{int}\ color,\ \textcolor{keywordtype}{string}\ plotTitle,\ \textcolor{keywordtype}{int}\ symbol,\ \textcolor{keywordtype}{bool}\ fillSymbol,\ \textcolor{keywordtype}{int}\ symbolSize)}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00004}00004\ \ \ \ \ :\ \mbox{\hyperlink{class_telecon_plot}{TeleconPlot}}(depth,\ color,\ plotTitle),\ m\_symbol(symbol),\ m\_fillSymbol(fillSymbol),\ m\_symbolSize(symbolSize)\ \{\}}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00005}00005\ }
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00006}\mbox{\hyperlink{class_telecon_scatter_plot_aaaf67b4a6d6bedb2fa08a6a17155073e}{00006}}\ list<pair<double,\ double>>*\ \mbox{\hyperlink{class_telecon_scatter_plot_aaaf67b4a6d6bedb2fa08a6a17155073e}{TeleconScatterPlot::swapAndGetDataToAdd}}()}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00007}00007\ \{}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00008}00008\ \ \ \ \ list<pair<double,\ double>>*\ newDataToAdd\ =\ \textcolor{keyword}{new}\ list<pair<double,\ double>>();}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00009}00009\ \ \ \ \ list<pair<double,\ double>>*\ oldDataToAdd\ =\ \mbox{\hyperlink{class_telecon_plot_abdcc4b41661466b49d102ea200fcbb6c}{m\_dataToAdd}};}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00010}00010\ }
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00011}00011\ \ \ \ \ \textcolor{keyword}{const}\ lock\_guard<mutex>\ lock(\mbox{\hyperlink{class_telecon_plot_a4a92cbee50787cca571d43854a49f320}{m\_dataToAddLock}});}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00012}00012\ \ \ \ \ \mbox{\hyperlink{class_telecon_plot_abdcc4b41661466b49d102ea200fcbb6c}{m\_dataToAdd}}\ =\ newDataToAdd;}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00013}00013\ \ \ \ \ \textcolor{keywordflow}{return}\ oldDataToAdd;}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00014}00014\ \}}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00015}00015\ }
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00016}\mbox{\hyperlink{class_telecon_scatter_plot_aa283b2aca402dee796ffb776e481c59d}{00016}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_scatter_plot_aa283b2aca402dee796ffb776e481c59d}{TeleconScatterPlot::prepDataForDraw}}()\ \{}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00017}00017\ \ \ \ \ list<pair<double,\ double>>*\ dataToAdd\ =\ \mbox{\hyperlink{class_telecon_scatter_plot_aaaf67b4a6d6bedb2fa08a6a17155073e}{swapAndGetDataToAdd}}();}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00018}00018\ }
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00019}00019\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ xyPair\ :\ *dataToAdd)\ \{}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_telecon_plot_ae7640484ea4ddaf3fea119d2e60eed31}{m\_xTimestamps}}.\mbox{\hyperlink{class_data_buffer_a4ae8a35aa51c17729e399d4a12eee94a}{insertNewValue}}(xyPair.first);}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_telecon_plot_ac215fd6747694636a33f2bd856f4d3fa}{m\_yData}}.\mbox{\hyperlink{class_data_buffer_a4ae8a35aa51c17729e399d4a12eee94a}{insertNewValue}}(xyPair.second);}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00022}00022\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00023}00023\ }
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00024}00024\ \ \ \ \ \textcolor{keyword}{delete}\ dataToAdd;}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00025}00025\ \}}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00026}00026\ }
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00027}\mbox{\hyperlink{class_telecon_scatter_plot_a807eeefc09ed7d28b9ca4a216e524711}{00027}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_scatter_plot_a807eeefc09ed7d28b9ca4a216e524711}{TeleconScatterPlot::getSymbol}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_telecon_scatter_plot_a15ee3c4e79df7c43159ebb01ce8fc8d5}{m\_symbol}};}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00029}00029\ \}}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00030}00030\ }
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00031}\mbox{\hyperlink{class_telecon_scatter_plot_aa58a4cbc7272b49f80707e6c667de3c3}{00031}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_scatter_plot_aa58a4cbc7272b49f80707e6c667de3c3}{TeleconScatterPlot::getSymbolSize}}()\textcolor{keyword}{\ const}\{}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00032}00032\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_telecon_scatter_plot_ab9e40cf861f0a83cadb423a81a23a8a4}{m\_symbolSize}};}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00033}00033\ \}}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00034}00034\ }
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00035}\mbox{\hyperlink{class_telecon_scatter_plot_a053129e5e60732507c347c50b18ea76b}{00035}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_scatter_plot_a053129e5e60732507c347c50b18ea76b}{TeleconScatterPlot::addToChart}}(XYChart*\ chart)\ \{}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_telecon_plot_a6ec8a9bca1bc9a42e12e4518a4626f9c}{size}}\ =\ \mbox{\hyperlink{class_telecon_plot_ae7640484ea4ddaf3fea119d2e60eed31}{m\_xTimestamps}}.\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}();}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00037}00037\ \ \ \ \ LineLayer*\ layer\ =\ chart-\/>addScatterLayer(DoubleArray(\&\mbox{\hyperlink{class_telecon_plot_ae7640484ea4ddaf3fea119d2e60eed31}{m\_xTimestamps}}[0],\ (\textcolor{keywordtype}{int})\mbox{\hyperlink{class_telecon_plot_ae7640484ea4ddaf3fea119d2e60eed31}{m\_xTimestamps}}.\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}()),\ DoubleArray(\&\mbox{\hyperlink{class_telecon_plot_ac215fd6747694636a33f2bd856f4d3fa}{m\_yData}}[0],\ (\textcolor{keywordtype}{int})\mbox{\hyperlink{class_telecon_plot_ac215fd6747694636a33f2bd856f4d3fa}{m\_yData}}.\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}()),\ \mbox{\hyperlink{class_telecon_plot_a641261b1e4beb58d5d932e0424237234}{m\_plotTitle}}.c\_str(),\ \mbox{\hyperlink{class_telecon_scatter_plot_a15ee3c4e79df7c43159ebb01ce8fc8d5}{m\_symbol}},\ \mbox{\hyperlink{class_telecon_scatter_plot_ab9e40cf861f0a83cadb423a81a23a8a4}{m\_symbolSize}},\ \mbox{\hyperlink{class_telecon_scatter_plot_a2a3d687074b8f7f1a2178499bae0dbb2}{m\_fillSymbol}}\ ?\ \mbox{\hyperlink{class_telecon_plot_a99d21e4d7983dbdcff00bf4cfad51c67}{m\_color}}\ :\ Chart::Transparent,\ \mbox{\hyperlink{class_telecon_plot_a99d21e4d7983dbdcff00bf4cfad51c67}{m\_color}});}
-\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00038}00038\ \}}
+\DoxyCodeLine{\Hypertarget{teleconscatterplot_8cpp_source_l00003}00003\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_symbol_style}{SymbolStyle}}\ \mbox{\hyperlink{class_telecon_scatter_plot_af0df8f87bf78c8057175da5214f2456c}{TeleconScatterPlot::defaultSymbolStyle}}\ =\ \mbox{\hyperlink{class_symbol_style}{SymbolStyle}}();}
 
 \end{DoxyCode}

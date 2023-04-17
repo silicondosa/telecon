@@ -10,37 +10,45 @@
 \DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00006}00006\ }
 \DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00007}00007\ \textcolor{keyword}{using\ namespace\ }std;}
 \DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00008}00008\ }
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00009}\mbox{\hyperlink{class_data_buffer}{00009}}\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_data_buffer}{DataBuffer}}\ \{}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00010}00010\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00011}00011\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ m\_depth;}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00012}00012\ \ \ \ \ vector<T>\ m\_dataBuffer;}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00013}00013\ \ \ \ \ \textcolor{keywordtype}{void}\ shiftDataAndInsert(T\ newValue)\ \{}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00014}00014\ \ \ \ \ \ \ \ \ memmove(\&m\_dataBuffer[0],\ \&m\_dataBuffer[1],\ \textcolor{keyword}{sizeof}(T)\ *\ (m\_dataBuffer.size()\ -\/\ 1));}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00015}00015\ \ \ \ \ \ \ \ \ m\_dataBuffer[m\_dataBuffer.size()\ -\/\ 1]\ =\ newValue;}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00016}00016\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00017}00017\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00018}\mbox{\hyperlink{class_data_buffer_af07dd03c09b18cf98f1aa278c76689b2}{00018}}\ \ \ \ \ \mbox{\hyperlink{class_data_buffer_af07dd03c09b18cf98f1aa278c76689b2}{DataBuffer}}(\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_data_buffer_a43bc240ccaec253d56435f473a8ca428}{depth}})\ :\ m\_depth(\mbox{\hyperlink{class_data_buffer_a43bc240ccaec253d56435f473a8ca428}{depth}})\ \{\}}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00019}\mbox{\hyperlink{class_data_buffer_aafd06b02f9db22d3aee7ab46e79e1275}{00019}}\ \ \ \ \ T\&\ \mbox{\hyperlink{class_data_buffer_aafd06b02f9db22d3aee7ab46e79e1275}{operator[]}}(\textcolor{keywordtype}{size\_t}\ index)\ \{}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_dataBuffer[index];}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00021}00021\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00022}\mbox{\hyperlink{class_data_buffer_aaabbfb0d9e9b60ed694eca913765bbdf}{00022}}\ \ \ \ \ \textcolor{keyword}{const}\ T\&\ \mbox{\hyperlink{class_data_buffer_aaabbfb0d9e9b60ed694eca913765bbdf}{operator[]}}(\textcolor{keywordtype}{size\_t}\ index)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_dataBuffer[index];}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00012}\mbox{\hyperlink{class_data_buffer}{00012}}\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_data_buffer}{DataBuffer}}\ \{}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00013}00013\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00014}00014\ \ \ \ \ \textcolor{comment}{//\ The\ maximum\ possible\ size\ of\ the\ buffer.}}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00015}00015\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ m\_depth;}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00017}00017\ \ \ \ \ \textcolor{comment}{//\ Vector\ of\ values\ that\ represent\ the\ buffer.}}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00018}00018\ \ \ \ \ vector<T>\ m\_dataBuffer;}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00020}00020\ \ \ \ \ \textcolor{comment}{//\ Circular\ buffer\ implementation.\ If\ the\ buffer\ is\ full,\ remove\ the\ oldest\ value\ and\ shift\ all\ other\ values\ down\ to\ make\ space.}}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00021}00021\ \ \ \ \ \textcolor{keywordtype}{void}\ shiftDataAndInsert(T\ newValue)\ \{}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ memmove(\&m\_dataBuffer[0],\ \&m\_dataBuffer[1],\ \textcolor{keyword}{sizeof}(T)\ *\ (m\_dataBuffer.size()\ -\/\ 1));}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ m\_dataBuffer[m\_dataBuffer.size()\ -\/\ 1]\ =\ newValue;}
 \DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00024}00024\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00025}00025\ \ \ \ \ \textcolor{comment}{//\ Returns\ the\ current\ size\ of\ the\ buffer\ (always\ <=\ depth)}}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00026}\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{00026}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_dataBuffer.size();}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00028}00028\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00029}00029\ \ \ \ \ \textcolor{comment}{//\ Returns\ the\ maximum\ possible\ size\ of\ the\ buffer\ (always\ >=\ size)}}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00030}\mbox{\hyperlink{class_data_buffer_a43bc240ccaec253d56435f473a8ca428}{00030}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_data_buffer_a43bc240ccaec253d56435f473a8ca428}{depth}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_depth;}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00032}00032\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00033}\mbox{\hyperlink{class_data_buffer_a4ae8a35aa51c17729e399d4a12eee94a}{00033}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_buffer_a4ae8a35aa51c17729e399d4a12eee94a}{insertNewValue}}(T\ newValue)\ \{}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_dataBuffer.size()\ <\ m\_depth)\ \{}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ m\_dataBuffer.push\_back(newValue);}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ shiftDataAndInsert(newValue);}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00039}00039\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00040}00040\ \};}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00025}00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00031}\mbox{\hyperlink{class_data_buffer_af07dd03c09b18cf98f1aa278c76689b2}{00031}}\ \ \ \ \ \mbox{\hyperlink{class_data_buffer_af07dd03c09b18cf98f1aa278c76689b2}{DataBuffer}}(\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_data_buffer_a43bc240ccaec253d56435f473a8ca428}{depth}})\ :\ m\_depth(\mbox{\hyperlink{class_data_buffer_a43bc240ccaec253d56435f473a8ca428}{depth}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00043}\mbox{\hyperlink{class_data_buffer_aafd06b02f9db22d3aee7ab46e79e1275}{00043}}\ \ \ \ \ T\&\ \mbox{\hyperlink{class_data_buffer_aafd06b02f9db22d3aee7ab46e79e1275}{operator[]}}(\textcolor{keywordtype}{size\_t}\ index)\ \{}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_dataBuffer[index];}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00045}00045\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00053}\mbox{\hyperlink{class_data_buffer_aaabbfb0d9e9b60ed694eca913765bbdf}{00053}}\ \ \ \ \ \textcolor{keyword}{const}\ T\&\ \mbox{\hyperlink{class_data_buffer_aaabbfb0d9e9b60ed694eca913765bbdf}{operator[]}}(\textcolor{keywordtype}{size\_t}\ index)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_dataBuffer[index];}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00055}00055\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00060}\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{00060}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_dataBuffer.size();}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00062}00062\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00067}\mbox{\hyperlink{class_data_buffer_a43bc240ccaec253d56435f473a8ca428}{00067}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_data_buffer_a43bc240ccaec253d56435f473a8ca428}{depth}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_depth;}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00069}00069\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00077}\mbox{\hyperlink{class_data_buffer_a4ae8a35aa51c17729e399d4a12eee94a}{00077}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_buffer_a4ae8a35aa51c17729e399d4a12eee94a}{insertNewValue}}(T\ newValue)\ \{}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00078}00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_dataBuffer.size()\ <\ m\_depth)\ \{}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ m\_dataBuffer.push\_back(newValue);}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00080}00080\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ shiftDataAndInsert(newValue);}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00082}00082\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00083}00083\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{databuffer_8h_source_l00084}00084\ \};}
 
 \end{DoxyCode}

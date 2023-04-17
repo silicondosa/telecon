@@ -16,9 +16,16 @@ static const std::array<int, 10> CSM_COLORS_DIVERGING {
     COLOR_DIVERGING_ROYAL_BLUE
 };
 
+/**
+ * Describes what mode a chart will use for default colors.
+ * A chart that constructs a default-color plot will assign the plot a color chosen by cycling through its associated colors.
+ * Plots with manually chosen colors are unaffected by the color sequence mode.
+ */
 enum ColorSequenceMode
 {
+    /** All colors will be black.*/
     CSM_BLACK,
+    /** A set of 10 colorblind-friendly diverging colors that go smoothly from red to blue.*/
     CSM_DIVERGING
 };
 

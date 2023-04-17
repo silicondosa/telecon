@@ -14,12 +14,6 @@ Inheritance diagram for Telecon\+Line\+Scatter\+Plot\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 virtual void \mbox{\hyperlink{class_telecon_line_scatter_plot_ab61103291346f58f8f411201810c06d7}{push\+Data}} (double x\+Timestamp, double y\+Data)=0
-\item 
-virtual bool \mbox{\hyperlink{class_telecon_line_scatter_plot_a787215c8d7c072416d5d088afce0b07b}{is\+Symbol\+Filled}} () const =0
-\item 
-virtual int \mbox{\hyperlink{class_telecon_line_scatter_plot_a2733f6ed53a20ddf8267206c0c146c23}{get\+Symbol}} () const =0
-\item 
-virtual int \mbox{\hyperlink{class_telecon_line_scatter_plot_a67185743e3a42bb7188cd9b2ec1c6795}{get\+Symbol\+Size}} () const =0
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}}}
 \begin{DoxyCompactItemize}
@@ -31,75 +25,36 @@ virtual size\+\_\+t \mbox{\hyperlink{class_telecon_plot_a531aaccd7cd6f98e32c1a31
 virtual int \mbox{\hyperlink{class_telecon_plot_ae573ed05240f7e135a50ef0ee632a6bb}{get\+Color}} () const =0
 \item 
 virtual const string \mbox{\hyperlink{class_telecon_plot_ab8c7d77c2ab3091765bf560f29306d7e}{get\+Plot\+Title}} () const =0
+\item 
+virtual bool \mbox{\hyperlink{class_telecon_plot_a24f3e2d92ad1cddfa3d50be3685cb100}{is\+Symbol\+Filled}} () const =0
+\item 
+virtual int \mbox{\hyperlink{class_telecon_plot_a639cf9cda48ed159e59c7035a72ec386}{get\+Symbol}} () const =0
+\item 
+virtual int \mbox{\hyperlink{class_telecon_plot_aaf214d96bec86cd37efb445cdd999539}{get\+Symbol\+Size}} () const =0
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+Plot implementation that takes in data as data + timestamp, inherits from \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}}. Only line plots and scatter plots use this type of data for now. 
 
-
-Definition at line \mbox{\hyperlink{teleconlinescatterplot_8h_source_l00005}{5}} of file \mbox{\hyperlink{teleconlinescatterplot_8h_source}{teleconlinescatterplot.\+h}}.
+Definition at line \mbox{\hyperlink{teleconlinescatterplot_8h_source_l00009}{9}} of file \mbox{\hyperlink{teleconlinescatterplot_8h_source}{teleconlinescatterplot.\+h}}.
 
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_telecon_line_scatter_plot_a2733f6ed53a20ddf8267206c0c146c23}\label{class_telecon_line_scatter_plot_a2733f6ed53a20ddf8267206c0c146c23}} 
-\index{TeleconLineScatterPlot@{TeleconLineScatterPlot}!getSymbol@{getSymbol}}
-\index{getSymbol@{getSymbol}!TeleconLineScatterPlot@{TeleconLineScatterPlot}}
-\doxysubsubsection{\texorpdfstring{getSymbol()}{getSymbol()}}
-{\footnotesize\ttfamily virtual int Telecon\+Line\+Scatter\+Plot\+::get\+Symbol (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-Virtual getter function to return symbol.
-
-\begin{DoxyReturn}{Returns}
-symbol as int 
-\end{DoxyReturn}
-
-
-Implemented in \mbox{\hyperlink{class_telecon_wx_plot_x_y_aae6d9e760860b42df2afc876ff53365d}{Telecon\+Wx\+Plot\+XY}}.
-
-\mbox{\Hypertarget{class_telecon_line_scatter_plot_a67185743e3a42bb7188cd9b2ec1c6795}\label{class_telecon_line_scatter_plot_a67185743e3a42bb7188cd9b2ec1c6795}} 
-\index{TeleconLineScatterPlot@{TeleconLineScatterPlot}!getSymbolSize@{getSymbolSize}}
-\index{getSymbolSize@{getSymbolSize}!TeleconLineScatterPlot@{TeleconLineScatterPlot}}
-\doxysubsubsection{\texorpdfstring{getSymbolSize()}{getSymbolSize()}}
-{\footnotesize\ttfamily virtual int Telecon\+Line\+Scatter\+Plot\+::get\+Symbol\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-Virtual getter function to return symbol size.
-
-\begin{DoxyReturn}{Returns}
-symbol size as int 
-\end{DoxyReturn}
-
-
-Implemented in \mbox{\hyperlink{class_telecon_wx_plot_x_y_a5c6bfb4151105f42c6242dd71932df73}{Telecon\+Wx\+Plot\+XY}}.
-
-\mbox{\Hypertarget{class_telecon_line_scatter_plot_a787215c8d7c072416d5d088afce0b07b}\label{class_telecon_line_scatter_plot_a787215c8d7c072416d5d088afce0b07b}} 
-\index{TeleconLineScatterPlot@{TeleconLineScatterPlot}!isSymbolFilled@{isSymbolFilled}}
-\index{isSymbolFilled@{isSymbolFilled}!TeleconLineScatterPlot@{TeleconLineScatterPlot}}
-\doxysubsubsection{\texorpdfstring{isSymbolFilled()}{isSymbolFilled()}}
-{\footnotesize\ttfamily virtual bool Telecon\+Line\+Scatter\+Plot\+::is\+Symbol\+Filled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-Virtual getter function to return if symbol is filled.
-
-\begin{DoxyReturn}{Returns}
-symbol filled as bool 
-\end{DoxyReturn}
-
-
-Implemented in \mbox{\hyperlink{class_telecon_wx_plot_x_y_aa1e8b06c2c01235b6e383d02b50261d9}{Telecon\+Wx\+Plot\+XY}}.
-
 \mbox{\Hypertarget{class_telecon_line_scatter_plot_ab61103291346f58f8f411201810c06d7}\label{class_telecon_line_scatter_plot_ab61103291346f58f8f411201810c06d7}} 
 \index{TeleconLineScatterPlot@{TeleconLineScatterPlot}!pushData@{pushData}}
 \index{pushData@{pushData}!TeleconLineScatterPlot@{TeleconLineScatterPlot}}
 \doxysubsubsection{\texorpdfstring{pushData()}{pushData()}}
 {\footnotesize\ttfamily virtual void Telecon\+Line\+Scatter\+Plot\+::push\+Data (\begin{DoxyParamCaption}\item[{double}]{x\+Timestamp,  }\item[{double}]{y\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-Virtual function to push data (y\+Data) into the plot at a certain time (x\+Timestamp).
+Function to push a single data point (y\+Data) into the plot at a certain time (x\+Timestamp).
 
 
 \begin{DoxyParams}{Parameters}
-{\em x\+Timestamp} & as double \\
+{\em x\+Timestamp} & Time the data point was generated, in seconds. The exact interpretation of the time will depend on the implementation; the default implementation (wx\+Chart\+Dir) interprets it as seconds since January 1st, year 1. \\
 \hline
-{\em y\+Data} & as double \\
+{\em y\+Data} & The value that will be displayed. \\
 \hline
 \end{DoxyParams}
 

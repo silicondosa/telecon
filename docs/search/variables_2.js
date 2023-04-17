@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['m_5flog_0',['m_log',['../classmain_frame.html#abdd16b76d138b133a597086c6b2c4838',1,'mainFrame']]],
-  ['m_5fplot_1',['m_plot',['../classmain_frame.html#a43adefc2080c3eeecfd7d674d73e45f5',1,'mainFrame']]],
-  ['maineditbox_2',['MainEditBox',['../class_main_frame.html#adb74c6176294c911c530c97a97b9fd06',1,'MainFrame']]],
-  ['my_5fbase_5fchart_3',['my_base_chart',['../class_telecon_chart_panel.html#a561ad5aa2aa5c7d7e781a731b0dc3179',1,'TeleconChartPanel']]],
-  ['my_5fchart_4',['my_chart',['../class_chart_frame.html#ae0944146de818442cd046aa913692cbc',1,'ChartFrame']]]
+  ['defaultlinestyle_0',['defaultLineStyle',['../class_telecon_line_plot.html#a4d8d0842e948de67fa4690ff9f78a727',1,'TeleconLinePlot::defaultLineStyle()'],['../class_telecon_phase_portrait_plot.html#a8627e24e0d391f481214f2bfc6376dce',1,'TeleconPhasePortraitPlot::defaultLineStyle()']]],
+  ['defaultsymbolstyle_1',['defaultSymbolStyle',['../class_telecon_line_plot.html#a7177818e8221ae649f4e0b5945015b7f',1,'TeleconLinePlot::defaultSymbolStyle()'],['../class_telecon_phase_portrait_plot.html#abe7debbf503b15449257dca1dca932f0',1,'TeleconPhasePortraitPlot::defaultSymbolStyle()'],['../class_telecon_raster_plot.html#a429dfccd0e83c87bf6d547bbc3f05c9a',1,'TeleconRasterPlot::defaultSymbolStyle()'],['../class_telecon_scatter_plot.html#af0df8f87bf78c8057175da5214f2456c',1,'TeleconScatterPlot::defaultSymbolStyle()']]]
 ];

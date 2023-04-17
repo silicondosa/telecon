@@ -1,0 +1,41 @@
+\hypertarget{symbolstyle_8h_source}{}\doxysection{symbolstyle.\+h}
+\label{symbolstyle_8h_source}\index{include/symbolstyle.h@{include/symbolstyle.h}}
+\mbox{\hyperlink{symbolstyle_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{enums_8h}{enums.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00008}00008\ \ \textcolor{comment}{/*\ Implementation\ note:\ this\ is\ a\ full\ class,\ rather\ than\ just\ a\ struct,\ to\ leave\ open\ the\ future\ possibility\ of\ managing\ thread\ safety\ with\ locks.}}
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00009}00009\ \textcolor{comment}{\ Currently,\ thread\ safety\ for\ plots\ is\ managed\ by\ marking\ symbol\ styles\ constant\ after\ construction.\ */}}
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00010}\mbox{\hyperlink{class_symbol_style}{00010}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_symbol_style}{SymbolStyle}}\ \{}
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00011}00011\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00012}00012\ \ \ \ \ \textcolor{comment}{//\ The\ symbol\ used,\ as\ described\ in\ PlotSymbol.}}
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00013}00013\ \ \ \ \ \mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40b}{PlotSymbol}}\ m\_symbol;}
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00014}00014\ \ \ \ \ \textcolor{comment}{//\ The\ color\ of\ the\ symbol,\ represented\ as\ described\ in\ PlotColor}}
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00015}00015\ \ \ \ \ \textcolor{keywordtype}{int}\ m\_symbolColor;}
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00016}00016\ \ \ \ \ \textcolor{comment}{//\ True\ if\ the\ interior\ of\ the\ symbol\ will\ be\ colored,\ false\ if\ it\ will\ be\ left\ transparent.}}
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_fillSymbol;}
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00018}00018\ \ \ \ \ \textcolor{comment}{//\ The\ size\ of\ the\ symbol\ in\ pixels.}}
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00019}00019\ \ \ \ \ \textcolor{keywordtype}{int}\ m\_symbolSize;}
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00020}00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00031}00031\ \ \ \ \ \mbox{\hyperlink{class_symbol_style}{SymbolStyle}}(\mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40b}{PlotSymbol}}\ symbol\ =\ \mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40baeedd6d364526e38cfbb1f678cf9b2849}{SYMBOL\_CIRCLE}},\ \textcolor{keywordtype}{int}\ symbolColor\ =\ \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a0b8d8b18037efc3cdb5dd0313e7c67dc}{COLOR\_DEFAULT}},\ \textcolor{keywordtype}{bool}\ fillSymbol\ =\ \textcolor{keyword}{true},\ \textcolor{keywordtype}{int}\ symbolSize\ =\ 5);}
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00038}00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_symbol_style_aa45c4b94c051803e7496d4811bcab32a}{setSymbol}}(\mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40b}{PlotSymbol}}\ symbol);}
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40b}{PlotSymbol}}\ \mbox{\hyperlink{class_symbol_style_a0f66b554646695b4fcb2faee012608f6}{getSymbol}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00050}00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_symbol_style_ac388640d601e0506158f7534699e5eb3}{setSymbolColor}}(\textcolor{keywordtype}{int}\ symbolColor);}
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00055}00055\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_symbol_style_a80ad1d9c9feb5e4c25a23a58bf0c02f0}{getSymbolColor}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00062}00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_symbol_style_a7c373e5992d1160a654a028ac80d1d93}{setFillSymbol}}(\textcolor{keywordtype}{bool}\ fillSymbol);}
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00067}00067\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_symbol_style_aa0c6a6eea813c3a718b24359b748c86a}{getFillSymbol}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00074}00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_symbol_style_a4402751c17acbe13b66ce16e1c20a9a0}{setSymbolSize}}(\textcolor{keywordtype}{int}\ symbolSize);}
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00079}00079\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_symbol_style_a5e5548acb5099bf438e77c8fc3fed01d}{getSymbolSize}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{symbolstyle_8h_source_l00080}00080\ \};}
+
+\end{DoxyCode}

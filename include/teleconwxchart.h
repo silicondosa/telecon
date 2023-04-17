@@ -9,6 +9,7 @@
 #include <wx/tglbtn.h>
 
 #include <memory>
+#include <map>
 
 #include "chartdir.h"
 #include "wxchartviewer.h"
@@ -19,8 +20,25 @@
 
 using namespace std;
 
+/**
+ * Chart GUI implementation, inherits from wxPanel.
+ * 
+ * This is an implementation class and should not be interacted with directly by the user.
+ */
 class TeleconWxChart : public wxPanel {
 public:
+
+    /**
+     * Constructs the chart based on the specification of the provided ::TeleconChart object.
+     *
+     * \param chart a pointer to the ::TeleconChart object representing the chart.
+     * \param parent the wxWidgets parent of this wxPanel.
+     * \param winid the wxWidgets window id of this panel. Not used by this app, so set to wxID_ANY.
+     * \param pos the wxWidgets position of the wxPanel. Left as default.
+     * \param size the wxWidgets size of the wxPanel. Left as default.
+     * \param style the wxWidgets style of the wxPanel. Left as default.
+     * \param name the wxWidgets name of the wxPanel. Not to be confused with the actual title of the chart, as set in ::TeleconChart, which is separate; this value is unused by our app.
+     */
     TeleconWxChart(
         shared_ptr<TeleconChart> chart,
         wxWindow* parent,
@@ -31,34 +49,46 @@ public:
         const wxString& name = wxASCII_STR(wxPanelNameStr)
     );
 
-    /// Destructor
+    /**
+     * Deconstructs the chart.
+     */
     ~TeleconWxChart();
-    // Copy & move constructors and assignment operators are unneeded, and are deleted to comply with Rule of Five
-    // See: https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)
-    TeleconWxChart(TeleconWxChart&) = delete;
-    TeleconWxChart& operator=(TeleconWxChart&) = delete;
-    TeleconWxChart(TeleconWxChart&&) = delete;
-    TeleconWxChart& operator=(TeleconWxChart&&) = delete;
 
-    // setter functions for wxwindow buttons
+    /**
+     * Function to redraw the chart if needed upon timer timeout.
+     */
+    void OnChartRefreshTimer();
+
+    /**
+     * Sets the chart to play values (update).
+     */
     void setPlay();
+
+    /**
+     * Sets the chart to stop playing values (freeze).
+     */
     void setPause();
-    void setRefresh(long);
-    void doSave(int, string);
+
+    /**
+     * Helper function that saves the chart as a file, used in TeleconWxWindow.
+     * 
+     * \param i the index of the current chart in in its window
+     * \param windowName the name of the parent window of the chart
+     */
+    void doSave(int i, string windowName);
 
     DECLARE_EVENT_TABLE()
 
 private:
     // Setup functions 
-    void SetUpViewOptionsBox();
+    void SetUpLatestValueBox();
     void SetUpChartBox();
 
     // wxWidgets event handler functions
-    void OnChartRefreshTimer(wxTimerEvent& event);
     void OnViewPortChanged(wxCommandEvent& event); // updates the chart if it needs updating
 
     // addPlot() helper functions
-    void addLatestValueText(string plottitle);
+    void addLatestValueText(int index, string plottitle);
 
     // Chart update function
     void DrawChart(bool isRefreshEnabled);
@@ -81,11 +111,8 @@ private:
     TextBox* m_titleBox;
 
     // Miscellaneous wxWidgets members
-    vector<wxTextCtrl*> m_latestValueTextCtrls;
+    unordered_map<int, wxTextCtrl*> m_latestValueTextCtrls; // Maps index in chart to control
     wxColour m_bgColour;
-
-    // wxWidgets timers
-    wxTimer* m_chartRefreshTimer;
 
     shared_ptr<TeleconChart> m_chart;
     bool m_isRefreshEnabled;
@@ -96,10 +123,5 @@ private:
 
 enum
 {
-    ID_CHARTVIEWER = wxID_HIGHEST + 1,
-    ID_PLAY,
-    ID_PAUSE,
-    ID_REFRESH_INTERVAL,
-    ID_DATA_TIMER,
-    ID_REFRESH_TIMER
+    ID_CHARTVIEWER = wxID_HIGHEST + 1
 };

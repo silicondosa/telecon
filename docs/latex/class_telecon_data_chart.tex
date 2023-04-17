@@ -1,0 +1,178 @@
+\hypertarget{class_telecon_data_chart}{}\doxysection{Telecon\+Data\+Chart Class Reference}
+\label{class_telecon_data_chart}\index{TeleconDataChart@{TeleconDataChart}}
+
+
+{\ttfamily \#include $<$include/telecondatachart.\+h$>$}
+
+Inheritance diagram for Telecon\+Data\+Chart\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_telecon_data_chart}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_telecon_data_chart_a0052c34e22f70fbe5c721496b755cfc4}{Telecon\+Data\+Chart}} (string title, double memory\+Depth\+Seconds=60.\+0, int data\+Rate\+Millis=100, string x\+Label=\char`\"{}\char`\"{}, string y\+Label=\char`\"{}\char`\"{}, \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} color\+Sequence\+Mode=\mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38af694240c2be72deb06f19859d21ba193}{CSM\+\_\+\+BLACK}})
+\item 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_phase_portrait_plot}{Telecon\+Phase\+Portrait\+Plot}} $>$ \mbox{\hyperlink{class_telecon_data_chart_a0cc4e57eb9e364198629ee1e67676732}{add\+Phase\+Portrait\+Plot}} (std\+::string plottitle, const \mbox{\hyperlink{class_line_style}{Line\+Style}} \&line\+Style=\mbox{\hyperlink{class_telecon_phase_portrait_plot_a8627e24e0d391f481214f2bfc6376dce}{Telecon\+Phase\+Portrait\+Plot\+::default\+Line\+Style}}, const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \&symbol\+Style=\mbox{\hyperlink{class_telecon_phase_portrait_plot_abe7debbf503b15449257dca1dca932f0}{Telecon\+Phase\+Portrait\+Plot\+::default\+Symbol\+Style}}, size\+\_\+t memory\+Depth=-\/1)
+\item 
+double \mbox{\hyperlink{class_telecon_data_chart_a1055faa3d0e0b1a488815b082866bf8c}{get\+Default\+XAxis\+Span}} () override
+\item 
+\mbox{\hyperlink{teleconchart_8h_a54534a1398c95ca6d61f6ac68e610b7e}{Chart\+XAxis\+Type}} \mbox{\hyperlink{class_telecon_data_chart_a75dd30e37d0e1709c0241bdfc050c1d5}{get\+Chart\+XAxis\+Type}} () override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_telecon_chart_ae0660503fc138e53101ec2abb4271920}{Telecon\+Chart}} (string title, double memory\+Depth\+Seconds, int data\+Rate\+Millis, string x\+Label, string y\+Label, \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} color\+Sequence\+Mode)
+\item 
+string \mbox{\hyperlink{class_telecon_chart_ab5bf85c9390c53ca53befb5beb41ffde}{get\+Title}} ()
+\item 
+string \mbox{\hyperlink{class_telecon_chart_ab757ee6b5a716f1bdf3f55a8fa11bea7}{get\+XLabel}} ()
+\item 
+string \mbox{\hyperlink{class_telecon_chart_a43dc64adbcce4a75dc7c0620f3fcb516}{get\+YLabel}} ()
+\item 
+\mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} \mbox{\hyperlink{class_telecon_chart_aba46b8cf2bbba5dff77aa8e62d0a9fc6}{get\+Color\+Sequence\+Mode}} ()
+\item 
+virtual double \mbox{\hyperlink{class_telecon_chart_abfeeb8c29606422ce614a3599e07e198}{get\+Default\+XAxis\+Span}} ()=0
+\item 
+virtual \mbox{\hyperlink{teleconchart_8h_a54534a1398c95ca6d61f6ac68e610b7e}{Chart\+XAxis\+Type}} \mbox{\hyperlink{class_telecon_chart_a8968d74709f6969e442cba648ef8a3c1}{get\+Chart\+XAxis\+Type}} ()=0
+\item 
+void \mbox{\hyperlink{class_telecon_chart_ac833b24aa16da530a531a22fcafa1f52}{initialize}} ()
+\item 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ \mbox{\hyperlink{class_telecon_chart_ac9b2e34588a68d39df3144b32d98fc9b}{get\+Plot}} (int index)
+\item 
+size\+\_\+t \mbox{\hyperlink{class_telecon_chart_abed3e9f9ca52e351ba4ca6a510250530}{get\+Num\+Plots}} ()
+\item 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ \mbox{\hyperlink{class_telecon_chart_a68684c5c612a7ed173ccee9fce9d1347}{get\+Plot\+By\+Name}} (string name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}}}
+\begin{DoxyCompactItemize}
+\item 
+long \mbox{\hyperlink{class_telecon_chart_a6efbe7f200b8bf283e47e60da71d6e45}{get\+Next\+Default\+Color}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}}}
+\begin{DoxyCompactItemize}
+\item 
+const string \mbox{\hyperlink{class_telecon_chart_a4d0876969c79d7f2123c8b5d924e0f9a}{m\+\_\+title}}
+\item 
+const double \mbox{\hyperlink{class_telecon_chart_aab73cda8ba07aefb2968811c9e5a90a8}{m\+\_\+memory\+Depth\+Seconds}}
+\item 
+const int \mbox{\hyperlink{class_telecon_chart_a18e0b8e340d53010e58f4f8120defea1}{m\+\_\+data\+Rate\+Millis}}
+\item 
+const string \mbox{\hyperlink{class_telecon_chart_acda7f85097a6f77f9a66937c09b21794}{m\+\_\+x\+Label}}
+\item 
+const string \mbox{\hyperlink{class_telecon_chart_a09089bd72af66ca9ae488191c188d851}{m\+\_\+y\+Label}}
+\item 
+const \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} \mbox{\hyperlink{class_telecon_chart_a5a502369abdc755468a305349eb34676}{m\+\_\+color\+Sequence\+Mode}}
+\item 
+bool \mbox{\hyperlink{class_telecon_chart_af315b4acbdefb53894bd06e78e96e682}{m\+\_\+has\+Started}}
+\item 
+vector$<$ shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ $>$ \mbox{\hyperlink{class_telecon_chart_ab8e44cc492bc62c52c5cece30e126f0d}{m\+\_\+plots}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Chart implementation that inherits from \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} for charts with non-\/time data on the x-\/axis. Currently usable only for phase portrait plots. 
+
+Definition at line \mbox{\hyperlink{telecondatachart_8h_source_l00011}{11}} of file \mbox{\hyperlink{telecondatachart_8h_source}{telecondatachart.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_telecon_data_chart_a0052c34e22f70fbe5c721496b755cfc4}\label{class_telecon_data_chart_a0052c34e22f70fbe5c721496b755cfc4}} 
+\index{TeleconDataChart@{TeleconDataChart}!TeleconDataChart@{TeleconDataChart}}
+\index{TeleconDataChart@{TeleconDataChart}!TeleconDataChart@{TeleconDataChart}}
+\doxysubsubsection{\texorpdfstring{TeleconDataChart()}{TeleconDataChart()}}
+{\footnotesize\ttfamily Telecon\+Data\+Chart\+::\+Telecon\+Data\+Chart (\begin{DoxyParamCaption}\item[{string}]{title,  }\item[{double}]{memory\+Depth\+Seconds = {\ttfamily 60.0},  }\item[{int}]{data\+Rate\+Millis = {\ttfamily 100},  }\item[{string}]{x\+Label = {\ttfamily \char`\"{}\char`\"{}},  }\item[{string}]{y\+Label = {\ttfamily \char`\"{}\char`\"{}},  }\item[{\mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}}}]{color\+Sequence\+Mode = {\ttfamily \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38af694240c2be72deb06f19859d21ba193}{CSM\+\_\+\+BLACK}}} }\end{DoxyParamCaption})}
+
+Constructor for \mbox{\hyperlink{class_telecon_realtime_chart}{Telecon\+Realtime\+Chart}}. See the parent constructor, which has the same values.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_telecon_chart_ae0660503fc138e53101ec2abb4271920}{Telecon\+Chart\+::\+Telecon\+Chart}} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{telecondatachart_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{telecondatachart_8cpp_source}{telecondatachart.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_telecon_data_chart_a0cc4e57eb9e364198629ee1e67676732}\label{class_telecon_data_chart_a0cc4e57eb9e364198629ee1e67676732}} 
+\index{TeleconDataChart@{TeleconDataChart}!addPhasePortraitPlot@{addPhasePortraitPlot}}
+\index{addPhasePortraitPlot@{addPhasePortraitPlot}!TeleconDataChart@{TeleconDataChart}}
+\doxysubsubsection{\texorpdfstring{addPhasePortraitPlot()}{addPhasePortraitPlot()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_phase_portrait_plot}{Telecon\+Phase\+Portrait\+Plot}} $>$ Telecon\+Data\+Chart\+::add\+Phase\+Portrait\+Plot (\begin{DoxyParamCaption}\item[{std\+::string}]{plottitle,  }\item[{const \mbox{\hyperlink{class_line_style}{Line\+Style}} \&}]{line\+Style = {\ttfamily \mbox{\hyperlink{class_telecon_phase_portrait_plot_a8627e24e0d391f481214f2bfc6376dce}{Telecon\+Phase\+Portrait\+Plot\+::default\+Line\+Style}}},  }\item[{const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \&}]{symbol\+Style = {\ttfamily \mbox{\hyperlink{class_telecon_phase_portrait_plot_abe7debbf503b15449257dca1dca932f0}{Telecon\+Phase\+Portrait\+Plot\+::default\+Symbol\+Style}}},  }\item[{size\+\_\+t}]{memory\+Depth = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+Adds a temporal phase portrait to the chart with the given parameters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em plottitle} & the title of the plot, which will be displayed in the legend. \\
+\hline
+{\em line\+Style} & describes how the line used to connect the data points should look, as described in \mbox{\hyperlink{class_line_style}{Line\+Style}} \\
+\hline
+{\em symbol\+Style} & describes how the symbol used to represent data points should look, as described in \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \\
+\hline
+{\em memory\+Depth} & The number of data points that will be remembered by the plot at one time. If a value of -\/1 is given, this will be auto-\/calculated based on the memory depth of the chart and the data rate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the constructed temporal phase portrait object. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{telecondatachart_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{telecondatachart_8cpp_source}{telecondatachart.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_data_chart_a75dd30e37d0e1709c0241bdfc050c1d5}\label{class_telecon_data_chart_a75dd30e37d0e1709c0241bdfc050c1d5}} 
+\index{TeleconDataChart@{TeleconDataChart}!getChartXAxisType@{getChartXAxisType}}
+\index{getChartXAxisType@{getChartXAxisType}!TeleconDataChart@{TeleconDataChart}}
+\doxysubsubsection{\texorpdfstring{getChartXAxisType()}{getChartXAxisType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{teleconchart_8h_a54534a1398c95ca6d61f6ac68e610b7e}{Chart\+XAxis\+Type}} Telecon\+Data\+Chart\+::get\+Chart\+XAxis\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+\begin{DoxyReturn}{Returns}
+Default x-\/axis type, as specified in \mbox{\hyperlink{teleconchart_8h_a54534a1398c95ca6d61f6ac68e610b7e}{Chart\+XAxis\+Type}}.  
+\end{DoxyReturn}
+For this data chart, guaranteed to return non-\/time type (\mbox{\hyperlink{teleconchart_8h_a54534a1398c95ca6d61f6ac68e610b7ea9e15a0f8d03fd9ea0e80dbffd35c2c94}{CAXT\+\_\+\+ARBITRARY}}). 
+
+Implements \mbox{\hyperlink{class_telecon_chart_a8968d74709f6969e442cba648ef8a3c1}{Telecon\+Chart}}.
+
+
+
+Definition at line \mbox{\hyperlink{telecondatachart_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{telecondatachart_8cpp_source}{telecondatachart.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_data_chart_a1055faa3d0e0b1a488815b082866bf8c}\label{class_telecon_data_chart_a1055faa3d0e0b1a488815b082866bf8c}} 
+\index{TeleconDataChart@{TeleconDataChart}!getDefaultXAxisSpan@{getDefaultXAxisSpan}}
+\index{getDefaultXAxisSpan@{getDefaultXAxisSpan}!TeleconDataChart@{TeleconDataChart}}
+\doxysubsubsection{\texorpdfstring{getDefaultXAxisSpan()}{getDefaultXAxisSpan()}}
+{\footnotesize\ttfamily double Telecon\+Data\+Chart\+::get\+Default\+XAxis\+Span (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+\begin{DoxyReturn}{Returns}
+The default x-\/axis width, to be used when few or no data have been provided. Interpretation of the units will depend on the x-\/axis type. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{teleconchart_8h_a54534a1398c95ca6d61f6ac68e610b7e}{Chart\+XAxis\+Type}}  
+\end{DoxySeeAlso}
+For this data chart, the units will be the same as the plots given. 
+
+Implements \mbox{\hyperlink{class_telecon_chart_abfeeb8c29606422ce614a3599e07e198}{Telecon\+Chart}}.
+
+
+
+Definition at line \mbox{\hyperlink{telecondatachart_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{telecondatachart_8cpp_source}{telecondatachart.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{telecondatachart_8h}{telecondatachart.\+h}}\item 
+src/\mbox{\hyperlink{telecondatachart_8cpp}{telecondatachart.\+cpp}}\end{DoxyCompactItemize}

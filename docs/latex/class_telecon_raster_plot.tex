@@ -1,0 +1,81 @@
+\hypertarget{class_telecon_raster_plot}{}\doxysection{Telecon\+Raster\+Plot Class Reference}
+\label{class_telecon_raster_plot}\index{TeleconRasterPlot@{TeleconRasterPlot}}
+
+
+{\ttfamily \#include $<$include/teleconrasterplot.\+h$>$}
+
+Inheritance diagram for Telecon\+Raster\+Plot\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_telecon_raster_plot}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_telecon_raster_plot_ad6377b0fde7a468d8f8934bdac04253b}{push\+Data}} (double x\+Timestamp, bool is\+Active=true)=0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_telecon_plot_a582e5ae4fd4923f82956fc37679d3809}{size}} () const =0
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_telecon_plot_a531aaccd7cd6f98e32c1a315900b5c49}{depth}} () const =0
+\item 
+virtual const string \mbox{\hyperlink{class_telecon_plot_ab8c7d77c2ab3091765bf560f29306d7e}{get\+Plot\+Title}} () const =0
+\item 
+virtual shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} $>$ \mbox{\hyperlink{class_telecon_plot_ab754dc0b368eef40072b1aedfd3bf434}{get\+Symbol\+Style}} () const =0
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \mbox{\hyperlink{class_telecon_raster_plot_a429dfccd0e83c87bf6d547bbc3f05c9a}{default\+Symbol\+Style}} = \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}}(\mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40baeedd6d364526e38cfbb1f678cf9b2849}{SYMBOL\+\_\+\+CIRCLE}}, \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a0b8d8b18037efc3cdb5dd0313e7c67dc}{COLOR\+\_\+\+DEFAULT}}, true, 1)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The user-\/level interface for interacting with raster plots. A raster plot has a y-\/value, and is a sequence of 2-\/dimensional points that consist of a timestamp and an activation boolean\+: if the activation is true, a point will be displayed at the given timestamp and y-\/value. Otherwise no point will be displayed. Designed for e.\+g. neuron activation plots. 
+
+Definition at line \mbox{\hyperlink{teleconrasterplot_8h_source_l00011}{11}} of file \mbox{\hyperlink{teleconrasterplot_8h_source}{teleconrasterplot.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_telecon_raster_plot_ad6377b0fde7a468d8f8934bdac04253b}\label{class_telecon_raster_plot_ad6377b0fde7a468d8f8934bdac04253b}} 
+\index{TeleconRasterPlot@{TeleconRasterPlot}!pushData@{pushData}}
+\index{pushData@{pushData}!TeleconRasterPlot@{TeleconRasterPlot}}
+\doxysubsubsection{\texorpdfstring{pushData()}{pushData()}}
+{\footnotesize\ttfamily virtual void Telecon\+Raster\+Plot\+::push\+Data (\begin{DoxyParamCaption}\item[{double}]{x\+Timestamp,  }\item[{bool}]{is\+Active = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Function to push a single activation data point into the plot at a certain time (x\+Timestamp).
+
+
+\begin{DoxyParams}{Parameters}
+{\em timestamp} & Time the data point was generated, represented as seconds since an epoch. The epoch used will depend on the implementation; the default implementation (wx\+Chart\+Dir) uses January 1st, year 1. However, since charts display only hours, minutes, and seconds, for short time spans (less than a day), the epoch could be user-\/defined (for example, the beginning of the experiment which is producing data). Data points must be inserted with the timestamps in ascending order (the same order that they were created). \\
+\hline
+{\em is\+Active} & If true, a point will be displayed at the given timestamp. Otherwise no point will be displayed. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_telecon_wx_raster_plot_a9b458415ce61c1f36eab7b9f5970a803}{Telecon\+Wx\+Raster\+Plot}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_telecon_raster_plot_a429dfccd0e83c87bf6d547bbc3f05c9a}\label{class_telecon_raster_plot_a429dfccd0e83c87bf6d547bbc3f05c9a}} 
+\index{TeleconRasterPlot@{TeleconRasterPlot}!defaultSymbolStyle@{defaultSymbolStyle}}
+\index{defaultSymbolStyle@{defaultSymbolStyle}!TeleconRasterPlot@{TeleconRasterPlot}}
+\doxysubsubsection{\texorpdfstring{defaultSymbolStyle}{defaultSymbolStyle}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} Telecon\+Raster\+Plot\+::default\+Symbol\+Style = \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}}(\mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40baeedd6d364526e38cfbb1f678cf9b2849}{SYMBOL\+\_\+\+CIRCLE}}, \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a0b8d8b18037efc3cdb5dd0313e7c67dc}{COLOR\+\_\+\+DEFAULT}}, true, 1)\hspace{0.3cm}{\ttfamily [static]}}
+
+The default \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} used to represent raster plots, which is a solid circle of the default color, 1 pixel wide. 
+
+Definition at line \mbox{\hyperlink{teleconrasterplot_8h_source_l00014}{14}} of file \mbox{\hyperlink{teleconrasterplot_8h_source}{teleconrasterplot.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{teleconrasterplot_8h}{teleconrasterplot.\+h}}\item 
+src/\mbox{\hyperlink{teleconrasterplot_8cpp}{teleconrasterplot.\+cpp}}\end{DoxyCompactItemize}

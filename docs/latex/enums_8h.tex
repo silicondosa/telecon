@@ -1,163 +1,192 @@
-\hypertarget{enums_8h}{}\doxysection{src/enums.h File Reference}
-\label{enums_8h}\index{src/enums.h@{src/enums.h}}
+\hypertarget{enums_8h}{}\doxysection{include/enums.h File Reference}
+\label{enums_8h}\index{include/enums.h@{include/enums.h}}
 {\ttfamily \#include \char`\"{}chartdir.\+h\char`\"{}}\newline
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-enum \mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50}{COLORS}} \{ \newline
-\mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a0b8d8b18037efc3cdb5dd0313e7c67dc}{COLOR\+\_\+\+DEFAULT}} = -\/1L
-, \mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a2a9daf215a30f1c539ead18c66380fc1}{COLOR\+\_\+\+BLACK}} = 0x000000
-, \mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a3c73f98a53e06d912b8a70e3be2c3917}{COLOR\+\_\+\+GRAY}} = 0x777777
-, \mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a592503b9434c1e751a92f3fc536d7950}{COLOR\+\_\+\+RED}} = 0xff0000
-, \newline
-\mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50acfa9d8bbffc418447ed826f286abca02}{COLOR\+\_\+\+GREEN}} = 0x00ff00
-, \mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a1340428efccb140dcbdb71aa6176f696}{COLOR\+\_\+\+BLUE}} = 0x0000ff
-, \mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50ab806801dfbfced3c56e75d3ea3f3c7b3}{COLOR\+\_\+\+DIVERGING\+\_\+\+CRIMSON}} = 0xa50026
-, \mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a1e575dba60a0acaa98e300b5e5a9561d}{COLOR\+\_\+\+DIVERGING\+\_\+\+SIENNA}} = 0xd73027
-, \newline
-\mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a30f49157f2d322f3f4a4bb4a8398600c}{COLOR\+\_\+\+DIVERGING\+\_\+\+ORANGE}} = 0xf46d43
-, \mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50ad484994b47cfd067e76bc9255ffdcfa8}{COLOR\+\_\+\+DIVERGING\+\_\+\+TAN}} = 0xfdae61
-, \mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a56e01fbac4b2586e9a87ad85827f6584}{COLOR\+\_\+\+DIVERGING\+\_\+\+KHAKI}} = 0xfee090
-, \mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a9734a79cf80dcd974f1b21165ad76787}{COLOR\+\_\+\+DIVERGING\+\_\+\+ALICE\+\_\+\+BLUE}} = 0xe0f3f8
-, \newline
-\mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a0180d7ea49db48e6965bbd73ed785ccd}{COLOR\+\_\+\+DIVERGING\+\_\+\+LIGHT\+\_\+\+BLUE}} = 0xabd9e9
-, \mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a3b35a86c8f3ea236d8407f9d383b8ea8}{COLOR\+\_\+\+DIVERGING\+\_\+\+CORNFLOWER\+\_\+\+BLUE}} = 0x74add1
-, \mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50aa3f9bc20f286b64d9935e848af84c4f0}{COLOR\+\_\+\+DIVERGING\+\_\+\+STEEL\+\_\+\+BLUE}} = 0x4575b4
-, \mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a1c13f4c648c2b3ff3d51e9d3e98ddec5}{COLOR\+\_\+\+DIVERGING\+\_\+\+ROYAL\+\_\+\+BLUE}} = 0x313695
+enum \mbox{\hyperlink{enums_8h_a7fdcd88c8bd2b12efccd824d774bdb44}{Plot\+Line\+Type}} \{ \mbox{\hyperlink{enums_8h_a7fdcd88c8bd2b12efccd824d774bdb44ad3188575e9151d64606bf543dc4c40f1}{LT\+\_\+\+SOLID}}
+, \mbox{\hyperlink{enums_8h_a7fdcd88c8bd2b12efccd824d774bdb44a2741e32e9e7536cc5b4668c1629cc341}{LT\+\_\+\+DASHED}}
  \}
 \item 
-enum \mbox{\hyperlink{enums_8h_af6eda4cba3beb96340903aa3c851f1c8}{SYMBOLS}} \{ \newline
-\mbox{\hyperlink{enums_8h_af6eda4cba3beb96340903aa3c851f1c8a666bb08379feb5797dfec199a2479b6a}{SYMBOL\+\_\+\+NO\+\_\+\+SYMBOL}} = Chart\+::No\+Shape
-, \mbox{\hyperlink{enums_8h_af6eda4cba3beb96340903aa3c851f1c8aeedd6d364526e38cfbb1f678cf9b2849}{SYMBOL\+\_\+\+CIRCLE}} = Chart\+::Circle\+Shape
-, \mbox{\hyperlink{enums_8h_af6eda4cba3beb96340903aa3c851f1c8a99f28de5afd5242b9ffdd1dbc7b4daf4}{SYMBOL\+\_\+\+SQUARE}} = Chart\+::Square\+Shape
-, \mbox{\hyperlink{enums_8h_af6eda4cba3beb96340903aa3c851f1c8a990fbfeb06f1415306188eae2fd8eb7b}{SYMBOL\+\_\+\+TRIANGLE}} = Chart\+::Triangle\+Shape
+enum \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8}{Plot\+Color}} \{ \newline
+\mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a0b8d8b18037efc3cdb5dd0313e7c67dc}{COLOR\+\_\+\+DEFAULT}} = -\/1L
+, \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a2a9daf215a30f1c539ead18c66380fc1}{COLOR\+\_\+\+BLACK}} = 0x000000
+, \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a3c73f98a53e06d912b8a70e3be2c3917}{COLOR\+\_\+\+GRAY}} = 0x777777
+, \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a592503b9434c1e751a92f3fc536d7950}{COLOR\+\_\+\+RED}} = 0xff0000
 , \newline
-\mbox{\hyperlink{enums_8h_af6eda4cba3beb96340903aa3c851f1c8ac596c2d7a6a41afcfd17d7acb49eda0e}{SYMBOL\+\_\+\+DIAMOND}} = Chart\+::Diamond\+Shape
-, \mbox{\hyperlink{enums_8h_af6eda4cba3beb96340903aa3c851f1c8a0c6a27fc25c9a11472f15b4c1e114ac5}{SYMBOL\+\_\+\+CROSS}} = 5033993
-, \mbox{\hyperlink{enums_8h_af6eda4cba3beb96340903aa3c851f1c8a96c65b5c28ba395b0a2b175d75ad67e7}{SYMBOL\+\_\+\+PLUS}} = 5033992
-, \mbox{\hyperlink{enums_8h_af6eda4cba3beb96340903aa3c851f1c8a350a145ee29286a85e90711102a3acfa}{SYMBOL\+\_\+\+STAR}} = 20493
+\mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8acfa9d8bbffc418447ed826f286abca02}{COLOR\+\_\+\+GREEN}} = 0x00ff00
+, \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a1340428efccb140dcbdb71aa6176f696}{COLOR\+\_\+\+BLUE}} = 0x0000ff
+, \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8ab806801dfbfced3c56e75d3ea3f3c7b3}{COLOR\+\_\+\+DIVERGING\+\_\+\+CRIMSON}} = 0xa50026
+, \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a1e575dba60a0acaa98e300b5e5a9561d}{COLOR\+\_\+\+DIVERGING\+\_\+\+SIENNA}} = 0xd73027
+, \newline
+\mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a30f49157f2d322f3f4a4bb4a8398600c}{COLOR\+\_\+\+DIVERGING\+\_\+\+ORANGE}} = 0xf46d43
+, \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8ad484994b47cfd067e76bc9255ffdcfa8}{COLOR\+\_\+\+DIVERGING\+\_\+\+TAN}} = 0xfdae61
+, \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a56e01fbac4b2586e9a87ad85827f6584}{COLOR\+\_\+\+DIVERGING\+\_\+\+KHAKI}} = 0xfee090
+, \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a9734a79cf80dcd974f1b21165ad76787}{COLOR\+\_\+\+DIVERGING\+\_\+\+ALICE\+\_\+\+BLUE}} = 0xe0f3f8
+, \newline
+\mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a0180d7ea49db48e6965bbd73ed785ccd}{COLOR\+\_\+\+DIVERGING\+\_\+\+LIGHT\+\_\+\+BLUE}} = 0xabd9e9
+, \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a3b35a86c8f3ea236d8407f9d383b8ea8}{COLOR\+\_\+\+DIVERGING\+\_\+\+CORNFLOWER\+\_\+\+BLUE}} = 0x74add1
+, \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8aa3f9bc20f286b64d9935e848af84c4f0}{COLOR\+\_\+\+DIVERGING\+\_\+\+STEEL\+\_\+\+BLUE}} = 0x4575b4
+, \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a1c13f4c648c2b3ff3d51e9d3e98ddec5}{COLOR\+\_\+\+DIVERGING\+\_\+\+ROYAL\+\_\+\+BLUE}} = 0x313695
+ \}
+\item 
+enum \mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40b}{Plot\+Symbol}} \{ \newline
+\mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40ba666bb08379feb5797dfec199a2479b6a}{SYMBOL\+\_\+\+NO\+\_\+\+SYMBOL}}
+, \mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40baeedd6d364526e38cfbb1f678cf9b2849}{SYMBOL\+\_\+\+CIRCLE}}
+, \mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40ba99f28de5afd5242b9ffdd1dbc7b4daf4}{SYMBOL\+\_\+\+SQUARE}}
+, \mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40ba990fbfeb06f1415306188eae2fd8eb7b}{SYMBOL\+\_\+\+TRIANGLE}}
+, \newline
+\mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40bac596c2d7a6a41afcfd17d7acb49eda0e}{SYMBOL\+\_\+\+DIAMOND}}
+, \mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40ba0c6a27fc25c9a11472f15b4c1e114ac5}{SYMBOL\+\_\+\+CROSS}}
+, \mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40ba96c65b5c28ba395b0a2b175d75ad67e7}{SYMBOL\+\_\+\+PLUS}}
+, \mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40ba350a145ee29286a85e90711102a3acfa}{SYMBOL\+\_\+\+STAR}}
  \}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Enumeration Type Documentation}
-\mbox{\Hypertarget{enums_8h_ab983350d6d1201c0ebd709320e7a0d50}\label{enums_8h_ab983350d6d1201c0ebd709320e7a0d50}} 
-\index{enums.h@{enums.h}!COLORS@{COLORS}}
-\index{COLORS@{COLORS}!enums.h@{enums.h}}
-\doxysubsubsection{\texorpdfstring{COLORS}{COLORS}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{enums_8h_ab983350d6d1201c0ebd709320e7a0d50}{COLORS}}}
+\mbox{\Hypertarget{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8}\label{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8}} 
+\index{enums.h@{enums.h}!PlotColor@{PlotColor}}
+\index{PlotColor@{PlotColor}!enums.h@{enums.h}}
+\doxysubsubsection{\texorpdfstring{PlotColor}{PlotColor}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8}{Plot\+Color}}}
 
-\begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_DEFAULT@{COLOR\_DEFAULT}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_DEFAULT@{COLOR\_DEFAULT}}}\mbox{\Hypertarget{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a0b8d8b18037efc3cdb5dd0313e7c67dc}\label{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a0b8d8b18037efc3cdb5dd0313e7c67dc}} 
-COLOR\+\_\+\+DEFAULT&\\
+Describes what color a line or symbol will have. In general, colors are represented as RGB colors, with one byte for each channel. These enumerators are just aliases for the colors they represent. This enum also provides the special color COLOR\+\_\+\+DEFAULT, documented below. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_DEFAULT@{COLOR\_DEFAULT}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_DEFAULT@{COLOR\_DEFAULT}}}\mbox{\Hypertarget{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a0b8d8b18037efc3cdb5dd0313e7c67dc}\label{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a0b8d8b18037efc3cdb5dd0313e7c67dc}} 
+COLOR\+\_\+\+DEFAULT&This color has special behavior depending on the context in which it is used, according to the following rules (in order of priority)\+:
+\begin{DoxyEnumerate}
+\item If used for a plot\textquotesingle{}s \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}}, and that plot has a \mbox{\hyperlink{class_line_style}{Line\+Style}}, the symbol color will match the line color.
+\item If used for a plot in a chart\textquotesingle{}s add plot method, will use the color indicated by the chart\textquotesingle{}s \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}}.
+\item Otherwise, defaults to black. 
+\end{DoxyEnumerate}\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_BLACK@{COLOR\_BLACK}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_BLACK@{COLOR\_BLACK}}}\mbox{\Hypertarget{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a2a9daf215a30f1c539ead18c66380fc1}\label{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a2a9daf215a30f1c539ead18c66380fc1}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_BLACK@{COLOR\_BLACK}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_BLACK@{COLOR\_BLACK}}}\mbox{\Hypertarget{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a2a9daf215a30f1c539ead18c66380fc1}\label{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a2a9daf215a30f1c539ead18c66380fc1}} 
 COLOR\+\_\+\+BLACK&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_GRAY@{COLOR\_GRAY}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_GRAY@{COLOR\_GRAY}}}\mbox{\Hypertarget{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a3c73f98a53e06d912b8a70e3be2c3917}\label{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a3c73f98a53e06d912b8a70e3be2c3917}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_GRAY@{COLOR\_GRAY}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_GRAY@{COLOR\_GRAY}}}\mbox{\Hypertarget{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a3c73f98a53e06d912b8a70e3be2c3917}\label{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a3c73f98a53e06d912b8a70e3be2c3917}} 
 COLOR\+\_\+\+GRAY&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_RED@{COLOR\_RED}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_RED@{COLOR\_RED}}}\mbox{\Hypertarget{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a592503b9434c1e751a92f3fc536d7950}\label{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a592503b9434c1e751a92f3fc536d7950}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_RED@{COLOR\_RED}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_RED@{COLOR\_RED}}}\mbox{\Hypertarget{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a592503b9434c1e751a92f3fc536d7950}\label{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a592503b9434c1e751a92f3fc536d7950}} 
 COLOR\+\_\+\+RED&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_GREEN@{COLOR\_GREEN}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_GREEN@{COLOR\_GREEN}}}\mbox{\Hypertarget{enums_8h_ab983350d6d1201c0ebd709320e7a0d50acfa9d8bbffc418447ed826f286abca02}\label{enums_8h_ab983350d6d1201c0ebd709320e7a0d50acfa9d8bbffc418447ed826f286abca02}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_GREEN@{COLOR\_GREEN}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_GREEN@{COLOR\_GREEN}}}\mbox{\Hypertarget{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8acfa9d8bbffc418447ed826f286abca02}\label{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8acfa9d8bbffc418447ed826f286abca02}} 
 COLOR\+\_\+\+GREEN&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_BLUE@{COLOR\_BLUE}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_BLUE@{COLOR\_BLUE}}}\mbox{\Hypertarget{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a1340428efccb140dcbdb71aa6176f696}\label{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a1340428efccb140dcbdb71aa6176f696}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_BLUE@{COLOR\_BLUE}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_BLUE@{COLOR\_BLUE}}}\mbox{\Hypertarget{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a1340428efccb140dcbdb71aa6176f696}\label{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a1340428efccb140dcbdb71aa6176f696}} 
 COLOR\+\_\+\+BLUE&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_DIVERGING\_CRIMSON@{COLOR\_DIVERGING\_CRIMSON}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_DIVERGING\_CRIMSON@{COLOR\_DIVERGING\_CRIMSON}}}\mbox{\Hypertarget{enums_8h_ab983350d6d1201c0ebd709320e7a0d50ab806801dfbfced3c56e75d3ea3f3c7b3}\label{enums_8h_ab983350d6d1201c0ebd709320e7a0d50ab806801dfbfced3c56e75d3ea3f3c7b3}} 
-COLOR\+\_\+\+DIVERGING\+\_\+\+CRIMSON&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_DIVERGING\_CRIMSON@{COLOR\_DIVERGING\_CRIMSON}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_DIVERGING\_CRIMSON@{COLOR\_DIVERGING\_CRIMSON}}}\mbox{\Hypertarget{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8ab806801dfbfced3c56e75d3ea3f3c7b3}\label{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8ab806801dfbfced3c56e75d3ea3f3c7b3}} 
+COLOR\+\_\+\+DIVERGING\+\_\+\+CRIMSON&Used in \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} CSM\+\_\+\+DIVERGING. \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_DIVERGING\_SIENNA@{COLOR\_DIVERGING\_SIENNA}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_DIVERGING\_SIENNA@{COLOR\_DIVERGING\_SIENNA}}}\mbox{\Hypertarget{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a1e575dba60a0acaa98e300b5e5a9561d}\label{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a1e575dba60a0acaa98e300b5e5a9561d}} 
-COLOR\+\_\+\+DIVERGING\+\_\+\+SIENNA&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_DIVERGING\_SIENNA@{COLOR\_DIVERGING\_SIENNA}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_DIVERGING\_SIENNA@{COLOR\_DIVERGING\_SIENNA}}}\mbox{\Hypertarget{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a1e575dba60a0acaa98e300b5e5a9561d}\label{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a1e575dba60a0acaa98e300b5e5a9561d}} 
+COLOR\+\_\+\+DIVERGING\+\_\+\+SIENNA&Used in \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} CSM\+\_\+\+DIVERGING. \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_DIVERGING\_ORANGE@{COLOR\_DIVERGING\_ORANGE}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_DIVERGING\_ORANGE@{COLOR\_DIVERGING\_ORANGE}}}\mbox{\Hypertarget{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a30f49157f2d322f3f4a4bb4a8398600c}\label{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a30f49157f2d322f3f4a4bb4a8398600c}} 
-COLOR\+\_\+\+DIVERGING\+\_\+\+ORANGE&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_DIVERGING\_ORANGE@{COLOR\_DIVERGING\_ORANGE}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_DIVERGING\_ORANGE@{COLOR\_DIVERGING\_ORANGE}}}\mbox{\Hypertarget{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a30f49157f2d322f3f4a4bb4a8398600c}\label{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a30f49157f2d322f3f4a4bb4a8398600c}} 
+COLOR\+\_\+\+DIVERGING\+\_\+\+ORANGE&Used in \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} CSM\+\_\+\+DIVERGING. \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_DIVERGING\_TAN@{COLOR\_DIVERGING\_TAN}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_DIVERGING\_TAN@{COLOR\_DIVERGING\_TAN}}}\mbox{\Hypertarget{enums_8h_ab983350d6d1201c0ebd709320e7a0d50ad484994b47cfd067e76bc9255ffdcfa8}\label{enums_8h_ab983350d6d1201c0ebd709320e7a0d50ad484994b47cfd067e76bc9255ffdcfa8}} 
-COLOR\+\_\+\+DIVERGING\+\_\+\+TAN&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_DIVERGING\_TAN@{COLOR\_DIVERGING\_TAN}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_DIVERGING\_TAN@{COLOR\_DIVERGING\_TAN}}}\mbox{\Hypertarget{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8ad484994b47cfd067e76bc9255ffdcfa8}\label{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8ad484994b47cfd067e76bc9255ffdcfa8}} 
+COLOR\+\_\+\+DIVERGING\+\_\+\+TAN&Used in \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} CSM\+\_\+\+DIVERGING. \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_DIVERGING\_KHAKI@{COLOR\_DIVERGING\_KHAKI}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_DIVERGING\_KHAKI@{COLOR\_DIVERGING\_KHAKI}}}\mbox{\Hypertarget{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a56e01fbac4b2586e9a87ad85827f6584}\label{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a56e01fbac4b2586e9a87ad85827f6584}} 
-COLOR\+\_\+\+DIVERGING\+\_\+\+KHAKI&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_DIVERGING\_KHAKI@{COLOR\_DIVERGING\_KHAKI}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_DIVERGING\_KHAKI@{COLOR\_DIVERGING\_KHAKI}}}\mbox{\Hypertarget{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a56e01fbac4b2586e9a87ad85827f6584}\label{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a56e01fbac4b2586e9a87ad85827f6584}} 
+COLOR\+\_\+\+DIVERGING\+\_\+\+KHAKI&Used in \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} CSM\+\_\+\+DIVERGING. \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_DIVERGING\_ALICE\_BLUE@{COLOR\_DIVERGING\_ALICE\_BLUE}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_DIVERGING\_ALICE\_BLUE@{COLOR\_DIVERGING\_ALICE\_BLUE}}}\mbox{\Hypertarget{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a9734a79cf80dcd974f1b21165ad76787}\label{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a9734a79cf80dcd974f1b21165ad76787}} 
-COLOR\+\_\+\+DIVERGING\+\_\+\+ALICE\+\_\+\+BLUE&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_DIVERGING\_ALICE\_BLUE@{COLOR\_DIVERGING\_ALICE\_BLUE}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_DIVERGING\_ALICE\_BLUE@{COLOR\_DIVERGING\_ALICE\_BLUE}}}\mbox{\Hypertarget{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a9734a79cf80dcd974f1b21165ad76787}\label{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a9734a79cf80dcd974f1b21165ad76787}} 
+COLOR\+\_\+\+DIVERGING\+\_\+\+ALICE\+\_\+\+BLUE&Used in \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} CSM\+\_\+\+DIVERGING. \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_DIVERGING\_LIGHT\_BLUE@{COLOR\_DIVERGING\_LIGHT\_BLUE}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_DIVERGING\_LIGHT\_BLUE@{COLOR\_DIVERGING\_LIGHT\_BLUE}}}\mbox{\Hypertarget{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a0180d7ea49db48e6965bbd73ed785ccd}\label{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a0180d7ea49db48e6965bbd73ed785ccd}} 
-COLOR\+\_\+\+DIVERGING\+\_\+\+LIGHT\+\_\+\+BLUE&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_DIVERGING\_LIGHT\_BLUE@{COLOR\_DIVERGING\_LIGHT\_BLUE}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_DIVERGING\_LIGHT\_BLUE@{COLOR\_DIVERGING\_LIGHT\_BLUE}}}\mbox{\Hypertarget{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a0180d7ea49db48e6965bbd73ed785ccd}\label{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a0180d7ea49db48e6965bbd73ed785ccd}} 
+COLOR\+\_\+\+DIVERGING\+\_\+\+LIGHT\+\_\+\+BLUE&Used in \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} CSM\+\_\+\+DIVERGING. \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_DIVERGING\_CORNFLOWER\_BLUE@{COLOR\_DIVERGING\_CORNFLOWER\_BLUE}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_DIVERGING\_CORNFLOWER\_BLUE@{COLOR\_DIVERGING\_CORNFLOWER\_BLUE}}}\mbox{\Hypertarget{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a3b35a86c8f3ea236d8407f9d383b8ea8}\label{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a3b35a86c8f3ea236d8407f9d383b8ea8}} 
-COLOR\+\_\+\+DIVERGING\+\_\+\+CORNFLOWER\+\_\+\+BLUE&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_DIVERGING\_CORNFLOWER\_BLUE@{COLOR\_DIVERGING\_CORNFLOWER\_BLUE}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_DIVERGING\_CORNFLOWER\_BLUE@{COLOR\_DIVERGING\_CORNFLOWER\_BLUE}}}\mbox{\Hypertarget{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a3b35a86c8f3ea236d8407f9d383b8ea8}\label{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a3b35a86c8f3ea236d8407f9d383b8ea8}} 
+COLOR\+\_\+\+DIVERGING\+\_\+\+CORNFLOWER\+\_\+\+BLUE&Used in \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} CSM\+\_\+\+DIVERGING. \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_DIVERGING\_STEEL\_BLUE@{COLOR\_DIVERGING\_STEEL\_BLUE}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_DIVERGING\_STEEL\_BLUE@{COLOR\_DIVERGING\_STEEL\_BLUE}}}\mbox{\Hypertarget{enums_8h_ab983350d6d1201c0ebd709320e7a0d50aa3f9bc20f286b64d9935e848af84c4f0}\label{enums_8h_ab983350d6d1201c0ebd709320e7a0d50aa3f9bc20f286b64d9935e848af84c4f0}} 
-COLOR\+\_\+\+DIVERGING\+\_\+\+STEEL\+\_\+\+BLUE&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_DIVERGING\_STEEL\_BLUE@{COLOR\_DIVERGING\_STEEL\_BLUE}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_DIVERGING\_STEEL\_BLUE@{COLOR\_DIVERGING\_STEEL\_BLUE}}}\mbox{\Hypertarget{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8aa3f9bc20f286b64d9935e848af84c4f0}\label{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8aa3f9bc20f286b64d9935e848af84c4f0}} 
+COLOR\+\_\+\+DIVERGING\+\_\+\+STEEL\+\_\+\+BLUE&Used in \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} CSM\+\_\+\+DIVERGING. \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_DIVERGING\_ROYAL\_BLUE@{COLOR\_DIVERGING\_ROYAL\_BLUE}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_DIVERGING\_ROYAL\_BLUE@{COLOR\_DIVERGING\_ROYAL\_BLUE}}}\mbox{\Hypertarget{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a1c13f4c648c2b3ff3d51e9d3e98ddec5}\label{enums_8h_ab983350d6d1201c0ebd709320e7a0d50a1c13f4c648c2b3ff3d51e9d3e98ddec5}} 
-COLOR\+\_\+\+DIVERGING\+\_\+\+ROYAL\+\_\+\+BLUE&\\
-\hline
-
-\end{DoxyEnumFields}
-
-
-Definition at line \mbox{\hyperlink{enums_8h_source_l00005}{5}} of file \mbox{\hyperlink{enums_8h_source}{enums.\+h}}.
-
-\mbox{\Hypertarget{enums_8h_af6eda4cba3beb96340903aa3c851f1c8}\label{enums_8h_af6eda4cba3beb96340903aa3c851f1c8}} 
-\index{enums.h@{enums.h}!SYMBOLS@{SYMBOLS}}
-\index{SYMBOLS@{SYMBOLS}!enums.h@{enums.h}}
-\doxysubsubsection{\texorpdfstring{SYMBOLS}{SYMBOLS}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{enums_8h_af6eda4cba3beb96340903aa3c851f1c8}{SYMBOLS}}}
-
-\begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{SYMBOL\_NO\_SYMBOL@{SYMBOL\_NO\_SYMBOL}!enums.h@{enums.h}}\index{enums.h@{enums.h}!SYMBOL\_NO\_SYMBOL@{SYMBOL\_NO\_SYMBOL}}}\mbox{\Hypertarget{enums_8h_af6eda4cba3beb96340903aa3c851f1c8a666bb08379feb5797dfec199a2479b6a}\label{enums_8h_af6eda4cba3beb96340903aa3c851f1c8a666bb08379feb5797dfec199a2479b6a}} 
-SYMBOL\+\_\+\+NO\+\_\+\+SYMBOL&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{SYMBOL\_CIRCLE@{SYMBOL\_CIRCLE}!enums.h@{enums.h}}\index{enums.h@{enums.h}!SYMBOL\_CIRCLE@{SYMBOL\_CIRCLE}}}\mbox{\Hypertarget{enums_8h_af6eda4cba3beb96340903aa3c851f1c8aeedd6d364526e38cfbb1f678cf9b2849}\label{enums_8h_af6eda4cba3beb96340903aa3c851f1c8aeedd6d364526e38cfbb1f678cf9b2849}} 
-SYMBOL\+\_\+\+CIRCLE&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{SYMBOL\_SQUARE@{SYMBOL\_SQUARE}!enums.h@{enums.h}}\index{enums.h@{enums.h}!SYMBOL\_SQUARE@{SYMBOL\_SQUARE}}}\mbox{\Hypertarget{enums_8h_af6eda4cba3beb96340903aa3c851f1c8a99f28de5afd5242b9ffdd1dbc7b4daf4}\label{enums_8h_af6eda4cba3beb96340903aa3c851f1c8a99f28de5afd5242b9ffdd1dbc7b4daf4}} 
-SYMBOL\+\_\+\+SQUARE&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{SYMBOL\_TRIANGLE@{SYMBOL\_TRIANGLE}!enums.h@{enums.h}}\index{enums.h@{enums.h}!SYMBOL\_TRIANGLE@{SYMBOL\_TRIANGLE}}}\mbox{\Hypertarget{enums_8h_af6eda4cba3beb96340903aa3c851f1c8a990fbfeb06f1415306188eae2fd8eb7b}\label{enums_8h_af6eda4cba3beb96340903aa3c851f1c8a990fbfeb06f1415306188eae2fd8eb7b}} 
-SYMBOL\+\_\+\+TRIANGLE&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{SYMBOL\_DIAMOND@{SYMBOL\_DIAMOND}!enums.h@{enums.h}}\index{enums.h@{enums.h}!SYMBOL\_DIAMOND@{SYMBOL\_DIAMOND}}}\mbox{\Hypertarget{enums_8h_af6eda4cba3beb96340903aa3c851f1c8ac596c2d7a6a41afcfd17d7acb49eda0e}\label{enums_8h_af6eda4cba3beb96340903aa3c851f1c8ac596c2d7a6a41afcfd17d7acb49eda0e}} 
-SYMBOL\+\_\+\+DIAMOND&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{SYMBOL\_CROSS@{SYMBOL\_CROSS}!enums.h@{enums.h}}\index{enums.h@{enums.h}!SYMBOL\_CROSS@{SYMBOL\_CROSS}}}\mbox{\Hypertarget{enums_8h_af6eda4cba3beb96340903aa3c851f1c8a0c6a27fc25c9a11472f15b4c1e114ac5}\label{enums_8h_af6eda4cba3beb96340903aa3c851f1c8a0c6a27fc25c9a11472f15b4c1e114ac5}} 
-SYMBOL\+\_\+\+CROSS&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{SYMBOL\_PLUS@{SYMBOL\_PLUS}!enums.h@{enums.h}}\index{enums.h@{enums.h}!SYMBOL\_PLUS@{SYMBOL\_PLUS}}}\mbox{\Hypertarget{enums_8h_af6eda4cba3beb96340903aa3c851f1c8a96c65b5c28ba395b0a2b175d75ad67e7}\label{enums_8h_af6eda4cba3beb96340903aa3c851f1c8a96c65b5c28ba395b0a2b175d75ad67e7}} 
-SYMBOL\+\_\+\+PLUS&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{SYMBOL\_STAR@{SYMBOL\_STAR}!enums.h@{enums.h}}\index{enums.h@{enums.h}!SYMBOL\_STAR@{SYMBOL\_STAR}}}\mbox{\Hypertarget{enums_8h_af6eda4cba3beb96340903aa3c851f1c8a350a145ee29286a85e90711102a3acfa}\label{enums_8h_af6eda4cba3beb96340903aa3c851f1c8a350a145ee29286a85e90711102a3acfa}} 
-SYMBOL\+\_\+\+STAR&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COLOR\_DIVERGING\_ROYAL\_BLUE@{COLOR\_DIVERGING\_ROYAL\_BLUE}!enums.h@{enums.h}}\index{enums.h@{enums.h}!COLOR\_DIVERGING\_ROYAL\_BLUE@{COLOR\_DIVERGING\_ROYAL\_BLUE}}}\mbox{\Hypertarget{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a1c13f4c648c2b3ff3d51e9d3e98ddec5}\label{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a1c13f4c648c2b3ff3d51e9d3e98ddec5}} 
+COLOR\+\_\+\+DIVERGING\+\_\+\+ROYAL\+\_\+\+BLUE&Used in \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} CSM\+\_\+\+DIVERGING. \\
 \hline
 
 \end{DoxyEnumFields}
 
 
-Definition at line \mbox{\hyperlink{enums_8h_source_l00027}{27}} of file \mbox{\hyperlink{enums_8h_source}{enums.\+h}}.
+Definition at line \mbox{\hyperlink{enums_8h_source_l00025}{25}} of file \mbox{\hyperlink{enums_8h_source}{enums.\+h}}.
+
+\mbox{\Hypertarget{enums_8h_a7fdcd88c8bd2b12efccd824d774bdb44}\label{enums_8h_a7fdcd88c8bd2b12efccd824d774bdb44}} 
+\index{enums.h@{enums.h}!PlotLineType@{PlotLineType}}
+\index{PlotLineType@{PlotLineType}!enums.h@{enums.h}}
+\doxysubsubsection{\texorpdfstring{PlotLineType}{PlotLineType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{enums_8h_a7fdcd88c8bd2b12efccd824d774bdb44}{Plot\+Line\+Type}}}
+
+Describes what kind of line the the given plot uses to connect points. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LT\_SOLID@{LT\_SOLID}!enums.h@{enums.h}}\index{enums.h@{enums.h}!LT\_SOLID@{LT\_SOLID}}}\mbox{\Hypertarget{enums_8h_a7fdcd88c8bd2b12efccd824d774bdb44ad3188575e9151d64606bf543dc4c40f1}\label{enums_8h_a7fdcd88c8bd2b12efccd824d774bdb44ad3188575e9151d64606bf543dc4c40f1}} 
+LT\+\_\+\+SOLID&A solid line. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LT\_DASHED@{LT\_DASHED}!enums.h@{enums.h}}\index{enums.h@{enums.h}!LT\_DASHED@{LT\_DASHED}}}\mbox{\Hypertarget{enums_8h_a7fdcd88c8bd2b12efccd824d774bdb44a2741e32e9e7536cc5b4668c1629cc341}\label{enums_8h_a7fdcd88c8bd2b12efccd824d774bdb44a2741e32e9e7536cc5b4668c1629cc341}} 
+LT\+\_\+\+DASHED&A dashed line. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{enums_8h_source_l00008}{8}} of file \mbox{\hyperlink{enums_8h_source}{enums.\+h}}.
+
+\mbox{\Hypertarget{enums_8h_ae15115e1cf73fcccf39f4b796da1b40b}\label{enums_8h_ae15115e1cf73fcccf39f4b796da1b40b}} 
+\index{enums.h@{enums.h}!PlotSymbol@{PlotSymbol}}
+\index{PlotSymbol@{PlotSymbol}!enums.h@{enums.h}}
+\doxysubsubsection{\texorpdfstring{PlotSymbol}{PlotSymbol}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40b}{Plot\+Symbol}}}
+
+Describes the symbol that a plot will place to represent each data point. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SYMBOL\_NO\_SYMBOL@{SYMBOL\_NO\_SYMBOL}!enums.h@{enums.h}}\index{enums.h@{enums.h}!SYMBOL\_NO\_SYMBOL@{SYMBOL\_NO\_SYMBOL}}}\mbox{\Hypertarget{enums_8h_ae15115e1cf73fcccf39f4b796da1b40ba666bb08379feb5797dfec199a2479b6a}\label{enums_8h_ae15115e1cf73fcccf39f4b796da1b40ba666bb08379feb5797dfec199a2479b6a}} 
+SYMBOL\+\_\+\+NO\+\_\+\+SYMBOL&Does not use a symbol; data points are left unmarked. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SYMBOL\_CIRCLE@{SYMBOL\_CIRCLE}!enums.h@{enums.h}}\index{enums.h@{enums.h}!SYMBOL\_CIRCLE@{SYMBOL\_CIRCLE}}}\mbox{\Hypertarget{enums_8h_ae15115e1cf73fcccf39f4b796da1b40baeedd6d364526e38cfbb1f678cf9b2849}\label{enums_8h_ae15115e1cf73fcccf39f4b796da1b40baeedd6d364526e38cfbb1f678cf9b2849}} 
+SYMBOL\+\_\+\+CIRCLE&Marks each data point with a circle. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SYMBOL\_SQUARE@{SYMBOL\_SQUARE}!enums.h@{enums.h}}\index{enums.h@{enums.h}!SYMBOL\_SQUARE@{SYMBOL\_SQUARE}}}\mbox{\Hypertarget{enums_8h_ae15115e1cf73fcccf39f4b796da1b40ba99f28de5afd5242b9ffdd1dbc7b4daf4}\label{enums_8h_ae15115e1cf73fcccf39f4b796da1b40ba99f28de5afd5242b9ffdd1dbc7b4daf4}} 
+SYMBOL\+\_\+\+SQUARE&Marks each data point with a square. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SYMBOL\_TRIANGLE@{SYMBOL\_TRIANGLE}!enums.h@{enums.h}}\index{enums.h@{enums.h}!SYMBOL\_TRIANGLE@{SYMBOL\_TRIANGLE}}}\mbox{\Hypertarget{enums_8h_ae15115e1cf73fcccf39f4b796da1b40ba990fbfeb06f1415306188eae2fd8eb7b}\label{enums_8h_ae15115e1cf73fcccf39f4b796da1b40ba990fbfeb06f1415306188eae2fd8eb7b}} 
+SYMBOL\+\_\+\+TRIANGLE&Marks each data point with a triangle. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SYMBOL\_DIAMOND@{SYMBOL\_DIAMOND}!enums.h@{enums.h}}\index{enums.h@{enums.h}!SYMBOL\_DIAMOND@{SYMBOL\_DIAMOND}}}\mbox{\Hypertarget{enums_8h_ae15115e1cf73fcccf39f4b796da1b40bac596c2d7a6a41afcfd17d7acb49eda0e}\label{enums_8h_ae15115e1cf73fcccf39f4b796da1b40bac596c2d7a6a41afcfd17d7acb49eda0e}} 
+SYMBOL\+\_\+\+DIAMOND&Marks each data point with a diamond (a square rotated 45 degrees). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SYMBOL\_CROSS@{SYMBOL\_CROSS}!enums.h@{enums.h}}\index{enums.h@{enums.h}!SYMBOL\_CROSS@{SYMBOL\_CROSS}}}\mbox{\Hypertarget{enums_8h_ae15115e1cf73fcccf39f4b796da1b40ba0c6a27fc25c9a11472f15b4c1e114ac5}\label{enums_8h_ae15115e1cf73fcccf39f4b796da1b40ba0c6a27fc25c9a11472f15b4c1e114ac5}} 
+SYMBOL\+\_\+\+CROSS&Marks each data point with a cross (a times sign, or a plus sign rotated 45 degrees). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SYMBOL\_PLUS@{SYMBOL\_PLUS}!enums.h@{enums.h}}\index{enums.h@{enums.h}!SYMBOL\_PLUS@{SYMBOL\_PLUS}}}\mbox{\Hypertarget{enums_8h_ae15115e1cf73fcccf39f4b796da1b40ba96c65b5c28ba395b0a2b175d75ad67e7}\label{enums_8h_ae15115e1cf73fcccf39f4b796da1b40ba96c65b5c28ba395b0a2b175d75ad67e7}} 
+SYMBOL\+\_\+\+PLUS&Marks each data point with a plus sign. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SYMBOL\_STAR@{SYMBOL\_STAR}!enums.h@{enums.h}}\index{enums.h@{enums.h}!SYMBOL\_STAR@{SYMBOL\_STAR}}}\mbox{\Hypertarget{enums_8h_ae15115e1cf73fcccf39f4b796da1b40ba350a145ee29286a85e90711102a3acfa}\label{enums_8h_ae15115e1cf73fcccf39f4b796da1b40ba350a145ee29286a85e90711102a3acfa}} 
+SYMBOL\+\_\+\+STAR&Marks each data point with a five-\/pointed star. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{enums_8h_source_l00068}{68}} of file \mbox{\hyperlink{enums_8h_source}{enums.\+h}}.
 

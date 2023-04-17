@@ -106,7 +106,8 @@ Inheritance diagram for TeleconChart:</div>
  <div class="center">
   <img src="class_telecon_chart.png" usemap="#TeleconChart_map" alt=""/>
   <map id="TeleconChart_map" name="TeleconChart_map">
-<area href="class_telecon_realtime_chart.html" alt="TeleconRealtimeChart" shape="rect" coords="0,56,135,80"/>
+<area href="class_telecon_data_chart.html" alt="TeleconDataChart" shape="rect" coords="0,56,135,80"/>
+<area href="class_telecon_realtime_chart.html" alt="TeleconRealtimeChart" shape="rect" coords="145,56,280,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -124,8 +125,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aba46b8cf2bbba5dff77aa8e62d0a9fc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfeeb8c29606422ce614a3599e07e198"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_chart.html#abfeeb8c29606422ce614a3599e07e198">getDefaultXAxisSpan</a> ()=0</td></tr>
 <tr class="separator:abfeeb8c29606422ce614a3599e07e198"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f2f3541ceb9b18a532e80d8ee805586"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="teleconchart_8h.html#af187b130538d6f7efc8cbe12cfa5ff4a">CHART_X_AXIS_TYPE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_chart.html#a5f2f3541ceb9b18a532e80d8ee805586">getChartXAxisType</a> ()=0</td></tr>
-<tr class="separator:a5f2f3541ceb9b18a532e80d8ee805586"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8968d74709f6969e442cba648ef8a3c1"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="teleconchart_8h.html#a54534a1398c95ca6d61f6ac68e610b7e">ChartXAxisType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_chart.html#a8968d74709f6969e442cba648ef8a3c1">getChartXAxisType</a> ()=0</td></tr>
+<tr class="separator:a8968d74709f6969e442cba648ef8a3c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac833b24aa16da530a531a22fcafa1f52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_chart.html#ac833b24aa16da530a531a22fcafa1f52">initialize</a> ()</td></tr>
 <tr class="separator:ac833b24aa16da530a531a22fcafa1f52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9b2e34588a68d39df3144b32d98fc9b"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_telecon_plot.html">TeleconPlot</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_chart.html#ac9b2e34588a68d39df3144b32d98fc9b">getPlot</a> (int index)</td></tr>
@@ -160,8 +161,10 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:ab8e44cc492bc62c52c5cece30e126f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="teleconchart_8h_source.html#l00019">19</a> of file <a class="el" href="teleconchart_8h_source.html">teleconchart.h</a>.</p>
+<div class="textblock"><p>The user-level chart interface. It describes features such as the title, data rate, x/y labels, and color sequence that will be used.</p>
+<p>This class is abstract. A subclass such as <a class="el" href="class_telecon_realtime_chart.html">TeleconRealtimeChart</a> or <a class="el" href="class_telecon_data_chart.html">TeleconDataChart</a> should be used to add plots. </p>
+
+<p class="definition">Definition at line <a class="el" href="teleconchart_8h_source.html#l00028">28</a> of file <a class="el" href="teleconchart_8h_source.html">teleconchart.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae0660503fc138e53101ec2abb4271920" name="ae0660503fc138e53101ec2abb4271920"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae0660503fc138e53101ec2abb4271920">&#9670;&#160;</a></span>TeleconChart()</h2>
@@ -212,14 +215,26 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Constructs a new chart to be added to a <a class="el" href="class_telecon_window.html">TeleconWindow</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">title</td><td>the title displayed above the chart. </td></tr>
+    <tr><td class="paramname">memoryDepthSeconds</td><td>the default number of seconds for which data will be remembered by plots added to this chart. This default can be overridden manually when a plot is being added. </td></tr>
+    <tr><td class="paramname">dataRateMillis</td><td>the rate at which data will be sent to the plots on the chart. Used only to calculate the starting width of the chart; the actual rate at which data are sent may safely differ. </td></tr>
+    <tr><td class="paramname">xLabel</td><td>the label displayed below the x-axis. </td></tr>
+    <tr><td class="paramname">yLabel</td><td>the label displayed adjacent to the y-axis. </td></tr>
+    <tr><td class="paramname">colorSequenceMode</td><td>describes how plots using the default color will be colored. See <a class="el" href="colors_8h.html#a8160ef72c1dba53251eb9ad02be83c38">ColorSequenceMode</a> for more details. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="teleconchart_8cpp_source.html#l00003">3</a> of file <a class="el" href="teleconchart_8cpp_source.html">teleconchart.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a5f2f3541ceb9b18a532e80d8ee805586" name="a5f2f3541ceb9b18a532e80d8ee805586"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f2f3541ceb9b18a532e80d8ee805586">&#9670;&#160;</a></span>getChartXAxisType()</h2>
+<a id="a8968d74709f6969e442cba648ef8a3c1" name="a8968d74709f6969e442cba648ef8a3c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8968d74709f6969e442cba648ef8a3c1">&#9670;&#160;</a></span>getChartXAxisType()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -228,7 +243,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="teleconchart_8h.html#af187b130538d6f7efc8cbe12cfa5ff4a">CHART_X_AXIS_TYPE</a> TeleconChart::getChartXAxisType </td>
+          <td class="memname">virtual <a class="el" href="teleconchart_8h.html#a54534a1398c95ca6d61f6ac68e610b7e">ChartXAxisType</a> TeleconChart::getChartXAxisType </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -240,10 +255,9 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Virtual getter function for default x axis type.</p>
-<dl class="section return"><dt>Returns</dt><dd>default x axis type as CHART_X_AXIS_TYPE object </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Default x-axis type, as specified in <a class="el" href="teleconchart_8h.html#a54534a1398c95ca6d61f6ac68e610b7e">ChartXAxisType</a>. </dd></dl>
 
-<p>Implemented in <a class="el" href="class_telecon_realtime_chart.html#ae6eb873f64e852cf645bac0e6a89208e">TeleconRealtimeChart</a>.</p>
+<p>Implemented in <a class="el" href="class_telecon_data_chart.html#a75dd30e37d0e1709c0241bdfc050c1d5">TeleconDataChart</a>, and <a class="el" href="class_telecon_realtime_chart.html#ae636edddfc069f71acfdb5298a0daf4a">TeleconRealtimeChart</a>.</p>
 
 </div>
 </div>
@@ -261,8 +275,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Getter function for chart color sequence mode.</p>
-<dl class="section return"><dt>Returns</dt><dd>color sequence mode as a ColorSequenceMode object </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Color sequence mode, as described in <a class="el" href="colors_8h.html#a8160ef72c1dba53251eb9ad02be83c38">ColorSequenceMode</a>. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="teleconchart_8cpp_source.html#l00027">27</a> of file <a class="el" href="teleconchart_8cpp_source.html">teleconchart.cpp</a>.</p>
 
@@ -290,10 +303,10 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Virtual getter function for default x axis span.</p>
-<dl class="section return"><dt>Returns</dt><dd>default x axis span as double </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The default x-axis width, to be used when few or no data have been provided. Interpretation of the units will depend on the x-axis type. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="teleconchart_8h.html#a54534a1398c95ca6d61f6ac68e610b7e">ChartXAxisType</a> </dd></dl>
 
-<p>Implemented in <a class="el" href="class_telecon_realtime_chart.html#a6bf55049d06e4e2fe74a3906c85cf7a0">TeleconRealtimeChart</a>.</p>
+<p>Implemented in <a class="el" href="class_telecon_data_chart.html#a1055faa3d0e0b1a488815b082866bf8c">TeleconDataChart</a>, and <a class="el" href="class_telecon_realtime_chart.html#a6bf55049d06e4e2fe74a3906c85cf7a0">TeleconRealtimeChart</a>.</p>
 
 </div>
 </div>
@@ -319,6 +332,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns the next color, represented as described in <a class="el" href="enums_8h.html#a43527cfb592cc97d3ee51be1f95e05e8">PlotColor</a>, that should be used for default-color plots according to the <a class="el" href="colors_8h.html#a8160ef72c1dba53251eb9ad02be83c38">ColorSequenceMode</a>. </p>
 
 <p class="definition">Definition at line <a class="el" href="teleconchart_8cpp_source.html#l00032">32</a> of file <a class="el" href="teleconchart_8cpp_source.html">teleconchart.cpp</a>.</p>
 
@@ -338,8 +352,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Getter function that returns the number of plots currently stored in the chart.</p>
-<dl class="section return"><dt>Returns</dt><dd>number of plots as size_t </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of TeleconPlots added to the chart </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="teleconchart_8cpp_source.html#l00056">56</a> of file <a class="el" href="teleconchart_8cpp_source.html">teleconchart.cpp</a>.</p>
 
@@ -360,14 +373,13 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Getter function that returns a plot of the chart given a specified index.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>of plot as int </td></tr>
+    <tr><td class="paramname">index</td><td>the index of the <a class="el" href="class_telecon_plot.html">TeleconPlot</a> to return, relative to the order added. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>a shared_ptr to the <a class="el" href="class_telecon_plot.html">TeleconPlot</a> object plot </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the <a class="el" href="class_telecon_plot.html">TeleconPlot</a> requested. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="teleconchart_8cpp_source.html#l00051">51</a> of file <a class="el" href="teleconchart_8cpp_source.html">teleconchart.cpp</a>.</p>
 
@@ -388,14 +400,13 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Getter function that returns a plot of the chart given a specified plot name.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">name</td><td>of plot as string </td></tr>
+    <tr><td class="paramname">name</td><td>the name of the <a class="el" href="class_telecon_plot.html">TeleconPlot</a> to return. If multiple plots share the same name, no guarantee is made about which will be returned. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>a shared_ptr to the <a class="el" href="class_telecon_plot.html">TeleconPlot</a> object plot </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to a plot with the given name, or a null pointer if no plot in the given chart and window has that name. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="teleconchart_8cpp_source.html#l00061">61</a> of file <a class="el" href="teleconchart_8cpp_source.html">teleconchart.cpp</a>.</p>
 
@@ -415,8 +426,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Getter function for chart title.</p>
-<dl class="section return"><dt>Returns</dt><dd>title as a string </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The title of the chart. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="teleconchart_8cpp_source.html#l00012">12</a> of file <a class="el" href="teleconchart_8cpp_source.html">teleconchart.cpp</a>.</p>
 
@@ -436,8 +446,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Getter function for chart x-axis label.</p>
-<dl class="section return"><dt>Returns</dt><dd>x-axis label as a string </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The label below the x-axis. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="teleconchart_8cpp_source.html#l00017">17</a> of file <a class="el" href="teleconchart_8cpp_source.html">teleconchart.cpp</a>.</p>
 
@@ -457,8 +466,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Getter function for chart y-axis label.</p>
-<dl class="section return"><dt>Returns</dt><dd>y-axis label as a string </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The label adjacent to the y-axis. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="teleconchart_8cpp_source.html#l00022">22</a> of file <a class="el" href="teleconchart_8cpp_source.html">teleconchart.cpp</a>.</p>
 
@@ -478,7 +486,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Initializer function. Sets m_hasStarted to true. </p>
+<p>Initializer function. After this has been called, no further changes to the chart may be made. This function will be called by the parent <a class="el" href="class_telecon_window.html">TeleconWindow</a> object, and normally should not be called directly by the user. </p>
 
 <p class="definition">Definition at line <a class="el" href="teleconchart_8cpp_source.html#l00046">46</a> of file <a class="el" href="teleconchart_8cpp_source.html">teleconchart.cpp</a>.</p>
 
@@ -504,8 +512,9 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Describes how plots using the default color will be colored. See <a class="el" href="colors_8h.html#a8160ef72c1dba53251eb9ad02be83c38">ColorSequenceMode</a> for more details. </p>
 
-<p class="definition">Definition at line <a class="el" href="teleconchart_8h_source.html#l00026">26</a> of file <a class="el" href="teleconchart_8h_source.html">teleconchart.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconchart_8h_source.html#l00049">49</a> of file <a class="el" href="teleconchart_8h_source.html">teleconchart.h</a>.</p>
 
 </div>
 </div>
@@ -528,8 +537,9 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>The rate at which data will be sent to the plots on the chart. Used only to calculate the starting width of the chart; the actual rate at which data are sent may safely differ. </p>
 
-<p class="definition">Definition at line <a class="el" href="teleconchart_8h_source.html#l00023">23</a> of file <a class="el" href="teleconchart_8h_source.html">teleconchart.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconchart_8h_source.html#l00040">40</a> of file <a class="el" href="teleconchart_8h_source.html">teleconchart.h</a>.</p>
 
 </div>
 </div>
@@ -552,8 +562,9 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>True if the <a class="el" href="class_telecon.html">Telecon</a> app has started running and no further changes are permitted, or false before then. </p>
 
-<p class="definition">Definition at line <a class="el" href="teleconchart_8h_source.html#l00028">28</a> of file <a class="el" href="teleconchart_8h_source.html">teleconchart.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconchart_8h_source.html#l00051">51</a> of file <a class="el" href="teleconchart_8h_source.html">teleconchart.h</a>.</p>
 
 </div>
 </div>
@@ -576,8 +587,9 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>The default number of seconds for which data will be remembered by plots added to this chart. This default can be overridden manually when a plot is being added. </p>
 
-<p class="definition">Definition at line <a class="el" href="teleconchart_8h_source.html#l00022">22</a> of file <a class="el" href="teleconchart_8h_source.html">teleconchart.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconchart_8h_source.html#l00035">35</a> of file <a class="el" href="teleconchart_8h_source.html">teleconchart.h</a>.</p>
 
 </div>
 </div>
@@ -600,8 +612,9 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>A list of the plots that have been added to the chart. </p>
 
-<p class="definition">Definition at line <a class="el" href="teleconchart_8h_source.html#l00030">30</a> of file <a class="el" href="teleconchart_8h_source.html">teleconchart.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconchart_8h_source.html#l00053">53</a> of file <a class="el" href="teleconchart_8h_source.html">teleconchart.h</a>.</p>
 
 </div>
 </div>
@@ -624,8 +637,9 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>The title that will be displayed at the top of the plot. </p>
 
-<p class="definition">Definition at line <a class="el" href="teleconchart_8h_source.html#l00021">21</a> of file <a class="el" href="teleconchart_8h_source.html">teleconchart.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconchart_8h_source.html#l00031">31</a> of file <a class="el" href="teleconchart_8h_source.html">teleconchart.h</a>.</p>
 
 </div>
 </div>
@@ -648,8 +662,9 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>The label that will be displayed below the x-axis </p>
 
-<p class="definition">Definition at line <a class="el" href="teleconchart_8h_source.html#l00024">24</a> of file <a class="el" href="teleconchart_8h_source.html">teleconchart.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconchart_8h_source.html#l00042">42</a> of file <a class="el" href="teleconchart_8h_source.html">teleconchart.h</a>.</p>
 
 </div>
 </div>
@@ -672,8 +687,9 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>The label that will be displayed adjacent to the y-axis </p>
 
-<p class="definition">Definition at line <a class="el" href="teleconchart_8h_source.html#l00025">25</a> of file <a class="el" href="teleconchart_8h_source.html">teleconchart.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconchart_8h_source.html#l00044">44</a> of file <a class="el" href="teleconchart_8h_source.html">teleconchart.h</a>.</p>
 
 </div>
 </div>

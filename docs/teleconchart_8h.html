@@ -100,8 +100,6 @@ $(document).ready(function(){initNavTree('teleconchart_8h.html',''); initResizab
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &quot;<a class="el" href="colors_8h_source.html">colors.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="teleconwxplot_8h_source.html">teleconwxplot.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="teleconwxlineplot_8h_source.html">teleconwxlineplot.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="teleconwxscatterplot_8h_source.html">teleconwxscatterplot.h</a>&quot;</code><br />
 </div>
 <p><a href="teleconchart_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -112,31 +110,32 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:af187b130538d6f7efc8cbe12cfa5ff4a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="teleconchart_8h.html#af187b130538d6f7efc8cbe12cfa5ff4a">CHART_X_AXIS_TYPE</a> { <a class="el" href="teleconchart_8h.html#af187b130538d6f7efc8cbe12cfa5ff4aac0533b61af42845647a9973f5e3c8433">CAXT_TIME</a>
-, <a class="el" href="teleconchart_8h.html#af187b130538d6f7efc8cbe12cfa5ff4aa4976ee0cb791a1516eb90a7f0c438326">CAXT_ARBITARY</a>
-, <a class="el" href="teleconchart_8h.html#af187b130538d6f7efc8cbe12cfa5ff4aa9c7ae562e411f4a3603c8636f1d430fd">CAXT_BOTH</a>
+<tr class="memitem:a54534a1398c95ca6d61f6ac68e610b7e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="teleconchart_8h.html#a54534a1398c95ca6d61f6ac68e610b7e">ChartXAxisType</a> { <a class="el" href="teleconchart_8h.html#a54534a1398c95ca6d61f6ac68e610b7eac0533b61af42845647a9973f5e3c8433">CAXT_TIME</a>
+, <a class="el" href="teleconchart_8h.html#a54534a1398c95ca6d61f6ac68e610b7ea9e15a0f8d03fd9ea0e80dbffd35c2c94">CAXT_ARBITRARY</a>
  }</td></tr>
-<tr class="separator:af187b130538d6f7efc8cbe12cfa5ff4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a54534a1398c95ca6d61f6ac68e610b7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="af187b130538d6f7efc8cbe12cfa5ff4a" name="af187b130538d6f7efc8cbe12cfa5ff4a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af187b130538d6f7efc8cbe12cfa5ff4a">&#9670;&#160;</a></span>CHART_X_AXIS_TYPE</h2>
+<a id="a54534a1398c95ca6d61f6ac68e610b7e" name="a54534a1398c95ca6d61f6ac68e610b7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54534a1398c95ca6d61f6ac68e610b7e">&#9670;&#160;</a></span>ChartXAxisType</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="teleconchart_8h.html#af187b130538d6f7efc8cbe12cfa5ff4a">CHART_X_AXIS_TYPE</a></td>
+          <td class="memname">enum <a class="el" href="teleconchart_8h.html#a54534a1398c95ca6d61f6ac68e610b7e">ChartXAxisType</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The type of the chart: whether it has time data on the x-axis,or arbitrary non-time data. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af187b130538d6f7efc8cbe12cfa5ff4aac0533b61af42845647a9973f5e3c8433" name="af187b130538d6f7efc8cbe12cfa5ff4aac0533b61af42845647a9973f5e3c8433"></a>CAXT_TIME&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af187b130538d6f7efc8cbe12cfa5ff4aa4976ee0cb791a1516eb90a7f0c438326" name="af187b130538d6f7efc8cbe12cfa5ff4aa4976ee0cb791a1516eb90a7f0c438326"></a>CAXT_ARBITARY&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af187b130538d6f7efc8cbe12cfa5ff4aa9c7ae562e411f4a3603c8636f1d430fd" name="af187b130538d6f7efc8cbe12cfa5ff4aa9c7ae562e411f4a3603c8636f1d430fd"></a>CAXT_BOTH&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a54534a1398c95ca6d61f6ac68e610b7eac0533b61af42845647a9973f5e3c8433" name="a54534a1398c95ca6d61f6ac68e610b7eac0533b61af42845647a9973f5e3c8433"></a>CAXT_TIME&#160;</td><td class="fielddoc"><p>x-axis represents a timespan. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a54534a1398c95ca6d61f6ac68e610b7ea9e15a0f8d03fd9ea0e80dbffd35c2c94" name="a54534a1398c95ca6d61f6ac68e610b7ea9e15a0f8d03fd9ea0e80dbffd35c2c94"></a>CAXT_ARBITRARY&#160;</td><td class="fielddoc"><p>x-axis represents some arbitrary non-time data </p>
+</td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="teleconchart_8h_source.html#l00013">13</a> of file <a class="el" href="teleconchart_8h_source.html">teleconchart.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconchart_8h_source.html#l00014">14</a> of file <a class="el" href="teleconchart_8h_source.html">teleconchart.h</a>.</p>
 
 </div>
 </div>

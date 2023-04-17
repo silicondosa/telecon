@@ -7,20 +7,13 @@
 Inheritance diagram for Telecon\+Scatter\+Plot\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=4.000000cm]{class_telecon_scatter_plot}
+\includegraphics[height=3.000000cm]{class_telecon_scatter_plot}
 \end{center}
 \end{figure}
-\doxysubsection*{Additional Inherited Members}
-\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_telecon_line_scatter_plot}{Telecon\+Line\+Scatter\+Plot}}}
+\doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-virtual void \mbox{\hyperlink{class_telecon_line_scatter_plot_ab61103291346f58f8f411201810c06d7}{push\+Data}} (double x\+Timestamp, double y\+Data)=0
-\item 
-virtual bool \mbox{\hyperlink{class_telecon_line_scatter_plot_a787215c8d7c072416d5d088afce0b07b}{is\+Symbol\+Filled}} () const =0
-\item 
-virtual int \mbox{\hyperlink{class_telecon_line_scatter_plot_a2733f6ed53a20ddf8267206c0c146c23}{get\+Symbol}} () const =0
-\item 
-virtual int \mbox{\hyperlink{class_telecon_line_scatter_plot_a67185743e3a42bb7188cd9b2ec1c6795}{get\+Symbol\+Size}} () const =0
+virtual void \mbox{\hyperlink{class_telecon_scatter_plot_ac14eb34b918af08e56e194729b7a6ade}{push\+Data}} (double x\+Timestamp, double y\+Data)=0
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}}}
 \begin{DoxyCompactItemize}
@@ -29,19 +22,60 @@ virtual size\+\_\+t \mbox{\hyperlink{class_telecon_plot_a582e5ae4fd4923f82956fc3
 \item 
 virtual size\+\_\+t \mbox{\hyperlink{class_telecon_plot_a531aaccd7cd6f98e32c1a315900b5c49}{depth}} () const =0
 \item 
-virtual int \mbox{\hyperlink{class_telecon_plot_ae573ed05240f7e135a50ef0ee632a6bb}{get\+Color}} () const =0
-\item 
 virtual const string \mbox{\hyperlink{class_telecon_plot_ab8c7d77c2ab3091765bf560f29306d7e}{get\+Plot\+Title}} () const =0
+\item 
+virtual shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} $>$ \mbox{\hyperlink{class_telecon_plot_ab754dc0b368eef40072b1aedfd3bf434}{get\+Symbol\+Style}} () const =0
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \mbox{\hyperlink{class_telecon_scatter_plot_af0df8f87bf78c8057175da5214f2456c}{default\+Symbol\+Style}} = \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}}()
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+The user-\/level interface for interacting with scater plots. A scatter plot is a sequence of 2-\/dimensional points that consist of a timestamp, displayed on the x-\/axis, and a value, displayed on the y-\/axis. The points should be represented with a symbol. Similar to a \mbox{\hyperlink{class_telecon_line_plot}{Telecon\+Line\+Plot}}, but with no line connecting data points. 
+
+Definition at line \mbox{\hyperlink{teleconscatterplot_8h_source_l00012}{12}} of file \mbox{\hyperlink{teleconscatterplot_8h_source}{teleconscatterplot.\+h}}.
 
 
-Definition at line \mbox{\hyperlink{teleconscatterplot_8h_source_l00006}{6}} of file \mbox{\hyperlink{teleconscatterplot_8h_source}{teleconscatterplot.\+h}}.
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_telecon_scatter_plot_ac14eb34b918af08e56e194729b7a6ade}\label{class_telecon_scatter_plot_ac14eb34b918af08e56e194729b7a6ade}} 
+\index{TeleconScatterPlot@{TeleconScatterPlot}!pushData@{pushData}}
+\index{pushData@{pushData}!TeleconScatterPlot@{TeleconScatterPlot}}
+\doxysubsubsection{\texorpdfstring{pushData()}{pushData()}}
+{\footnotesize\ttfamily virtual void Telecon\+Scatter\+Plot\+::push\+Data (\begin{DoxyParamCaption}\item[{double}]{x\+Timestamp,  }\item[{double}]{y\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Function to push a single data point (y\+Data) into the plot at a certain time (x\+Timestamp).
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+Timestamp} & Time the data point was generated, represented as seconds since an epoch. The epoch used will depend on the implementation; the default implementation (wx\+Chart\+Dir) uses January 1st, year 1. However, since charts display only hours, minutes, and seconds, for short time spans (less than a day), the epoch could be user-\/defined (for example, the beginning of the experiment which is producing data). Data points must be inserted with the timestamps in ascending order (the same order that they were created). \\
+\hline
+{\em y\+Data} & The value that will be displayed. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_telecon_wx_scatter_plot_a6b485474b717e14c2390f0413c2a1602}{Telecon\+Wx\+Scatter\+Plot}}.
 
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_telecon_scatter_plot_af0df8f87bf78c8057175da5214f2456c}\label{class_telecon_scatter_plot_af0df8f87bf78c8057175da5214f2456c}} 
+\index{TeleconScatterPlot@{TeleconScatterPlot}!defaultSymbolStyle@{defaultSymbolStyle}}
+\index{defaultSymbolStyle@{defaultSymbolStyle}!TeleconScatterPlot@{TeleconScatterPlot}}
+\doxysubsubsection{\texorpdfstring{defaultSymbolStyle}{defaultSymbolStyle}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} Telecon\+Scatter\+Plot\+::default\+Symbol\+Style = \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}}()\hspace{0.3cm}{\ttfamily [static]}}
+
+The default \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} used to represent scatter plots, which is a solid circle of the default circle, 5 pixels across. 
+
+Definition at line \mbox{\hyperlink{teleconscatterplot_8h_source_l00015}{15}} of file \mbox{\hyperlink{teleconscatterplot_8h_source}{teleconscatterplot.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/\mbox{\hyperlink{teleconscatterplot_8h}{teleconscatterplot.\+h}}\end{DoxyCompactItemize}
+include/\mbox{\hyperlink{teleconscatterplot_8h}{teleconscatterplot.\+h}}\item 
+src/\mbox{\hyperlink{teleconscatterplot_8cpp}{teleconscatterplot.\+cpp}}\end{DoxyCompactItemize}

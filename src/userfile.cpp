@@ -15,19 +15,19 @@
 
 double generateRandomDouble(double min, double max)
 {
-	std::random_device rd;  // Will be used to obtain a seed for the random number engine
-	std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
-	std::uniform_real_distribution<> dis(min, max);
-	return dis(gen);
+    std::random_device rd;  // Will be used to obtain a seed for the random number engine
+    std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
+    std::uniform_real_distribution<> dis(min, max);
+    return dis(gen);
 }
 
 double
 CreateDataPoints()
 {
-	double randomDouble = generateRandomDouble(0.0, 20.0);
-	double p = randomDouble;
-	double dataA = 20 + cos(p * 129241) * 10 + 1 / (cos(p) * cos(p) + 0.01);
-	return dataA;
+    double randomDouble = generateRandomDouble(0.0, 20.0);
+    double p = randomDouble;
+    double dataA = 20 + cos(p * 129241) * 10 + 1 / (cos(p) * cos(p) + 0.01);
+    return dataA;
 }
 
 int main(int argc, char* argv[])
@@ -35,20 +35,28 @@ int main(int argc, char* argv[])
     const int dataRateMillis = 100;
     // Initialization code
     Telecon* telecon = new Telecon();
+
+    shared_ptr<TeleconControls> controls = telecon->addControls("MyControls");
+    shared_ptr<TeleconToggle> toggle1 = controls->addToggle("Toggle 1");
+    shared_ptr<TeleconToggle> toggle2 = controls->addToggle("Toggle 2");
+    shared_ptr<TeleconSlider> slider1 = controls->addSlider("Slider 1", 0, 100,50);
+
     shared_ptr<TeleconWindow> window = telecon->addWindow("MyWindow");
 
     shared_ptr<TeleconRealtimeChart> chart1 = window->addRealtimeChart("Chart1", 60.0, dataRateMillis, "time (s)", "lbs");
-    shared_ptr<TeleconLinePlot> plot1 = chart1->addLinePlot("Expected Tension", COLOR_BLACK, LT_SOLID, 1, SYMBOL_NO_SYMBOL, true, 5);
-    shared_ptr<TeleconLinePlot> plot2 = chart1->addLinePlot("Force", COLOR_GREEN, LT_SOLID, 5, SYMBOL_NO_SYMBOL, true, 5);
+    shared_ptr<TeleconLinePlot> plot1 = chart1->addLinePlot("Expected Tension", LineStyle(COLOR_BLACK));
+    shared_ptr<TeleconLinePlot> plot2 = chart1->addLinePlot("Force", LineStyle(COLOR_GREEN, 5, LT_SOLID));
 
+    SymbolStyle noSymbol(SYMBOL_NO_SYMBOL);
     shared_ptr<TeleconRealtimeChart> chart2 = window->addRealtimeChart("Second Chart", 60.0, dataRateMillis, "time (s)", "inches");
-    shared_ptr<TeleconLinePlot> plot3 = chart2->addLinePlot("Extension (expected)", COLOR_DEFAULT, LT_SOLID, 1, SYMBOL_CIRCLE, true, 5);
-    shared_ptr<TeleconLinePlot> plot4 = chart2->addLinePlot("Extension (actual)", COLOR_GREEN, LT_DASHED, 1, SYMBOL_NO_SYMBOL, true, 5);
+    shared_ptr<TeleconLinePlot> plot3 = chart2->addLinePlot("Extension (expected)", LineStyle(COLOR_DEFAULT), SymbolStyle(SYMBOL_CIRCLE, COLOR_DEFAULT, true, 5));
+    shared_ptr<TeleconLinePlot> plot4 = chart2->addLinePlot("Extension (actual)", LineStyle(COLOR_GREEN, 1, LT_DASHED));
     //test for legends
-    shared_ptr<TeleconLinePlot> plot5 = chart2->addLinePlot("Extension (expected) dup1", COLOR_RED, LT_SOLID, 1, SYMBOL_CIRCLE, true, 5);
-    shared_ptr<TeleconLinePlot> plot6 = chart2->addLinePlot("Extension (expected) dup2", COLOR_GREEN, LT_SOLID, 1, SYMBOL_CIRCLE, true, 5);
-    shared_ptr<TeleconLinePlot> plot7 = chart2->addLinePlot("Extension (actual) dup1", COLOR_BLUE, LT_DASHED, 1, SYMBOL_NO_SYMBOL, true, 5);
-    shared_ptr<TeleconLinePlot> plot8 = chart2->addLinePlot("Extension (actual) dup2", COLOR_DEFAULT, LT_DASHED, 1, SYMBOL_NO_SYMBOL, true, 5);
+    SymbolStyle circleStyle;
+    shared_ptr<TeleconLinePlot> plot5 = chart2->addLinePlot("Extension (expected) dup1", LineStyle(COLOR_RED), circleStyle);
+    shared_ptr<TeleconLinePlot> plot6 = chart2->addLinePlot("Extension (expected) dup2", LineStyle(COLOR_GREEN), circleStyle);
+    shared_ptr<TeleconLinePlot> plot7 = chart2->addLinePlot("Extension (actual) dup1", LineStyle(COLOR_BLUE, 1, LT_DASHED));
+    shared_ptr<TeleconLinePlot> plot8 = chart2->addLinePlot("Extension (actual) dup2", LineStyle(COLOR_DEFAULT, 1, LT_DASHED));
 
     shared_ptr<TeleconWindow> window2 = telecon->addWindow("Second Window");
 
@@ -57,29 +65,47 @@ int main(int argc, char* argv[])
     shared_ptr<TeleconLinePlot> plot10 = chart3->addLinePlot("Plot 2");
     shared_ptr<TeleconLinePlot> plot11 = chart3->addLinePlot("Plot 3");
     shared_ptr<TeleconLinePlot> plot12 = chart3->addLinePlot("Plot 4");
-    /*realTimeChart3->addLinePlot("Plot 5");
-    realTimeChart3->addLinePlot("Plot 6");
-    realTimeChart3->addLinePlot("Plot 7");
-    realTimeChart3->addLinePlot("Plot 8");
-    realTimeChart3->addLinePlot("Plot 9");
-    realTimeChart3->addLinePlot("Plot 10");
-    realTimeChart3->addLinePlot("Plot 11");*/
 
     shared_ptr<TeleconRealtimeChart> chart4 = window2->addRealtimeChart("Scatter Chart", 6.0, dataRateMillis, "time (s)", "mph", CSM_DIVERGING);
-    shared_ptr<TeleconScatterPlot> plot13 = chart4->addScatterPlot("Speed", COLOR_DEFAULT, SYMBOL_CROSS, false);
-    shared_ptr<TeleconScatterPlot> plot14 = chart4->addScatterPlot("New one", COLOR_DEFAULT, SYMBOL_CIRCLE, false);
-    shared_ptr<TeleconScatterPlot> plot15 = chart4->addScatterPlot("Velocity", COLOR_BLUE, SYMBOL_DIAMOND, true, 3);
+    shared_ptr<TeleconScatterPlot> plot13 = chart4->addScatterPlot("Speed", SymbolStyle(SYMBOL_CROSS, COLOR_DEFAULT, false));
+    shared_ptr<TeleconScatterPlot> plot14 = chart4->addScatterPlot("New one", SymbolStyle(SYMBOL_CIRCLE, COLOR_DEFAULT, false));
+    shared_ptr<TeleconScatterPlot> plot15 = chart4->addScatterPlot("Velocity", SymbolStyle(SYMBOL_DIAMOND, COLOR_BLUE, true, 3));
+
+    shared_ptr<TeleconWindow> window3 = telecon->addWindow("Third Window");
+
+    shared_ptr<TeleconRealtimeChart> chart5 = window3->addRealtimeChart("Raster Chart", 60.0, dataRateMillis, "time (s)", "Neuron", CSM_BLACK);
+    
+    vector<shared_ptr<TeleconRasterPlot>> rasterPlots;
+    for (int i = 0; i < 100; ++i) {
+        rasterPlots.push_back(chart5->addRasterPlot("", i, SymbolStyle(SYMBOL_SQUARE, COLOR_RED, false, 3)));
+    }
+    for (int i = 100; i < 1000; ++i) {
+        rasterPlots.push_back(chart5->addRasterPlot("", i));
+    }
+
+    shared_ptr<TeleconDataChart> chart6 = window3->addDataChart("Temporal Phase Portrait", 6.0, dataRateMillis, "amount spent ($)", "grade (%)", CSM_DIVERGING);
+    vector<shared_ptr<TeleconPhasePortraitPlot>> phasePortraits;
+    phasePortraits.push_back(chart6->addPhasePortraitPlot("Student A"));
+    phasePortraits.push_back(chart6->addPhasePortraitPlot("Student B"));
+    phasePortraits.push_back(chart6->addPhasePortraitPlot("Student C"));
+    phasePortraits.push_back(chart6->addPhasePortraitPlot("Student D"));
 
     telecon->teleconStart();
     telecon->teleconStart();
+
+    // while(true){
+    //     this_thread::sleep_for(chrono::milliseconds(200));
+    //     // cout << "Toggle 1 state: " << toggle1->state << "    Toggle 2 state: " << toggle2->state << endl;
+    //     cout << "Slider 1 state: " << slider1->current_state << endl;
+    // }
 
     telecon->addWindow("Third window");
     window2->addRealtimeChart();
     chart4->addLinePlot("line");
     chart4->addScatterPlot("scatter");
 
-    vector<shared_ptr<TeleconLineScatterPlot>> absoluteTimePlots({ plot1, plot2, plot3, plot4, plot5, plot6, plot7, plot8 });
-    vector<shared_ptr<TeleconLineScatterPlot>> relativeTimePlots({ plot9, plot10, plot11, plot12, plot13, plot14, plot15 });
+    vector<shared_ptr<TeleconLinePlot>> absoluteTimePlots({ plot1, plot2, plot3, plot4, plot5, plot6, plot7, plot8, plot9, plot10, plot11, plot12});
+    vector<shared_ptr<TeleconScatterPlot>> relativeTimePlots({ plot13, plot14, plot15 });
 
     // Controller code starts here
     wxDateTime start = wxDateTime::UNow();
@@ -97,6 +123,13 @@ int main(int argc, char* argv[])
         }
         for (auto relativeTimePlot : relativeTimePlots) {
             relativeTimePlot->pushData(nowTimestampRelative, CreateDataPoints());
+        }
+        for (auto rasterPlot : rasterPlots) {
+            // Using a sine wave with some added noise to give the raster plots a recognizable pattern and not just look like random dots
+            rasterPlot->pushData(nowTimestampAbsolute, (40.0 * sin(nowTimestampAbsolute) + CreateDataPoints()) > 100.0);
+        }
+        for (auto phasePortrait : phasePortraits) {
+            phasePortrait->pushData(nowTimestampRelative, CreateDataPoints(), CreateDataPoints());
         }
         if (telecon->hasStopped()) {
             break;

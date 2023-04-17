@@ -107,14 +107,31 @@ $(document).ready(function(){initNavTree('teleconwxapp_8cpp_source.html',''); in
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        frame-&gt;Show(<span class="keyword">true</span>);</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    }</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>}</div>
-<div class="ttc" id="aclass_telecon_html"><div class="ttname"><a href="class_telecon.html">Telecon</a></div><div class="ttdef"><b>Definition:</b> <a href="telecon_8h_source.html#l00022">telecon.h:23</a></div></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="comment">// shared_ptr&lt;TeleconControls&gt; controls = make_shared&lt;TeleconControls&gt;(&quot;Controls Window&quot;);</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="comment">// controls-&gt;addToggle(&quot;Button1&quot;);</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="comment">// controls-&gt;addToggle(&quot;Button2&quot;);</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; m_telecon-&gt;<a class="code hl_function" href="class_telecon.html#afcd66c21817fc7d669e359c8eae52dc8">getNumControls</a>(); i++){</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        shared_ptr&lt;TeleconControls&gt; controls = m_telecon-&gt;<a class="code hl_function" href="class_telecon.html#a88ade5d08712d0bf47fac09cbe581cb0">getControls</a>(i);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <a class="code hl_class" href="class_telecon_wx_controls_window.html">TeleconWxControlsWindow</a>* window = <span class="keyword">new</span> <a class="code hl_class" href="class_telecon_wx_controls_window.html">TeleconWxControlsWindow</a>(controls);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        m_controls_windows.push_back(window);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        window-&gt;Show(TRUE);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    }</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="comment">// TeleconWxControlsWindow* window = new TeleconWxControlsWindow(controls);</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="comment">// window-&gt;Show(TRUE);</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>}</div>
+<div class="ttc" id="aclass_telecon_html"><div class="ttname"><a href="class_telecon.html">Telecon</a></div><div class="ttdef"><b>Definition:</b> <a href="telecon_8h_source.html#l00034">telecon.h:35</a></div></div>
 <div class="ttc" id="aclass_telecon_html_a4e268e27cfd1420b9d6e5cb8f6f94d2e"><div class="ttname"><a href="class_telecon.html#a4e268e27cfd1420b9d6e5cb8f6f94d2e">Telecon::getWindow</a></div><div class="ttdeci">shared_ptr&lt; TeleconWindow &gt; getWindow(int index)</div><div class="ttdef"><b>Definition:</b> <a href="telecon_8cpp_source.html#l00078">telecon.cpp:78</a></div></div>
+<div class="ttc" id="aclass_telecon_html_a88ade5d08712d0bf47fac09cbe581cb0"><div class="ttname"><a href="class_telecon.html#a88ade5d08712d0bf47fac09cbe581cb0">Telecon::getControls</a></div><div class="ttdeci">shared_ptr&lt; TeleconControls &gt; getControls(int index)</div><div class="ttdef"><b>Definition:</b> <a href="telecon_8cpp_source.html#l00120">telecon.cpp:120</a></div></div>
 <div class="ttc" id="aclass_telecon_html_aee854954e0004822dece3130a61e332e"><div class="ttname"><a href="class_telecon.html#aee854954e0004822dece3130a61e332e">Telecon::getNumWindows</a></div><div class="ttdeci">size_t getNumWindows() const</div><div class="ttdef"><b>Definition:</b> <a href="telecon_8cpp_source.html#l00083">telecon.cpp:83</a></div></div>
+<div class="ttc" id="aclass_telecon_html_afcd66c21817fc7d669e359c8eae52dc8"><div class="ttname"><a href="class_telecon.html#afcd66c21817fc7d669e359c8eae52dc8">Telecon::getNumControls</a></div><div class="ttdeci">size_t getNumControls()</div><div class="ttdef"><b>Definition:</b> <a href="telecon_8cpp_source.html#l00124">telecon.cpp:124</a></div></div>
 <div class="ttc" id="aclass_telecon_wx_app_html_a398c3c7d17f011c4488f2600da3aa9e2"><div class="ttname"><a href="class_telecon_wx_app.html#a398c3c7d17f011c4488f2600da3aa9e2">TeleconWxApp::OnInit</a></div><div class="ttdeci">bool OnInit() override</div><div class="ttdef"><b>Definition:</b> <a href="teleconwxapp_8cpp_source.html#l00006">teleconwxapp.cpp:6</a></div></div>
 <div class="ttc" id="aclass_telecon_wx_app_html_a7398eddf6f581929a09038edf492cfd7"><div class="ttname"><a href="class_telecon_wx_app.html#a7398eddf6f581929a09038edf492cfd7">TeleconWxApp::TeleconWxApp</a></div><div class="ttdeci">TeleconWxApp(Telecon *telecon)</div><div class="ttdef"><b>Definition:</b> <a href="teleconwxapp_8cpp_source.html#l00003">teleconwxapp.cpp:3</a></div></div>
-<div class="ttc" id="aclass_telecon_wx_window_html"><div class="ttname"><a href="class_telecon_wx_window.html">TeleconWxWindow</a></div><div class="ttdef"><b>Definition:</b> <a href="teleconwxwindow_8h_source.html#l00016">teleconwxwindow.h:17</a></div></div>
+<div class="ttc" id="aclass_telecon_wx_controls_window_html"><div class="ttname"><a href="class_telecon_wx_controls_window.html">TeleconWxControlsWindow</a></div><div class="ttdef"><b>Definition:</b> <a href="teleconwxcontrolswindow_8h_source.html#l00013">teleconwxcontrolswindow.h:14</a></div></div>
+<div class="ttc" id="aclass_telecon_wx_window_html"><div class="ttname"><a href="class_telecon_wx_window.html">TeleconWxWindow</a></div><div class="ttdef"><b>Definition:</b> <a href="teleconwxwindow_8h_source.html#l00021">teleconwxwindow.h:22</a></div></div>
 <div class="ttc" id="ateleconwxapp_8h_html"><div class="ttname"><a href="teleconwxapp_8h.html">teleconwxapp.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

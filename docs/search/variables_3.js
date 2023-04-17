@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['textbutton_0',['TextButton',['../class_main_frame.html#a1b3b0a2a285221ea153c07be0d99e289',1,'MainFrame']]]
+  ['isactive_0',['isActive',['../struct_raster_data_point.html#a9f1485384a21558c9e62a13b087066cc',1,'RasterDataPoint']]]
 ];

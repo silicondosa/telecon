@@ -4,8 +4,6 @@
 {\ttfamily \#include $<$vector$>$}\newline
 {\ttfamily \#include \char`\"{}colors.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}teleconwxplot.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}teleconwxlineplot.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}teleconwxscatterplot.\+h\char`\"{}}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -14,35 +12,30 @@ class \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-enum \mbox{\hyperlink{teleconchart_8h_af187b130538d6f7efc8cbe12cfa5ff4a}{CHART\+\_\+\+X\+\_\+\+AXIS\+\_\+\+TYPE}} \{ \mbox{\hyperlink{teleconchart_8h_af187b130538d6f7efc8cbe12cfa5ff4aac0533b61af42845647a9973f5e3c8433}{CAXT\+\_\+\+TIME}}
-, \mbox{\hyperlink{teleconchart_8h_af187b130538d6f7efc8cbe12cfa5ff4aa4976ee0cb791a1516eb90a7f0c438326}{CAXT\+\_\+\+ARBITARY}}
-, \mbox{\hyperlink{teleconchart_8h_af187b130538d6f7efc8cbe12cfa5ff4aa9c7ae562e411f4a3603c8636f1d430fd}{CAXT\+\_\+\+BOTH}}
+enum \mbox{\hyperlink{teleconchart_8h_a54534a1398c95ca6d61f6ac68e610b7e}{Chart\+XAxis\+Type}} \{ \mbox{\hyperlink{teleconchart_8h_a54534a1398c95ca6d61f6ac68e610b7eac0533b61af42845647a9973f5e3c8433}{CAXT\+\_\+\+TIME}}
+, \mbox{\hyperlink{teleconchart_8h_a54534a1398c95ca6d61f6ac68e610b7ea9e15a0f8d03fd9ea0e80dbffd35c2c94}{CAXT\+\_\+\+ARBITRARY}}
  \}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Enumeration Type Documentation}
-\mbox{\Hypertarget{teleconchart_8h_af187b130538d6f7efc8cbe12cfa5ff4a}\label{teleconchart_8h_af187b130538d6f7efc8cbe12cfa5ff4a}} 
-\index{teleconchart.h@{teleconchart.h}!CHART\_X\_AXIS\_TYPE@{CHART\_X\_AXIS\_TYPE}}
-\index{CHART\_X\_AXIS\_TYPE@{CHART\_X\_AXIS\_TYPE}!teleconchart.h@{teleconchart.h}}
-\doxysubsubsection{\texorpdfstring{CHART\_X\_AXIS\_TYPE}{CHART\_X\_AXIS\_TYPE}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{teleconchart_8h_af187b130538d6f7efc8cbe12cfa5ff4a}{CHART\+\_\+\+X\+\_\+\+AXIS\+\_\+\+TYPE}}}
+\mbox{\Hypertarget{teleconchart_8h_a54534a1398c95ca6d61f6ac68e610b7e}\label{teleconchart_8h_a54534a1398c95ca6d61f6ac68e610b7e}} 
+\index{teleconchart.h@{teleconchart.h}!ChartXAxisType@{ChartXAxisType}}
+\index{ChartXAxisType@{ChartXAxisType}!teleconchart.h@{teleconchart.h}}
+\doxysubsubsection{\texorpdfstring{ChartXAxisType}{ChartXAxisType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{teleconchart_8h_a54534a1398c95ca6d61f6ac68e610b7e}{Chart\+XAxis\+Type}}}
 
-\begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{CAXT\_TIME@{CAXT\_TIME}!teleconchart.h@{teleconchart.h}}\index{teleconchart.h@{teleconchart.h}!CAXT\_TIME@{CAXT\_TIME}}}\mbox{\Hypertarget{teleconchart_8h_af187b130538d6f7efc8cbe12cfa5ff4aac0533b61af42845647a9973f5e3c8433}\label{teleconchart_8h_af187b130538d6f7efc8cbe12cfa5ff4aac0533b61af42845647a9973f5e3c8433}} 
-CAXT\+\_\+\+TIME&\\
+The type of the chart\+: whether it has time data on the x-\/axis,or arbitrary non-\/time data. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAXT\_TIME@{CAXT\_TIME}!teleconchart.h@{teleconchart.h}}\index{teleconchart.h@{teleconchart.h}!CAXT\_TIME@{CAXT\_TIME}}}\mbox{\Hypertarget{teleconchart_8h_a54534a1398c95ca6d61f6ac68e610b7eac0533b61af42845647a9973f5e3c8433}\label{teleconchart_8h_a54534a1398c95ca6d61f6ac68e610b7eac0533b61af42845647a9973f5e3c8433}} 
+CAXT\+\_\+\+TIME&x-\/axis represents a timespan. \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{CAXT\_ARBITARY@{CAXT\_ARBITARY}!teleconchart.h@{teleconchart.h}}\index{teleconchart.h@{teleconchart.h}!CAXT\_ARBITARY@{CAXT\_ARBITARY}}}\mbox{\Hypertarget{teleconchart_8h_af187b130538d6f7efc8cbe12cfa5ff4aa4976ee0cb791a1516eb90a7f0c438326}\label{teleconchart_8h_af187b130538d6f7efc8cbe12cfa5ff4aa4976ee0cb791a1516eb90a7f0c438326}} 
-CAXT\+\_\+\+ARBITARY&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{CAXT\_BOTH@{CAXT\_BOTH}!teleconchart.h@{teleconchart.h}}\index{teleconchart.h@{teleconchart.h}!CAXT\_BOTH@{CAXT\_BOTH}}}\mbox{\Hypertarget{teleconchart_8h_af187b130538d6f7efc8cbe12cfa5ff4aa9c7ae562e411f4a3603c8636f1d430fd}\label{teleconchart_8h_af187b130538d6f7efc8cbe12cfa5ff4aa9c7ae562e411f4a3603c8636f1d430fd}} 
-CAXT\+\_\+\+BOTH&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAXT\_ARBITRARY@{CAXT\_ARBITRARY}!teleconchart.h@{teleconchart.h}}\index{teleconchart.h@{teleconchart.h}!CAXT\_ARBITRARY@{CAXT\_ARBITRARY}}}\mbox{\Hypertarget{teleconchart_8h_a54534a1398c95ca6d61f6ac68e610b7ea9e15a0f8d03fd9ea0e80dbffd35c2c94}\label{teleconchart_8h_a54534a1398c95ca6d61f6ac68e610b7ea9e15a0f8d03fd9ea0e80dbffd35c2c94}} 
+CAXT\+\_\+\+ARBITRARY&x-\/axis represents some arbitrary non-\/time data \\
 \hline
 
 \end{DoxyEnumFields}
 
 
-Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00013}{13}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
+Definition at line \mbox{\hyperlink{teleconchart_8h_source_l00014}{14}} of file \mbox{\hyperlink{teleconchart_8h_source}{teleconchart.\+h}}.
 

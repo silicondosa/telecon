@@ -125,10 +125,19 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab83bf47e29f4a14c97a78b0e2d8d3013"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae479f7f3668aa391e1211b42b8ad85d3"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_telecon_plot.html">TeleconPlot</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon.html#ae479f7f3668aa391e1211b42b8ad85d3">getPlotByName</a> (string windowName, string chartName, string plotName)</td></tr>
 <tr class="separator:ae479f7f3668aa391e1211b42b8ad85d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa566973f4e9fa1f508eba8b861538036"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_telecon_controls.html">TeleconControls</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon.html#aa566973f4e9fa1f508eba8b861538036">addControls</a> (string name)</td></tr>
+<tr class="separator:aa566973f4e9fa1f508eba8b861538036"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88ade5d08712d0bf47fac09cbe581cb0"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_telecon_controls.html">TeleconControls</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon.html#a88ade5d08712d0bf47fac09cbe581cb0">getControls</a> (int index)</td></tr>
+<tr class="separator:a88ade5d08712d0bf47fac09cbe581cb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcd66c21817fc7d669e359c8eae52dc8"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon.html#afcd66c21817fc7d669e359c8eae52dc8">getNumControls</a> ()</td></tr>
+<tr class="separator:afcd66c21817fc7d669e359c8eae52dc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="telecon_8h_source.html#l00022">22</a> of file <a class="el" href="telecon_8h_source.html">telecon.h</a>.</p>
+<div class="textblock"><p>This is the primary user-level entry point for all <a class="el" href="class_telecon.html">Telecon</a> behavior. This class creates and manages windows, which in turn create and manage lower-level items such as charts and plots.</p>
+<p>There should only ever be one <a class="el" href="class_telecon.html">Telecon</a> object active (started) at a time. After a <a class="el" href="class_telecon.html">Telecon</a> object is stopped or deleted, it is safe to start another if necessary. However, each object can only be run once. After the object is stopped, it may not be started again.</p>
+<p><a class="el" href="class_telecon.html">Telecon</a> is inherently thread-safe with regard to the controller (calling) thread and the UI thread (which is created and managed by <a class="el" href="class_telecon.html">Telecon</a>). However, if a <a class="el" href="class_telecon.html">Telecon</a> object is used by multiple controller threads, external synchronization must be used to prevent concurrent access to member functions. </p>
+
+<p class="definition">Definition at line <a class="el" href="telecon_8h_source.html#l00034">34</a> of file <a class="el" href="telecon_8h_source.html">telecon.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1a13d754d2f95d6be675d5165e4c025e" name="a1a13d754d2f95d6be675d5165e4c025e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1a13d754d2f95d6be675d5165e4c025e">&#9670;&#160;</a></span>Telecon()</h2>
@@ -164,12 +173,41 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Closes and windows that are still open and exits, then deletes the <a class="el" href="class_telecon.html">Telecon</a> object. This may be a long-running operation if there are still windows open. </p>
 
 <p class="definition">Definition at line <a class="el" href="telecon_8cpp_source.html#l00008">8</a> of file <a class="el" href="telecon_8cpp_source.html">telecon.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa566973f4e9fa1f508eba8b861538036" name="aa566973f4e9fa1f508eba8b861538036"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa566973f4e9fa1f508eba8b861538036">&#9670;&#160;</a></span>addControls()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">shared_ptr&lt; <a class="el" href="class_telecon_controls.html">TeleconControls</a> &gt; Telecon::addControls </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Adds a controls window to the application that will be displayed when teleconStart is called. Should not be called after teleconStart.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>the name that will be displayed on the window. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the <a class="el" href="class_telecon_controls.html">TeleconControls</a> object created. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="telecon_8cpp_source.html#l00114">114</a> of file <a class="el" href="telecon_8cpp_source.html">telecon.cpp</a>.</p>
+
+</div>
+</div>
 <a id="aec146a459b32c194874b8c1a60a139ca" name="aec146a459b32c194874b8c1a60a139ca"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aec146a459b32c194874b8c1a60a139ca">&#9670;&#160;</a></span>addWindow()</h2>
 
@@ -233,6 +271,53 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to a chart with the given name, or a null pointer if no chart in the given window has that name. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="telecon_8cpp_source.html#l00098">98</a> of file <a class="el" href="telecon_8cpp_source.html">telecon.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a88ade5d08712d0bf47fac09cbe581cb0" name="a88ade5d08712d0bf47fac09cbe581cb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88ade5d08712d0bf47fac09cbe581cb0">&#9670;&#160;</a></span>getControls()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">shared_ptr&lt; <a class="el" href="class_telecon_controls.html">TeleconControls</a> &gt; Telecon::getControls </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>the index of the <a class="el" href="class_telecon_controls.html">TeleconControls</a> to return, relative to the order added. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the <a class="el" href="class_telecon_controls.html">TeleconControls</a> requested. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="telecon_8cpp_source.html#l00120">120</a> of file <a class="el" href="telecon_8cpp_source.html">telecon.cpp</a>.</p>
+
+</div>
+</div>
+<a id="afcd66c21817fc7d669e359c8eae52dc8" name="afcd66c21817fc7d669e359c8eae52dc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcd66c21817fc7d669e359c8eae52dc8">&#9670;&#160;</a></span>getNumControls()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Telecon::getNumControls </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The number of <a class="el" href="class_telecon_controls.html">TeleconControls</a> added to the application. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="telecon_8cpp_source.html#l00124">124</a> of file <a class="el" href="telecon_8cpp_source.html">telecon.cpp</a>.</p>
 
 </div>
 </div>
@@ -369,7 +454,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>Returns true if the <a class="el" href="class_telecon.html">Telecon</a> object has already started (or finished) initializing displayed windows, or false otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if the <a class="el" href="class_telecon.html">Telecon</a> object has already started (or finished) initializing displayed windows, or false before then. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="telecon_8cpp_source.html#l00057">57</a> of file <a class="el" href="telecon_8cpp_source.html">telecon.cpp</a>.</p>
 
@@ -430,7 +515,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Closes any windows that are still open and exits running. When this function returns, the <a class="el" href="class_telecon.html">Telecon</a> object can be safely deleted. </p>
+<p>Closes any windows that are still open and exits. </p>
 
 <p class="definition">Definition at line <a class="el" href="telecon_8cpp_source.html#l00044">44</a> of file <a class="el" href="telecon_8cpp_source.html">telecon.cpp</a>.</p>
 

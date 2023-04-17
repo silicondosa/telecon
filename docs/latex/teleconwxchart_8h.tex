@@ -4,6 +4,7 @@
 {\ttfamily \#include $<$wx/wx.\+h$>$}\newline
 {\ttfamily \#include $<$wx/tglbtn.\+h$>$}\newline
 {\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
 {\ttfamily \#include \char`\"{}chartdir.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}wxchartviewer.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}teleconchart.\+h\char`\"{}}\newline
@@ -18,14 +19,7 @@ class \mbox{\hyperlink{class_telecon_wx_chart}{Telecon\+Wx\+Chart}}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-enum \{ \newline
-\mbox{\hyperlink{teleconwxchart_8h_a06fc87d81c62e9abb8790b6e5713c55ba12f80c74dc4c5d9996717490ba4a8f52}{ID\+\_\+\+CHARTVIEWER}} = wx\+ID\+\_\+\+HIGHEST + 1
-, \mbox{\hyperlink{teleconwxchart_8h_a06fc87d81c62e9abb8790b6e5713c55ba8295136a6da52b0c280421c8fe22715a}{ID\+\_\+\+PLAY}}
-, \mbox{\hyperlink{teleconwxchart_8h_a06fc87d81c62e9abb8790b6e5713c55ba98bc0750b2c1238b4507f9b09ece67a6}{ID\+\_\+\+PAUSE}}
-, \mbox{\hyperlink{teleconwxchart_8h_a06fc87d81c62e9abb8790b6e5713c55ba44e2beffa71c1fa3e23088bc30660691}{ID\+\_\+\+REFRESH\+\_\+\+INTERVAL}}
-, \newline
-\mbox{\hyperlink{teleconwxchart_8h_a06fc87d81c62e9abb8790b6e5713c55ba2d498a17f67886612376fb3d0c777cdb}{ID\+\_\+\+DATA\+\_\+\+TIMER}}
-, \mbox{\hyperlink{teleconwxchart_8h_a06fc87d81c62e9abb8790b6e5713c55baf4191bbccaa7963ee84f00359bf0f506}{ID\+\_\+\+REFRESH\+\_\+\+TIMER}}
+enum \{ \mbox{\hyperlink{teleconwxchart_8h_a06fc87d81c62e9abb8790b6e5713c55ba12f80c74dc4c5d9996717490ba4a8f52}{ID\+\_\+\+CHARTVIEWER}} = wx\+ID\+\_\+\+HIGHEST + 1
  \}
 \end{DoxyCompactItemize}
 
@@ -40,28 +34,8 @@ enum \{ \newline
 ID\+\_\+\+CHARTVIEWER&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{ID\_PLAY@{ID\_PLAY}!teleconwxchart.h@{teleconwxchart.h}}\index{teleconwxchart.h@{teleconwxchart.h}!ID\_PLAY@{ID\_PLAY}}}\mbox{\Hypertarget{teleconwxchart_8h_a06fc87d81c62e9abb8790b6e5713c55ba8295136a6da52b0c280421c8fe22715a}\label{teleconwxchart_8h_a06fc87d81c62e9abb8790b6e5713c55ba8295136a6da52b0c280421c8fe22715a}} 
-ID\+\_\+\+PLAY&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{ID\_PAUSE@{ID\_PAUSE}!teleconwxchart.h@{teleconwxchart.h}}\index{teleconwxchart.h@{teleconwxchart.h}!ID\_PAUSE@{ID\_PAUSE}}}\mbox{\Hypertarget{teleconwxchart_8h_a06fc87d81c62e9abb8790b6e5713c55ba98bc0750b2c1238b4507f9b09ece67a6}\label{teleconwxchart_8h_a06fc87d81c62e9abb8790b6e5713c55ba98bc0750b2c1238b4507f9b09ece67a6}} 
-ID\+\_\+\+PAUSE&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{ID\_REFRESH\_INTERVAL@{ID\_REFRESH\_INTERVAL}!teleconwxchart.h@{teleconwxchart.h}}\index{teleconwxchart.h@{teleconwxchart.h}!ID\_REFRESH\_INTERVAL@{ID\_REFRESH\_INTERVAL}}}\mbox{\Hypertarget{teleconwxchart_8h_a06fc87d81c62e9abb8790b6e5713c55ba44e2beffa71c1fa3e23088bc30660691}\label{teleconwxchart_8h_a06fc87d81c62e9abb8790b6e5713c55ba44e2beffa71c1fa3e23088bc30660691}} 
-ID\+\_\+\+REFRESH\+\_\+\+INTERVAL&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{ID\_DATA\_TIMER@{ID\_DATA\_TIMER}!teleconwxchart.h@{teleconwxchart.h}}\index{teleconwxchart.h@{teleconwxchart.h}!ID\_DATA\_TIMER@{ID\_DATA\_TIMER}}}\mbox{\Hypertarget{teleconwxchart_8h_a06fc87d81c62e9abb8790b6e5713c55ba2d498a17f67886612376fb3d0c777cdb}\label{teleconwxchart_8h_a06fc87d81c62e9abb8790b6e5713c55ba2d498a17f67886612376fb3d0c777cdb}} 
-ID\+\_\+\+DATA\+\_\+\+TIMER&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{ID\_REFRESH\_TIMER@{ID\_REFRESH\_TIMER}!teleconwxchart.h@{teleconwxchart.h}}\index{teleconwxchart.h@{teleconwxchart.h}!ID\_REFRESH\_TIMER@{ID\_REFRESH\_TIMER}}}\mbox{\Hypertarget{teleconwxchart_8h_a06fc87d81c62e9abb8790b6e5713c55baf4191bbccaa7963ee84f00359bf0f506}\label{teleconwxchart_8h_a06fc87d81c62e9abb8790b6e5713c55baf4191bbccaa7963ee84f00359bf0f506}} 
-ID\+\_\+\+REFRESH\+\_\+\+TIMER&\\
-\hline
-
 \end{DoxyEnumFields}
 
 
-Definition at line \mbox{\hyperlink{teleconwxchart_8h_source_l00097}{97}} of file \mbox{\hyperlink{teleconwxchart_8h_source}{teleconwxchart.\+h}}.
+Definition at line \mbox{\hyperlink{teleconwxchart_8h_source_l00124}{124}} of file \mbox{\hyperlink{teleconwxchart_8h_source}{teleconwxchart.\+h}}.
 

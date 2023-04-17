@@ -19,11 +19,6 @@ using namespace std;
 
 static const int chartRefreshIntervals[8] = {250, 500, 750, 1000, 1250, 1500, 1750, 2000};
 
-TeleconWxChart::~TeleconWxChart()
-{
-    m_chartRefreshTimer->Stop();
-}
-
 TeleconWxChart::TeleconWxChart(
     shared_ptr<TeleconChart> chart,
     wxWindow* parent,
@@ -48,10 +43,25 @@ TeleconWxChart::TeleconWxChart(
     m_viewOptionsBoxSizer = new wxStaticBoxSizer(m_viewOptionsBox, wxVERTICAL);
     m_topSizer->Add(m_viewOptionsBoxSizer, 0, wxGROW | wxALL, FromDIP(3));
 
-    SetUpViewOptionsBox();
+    bool hasLegendPlot = false;
+    for (int i = 0; i < m_chart->getNumPlots(); i++) {
+        auto plot = dynamic_pointer_cast<TeleconWxPlot>(m_chart->getPlot(i));
+        if (plot->isIncludedInLegend()) {
+            hasLegendPlot = true;
+            break;
+        }
+    }
+    if (hasLegendPlot) {
+        SetUpLatestValueBox();
+    }
 }
 
-void TeleconWxChart::SetUpViewOptionsBox()
+TeleconWxChart::~TeleconWxChart()
+{
+    delete m_chartViewer->getChart();
+}
+
+void TeleconWxChart::SetUpLatestValueBox()
 {
     wxStaticText* latestValueGroupLabel = new wxStaticText(this, wxID_STATIC, wxString("Latest Values"), wxDefaultPosition, wxDefaultSize, 0);
     m_viewOptionsBoxSizer->Add(latestValueGroupLabel, 0, wxALIGN_CENTER | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
@@ -59,7 +69,10 @@ void TeleconWxChart::SetUpViewOptionsBox()
     m_viewOptionsBoxSizer->Add(m_plotLatestValueFlexGridSizer, 0, wxGROW | wxALL, FromDIP(3));
 
     for (int i = 0; i < m_chart->getNumPlots(); i++) {
-        addLatestValueText(m_chart->getPlot(i)->getPlotTitle());
+        auto plot = dynamic_pointer_cast<TeleconWxPlot>(m_chart->getPlot(i));
+        if (plot->isIncludedInLegend()) {
+            addLatestValueText(i, m_chart->getPlot(i)->getPlotTitle());
+        }
     }
 }
 
@@ -67,15 +80,10 @@ void TeleconWxChart::SetUpChartBox()
 {
     m_chartViewer = new wxChartViewer(this, ID_CHARTVIEWER, wxDefaultPosition, FromDIP(wxSize(600, 270)), wxTAB_TRAVERSAL | wxNO_BORDER);
     m_chartBoxSizer->Add(m_chartViewer, 1, wxGROW | wxALL, FromDIP(3));
-
-    // Set up the chart refresh timer
-    m_chartRefreshTimer = new wxTimer(this, ID_REFRESH_TIMER);
-    m_chartRefreshTimer->Start(chartRefreshIntervals[0]);
 }
 
 BEGIN_EVENT_TABLE(TeleconWxChart, wxPanel)
 
-EVT_TIMER(ID_REFRESH_TIMER, TeleconWxChart::OnChartRefreshTimer)
 EVT_CHARTVIEWER_VIEWPORT_CHANGED(ID_CHARTVIEWER, TeleconWxChart::OnViewPortChanged)
 EVT_CHARTVIEWER_MOUSEMOVE_PLOTAREA(ID_CHARTVIEWER, TeleconWxChart::OnMouseMovePlotArea)
 
@@ -89,12 +97,6 @@ void TeleconWxChart::setPlay() {
 //setter function for window button
 void TeleconWxChart::setPause() {
     m_isRefreshEnabled = false;
-}
-
-//setter function for window button
-//interval var passed in as selected interval rate
-void TeleconWxChart::setRefresh(long interval) {
-    m_chartRefreshTimer->Start(interval);
 }
 
 //setter function for window button
@@ -117,11 +119,10 @@ void TeleconWxChart::doSave(int i, string windowName) {
             c->makeChart(fileName.ToUTF8());
         }
     }
-
 }
 
 // Event handler
-void TeleconWxChart::OnChartRefreshTimer(wxTimerEvent &event)
+void TeleconWxChart::OnChartRefreshTimer()
 {
     // Will result in a call to OnViewPortChanged, which may redraw the chart if needed
     m_chartViewer->updateViewPort(true, false);
@@ -146,7 +147,9 @@ void TeleconWxChart::DrawChart(bool isRefreshEnabled)
         // Move data from the controller thread to the UI thread
         plot->prepDataForDraw();
         if (plot->size() > 0) {
-            m_latestValueTextCtrls[i]->SetValue(plot->getLatestValueString());
+            if (m_latestValueTextCtrls.count(i) > 0) {
+                m_latestValueTextCtrls[i]->SetValue(plot->getLatestValueString());
+            }
         }
     }
     if (!isRefreshEnabled) {
@@ -196,7 +199,6 @@ void TeleconWxChart::DrawChart(bool isRefreshEnabled)
         double lastTime = 0.0;
         bool hasData = false;
         for (int i = 0; i < m_chart->getNumPlots(); i++) {
-            // This should ideally be done in a more type-safe fashion
             shared_ptr<TeleconWxPlot> plot = std::dynamic_pointer_cast<TeleconWxPlot>(m_chart->getPlot(i));
             // Update the earliest and latest data points found so far
             if (plot->size() > 0 && !hasData) {
@@ -220,24 +222,20 @@ void TeleconWxChart::DrawChart(bool isRefreshEnabled)
 
         // Set the x-axis label format
         c->xAxis()->setLabelFormat("{value|hh:nn:ss}");
-
-        // The data series are used to draw lines.
-        for (int i = 0; i < m_chart->getNumPlots(); i++) {
-            shared_ptr<TeleconWxPlot> plot = std::dynamic_pointer_cast<TeleconWxPlot>(m_chart->getPlot(i));
-            plot->addToChart(c);
-        }
         break;
     }
-    case CAXT_ARBITARY:
-        cerr << "TODO: Arbitrary x-axis type not yet implemented.";
-        exit(EXIT_FAILURE);
-        break;
-    case CAXT_BOTH:
-        cerr << "TODO: Time and non-time combined x-axis type not yet implemented.";
-        exit(EXIT_FAILURE);
+    case CAXT_ARBITRARY:
+        // Give 5% margin on either side of the data and don't mandate that the 0 point be included in the scale
+        c->xAxis()->setAutoScale(0.05, 0.05, 0);
         break;
     }
 
+    // The data series are used to draw lines.
+    for (int i = 0; i < m_chart->getNumPlots(); i++) {
+        shared_ptr<TeleconWxPlot> plot = std::dynamic_pointer_cast<TeleconWxPlot>(m_chart->getPlot(i));
+        plot->addToChart(c);
+    }
+    
     ///Code imported from TrackLineLegend, mousex replaced with 1 as only need a general sense of plot name length
     // Container to hold the legend entries
     vector<string> legendEntries;
@@ -253,10 +251,17 @@ void TeleconWxChart::DrawChart(bool isRefreshEnabled)
             const char* dataName = dataSet->getDataName();
             if (dataName && *dataName)
             {
+                string dataNameString(dataName);
+                size_t includeTitleSlashIndex = dataNameString.find_first_of('\\');
+                string includeTitleString = dataNameString.substr(0, includeTitleSlashIndex);
+                if (includeTitleString.compare("notitle") == 0) {
+                    // Don't display title for this plot
+                    continue;
+                }
                 // Build the legend entry, consist of the legend icon, name and data value.
                 double dataValue = dataSet->getValue(1);
                 ostringstream legendEntry;
-                legendEntry << "<*block*>" << dataSet->getLegendIcon() << " " << dataName << ": " << ((dataValue == Chart::NoValue) ? "N/A" : c->formatValue(dataValue, "{value|P4}"))
+                legendEntry << "<*block*>" << dataSet->getLegendIcon() << " " << dataNameString << ": " << ((dataValue == Chart::NoValue) ? "N/A" : c->formatValue(dataValue, "{value|P4}"))
                     << "<*/*>";
                 legendEntries.push_back(legendEntry.str());
             }
@@ -334,10 +339,18 @@ void TeleconWxChart::TrackLineLegend(XYChart *c, int mouseX)
             int color = dataSet->getDataColor();
             if (dataName && *dataName)
             {
+                string dataNameString(dataName);
+                size_t includeTitleSlashIndex = dataNameString.find_first_of('\\');
+                string includeTitleString = dataNameString.substr(0, includeTitleSlashIndex);
+                if (includeTitleString.compare("notitle") == 0) {
+                    // Don't display title for this plot
+                    continue;
+                }
+                dataNameString = dataNameString.substr(includeTitleSlashIndex + 1);
                 // Build the legend entry, consist of the legend icon, name and data value.
                 double dataValue = dataSet->getValue(xIndex);
                 ostringstream legendEntry;
-                legendEntry << "<*block*>" << dataSet->getLegendIcon() << " " << dataName << ": " << ((dataValue == Chart::NoValue) ? "N/A" : c->formatValue(dataValue, "{value|P4}"))
+                legendEntry << "<*block*>" << dataSet->getLegendIcon() << " " << dataNameString << ": " << ((dataValue == Chart::NoValue) ? "N/A" : c->formatValue(dataValue, "{value|P4}"))
                             << "<*/*>";
                 legendEntries.push_back(legendEntry.str());
 
@@ -353,8 +366,16 @@ void TeleconWxChart::TrackLineLegend(XYChart *c, int mouseX)
 
     // Create the legend by joining the legend entries
     ostringstream legendText;
-    legendText << "<*block,maxWidth=" << plotArea->getWidth() << "*><*block*><*font=Arial Bold*>["
-               << c->xAxis()->getFormattedLabel(xValue, "hh:nn:ss") << "]<*/*>";
+    legendText << "<*block,maxWidth=" << plotArea->getWidth() << "*><*block*><*font=Arial Bold*>[";
+    switch (m_chart->getChartXAxisType()) {
+    case CAXT_TIME:
+        legendText << c->xAxis()->getFormattedLabel(xValue, "hh:nn:ss");
+        break;
+    case CAXT_ARBITRARY:
+        legendText << xValue;
+        break;
+    }
+    legendText << "]<*/*>";
     for (int i = ((int)legendEntries.size()) - 1; i >= 0; --i)
     {
         legendText << "        " << legendEntries[i];
@@ -397,12 +418,12 @@ TeleconWxChart::GetBitmapResource(const wxString &name)
     return wxNullBitmap;
 }
 
-void TeleconWxChart::addLatestValueText(string plottitle) {
+void TeleconWxChart::addLatestValueText(int index, string plottitle) {
     wxStaticText* latestValueLabel = new wxStaticText(this, wxID_STATIC, wxString(plottitle), wxDefaultPosition, wxDefaultSize, 0);
     m_plotLatestValueFlexGridSizer->Add(latestValueLabel, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
 
-    wxTextCtrl* latestValueText = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, FromDIP(wxSize(60, -1)), wxTE_READONLY | wxSTATIC_BORDER);
+    wxTextCtrl* latestValueText = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, FromDIP(wxSize(100, -1)), wxTE_READONLY | wxSTATIC_BORDER);
     latestValueText->Enable(false);
     m_plotLatestValueFlexGridSizer->Add(latestValueText, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, FromDIP(3));
-    m_latestValueTextCtrls.push_back(latestValueText);
+    m_latestValueTextCtrls.insert(pair(index, latestValueText));
 }

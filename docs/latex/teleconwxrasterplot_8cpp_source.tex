@@ -1,0 +1,78 @@
+\hypertarget{teleconwxrasterplot_8cpp_source}{}\doxysection{teleconwxrasterplot.\+cpp}
+\label{teleconwxrasterplot_8cpp_source}\index{src/teleconwxrasterplot.cpp@{src/teleconwxrasterplot.cpp}}
+\mbox{\hyperlink{teleconwxrasterplot_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{teleconwxrasterplot_8h}{teleconwxrasterplot.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00003}\mbox{\hyperlink{class_telecon_wx_raster_plot_a8dfc0912d1e7b854c755c538c13d066f}{00003}}\ \mbox{\hyperlink{class_telecon_wx_raster_plot_a8dfc0912d1e7b854c755c538c13d066f}{TeleconWxRasterPlot::TeleconWxRasterPlot}}(\textcolor{keywordtype}{string}\ plotTitle,\ \textcolor{keywordtype}{double}\ yValue,\ \textcolor{keywordtype}{size\_t}\ depth,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_symbol_style}{SymbolStyle}}\&\ symbolStyle)}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00004}00004\ \ \ \ \ :\ \mbox{\hyperlink{class_telecon_wx_plot}{TeleconWxPlot}}(plotTitle,\ depth,\ symbolStyle),\ m\_dataToAdd(depth),\ m\_xTimestamps(depth),\ m\_yValue(yValue),\ m\_yValueBuffer(depth)}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00005}00005\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00006}00006\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_telecon_wx_plot_a5b22bef71c4ac65677f1a4d743d73bb2}{m\_symbolStyle}}-\/>getSymbolColor()\ ==\ \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a0b8d8b18037efc3cdb5dd0313e7c67dc}{COLOR\_DEFAULT}})\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00007}00007\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_plot_a5b22bef71c4ac65677f1a4d743d73bb2}{m\_symbolStyle}}-\/>setSymbolColor(\mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a2a9daf215a30f1c539ead18c66380fc1}{COLOR\_BLACK}});}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00008}00008\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00009}00009\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00011}\mbox{\hyperlink{class_telecon_wx_raster_plot_a20de1cbd91acb2b4e49871fdf8c0afac}{00011}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_telecon_wx_raster_plot_a20de1cbd91acb2b4e49871fdf8c0afac}{TeleconWxRasterPlot::getYValue}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00012}00012\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00013}00013\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_telecon_wx_raster_plot_ab5c3cdd7bcccd4be93f9d5b7d98094fd}{m\_yValue}};}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00014}00014\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00016}\mbox{\hyperlink{class_telecon_wx_raster_plot_a75e498c612cf889622ae6315ce615fed}{00016}}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_telecon_wx_raster_plot_a75e498c612cf889622ae6315ce615fed}{TeleconWxRasterPlot::size}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00017}00017\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_telecon_wx_raster_plot_a6d9886d414735ff8813b71c8f4f97125}{m\_xTimestamps}}.\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}();}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00019}00019\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00021}\mbox{\hyperlink{class_telecon_wx_raster_plot_a1d8b62d4c8e21417b2d06cc00c39ca3f}{00021}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_wx_raster_plot_a1d8b62d4c8e21417b2d06cc00c39ca3f}{TeleconWxRasterPlot::prepDataForDraw}}()}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00022}00022\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00023}00023\ \ \ \ \ shared\_ptr<list<RasterDataPoint>>dataToAdd\ =\ \mbox{\hyperlink{class_telecon_wx_raster_plot_abe3a3bd66dcc34e1dc9b9bf2d0407205}{m\_dataToAdd}}.\mbox{\hyperlink{class_data_to_add_list_af64704fad254310a822747bea4b55f52}{getDataAndClearList}}();}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00025}00025\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ activationValue\ :\ *dataToAdd)\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_raster_plot_a6d9886d414735ff8813b71c8f4f97125}{m\_xTimestamps}}.\mbox{\hyperlink{class_data_buffer_a4ae8a35aa51c17729e399d4a12eee94a}{insertNewValue}}(activationValue.xTimestamp);}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_raster_plot_a2ddde942ac5a2b9c1e2f56204e07c3aa}{m\_yValueBuffer}}.\mbox{\hyperlink{class_data_buffer_a4ae8a35aa51c17729e399d4a12eee94a}{insertNewValue}}(activationValue.isActive\ ?\ \mbox{\hyperlink{class_telecon_wx_raster_plot_ab5c3cdd7bcccd4be93f9d5b7d98094fd}{m\_yValue}}\ :\ Chart::NoValue);}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00028}00028\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00029}00029\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00031}\mbox{\hyperlink{class_telecon_wx_raster_plot_a351d4d2ba1de3d496d721caf96068260}{00031}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_wx_raster_plot_a351d4d2ba1de3d496d721caf96068260}{TeleconWxRasterPlot::addToChart}}(XYChart*\ chart)}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00032}00032\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_telecon_wx_raster_plot_a6d9886d414735ff8813b71c8f4f97125}{m\_xTimestamps}}.\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}()\ <=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00035}00035\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00036}00036\ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_plot_a1a5cdcd2202a28f28bb8751b1c79db15}{TeleconWxPlot::addScatterPlotToChart}}(}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ chart,}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_plot_a3601667f3fff47879712bf4f043699fa}{m\_plotTitle}},}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{false},}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ DoubleArray(\&\mbox{\hyperlink{class_telecon_wx_raster_plot_a6d9886d414735ff8813b71c8f4f97125}{m\_xTimestamps}}[0],\ (\textcolor{keywordtype}{int})\mbox{\hyperlink{class_telecon_wx_raster_plot_a6d9886d414735ff8813b71c8f4f97125}{m\_xTimestamps}}.\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}()),}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ DoubleArray(\&\mbox{\hyperlink{class_telecon_wx_raster_plot_a2ddde942ac5a2b9c1e2f56204e07c3aa}{m\_yValueBuffer}}[0],\ (\textcolor{keywordtype}{int})\mbox{\hyperlink{class_telecon_wx_raster_plot_a2ddde942ac5a2b9c1e2f56204e07c3aa}{m\_yValueBuffer}}.\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}()),}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_plot_a5b22bef71c4ac65677f1a4d743d73bb2}{m\_symbolStyle}}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00043}00043\ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00044}00044\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00046}\mbox{\hyperlink{class_telecon_wx_raster_plot_a7fd19f78ea541a1442869f4cc3433461}{00046}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_telecon_wx_raster_plot_a7fd19f78ea541a1442869f4cc3433461}{TeleconWxRasterPlot::getLeftmostX}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00047}00047\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_telecon_wx_raster_plot_a6d9886d414735ff8813b71c8f4f97125}{m\_xTimestamps}}[0];}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00049}00049\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00051}\mbox{\hyperlink{class_telecon_wx_raster_plot_accddd56c60e3615a4d877cfb2670ea39}{00051}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_telecon_wx_raster_plot_accddd56c60e3615a4d877cfb2670ea39}{TeleconWxRasterPlot::getRightmostX}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00052}00052\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_telecon_wx_raster_plot_a6d9886d414735ff8813b71c8f4f97125}{m\_xTimestamps}}[\mbox{\hyperlink{class_telecon_wx_raster_plot_a6d9886d414735ff8813b71c8f4f97125}{m\_xTimestamps}}.\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}()\ -\/\ 1];}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00054}00054\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00056}\mbox{\hyperlink{class_telecon_wx_raster_plot_a23f33f747f2e7b9f90f83d8635928f24}{00056}}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_wx_raster_plot_a23f33f747f2e7b9f90f83d8635928f24}{TeleconWxRasterPlot::getLatestValueString}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00057}00057\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_telecon_wx_raster_plot_a2ddde942ac5a2b9c1e2f56204e07c3aa}{m\_yValueBuffer}}[\mbox{\hyperlink{class_telecon_wx_raster_plot_a2ddde942ac5a2b9c1e2f56204e07c3aa}{m\_yValueBuffer}}.\mbox{\hyperlink{class_data_buffer_a1d235779d299a2b770a8c27386ee3ef0}{size}}()\ -\/\ 1]\ ==\ Chart::NoValue)\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}inactive"{}};}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00060}00060\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00061}00061\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}active"{}};}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00062}00062\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00064}\mbox{\hyperlink{class_telecon_wx_raster_plot_a089b71dbe2b0021f379bde603a4d8290}{00064}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_telecon_wx_raster_plot_a089b71dbe2b0021f379bde603a4d8290}{TeleconWxRasterPlot::isIncludedInLegend}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00065}00065\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00066}00066\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00067}00067\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00069}\mbox{\hyperlink{class_telecon_wx_raster_plot_a9b458415ce61c1f36eab7b9f5970a803}{00069}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_wx_raster_plot_a9b458415ce61c1f36eab7b9f5970a803}{TeleconWxRasterPlot::pushData}}(\textcolor{keywordtype}{double}\ xTimestamp,\ \textcolor{keywordtype}{bool}\ isActive)}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00070}00070\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00071}00071\ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_raster_plot_abe3a3bd66dcc34e1dc9b9bf2d0407205}{m\_dataToAdd}}.\mbox{\hyperlink{class_data_to_add_list_ad27b97cc4f4b4c97e3b0f27a3efd2867}{addDataPoint}}(\{\ xTimestamp,\ isActive\ \});}
+\DoxyCodeLine{\Hypertarget{teleconwxrasterplot_8cpp_source_l00072}00072\ \}}
+
+\end{DoxyCode}

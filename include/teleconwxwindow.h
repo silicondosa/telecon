@@ -13,14 +13,17 @@
 
 using namespace std;
 
+ /**
+  * Window GUI implementation, inherits from wxFrame.
+  * 
+  * This is an implementation class and should not be interacted with directly by the user.
+  */
 class TeleconWxWindow : public wxFrame
 {
 private:
     shared_ptr<TeleconWindow> m_window;
 
     vector<TeleconWxChart*> m_charts;
-
-    wxTimer* m_checkQuitTimer;
 
     // Setup functions 
     void SetUpViewOptionsBox();
@@ -45,16 +48,24 @@ private:
     void OnChartRefreshIntervalSelected(wxCommandEvent& event);
     void OnSave(wxCommandEvent& event);
 
-    void checkQuit(wxTimerEvent& event);
+    void refreshCharts(wxTimerEvent& event);
     void onClose(wxCloseEvent& event);
 
 public:
+
+    /**
+     * Constructs the window based on the specification of the provided ::TeleconWindow object.
+     *
+     * \param window A pointer to the ::TeleconWindow object representing the window.
+     */
     TeleconWxWindow(shared_ptr<TeleconWindow> window);
-    ~TeleconWxWindow();
 
     DECLARE_EVENT_TABLE()
 };
 
 enum {
-    ID_QUIT_TIMER = ID_REFRESH_TIMER + 1
+    ID_REFRESH_TIMER = ID_CHARTVIEWER + 1,
+    ID_PLAY,
+    ID_PAUSE,
+    ID_REFRESH_INTERVAL
 };

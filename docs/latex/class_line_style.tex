@@ -1,0 +1,155 @@
+\hypertarget{class_line_style}{}\doxysection{Line\+Style Class Reference}
+\label{class_line_style}\index{LineStyle@{LineStyle}}
+
+
+{\ttfamily \#include $<$include/linestyle.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_line_style_ac6d5fac0893cf4a9310916a50f9aa5a5}{Line\+Style}} (int line\+Color=\mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a0b8d8b18037efc3cdb5dd0313e7c67dc}{COLOR\+\_\+\+DEFAULT}}, int line\+Width=1, \mbox{\hyperlink{enums_8h_a7fdcd88c8bd2b12efccd824d774bdb44}{Plot\+Line\+Type}} line\+Type=\mbox{\hyperlink{enums_8h_a7fdcd88c8bd2b12efccd824d774bdb44ad3188575e9151d64606bf543dc4c40f1}{LT\+\_\+\+SOLID}})
+\item 
+void \mbox{\hyperlink{class_line_style_a45ebe5df25155e653987a7ebf8c58d12}{set\+Line\+Color}} (int line\+Color)
+\item 
+int \mbox{\hyperlink{class_line_style_a20e3a8fcb73e58d5d38666fda9c1b83b}{get\+Line\+Color}} () const
+\item 
+void \mbox{\hyperlink{class_line_style_a0556994a3bc381b245cb2ba3883572bb}{set\+Line\+Width}} (int line\+Width)
+\item 
+int \mbox{\hyperlink{class_line_style_a4ba9344c1350bcd3cd4a1a1f81044bea}{get\+Line\+Width}} () const
+\item 
+void \mbox{\hyperlink{class_line_style_af2528fd12890b6d75fb308512cbc1a8d}{set\+Line\+Type}} (\mbox{\hyperlink{enums_8h_a7fdcd88c8bd2b12efccd824d774bdb44}{Plot\+Line\+Type}} line\+Type)
+\item 
+\mbox{\hyperlink{enums_8h_a7fdcd88c8bd2b12efccd824d774bdb44}{Plot\+Line\+Type}} \mbox{\hyperlink{class_line_style_a6de370fcf47ce57f4961f04657fba352}{get\+Line\+Type}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class to represent what the line that a plot draws to connect data points should look like. 
+
+Definition at line \mbox{\hyperlink{linestyle_8h_source_l00010}{10}} of file \mbox{\hyperlink{linestyle_8h_source}{linestyle.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_line_style_ac6d5fac0893cf4a9310916a50f9aa5a5}\label{class_line_style_ac6d5fac0893cf4a9310916a50f9aa5a5}} 
+\index{LineStyle@{LineStyle}!LineStyle@{LineStyle}}
+\index{LineStyle@{LineStyle}!LineStyle@{LineStyle}}
+\doxysubsubsection{\texorpdfstring{LineStyle()}{LineStyle()}}
+{\footnotesize\ttfamily Line\+Style\+::\+Line\+Style (\begin{DoxyParamCaption}\item[{int}]{line\+Color = {\ttfamily \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a0b8d8b18037efc3cdb5dd0313e7c67dc}{COLOR\+\_\+\+DEFAULT}}},  }\item[{int}]{line\+Width = {\ttfamily 1},  }\item[{\mbox{\hyperlink{enums_8h_a7fdcd88c8bd2b12efccd824d774bdb44}{Plot\+Line\+Type}}}]{line\+Type = {\ttfamily \mbox{\hyperlink{enums_8h_a7fdcd88c8bd2b12efccd824d774bdb44ad3188575e9151d64606bf543dc4c40f1}{LT\+\_\+\+SOLID}}} }\end{DoxyParamCaption})}
+
+Constructs a \mbox{\hyperlink{class_line_style}{Line\+Style}} with the given parameters.
+
+If no line is desired, set the line width to 0.
+
+
+\begin{DoxyParams}{Parameters}
+{\em line\+Color} & the color of the line, represented as described in \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8}{Plot\+Color}}. \\
+\hline
+{\em line\+Width} & the width of the line in pixels. \\
+\hline
+{\em line\+Type} & the type of the line, as described in \mbox{\hyperlink{enums_8h_a7fdcd88c8bd2b12efccd824d774bdb44}{Plot\+Line\+Type}}. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{linestyle_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{linestyle_8cpp_source}{linestyle.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_line_style_a20e3a8fcb73e58d5d38666fda9c1b83b}\label{class_line_style_a20e3a8fcb73e58d5d38666fda9c1b83b}} 
+\index{LineStyle@{LineStyle}!getLineColor@{getLineColor}}
+\index{getLineColor@{getLineColor}!LineStyle@{LineStyle}}
+\doxysubsubsection{\texorpdfstring{getLineColor()}{getLineColor()}}
+{\footnotesize\ttfamily int Line\+Style\+::get\+Line\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+The color of the line, represented as described in \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8}{Plot\+Color}}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{linestyle_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{linestyle_8cpp_source}{linestyle.\+cpp}}.
+
+\mbox{\Hypertarget{class_line_style_a6de370fcf47ce57f4961f04657fba352}\label{class_line_style_a6de370fcf47ce57f4961f04657fba352}} 
+\index{LineStyle@{LineStyle}!getLineType@{getLineType}}
+\index{getLineType@{getLineType}!LineStyle@{LineStyle}}
+\doxysubsubsection{\texorpdfstring{getLineType()}{getLineType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enums_8h_a7fdcd88c8bd2b12efccd824d774bdb44}{Plot\+Line\+Type}} Line\+Style\+::get\+Line\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+The type of the line, as described in \mbox{\hyperlink{enums_8h_a7fdcd88c8bd2b12efccd824d774bdb44}{Plot\+Line\+Type}}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{linestyle_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{linestyle_8cpp_source}{linestyle.\+cpp}}.
+
+\mbox{\Hypertarget{class_line_style_a4ba9344c1350bcd3cd4a1a1f81044bea}\label{class_line_style_a4ba9344c1350bcd3cd4a1a1f81044bea}} 
+\index{LineStyle@{LineStyle}!getLineWidth@{getLineWidth}}
+\index{getLineWidth@{getLineWidth}!LineStyle@{LineStyle}}
+\doxysubsubsection{\texorpdfstring{getLineWidth()}{getLineWidth()}}
+{\footnotesize\ttfamily int Line\+Style\+::get\+Line\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+The width of the line in pixels. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{linestyle_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{linestyle_8cpp_source}{linestyle.\+cpp}}.
+
+\mbox{\Hypertarget{class_line_style_a45ebe5df25155e653987a7ebf8c58d12}\label{class_line_style_a45ebe5df25155e653987a7ebf8c58d12}} 
+\index{LineStyle@{LineStyle}!setLineColor@{setLineColor}}
+\index{setLineColor@{setLineColor}!LineStyle@{LineStyle}}
+\doxysubsubsection{\texorpdfstring{setLineColor()}{setLineColor()}}
+{\footnotesize\ttfamily void Line\+Style\+::set\+Line\+Color (\begin{DoxyParamCaption}\item[{int}]{line\+Color }\end{DoxyParamCaption})}
+
+Setter for line color.
+
+
+\begin{DoxyParams}{Parameters}
+{\em line\+Color} & the color of the line, represented as described in \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8}{Plot\+Color}}. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{linestyle_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{linestyle_8cpp_source}{linestyle.\+cpp}}.
+
+\mbox{\Hypertarget{class_line_style_af2528fd12890b6d75fb308512cbc1a8d}\label{class_line_style_af2528fd12890b6d75fb308512cbc1a8d}} 
+\index{LineStyle@{LineStyle}!setLineType@{setLineType}}
+\index{setLineType@{setLineType}!LineStyle@{LineStyle}}
+\doxysubsubsection{\texorpdfstring{setLineType()}{setLineType()}}
+{\footnotesize\ttfamily void Line\+Style\+::set\+Line\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enums_8h_a7fdcd88c8bd2b12efccd824d774bdb44}{Plot\+Line\+Type}}}]{line\+Type }\end{DoxyParamCaption})}
+
+Setter for line type.
+
+
+\begin{DoxyParams}{Parameters}
+{\em line\+Type} & the type of the line, as described in \mbox{\hyperlink{enums_8h_a7fdcd88c8bd2b12efccd824d774bdb44}{Plot\+Line\+Type}}. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{linestyle_8cpp_source_l00026}{26}} of file \mbox{\hyperlink{linestyle_8cpp_source}{linestyle.\+cpp}}.
+
+\mbox{\Hypertarget{class_line_style_a0556994a3bc381b245cb2ba3883572bb}\label{class_line_style_a0556994a3bc381b245cb2ba3883572bb}} 
+\index{LineStyle@{LineStyle}!setLineWidth@{setLineWidth}}
+\index{setLineWidth@{setLineWidth}!LineStyle@{LineStyle}}
+\doxysubsubsection{\texorpdfstring{setLineWidth()}{setLineWidth()}}
+{\footnotesize\ttfamily void Line\+Style\+::set\+Line\+Width (\begin{DoxyParamCaption}\item[{int}]{line\+Width }\end{DoxyParamCaption})}
+
+Setter for line width.
+
+
+\begin{DoxyParams}{Parameters}
+{\em line\+Width} & the width of the line in pixels. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{linestyle_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{linestyle_8cpp_source}{linestyle.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{linestyle_8h}{linestyle.\+h}}\item 
+src/\mbox{\hyperlink{linestyle_8cpp}{linestyle.\+cpp}}\end{DoxyCompactItemize}

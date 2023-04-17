@@ -1,0 +1,389 @@
+\hypertarget{class_telecon_wx_raster_plot}{}\doxysection{Telecon\+Wx\+Raster\+Plot Class Reference}
+\label{class_telecon_wx_raster_plot}\index{TeleconWxRasterPlot@{TeleconWxRasterPlot}}
+
+
+{\ttfamily \#include $<$include/teleconwxrasterplot.\+h$>$}
+
+Inheritance diagram for Telecon\+Wx\+Raster\+Plot\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_telecon_wx_raster_plot}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_telecon_wx_raster_plot_a8dfc0912d1e7b854c755c538c13d066f}{Telecon\+Wx\+Raster\+Plot}} (string plot\+Title, double y\+Value, size\+\_\+t \mbox{\hyperlink{class_telecon_wx_plot_a3f09ba9a7d15253b9ebabf26f8c7e3a0}{depth}}, const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \&symbol\+Style)
+\item 
+double \mbox{\hyperlink{class_telecon_wx_raster_plot_a20de1cbd91acb2b4e49871fdf8c0afac}{get\+YValue}} () const
+\item 
+virtual void \mbox{\hyperlink{class_telecon_wx_raster_plot_a1d8b62d4c8e21417b2d06cc00c39ca3f}{prep\+Data\+For\+Draw}} () override
+\item 
+virtual void \mbox{\hyperlink{class_telecon_wx_raster_plot_a351d4d2ba1de3d496d721caf96068260}{add\+To\+Chart}} (XYChart $\ast$chart) override
+\item 
+virtual double \mbox{\hyperlink{class_telecon_wx_raster_plot_a7fd19f78ea541a1442869f4cc3433461}{get\+LeftmostX}} () const override
+\item 
+virtual double \mbox{\hyperlink{class_telecon_wx_raster_plot_accddd56c60e3615a4d877cfb2670ea39}{get\+RightmostX}} () const override
+\item 
+virtual string \mbox{\hyperlink{class_telecon_wx_raster_plot_a23f33f747f2e7b9f90f83d8635928f24}{get\+Latest\+Value\+String}} () const override
+\item 
+virtual bool \mbox{\hyperlink{class_telecon_wx_raster_plot_a089b71dbe2b0021f379bde603a4d8290}{is\+Included\+In\+Legend}} () const override
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_telecon_wx_raster_plot_a75e498c612cf889622ae6315ce615fed}{size}} () const override
+\item 
+virtual void \mbox{\hyperlink{class_telecon_wx_raster_plot_a9b458415ce61c1f36eab7b9f5970a803}{push\+Data}} (double x\+Timestamp, bool is\+Active=true) override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_telecon_wx_plot}{Telecon\+Wx\+Plot}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_telecon_wx_plot_aea983877659cc572c584c7b1752f6896}{Telecon\+Wx\+Plot}} (string plot\+Title, size\+\_\+t \mbox{\hyperlink{class_telecon_wx_plot_a3f09ba9a7d15253b9ebabf26f8c7e3a0}{depth}}, const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \&symbol\+Style)
+\item 
+virtual void \mbox{\hyperlink{class_telecon_wx_plot_ae87396c2c2ad0a0bc940a7484e0734a2}{prep\+Data\+For\+Draw}} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_telecon_wx_plot_a29380c087e2d6252ff1dafe2b13f98ff}{add\+To\+Chart}} (XYChart $\ast$chart)=0
+\item 
+virtual double \mbox{\hyperlink{class_telecon_wx_plot_ad6ae2ae2b72e48fef8101322ca3d2134}{get\+LeftmostX}} () const =0
+\item 
+virtual double \mbox{\hyperlink{class_telecon_wx_plot_aff59ec394a722ffff9e9d637ef58721e}{get\+RightmostX}} () const =0
+\item 
+virtual string \mbox{\hyperlink{class_telecon_wx_plot_a410fe69ad4b7475a7fdaf65d550c6bf9}{get\+Latest\+Value\+String}} () const =0
+\item 
+virtual bool \mbox{\hyperlink{class_telecon_wx_plot_aa8fa72958a60748a62999a1e994f3852}{is\+Included\+In\+Legend}} () const =0
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_telecon_wx_plot_a3f09ba9a7d15253b9ebabf26f8c7e3a0}{depth}} () const override
+\item 
+virtual const string \mbox{\hyperlink{class_telecon_wx_plot_adc847425a9a4f1d90fec82651014d39d}{get\+Plot\+Title}} () const override
+\item 
+virtual shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} $>$ \mbox{\hyperlink{class_telecon_wx_plot_af9441d59a6d8b41bd6c0ca91ac73a37e}{get\+Symbol\+Style}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_telecon_plot_a582e5ae4fd4923f82956fc37679d3809}{size}} () const =0
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_telecon_plot_a531aaccd7cd6f98e32c1a315900b5c49}{depth}} () const =0
+\item 
+virtual const string \mbox{\hyperlink{class_telecon_plot_ab8c7d77c2ab3091765bf560f29306d7e}{get\+Plot\+Title}} () const =0
+\item 
+virtual shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} $>$ \mbox{\hyperlink{class_telecon_plot_ab754dc0b368eef40072b1aedfd3bf434}{get\+Symbol\+Style}} () const =0
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_telecon_raster_plot_ad6377b0fde7a468d8f8934bdac04253b}{push\+Data}} (double x\+Timestamp, bool is\+Active=true)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_data_to_add_list}{Data\+To\+Add\+List}}$<$ \mbox{\hyperlink{struct_raster_data_point}{Raster\+Data\+Point}} $>$ \mbox{\hyperlink{class_telecon_wx_raster_plot_abe3a3bd66dcc34e1dc9b9bf2d0407205}{m\+\_\+data\+To\+Add}}
+\item 
+\mbox{\hyperlink{class_data_buffer}{Data\+Buffer}}$<$ double $>$ \mbox{\hyperlink{class_telecon_wx_raster_plot_a6d9886d414735ff8813b71c8f4f97125}{m\+\_\+x\+Timestamps}}
+\item 
+\mbox{\hyperlink{class_data_buffer}{Data\+Buffer}}$<$ double $>$ \mbox{\hyperlink{class_telecon_wx_raster_plot_a2ddde942ac5a2b9c1e2f56204e07c3aa}{m\+\_\+y\+Value\+Buffer}}
+\item 
+double \mbox{\hyperlink{class_telecon_wx_raster_plot_ab5c3cdd7bcccd4be93f9d5b7d98094fd}{m\+\_\+y\+Value}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_telecon_wx_plot}{Telecon\+Wx\+Plot}}}
+\begin{DoxyCompactItemize}
+\item 
+const size\+\_\+t \mbox{\hyperlink{class_telecon_wx_plot_a98ac5de8141d27f155c3d8a297fa1052}{m\+\_\+depth}}
+\item 
+string \mbox{\hyperlink{class_telecon_wx_plot_a3601667f3fff47879712bf4f043699fa}{m\+\_\+plot\+Title}}
+\item 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} $>$ \mbox{\hyperlink{class_telecon_wx_plot_a5b22bef71c4ac65677f1a4d743d73bb2}{m\+\_\+symbol\+Style}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{class_telecon_wx_plot}{Telecon\+Wx\+Plot}}}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_telecon_wx_plot_a2134bde951b9996ab1bc1fbb0fc4d5a8}{add\+Line\+Plot\+To\+Chart}} (XYChart $\ast$chart, string plot\+Title, bool include\+In\+Legend, Double\+Array x\+Array, Double\+Array y\+Array, shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_line_style}{Line\+Style}} $>$ line\+Style, shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} $>$ symbol\+Style)
+\item 
+static void \mbox{\hyperlink{class_telecon_wx_plot_a1a5cdcd2202a28f28bb8751b1c79db15}{add\+Scatter\+Plot\+To\+Chart}} (XYChart $\ast$chart, string plot\+Title, bool include\+In\+Legend, Double\+Array x\+Array, Double\+Array y\+Array, shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} $>$ symbol\+Style)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes inherited from \mbox{\hyperlink{class_telecon_raster_plot}{Telecon\+Raster\+Plot}}}
+\begin{DoxyCompactItemize}
+\item 
+static const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \mbox{\hyperlink{class_telecon_raster_plot_a429dfccd0e83c87bf6d547bbc3f05c9a}{default\+Symbol\+Style}} = \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}}(\mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40baeedd6d364526e38cfbb1f678cf9b2849}{SYMBOL\+\_\+\+CIRCLE}}, \mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a0b8d8b18037efc3cdb5dd0313e7c67dc}{COLOR\+\_\+\+DEFAULT}}, true, 1)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Protected Member Functions inherited from \mbox{\hyperlink{class_telecon_wx_plot}{Telecon\+Wx\+Plot}}}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{class_telecon_wx_plot_a60622f733240f299e4ef696c666a09ff}{get\+Chart\+Dir\+Symbol\+From\+Plot\+Symbol}} (\mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40b}{Plot\+Symbol}} symbol)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Raster plot GUI implementation.
+
+This is an implementation class and should not be interacted with directly by the user. 
+
+Definition at line \mbox{\hyperlink{teleconwxrasterplot_8h_source_l00022}{22}} of file \mbox{\hyperlink{teleconwxrasterplot_8h_source}{teleconwxrasterplot.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_telecon_wx_raster_plot_a8dfc0912d1e7b854c755c538c13d066f}\label{class_telecon_wx_raster_plot_a8dfc0912d1e7b854c755c538c13d066f}} 
+\index{TeleconWxRasterPlot@{TeleconWxRasterPlot}!TeleconWxRasterPlot@{TeleconWxRasterPlot}}
+\index{TeleconWxRasterPlot@{TeleconWxRasterPlot}!TeleconWxRasterPlot@{TeleconWxRasterPlot}}
+\doxysubsubsection{\texorpdfstring{TeleconWxRasterPlot()}{TeleconWxRasterPlot()}}
+{\footnotesize\ttfamily Telecon\+Wx\+Raster\+Plot\+::\+Telecon\+Wx\+Raster\+Plot (\begin{DoxyParamCaption}\item[{string}]{plot\+Title,  }\item[{double}]{y\+Value,  }\item[{size\+\_\+t}]{depth,  }\item[{const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \&}]{symbol\+Style }\end{DoxyParamCaption})}
+
+Constructs a raster plot object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em plot\+Title} & the title of the plot, as displayed in the legend. \\
+\hline
+{\em y\+Value} & the y-\/value at which active points will be displayed. \\
+\hline
+{\em depth} & the depth (maximum size) of the plot. Always \texorpdfstring{$>$}{>}= size. \\
+\hline
+{\em symbol\+Style} & the \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} representing how the symbol representing points (if any) should be displayed. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{teleconwxrasterplot_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{teleconwxrasterplot_8cpp_source}{teleconwxrasterplot.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_telecon_wx_raster_plot_a351d4d2ba1de3d496d721caf96068260}\label{class_telecon_wx_raster_plot_a351d4d2ba1de3d496d721caf96068260}} 
+\index{TeleconWxRasterPlot@{TeleconWxRasterPlot}!addToChart@{addToChart}}
+\index{addToChart@{addToChart}!TeleconWxRasterPlot@{TeleconWxRasterPlot}}
+\doxysubsubsection{\texorpdfstring{addToChart()}{addToChart()}}
+{\footnotesize\ttfamily void Telecon\+Wx\+Raster\+Plot\+::add\+To\+Chart (\begin{DoxyParamCaption}\item[{XYChart $\ast$}]{chart }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+Draws this plot to the given chart.
+
+
+\begin{DoxyParams}{Parameters}
+{\em chart} & The chart to which to draw this plot.   \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_telecon_wx_plot_a29380c087e2d6252ff1dafe2b13f98ff}{Telecon\+Wx\+Plot}}.
+
+
+
+Definition at line \mbox{\hyperlink{teleconwxrasterplot_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{teleconwxrasterplot_8cpp_source}{teleconwxrasterplot.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_wx_raster_plot_a23f33f747f2e7b9f90f83d8635928f24}\label{class_telecon_wx_raster_plot_a23f33f747f2e7b9f90f83d8635928f24}} 
+\index{TeleconWxRasterPlot@{TeleconWxRasterPlot}!getLatestValueString@{getLatestValueString}}
+\index{getLatestValueString@{getLatestValueString}!TeleconWxRasterPlot@{TeleconWxRasterPlot}}
+\doxysubsubsection{\texorpdfstring{getLatestValueString()}{getLatestValueString()}}
+{\footnotesize\ttfamily string Telecon\+Wx\+Raster\+Plot\+::get\+Latest\+Value\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+\begin{DoxyReturn}{Returns}
+A string representation of the latest value added to the plot, including only the actual data, not the timestamp.   
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_telecon_wx_plot_a410fe69ad4b7475a7fdaf65d550c6bf9}{Telecon\+Wx\+Plot}}.
+
+
+
+Definition at line \mbox{\hyperlink{teleconwxrasterplot_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{teleconwxrasterplot_8cpp_source}{teleconwxrasterplot.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_wx_raster_plot_a7fd19f78ea541a1442869f4cc3433461}\label{class_telecon_wx_raster_plot_a7fd19f78ea541a1442869f4cc3433461}} 
+\index{TeleconWxRasterPlot@{TeleconWxRasterPlot}!getLeftmostX@{getLeftmostX}}
+\index{getLeftmostX@{getLeftmostX}!TeleconWxRasterPlot@{TeleconWxRasterPlot}}
+\doxysubsubsection{\texorpdfstring{getLeftmostX()}{getLeftmostX()}}
+{\footnotesize\ttfamily double Telecon\+Wx\+Raster\+Plot\+::get\+LeftmostX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+Getter function for left most x.
+
+\begin{DoxyReturn}{Returns}
+Left most x-\/value, which may be based either on the timestamp or on the x-\/data, depending on the type of the plot.  
+\end{DoxyReturn}
+For line plots, returns the oldest timestamp. 
+
+Implements \mbox{\hyperlink{class_telecon_wx_plot_ad6ae2ae2b72e48fef8101322ca3d2134}{Telecon\+Wx\+Plot}}.
+
+
+
+Definition at line \mbox{\hyperlink{teleconwxrasterplot_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{teleconwxrasterplot_8cpp_source}{teleconwxrasterplot.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_wx_raster_plot_accddd56c60e3615a4d877cfb2670ea39}\label{class_telecon_wx_raster_plot_accddd56c60e3615a4d877cfb2670ea39}} 
+\index{TeleconWxRasterPlot@{TeleconWxRasterPlot}!getRightmostX@{getRightmostX}}
+\index{getRightmostX@{getRightmostX}!TeleconWxRasterPlot@{TeleconWxRasterPlot}}
+\doxysubsubsection{\texorpdfstring{getRightmostX()}{getRightmostX()}}
+{\footnotesize\ttfamily double Telecon\+Wx\+Raster\+Plot\+::get\+RightmostX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+Getter function for right most x.
+
+\begin{DoxyReturn}{Returns}
+Right most x-\/value, which may be based either on the timestamp or on the x-\/data, depending on the type of the plot.  
+\end{DoxyReturn}
+For line plots, returns the newest timestamp. 
+
+Implements \mbox{\hyperlink{class_telecon_wx_plot_aff59ec394a722ffff9e9d637ef58721e}{Telecon\+Wx\+Plot}}.
+
+
+
+Definition at line \mbox{\hyperlink{teleconwxrasterplot_8cpp_source_l00051}{51}} of file \mbox{\hyperlink{teleconwxrasterplot_8cpp_source}{teleconwxrasterplot.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_wx_raster_plot_a20de1cbd91acb2b4e49871fdf8c0afac}\label{class_telecon_wx_raster_plot_a20de1cbd91acb2b4e49871fdf8c0afac}} 
+\index{TeleconWxRasterPlot@{TeleconWxRasterPlot}!getYValue@{getYValue}}
+\index{getYValue@{getYValue}!TeleconWxRasterPlot@{TeleconWxRasterPlot}}
+\doxysubsubsection{\texorpdfstring{getYValue()}{getYValue()}}
+{\footnotesize\ttfamily double Telecon\+Wx\+Raster\+Plot\+::get\+YValue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+The y-\/value at which active points will be displayed. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{teleconwxrasterplot_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{teleconwxrasterplot_8cpp_source}{teleconwxrasterplot.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_wx_raster_plot_a089b71dbe2b0021f379bde603a4d8290}\label{class_telecon_wx_raster_plot_a089b71dbe2b0021f379bde603a4d8290}} 
+\index{TeleconWxRasterPlot@{TeleconWxRasterPlot}!isIncludedInLegend@{isIncludedInLegend}}
+\index{isIncludedInLegend@{isIncludedInLegend}!TeleconWxRasterPlot@{TeleconWxRasterPlot}}
+\doxysubsubsection{\texorpdfstring{isIncludedInLegend()}{isIncludedInLegend()}}
+{\footnotesize\ttfamily bool Telecon\+Wx\+Raster\+Plot\+::is\+Included\+In\+Legend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+\begin{DoxyReturn}{Returns}
+True if this plot should be included in the legend, or false otherwise.   
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_telecon_wx_plot_aa8fa72958a60748a62999a1e994f3852}{Telecon\+Wx\+Plot}}.
+
+
+
+Definition at line \mbox{\hyperlink{teleconwxrasterplot_8cpp_source_l00064}{64}} of file \mbox{\hyperlink{teleconwxrasterplot_8cpp_source}{teleconwxrasterplot.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_wx_raster_plot_a1d8b62d4c8e21417b2d06cc00c39ca3f}\label{class_telecon_wx_raster_plot_a1d8b62d4c8e21417b2d06cc00c39ca3f}} 
+\index{TeleconWxRasterPlot@{TeleconWxRasterPlot}!prepDataForDraw@{prepDataForDraw}}
+\index{prepDataForDraw@{prepDataForDraw}!TeleconWxRasterPlot@{TeleconWxRasterPlot}}
+\doxysubsubsection{\texorpdfstring{prepDataForDraw()}{prepDataForDraw()}}
+{\footnotesize\ttfamily void Telecon\+Wx\+Raster\+Plot\+::prep\+Data\+For\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+Fetches all data out of the controller thread and adds it to make it visible to UI thread. Should be called before drawing the plot with \mbox{\hyperlink{class_telecon_wx_plot_a29380c087e2d6252ff1dafe2b13f98ff}{Telecon\+Wx\+Plot\+::add\+To\+Chart}}.   
+
+Implements \mbox{\hyperlink{class_telecon_wx_plot_ae87396c2c2ad0a0bc940a7484e0734a2}{Telecon\+Wx\+Plot}}.
+
+
+
+Definition at line \mbox{\hyperlink{teleconwxrasterplot_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{teleconwxrasterplot_8cpp_source}{teleconwxrasterplot.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_wx_raster_plot_a9b458415ce61c1f36eab7b9f5970a803}\label{class_telecon_wx_raster_plot_a9b458415ce61c1f36eab7b9f5970a803}} 
+\index{TeleconWxRasterPlot@{TeleconWxRasterPlot}!pushData@{pushData}}
+\index{pushData@{pushData}!TeleconWxRasterPlot@{TeleconWxRasterPlot}}
+\doxysubsubsection{\texorpdfstring{pushData()}{pushData()}}
+{\footnotesize\ttfamily void Telecon\+Wx\+Raster\+Plot\+::push\+Data (\begin{DoxyParamCaption}\item[{double}]{x\+Timestamp,  }\item[{bool}]{is\+Active = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+Function to push a single activation data point into the plot at a certain time (x\+Timestamp).
+
+
+\begin{DoxyParams}{Parameters}
+{\em timestamp} & Time the data point was generated, represented as seconds since an epoch. The epoch used will depend on the implementation; the default implementation (wx\+Chart\+Dir) uses January 1st, year 1. However, since charts display only hours, minutes, and seconds, for short time spans (less than a day), the epoch could be user-\/defined (for example, the beginning of the experiment which is producing data). Data points must be inserted with the timestamps in ascending order (the same order that they were created). \\
+\hline
+{\em is\+Active} & If true, a point will be displayed at the given timestamp. Otherwise no point will be displayed.   \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_telecon_raster_plot_ad6377b0fde7a468d8f8934bdac04253b}{Telecon\+Raster\+Plot}}.
+
+
+
+Definition at line \mbox{\hyperlink{teleconwxrasterplot_8cpp_source_l00069}{69}} of file \mbox{\hyperlink{teleconwxrasterplot_8cpp_source}{teleconwxrasterplot.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_wx_raster_plot_a75e498c612cf889622ae6315ce615fed}\label{class_telecon_wx_raster_plot_a75e498c612cf889622ae6315ce615fed}} 
+\index{TeleconWxRasterPlot@{TeleconWxRasterPlot}!size@{size}}
+\index{size@{size}!TeleconWxRasterPlot@{TeleconWxRasterPlot}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily size\+\_\+t Telecon\+Wx\+Raster\+Plot\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+\begin{DoxyReturn}{Returns}
+Current size of the plot (number of data points). Always \texorpdfstring{$<$}{<}= depth.   
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_telecon_plot_a582e5ae4fd4923f82956fc37679d3809}{Telecon\+Plot}}.
+
+
+
+Definition at line \mbox{\hyperlink{teleconwxrasterplot_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{teleconwxrasterplot_8cpp_source}{teleconwxrasterplot.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_telecon_wx_raster_plot_abe3a3bd66dcc34e1dc9b9bf2d0407205}\label{class_telecon_wx_raster_plot_abe3a3bd66dcc34e1dc9b9bf2d0407205}} 
+\index{TeleconWxRasterPlot@{TeleconWxRasterPlot}!m\_dataToAdd@{m\_dataToAdd}}
+\index{m\_dataToAdd@{m\_dataToAdd}!TeleconWxRasterPlot@{TeleconWxRasterPlot}}
+\doxysubsubsection{\texorpdfstring{m\_dataToAdd}{m\_dataToAdd}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_to_add_list}{Data\+To\+Add\+List}}$<$\mbox{\hyperlink{struct_raster_data_point}{Raster\+Data\+Point}}$>$ Telecon\+Wx\+Raster\+Plot\+::m\+\_\+data\+To\+Add\hspace{0.3cm}{\ttfamily [protected]}}
+
+The data to be added to the plot upon the next update. 
+
+Definition at line \mbox{\hyperlink{teleconwxrasterplot_8h_source_l00026}{26}} of file \mbox{\hyperlink{teleconwxrasterplot_8h_source}{teleconwxrasterplot.\+h}}.
+
+\mbox{\Hypertarget{class_telecon_wx_raster_plot_a6d9886d414735ff8813b71c8f4f97125}\label{class_telecon_wx_raster_plot_a6d9886d414735ff8813b71c8f4f97125}} 
+\index{TeleconWxRasterPlot@{TeleconWxRasterPlot}!m\_xTimestamps@{m\_xTimestamps}}
+\index{m\_xTimestamps@{m\_xTimestamps}!TeleconWxRasterPlot@{TeleconWxRasterPlot}}
+\doxysubsubsection{\texorpdfstring{m\_xTimestamps}{m\_xTimestamps}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_buffer}{Data\+Buffer}}$<$double$>$ Telecon\+Wx\+Raster\+Plot\+::m\+\_\+x\+Timestamps\hspace{0.3cm}{\ttfamily [protected]}}
+
+The timestamps of the data points that have been added to the plot. 
+
+Definition at line \mbox{\hyperlink{teleconwxrasterplot_8h_source_l00028}{28}} of file \mbox{\hyperlink{teleconwxrasterplot_8h_source}{teleconwxrasterplot.\+h}}.
+
+\mbox{\Hypertarget{class_telecon_wx_raster_plot_ab5c3cdd7bcccd4be93f9d5b7d98094fd}\label{class_telecon_wx_raster_plot_ab5c3cdd7bcccd4be93f9d5b7d98094fd}} 
+\index{TeleconWxRasterPlot@{TeleconWxRasterPlot}!m\_yValue@{m\_yValue}}
+\index{m\_yValue@{m\_yValue}!TeleconWxRasterPlot@{TeleconWxRasterPlot}}
+\doxysubsubsection{\texorpdfstring{m\_yValue}{m\_yValue}}
+{\footnotesize\ttfamily double Telecon\+Wx\+Raster\+Plot\+::m\+\_\+y\+Value\hspace{0.3cm}{\ttfamily [protected]}}
+
+The y-\/value at which active points will be displayed. 
+
+Definition at line \mbox{\hyperlink{teleconwxrasterplot_8h_source_l00032}{32}} of file \mbox{\hyperlink{teleconwxrasterplot_8h_source}{teleconwxrasterplot.\+h}}.
+
+\mbox{\Hypertarget{class_telecon_wx_raster_plot_a2ddde942ac5a2b9c1e2f56204e07c3aa}\label{class_telecon_wx_raster_plot_a2ddde942ac5a2b9c1e2f56204e07c3aa}} 
+\index{TeleconWxRasterPlot@{TeleconWxRasterPlot}!m\_yValueBuffer@{m\_yValueBuffer}}
+\index{m\_yValueBuffer@{m\_yValueBuffer}!TeleconWxRasterPlot@{TeleconWxRasterPlot}}
+\doxysubsubsection{\texorpdfstring{m\_yValueBuffer}{m\_yValueBuffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_buffer}{Data\+Buffer}}$<$double$>$ Telecon\+Wx\+Raster\+Plot\+::m\+\_\+y\+Value\+Buffer\hspace{0.3cm}{\ttfamily [protected]}}
+
+The y-\/values of the data points that have been added to the plot. Will either be equal to m\+\_\+y\+Value or Chart\+::\+No\+Value. 
+
+Definition at line \mbox{\hyperlink{teleconwxrasterplot_8h_source_l00030}{30}} of file \mbox{\hyperlink{teleconwxrasterplot_8h_source}{teleconwxrasterplot.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{teleconwxrasterplot_8h}{teleconwxrasterplot.\+h}}\item 
+src/\mbox{\hyperlink{teleconwxrasterplot_8cpp}{teleconwxrasterplot.\+cpp}}\end{DoxyCompactItemize}

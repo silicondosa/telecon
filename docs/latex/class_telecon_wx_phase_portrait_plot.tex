@@ -1,0 +1,415 @@
+\hypertarget{class_telecon_wx_phase_portrait_plot}{}\doxysection{Telecon\+Wx\+Phase\+Portrait\+Plot Class Reference}
+\label{class_telecon_wx_phase_portrait_plot}\index{TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}}
+
+
+{\ttfamily \#include $<$include/teleconwxphaseportraitplot.\+h$>$}
+
+Inheritance diagram for Telecon\+Wx\+Phase\+Portrait\+Plot\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_telecon_wx_phase_portrait_plot}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_telecon_wx_phase_portrait_plot_a00e3b0aaa9ee5efbc366f65f95b6a15c}{Telecon\+Wx\+Phase\+Portrait\+Plot}} (string plot\+Title, size\+\_\+t \mbox{\hyperlink{class_telecon_wx_plot_a3f09ba9a7d15253b9ebabf26f8c7e3a0}{depth}}, const \mbox{\hyperlink{class_line_style}{Line\+Style}} \&line\+Style, const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \&symbol\+Style)
+\item 
+virtual void \mbox{\hyperlink{class_telecon_wx_phase_portrait_plot_ae8aad42121f3924a551b5c1cf2305255}{prep\+Data\+For\+Draw}} () override
+\item 
+virtual void \mbox{\hyperlink{class_telecon_wx_phase_portrait_plot_a0e33db8dc9be9c34e1a4338ad0911776}{add\+To\+Chart}} (XYChart $\ast$chart) override
+\item 
+virtual double \mbox{\hyperlink{class_telecon_wx_phase_portrait_plot_aaccba899c53b57d4ddd278b01603677e}{get\+LeftmostX}} () const override
+\item 
+virtual double \mbox{\hyperlink{class_telecon_wx_phase_portrait_plot_a46dd18630a648a332fbfe4d3ca6abd18}{get\+RightmostX}} () const override
+\item 
+virtual string \mbox{\hyperlink{class_telecon_wx_phase_portrait_plot_a7c4ca609ee43c3fc007fe653b04c83e0}{get\+Latest\+Value\+String}} () const override
+\item 
+virtual bool \mbox{\hyperlink{class_telecon_wx_phase_portrait_plot_a1686cc0a7c392cefa71ccd034189db8e}{is\+Included\+In\+Legend}} () const override
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_telecon_wx_phase_portrait_plot_a46f27380601e92c0fea740cb2bf6a645}{size}} () const override
+\item 
+virtual void \mbox{\hyperlink{class_telecon_wx_phase_portrait_plot_aba3d8f91955634caaa077a22f8bb8f5f}{push\+Data}} (double timestamp, double x\+Data, double y\+Data) override
+\item 
+virtual shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_line_style}{Line\+Style}} $>$ \mbox{\hyperlink{class_telecon_wx_phase_portrait_plot_a2c1d40737bc7369cc893f58889eac53b}{get\+Line\+Style}} () const override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_telecon_wx_plot}{Telecon\+Wx\+Plot}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_telecon_wx_plot_aea983877659cc572c584c7b1752f6896}{Telecon\+Wx\+Plot}} (string plot\+Title, size\+\_\+t \mbox{\hyperlink{class_telecon_wx_plot_a3f09ba9a7d15253b9ebabf26f8c7e3a0}{depth}}, const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \&symbol\+Style)
+\item 
+virtual void \mbox{\hyperlink{class_telecon_wx_plot_ae87396c2c2ad0a0bc940a7484e0734a2}{prep\+Data\+For\+Draw}} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_telecon_wx_plot_a29380c087e2d6252ff1dafe2b13f98ff}{add\+To\+Chart}} (XYChart $\ast$chart)=0
+\item 
+virtual double \mbox{\hyperlink{class_telecon_wx_plot_ad6ae2ae2b72e48fef8101322ca3d2134}{get\+LeftmostX}} () const =0
+\item 
+virtual double \mbox{\hyperlink{class_telecon_wx_plot_aff59ec394a722ffff9e9d637ef58721e}{get\+RightmostX}} () const =0
+\item 
+virtual string \mbox{\hyperlink{class_telecon_wx_plot_a410fe69ad4b7475a7fdaf65d550c6bf9}{get\+Latest\+Value\+String}} () const =0
+\item 
+virtual bool \mbox{\hyperlink{class_telecon_wx_plot_aa8fa72958a60748a62999a1e994f3852}{is\+Included\+In\+Legend}} () const =0
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_telecon_wx_plot_a3f09ba9a7d15253b9ebabf26f8c7e3a0}{depth}} () const override
+\item 
+virtual const string \mbox{\hyperlink{class_telecon_wx_plot_adc847425a9a4f1d90fec82651014d39d}{get\+Plot\+Title}} () const override
+\item 
+virtual shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} $>$ \mbox{\hyperlink{class_telecon_wx_plot_af9441d59a6d8b41bd6c0ca91ac73a37e}{get\+Symbol\+Style}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_telecon_plot_a582e5ae4fd4923f82956fc37679d3809}{size}} () const =0
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_telecon_plot_a531aaccd7cd6f98e32c1a315900b5c49}{depth}} () const =0
+\item 
+virtual const string \mbox{\hyperlink{class_telecon_plot_ab8c7d77c2ab3091765bf560f29306d7e}{get\+Plot\+Title}} () const =0
+\item 
+virtual shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} $>$ \mbox{\hyperlink{class_telecon_plot_ab754dc0b368eef40072b1aedfd3bf434}{get\+Symbol\+Style}} () const =0
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_telecon_phase_portrait_plot_a23cbe250c74c5cf118e698acc77a56c4}{push\+Data}} (double timestamp, double x\+Data, double y\+Data)=0
+\item 
+virtual shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_line_style}{Line\+Style}} $>$ \mbox{\hyperlink{class_telecon_phase_portrait_plot_a16dcfc05cb2c077744ce1e5a7e783e5e}{get\+Line\+Style}} () const =0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_data_to_add_list}{Data\+To\+Add\+List}}$<$ \mbox{\hyperlink{struct_phase_portrait_data_point}{Phase\+Portrait\+Data\+Point}} $>$ \mbox{\hyperlink{class_telecon_wx_phase_portrait_plot_a80d3bab5c8ca54dd770e8938f9cc6834}{m\+\_\+data\+To\+Add}}
+\item 
+\mbox{\hyperlink{class_data_buffer}{Data\+Buffer}}$<$ double $>$ \mbox{\hyperlink{class_telecon_wx_phase_portrait_plot_a0c7b80c0df3bd0baacdfdd1fca1e4332}{m\+\_\+timestamps}}
+\item 
+\mbox{\hyperlink{class_data_buffer}{Data\+Buffer}}$<$ double $>$ \mbox{\hyperlink{class_telecon_wx_phase_portrait_plot_acfc7356a29518c659ed4d968e847c777}{m\+\_\+x\+Data}}
+\item 
+\mbox{\hyperlink{class_data_buffer}{Data\+Buffer}}$<$ double $>$ \mbox{\hyperlink{class_telecon_wx_phase_portrait_plot_a8089bf4f21d3f340d8502bc2dcc8fcab}{m\+\_\+y\+Data}}
+\item 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{class_line_style}{Line\+Style}} $>$ \mbox{\hyperlink{class_telecon_wx_phase_portrait_plot_a86da518eeab46e11b96147e5fcd7a1b2}{m\+\_\+line\+Style}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_telecon_wx_plot}{Telecon\+Wx\+Plot}}}
+\begin{DoxyCompactItemize}
+\item 
+const size\+\_\+t \mbox{\hyperlink{class_telecon_wx_plot_a98ac5de8141d27f155c3d8a297fa1052}{m\+\_\+depth}}
+\item 
+string \mbox{\hyperlink{class_telecon_wx_plot_a3601667f3fff47879712bf4f043699fa}{m\+\_\+plot\+Title}}
+\item 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} $>$ \mbox{\hyperlink{class_telecon_wx_plot_a5b22bef71c4ac65677f1a4d743d73bb2}{m\+\_\+symbol\+Style}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{class_telecon_wx_plot}{Telecon\+Wx\+Plot}}}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_telecon_wx_plot_a2134bde951b9996ab1bc1fbb0fc4d5a8}{add\+Line\+Plot\+To\+Chart}} (XYChart $\ast$chart, string plot\+Title, bool include\+In\+Legend, Double\+Array x\+Array, Double\+Array y\+Array, shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_line_style}{Line\+Style}} $>$ line\+Style, shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} $>$ symbol\+Style)
+\item 
+static void \mbox{\hyperlink{class_telecon_wx_plot_a1a5cdcd2202a28f28bb8751b1c79db15}{add\+Scatter\+Plot\+To\+Chart}} (XYChart $\ast$chart, string plot\+Title, bool include\+In\+Legend, Double\+Array x\+Array, Double\+Array y\+Array, shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} $>$ symbol\+Style)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes inherited from \mbox{\hyperlink{class_telecon_phase_portrait_plot}{Telecon\+Phase\+Portrait\+Plot}}}
+\begin{DoxyCompactItemize}
+\item 
+static const \mbox{\hyperlink{class_line_style}{Line\+Style}} \mbox{\hyperlink{class_telecon_phase_portrait_plot_a8627e24e0d391f481214f2bfc6376dce}{default\+Line\+Style}} = \mbox{\hyperlink{class_line_style}{Line\+Style}}()
+\item 
+static const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \mbox{\hyperlink{class_telecon_phase_portrait_plot_abe7debbf503b15449257dca1dca932f0}{default\+Symbol\+Style}} = \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}}(\mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40ba99f28de5afd5242b9ffdd1dbc7b4daf4}{SYMBOL\+\_\+\+SQUARE}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Protected Member Functions inherited from \mbox{\hyperlink{class_telecon_wx_plot}{Telecon\+Wx\+Plot}}}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{class_telecon_wx_plot_a60622f733240f299e4ef696c666a09ff}{get\+Chart\+Dir\+Symbol\+From\+Plot\+Symbol}} (\mbox{\hyperlink{enums_8h_ae15115e1cf73fcccf39f4b796da1b40b}{Plot\+Symbol}} symbol)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Temporal phase portrait GUI implementation.
+
+This is an implementation class and should not be interacted with directly by the user. 
+
+Definition at line \mbox{\hyperlink{teleconwxphaseportraitplot_8h_source_l00027}{27}} of file \mbox{\hyperlink{teleconwxphaseportraitplot_8h_source}{teleconwxphaseportraitplot.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_telecon_wx_phase_portrait_plot_a00e3b0aaa9ee5efbc366f65f95b6a15c}\label{class_telecon_wx_phase_portrait_plot_a00e3b0aaa9ee5efbc366f65f95b6a15c}} 
+\index{TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}!TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}}
+\index{TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}!TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}}
+\doxysubsubsection{\texorpdfstring{TeleconWxPhasePortraitPlot()}{TeleconWxPhasePortraitPlot()}}
+{\footnotesize\ttfamily Telecon\+Wx\+Phase\+Portrait\+Plot\+::\+Telecon\+Wx\+Phase\+Portrait\+Plot (\begin{DoxyParamCaption}\item[{string}]{plot\+Title,  }\item[{size\+\_\+t}]{depth,  }\item[{const \mbox{\hyperlink{class_line_style}{Line\+Style}} \&}]{line\+Style,  }\item[{const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \&}]{symbol\+Style }\end{DoxyParamCaption})}
+
+Constructs a temporal phase portrait object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em plot\+Title} & the title of the plot, as displayed in the legend. \\
+\hline
+{\em depth} & the depth (maximum size) of the plot. Always \texorpdfstring{$>$}{>}= size. \\
+\hline
+{\em line\+Style} & the \mbox{\hyperlink{class_line_style}{Line\+Style}} representing how the line connecting points (if any) should be displayed. \\
+\hline
+{\em symbol\+Style} & the \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} representing how the symbol representing points (if any) should be displayed. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{teleconwxphaseportraitplot_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{teleconwxphaseportraitplot_8cpp_source}{teleconwxphaseportraitplot.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_telecon_wx_phase_portrait_plot_a0e33db8dc9be9c34e1a4338ad0911776}\label{class_telecon_wx_phase_portrait_plot_a0e33db8dc9be9c34e1a4338ad0911776}} 
+\index{TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}!addToChart@{addToChart}}
+\index{addToChart@{addToChart}!TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}}
+\doxysubsubsection{\texorpdfstring{addToChart()}{addToChart()}}
+{\footnotesize\ttfamily void Telecon\+Wx\+Phase\+Portrait\+Plot\+::add\+To\+Chart (\begin{DoxyParamCaption}\item[{XYChart $\ast$}]{chart }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+Draws this plot to the given chart.
+
+
+\begin{DoxyParams}{Parameters}
+{\em chart} & The chart to which to draw this plot.   \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_telecon_wx_plot_a29380c087e2d6252ff1dafe2b13f98ff}{Telecon\+Wx\+Plot}}.
+
+
+
+Definition at line \mbox{\hyperlink{teleconwxphaseportraitplot_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{teleconwxphaseportraitplot_8cpp_source}{teleconwxphaseportraitplot.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_wx_phase_portrait_plot_a7c4ca609ee43c3fc007fe653b04c83e0}\label{class_telecon_wx_phase_portrait_plot_a7c4ca609ee43c3fc007fe653b04c83e0}} 
+\index{TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}!getLatestValueString@{getLatestValueString}}
+\index{getLatestValueString@{getLatestValueString}!TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}}
+\doxysubsubsection{\texorpdfstring{getLatestValueString()}{getLatestValueString()}}
+{\footnotesize\ttfamily string Telecon\+Wx\+Phase\+Portrait\+Plot\+::get\+Latest\+Value\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+\begin{DoxyReturn}{Returns}
+A string representation of the latest value added to the plot, including only the actual data, not the timestamp.   
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_telecon_wx_plot_a410fe69ad4b7475a7fdaf65d550c6bf9}{Telecon\+Wx\+Plot}}.
+
+
+
+Definition at line \mbox{\hyperlink{teleconwxphaseportraitplot_8cpp_source_l00066}{66}} of file \mbox{\hyperlink{teleconwxphaseportraitplot_8cpp_source}{teleconwxphaseportraitplot.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_wx_phase_portrait_plot_aaccba899c53b57d4ddd278b01603677e}\label{class_telecon_wx_phase_portrait_plot_aaccba899c53b57d4ddd278b01603677e}} 
+\index{TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}!getLeftmostX@{getLeftmostX}}
+\index{getLeftmostX@{getLeftmostX}!TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}}
+\doxysubsubsection{\texorpdfstring{getLeftmostX()}{getLeftmostX()}}
+{\footnotesize\ttfamily double Telecon\+Wx\+Phase\+Portrait\+Plot\+::get\+LeftmostX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+Getter function for left most x.
+
+\begin{DoxyReturn}{Returns}
+Left most x-\/value, which may be based either on the timestamp or on the x-\/data, depending on the type of the plot.  
+\end{DoxyReturn}
+For line plots, returns the oldest timestamp. 
+
+Implements \mbox{\hyperlink{class_telecon_wx_plot_ad6ae2ae2b72e48fef8101322ca3d2134}{Telecon\+Wx\+Plot}}.
+
+
+
+Definition at line \mbox{\hyperlink{teleconwxphaseportraitplot_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{teleconwxphaseportraitplot_8cpp_source}{teleconwxphaseportraitplot.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_wx_phase_portrait_plot_a2c1d40737bc7369cc893f58889eac53b}\label{class_telecon_wx_phase_portrait_plot_a2c1d40737bc7369cc893f58889eac53b}} 
+\index{TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}!getLineStyle@{getLineStyle}}
+\index{getLineStyle@{getLineStyle}!TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}}
+\doxysubsubsection{\texorpdfstring{getLineStyle()}{getLineStyle()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_line_style}{Line\+Style}} $>$ Telecon\+Wx\+Phase\+Portrait\+Plot\+::get\+Line\+Style (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{class_line_style}{Line\+Style}} representing how the line connecting points (if any) should be displayed.   
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_telecon_phase_portrait_plot_a16dcfc05cb2c077744ce1e5a7e783e5e}{Telecon\+Phase\+Portrait\+Plot}}.
+
+
+
+Definition at line \mbox{\hyperlink{teleconwxphaseportraitplot_8cpp_source_l00085}{85}} of file \mbox{\hyperlink{teleconwxphaseportraitplot_8cpp_source}{teleconwxphaseportraitplot.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_wx_phase_portrait_plot_a46dd18630a648a332fbfe4d3ca6abd18}\label{class_telecon_wx_phase_portrait_plot_a46dd18630a648a332fbfe4d3ca6abd18}} 
+\index{TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}!getRightmostX@{getRightmostX}}
+\index{getRightmostX@{getRightmostX}!TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}}
+\doxysubsubsection{\texorpdfstring{getRightmostX()}{getRightmostX()}}
+{\footnotesize\ttfamily double Telecon\+Wx\+Phase\+Portrait\+Plot\+::get\+RightmostX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+Getter function for right most x.
+
+\begin{DoxyReturn}{Returns}
+Right most x-\/value, which may be based either on the timestamp or on the x-\/data, depending on the type of the plot.  
+\end{DoxyReturn}
+For line plots, returns the newest timestamp. 
+
+Implements \mbox{\hyperlink{class_telecon_wx_plot_aff59ec394a722ffff9e9d637ef58721e}{Telecon\+Wx\+Plot}}.
+
+
+
+Definition at line \mbox{\hyperlink{teleconwxphaseportraitplot_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{teleconwxphaseportraitplot_8cpp_source}{teleconwxphaseportraitplot.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_wx_phase_portrait_plot_a1686cc0a7c392cefa71ccd034189db8e}\label{class_telecon_wx_phase_portrait_plot_a1686cc0a7c392cefa71ccd034189db8e}} 
+\index{TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}!isIncludedInLegend@{isIncludedInLegend}}
+\index{isIncludedInLegend@{isIncludedInLegend}!TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}}
+\doxysubsubsection{\texorpdfstring{isIncludedInLegend()}{isIncludedInLegend()}}
+{\footnotesize\ttfamily bool Telecon\+Wx\+Phase\+Portrait\+Plot\+::is\+Included\+In\+Legend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+\begin{DoxyReturn}{Returns}
+True if this plot should be included in the legend, or false otherwise.   
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_telecon_wx_plot_aa8fa72958a60748a62999a1e994f3852}{Telecon\+Wx\+Plot}}.
+
+
+
+Definition at line \mbox{\hyperlink{teleconwxphaseportraitplot_8cpp_source_l00075}{75}} of file \mbox{\hyperlink{teleconwxphaseportraitplot_8cpp_source}{teleconwxphaseportraitplot.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_wx_phase_portrait_plot_ae8aad42121f3924a551b5c1cf2305255}\label{class_telecon_wx_phase_portrait_plot_ae8aad42121f3924a551b5c1cf2305255}} 
+\index{TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}!prepDataForDraw@{prepDataForDraw}}
+\index{prepDataForDraw@{prepDataForDraw}!TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}}
+\doxysubsubsection{\texorpdfstring{prepDataForDraw()}{prepDataForDraw()}}
+{\footnotesize\ttfamily void Telecon\+Wx\+Phase\+Portrait\+Plot\+::prep\+Data\+For\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+Fetches all data out of the controller thread and adds it to make it visible to UI thread. Should be called before drawing the plot with \mbox{\hyperlink{class_telecon_wx_plot_a29380c087e2d6252ff1dafe2b13f98ff}{Telecon\+Wx\+Plot\+::add\+To\+Chart}}.   
+
+Implements \mbox{\hyperlink{class_telecon_wx_plot_ae87396c2c2ad0a0bc940a7484e0734a2}{Telecon\+Wx\+Plot}}.
+
+
+
+Definition at line \mbox{\hyperlink{teleconwxphaseportraitplot_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{teleconwxphaseportraitplot_8cpp_source}{teleconwxphaseportraitplot.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_wx_phase_portrait_plot_aba3d8f91955634caaa077a22f8bb8f5f}\label{class_telecon_wx_phase_portrait_plot_aba3d8f91955634caaa077a22f8bb8f5f}} 
+\index{TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}!pushData@{pushData}}
+\index{pushData@{pushData}!TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}}
+\doxysubsubsection{\texorpdfstring{pushData()}{pushData()}}
+{\footnotesize\ttfamily void Telecon\+Wx\+Phase\+Portrait\+Plot\+::push\+Data (\begin{DoxyParamCaption}\item[{double}]{timestamp,  }\item[{double}]{x\+Data,  }\item[{double}]{y\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+Function to push a single data point (x\+Data, y\+Data) into the plot at a certain time (timestamp).
+
+
+\begin{DoxyParams}{Parameters}
+{\em timestamp} & Time the data point was generated, represented as seconds since an epoch. The epoch used will depend on the implementation; the default implementation (wx\+Chart\+Dir) uses January 1st, year 1. However, since charts display only hours, minutes, and seconds, for short time spans (less than a day), the epoch could be user-\/defined (for example, the beginning of the experiment which is producing data). Data points must be inserted with the timestamps in ascending order (the same order that they were created). \\
+\hline
+{\em x\+Data} & The x value that will be displayed. \\
+\hline
+{\em y\+Data} & The y value that will be displayed.   \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_telecon_phase_portrait_plot_a23cbe250c74c5cf118e698acc77a56c4}{Telecon\+Phase\+Portrait\+Plot}}.
+
+
+
+Definition at line \mbox{\hyperlink{teleconwxphaseportraitplot_8cpp_source_l00080}{80}} of file \mbox{\hyperlink{teleconwxphaseportraitplot_8cpp_source}{teleconwxphaseportraitplot.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_wx_phase_portrait_plot_a46f27380601e92c0fea740cb2bf6a645}\label{class_telecon_wx_phase_portrait_plot_a46f27380601e92c0fea740cb2bf6a645}} 
+\index{TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}!size@{size}}
+\index{size@{size}!TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily size\+\_\+t Telecon\+Wx\+Phase\+Portrait\+Plot\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+\begin{DoxyReturn}{Returns}
+Current size of the plot (number of data points). Always \texorpdfstring{$<$}{<}= depth.   
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_telecon_plot_a582e5ae4fd4923f82956fc37679d3809}{Telecon\+Plot}}.
+
+
+
+Definition at line \mbox{\hyperlink{teleconwxphaseportraitplot_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{teleconwxphaseportraitplot_8cpp_source}{teleconwxphaseportraitplot.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_telecon_wx_phase_portrait_plot_a80d3bab5c8ca54dd770e8938f9cc6834}\label{class_telecon_wx_phase_portrait_plot_a80d3bab5c8ca54dd770e8938f9cc6834}} 
+\index{TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}!m\_dataToAdd@{m\_dataToAdd}}
+\index{m\_dataToAdd@{m\_dataToAdd}!TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}}
+\doxysubsubsection{\texorpdfstring{m\_dataToAdd}{m\_dataToAdd}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_to_add_list}{Data\+To\+Add\+List}}$<$\mbox{\hyperlink{struct_phase_portrait_data_point}{Phase\+Portrait\+Data\+Point}}$>$ Telecon\+Wx\+Phase\+Portrait\+Plot\+::m\+\_\+data\+To\+Add\hspace{0.3cm}{\ttfamily [protected]}}
+
+The data to be added to the plot upon the next update. 
+
+Definition at line \mbox{\hyperlink{teleconwxphaseportraitplot_8h_source_l00031}{31}} of file \mbox{\hyperlink{teleconwxphaseportraitplot_8h_source}{teleconwxphaseportraitplot.\+h}}.
+
+\mbox{\Hypertarget{class_telecon_wx_phase_portrait_plot_a86da518eeab46e11b96147e5fcd7a1b2}\label{class_telecon_wx_phase_portrait_plot_a86da518eeab46e11b96147e5fcd7a1b2}} 
+\index{TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}!m\_lineStyle@{m\_lineStyle}}
+\index{m\_lineStyle@{m\_lineStyle}!TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}}
+\doxysubsubsection{\texorpdfstring{m\_lineStyle}{m\_lineStyle}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$\mbox{\hyperlink{class_line_style}{Line\+Style}}$>$ Telecon\+Wx\+Phase\+Portrait\+Plot\+::m\+\_\+line\+Style\hspace{0.3cm}{\ttfamily [protected]}}
+
+The \mbox{\hyperlink{class_line_style}{Line\+Style}} representing how the line connecting points (if any) should be displayed. 
+
+Definition at line \mbox{\hyperlink{teleconwxphaseportraitplot_8h_source_l00040}{40}} of file \mbox{\hyperlink{teleconwxphaseportraitplot_8h_source}{teleconwxphaseportraitplot.\+h}}.
+
+\mbox{\Hypertarget{class_telecon_wx_phase_portrait_plot_a0c7b80c0df3bd0baacdfdd1fca1e4332}\label{class_telecon_wx_phase_portrait_plot_a0c7b80c0df3bd0baacdfdd1fca1e4332}} 
+\index{TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}!m\_timestamps@{m\_timestamps}}
+\index{m\_timestamps@{m\_timestamps}!TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}}
+\doxysubsubsection{\texorpdfstring{m\_timestamps}{m\_timestamps}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_buffer}{Data\+Buffer}}$<$double$>$ Telecon\+Wx\+Phase\+Portrait\+Plot\+::m\+\_\+timestamps\hspace{0.3cm}{\ttfamily [protected]}}
+
+The timestamps of the data points that have been added to the plot. 
+
+Definition at line \mbox{\hyperlink{teleconwxphaseportraitplot_8h_source_l00033}{33}} of file \mbox{\hyperlink{teleconwxphaseportraitplot_8h_source}{teleconwxphaseportraitplot.\+h}}.
+
+\mbox{\Hypertarget{class_telecon_wx_phase_portrait_plot_acfc7356a29518c659ed4d968e847c777}\label{class_telecon_wx_phase_portrait_plot_acfc7356a29518c659ed4d968e847c777}} 
+\index{TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}!m\_xData@{m\_xData}}
+\index{m\_xData@{m\_xData}!TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}}
+\doxysubsubsection{\texorpdfstring{m\_xData}{m\_xData}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_buffer}{Data\+Buffer}}$<$double$>$ Telecon\+Wx\+Phase\+Portrait\+Plot\+::m\+\_\+x\+Data\hspace{0.3cm}{\ttfamily [protected]}}
+
+The x-\/data of the data points that have been added to the plot. 
+
+Definition at line \mbox{\hyperlink{teleconwxphaseportraitplot_8h_source_l00035}{35}} of file \mbox{\hyperlink{teleconwxphaseportraitplot_8h_source}{teleconwxphaseportraitplot.\+h}}.
+
+\mbox{\Hypertarget{class_telecon_wx_phase_portrait_plot_a8089bf4f21d3f340d8502bc2dcc8fcab}\label{class_telecon_wx_phase_portrait_plot_a8089bf4f21d3f340d8502bc2dcc8fcab}} 
+\index{TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}!m\_yData@{m\_yData}}
+\index{m\_yData@{m\_yData}!TeleconWxPhasePortraitPlot@{TeleconWxPhasePortraitPlot}}
+\doxysubsubsection{\texorpdfstring{m\_yData}{m\_yData}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_buffer}{Data\+Buffer}}$<$double$>$ Telecon\+Wx\+Phase\+Portrait\+Plot\+::m\+\_\+y\+Data\hspace{0.3cm}{\ttfamily [protected]}}
+
+The y-\/data of the data points that have been added to the plot. 
+
+Definition at line \mbox{\hyperlink{teleconwxphaseportraitplot_8h_source_l00037}{37}} of file \mbox{\hyperlink{teleconwxphaseportraitplot_8h_source}{teleconwxphaseportraitplot.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{teleconwxphaseportraitplot_8h}{teleconwxphaseportraitplot.\+h}}\item 
+src/\mbox{\hyperlink{teleconwxphaseportraitplot_8cpp}{teleconwxphaseportraitplot.\+cpp}}\end{DoxyCompactItemize}

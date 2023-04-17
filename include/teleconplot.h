@@ -1,6 +1,9 @@
 #pragma once
 
 #include <string>
+#include <memory>
+
+#include "symbolstyle.h"
 
 using namespace std;
 
@@ -24,37 +27,11 @@ public:
     virtual size_t depth() const = 0;
 
     /**
-     * Getter function for the color of the plot.
-     * 
-     * \return color value as an int (enum)
-     */
-    virtual int getColor() const = 0;
-
-    /**
      * Getter function for the title of the plot.
      * 
      * \return title as a string
      */
     virtual const string getPlotTitle() const = 0;
 
-    /** 
-     * Function to see if the plot symbol is filled or not
-     * 
-     * \return True if the symbol is filled, or False if the center of th symbol will be transparent.
-     */
-    virtual bool isSymbolFilled() const = 0;
-
-    /**
-     * Getter function to return the type of symbol used (e.g., square, circle, triangle).
-     *
-     * \return Symbol as int, in the format described in TeleconRealtimeChart::addLinePlot.
-     */
-    virtual int getSymbol() const = 0;
-
-    /**
-     * Getter function of the symbol size in pixels
-     * 
-     * \return symbol size as int.
-     */
-    virtual int getSymbolSize() const = 0;
+    virtual shared_ptr<const SymbolStyle> getSymbolStyle() const = 0;
 };

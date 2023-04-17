@@ -1,10 +1,14 @@
 #pragma once
 
 #include "teleconplot.h"
+#include "linestyle.h"
 
 class TeleconPhasePortraitPlot : virtual public TeleconPlot
 {
 public:
+    static const LineStyle defaultLineStyle;
+    static const SymbolStyle defaultSymbolStyle;
+
     /**
      * Function to push a single activation data point into the plot at a certain time (xTimestamp).
      *
@@ -12,4 +16,6 @@ public:
      * \param isActive true if the data point is active and should be displayed. If false the data point will not be displayed.
      */
     virtual void pushData(double timestamp, double xData, double yData) = 0;
+
+    virtual shared_ptr<const LineStyle> getLineStyle() const = 0;
 };

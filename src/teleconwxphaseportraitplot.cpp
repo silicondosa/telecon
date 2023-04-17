@@ -1,7 +1,15 @@
 #include "teleconwxphaseportraitplot.h"
 
-TeleconWxPhasePortraitPlot::TeleconWxPhasePortraitPlot(string plotTitle, int color, int lineWidth, LineType lineType, bool hasSymbol, int symbol, bool fillSymbol, int symbolSize, size_t depth)
-    : TeleconWxPlot(plotTitle, color, depth), m_dataToAdd(depth), m_timestamps(depth), m_xData(depth), m_yData(depth), m_lineWidth(lineWidth), m_lineType(lineType), m_hasSymbol(hasSymbol), m_symbol(symbol), m_fillSymbol(fillSymbol), m_symbolSize(symbolSize) {}
+TeleconWxPhasePortraitPlot::TeleconWxPhasePortraitPlot(string plotTitle, size_t depth, const LineStyle& lineStyle, const SymbolStyle& symbolStyle)
+    : TeleconWxPlot(plotTitle, depth, symbolStyle), m_dataToAdd(depth), m_timestamps(depth), m_xData(depth), m_yData(depth), m_lineStyle(make_shared<LineStyle>(lineStyle))
+{
+    if (m_lineStyle->getLineColor() == COLOR_DEFAULT) {
+        m_lineStyle->setLineColor(COLOR_BLACK);
+    }
+    if (m_symbolStyle->getSymbolColor() == COLOR_DEFAULT) {
+        m_symbolStyle->setSymbolColor(m_lineStyle->getLineColor());
+    }
+}
 
 size_t TeleconWxPhasePortraitPlot::size() const
 {
@@ -24,23 +32,15 @@ void TeleconWxPhasePortraitPlot::addToChart(XYChart * chart)
     if (m_timestamps.size() <= 0) {
         return;
     }
-    int chartDirColor;
-    if (m_lineType == LT_SOLID) {
-        chartDirColor = m_color;
-    } else { // Solid or none
-        chartDirColor = chart->dashLineColor(m_color, Chart::DashLine);
-    }
-    LineLayer* layer = chart->addLineLayer();
-
-    DataSet* dataSet = layer->addDataSet(DoubleArray(&m_yData[0], (int)m_yData.size()), chartDirColor, (string("\\") + m_plotTitle).c_str());
-
-    dataSet->setLineWidth(m_lineWidth);
-
-    if (m_hasSymbol) {
-        dataSet->setDataSymbol(m_symbol, m_symbolSize, m_fillSymbol ? m_color : Chart::Transparent, m_color);
-    }
-
-    layer->setXData(DoubleArray(&m_xData[0], (int)m_xData.size()));
+    TeleconWxPlot::addLinePlotToChart(
+        chart,
+        m_plotTitle,
+        true,
+        DoubleArray(&m_xData[0], (int)m_xData.size()),
+        DoubleArray(&m_yData[0], (int)m_yData.size()),
+        m_lineStyle,
+        m_symbolStyle
+    );
 }
 
 double TeleconWxPhasePortraitPlot::getLeftmostX() const
@@ -82,17 +82,7 @@ void TeleconWxPhasePortraitPlot::pushData(double timestamp, double xData, double
     m_dataToAdd.addDataPoint({ timestamp, xData, yData });
 }
 
-bool TeleconWxPhasePortraitPlot::isSymbolFilled() const
+shared_ptr<const LineStyle> TeleconWxPhasePortraitPlot::getLineStyle() const
 {
-    return m_fillSymbol;
-}
-
-int TeleconWxPhasePortraitPlot::getSymbol() const
-{
-    return m_symbol;
-}
-
-int TeleconWxPhasePortraitPlot::getSymbolSize() const
-{
-    return m_symbolSize;
+    return m_lineStyle;
 }

@@ -16,20 +16,15 @@ struct RasterDataPoint
 
 class TeleconWxRasterPlot : public TeleconWxPlot, virtual public TeleconRasterPlot
 {
-private:
+protected:
     // XY Data member values
     DataToAddList<RasterDataPoint> m_dataToAdd;
     DataBuffer<double> m_xTimestamps;
     DataBuffer<double> m_yValueBuffer;
     double m_yValue;
 
-    // Display options member values
-    bool m_fillSymbol;
-    int m_symbol;
-    int m_symbolSize;
-
 public:
-    TeleconWxRasterPlot(string plotTitle, double yValue, int color, int symbol, bool fillSymbol, int symbolSize, size_t depth);
+    TeleconWxRasterPlot(string plotTitle, double yValue, size_t depth, const SymbolStyle& symbolStyle);
 
     double getYValue() const;
 
@@ -44,7 +39,4 @@ public:
 
     // Inherited via TeleconRasterPlot
     virtual void pushData(double xTimestamp, bool isActive = true) override;
-    virtual bool isSymbolFilled() const override;
-    virtual int getSymbol() const override;
-    virtual int getSymbolSize() const override;
 };

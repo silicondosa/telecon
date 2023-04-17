@@ -1,7 +1,12 @@
 #include "teleconwxrasterplot.h"
 
-TeleconWxRasterPlot::TeleconWxRasterPlot(string plotTitle, double yValue, int color, int symbol, bool fillSymbol, int symbolSize, size_t depth)
-    : TeleconWxPlot(plotTitle, color, depth), m_dataToAdd(depth), m_xTimestamps(depth), m_yValue(yValue), m_yValueBuffer(depth), m_symbol(symbol), m_fillSymbol(fillSymbol), m_symbolSize(symbolSize) {}
+TeleconWxRasterPlot::TeleconWxRasterPlot(string plotTitle, double yValue, size_t depth, const SymbolStyle& symbolStyle)
+    : TeleconWxPlot(plotTitle, depth, symbolStyle), m_dataToAdd(depth), m_xTimestamps(depth), m_yValue(yValue), m_yValueBuffer(depth)
+{
+    if (m_symbolStyle->getSymbolColor() == COLOR_DEFAULT) {
+        m_symbolStyle->setSymbolColor(COLOR_BLACK);
+    }
+}
 
 double TeleconWxRasterPlot::getYValue() const
 {
@@ -28,7 +33,14 @@ void TeleconWxRasterPlot::addToChart(XYChart* chart)
     if (m_xTimestamps.size() <= 0) {
         return;
     }
-    ScatterLayer* layer = chart->addScatterLayer(DoubleArray(&m_xTimestamps[0], (int)m_xTimestamps.size()), DoubleArray(&m_yValueBuffer[0], (int)m_yValueBuffer.size()), (string("notitle\\") + m_plotTitle).c_str(), m_symbol, m_symbolSize, m_fillSymbol ? m_color : Chart::Transparent, m_color);
+    TeleconWxPlot::addScatterPlotToChart(
+        chart,
+        m_plotTitle,
+        false,
+        DoubleArray(&m_xTimestamps[0], (int)m_xTimestamps.size()),
+        DoubleArray(&m_yValueBuffer[0], (int)m_yValueBuffer.size()),
+        m_symbolStyle
+    );
 }
 
 double TeleconWxRasterPlot::getLeftmostX() const
@@ -57,19 +69,4 @@ bool TeleconWxRasterPlot::isIncludedInLegend() const
 void TeleconWxRasterPlot::pushData(double xTimestamp, bool isActive)
 {
     m_dataToAdd.addDataPoint({ xTimestamp, isActive });
-}
-
-bool TeleconWxRasterPlot::isSymbolFilled() const
-{
-    return m_fillSymbol;
-}
-
-int TeleconWxRasterPlot::getSymbol() const
-{
-    return m_symbol;
-}
-
-int TeleconWxRasterPlot::getSymbolSize() const
-{
-    return m_symbolSize;
 }

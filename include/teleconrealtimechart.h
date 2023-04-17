@@ -4,6 +4,7 @@
 #include "teleconwxlineplot.h"
 #include "teleconwxscatterplot.h"
 #include "teleconwxrasterplot.h"
+#include "linestyle.h"
 
 /**
  * Chart implementation with time on the x-axis (more suitable for real time data), inherits from TeleconChart. Used by line, scatter, and raster plots.
@@ -30,18 +31,18 @@ public:
      * For the default implementation, wxChartDir, the symbol values are the same as the ChartDirector shapes.
      * \param fillSymbol if true, the symbol will (if drawn) be filled with the same color as the line. If false, the cener of the symbol will be transparent.
      * \param symbolSize the size of the symbol (if drawn) in pixels.
-     * \sa https://www.advsofteng.com/doc/cdpydoc/shapespec.htm
+     * \sa https://www.advsofteng.com/doc/cdpydoc/shapespec.html
      */
-    shared_ptr<TeleconLinePlot> addLinePlot(std::string plottitle, long plotcolor = COLOR_DEFAULT, LineType lineType = LT_SOLID, int lineWidth = 1, int symbol = SYMBOL_NO_SYMBOL, bool fillSymbol = true, int symbolSize = 5, size_t memoryDepth = -1);
+    shared_ptr<TeleconLinePlot> addLinePlot(std::string plottitle, const LineStyle& lineStyle = TeleconLinePlot::defaultLineStyle, const SymbolStyle& symbolStyle = TeleconLinePlot::defaultSymbolStyle, size_t memoryDepth = -1);
     
     /**
      * Adds a scatter plot to the chart with the given parameters. Parameters, where present, are identical to those in addLinePlot.
      *
      * \sa TeleconRealTimeChart::addLinePlot
      */
-    shared_ptr<TeleconScatterPlot> addScatterPlot(std::string plottitle, long plotcolor = COLOR_DEFAULT, int symbol = SYMBOL_SQUARE, bool fillSymbol = true, int symbolSize = 5, size_t memoryDepth = -1);
+    shared_ptr<TeleconScatterPlot> addScatterPlot(std::string plottitle, const SymbolStyle& symbolStyle = TeleconScatterPlot::defaultSymbolStyle, size_t memoryDepth = -1);
 
-    shared_ptr<TeleconRasterPlot> addRasterPlot(std::string plottitle, double yValue, long plotcolor = COLOR_DEFAULT, int symbol = SYMBOL_CIRCLE, bool fillSymbol = true, int symbolSize = 1, size_t memoryDepth = -1);
+    shared_ptr<TeleconRasterPlot> addRasterPlot(std::string plottitle, double yValue, const SymbolStyle& symbolStyle = TeleconRasterPlot::defaultSymbolStyle, size_t memoryDepth = -1);
 
     /**
      * Getter function that returns the default width of the chart, to be used when few or no data have been provided.

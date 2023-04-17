@@ -7,6 +7,7 @@
  */
 class TeleconRasterPlot : virtual public TeleconPlot {
 public:
+    static const SymbolStyle defaultSymbolStyle;
 
     /**
      * Function to push a single activation data point into the plot at a certain time (xTimestamp).

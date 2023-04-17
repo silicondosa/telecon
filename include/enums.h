@@ -2,7 +2,16 @@
 
 #include "chartdir.h"
 
-enum COLORS
+/**
+ * Describes whether the given line plot uses a solid line or a dashed line to connect points.
+ */
+enum PlotLineType
+{
+    LT_SOLID,
+    LT_DASHED
+};
+
+enum PlotColor
 {
     COLOR_DEFAULT = -1L,
     COLOR_BLACK = 0x000000,
@@ -24,7 +33,7 @@ enum COLORS
     COLOR_DIVERGING_ROYAL_BLUE = 0x313695 // Actually closest to steel blue; royal blue was next
 };
 
-enum SYMBOLS
+enum PlotSymbol
 {
     SYMBOL_NO_SYMBOL = Chart::NoShape,
     SYMBOL_CIRCLE = Chart::CircleShape,

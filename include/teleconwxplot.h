@@ -7,6 +7,8 @@
 #include "chartdir.h"
 #include "databuffer.h"
 #include "teleconplot.h"
+#include "symbolstyle.h"
+#include "linestyle.h"
 
 using namespace std;
 
@@ -16,9 +18,13 @@ using namespace std;
 class TeleconWxPlot : virtual public TeleconPlot {
 protected:
     const size_t m_depth;
-	int m_color; // Represented as an RGB hexadecimal code (one byte per channel)
 	string m_plotTitle;
+    shared_ptr<SymbolStyle> m_symbolStyle;
+
+    static int getChartDirSymbolFromPlotSymbol(PlotSymbol symbol);
 public:
+    static void addLinePlotToChart(XYChart* chart, string plotTitle, bool includeInLegend, DoubleArray xArray, DoubleArray yArray, shared_ptr<const LineStyle> lineStyle, shared_ptr<const SymbolStyle> symbolStyle);
+    static void addScatterPlotToChart(XYChart* chart, string plotTitle, bool includeInLegend, DoubleArray xArray, DoubleArray yArray, shared_ptr<const SymbolStyle> symbolStyle);
 
 	/**
 	 * Constructor.
@@ -27,7 +33,7 @@ public:
 	 * \param color color as an int (enum)
 	 * \param depth depth of the plot databuffer as type size_t
 	 */
-	TeleconWxPlot(string plotTitle, int color, size_t depth);
+	TeleconWxPlot(string plotTitle, size_t depth, const SymbolStyle &symbolStyle);
 	/* TeleconWxPlot interface functions*/
 
 	/**
@@ -73,6 +79,7 @@ public:
 
     /* Functions inherited from TeleconPlot */
 
+    // Inherited via TeleconRasterPlot
 	/**
 	 * size() remains abstract.
 	 * 
@@ -81,16 +88,11 @@ public:
 	virtual size_t depth() const override;
 
 	/**
-	 * Getter function for plot color.
-	 * 
-	 * \return color as int (enum)
-	 */
-	virtual int getColor() const override;
-
-	/**
 	 * Getter function for plot title.
 	 * 
 	 * \return title as string
 	 */
 	virtual const string getPlotTitle() const override;
+
+    virtual shared_ptr<const SymbolStyle> getSymbolStyle() const;
 };

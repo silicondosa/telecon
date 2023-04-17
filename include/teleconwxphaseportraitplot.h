@@ -1,7 +1,6 @@
 #pragma once
 
 #include "teleconwxplot.h"
-#include "teleconlineplot.h"
 #include "teleconphaseportraitplot.h"
 #include "datatoaddlist.h"
 
@@ -32,7 +31,7 @@ struct PhasePortraitDataPoint
 
 class TeleconWxPhasePortraitPlot : public TeleconWxPlot, virtual public TeleconPhasePortraitPlot
 {
-private:
+protected:
     // XY Data member values
     DataToAddList<PhasePortraitDataPoint> m_dataToAdd;
     DataBuffer<double> m_timestamps;
@@ -40,15 +39,10 @@ private:
     DataBuffer<double> m_yData;
 
     // Display options member values
-    LineType m_lineType;
-    int m_lineWidth;
-    bool m_hasSymbol;
-    bool m_fillSymbol;
-    int m_symbol;
-    int m_symbolSize;
+    shared_ptr<LineStyle> m_lineStyle;
 
 public:
-    TeleconWxPhasePortraitPlot(string plotTitle, int color, int lineWidth, LineType lineType, bool hasSymbol, int symbol, bool fillSymbol, int symbolSize, size_t depth);
+    TeleconWxPhasePortraitPlot(string plotTitle, size_t depth, const LineStyle& lineStyle, const SymbolStyle& symbolStyle);
 
     // Inherited via TeleconWxPlot
     virtual size_t size() const override;
@@ -59,9 +53,7 @@ public:
     virtual string getLatestValueString() const override;
     virtual bool isIncludedInLegend() const override;
 
-    // Inherited via TeleconRasterPlot
+    // Inherited via TeleconPhasePortraitPlot
     virtual void pushData(double timestamp, double xData, double yData) override;
-    virtual bool isSymbolFilled() const override;
-    virtual int getSymbol() const override;
-    virtual int getSymbolSize() const override;
+    virtual shared_ptr<const LineStyle> getLineStyle() const override;
 };

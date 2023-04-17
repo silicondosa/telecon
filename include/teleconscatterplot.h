@@ -1,12 +1,24 @@
 #pragma once
 
-#include "teleconlinescatterplot.h"
+#include "teleconplot.h"
+#include "symbolstyle.h"
 
 /**
  * Scatter plot implementation, inherits from TeleconLineScatterPlot.
  * (TeleconLineScatterPlot happens to contain everything actually needed for scatterplot)
  */
-class TeleconScatterPlot : virtual public TeleconLineScatterPlot {};
+class TeleconScatterPlot : virtual public TeleconPlot {
+public:
+    static const SymbolStyle defaultSymbolStyle;
+
+    /**
+     * Function to push a single data point (yData) into the plot at a certain time (xTimestamp).
+     *
+     * \param xTimestamp Time the data point was generated, in seconds. The exact interpretation of the time will depend on the implementation; the default implementation (wxChartDir) interprets it as seconds since January 1st, year 1.
+     * \param yData The value that will be displayed.
+     */
+    virtual void pushData(double xTimestamp, double yData) = 0;
+};
 
 
 

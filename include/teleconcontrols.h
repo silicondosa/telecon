@@ -36,6 +36,18 @@ public:
     bool state = false;
 };
 
+
+class TeleconInput
+{
+public:
+    TeleconInput(string title, int startVal);
+    std::string title;
+    string getTitle();
+    int val;
+    int getVal();
+    void setVal(int newVal);
+};
+
 class TeleconControls
 {
 public:
@@ -43,9 +55,11 @@ public:
     shared_ptr<TeleconButton> addButton(string title);
     shared_ptr<TeleconToggle> addToggle(string title);
     shared_ptr<TeleconSlider> addSlider(string title, int min, int max, int startPos);
+    shared_ptr<TeleconInput> addInput(string title, int startVal);
 
     string windowName;
     vector<shared_ptr<TeleconButton>> buttons;
     vector<shared_ptr<TeleconToggle>> toggles;
     vector<shared_ptr<TeleconSlider>> sliders;
+    vector<shared_ptr<TeleconInput>> inputs;
 };

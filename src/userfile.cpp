@@ -40,6 +40,12 @@ int main(int argc, char* argv[])
     shared_ptr<TeleconToggle> toggle1 = controls->addToggle("Toggle 1");
     shared_ptr<TeleconToggle> toggle2 = controls->addToggle("Toggle 2");
     shared_ptr<TeleconSlider> slider1 = controls->addSlider("Slider 1", 0, 100,50);
+    shared_ptr<TeleconSlider> slider2 = controls->addSlider("Slider 2", 0, 200, 25);
+    shared_ptr<TeleconSlider> slider3 = controls->addSlider("Slider 3", 0, 10, 1);
+    shared_ptr<TeleconSlider> slider4 = controls->addSlider("Slider 4", 0, 1000, 500);
+    shared_ptr<TeleconInput> input1 = controls->addInput("Input 1", 300);
+    shared_ptr<TeleconInput> input2 = controls->addInput("Input 2", 10);
+    shared_ptr<TeleconInput> input3 = controls->addInput("Input 3", 200);
 
     shared_ptr<TeleconWindow> window = telecon->addWindow("MyWindow");
 

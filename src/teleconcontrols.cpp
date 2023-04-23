@@ -27,6 +27,12 @@ shared_ptr<TeleconSlider> TeleconControls::addSlider(string title, int min, int 
     return slider;
 }
 
+shared_ptr<TeleconInput> TeleconControls::addInput(string title, int startVal) {
+    shared_ptr<TeleconInput> input = make_shared<TeleconInput>(title, startVal);
+    inputs.push_back(input);
+    return input;
+}
+
 
 TeleconButton::TeleconButton(string title){
     this->title = title;
@@ -40,6 +46,10 @@ TeleconSlider::TeleconSlider(string title, int min, int max, int startPos){
     this->max = max;
     this->current_state = startPos;
 }
+TeleconInput::TeleconInput(string title, int startVal){
+    this->title = title;
+    this->val = startVal;
+}
 
 
 string TeleconButton::getTitle(){
@@ -48,4 +58,16 @@ string TeleconButton::getTitle(){
 
 string TeleconToggle::getTitle(){
     return title;
+}
+
+string TeleconInput::getTitle() {
+    return title;
+}
+
+int TeleconInput::getVal() {
+    return val;
+}
+
+void TeleconInput::setVal(int newVal) {
+    this->val = newVal;
 }

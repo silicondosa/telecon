@@ -46,7 +46,15 @@ TeleconWxControlsWindow::TeleconWxControlsWindow(shared_ptr<TeleconControls> con
   for (int i = 0; i < controls->toggles.size(); i++)
   {
     auto t = controls->toggles[i];
-    wxToggleButton *myButton = new wxToggleButton(this, id_toggle + i, t->getTitle(), wxDefaultPosition, wxDefaultSize, 0);
+    wxToggleButton* myButton = new wxToggleButton(this, id_toggle + i, wxString(t->getTitle()), wxDefaultPosition, wxDefaultSize, 0);
+
+   /* wxStaticText* buttonName = new wxStaticText(this, wxID_STATIC, wxString(t->getTitle()), wxDefaultPosition, wxDefaultSize, 0);
+
+    m_toggleGridSizer = new wxFlexGridSizer(0, 10, 0, 10);
+    m_controlsBoxSizer->Add(m_toggleGridSizer);
+
+    m_toggleGridSizer->Add(buttonName);*/
+
     m_controlsBoxSizer->Add(myButton);
     Connect(wxEVT_COMMAND_TOGGLEBUTTON_CLICKED, wxCommandEventHandler(TeleconWxControlsWindow::toggleHandler));
   }
@@ -54,9 +62,38 @@ TeleconWxControlsWindow::TeleconWxControlsWindow(shared_ptr<TeleconControls> con
   for (int i = 0; i < controls->sliders.size(); i++)
   {
     auto s = controls->sliders[i];
-    wxSlider *mySlider = new wxSlider(this,id_slider,s->current_state, s->min, s->max, wxDefaultPosition, wxDefaultSize, 0);
-    m_controlsBoxSizer->Add(mySlider);
+    wxSlider* mySlider = new wxSlider(this, id_slider + i, s->current_state, s->min, s->max, wxDefaultPosition, wxSize(400, -1), wxSL_AUTOTICKS);
+    mySlider->SetTickFreq(1);
+    wxTextCtrl* sliderVal = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, FromDIP(wxSize(60, -1)), wxTE_READONLY | wxSTATIC_BORDER);
+    sliderVal->Enable(false);
+    wxStaticText* sliderName = new wxStaticText(this, wxID_STATIC, wxString(s->title), wxDefaultPosition, wxDefaultSize, 0);
+
+    m_sliderGridSizer = new wxFlexGridSizer(0, 10, 0, 10);
+    m_controlsBoxSizer->Add(m_sliderGridSizer);
+
+    m_sliderGridSizer->Add(sliderName);
+    m_sliderGridSizer->Add(mySlider);
+    m_sliderGridSizer->Add(sliderVal);
+    m_sliderValues.insert(pair(id_slider+i, sliderVal));
+    m_sliderValues[id_slider + i]->SetValue(std::to_string(s->current_state));
+
     Connect(wxEVT_COMMAND_SLIDER_UPDATED, wxCommandEventHandler(TeleconWxControlsWindow::sliderHandler));
+  }
+
+  for (int i = 0; i < controls->inputs.size(); i++)
+  {
+      auto in = controls->inputs[i];
+      wxTextCtrl* myInput = new wxTextCtrl(this, id_button + i, wxString(std::to_string(in->getVal())), wxDefaultPosition, wxDefaultSize, 0);
+      myInput->Enable(true);
+      wxStaticText* inputName = new wxStaticText(this, wxID_STATIC, wxString(in->getTitle()), wxDefaultPosition, wxDefaultSize, 0);
+
+      m_inputGridSizer = new wxFlexGridSizer(0, 10, 0, 10);
+      m_controlsBoxSizer->Add(m_inputGridSizer);
+
+      m_inputGridSizer->Add(inputName);
+      m_inputGridSizer->Add(myInput);
+
+      Connect(wxEVT_TEXT_ENTER, wxCommandEventHandler(TeleconWxControlsWindow::inputHandler));
   }
 
   //CAN HAVE MAP MAPPING BUTTON IDS TO THE BUTTON OBJEcTS
@@ -82,7 +119,13 @@ void TeleconWxControlsWindow::toggleHandler(wxCommandEvent &event)
 void TeleconWxControlsWindow::sliderHandler(wxCommandEvent &event)
 {
   int sliderIndex = event.GetId() - id_slider;
-  controls->sliders[sliderIndex]->current_state = event.GetInt();
-  // cout << "Hello Slider: " << event.GetInt() << "   " << event.GetId() << endl;
-  
+  int val = event.GetInt();
+  controls->sliders[sliderIndex]->current_state = val;
+  m_sliderValues[event.GetId()]->SetValue(std::to_string(val));
+}
+
+void TeleconWxControlsWindow::inputHandler(wxCommandEvent& event)
+{
+    int inputIndex = event.GetId();
+    controls->inputs[inputIndex]->setVal(event.GetInt());
 }

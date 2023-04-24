@@ -4,7 +4,7 @@
 #include <vector>
 
 #include "colors.h"
-#include "teleconwxplot.h"
+#include "teleconplot.h"
 
 using namespace std;
 
@@ -49,8 +49,6 @@ protected:
     const ColorSequenceMode m_colorSequenceMode;
     /** True if the Telecon app has started running and no further changes are permitted, or false before then. */
     bool m_hasStarted;
-    /** A list of the plots that have been added to the chart. */
-    vector<shared_ptr<TeleconPlot>> m_plots;
     /** Returns the next color, represented as described in ::PlotColor, that should be used for default-color plots according to the ::ColorSequenceMode. */
     long getNextDefaultColor();
 public:
@@ -100,28 +98,22 @@ public:
      * \return Default x-axis type, as specified in ::ChartXAxisType.
      */
     virtual ChartXAxisType getChartXAxisType() = 0;
-
-    /**
-     * Initializer function. After this has been called, no further changes to the chart may be made.
-     * This function will be called by the parent TeleconWindow object, and normally should not be called directly by the user.
-     */
-    void initialize();
     
     /**
      * \param index the index of the TeleconPlot to return, relative to the order added.
      * \return A pointer to the TeleconPlot requested.
      */
-    shared_ptr<TeleconPlot> getPlot(int index);
+    virtual shared_ptr<TeleconPlot> getPlot(int index) = 0;
 
     /**
      * \return The number of TeleconPlots added to the chart
      */
-    size_t getNumPlots();
+    virtual size_t getNumPlots() = 0;
 
     /**
      * \param name the name of the TeleconPlot to return. If multiple plots share the same name, no guarantee is made about which will be returned.
      * \return A pointer to a plot with the given name, or a null pointer if no plot in the given chart and window has that name.
      */
-    shared_ptr<TeleconPlot> getPlotByName(string name);
+    virtual shared_ptr<TeleconPlot> getPlotByName(string name) = 0;
 
 };

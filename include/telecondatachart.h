@@ -1,14 +1,14 @@
 #pragma once
 
 #include "teleconchart.h"
-#include "teleconwxphaseportraitplot.h"
+#include "teleconphaseportraitplot.h"
 #include "linestyle.h"
 
 /**
  * Chart implementation that inherits from TeleconChart for charts with non-time data on the x-axis.
  * Currently usable only for phase portrait plots.
  */
-class TeleconDataChart : public TeleconChart
+class TeleconDataChart : virtual public TeleconChart
 {
 public:
     /**
@@ -28,20 +28,20 @@ public:
      * If a value of -1 is given, this will be auto-calculated based on the memory depth of the chart and the data rate.
      * \return A pointer to the constructed temporal phase portrait object.
      */
-    shared_ptr<TeleconPhasePortraitPlot> addPhasePortraitPlot(std::string plottitle, const LineStyle& lineStyle = TeleconPhasePortraitPlot::defaultLineStyle, const SymbolStyle& symbolStyle = TeleconPhasePortraitPlot::defaultSymbolStyle, size_t memoryDepth = -1);
+    virtual shared_ptr<TeleconPhasePortraitPlot> addPhasePortraitPlot(std::string plottitle, const LineStyle& lineStyle = TeleconPhasePortraitPlot::defaultLineStyle, const SymbolStyle& symbolStyle = TeleconPhasePortraitPlot::defaultSymbolStyle, size_t memoryDepth = -1) = 0;
 
     /**
      * \copydoc TeleconChart::getDefaultXAxisSpan
      * 
      * For this data chart, the units will be the same as the plots given.
      */
-    double getDefaultXAxisSpan() override;
+    virtual double getDefaultXAxisSpan() override;
 
     /**
      * \copydoc TeleconChart::getChartXAxisType
      * 
      * For this data chart, guaranteed to return non-time type (::CAXT_ARBITRARY).
      */
-    ChartXAxisType getChartXAxisType() override;
+    virtual ChartXAxisType getChartXAxisType() override;
 };
 

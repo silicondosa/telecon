@@ -9,7 +9,7 @@
 #include <string>
 
 #include "teleconwxchart.h"
-#include "teleconwindow.h"
+#include "teleconwindowimplchartdir.h"
 
 using namespace std;
 
@@ -21,7 +21,7 @@ using namespace std;
 class TeleconWxWindow : public wxFrame
 {
 private:
-    shared_ptr<TeleconWindow> m_window;
+    shared_ptr<TeleconWindowImplChartDir> m_window;
 
     vector<TeleconWxChart*> m_charts;
 
@@ -58,7 +58,7 @@ public:
      *
      * \param window A pointer to the ::TeleconWindow object representing the window.
      */
-    TeleconWxWindow(shared_ptr<TeleconWindow> window);
+    TeleconWxWindow(shared_ptr<TeleconWindowImplChartDir> window);
 
     DECLARE_EVENT_TABLE()
 };

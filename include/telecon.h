@@ -13,10 +13,7 @@
 
 #include "chartdir.h"
 #include "teleconwindow.h"
-#include "teleconwxapp.h"
 #include "teleconcontrols.h"
-
-class TeleconWxApp; // Forward declaration needed due to circular dependency between telecon and app
 
 using namespace std;
 
@@ -33,7 +30,7 @@ using namespace std;
  */
 class Telecon
 {
-private:
+protected:
     /** The UI thread, in which all long-running actions must occur. */
     thread m_wxAppThread;
 
@@ -45,16 +42,10 @@ private:
      */
     std::atomic_bool m_hasStopped;
 
-    /** A reference to the TeleconWxApp object, which sets up the UI as directed by the Telecon object. */
-    TeleconWxApp* m_teleconWxApp;
-
-    /** A list of the windows that have been added to the app. */
-    vector<shared_ptr<TeleconWindow>> m_windows;
-
-    vector<shared_ptr<TeleconControls>> m_controls;
-
     /** Starts running the app. */
-    void teleconAppInit();
+    virtual void teleconAppInit() = 0;
+
+    virtual void initializeWindows() = 0;
 
 public:
     /**
@@ -75,12 +66,6 @@ public:
     Telecon();
 
     /**
-     * Closes and windows that are still open and exits, then deletes the Telecon object.
-     * This may be a long-running operation if there are still windows open.
-     */
-    ~Telecon();
-
-    /**
      * \return Returns true if the Telecon object has already started (or finished) initializing displayed windows, or false before then.
      */
     bool hasStarted();
@@ -99,18 +84,18 @@ public:
      * \param name the name that will be displayed on the window.
      * \return A pointer to the TeleconWindow object created.
      */
-    shared_ptr<TeleconWindow> addWindow(string name);
+    virtual shared_ptr<TeleconWindow> addWindow(string name) = 0;
 
     /**
      * \param index the index of the TeleconWindow to return, relative to the order added.
      * \return A pointer to the TeleconWindow requested.
      */
-    shared_ptr<TeleconWindow> getWindow(int index);
+    virtual shared_ptr<TeleconWindow> getWindow(int index) = 0;
 
     /**
      * \return The number of TeleconWindows added to the application.
      */
-    size_t getNumWindows() const;
+    virtual size_t getNumWindows() const = 0;
 
     /**
      * \param name the name of the TeleconWindow to return. If multiple windows share the same name, no guarantee is made about which will be returned.
@@ -140,18 +125,18 @@ public:
      * \param name the name that will be displayed on the window.
      * \return A pointer to the TeleconControls object created.
      */
-    shared_ptr<TeleconControls> addControls(string name);
+    virtual shared_ptr<TeleconControls> addControls(string name) = 0;
 
      /**
      * \param index the index of the TeleconControls to return, relative to the order added.
      * \return A pointer to the TeleconControls requested.
      */
-    shared_ptr<TeleconControls> getControls(int index);
+    virtual shared_ptr<TeleconControls> getControls(int index) = 0;
 
     /**
      * \return The number of TeleconControls added to the application.
      */
-    size_t getNumControls();
+    virtual size_t getNumControls() = 0;
 
 
 };

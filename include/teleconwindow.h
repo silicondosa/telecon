@@ -14,7 +14,7 @@
  * It describes features such as the title and whether the window is still open.
  */
 class TeleconWindow {
-private:
+protected:
 	std::atomic_bool m_hasRequestedQuit;
 	mutex m_hasQuitLock;
 	condition_variable m_hasQuitCV;
@@ -22,8 +22,6 @@ private:
 	const std::string m_title;
 
     bool m_hasStarted;
-
-	std::vector<shared_ptr<TeleconChart>> m_charts;
 public:
 
 	/**
@@ -34,7 +32,7 @@ public:
 	TeleconWindow(std::string title = "");
 
 	/**
-	 * Requests that the given window should be closed. On the next chart refresh, the app's implementation should close the window.
+	 * Requests that the given window should be closed. On the next refresh, the window's implementation should close the window.
 	 * 
 	 */
 	void requestQuit();
@@ -68,12 +66,6 @@ public:
 	 */
 	std::string getTitle();
 
-	/**
-	 * Initializer function. After this has been called, no further changes to the window may be made.
-     * This function will be called by the parent Telecon object, and normally should not be called directly by the user.
-	 */
-    void initialize();
-
     /**
      * Adds a realtime chart to the window.
      * Realtime charts have time data on the x-axis.
@@ -90,7 +82,7 @@ public:
      * See ::ColorSequenceMode for more details.
      * \return A pointer to the TeleconRealtimeChart object created.
      */
-	shared_ptr<TeleconRealtimeChart> addRealtimeChart(std::string title = "", double memoryDepthSeconds = 60.0, int dataRateMillis = 100, std::string xLabel = "", std::string yLabel = "", ColorSequenceMode colorSequenceMode = CSM_BLACK);
+	virtual shared_ptr<TeleconRealtimeChart> addRealtimeChart(std::string title = "", double memoryDepthSeconds = 60.0, int dataRateMillis = 100, std::string xLabel = "", std::string yLabel = "", ColorSequenceMode colorSequenceMode = CSM_BLACK) = 0;
 
     /**
      * Adds a data chart to the window.
@@ -100,29 +92,29 @@ public:
      * \return A pointer to the TeleconDataChart object created.
      * \sa TeleconWindow::addRealtimeChart
      */
-    shared_ptr<TeleconDataChart> addDataChart(std::string title = "", double memoryDepthSeconds = 60.0, int dataRateMillis = 100, std::string xLabel = "", std::string yLabel = "", ColorSequenceMode colorSequenceMode = CSM_BLACK);
+    virtual shared_ptr<TeleconDataChart> addDataChart(std::string title = "", double memoryDepthSeconds = 60.0, int dataRateMillis = 100, std::string xLabel = "", std::string yLabel = "", ColorSequenceMode colorSequenceMode = CSM_BLACK) = 0;
 	
 	/**
      * \param index the index of the TeleconChart to return, relative to the order added.
      * \return A pointer to the TeleconChart requested.
 	 */
-	shared_ptr<TeleconChart> getChart(size_t index);
+	virtual shared_ptr<TeleconChart> getChart(size_t index) = 0;
 
 	/**
 	 * \return The number of TeleconCharts added to the window.
 	 */
-	size_t getNumCharts() const;
+	virtual size_t getNumCharts() const = 0;
 
 	/**
      * \param name the name of the TeleconChart to return. If multiple windows share the same name, no guarantee is made about which will be returned.
      * \return A pointer to a chart with the given name, or a null pointer if no chart has that name.
 	 */
-	shared_ptr<TeleconChart> getChartByName(string name);
+	virtual shared_ptr<TeleconChart> getChartByName(string name) = 0;
 
 	/**
      * \param chartName the name of the TeleconChart in which to search for a plot with the given name. If multiple charts share the same name, no guarantee is made about which will be returned.
      * \param plotName the name of the TeleconPlot to return. If multiple plots share the same name, no guarantee is made about which will be returned.
      * \return A pointer to a plot with the given name, or a null pointer if no plot in the given chart and window has that name.
 	 */
-	shared_ptr<TeleconPlot> getPlotByName(string chartName, string plotName);
+	virtual shared_ptr<TeleconPlot> getPlotByName(string chartName, string plotName) = 0;
 };

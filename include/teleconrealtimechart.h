@@ -1,16 +1,16 @@
 #pragma once
 
 #include "teleconchart.h"
-#include "teleconwxlineplot.h"
-#include "teleconwxscatterplot.h"
-#include "teleconwxrasterplot.h"
+#include "teleconlineplot.h"
+#include "teleconscatterplot.h"
+#include "teleconrasterplot.h"
 #include "linestyle.h"
 
  /**
   * Chart implementation that inherits from TeleconChart for charts with time data on the x-axis.
   * Currently usable for line, scatter, and raster plots.
   */
-class TeleconRealtimeChart : public TeleconChart {
+class TeleconRealtimeChart : virtual public TeleconChart {
 public:
     /**
     * Constructor for TeleconRealtimeChart. See the parent constructor, which has the same values.
@@ -29,7 +29,7 @@ public:
     * If a value of -1 is given, this will be auto-calculated based on the memory depth of the chart and the data rate.
     * \return A pointer to the constructed line plot object.
     */
-    shared_ptr<TeleconLinePlot> addLinePlot(std::string plottitle, const LineStyle& lineStyle = TeleconLinePlot::defaultLineStyle, const SymbolStyle& symbolStyle = TeleconLinePlot::defaultSymbolStyle, size_t memoryDepth = -1);
+    virtual shared_ptr<TeleconLinePlot> addLinePlot(std::string plottitle, const LineStyle& lineStyle = TeleconLinePlot::defaultLineStyle, const SymbolStyle& symbolStyle = TeleconLinePlot::defaultSymbolStyle, size_t memoryDepth = -1) = 0;
     
     /**
     * Adds a scatter plot to the chart with the given parameters.
@@ -40,7 +40,7 @@ public:
     * If a value of -1 is given, this will be auto-calculated based on the memory depth of the chart and the data rate.
     * \return A pointer to the constructed scatter plot object.
     */
-    shared_ptr<TeleconScatterPlot> addScatterPlot(std::string plottitle, const SymbolStyle& symbolStyle = TeleconScatterPlot::defaultSymbolStyle, size_t memoryDepth = -1);
+    virtual shared_ptr<TeleconScatterPlot> addScatterPlot(std::string plottitle, const SymbolStyle& symbolStyle = TeleconScatterPlot::defaultSymbolStyle, size_t memoryDepth = -1) = 0;
 
     /**
     * Adds a raster plot to the chart with the given parameters.
@@ -52,19 +52,19 @@ public:
     * If a value of -1 is given, this will be auto-calculated based on the memory depth of the chart and the data rate.
     * \return A pointer to the constructed raster plot object.
     */
-    shared_ptr<TeleconRasterPlot> addRasterPlot(std::string plottitle, double yValue, const SymbolStyle& symbolStyle = TeleconRasterPlot::defaultSymbolStyle, size_t memoryDepth = -1);
+    virtual shared_ptr<TeleconRasterPlot> addRasterPlot(std::string plottitle, double yValue, const SymbolStyle& symbolStyle = TeleconRasterPlot::defaultSymbolStyle, size_t memoryDepth = -1) = 0;
 
     /**
      * \copydoc TeleconChart::getDefaultXAxisSpan
      *
      * For this realtime chart, the units will be seconds.
      */
-    double getDefaultXAxisSpan() override;
+    virtual double getDefaultXAxisSpan() override;
 
     /**
      * \copydoc TeleconChart::getChartXAxisType
      *
      * For this realtime chart, guaranteed to return time type (::CAXT_TIME).
      */
-    ChartXAxisType getChartXAxisType() override;
+    virtual ChartXAxisType getChartXAxisType() override;
 };

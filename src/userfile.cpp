@@ -6,6 +6,7 @@
 #endif
 
 #include "telecon.h"
+#include "teleconimplchartdir.h"
 
 #include <cmath>
 #include <random>
@@ -34,7 +35,7 @@ int main(int argc, char* argv[])
 {
     const int dataRateMillis = 100;
     // Initialization code
-    Telecon* telecon = new Telecon();
+    Telecon* telecon = new TeleconImplChartDir();
 
     shared_ptr<TeleconControls> controls = telecon->addControls("MyControls");
     shared_ptr<TeleconToggle> toggle1 = controls->addToggle("Toggle 1");

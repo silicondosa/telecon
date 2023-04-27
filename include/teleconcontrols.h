@@ -13,7 +13,7 @@ public:
     TeleconButton(string title, func_t callback);
     func_t functionPtr;
     string getTitle();
-    bool state = false;
+    volatile bool state = false;
 
 private:
     string title;
@@ -26,7 +26,7 @@ public:
     std::string title;
     int min;
     int max;
-    int current_state;
+    volatile int current_state;
 
     //TODO
     int precision;
@@ -42,7 +42,7 @@ public:
     TeleconToggle(string title);
     std::string title;
     string getTitle();
-    bool state = false;
+    volatile bool state = false;
 };
 
 
@@ -52,7 +52,7 @@ public:
     TeleconInput(string title, int startVal);
     std::string title;
     string getTitle();
-    int val;
+    volatile int val;
     int getVal();
     void setVal(int newVal);
 };

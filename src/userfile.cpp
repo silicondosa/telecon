@@ -79,7 +79,7 @@ int main(int argc, char* argv[])
         this_thread::sleep_for(chrono::milliseconds(200));
         // cout << "Toggle 1 state: " << toggle1->state << "    Toggle 2 state: " << toggle2->state << endl;
         cout << "Input 1 state: " << input1->getVal() << endl;
-        cout << "Input 2 state: " << input1->getVal() << endl;
+        cout << "Input 2 state: " << input2->getVal() << endl;
         // cout << "Input 3 state: " << input1->getVal() << endl;
     }
 

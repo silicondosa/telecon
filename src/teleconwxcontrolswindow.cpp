@@ -142,7 +142,9 @@ void TeleconWxControlsWindow::inputHandler(wxCommandEvent& event)
     ss << value_str;
     ss >> value_int;
     
-
+// 
     controls->inputs[inputIndex]->setVal(value_int);
-    cout << "Hello world: " << value_int <<  endl;
+    // controls->inputs[inputIndex]->val = value_int;
+    // cout << "Hello world: " << value_int <<  " " << inputIndex <<  endl;
+    // cout << "   " << controls->inputs[inputIndex]->val << endl;
 }

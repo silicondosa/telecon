@@ -17,7 +17,7 @@ OBJECTS = teleconwindow.o teleconrealtimechart.o teleconwxplot.o \
 		teleconscatterplot.o
 
 
-CXXFLAGS = -g
+CXXFLAGS =
 
 # base: baseapp
 # 	LD_LIBRARY_PATH=~/git-repos/wxchartdir/lib/linux64/ ./base

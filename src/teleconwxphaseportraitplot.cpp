@@ -1,4 +1,6 @@
 #include "teleconwxphaseportraitplot.h"
+#include <cfloat>
+#include <cmath>
 
 TeleconWxPhasePortraitPlot::TeleconWxPhasePortraitPlot(string plotTitle, size_t depth, const LineStyle& lineStyle, const SymbolStyle& symbolStyle)
     : TeleconWxPlot(plotTitle, depth, symbolStyle), m_dataToAdd(depth), m_timestamps(depth), m_xData(depth), m_yData(depth), m_lineStyle(make_shared<LineStyle>(lineStyle))

@@ -30,6 +30,15 @@ CreateDataPoints()
     return dataA;
 }
 
+void printHello(){
+    cout << "Callback Hello World" << endl;
+}
+// void startTelecon(){
+    // mytelecon->teleconStart();
+// }
+
+// Telecon* mytelecon;
+
 int main(int argc, char* argv[])
 {
     const int dataRateMillis = 100;
@@ -37,15 +46,42 @@ int main(int argc, char* argv[])
     Telecon* telecon = new Telecon();
 
     shared_ptr<TeleconControls> controls = telecon->addControls("MyControls");
+    controls->addButton("Button 1", printHello);
     shared_ptr<TeleconToggle> toggle1 = controls->addToggle("Toggle 1");
     shared_ptr<TeleconToggle> toggle2 = controls->addToggle("Toggle 2");
-    shared_ptr<TeleconSlider> slider1 = controls->addSlider("Slider 1", 0, 100,50);
-    shared_ptr<TeleconSlider> slider2 = controls->addSlider("Slider 2", 0, 200, 25);
-    shared_ptr<TeleconSlider> slider3 = controls->addSlider("Slider 3", 0, 10, 1);
-    shared_ptr<TeleconSlider> slider4 = controls->addSlider("Slider 4", 0, 1000, 500);
+    shared_ptr<TeleconSlider> slider2 = controls->addSlider("Slider 2", 0, 3, 2, 2);
     shared_ptr<TeleconInput> input1 = controls->addInput("Input 1", 300);
     shared_ptr<TeleconInput> input2 = controls->addInput("Input 2", 10);
     shared_ptr<TeleconInput> input3 = controls->addInput("Input 3", 200);
+
+    shared_ptr<TeleconWindow> sineDemoWindow = telecon->addWindow("sineDemoWindow");
+
+    shared_ptr<TeleconRealtimeChart> sinechart = sineDemoWindow->addRealtimeChart("Chart1", 60.0, dataRateMillis, "time (s)", "lbs");
+    shared_ptr<TeleconLinePlot> sinePlot = sinechart->addLinePlot("Sin Function", LineStyle(COLOR_BLACK));
+
+    // telecon->teleconStart();
+    // wxDateTime start = wxDateTime::UNow();
+    // double startTimestamp = Chart::chartTime2(start.GetTicks()) + start.GetMillisecond() / 1000.0;
+    // while (true) {
+    //     wxDateTime now = wxDateTime::UNow(); // Needs to use UNow instead of Now for millisecond precision
+    //     double nowTimestampAbsolute = Chart::chartTime2(now.GetTicks()) + now.GetMillisecond() / 1000.0;
+    //     double nowTimestampRelative = nowTimestampAbsolute - startTimestamp;
+
+    //     sinePlot->pushData(nowTimestampRelative, sin(nowTimestampRelative * slider2->getCurrentValue()));
+
+    //     if (telecon->hasStopped()) {
+    //         break;
+    //     }
+    //     this_thread::sleep_for(chrono::milliseconds(dataRateMillis));
+    // }
+    telecon->teleconStart();
+    while(true){
+        this_thread::sleep_for(chrono::milliseconds(200));
+        // cout << "Toggle 1 state: " << toggle1->state << "    Toggle 2 state: " << toggle2->state << endl;
+        cout << "Input 1 state: " << input1->getVal() << endl;
+        cout << "Input 2 state: " << input1->getVal() << endl;
+        // cout << "Input 3 state: " << input1->getVal() << endl;
+    }
 
     shared_ptr<TeleconWindow> window = telecon->addWindow("MyWindow");
 
@@ -137,6 +173,7 @@ int main(int argc, char* argv[])
         for (auto phasePortrait : phasePortraits) {
             phasePortrait->pushData(nowTimestampRelative, CreateDataPoints(), CreateDataPoints());
         }
+        sinePlot->pushData(nowTimestampRelative, sin(nowTimestampRelative * slider2->getCurrentValue()));
         if (telecon->hasStopped()) {
             break;
         }

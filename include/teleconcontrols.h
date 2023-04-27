@@ -5,11 +5,13 @@
 
 using namespace std;
 
+typedef void (*func_t)();
+
 class TeleconButton
 {
 public:
-    TeleconButton(string title);
-
+    TeleconButton(string title, func_t callback);
+    func_t functionPtr;
     string getTitle();
     bool state = false;
 
@@ -20,11 +22,18 @@ private:
 class TeleconSlider
 {
 public:
-    TeleconSlider(string title, int min, int max, int current_state);
+    TeleconSlider(string title, int min, int max, int current_state, int precision);
     std::string title;
     int min;
     int max;
     int current_state;
+
+    //TODO
+    int precision;
+    int offset;
+
+    double getCurrentValue();
+    string current_value_to_string();
 };
 
 class TeleconToggle
@@ -52,9 +61,9 @@ class TeleconControls
 {
 public:
     TeleconControls(string windowName);
-    shared_ptr<TeleconButton> addButton(string title);
+    shared_ptr<TeleconButton> addButton(string title, func_t callback);
     shared_ptr<TeleconToggle> addToggle(string title);
-    shared_ptr<TeleconSlider> addSlider(string title, int min, int max, int startPos);
+    shared_ptr<TeleconSlider> addSlider(string title, int min, int max, int startPos, int precision);
     shared_ptr<TeleconInput> addInput(string title, int startVal);
 
     string windowName;

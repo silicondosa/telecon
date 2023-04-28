@@ -41,7 +41,8 @@ TeleconWxControlsWindow::TeleconWxControlsWindow(shared_ptr<TeleconControls> con
   {
     auto b = controls->buttons[i];
     wxButton *myButton = new wxButton(this, id_button + i, b->getTitle(), wxDefaultPosition, wxDefaultSize, 0);
-    m_controlsBoxSizer->Add(myButton);
+    m_controlsBoxSizer->Add(myButton, 0, wxLEFT | wxRIGHT, FromDIP(20));
+    m_controlsBoxSizer->AddSpacer(FromDIP(10));
     Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(TeleconWxControlsWindow::buttonPressHandler));
   }
 
@@ -57,7 +58,8 @@ TeleconWxControlsWindow::TeleconWxControlsWindow(shared_ptr<TeleconControls> con
 
     m_toggleGridSizer->Add(buttonName);*/
 
-    m_controlsBoxSizer->Add(myButton);
+    m_controlsBoxSizer->Add(myButton, 0, wxLEFT | wxRIGHT, FromDIP(20));
+    m_controlsBoxSizer->AddSpacer(FromDIP(10));
     Connect(wxEVT_COMMAND_TOGGLEBUTTON_CLICKED, wxCommandEventHandler(TeleconWxControlsWindow::toggleHandler));
   }
 
@@ -71,12 +73,13 @@ TeleconWxControlsWindow::TeleconWxControlsWindow(shared_ptr<TeleconControls> con
     wxStaticText* sliderName = new wxStaticText(this, wxID_STATIC, wxString(s->title), wxDefaultPosition, wxDefaultSize, 0);
 
     m_sliderGridSizer = new wxFlexGridSizer(0, 10, 0, 10);
-    m_controlsBoxSizer->Add(m_sliderGridSizer);
+    m_controlsBoxSizer->Add(m_sliderGridSizer, 0, wxLEFT | wxRIGHT, FromDIP(20));
 
     m_sliderGridSizer->Add(sliderName);
     m_sliderGridSizer->Add(mySlider);
     m_sliderGridSizer->Add(sliderVal);
     m_sliderValues.insert(pair(id_slider+i, sliderVal));
+    m_controlsBoxSizer->AddSpacer(FromDIP(10));
     m_sliderValues[id_slider + i]->SetValue(s->current_value_to_string());
 
     Connect(wxEVT_COMMAND_SLIDER_UPDATED, wxCommandEventHandler(TeleconWxControlsWindow::sliderHandler));
@@ -92,7 +95,8 @@ TeleconWxControlsWindow::TeleconWxControlsWindow(shared_ptr<TeleconControls> con
       wxStaticText* inputName = new wxStaticText(this, wxID_STATIC, wxString(in->getTitle()), wxDefaultPosition, wxDefaultSize, 0);
 
       m_inputGridSizer = new wxFlexGridSizer(0, 10, 0, 10);
-      m_controlsBoxSizer->Add(m_inputGridSizer);
+      m_controlsBoxSizer->Add(m_inputGridSizer, 0, wxLEFT | wxRIGHT, FromDIP(20));
+      m_controlsBoxSizer->AddSpacer(FromDIP(10));
 
       m_inputGridSizer->Add(inputName);
       m_inputGridSizer->Add(myInput);

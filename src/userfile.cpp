@@ -49,7 +49,7 @@ int main(int argc, char* argv[])
     controls->addButton("Button 1", printHello);
     shared_ptr<TeleconToggle> toggle1 = controls->addToggle("Toggle 1");
     shared_ptr<TeleconToggle> toggle2 = controls->addToggle("Toggle 2");
-    shared_ptr<TeleconSlider> slider2 = controls->addSlider("Slider 2", 0, 3, 2, 2);
+    // shared_ptr<TeleconSlider> slider2 = controls->addSlider("Slider 2", 0, 3, 2, 2);
     shared_ptr<TeleconInput> input1 = controls->addInput("Input 1", 300);
     shared_ptr<TeleconInput> input2 = controls->addInput("Input 2", 10);
     shared_ptr<TeleconInput> input3 = controls->addInput("Input 3", 200);
@@ -58,6 +58,7 @@ int main(int argc, char* argv[])
 
     shared_ptr<TeleconRealtimeChart> sinechart = sineDemoWindow->addRealtimeChart("Chart1", 60.0, dataRateMillis, "time (s)", "lbs");
     shared_ptr<TeleconLinePlot> sinePlot = sinechart->addLinePlot("Sin Function", LineStyle(COLOR_BLACK));
+    double sinvalue = 0;
 
     // telecon->teleconStart();
     // wxDateTime start = wxDateTime::UNow();
@@ -173,7 +174,10 @@ int main(int argc, char* argv[])
         for (auto phasePortrait : phasePortraits) {
             phasePortrait->pushData(nowTimestampRelative, CreateDataPoints(), CreateDataPoints());
         }
-        sinePlot->pushData(nowTimestampRelative, sin(nowTimestampRelative * slider2->getCurrentValue()));
+        
+        // sinePlot->pushData(nowTimestampRelative, sin(nowTimestampRelative * slider2->getCurrentValue()));
+        // sinePlot->pushData(nowTimestampRelative, sin(sinvalue));
+        // sinvalue += slider2->getCurrentValue() * (3.1415 / 10);
         if (telecon->hasStopped()) {
             break;
         }

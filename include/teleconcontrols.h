@@ -1,7 +1,18 @@
 #pragma once
 
+#include <wx/wxprec.h>
+
+#ifndef WX_PRECOMP
+#include <wx/wx.h>
+#endif
+
+// #include <teleconwxcontrolswindow.h>
+
+
 #include <string>
 #include <vector>
+#include <memory>
+
 
 using namespace std;
 
@@ -45,16 +56,23 @@ public:
     volatile bool state = false;
 };
 
-
 class TeleconInput
 {
 public:
     TeleconInput(string title, int startVal);
     std::string title;
     string getTitle();
-    volatile int val;
-    int getVal();
-    void setVal(int newVal);
+    volatile double val;
+    double getVal();
+    void setVal(double newVal);
+    void setId(int id);
+    void setFrame(wxFrame* frame);
+    void updateInputBox(double value);
+    ~TeleconInput();
+private:
+    wxFrame* frame;
+    int id;
+    
 };
 
 class TeleconControls

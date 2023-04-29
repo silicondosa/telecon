@@ -51,6 +51,7 @@ private:
     /** A list of the windows that have been added to the app. */
     vector<shared_ptr<TeleconWindow>> m_windows;
 
+    /** A list of the control windows that have been added to the app. */
     vector<shared_ptr<TeleconControls>> m_controls;
 
     /** Starts running the app. */

@@ -42,6 +42,8 @@ protected:
      */
     std::atomic_bool m_hasStopped;
 
+    /** A list of the control windows that have been added to the app. */
+    vector<shared_ptr<TeleconControls>> m_controls;
     /** Starts running the app. */
     virtual void teleconAppInit() = 0;
 

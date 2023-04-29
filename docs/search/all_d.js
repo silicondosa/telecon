@@ -1,28 +1,6 @@
 var searchData=
 [
-  ['scatterplotdatapoint_0',['ScatterPlotDataPoint',['../struct_scatter_plot_data_point.html',1,'']]],
-  ['setfillsymbol_1',['setFillSymbol',['../class_symbol_style.html#a7c373e5992d1160a654a028ac80d1d93',1,'SymbolStyle']]],
-  ['sethasquit_2',['setHasQuit',['../class_telecon_window.html#a04702615f238323fed9c4e8ad7182130',1,'TeleconWindow']]],
-  ['setlinecolor_3',['setLineColor',['../class_line_style.html#a45ebe5df25155e653987a7ebf8c58d12',1,'LineStyle']]],
-  ['setlinetype_4',['setLineType',['../class_line_style.html#af2528fd12890b6d75fb308512cbc1a8d',1,'LineStyle']]],
-  ['setlinewidth_5',['setLineWidth',['../class_line_style.html#a0556994a3bc381b245cb2ba3883572bb',1,'LineStyle']]],
-  ['setpause_6',['setPause',['../class_telecon_wx_chart.html#a107853fb490241f40f9cab5f83d39872',1,'TeleconWxChart']]],
-  ['setplay_7',['setPlay',['../class_telecon_wx_chart.html#a3ffc4a088d9162f8822eabb30ec5ed15',1,'TeleconWxChart']]],
-  ['setsymbol_8',['setSymbol',['../class_symbol_style.html#aa45c4b94c051803e7496d4811bcab32a',1,'SymbolStyle']]],
-  ['setsymbolcolor_9',['setSymbolColor',['../class_symbol_style.html#ac388640d601e0506158f7534699e5eb3',1,'SymbolStyle']]],
-  ['setsymbolsize_10',['setSymbolSize',['../class_symbol_style.html#a4402751c17acbe13b66ce16e1c20a9a0',1,'SymbolStyle']]],
-  ['size_11',['size',['../class_data_buffer.html#a1d235779d299a2b770a8c27386ee3ef0',1,'DataBuffer::size()'],['../class_telecon_plot.html#a582e5ae4fd4923f82956fc37679d3809',1,'TeleconPlot::size()'],['../class_telecon_wx_line_plot.html#af4c365d24a8a34b55b6e53de388dd70f',1,'TeleconWxLinePlot::size()'],['../class_telecon_wx_phase_portrait_plot.html#a46f27380601e92c0fea740cb2bf6a645',1,'TeleconWxPhasePortraitPlot::size()'],['../class_telecon_wx_raster_plot.html#a75e498c612cf889622ae6315ce615fed',1,'TeleconWxRasterPlot::size()'],['../class_telecon_wx_scatter_plot.html#aae4d7cf34d6ab30661c296fa276ff148',1,'TeleconWxScatterPlot::size()']]],
-  ['sliders_12',['sliders',['../class_telecon_controls.html#a2858cb4d59ebb7ba2890e35e340ed8e0',1,'TeleconControls']]],
-  ['state_13',['state',['../class_telecon_button.html#a4d129ee0cfd7c7be5246182c2417e646',1,'TeleconButton::state()'],['../class_telecon_toggle.html#a82d06dafb78e71e8b016136a4babaf0c',1,'TeleconToggle::state()']]],
-  ['symbol_5fcircle_14',['SYMBOL_CIRCLE',['../enums_8h.html#ae15115e1cf73fcccf39f4b796da1b40baeedd6d364526e38cfbb1f678cf9b2849',1,'enums.h']]],
-  ['symbol_5fcross_15',['SYMBOL_CROSS',['../enums_8h.html#ae15115e1cf73fcccf39f4b796da1b40ba0c6a27fc25c9a11472f15b4c1e114ac5',1,'enums.h']]],
-  ['symbol_5fdiamond_16',['SYMBOL_DIAMOND',['../enums_8h.html#ae15115e1cf73fcccf39f4b796da1b40bac596c2d7a6a41afcfd17d7acb49eda0e',1,'enums.h']]],
-  ['symbol_5fno_5fsymbol_17',['SYMBOL_NO_SYMBOL',['../enums_8h.html#ae15115e1cf73fcccf39f4b796da1b40ba666bb08379feb5797dfec199a2479b6a',1,'enums.h']]],
-  ['symbol_5fplus_18',['SYMBOL_PLUS',['../enums_8h.html#ae15115e1cf73fcccf39f4b796da1b40ba96c65b5c28ba395b0a2b175d75ad67e7',1,'enums.h']]],
-  ['symbol_5fsquare_19',['SYMBOL_SQUARE',['../enums_8h.html#ae15115e1cf73fcccf39f4b796da1b40ba99f28de5afd5242b9ffdd1dbc7b4daf4',1,'enums.h']]],
-  ['symbol_5fstar_20',['SYMBOL_STAR',['../enums_8h.html#ae15115e1cf73fcccf39f4b796da1b40ba350a145ee29286a85e90711102a3acfa',1,'enums.h']]],
-  ['symbol_5ftriangle_21',['SYMBOL_TRIANGLE',['../enums_8h.html#ae15115e1cf73fcccf39f4b796da1b40ba990fbfeb06f1415306188eae2fd8eb7b',1,'enums.h']]],
-  ['symbolstyle_22',['SymbolStyle',['../class_symbol_style.html',1,'SymbolStyle'],['../class_symbol_style.html#a9e4f0106cbaaf127b2e1eac0bcdaa30f',1,'SymbolStyle::SymbolStyle()']]],
-  ['symbolstyle_2ecpp_23',['symbolstyle.cpp',['../symbolstyle_8cpp.html',1,'']]],
-  ['symbolstyle_2eh_24',['symbolstyle.h',['../symbolstyle_8h.html',1,'']]]
+  ['rasterdatapoint_0',['RasterDataPoint',['../struct_raster_data_point.html',1,'']]],
+  ['readme_2emd_1',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
+  ['requestquit_2',['requestQuit',['../class_telecon_window.html#a86848112a81a9dfeac71808d107fc0c3',1,'TeleconWindow']]]
 ];

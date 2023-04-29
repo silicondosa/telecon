@@ -104,14 +104,14 @@ $(document).ready(function(){initNavTree('teleconwxwindow_8h_source.html',''); i
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="teleconwxchart_8h.html">teleconwxchart.h</a>&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="teleconwindow_8h.html">teleconwindow.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="teleconwindowimplchartdir_8h.html">teleconwindowimplchartdir.h</a>&quot;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">using namespace </span>std;</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="class_telecon_wx_window.html">   21</a></span><span class="keyword">class </span><a class="code hl_class" href="class_telecon_wx_window.html">TeleconWxWindow</a> : <span class="keyword">public</span> wxFrame</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    shared_ptr&lt;TeleconWindow&gt; m_window;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    shared_ptr&lt;TeleconWindowImplChartDir&gt; m_window;</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    vector&lt;TeleconWxChart*&gt; m_charts;</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
@@ -143,7 +143,7 @@ $(document).ready(function(){initNavTree('teleconwxwindow_8h_source.html',''); i
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <a class="code hl_class" href="class_telecon_wx_window.html">TeleconWxWindow</a>(shared_ptr&lt;TeleconWindow&gt; window);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <a class="code hl_class" href="class_telecon_wx_window.html">TeleconWxWindow</a>(shared_ptr&lt;TeleconWindowImplChartDir&gt; window);</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    DECLARE_EVENT_TABLE()</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>};</div>
@@ -155,7 +155,7 @@ $(document).ready(function(){initNavTree('teleconwxwindow_8h_source.html',''); i
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_enumvalue" href="teleconwxwindow_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a44e2beffa71c1fa3e23088bc30660691">ID_REFRESH_INTERVAL</a></div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="teleconwxwindow_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a44e2beffa71c1fa3e23088bc30660691">   71</a></span>};</div>
 <div class="ttc" id="aclass_telecon_wx_window_html"><div class="ttname"><a href="class_telecon_wx_window.html">TeleconWxWindow</a></div><div class="ttdef"><b>Definition:</b> <a href="teleconwxwindow_8h_source.html#l00021">teleconwxwindow.h:22</a></div></div>
-<div class="ttc" id="ateleconwindow_8h_html"><div class="ttname"><a href="teleconwindow_8h.html">teleconwindow.h</a></div></div>
+<div class="ttc" id="ateleconwindowimplchartdir_8h_html"><div class="ttname"><a href="teleconwindowimplchartdir_8h.html">teleconwindowimplchartdir.h</a></div></div>
 <div class="ttc" id="ateleconwxchart_8h_html"><div class="ttname"><a href="teleconwxchart_8h.html">teleconwxchart.h</a></div></div>
 <div class="ttc" id="ateleconwxchart_8h_html_a06fc87d81c62e9abb8790b6e5713c55ba12f80c74dc4c5d9996717490ba4a8f52"><div class="ttname"><a href="teleconwxchart_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba12f80c74dc4c5d9996717490ba4a8f52">ID_CHARTVIEWER</a></div><div class="ttdeci">@ ID_CHARTVIEWER</div><div class="ttdef"><b>Definition:</b> <a href="teleconwxchart_8h_source.html#l00127">teleconwxchart.h:126</a></div></div>
 <div class="ttc" id="ateleconwxwindow_8h_html_adf764cbdea00d65edcd07bb9953ad2b7a44e2beffa71c1fa3e23088bc30660691"><div class="ttname"><a href="teleconwxwindow_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a44e2beffa71c1fa3e23088bc30660691">ID_REFRESH_INTERVAL</a></div><div class="ttdeci">@ ID_REFRESH_INTERVAL</div><div class="ttdef"><b>Definition:</b> <a href="teleconwxwindow_8h_source.html#l00071">teleconwxwindow.h:70</a></div></div>

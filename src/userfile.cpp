@@ -59,7 +59,7 @@ int main(int argc, char* argv[])
     shared_ptr<TeleconWindow> sineDemoWindow = telecon->addWindow("sineDemoWindow");
 
     shared_ptr<TeleconRealtimeChart> sinechart = sineDemoWindow->addRealtimeChart("Chart1", 60.0, dataRateMillis, "time (s)", "lbs");
-    shared_ptr<TeleconLinePlot> sinePlot = sinechart->addLinePlot("Sin Function", LineStyle(COLOR_BLACK));
+    shared_ptr<TeleconLinePlot> sinePlot = sinechart->addLinePlot("Sine Function", LineStyle(COLOR_BLACK));
     double sinvalue = 0;
 
     // telecon->teleconStart();

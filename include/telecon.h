@@ -44,9 +44,11 @@ protected:
 
     /** A list of the control windows that have been added to the app. */
     vector<shared_ptr<TeleconControls>> m_controls;
+    
     /** Starts running the app. */
     virtual void teleconAppInit() = 0;
 
+    /** Initializes the windows, preventing them from being changed. */
     virtual void initializeWindows() = 0;
 
 public:

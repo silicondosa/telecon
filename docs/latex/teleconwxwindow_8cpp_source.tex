@@ -12,7 +12,7 @@
 \DoxyCodeLine{\Hypertarget{teleconwxwindow_8cpp_source_l00008}00008\ }
 \DoxyCodeLine{\Hypertarget{teleconwxwindow_8cpp_source_l00009}00009\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ chartRefreshIntervals[8]\ =\ \{\ 250,\ 500,\ 750,\ 1000,\ 1250,\ 1500,\ 1750,\ 2000\ \};}
 \DoxyCodeLine{\Hypertarget{teleconwxwindow_8cpp_source_l00010}00010\ }
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8cpp_source_l00011}\mbox{\hyperlink{class_telecon_wx_window_a2ec3377b3fdab55ed183c9033f590053}{00011}}\ \mbox{\hyperlink{class_telecon_wx_window_a2ec3377b3fdab55ed183c9033f590053}{TeleconWxWindow::TeleconWxWindow}}(shared\_ptr<TeleconWindow>\ window)}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8cpp_source_l00011}\mbox{\hyperlink{class_telecon_wx_window_a776817eeb7913ba323e28cde960c50cd}{00011}}\ \mbox{\hyperlink{class_telecon_wx_window_a776817eeb7913ba323e28cde960c50cd}{TeleconWxWindow::TeleconWxWindow}}(shared\_ptr<TeleconWindowImplChartDir>\ window)}
 \DoxyCodeLine{\Hypertarget{teleconwxwindow_8cpp_source_l00012}00012\ \ \ \ \ :\ wxFrame((wxFrame*)NULL,\ -\/1,\ window-\/>getTitle(),\ wxDefaultPosition,\ wxDefaultSize),\ m\_window(window)}
 \DoxyCodeLine{\Hypertarget{teleconwxwindow_8cpp_source_l00013}00013\ \{}
 \DoxyCodeLine{\Hypertarget{teleconwxwindow_8cpp_source_l00014}00014\ }
@@ -26,7 +26,7 @@
 \DoxyCodeLine{\Hypertarget{teleconwxwindow_8cpp_source_l00022}00022\ }
 \DoxyCodeLine{\Hypertarget{teleconwxwindow_8cpp_source_l00023}00023\ \ \ \ \ \textcolor{comment}{//add\ charts\ to\ main\ sizer}}
 \DoxyCodeLine{\Hypertarget{teleconwxwindow_8cpp_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ m\_window-\/>getNumCharts();\ i++)\ \{}
-\DoxyCodeLine{\Hypertarget{teleconwxwindow_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_chart}{TeleconWxChart}}*\ chart\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_telecon_wx_chart}{TeleconWxChart}}(m\_window-\/>getChart(i),\ \textcolor{keyword}{this},\ wxID\_ANY,\ wxDefaultPosition,\ wxDefaultSize,\ wxTAB\_TRAVERSAL\ |\ wxNO\_BORDER,\ wxASCII\_STR(wxPanelNameStr));}
+\DoxyCodeLine{\Hypertarget{teleconwxwindow_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_chart}{TeleconWxChart}}*\ chart\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_telecon_wx_chart}{TeleconWxChart}}(m\_window-\/>getChartImpl(i),\ \textcolor{keyword}{this},\ wxID\_ANY,\ wxDefaultPosition,\ wxDefaultSize,\ wxTAB\_TRAVERSAL\ |\ wxNO\_BORDER,\ wxASCII\_STR(wxPanelNameStr));}
 \DoxyCodeLine{\Hypertarget{teleconwxwindow_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ m\_charts.push\_back(chart);}
 \DoxyCodeLine{\Hypertarget{teleconwxwindow_8cpp_source_l00027}00027\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{teleconwxwindow_8cpp_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ panel\_element\ :\ m\_charts)\ \{}

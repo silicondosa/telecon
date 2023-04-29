@@ -1,0 +1,40 @@
+\hypertarget{teleconchartimplchartdir_8cpp_source}{}\doxysection{teleconchartimplchartdir.\+cpp}
+\label{teleconchartimplchartdir_8cpp_source}\index{src/teleconchartimplchartdir.cpp@{src/teleconchartimplchartdir.cpp}}
+\mbox{\hyperlink{teleconchartimplchartdir_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{teleconchartimplchartdir_8h}{teleconchartimplchartdir.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00003}\mbox{\hyperlink{class_telecon_chart_impl_chart_dir_a69d7eaf2ee7483b3eae4fc2fb563ff25}{00003}}\ \mbox{\hyperlink{class_telecon_chart_impl_chart_dir_a69d7eaf2ee7483b3eae4fc2fb563ff25}{TeleconChartImplChartDir::TeleconChartImplChartDir}}(\textcolor{keywordtype}{string}\ title,\ \textcolor{keywordtype}{double}\ memoryDepthSeconds,\ \textcolor{keywordtype}{int}\ dataRateMillis,\ \textcolor{keywordtype}{string}\ xLabel,\ \textcolor{keywordtype}{string}\ yLabel,\ \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{ColorSequenceMode}}\ colorSequenceMode)}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00004}00004\ \ \ \ \ :\ \mbox{\hyperlink{class_telecon_chart}{TeleconChart}}(title,\ memoryDepthSeconds,\ dataRateMillis,\ xLabel,\ yLabel,\ colorSequenceMode)\ \{\}}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00006}\mbox{\hyperlink{class_telecon_chart_impl_chart_dir_a2ba80b6ce9e8ab234abd667297b5f40a}{00006}}\ shared\_ptr<TeleconWxPlot>\ \mbox{\hyperlink{class_telecon_chart_impl_chart_dir_a2ba80b6ce9e8ab234abd667297b5f40a}{TeleconChartImplChartDir::getWxPlot}}(\textcolor{keywordtype}{int}\ index)}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00008}00008\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_telecon_chart_impl_chart_dir_ae490e63548a330ed0e1ccd8ce525d91c}{m\_plots}}[index];}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00009}00009\ \}}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00011}\mbox{\hyperlink{class_telecon_chart_impl_chart_dir_a8734fa4d5394d73ca9bd38437014f518}{00011}}\ shared\_ptr<TeleconPlot>\ \mbox{\hyperlink{class_telecon_chart_impl_chart_dir_a8734fa4d5394d73ca9bd38437014f518}{TeleconChartImplChartDir::getPlot}}(\textcolor{keywordtype}{int}\ index)}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00012}00012\ \{}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00013}00013\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_telecon_chart_impl_chart_dir_a2ba80b6ce9e8ab234abd667297b5f40a}{getWxPlot}}(index);}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00014}00014\ \}}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00016}\mbox{\hyperlink{class_telecon_chart_impl_chart_dir_a40606b7cc8becd70ec65533e057a3d99}{00016}}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_telecon_chart_impl_chart_dir_a40606b7cc8becd70ec65533e057a3d99}{TeleconChartImplChartDir::getNumPlots}}()}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00017}00017\ \{}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_telecon_chart_impl_chart_dir_ae490e63548a330ed0e1ccd8ce525d91c}{m\_plots}}.size();}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00019}00019\ \}}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00021}\mbox{\hyperlink{class_telecon_chart_impl_chart_dir_a4dda68878bca25c6cd002b1f49d54345}{00021}}\ shared\_ptr<TeleconPlot>\ \mbox{\hyperlink{class_telecon_chart_impl_chart_dir_a4dda68878bca25c6cd002b1f49d54345}{TeleconChartImplChartDir::getPlotByName}}(\textcolor{keywordtype}{string}\ name)}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00022}00022\ \{}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00023}00023\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ plot\ :\ \mbox{\hyperlink{class_telecon_chart_impl_chart_dir_ae490e63548a330ed0e1ccd8ce525d91c}{m\_plots}})\ \{}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (name.compare(plot-\/>getPlotTitle())\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ plot;}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00027}00027\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00029}00029\ \}}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00031}\mbox{\hyperlink{class_telecon_chart_impl_chart_dir_a1a4674a6f18487d97bdcc88235b16c17}{00031}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_chart_impl_chart_dir_a1a4674a6f18487d97bdcc88235b16c17}{TeleconChartImplChartDir::initialize}}()}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00032}00032\ \{}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00033}00033\ \ \ \ \ \mbox{\hyperlink{class_telecon_chart_af315b4acbdefb53894bd06e78e96e682}{m\_hasStarted}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{teleconchartimplchartdir_8cpp_source_l00034}00034\ \}}
+
+\end{DoxyCode}

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['xdata_0',['xData',['../struct_phase_portrait_data_point.html#a79297cd641d255a9cf47d269a135ec47',1,'PhasePortraitDataPoint']]],
-  ['xtimestamp_1',['xTimestamp',['../struct_line_plot_data_point.html#a178b9ac64bc55eceb71c17bf43d0ad14',1,'LinePlotDataPoint::xTimestamp()'],['../struct_raster_data_point.html#aa055379fcb2c911bf8f46bc66acc0743',1,'RasterDataPoint::xTimestamp()'],['../struct_scatter_plot_data_point.html#ae26415ffd222bbf0f5a54f6e811fe042',1,'ScatterPlotDataPoint::xTimestamp()']]]
+  ['sliders_0',['sliders',['../class_telecon_controls.html#a2858cb4d59ebb7ba2890e35e340ed8e0',1,'TeleconControls']]],
+  ['state_1',['state',['../class_telecon_button.html#aa8d143a8f6f9b6af58c283c6c8b75a8d',1,'TeleconButton::state()'],['../class_telecon_toggle.html#a0909a35e0eecac06644ba44e1bf16d84',1,'TeleconToggle::state()']]]
 ];

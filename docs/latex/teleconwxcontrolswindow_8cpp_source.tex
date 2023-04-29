@@ -5,90 +5,183 @@
 \DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00001}00001\ }
 \DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{teleconwxcontrolswindow_8h}{teleconwxcontrolswindow.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00003}00003\ }
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#ifndef\ WX\_PRECOMP}}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <wx/wx.h>}}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <wx/tglbtn.h>}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <sstream>}}
 \DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00007}00007\ }
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <wx/tglbtn.h>}}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00010}00010\ }
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00011}00011\ \textcolor{keyword}{enum}}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00012}00012\ \{}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00013}\mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5ab2d77cabb0bd9bdf1834d496139ffa60}{00013}}\ \ \ \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5ab2d77cabb0bd9bdf1834d496139ffa60}{id\_button}}\ =\ (wxID\_HIGHEST\ +\ 1),\ \textcolor{comment}{//\ declares\ an\ id\ which\ will\ be\ used\ to\ call\ our\ button}}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00014}\mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5ac9f90c6b94b3567b67912ac70239ce6d}{00014}}\ \ \ \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5ac9f90c6b94b3567b67912ac70239ce6d}{id\_toggle}}\ =\ wxID\_HIGHEST\ +\ 200,}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00015}00015\ \ \ \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5a97d67eb4cdbb81b932fa9fe38ff9e6b6}{id\_slider}}\ =\ wxID\_HIGHEST\ +\ 400}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00016}\mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5a97d67eb4cdbb81b932fa9fe38ff9e6b6}{00016}}\ \};}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00009}00009\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00010}00010\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00011}\mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5ab2d77cabb0bd9bdf1834d496139ffa60}{00011}}\ \ \ \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5ab2d77cabb0bd9bdf1834d496139ffa60}{id\_button}}\ =\ (wxID\_HIGHEST\ +\ 1),\ \textcolor{comment}{//\ declares\ an\ id\ which\ will\ be\ used\ to\ call\ our\ button}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00012}\mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5ac9f90c6b94b3567b67912ac70239ce6d}{00012}}\ \ \ \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5ac9f90c6b94b3567b67912ac70239ce6d}{id\_toggle}}\ =\ wxID\_HIGHEST\ +\ 200,}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00013}\mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5a97d67eb4cdbb81b932fa9fe38ff9e6b6}{00013}}\ \ \ \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5a97d67eb4cdbb81b932fa9fe38ff9e6b6}{id\_slider}}\ =\ wxID\_HIGHEST\ +\ 400,}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00014}00014\ \ \ \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5a031720dd7b9d32c1f13fe9f1619c5443}{id\_input}}\ =\ wxID\_HIGHEST\ +\ 600}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00015}\mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5a031720dd7b9d32c1f13fe9f1619c5443}{00015}}\ \};}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00016}00016\ }
 \DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00017}00017\ }
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00018}00018\ }
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00019}00019\ BEGIN\_EVENT\_TABLE(\mbox{\hyperlink{class_telecon_wx_controls_window}{TeleconWxControlsWindow}},\ wxFrame)}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00018}\mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a3cd18e30639a81dcd921f471dffd2b84}{00018}}\ \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a3cd18e30639a81dcd921f471dffd2b84}{wxDEFINE\_EVENT}}(wxEVT\_INPUT\_UPDATE,\ wxThreadEvent);}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00019}00019\ }
 \DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00020}00020\ }
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00021}00021\ END\_EVENT\_TABLE()}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00021}00021\ BEGIN\_EVENT\_TABLE(\mbox{\hyperlink{class_telecon_wx_controls_window}{TeleconWxControlsWindow}},\ wxFrame)}
 \DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00022}00022\ }
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00023}\mbox{\hyperlink{class_telecon_wx_controls_window_ad15cab8af5423d0ed0830fea56d70ba1}{00023}}\ \mbox{\hyperlink{class_telecon_wx_controls_window}{TeleconWxControlsWindow}}::\mbox{\hyperlink{class_telecon_wx_controls_window}{TeleconWxControlsWindow}}(shared\_ptr<\mbox{\hyperlink{class_telecon_controls}{TeleconControls}}>\ controls)}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00024}00024\ \ \ \ \ :\ wxFrame((wxFrame\ *)NULL,\ -\/1,\ controls-\/>windowName,\ wxDefaultPosition,\ wxDefaultSize)}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00025}00025\ \{}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00026}00026\ \ \ this-\/>controls\ =\ controls;}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00027}00027\ }
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00028}00028\ \ \ m\_controlsBoxSizer\ =\ \textcolor{keyword}{new}\ wxBoxSizer(wxVERTICAL);}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00023}00023\ END\_EVENT\_TABLE()}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00025}\mbox{\hyperlink{class_telecon_wx_controls_window_a4e455263544095c9496ca48c51e8c63a}{00025}}\ \mbox{\hyperlink{class_telecon_wx_controls_window}{TeleconWxControlsWindow}}::\mbox{\hyperlink{class_telecon_wx_controls_window}{TeleconWxControlsWindow}}(shared\_ptr<\mbox{\hyperlink{class_telecon_controls}{TeleconControls}}>\ controls)}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00026}00026\ \ \ \ \ :\ wxFrame((wxFrame\ *)NULL,\ -\/1,\ controls-\/>windowName,\ wxDefaultPosition,\ wxDefaultSize)}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00027}00027\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00028}00028\ \ \ this-\/>controls\ =\ controls;}
 \DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00029}00029\ }
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00030}00030\ \ \ \textcolor{comment}{//\ wxButton*\ myButton0\ =\ new\ wxButton(this,\ BUTTON\_Hello,\ \_T("{}Hello\ World"{}),\ wxDefaultPosition,\ wxDefaultSize,\ 0);\ //\ with\ the\ text\ "{}hello\ World"{}}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00030}00030\ \ \ m\_controlsBoxSizer\ =\ \textcolor{keyword}{new}\ wxBoxSizer(wxVERTICAL);}
 \DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00031}00031\ }
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00032}00032\ \ \ \textcolor{comment}{//\ wxSlider*\ mySlider=\ new\ wxSlider(this,BUTTON\_Slider,5,\ 0,\ 10,\ wxDefaultPosition,\ wxDefaultSize,\ 0);}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00032}00032\ \ \ \textcolor{comment}{//\ wxButton*\ myButton0\ =\ new\ wxButton(this,\ BUTTON\_Hello,\ \_T("{}Hello\ World"{}),\ wxDefaultPosition,\ wxDefaultSize,\ 0);\ //\ with\ the\ text\ "{}hello\ World"{}}}
 \DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00033}00033\ }
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00034}00034\ \ \ \textcolor{comment}{//\ m\_controlsBoxSizer-\/>Add(myButton0);}}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00035}00035\ \ \ \textcolor{comment}{//\ m\_controlsBoxSizer-\/>Add(mySlider);}}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00036}00036\ }
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00037}00037\ \ \ \textcolor{comment}{//\ for\ (TeleconButton\ b\ :\ controls-\/>buttons)}}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00038}00038\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ controls-\/>buttons.size();\ i++)}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00039}00039\ \ \ \{}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00040}00040\ \ \ \ \ \textcolor{keyword}{auto}\ b\ =\ controls-\/>buttons[i];}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00041}00041\ \ \ \ \ wxButton\ *myButton\ =\ \textcolor{keyword}{new}\ wxButton(\textcolor{keyword}{this},\ \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5ab2d77cabb0bd9bdf1834d496139ffa60}{id\_button}}\ +\ i,\ b-\/>getTitle(),\ wxDefaultPosition,\ wxDefaultSize,\ 0);}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00042}00042\ \ \ \ \ m\_controlsBoxSizer-\/>Add(myButton);}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00043}00043\ \ \ \ \ Connect(wxEVT\_COMMAND\_BUTTON\_CLICKED,\ wxCommandEventHandler(TeleconWxControlsWindow::buttonPressHandler));}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00044}00044\ \ \ \}}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00045}00045\ }
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00046}00046\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ controls-\/>toggles.size();\ i++)}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00047}00047\ \ \ \{}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{keyword}{auto}\ t\ =\ controls-\/>toggles[i];}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00049}00049\ \ \ \ \ wxToggleButton\ *myButton\ =\ \textcolor{keyword}{new}\ wxToggleButton(\textcolor{keyword}{this},\ \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5ac9f90c6b94b3567b67912ac70239ce6d}{id\_toggle}}\ +\ i,\ t-\/>getTitle(),\ wxDefaultPosition,\ wxDefaultSize,\ 0);}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00050}00050\ \ \ \ \ m\_controlsBoxSizer-\/>Add(myButton);}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00051}00051\ \ \ \ \ Connect(wxEVT\_COMMAND\_TOGGLEBUTTON\_CLICKED,\ wxCommandEventHandler(TeleconWxControlsWindow::toggleHandler));}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00052}00052\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00034}00034\ \ \ \textcolor{comment}{//\ wxSlider*\ mySlider=\ new\ wxSlider(this,BUTTON\_Slider,5,\ 0,\ 10,\ wxDefaultPosition,\ wxDefaultSize,\ 0);}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00036}00036\ \ \ \textcolor{comment}{//\ m\_controlsBoxSizer-\/>Add(myButton0);}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00037}00037\ \ \ \textcolor{comment}{//\ m\_controlsBoxSizer-\/>Add(mySlider);}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00039}00039\ \ \ \textcolor{comment}{//\ for\ (TeleconButton\ b\ :\ controls-\/>buttons)}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00040}00040\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ controls-\/>buttons.size();\ i++)}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00041}00041\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{keyword}{auto}\ b\ =\ controls-\/>buttons[i];}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00043}00043\ \ \ \ \ wxButton\ *myButton\ =\ \textcolor{keyword}{new}\ wxButton(\textcolor{keyword}{this},\ \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5ab2d77cabb0bd9bdf1834d496139ffa60}{id\_button}}\ +\ i,\ b-\/>getTitle(),\ wxDefaultPosition,\ wxDefaultSize,\ 0);}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00044}00044\ \ \ \ \ m\_controlsBoxSizer-\/>Add(myButton,\ 0,\ wxLEFT\ |\ wxRIGHT,\ FromDIP(20));}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00045}00045\ \ \ \ \ m\_controlsBoxSizer-\/>AddSpacer(FromDIP(10));}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00046}00046\ \ \ \ \ Connect(wxEVT\_COMMAND\_BUTTON\_CLICKED,\ wxCommandEventHandler(TeleconWxControlsWindow::buttonPressHandler));}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00047}00047\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00049}00049\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ controls-\/>toggles.size();\ i++)}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00050}00050\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{keyword}{auto}\ t\ =\ controls-\/>toggles[i];}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00052}00052\ \ \ \ \ wxToggleButton*\ myButton\ =\ \textcolor{keyword}{new}\ wxToggleButton(\textcolor{keyword}{this},\ \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5ac9f90c6b94b3567b67912ac70239ce6d}{id\_toggle}}\ +\ i,\ wxString(t-\/>getTitle()),\ wxDefaultPosition,\ wxDefaultSize,\ 0);}
 \DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00053}00053\ }
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00054}00054\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ controls-\/>sliders.size();\ i++)}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00055}00055\ \ \ \{}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00056}00056\ \ \ \ \ \textcolor{keyword}{auto}\ s\ =\ controls-\/>sliders[i];}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00057}00057\ \ \ \ \ wxSlider\ *mySlider\ =\ \textcolor{keyword}{new}\ wxSlider(\textcolor{keyword}{this},\mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5a97d67eb4cdbb81b932fa9fe38ff9e6b6}{id\_slider}},s-\/>current\_state,\ s-\/>min,\ s-\/>max,\ wxDefaultPosition,\ wxDefaultSize,\ 0);}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00058}00058\ \ \ \ \ m\_controlsBoxSizer-\/>Add(mySlider);}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00059}00059\ \ \ \ \ Connect(wxEVT\_COMMAND\_SLIDER\_UPDATED,\ wxCommandEventHandler(TeleconWxControlsWindow::sliderHandler));}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00060}00060\ \ \ \}}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00061}00061\ }
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00062}00062\ \ \ \textcolor{comment}{//CAN\ HAVE\ MAP\ MAPPING\ BUTTON\ IDS\ TO\ THE\ BUTTON\ OBJEcTS}}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00063}00063\ }
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00064}00064\ \ \ \textcolor{comment}{//\ m\_controlsBoxSizer.}}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00065}00065\ \ \ SetSizerAndFit(m\_controlsBoxSizer);}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00066}00066\ \ \ }
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00067}00067\ \}}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00068}00068\ }
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00069}00069\ \textcolor{keywordtype}{void}\ TeleconWxControlsWindow::buttonPressHandler(wxCommandEvent\ \&event)}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00070}00070\ \{}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00071}00071\ }
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00072}00072\ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Hello\ Button"{}}\ <<\ \textcolor{keyword}{event}.GetId()\ <<\ endl;}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00073}00073\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00054}00054\ \ \ \ \textcolor{comment}{/*\ wxStaticText*\ buttonName\ =\ new\ wxStaticText(this,\ wxID\_STATIC,\ wxString(t-\/>getTitle()),\ wxDefaultPosition,\ wxDefaultSize,\ 0);}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00055}00055\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00056}00056\ \textcolor{comment}{\ \ \ \ m\_toggleGridSizer\ =\ new\ wxFlexGridSizer(0,\ 10,\ 0,\ 10);}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00057}00057\ \textcolor{comment}{\ \ \ \ m\_controlsBoxSizer-\/>Add(m\_toggleGridSizer);}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00058}00058\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00059}00059\ \textcolor{comment}{\ \ \ \ m\_toggleGridSizer-\/>Add(buttonName);*/}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00061}00061\ \ \ \ \ m\_controlsBoxSizer-\/>Add(myButton,\ 0,\ wxLEFT\ |\ wxRIGHT,\ FromDIP(20));}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00062}00062\ \ \ \ \ m\_controlsBoxSizer-\/>AddSpacer(FromDIP(10));}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00063}00063\ \ \ \ \ Connect(wxEVT\_COMMAND\_TOGGLEBUTTON\_CLICKED,\ wxCommandEventHandler(TeleconWxControlsWindow::toggleHandler));}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00064}00064\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00066}00066\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ controls-\/>sliders.size();\ i++)}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00067}00067\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00068}00068\ \ \ \ \ \textcolor{keyword}{auto}\ s\ =\ controls-\/>sliders[i];}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00069}00069\ \ \ \ \ wxSlider*\ mySlider\ =\ \textcolor{keyword}{new}\ wxSlider(\textcolor{keyword}{this},\ \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5a97d67eb4cdbb81b932fa9fe38ff9e6b6}{id\_slider}}\ +\ i,\ s-\/>current\_state,\ s-\/>min,\ s-\/>max,\ wxDefaultPosition,\ wxSize(400,\ -\/1),\ wxSL\_AUTOTICKS);}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00070}00070\ \ \ \ \ mySlider-\/>SetTickFreq(1);}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00071}00071\ \ \ \ \ wxTextCtrl*\ sliderVal\ =\ \textcolor{keyword}{new}\ wxTextCtrl(\textcolor{keyword}{this},\ wxID\_ANY,\ wxEmptyString,\ wxDefaultPosition,\ FromDIP(wxSize(60,\ -\/1)),\ wxTE\_READONLY\ |\ wxSTATIC\_BORDER);}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00072}00072\ \ \ \ \ sliderVal-\/>Enable(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00073}00073\ \ \ \ \ wxStaticText*\ sliderName\ =\ \textcolor{keyword}{new}\ wxStaticText(\textcolor{keyword}{this},\ wxID\_STATIC,\ wxString(s-\/>title),\ wxDefaultPosition,\ wxDefaultSize,\ 0);}
 \DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00074}00074\ }
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00075}00075\ \textcolor{keywordtype}{void}\ TeleconWxControlsWindow::toggleHandler(wxCommandEvent\ \&event)}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00076}00076\ \{}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00077}00077\ \ \ \textcolor{keywordtype}{int}\ toggleIndex\ =\ \textcolor{keyword}{event}.GetId()\ -\/\ \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5ac9f90c6b94b3567b67912ac70239ce6d}{id\_toggle}};}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00078}00078\ \ \ controls-\/>toggles[toggleIndex]-\/>state\ =\ \textcolor{keyword}{event}.IsChecked();}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00079}00079\ \ \ \textcolor{comment}{//\ cout\ <<\ "{}Hello\ Toggle:\ "{}\ <<\ event.IsChecked()\ \ <<\ "{}\ \ "{}\ <<\ event.GetId()\ <<\ endl;}}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00080}00080\ \}}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00081}00081\ }
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00082}00082\ \textcolor{keywordtype}{void}\ TeleconWxControlsWindow::sliderHandler(wxCommandEvent\ \&event)}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00083}00083\ \{}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00084}00084\ \ \ \textcolor{keywordtype}{int}\ sliderIndex\ =\ \textcolor{keyword}{event}.GetId()\ -\/\ \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5a97d67eb4cdbb81b932fa9fe38ff9e6b6}{id\_slider}};}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00085}00085\ \ \ controls-\/>sliders[sliderIndex]-\/>current\_state\ =\ \textcolor{keyword}{event}.GetInt();}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00086}00086\ \ \ \textcolor{comment}{//\ cout\ <<\ "{}Hello\ Slider:\ "{}\ <<\ event.GetInt()\ <<\ "{}\ \ \ "{}\ <<\ event.GetId()\ <<\ endl;}}
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00087}00087\ \ \ }
-\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00088}00088\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00075}00075\ \ \ \ \ m\_sliderGridSizer\ =\ \textcolor{keyword}{new}\ wxFlexGridSizer(0,\ 10,\ 0,\ 10);}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00076}00076\ \ \ \ \ m\_controlsBoxSizer-\/>Add(m\_sliderGridSizer,\ 0,\ wxLEFT\ |\ wxRIGHT,\ FromDIP(20));}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00078}00078\ \ \ \ \ m\_sliderGridSizer-\/>Add(sliderName);}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00079}00079\ \ \ \ \ m\_sliderGridSizer-\/>Add(mySlider);}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00080}00080\ \ \ \ \ m\_sliderGridSizer-\/>Add(sliderVal);}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00081}00081\ \ \ \ \ m\_sliderValues.insert(pair(\mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5a97d67eb4cdbb81b932fa9fe38ff9e6b6}{id\_slider}}+i,\ sliderVal));}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00082}00082\ \ \ \ \ m\_controlsBoxSizer-\/>AddSpacer(FromDIP(10));}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00083}00083\ \ \ \ \ m\_sliderValues[\mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5a97d67eb4cdbb81b932fa9fe38ff9e6b6}{id\_slider}}\ +\ i]-\/>SetValue(s-\/>current\_value\_to\_string());}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00085}00085\ \ \ \ \ Connect(wxEVT\_COMMAND\_SLIDER\_UPDATED,\ wxCommandEventHandler(TeleconWxControlsWindow::sliderHandler));}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00086}00086\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00088}00088\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ controls-\/>inputs.size();\ i++)}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00089}00089\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00090}00090\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ in\ =\ controls-\/>inputs[i];}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00091}00091\ \ \ \ \ \ \ in-\/>setId(\mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5a031720dd7b9d32c1f13fe9f1619c5443}{id\_input}}\ +\ i);}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00092}00092\ \ \ \ \ \ \ in-\/>setFrame(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00093}00093\ \ \ \ \ \ \ \textcolor{comment}{//\ wxTextCtrl*\ myInput\ =\ new\ wxTextCtrl(this,\ id\_button\ +\ i,\ wxString(std::to\_string(in-\/>getVal())),\ wxDefaultPosition,\ wxDefaultSize,\ 0);}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00094}00094\ \ \ \ \ \ \ wxTextCtrl*\ myInput\ =\ \textcolor{keyword}{new}\ wxTextCtrl(\textcolor{keyword}{this},\ \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5a031720dd7b9d32c1f13fe9f1619c5443}{id\_input}}\ +\ i,\ wxString(std::to\_string(in-\/>getVal())),\ wxDefaultPosition,\ wxSize(FromDIP(200),\ FromDIP(30)),\ \ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ wxTE\_PROCESS\_ENTER\ ,\ wxDefaultValidator);}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00096}00096\ \ \ \ \ \ \ \textcolor{comment}{//\ shared\_ptr<wxTextCtrl>\ myInput\ =\ make\_shared<wxTextCtrl>(this,\ id\_input\ +\ i,\ wxString(std::to\_string(in-\/>getVal())),\ wxDefaultPosition,\ wxDefaultSize,\ \ }}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00097}00097\ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ wxTE\_PROCESS\_ENTER\ ,\ wxDefaultValidator);}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00098}00098\ \ \ \ \ \ \ myInput-\/>Enable(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00099}00099\ \ \ \ \ \ \ wxStaticText*\ inputName\ =\ \textcolor{keyword}{new}\ wxStaticText(\textcolor{keyword}{this},\ wxID\_STATIC,\ wxString(in-\/>getTitle()),\ wxDefaultPosition,\ wxDefaultSize,\ 0);}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00101}00101\ \ \ \ \ \ \ m\_inputGridSizer\ =\ \textcolor{keyword}{new}\ wxFlexGridSizer(0,\ 10,\ 0,\ 10);}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00102}00102\ \ \ \ \ \ \ m\_controlsBoxSizer-\/>Add(m\_inputGridSizer,\ 0,\ wxLEFT\ |\ wxRIGHT,\ FromDIP(20));}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00103}00103\ \ \ \ \ \ \ m\_controlsBoxSizer-\/>AddSpacer(FromDIP(10));}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00105}00105\ \ \ \ \ \ \ m\_inputGridSizer-\/>Add(inputName);}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00106}00106\ \ \ \ \ \ \ m\_inputGridSizer-\/>Add(myInput);}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00108}00108\ \ \ \ \ \ \ m\_inputValues.insert(pair(\mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5a031720dd7b9d32c1f13fe9f1619c5443}{id\_input}}\ +\ i,\ myInput));}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00109}00109\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00110}00110\ \ \ \ \ \ \ \textcolor{comment}{//\ inputControls.push\_back(myInput);}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00112}00112\ \ \ \ \ \ \ Connect(wxEVT\_COMMAND\_TEXT\_ENTER,\ wxCommandEventHandler(TeleconWxControlsWindow::inputHandler));}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00113}00113\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00115}00115\ \ \ \textcolor{comment}{//\ Connect(wxEVT\_INPUT\_UPDATE,\ wxEventHandler(TeleconWxControlsWindow::inputUpdateHandler));}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00116}00116\ \ \ \textcolor{comment}{//\ Bind(wxEVT\_INPUT\_UPDATE,\&TeleconWxControlsWindow::inputUpdateHandler,this);}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00117}00117\ \ \ Connect(wxEVT\_INPUT\_UPDATE,\ wxThreadEventHandler(TeleconWxControlsWindow::inputUpdateHandler));}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00118}00118\ \ \ Connect(wxEVT\_THREAD,\ wxThreadEventHandler(TeleconWxControlsWindow::inputUpdateHandler));}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00119}00119\ \ \ \textcolor{comment}{//\ cout\ <<\ "{}In\ controlwindow\ id:\ "{}\ <<\ wxEVT\_INPUT\_UPDATE\ <<\ endl;}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00121}00121\ \ \ \textcolor{comment}{//CAN\ HAVE\ MAP\ MAPPING\ BUTTON\ IDS\ TO\ THE\ BUTTON\ OBJEcTS}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00123}00123\ \ \ \textcolor{comment}{//\ m\_controlsBoxSizer.}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00124}00124\ \ \ SetSizerAndFit(m\_controlsBoxSizer);}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00125}00125\ \ \ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00126}00126\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00128}00128\ \textcolor{keywordtype}{void}\ TeleconWxControlsWindow::buttonPressHandler(wxCommandEvent\ \&event)}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00129}00129\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00130}00130\ \ \ \textcolor{keywordtype}{int}\ buttonIndex\ =\ \textcolor{keyword}{event}.GetId()\ -\/\ \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5ab2d77cabb0bd9bdf1834d496139ffa60}{id\_button}};}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00131}00131\ \ \ controls-\/>buttons[buttonIndex]-\/>functionPtr();}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00133}00133\ \ \ \textcolor{comment}{//\ cout\ <<\ "{}Hello\ Button"{}\ <<\ event.GetId()\ <<\ endl;}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00134}00134\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00136}00136\ \textcolor{keywordtype}{void}\ TeleconWxControlsWindow::toggleHandler(wxCommandEvent\ \&event)}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00137}00137\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00138}00138\ \ \ \textcolor{keywordtype}{int}\ toggleIndex\ =\ \textcolor{keyword}{event}.GetId()\ -\/\ \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5ac9f90c6b94b3567b67912ac70239ce6d}{id\_toggle}};}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00139}00139\ \ \ controls-\/>toggles[toggleIndex]-\/>state\ =\ \textcolor{keyword}{event}.IsChecked();}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00140}00140\ \ \ \textcolor{comment}{//\ cout\ <<\ "{}Hello\ Toggle:\ "{}\ <<\ event.IsChecked()\ \ <<\ "{}\ \ "{}\ <<\ event.GetId()\ <<\ endl;}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00141}00141\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00143}00143\ \textcolor{keywordtype}{void}\ TeleconWxControlsWindow::sliderHandler(wxCommandEvent\ \&event)}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00144}00144\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00145}00145\ \ \ \textcolor{keywordtype}{int}\ sliderIndex\ =\ \textcolor{keyword}{event}.GetId()\ -\/\ \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5a97d67eb4cdbb81b932fa9fe38ff9e6b6}{id\_slider}};}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00146}00146\ \ \ \textcolor{keywordtype}{int}\ val\ =\ \textcolor{keyword}{event}.GetInt();}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00147}00147\ \ \ controls-\/>sliders[sliderIndex]-\/>current\_state\ =\ val;}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00148}00148\ \ \ \textcolor{keywordtype}{string}\ currentvalue\ =\ controls-\/>sliders[sliderIndex]-\/>current\_value\_to\_string();}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00149}00149\ \ \ \textcolor{comment}{//\ m\_sliderValues[event.GetId()]-\/>SetValue(std::to\_string(val));}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00150}00150\ \ \ \textcolor{comment}{//\ string\ toDisplay\ =\ }}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00151}00151\ \ \ m\_sliderValues[\textcolor{keyword}{event}.GetId()]-\/>SetValue(currentvalue);}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00152}00152\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00154}00154\ \textcolor{keywordtype}{void}\ TeleconWxControlsWindow::inputHandler(wxCommandEvent\&\ event)}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00155}00155\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00156}00156\ \ \ \ \ \textcolor{keywordtype}{int}\ inputIndex\ =\ \textcolor{keyword}{event}.GetId()\ -\/\ \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5a031720dd7b9d32c1f13fe9f1619c5443}{id\_input}};}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00157}00157\ \ \ \ \ \textcolor{keywordtype}{string}\ value\_str\ =\ \textcolor{keyword}{event}.GetString().ToStdString();}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00158}00158\ \ \ \ \ \textcolor{keywordtype}{double}\ value\_dbl;}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00159}00159\ \ \ \ \ stringstream\ ss;}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00160}00160\ \ \ \ \ ss\ <<\ value\_str;}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00161}00161\ \ \ \ \ ss\ >>\ value\_dbl;}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00162}00162\ \ \ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00163}00163\ \ \ \ \ controls-\/>inputs[inputIndex]-\/>setVal(value\_dbl);}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00164}00164\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00166}00166\ \textcolor{keywordtype}{void}\ TeleconWxControlsWindow::inputUpdateHandler(wxThreadEvent\&\ event)\{}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00167}00167\ \ \ \textcolor{comment}{//\ wxQueueEvent()}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00168}00168\ \ \ \textcolor{keywordtype}{int}\ inputIndex\ =\ \textcolor{keyword}{event}.GetId();}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00169}00169\ \ \ \textcolor{keywordtype}{string}\ value\_str\ =\ \textcolor{keyword}{event}.GetString().ToStdString();}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00170}00170\ \ \ \textcolor{keywordtype}{double}\ value\_dbl;}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00171}00171\ \ \ stringstream\ ss;}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00172}00172\ \ \ ss\ <<\ value\_str;}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00173}00173\ \ \ ss\ >>\ value\_dbl;}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00174}00174\ \ \ controls-\/>inputs[inputIndex\ -\/\ \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5a031720dd7b9d32c1f13fe9f1619c5443}{id\_input}}]-\/>setVal(value\_dbl);}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00175}00175\ \ \ m\_inputValues.find(inputIndex)-\/>second-\/>ChangeValue(event.GetString());}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00176}00176\ \ \ \textcolor{comment}{//\ m\_inputValues.find(inputIndex)-\/>second-\/>focu}}
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00177}00177\ \ \ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00180}00180\ }
+\DoxyCodeLine{\Hypertarget{teleconwxcontrolswindow_8cpp_source_l00181}00181\ \}}
 
 \end{DoxyCode}

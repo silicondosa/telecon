@@ -108,7 +108,7 @@ $(document).ready(function(){initNavTree('teleconwxchart_8h_source.html',''); in
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;chartdir.h&quot;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;wxchartviewer.h&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="teleconchart_8h.html">teleconchart.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="teleconchartimplchartdir_8h.html">teleconchartimplchartdir.h</a>&quot;</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="teleconwxplot_8h.html">teleconwxplot.h</a>&quot;</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="colors_8h.html">colors.h</a>&quot;</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="enums_8h.html">enums.h</a>&quot;</span></div>
@@ -119,7 +119,7 @@ $(document).ready(function(){initNavTree('teleconwxchart_8h_source.html',''); in
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="class_telecon_wx_chart.html">TeleconWxChart</a>(</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        shared_ptr&lt;TeleconChart&gt; chart,</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        shared_ptr&lt;TeleconChartImplChartDir&gt; chart,</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        wxWindow* parent,</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        wxWindowID winid = wxID_ANY,</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keyword">const</span> wxPoint&amp; pos = wxDefaultPosition,</div>
@@ -174,7 +174,7 @@ $(document).ready(function(){initNavTree('teleconwxchart_8h_source.html',''); in
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    unordered_map&lt;int, wxTextCtrl*&gt; m_latestValueTextCtrls; <span class="comment">// Maps index in chart to control</span></div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    wxColour m_bgColour;</div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    shared_ptr&lt;TeleconChart&gt; m_chart;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    shared_ptr&lt;TeleconChartImplChartDir&gt; m_chart;</div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordtype">bool</span> m_isRefreshEnabled;</div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="comment">// Pointer to the chart viewer - main body of panel</span></div>
@@ -193,7 +193,7 @@ $(document).ready(function(){initNavTree('teleconwxchart_8h_source.html',''); in
 <div class="ttc" id="aclass_telecon_wx_chart_html_affaa2b5cf06c9989b21442d955506bc6"><div class="ttname"><a href="class_telecon_wx_chart.html#affaa2b5cf06c9989b21442d955506bc6">TeleconWxChart::doSave</a></div><div class="ttdeci">void doSave(int i, string windowName)</div><div class="ttdef"><b>Definition:</b> <a href="teleconwxchart_8cpp_source.html#l00104">teleconwxchart.cpp:104</a></div></div>
 <div class="ttc" id="acolors_8h_html"><div class="ttname"><a href="colors_8h.html">colors.h</a></div></div>
 <div class="ttc" id="aenums_8h_html"><div class="ttname"><a href="enums_8h.html">enums.h</a></div></div>
-<div class="ttc" id="ateleconchart_8h_html"><div class="ttname"><a href="teleconchart_8h.html">teleconchart.h</a></div></div>
+<div class="ttc" id="ateleconchartimplchartdir_8h_html"><div class="ttname"><a href="teleconchartimplchartdir_8h.html">teleconchartimplchartdir.h</a></div></div>
 <div class="ttc" id="ateleconwxchart_8h_html_a06fc87d81c62e9abb8790b6e5713c55ba12f80c74dc4c5d9996717490ba4a8f52"><div class="ttname"><a href="teleconwxchart_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba12f80c74dc4c5d9996717490ba4a8f52">ID_CHARTVIEWER</a></div><div class="ttdeci">@ ID_CHARTVIEWER</div><div class="ttdef"><b>Definition:</b> <a href="teleconwxchart_8h_source.html#l00127">teleconwxchart.h:126</a></div></div>
 <div class="ttc" id="ateleconwxplot_8h_html"><div class="ttname"><a href="teleconwxplot_8h.html">teleconwxplot.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

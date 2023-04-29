@@ -8,7 +8,7 @@
 \DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <vector>}}
 \DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00005}00005\ }
 \DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{colors_8h}{colors.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{teleconwxplot_8h}{teleconwxplot.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{teleconplot_8h}{teleconplot.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00008}00008\ }
 \DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00009}00009\ \textcolor{keyword}{using\ namespace\ }std;}
 \DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00010}00010\ }
@@ -26,31 +26,28 @@
 \DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00044}\mbox{\hyperlink{class_telecon_chart_a09089bd72af66ca9ae488191c188d851}{00044}}\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_chart_a09089bd72af66ca9ae488191c188d851}{m\_yLabel}};}
 \DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00049}\mbox{\hyperlink{class_telecon_chart_a5a502369abdc755468a305349eb34676}{00049}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{ColorSequenceMode}}\ \mbox{\hyperlink{class_telecon_chart_a5a502369abdc755468a305349eb34676}{m\_colorSequenceMode}};}
 \DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00051}\mbox{\hyperlink{class_telecon_chart_af315b4acbdefb53894bd06e78e96e682}{00051}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_telecon_chart_af315b4acbdefb53894bd06e78e96e682}{m\_hasStarted}};}
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00053}\mbox{\hyperlink{class_telecon_chart_ab8e44cc492bc62c52c5cece30e126f0d}{00053}}\ \ \ \ \ vector<shared\_ptr<TeleconPlot>>\ \mbox{\hyperlink{class_telecon_chart_ab8e44cc492bc62c52c5cece30e126f0d}{m\_plots}};}
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00055}00055\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_telecon_chart_a6efbe7f200b8bf283e47e60da71d6e45}{getNextDefaultColor}}();}
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00056}00056\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00070}00070\ \ \ \ \ \mbox{\hyperlink{class_telecon_chart}{TeleconChart}}(\textcolor{keywordtype}{string}\ title,\ \textcolor{keywordtype}{double}\ memoryDepthSeconds,\ \textcolor{keywordtype}{int}\ dataRateMillis,\ \textcolor{keywordtype}{string}\ xLabel,\ \textcolor{keywordtype}{string}\ yLabel,\ \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{ColorSequenceMode}}\ colorSequenceMode);}
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00071}00071\ }
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00075}00075\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_chart_ab5bf85c9390c53ca53befb5beb41ffde}{getTitle}}();}
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00076}00076\ }
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00080}00080\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_chart_ab757ee6b5a716f1bdf3f55a8fa11bea7}{getXLabel}}();}
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00081}00081\ }
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00085}00085\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_chart_a43dc64adbcce4a75dc7c0620f3fcb516}{getYLabel}}();}
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00086}00086\ }
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00090}00090\ \ \ \ \ \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{ColorSequenceMode}}\ \mbox{\hyperlink{class_telecon_chart_aba46b8cf2bbba5dff77aa8e62d0a9fc6}{getColorSequenceMode}}();}
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00091}00091\ }
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00097}\mbox{\hyperlink{class_telecon_chart_abfeeb8c29606422ce614a3599e07e198}{00097}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_telecon_chart_abfeeb8c29606422ce614a3599e07e198}{getDefaultXAxisSpan}}()\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00098}00098\ }
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00102}\mbox{\hyperlink{class_telecon_chart_a8968d74709f6969e442cba648ef8a3c1}{00102}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{teleconchart_8h_a54534a1398c95ca6d61f6ac68e610b7e}{ChartXAxisType}}\ \mbox{\hyperlink{class_telecon_chart_a8968d74709f6969e442cba648ef8a3c1}{getChartXAxisType}}()\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00103}00103\ }
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00108}00108\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_chart_ac833b24aa16da530a531a22fcafa1f52}{initialize}}();}
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00109}00109\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00114}00114\ \ \ \ \ shared\_ptr<TeleconPlot>\ \mbox{\hyperlink{class_telecon_chart_ac9b2e34588a68d39df3144b32d98fc9b}{getPlot}}(\textcolor{keywordtype}{int}\ index);}
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00115}00115\ }
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00119}00119\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_telecon_chart_abed3e9f9ca52e351ba4ca6a510250530}{getNumPlots}}();}
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00120}00120\ }
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00125}00125\ \ \ \ \ shared\_ptr<TeleconPlot>\ \mbox{\hyperlink{class_telecon_chart_a68684c5c612a7ed173ccee9fce9d1347}{getPlotByName}}(\textcolor{keywordtype}{string}\ name);}
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00126}00126\ }
-\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00127}00127\ \};}
+\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00053}00053\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_telecon_chart_a6efbe7f200b8bf283e47e60da71d6e45}{getNextDefaultColor}}();}
+\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00054}00054\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00068}00068\ \ \ \ \ \mbox{\hyperlink{class_telecon_chart}{TeleconChart}}(\textcolor{keywordtype}{string}\ title,\ \textcolor{keywordtype}{double}\ memoryDepthSeconds,\ \textcolor{keywordtype}{int}\ dataRateMillis,\ \textcolor{keywordtype}{string}\ xLabel,\ \textcolor{keywordtype}{string}\ yLabel,\ \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{ColorSequenceMode}}\ colorSequenceMode);}
+\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00073}00073\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_chart_ab5bf85c9390c53ca53befb5beb41ffde}{getTitle}}();}
+\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00078}00078\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_chart_ab757ee6b5a716f1bdf3f55a8fa11bea7}{getXLabel}}();}
+\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00083}00083\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_chart_a43dc64adbcce4a75dc7c0620f3fcb516}{getYLabel}}();}
+\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00088}00088\ \ \ \ \ \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{ColorSequenceMode}}\ \mbox{\hyperlink{class_telecon_chart_aba46b8cf2bbba5dff77aa8e62d0a9fc6}{getColorSequenceMode}}();}
+\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00095}\mbox{\hyperlink{class_telecon_chart_abfeeb8c29606422ce614a3599e07e198}{00095}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_telecon_chart_abfeeb8c29606422ce614a3599e07e198}{getDefaultXAxisSpan}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00100}\mbox{\hyperlink{class_telecon_chart_a8968d74709f6969e442cba648ef8a3c1}{00100}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{teleconchart_8h_a54534a1398c95ca6d61f6ac68e610b7e}{ChartXAxisType}}\ \mbox{\hyperlink{class_telecon_chart_a8968d74709f6969e442cba648ef8a3c1}{getChartXAxisType}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00101}00101\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00106}\mbox{\hyperlink{class_telecon_chart_a7bcb9743197202e17d65195aeaf7f71e}{00106}}\ \ \ \ \ \textcolor{keyword}{virtual}\ shared\_ptr<TeleconPlot>\ \mbox{\hyperlink{class_telecon_chart_a7bcb9743197202e17d65195aeaf7f71e}{getPlot}}(\textcolor{keywordtype}{int}\ index)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00111}\mbox{\hyperlink{class_telecon_chart_ac8ee3846df0f1dcb9f8d80f49d1105cd}{00111}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_telecon_chart_ac8ee3846df0f1dcb9f8d80f49d1105cd}{getNumPlots}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00117}\mbox{\hyperlink{class_telecon_chart_a8dd6d3f4bc6fb578ed1f2981a22df843}{00117}}\ \ \ \ \ \textcolor{keyword}{virtual}\ shared\_ptr<TeleconPlot>\ \mbox{\hyperlink{class_telecon_chart_a8dd6d3f4bc6fb578ed1f2981a22df843}{getPlotByName}}(\textcolor{keywordtype}{string}\ name)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{teleconchart_8h_source_l00119}00119\ \};}
 
 \end{DoxyCode}

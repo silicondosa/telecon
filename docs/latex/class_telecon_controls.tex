@@ -9,11 +9,13 @@
 \item 
 \mbox{\hyperlink{class_telecon_controls_aea96ab1b6f602de0862f4adcdf4a551e}{Telecon\+Controls}} (string \mbox{\hyperlink{class_telecon_controls_ab3042467cfad3b74055e47fd3bdd6df0}{window\+Name}})
 \item 
-shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_button}{Telecon\+Button}} $>$ \mbox{\hyperlink{class_telecon_controls_abcb3b5e2fbde08f965f4e25c55279f6d}{add\+Button}} (string title)
+shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_button}{Telecon\+Button}} $>$ \mbox{\hyperlink{class_telecon_controls_ae778b435da14b1527159102b80f3ce5c}{add\+Button}} (string title, \mbox{\hyperlink{teleconcontrols_8h_ae5b4a360e8122d0ee24c574250827a3f}{func\+\_\+t}} callback)
 \item 
 shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_toggle}{Telecon\+Toggle}} $>$ \mbox{\hyperlink{class_telecon_controls_a337e23f217be1970a55c65673ccffea5}{add\+Toggle}} (string title)
 \item 
-shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_slider}{Telecon\+Slider}} $>$ \mbox{\hyperlink{class_telecon_controls_a559bf5c9854db410be6d62e14591fd0b}{add\+Slider}} (string title, int min, int max, int start\+Pos)
+shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_slider}{Telecon\+Slider}} $>$ \mbox{\hyperlink{class_telecon_controls_a63a1740b6de24c1c2570b54486bdd08e}{add\+Slider}} (string title, int min, int max, int start\+Pos, int precision)
+\item 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_input}{Telecon\+Input}} $>$ \mbox{\hyperlink{class_telecon_controls_aa7d33c78b5a0051db1b22735a45958de}{add\+Input}} (string title, int start\+Val)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -25,13 +27,15 @@ vector$<$ shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_button}{Telecon\+But
 vector$<$ shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_toggle}{Telecon\+Toggle}} $>$ $>$ \mbox{\hyperlink{class_telecon_controls_a62876fd09140f01653165c513686a230}{toggles}}
 \item 
 vector$<$ shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_slider}{Telecon\+Slider}} $>$ $>$ \mbox{\hyperlink{class_telecon_controls_a2858cb4d59ebb7ba2890e35e340ed8e0}{sliders}}
+\item 
+vector$<$ shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_input}{Telecon\+Input}} $>$ $>$ \mbox{\hyperlink{class_telecon_controls_abe4f331017e92424af4d3150b3e5c270}{inputs}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 
 
-Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00039}{39}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
+Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00075}{75}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
 
 
 
@@ -44,30 +48,40 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00039}{39}} of fi
 
 
 
-Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{teleconcontrols_8cpp_source}{teleconcontrols.\+cpp}}.
+Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{teleconcontrols_8cpp_source}{teleconcontrols.\+cpp}}.
 
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_telecon_controls_abcb3b5e2fbde08f965f4e25c55279f6d}\label{class_telecon_controls_abcb3b5e2fbde08f965f4e25c55279f6d}} 
+\mbox{\Hypertarget{class_telecon_controls_ae778b435da14b1527159102b80f3ce5c}\label{class_telecon_controls_ae778b435da14b1527159102b80f3ce5c}} 
 \index{TeleconControls@{TeleconControls}!addButton@{addButton}}
 \index{addButton@{addButton}!TeleconControls@{TeleconControls}}
 \doxysubsubsection{\texorpdfstring{addButton()}{addButton()}}
-{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_button}{Telecon\+Button}} $>$ Telecon\+Controls\+::add\+Button (\begin{DoxyParamCaption}\item[{string}]{title }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_button}{Telecon\+Button}} $>$ Telecon\+Controls\+::add\+Button (\begin{DoxyParamCaption}\item[{string}]{title,  }\item[{\mbox{\hyperlink{teleconcontrols_8h_ae5b4a360e8122d0ee24c574250827a3f}{func\+\_\+t}}}]{callback }\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{teleconcontrols_8cpp_source}{teleconcontrols.\+cpp}}.
+Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{teleconcontrols_8cpp_source}{teleconcontrols.\+cpp}}.
 
-\mbox{\Hypertarget{class_telecon_controls_a559bf5c9854db410be6d62e14591fd0b}\label{class_telecon_controls_a559bf5c9854db410be6d62e14591fd0b}} 
+\mbox{\Hypertarget{class_telecon_controls_aa7d33c78b5a0051db1b22735a45958de}\label{class_telecon_controls_aa7d33c78b5a0051db1b22735a45958de}} 
+\index{TeleconControls@{TeleconControls}!addInput@{addInput}}
+\index{addInput@{addInput}!TeleconControls@{TeleconControls}}
+\doxysubsubsection{\texorpdfstring{addInput()}{addInput()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_input}{Telecon\+Input}} $>$ Telecon\+Controls\+::add\+Input (\begin{DoxyParamCaption}\item[{string}]{title,  }\item[{int}]{start\+Val }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{teleconcontrols_8cpp_source}{teleconcontrols.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_controls_a63a1740b6de24c1c2570b54486bdd08e}\label{class_telecon_controls_a63a1740b6de24c1c2570b54486bdd08e}} 
 \index{TeleconControls@{TeleconControls}!addSlider@{addSlider}}
 \index{addSlider@{addSlider}!TeleconControls@{TeleconControls}}
 \doxysubsubsection{\texorpdfstring{addSlider()}{addSlider()}}
-{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_slider}{Telecon\+Slider}} $>$ Telecon\+Controls\+::add\+Slider (\begin{DoxyParamCaption}\item[{string}]{title,  }\item[{int}]{min,  }\item[{int}]{max,  }\item[{int}]{start\+Pos }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_slider}{Telecon\+Slider}} $>$ Telecon\+Controls\+::add\+Slider (\begin{DoxyParamCaption}\item[{string}]{title,  }\item[{int}]{min,  }\item[{int}]{max,  }\item[{int}]{start\+Pos,  }\item[{int}]{precision }\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{teleconcontrols_8cpp_source}{teleconcontrols.\+cpp}}.
+Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{teleconcontrols_8cpp_source}{teleconcontrols.\+cpp}}.
 
 \mbox{\Hypertarget{class_telecon_controls_a337e23f217be1970a55c65673ccffea5}\label{class_telecon_controls_a337e23f217be1970a55c65673ccffea5}} 
 \index{TeleconControls@{TeleconControls}!addToggle@{addToggle}}
@@ -77,7 +91,7 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00024}{24}} of 
 
 
 
-Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{teleconcontrols_8cpp_source}{teleconcontrols.\+cpp}}.
+Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00025}{25}} of file \mbox{\hyperlink{teleconcontrols_8cpp_source}{teleconcontrols.\+cpp}}.
 
 
 
@@ -90,7 +104,17 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00018}{18}} of 
 
 
 
-Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00048}{48}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
+Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00085}{85}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
+
+\mbox{\Hypertarget{class_telecon_controls_abe4f331017e92424af4d3150b3e5c270}\label{class_telecon_controls_abe4f331017e92424af4d3150b3e5c270}} 
+\index{TeleconControls@{TeleconControls}!inputs@{inputs}}
+\index{inputs@{inputs}!TeleconControls@{TeleconControls}}
+\doxysubsubsection{\texorpdfstring{inputs}{inputs}}
+{\footnotesize\ttfamily vector$<$shared\+\_\+ptr$<$\mbox{\hyperlink{class_telecon_input}{Telecon\+Input}}$>$ $>$ Telecon\+Controls\+::inputs}
+
+
+
+Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00088}{88}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
 
 \mbox{\Hypertarget{class_telecon_controls_a2858cb4d59ebb7ba2890e35e340ed8e0}\label{class_telecon_controls_a2858cb4d59ebb7ba2890e35e340ed8e0}} 
 \index{TeleconControls@{TeleconControls}!sliders@{sliders}}
@@ -100,7 +124,7 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00048}{48}} of fi
 
 
 
-Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00050}{50}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
+Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00087}{87}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
 
 \mbox{\Hypertarget{class_telecon_controls_a62876fd09140f01653165c513686a230}\label{class_telecon_controls_a62876fd09140f01653165c513686a230}} 
 \index{TeleconControls@{TeleconControls}!toggles@{toggles}}
@@ -110,7 +134,7 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00050}{50}} of fi
 
 
 
-Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00049}{49}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
+Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00086}{86}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
 
 \mbox{\Hypertarget{class_telecon_controls_ab3042467cfad3b74055e47fd3bdd6df0}\label{class_telecon_controls_ab3042467cfad3b74055e47fd3bdd6df0}} 
 \index{TeleconControls@{TeleconControls}!windowName@{windowName}}
@@ -120,7 +144,7 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00049}{49}} of fi
 
 
 
-Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00047}{47}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
+Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00084}{84}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
 
 
 

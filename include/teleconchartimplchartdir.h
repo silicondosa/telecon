@@ -3,6 +3,9 @@
 #include "teleconchart.h"
 #include "teleconwxplot.h"
 
+/**
+ * The wxChartDir implementation of the TeleconChart interface.
+ */
 class TeleconChartImplChartDir : virtual public TeleconChart
 {
 protected:
@@ -14,6 +17,10 @@ public:
      */
     TeleconChartImplChartDir(string title, double memoryDepthSeconds, int dataRateMillis, string xLabel, string yLabel, ColorSequenceMode colorSequenceMode);
 
+    /**
+     * \param index the index of the TeleconPlot to return as a TeleconWxPlot, relative to the order added.
+     * \return A pointer to the TeleconWxPlot requested.
+     */
     shared_ptr<TeleconWxPlot> getWxPlot(int index);
 
     /**

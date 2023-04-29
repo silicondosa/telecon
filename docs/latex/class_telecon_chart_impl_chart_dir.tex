@@ -1,0 +1,242 @@
+\hypertarget{class_telecon_chart_impl_chart_dir}{}\doxysection{Telecon\+Chart\+Impl\+Chart\+Dir Class Reference}
+\label{class_telecon_chart_impl_chart_dir}\index{TeleconChartImplChartDir@{TeleconChartImplChartDir}}
+
+
+{\ttfamily \#include $<$include/teleconchartimplchartdir.\+h$>$}
+
+Inheritance diagram for Telecon\+Chart\+Impl\+Chart\+Dir\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_telecon_chart_impl_chart_dir}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_telecon_chart_impl_chart_dir_a69d7eaf2ee7483b3eae4fc2fb563ff25}{Telecon\+Chart\+Impl\+Chart\+Dir}} (string title, double memory\+Depth\+Seconds, int data\+Rate\+Millis, string x\+Label, string y\+Label, \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} color\+Sequence\+Mode)
+\item 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_wx_plot}{Telecon\+Wx\+Plot}} $>$ \mbox{\hyperlink{class_telecon_chart_impl_chart_dir_a2ba80b6ce9e8ab234abd667297b5f40a}{get\+Wx\+Plot}} (int index)
+\item 
+void \mbox{\hyperlink{class_telecon_chart_impl_chart_dir_a1a4674a6f18487d97bdcc88235b16c17}{initialize}} ()
+\item 
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ \mbox{\hyperlink{class_telecon_chart_impl_chart_dir_a8734fa4d5394d73ca9bd38437014f518}{get\+Plot}} (int index) override
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_telecon_chart_impl_chart_dir_a40606b7cc8becd70ec65533e057a3d99}{get\+Num\+Plots}} () override
+\item 
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ \mbox{\hyperlink{class_telecon_chart_impl_chart_dir_a4dda68878bca25c6cd002b1f49d54345}{get\+Plot\+By\+Name}} (string name) override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_telecon_chart_ae0660503fc138e53101ec2abb4271920}{Telecon\+Chart}} (string title, double memory\+Depth\+Seconds, int data\+Rate\+Millis, string x\+Label, string y\+Label, \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} color\+Sequence\+Mode)
+\item 
+string \mbox{\hyperlink{class_telecon_chart_ab5bf85c9390c53ca53befb5beb41ffde}{get\+Title}} ()
+\item 
+string \mbox{\hyperlink{class_telecon_chart_ab757ee6b5a716f1bdf3f55a8fa11bea7}{get\+XLabel}} ()
+\item 
+string \mbox{\hyperlink{class_telecon_chart_a43dc64adbcce4a75dc7c0620f3fcb516}{get\+YLabel}} ()
+\item 
+\mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} \mbox{\hyperlink{class_telecon_chart_aba46b8cf2bbba5dff77aa8e62d0a9fc6}{get\+Color\+Sequence\+Mode}} ()
+\item 
+virtual double \mbox{\hyperlink{class_telecon_chart_abfeeb8c29606422ce614a3599e07e198}{get\+Default\+XAxis\+Span}} ()=0
+\item 
+virtual \mbox{\hyperlink{teleconchart_8h_a54534a1398c95ca6d61f6ac68e610b7e}{Chart\+XAxis\+Type}} \mbox{\hyperlink{class_telecon_chart_a8968d74709f6969e442cba648ef8a3c1}{get\+Chart\+XAxis\+Type}} ()=0
+\item 
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ \mbox{\hyperlink{class_telecon_chart_a7bcb9743197202e17d65195aeaf7f71e}{get\+Plot}} (int index)=0
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_telecon_chart_ac8ee3846df0f1dcb9f8d80f49d1105cd}{get\+Num\+Plots}} ()=0
+\item 
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ \mbox{\hyperlink{class_telecon_chart_a8dd6d3f4bc6fb578ed1f2981a22df843}{get\+Plot\+By\+Name}} (string name)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_wx_plot}{Telecon\+Wx\+Plot}} $>$ $>$ \mbox{\hyperlink{class_telecon_chart_impl_chart_dir_ae490e63548a330ed0e1ccd8ce525d91c}{m\+\_\+plots}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}}}
+\begin{DoxyCompactItemize}
+\item 
+const string \mbox{\hyperlink{class_telecon_chart_a4d0876969c79d7f2123c8b5d924e0f9a}{m\+\_\+title}}
+\item 
+const double \mbox{\hyperlink{class_telecon_chart_aab73cda8ba07aefb2968811c9e5a90a8}{m\+\_\+memory\+Depth\+Seconds}}
+\item 
+const int \mbox{\hyperlink{class_telecon_chart_a18e0b8e340d53010e58f4f8120defea1}{m\+\_\+data\+Rate\+Millis}}
+\item 
+const string \mbox{\hyperlink{class_telecon_chart_acda7f85097a6f77f9a66937c09b21794}{m\+\_\+x\+Label}}
+\item 
+const string \mbox{\hyperlink{class_telecon_chart_a09089bd72af66ca9ae488191c188d851}{m\+\_\+y\+Label}}
+\item 
+const \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} \mbox{\hyperlink{class_telecon_chart_a5a502369abdc755468a305349eb34676}{m\+\_\+color\+Sequence\+Mode}}
+\item 
+bool \mbox{\hyperlink{class_telecon_chart_af315b4acbdefb53894bd06e78e96e682}{m\+\_\+has\+Started}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}}}
+\begin{DoxyCompactItemize}
+\item 
+long \mbox{\hyperlink{class_telecon_chart_a6efbe7f200b8bf283e47e60da71d6e45}{get\+Next\+Default\+Color}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The wx\+Chart\+Dir implementation of the \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} interface. 
+
+Definition at line \mbox{\hyperlink{teleconchartimplchartdir_8h_source_l00009}{9}} of file \mbox{\hyperlink{teleconchartimplchartdir_8h_source}{teleconchartimplchartdir.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_telecon_chart_impl_chart_dir_a69d7eaf2ee7483b3eae4fc2fb563ff25}\label{class_telecon_chart_impl_chart_dir_a69d7eaf2ee7483b3eae4fc2fb563ff25}} 
+\index{TeleconChartImplChartDir@{TeleconChartImplChartDir}!TeleconChartImplChartDir@{TeleconChartImplChartDir}}
+\index{TeleconChartImplChartDir@{TeleconChartImplChartDir}!TeleconChartImplChartDir@{TeleconChartImplChartDir}}
+\doxysubsubsection{\texorpdfstring{TeleconChartImplChartDir()}{TeleconChartImplChartDir()}}
+{\footnotesize\ttfamily Telecon\+Chart\+Impl\+Chart\+Dir\+::\+Telecon\+Chart\+Impl\+Chart\+Dir (\begin{DoxyParamCaption}\item[{string}]{title,  }\item[{double}]{memory\+Depth\+Seconds,  }\item[{int}]{data\+Rate\+Millis,  }\item[{string}]{x\+Label,  }\item[{string}]{y\+Label,  }\item[{\mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}}}]{color\+Sequence\+Mode }\end{DoxyParamCaption})}
+
+
+
+
+
+Constructs a new chart to be added to a \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & the title displayed above the chart. \\
+\hline
+{\em memory\+Depth\+Seconds} & the default number of seconds for which data will be remembered by plots added to this chart. This default can be overridden manually when a plot is being added. \\
+\hline
+{\em data\+Rate\+Millis} & the rate at which data will be sent to the plots on the chart. Used only to calculate the starting width of the chart; the actual rate at which data are sent may safely differ. \\
+\hline
+{\em x\+Label} & the label displayed below the x-\/axis. \\
+\hline
+{\em y\+Label} & the label displayed adjacent to the y-\/axis. \\
+\hline
+{\em color\+Sequence\+Mode} & describes how plots using the default color will be colored. See \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} for more details.   \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{teleconchartimplchartdir_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{teleconchartimplchartdir_8cpp_source}{teleconchartimplchartdir.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_telecon_chart_impl_chart_dir_a40606b7cc8becd70ec65533e057a3d99}\label{class_telecon_chart_impl_chart_dir_a40606b7cc8becd70ec65533e057a3d99}} 
+\index{TeleconChartImplChartDir@{TeleconChartImplChartDir}!getNumPlots@{getNumPlots}}
+\index{getNumPlots@{getNumPlots}!TeleconChartImplChartDir@{TeleconChartImplChartDir}}
+\doxysubsubsection{\texorpdfstring{getNumPlots()}{getNumPlots()}}
+{\footnotesize\ttfamily size\+\_\+t Telecon\+Chart\+Impl\+Chart\+Dir\+::get\+Num\+Plots (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+\begin{DoxyReturn}{Returns}
+The number of Telecon\+Plots added to the chart   
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_telecon_chart_ac8ee3846df0f1dcb9f8d80f49d1105cd}{Telecon\+Chart}}.
+
+
+
+Definition at line \mbox{\hyperlink{teleconchartimplchartdir_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{teleconchartimplchartdir_8cpp_source}{teleconchartimplchartdir.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_chart_impl_chart_dir_a8734fa4d5394d73ca9bd38437014f518}\label{class_telecon_chart_impl_chart_dir_a8734fa4d5394d73ca9bd38437014f518}} 
+\index{TeleconChartImplChartDir@{TeleconChartImplChartDir}!getPlot@{getPlot}}
+\index{getPlot@{getPlot}!TeleconChartImplChartDir@{TeleconChartImplChartDir}}
+\doxysubsubsection{\texorpdfstring{getPlot()}{getPlot()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ Telecon\+Chart\+Impl\+Chart\+Dir\+::get\+Plot (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & the index of the \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} to return, relative to the order added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} requested.   
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_telecon_chart_a7bcb9743197202e17d65195aeaf7f71e}{Telecon\+Chart}}.
+
+
+
+Definition at line \mbox{\hyperlink{teleconchartimplchartdir_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{teleconchartimplchartdir_8cpp_source}{teleconchartimplchartdir.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_chart_impl_chart_dir_a4dda68878bca25c6cd002b1f49d54345}\label{class_telecon_chart_impl_chart_dir_a4dda68878bca25c6cd002b1f49d54345}} 
+\index{TeleconChartImplChartDir@{TeleconChartImplChartDir}!getPlotByName@{getPlotByName}}
+\index{getPlotByName@{getPlotByName}!TeleconChartImplChartDir@{TeleconChartImplChartDir}}
+\doxysubsubsection{\texorpdfstring{getPlotByName()}{getPlotByName()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ Telecon\+Chart\+Impl\+Chart\+Dir\+::get\+Plot\+By\+Name (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the name of the \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} to return. If multiple plots share the same name, no guarantee is made about which will be returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a plot with the given name, or a null pointer if no plot in the given chart and window has that name.   
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_telecon_chart_a8dd6d3f4bc6fb578ed1f2981a22df843}{Telecon\+Chart}}.
+
+
+
+Definition at line \mbox{\hyperlink{teleconchartimplchartdir_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{teleconchartimplchartdir_8cpp_source}{teleconchartimplchartdir.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_chart_impl_chart_dir_a2ba80b6ce9e8ab234abd667297b5f40a}\label{class_telecon_chart_impl_chart_dir_a2ba80b6ce9e8ab234abd667297b5f40a}} 
+\index{TeleconChartImplChartDir@{TeleconChartImplChartDir}!getWxPlot@{getWxPlot}}
+\index{getWxPlot@{getWxPlot}!TeleconChartImplChartDir@{TeleconChartImplChartDir}}
+\doxysubsubsection{\texorpdfstring{getWxPlot()}{getWxPlot()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_wx_plot}{Telecon\+Wx\+Plot}} $>$ Telecon\+Chart\+Impl\+Chart\+Dir\+::get\+Wx\+Plot (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & the index of the \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} to return as a \mbox{\hyperlink{class_telecon_wx_plot}{Telecon\+Wx\+Plot}}, relative to the order added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the \mbox{\hyperlink{class_telecon_wx_plot}{Telecon\+Wx\+Plot}} requested. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{teleconchartimplchartdir_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{teleconchartimplchartdir_8cpp_source}{teleconchartimplchartdir.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_chart_impl_chart_dir_a1a4674a6f18487d97bdcc88235b16c17}\label{class_telecon_chart_impl_chart_dir_a1a4674a6f18487d97bdcc88235b16c17}} 
+\index{TeleconChartImplChartDir@{TeleconChartImplChartDir}!initialize@{initialize}}
+\index{initialize@{initialize}!TeleconChartImplChartDir@{TeleconChartImplChartDir}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily void Telecon\+Chart\+Impl\+Chart\+Dir\+::initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Initializer function. After this has been called, no further changes to the chart may be made. 
+
+Definition at line \mbox{\hyperlink{teleconchartimplchartdir_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{teleconchartimplchartdir_8cpp_source}{teleconchartimplchartdir.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_telecon_chart_impl_chart_dir_ae490e63548a330ed0e1ccd8ce525d91c}\label{class_telecon_chart_impl_chart_dir_ae490e63548a330ed0e1ccd8ce525d91c}} 
+\index{TeleconChartImplChartDir@{TeleconChartImplChartDir}!m\_plots@{m\_plots}}
+\index{m\_plots@{m\_plots}!TeleconChartImplChartDir@{TeleconChartImplChartDir}}
+\doxysubsubsection{\texorpdfstring{m\_plots}{m\_plots}}
+{\footnotesize\ttfamily vector$<$shared\+\_\+ptr$<$\mbox{\hyperlink{class_telecon_wx_plot}{Telecon\+Wx\+Plot}}$>$ $>$ Telecon\+Chart\+Impl\+Chart\+Dir\+::m\+\_\+plots\hspace{0.3cm}{\ttfamily [protected]}}
+
+A list of the plots that have been added to the chart. 
+
+Definition at line \mbox{\hyperlink{teleconchartimplchartdir_8h_source_l00013}{13}} of file \mbox{\hyperlink{teleconchartimplchartdir_8h_source}{teleconchartimplchartdir.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{teleconchartimplchartdir_8h}{teleconchartimplchartdir.\+h}}\item 
+src/\mbox{\hyperlink{teleconchartimplchartdir_8cpp}{teleconchartimplchartdir.\+cpp}}\end{DoxyCompactItemize}

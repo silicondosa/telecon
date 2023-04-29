@@ -4,7 +4,11 @@
 #include <sstream>
 #include <iostream>
 #include <iomanip>
+#include <limits>
 #include "teleconcontrols.h"
+#include "teleconwxcontrolswindow.h"
+
+using namespace std;
 
 TeleconControls::TeleconControls(string windowName)
 {
@@ -51,13 +55,10 @@ TeleconToggle::TeleconToggle(string title)
 TeleconSlider::TeleconSlider(string title, int min, int max, int startPos, int precision)
 {
     int numSteps = (max - min) * pow(10, precision);
-    // cout << numSteps << endl;
     this->min = 0;
     this->max = numSteps;
     this->offset = min;
     this->title = title;
-    // this->min = min;
-    // this->max = max;
     this->current_state = (startPos - offset) * pow(10, precision);
     this->precision = precision;
 }
@@ -94,12 +95,30 @@ string TeleconInput::getTitle()
     return title;
 }
 
-int TeleconInput::getVal()
+double TeleconInput::getVal()
 {
     return val;
 }
 
-void TeleconInput::setVal(int newVal)
+void TeleconInput::setVal(double newVal)
 {
     this->val = newVal;
+}
+
+void TeleconInput::setId(int id){
+    this->id = id;
+}
+void TeleconInput::setFrame(wxFrame* frame){
+    this->frame = frame;
+}
+void TeleconInput::updateInputBox(double value){
+    wxThreadEvent* event = new wxThreadEvent(wxEVT_INPUT_UPDATE, id);
+    stringstream ss;
+    ss << std::fixed << std::setprecision(std::numeric_limits<double>::max_digits10) << value;
+    event->SetString(ss.str());
+    ((TeleconWxControlsWindow*) frame)->GetEventHandler()->QueueEvent(event);
+}
+
+TeleconInput::~TeleconInput(){ 
+
 }

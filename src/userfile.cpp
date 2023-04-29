@@ -30,29 +30,30 @@ CreateDataPoints()
     return dataA;
 }
 
+shared_ptr<TeleconInput> input2;
 void printHello(){
     cout << "Callback Hello World" << endl;
+    input2->updateInputBox(4000);
+    
 }
-// void startTelecon(){
-    // mytelecon->teleconStart();
-// }
-
-// Telecon* mytelecon;
 
 int main(int argc, char* argv[])
 {
+    float test = .1;
+    cout << std::to_string(test) << endl;
     const int dataRateMillis = 100;
     // Initialization code
     Telecon* telecon = new Telecon();
 
     shared_ptr<TeleconControls> controls = telecon->addControls("MyControls");
     controls->addButton("Button 1", printHello);
-    shared_ptr<TeleconToggle> toggle1 = controls->addToggle("Toggle 1");
-    shared_ptr<TeleconToggle> toggle2 = controls->addToggle("Toggle 2");
-    // shared_ptr<TeleconSlider> slider2 = controls->addSlider("Slider 2", 0, 3, 2, 2);
+    shared_ptr<TeleconToggle> run = controls->addToggle("Run");
+    // shared_ptr<TeleconToggle> toggle2 = controls->addToggle("Toggle 2");
+    shared_ptr<TeleconSlider> slider2 = controls->addSlider("Frequency", 0, 3, 1, 2);
+    shared_ptr<TeleconSlider> slider3 = controls->addSlider("Amplitude", 0, 3, 2, 2);
     shared_ptr<TeleconInput> input1 = controls->addInput("Input 1", 300);
-    shared_ptr<TeleconInput> input2 = controls->addInput("Input 2", 10);
-    shared_ptr<TeleconInput> input3 = controls->addInput("Input 3", 200);
+    input2 = controls->addInput("Input 2", 10);
+    shared_ptr<TeleconInput> input3 = controls->addInput("amplitude", 1);
 
     shared_ptr<TeleconWindow> sineDemoWindow = telecon->addWindow("sineDemoWindow");
 
@@ -79,7 +80,7 @@ int main(int argc, char* argv[])
     // while(true){
     //     this_thread::sleep_for(chrono::milliseconds(200));
     //     // cout << "Toggle 1 state: " << toggle1->state << "    Toggle 2 state: " << toggle2->state << endl;
-    //     cout << "Input 1 state: " << input1->getVal() << endl;
+    //     // cout << "Input 1 state: " << input1->getVal() << endl;
     //     cout << "Input 2 state: " << input2->getVal() << endl;
     //     // cout << "Input 3 state: " << input1->getVal() << endl;
     // }
@@ -175,9 +176,11 @@ int main(int argc, char* argv[])
             phasePortrait->pushData(nowTimestampRelative, CreateDataPoints(), CreateDataPoints());
         }
         
-        // sinePlot->pushData(nowTimestampRelative, sin(nowTimestampRelative * slider2->getCurrentValue()));
-        // sinePlot->pushData(nowTimestampRelative, sin(sinvalue));
-        // sinvalue += slider2->getCurrentValue() * (3.1415 / 10);
+        // sinePlot->pushData(nowTimestampRelative, slider3->getCurrentValue() * (nowTimestampRelative * slider2->getCurrentValue()));
+        if(run->state){
+            sinePlot->pushData(nowTimestampRelative,  input3->getVal() *  slider3->getCurrentValue() * sin(sinvalue));
+            sinvalue += slider2->getCurrentValue() * (3.1415 / 10);
+        }
         if (telecon->hasStopped()) {
             break;
         }

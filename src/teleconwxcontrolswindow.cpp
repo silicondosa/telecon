@@ -9,6 +9,7 @@
 #include <vector>
 #include <sstream>
 
+
 enum
 {
   id_button = (wxID_HIGHEST + 1), // declares an id which will be used to call our button
@@ -16,6 +17,9 @@ enum
   id_slider = wxID_HIGHEST + 400,
   id_input = wxID_HIGHEST + 600
 };
+
+
+wxDEFINE_EVENT(wxEVT_INPUT_UPDATE, wxThreadEvent);
 
 
 BEGIN_EVENT_TABLE(TeleconWxControlsWindow, wxFrame)
@@ -88,9 +92,13 @@ TeleconWxControlsWindow::TeleconWxControlsWindow(shared_ptr<TeleconControls> con
   for (int i = 0; i < controls->inputs.size(); i++)
   {
       auto in = controls->inputs[i];
+      in->setId(id_input + i);
+      in->setFrame(this);
       // wxTextCtrl* myInput = new wxTextCtrl(this, id_button + i, wxString(std::to_string(in->getVal())), wxDefaultPosition, wxDefaultSize, 0);
-      wxTextCtrl* myInput = new wxTextCtrl(this, id_input + i, wxString(std::to_string(in->getVal())), wxDefaultPosition, wxDefaultSize,  
+      wxTextCtrl* myInput = new wxTextCtrl(this, id_input + i, wxString(std::to_string(in->getVal())), wxDefaultPosition, wxSize(FromDIP(200), FromDIP(30)),  
             wxTE_PROCESS_ENTER , wxDefaultValidator);
+      // shared_ptr<wxTextCtrl> myInput = make_shared<wxTextCtrl>(this, id_input + i, wxString(std::to_string(in->getVal())), wxDefaultPosition, wxDefaultSize,  
+      //       wxTE_PROCESS_ENTER , wxDefaultValidator);
       myInput->Enable(true);
       wxStaticText* inputName = new wxStaticText(this, wxID_STATIC, wxString(in->getTitle()), wxDefaultPosition, wxDefaultSize, 0);
 
@@ -101,8 +109,18 @@ TeleconWxControlsWindow::TeleconWxControlsWindow(shared_ptr<TeleconControls> con
       m_inputGridSizer->Add(inputName);
       m_inputGridSizer->Add(myInput);
 
+      m_inputValues.insert(pair(id_input + i, myInput));
+    
+      // inputControls.push_back(myInput);
+
       Connect(wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler(TeleconWxControlsWindow::inputHandler));
   }
+
+  // Connect(wxEVT_INPUT_UPDATE, wxEventHandler(TeleconWxControlsWindow::inputUpdateHandler));
+  // Bind(wxEVT_INPUT_UPDATE,&TeleconWxControlsWindow::inputUpdateHandler,this);
+  Connect(wxEVT_INPUT_UPDATE, wxThreadEventHandler(TeleconWxControlsWindow::inputUpdateHandler));
+  Connect(wxEVT_THREAD, wxThreadEventHandler(TeleconWxControlsWindow::inputUpdateHandler));
+  // cout << "In controlwindow id: " << wxEVT_INPUT_UPDATE << endl;
 
   //CAN HAVE MAP MAPPING BUTTON IDS TO THE BUTTON OBJEcTS
 
@@ -141,14 +159,27 @@ void TeleconWxControlsWindow::inputHandler(wxCommandEvent& event)
 {
     int inputIndex = event.GetId() - id_input;
     string value_str = event.GetString().ToStdString();
-    int value_int;
+    double value_dbl;
     stringstream ss;
     ss << value_str;
-    ss >> value_int;
-    
-// 
-    controls->inputs[inputIndex]->setVal(value_int);
-    // controls->inputs[inputIndex]->val = value_int;
-    // cout << "Hello world: " << value_int <<  " " << inputIndex <<  endl;
-    // cout << "   " << controls->inputs[inputIndex]->val << endl;
+    ss >> value_dbl;
+  
+    controls->inputs[inputIndex]->setVal(value_dbl);
+}
+
+void TeleconWxControlsWindow::inputUpdateHandler(wxThreadEvent& event){
+  // wxQueueEvent()
+  int inputIndex = event.GetId();
+  string value_str = event.GetString().ToStdString();
+  double value_dbl;
+  stringstream ss;
+  ss << value_str;
+  ss >> value_dbl;
+  controls->inputs[inputIndex - id_input]->setVal(value_dbl);
+  m_inputValues.find(inputIndex)->second->ChangeValue(event.GetString());
+  // m_inputValues.find(inputIndex)->second->focu
+  
+
+
+
 }

@@ -21,6 +21,8 @@ bool TeleconWxApp::OnInit()
         TeleconWxControlsWindow* window = new TeleconWxControlsWindow(controls);
         m_controls_windows.push_back(window);
         window->Show(TRUE);
+
+        // window->QueueEvent()
     }
     
     // TeleconWxControlsWindow* window = new TeleconWxControlsWindow(controls);

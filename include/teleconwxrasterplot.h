@@ -8,9 +8,19 @@
 // We perform diamond inheritance, which can cause issues, but the way we do it is safe (only one definition for each function)
 # pragma warning( disable : 4250)
 
+/**
+ * Struct to represent a raster plot data point.
+ */
 struct RasterDataPoint
 {
+    /**
+     * Time of the data point.
+     */
     double xTimestamp;
+
+    /**
+     * Status of the point.
+     */
     bool isActive;
 };
 

@@ -28,14 +28,14 @@ void \mbox{\hyperlink{class_telecon_input_a65b0ded466f7d67c99d1bede16647b58}{upd
 \item 
 std\+::string \mbox{\hyperlink{class_telecon_input_aacc8d590385849ac8428caaa2e4c01a4}{title}}
 \item 
-volatile double \mbox{\hyperlink{class_telecon_input_a92a0bca6eb4230743a834573dc5528b1}{val}}
+atomic$<$ double $>$ \mbox{\hyperlink{class_telecon_input_abda8cbb40c98a59bc1048760e88fb711}{val}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+Input box for Controls window, set value to text in box. 
 
-
-Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00056}{56}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
+Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00147}{147}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
 
 
 
@@ -46,6 +46,15 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00056}{56}} of fi
 \doxysubsubsection{\texorpdfstring{TeleconInput()}{TeleconInput()}}
 {\footnotesize\ttfamily Telecon\+Input\+::\+Telecon\+Input (\begin{DoxyParamCaption}\item[{string}]{title,  }\item[{int}]{start\+Val }\end{DoxyParamCaption})}
 
+Constructor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & Title of the input box \\
+\hline
+{\em start\+Val} & Starting value of the input box \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00077}{77}} of file \mbox{\hyperlink{teleconcontrols_8cpp_source}{teleconcontrols.\+cpp}}.
@@ -56,7 +65,7 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00077}{77}} of 
 \doxysubsubsection{\texorpdfstring{$\sim$TeleconInput()}{~TeleconInput()}}
 {\footnotesize\ttfamily Telecon\+Input\+::$\sim$\+Telecon\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-
+Default Deconstructor. 
 
 Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00122}{122}} of file \mbox{\hyperlink{teleconcontrols_8cpp_source}{teleconcontrols.\+cpp}}.
 
@@ -69,6 +78,11 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00122}{122}} of
 \doxysubsubsection{\texorpdfstring{getTitle()}{getTitle()}}
 {\footnotesize\ttfamily string Telecon\+Input\+::get\+Title (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+Gets the title of the input box.
+
+\begin{DoxyReturn}{Returns}
+Title as string 
+\end{DoxyReturn}
 
 
 Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00093}{93}} of file \mbox{\hyperlink{teleconcontrols_8cpp_source}{teleconcontrols.\+cpp}}.
@@ -79,6 +93,11 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00093}{93}} of 
 \doxysubsubsection{\texorpdfstring{getVal()}{getVal()}}
 {\footnotesize\ttfamily double Telecon\+Input\+::get\+Val (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+Gets the value of the input box.
+
+\begin{DoxyReturn}{Returns}
+current value as double 
+\end{DoxyReturn}
 
 
 Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00098}{98}} of file \mbox{\hyperlink{teleconcontrols_8cpp_source}{teleconcontrols.\+cpp}}.
@@ -89,6 +108,13 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00098}{98}} of 
 \doxysubsubsection{\texorpdfstring{setFrame()}{setFrame()}}
 {\footnotesize\ttfamily void Telecon\+Input\+::set\+Frame (\begin{DoxyParamCaption}\item[{wx\+Frame $\ast$}]{frame }\end{DoxyParamCaption})}
 
+Sets wx\+Frame of the input box.
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame} & Frame of the input box as wx\+Frame pointer \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00111}{111}} of file \mbox{\hyperlink{teleconcontrols_8cpp_source}{teleconcontrols.\+cpp}}.
@@ -99,6 +125,13 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00111}{111}} of
 \doxysubsubsection{\texorpdfstring{setId()}{setId()}}
 {\footnotesize\ttfamily void Telecon\+Input\+::set\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
 
+Sets ID of the input box.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & ID of the input box as int \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00108}{108}} of file \mbox{\hyperlink{teleconcontrols_8cpp_source}{teleconcontrols.\+cpp}}.
@@ -109,6 +142,13 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00108}{108}} of
 \doxysubsubsection{\texorpdfstring{setVal()}{setVal()}}
 {\footnotesize\ttfamily void Telecon\+Input\+::set\+Val (\begin{DoxyParamCaption}\item[{double}]{new\+Val }\end{DoxyParamCaption})}
 
+Sets the value of the input box.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Val} & Value to set input box to \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00103}{103}} of file \mbox{\hyperlink{teleconcontrols_8cpp_source}{teleconcontrols.\+cpp}}.
@@ -119,6 +159,13 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00103}{103}} of
 \doxysubsubsection{\texorpdfstring{updateInputBox()}{updateInputBox()}}
 {\footnotesize\ttfamily void Telecon\+Input\+::update\+Input\+Box (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption})}
 
+Updats the visual value displayed in the input box.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Valule as a double \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00114}{114}} of file \mbox{\hyperlink{teleconcontrols_8cpp_source}{teleconcontrols.\+cpp}}.
@@ -132,19 +179,19 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00114}{114}} of
 \doxysubsubsection{\texorpdfstring{title}{title}}
 {\footnotesize\ttfamily std\+::string Telecon\+Input\+::title}
 
+Title of the input box. 
 
+Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00162}{162}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
 
-Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00060}{60}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
-
-\mbox{\Hypertarget{class_telecon_input_a92a0bca6eb4230743a834573dc5528b1}\label{class_telecon_input_a92a0bca6eb4230743a834573dc5528b1}} 
+\mbox{\Hypertarget{class_telecon_input_abda8cbb40c98a59bc1048760e88fb711}\label{class_telecon_input_abda8cbb40c98a59bc1048760e88fb711}} 
 \index{TeleconInput@{TeleconInput}!val@{val}}
 \index{val@{val}!TeleconInput@{TeleconInput}}
 \doxysubsubsection{\texorpdfstring{val}{val}}
-{\footnotesize\ttfamily volatile double Telecon\+Input\+::val}
+{\footnotesize\ttfamily atomic$<$double$>$ Telecon\+Input\+::val}
 
+Current value of the input box. 
 
-
-Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00062}{62}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
+Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00174}{174}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
 
 
 

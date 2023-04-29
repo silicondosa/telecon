@@ -16,14 +16,14 @@ string \mbox{\hyperlink{class_telecon_button_aa75d09098af13fe76904369227fe793d}{
 \item 
 \mbox{\hyperlink{teleconcontrols_8h_ae5b4a360e8122d0ee24c574250827a3f}{func\+\_\+t}} \mbox{\hyperlink{class_telecon_button_ad12987d0ae294bacd75a4af0dcd1a210}{function\+Ptr}}
 \item 
-volatile bool \mbox{\hyperlink{class_telecon_button_aa8d143a8f6f9b6af58c283c6c8b75a8d}{state}} = false
+atomic\+\_\+bool \mbox{\hyperlink{class_telecon_button_add574a7a3b6a76cbd3f2052367769c90}{state}} = false
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+Button for Controls window, linked to a function pointer. 
 
-
-Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00018}{18}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
+Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00021}{21}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
 
 
 
@@ -34,6 +34,15 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00018}{18}} of fi
 \doxysubsubsection{\texorpdfstring{TeleconButton()}{TeleconButton()}}
 {\footnotesize\ttfamily Telecon\+Button\+::\+Telecon\+Button (\begin{DoxyParamCaption}\item[{string}]{title,  }\item[{\mbox{\hyperlink{teleconcontrols_8h_ae5b4a360e8122d0ee24c574250827a3f}{func\+\_\+t}}}]{callback }\end{DoxyParamCaption})}
 
+Constructor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & Title of the button \\
+\hline
+{\em callback} & Function that the button should call back to \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{teleconcontrols_8cpp_source}{teleconcontrols.\+cpp}}.
@@ -47,6 +56,11 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00046}{46}} of 
 \doxysubsubsection{\texorpdfstring{getTitle()}{getTitle()}}
 {\footnotesize\ttfamily string Telecon\+Button\+::get\+Title (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+Getter function for button title.
+
+\begin{DoxyReturn}{Returns}
+title of button as string 
+\end{DoxyReturn}
 
 
 Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00083}{83}} of file \mbox{\hyperlink{teleconcontrols_8cpp_source}{teleconcontrols.\+cpp}}.
@@ -60,19 +74,19 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00083}{83}} of 
 \doxysubsubsection{\texorpdfstring{functionPtr}{functionPtr}}
 {\footnotesize\ttfamily \mbox{\hyperlink{teleconcontrols_8h_ae5b4a360e8122d0ee24c574250827a3f}{func\+\_\+t}} Telecon\+Button\+::function\+Ptr}
 
+A function pointer that points to the callback function linked to the button. 
 
+Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00036}{36}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
 
-Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00022}{22}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
-
-\mbox{\Hypertarget{class_telecon_button_aa8d143a8f6f9b6af58c283c6c8b75a8d}\label{class_telecon_button_aa8d143a8f6f9b6af58c283c6c8b75a8d}} 
+\mbox{\Hypertarget{class_telecon_button_add574a7a3b6a76cbd3f2052367769c90}\label{class_telecon_button_add574a7a3b6a76cbd3f2052367769c90}} 
 \index{TeleconButton@{TeleconButton}!state@{state}}
 \index{state@{state}!TeleconButton@{TeleconButton}}
 \doxysubsubsection{\texorpdfstring{state}{state}}
-{\footnotesize\ttfamily volatile bool Telecon\+Button\+::state = false}
+{\footnotesize\ttfamily atomic\+\_\+bool Telecon\+Button\+::state = false}
 
+State of the button, off (default) or on. 
 
-
-Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00024}{24}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
+Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00048}{48}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
 
 
 

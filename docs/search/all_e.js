@@ -16,7 +16,7 @@ var searchData=
   ['setval_13',['setVal',['../class_telecon_input.html#a683e3674dfc0900ebcec781a43b6ca87',1,'TeleconInput']]],
   ['size_14',['size',['../class_telecon_wx_phase_portrait_plot.html#a46f27380601e92c0fea740cb2bf6a645',1,'TeleconWxPhasePortraitPlot::size()'],['../class_telecon_wx_raster_plot.html#a75e498c612cf889622ae6315ce615fed',1,'TeleconWxRasterPlot::size()'],['../class_telecon_wx_scatter_plot.html#aae4d7cf34d6ab30661c296fa276ff148',1,'TeleconWxScatterPlot::size()'],['../class_data_buffer.html#a1d235779d299a2b770a8c27386ee3ef0',1,'DataBuffer::size()'],['../class_telecon_plot.html#a582e5ae4fd4923f82956fc37679d3809',1,'TeleconPlot::size()'],['../class_telecon_wx_line_plot.html#af4c365d24a8a34b55b6e53de388dd70f',1,'TeleconWxLinePlot::size()']]],
   ['sliders_15',['sliders',['../class_telecon_controls.html#a2858cb4d59ebb7ba2890e35e340ed8e0',1,'TeleconControls']]],
-  ['state_16',['state',['../class_telecon_button.html#aa8d143a8f6f9b6af58c283c6c8b75a8d',1,'TeleconButton::state()'],['../class_telecon_toggle.html#a0909a35e0eecac06644ba44e1bf16d84',1,'TeleconToggle::state()']]],
+  ['state_16',['state',['../class_telecon_button.html#add574a7a3b6a76cbd3f2052367769c90',1,'TeleconButton::state()'],['../class_telecon_toggle.html#a6e382bfcafc5874ebb0870969ed4caea',1,'TeleconToggle::state()']]],
   ['symbol_5fcircle_17',['SYMBOL_CIRCLE',['../enums_8h.html#ae15115e1cf73fcccf39f4b796da1b40baeedd6d364526e38cfbb1f678cf9b2849',1,'enums.h']]],
   ['symbol_5fcross_18',['SYMBOL_CROSS',['../enums_8h.html#ae15115e1cf73fcccf39f4b796da1b40ba0c6a27fc25c9a11472f15b4c1e114ac5',1,'enums.h']]],
   ['symbol_5fdiamond_19',['SYMBOL_DIAMOND',['../enums_8h.html#ae15115e1cf73fcccf39f4b796da1b40bac596c2d7a6a41afcfd17d7acb49eda0e',1,'enums.h']]],

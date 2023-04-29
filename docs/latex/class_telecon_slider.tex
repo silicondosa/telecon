@@ -7,7 +7,7 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_telecon_slider_a5b9e1c018bf98d0e5463b99a24c67f24}{Telecon\+Slider}} (string \mbox{\hyperlink{class_telecon_slider_a39ab3bdc71c3c0ae80a160497f519c38}{title}}, int \mbox{\hyperlink{class_telecon_slider_a388fd2a2becee59adda3c7353588cd36}{min}}, int \mbox{\hyperlink{class_telecon_slider_a9866d5ef00a56c6caf69fea5bfa91321}{max}}, int \mbox{\hyperlink{class_telecon_slider_a4494480e03abe178574d7c55ab71f81a}{current\+\_\+state}}, int \mbox{\hyperlink{class_telecon_slider_aec59a1da9fa7033245224440183bde53}{precision}})
+\mbox{\hyperlink{class_telecon_slider_a5b9e1c018bf98d0e5463b99a24c67f24}{Telecon\+Slider}} (string \mbox{\hyperlink{class_telecon_slider_a39ab3bdc71c3c0ae80a160497f519c38}{title}}, int \mbox{\hyperlink{class_telecon_slider_a388fd2a2becee59adda3c7353588cd36}{min}}, int \mbox{\hyperlink{class_telecon_slider_a9866d5ef00a56c6caf69fea5bfa91321}{max}}, int \mbox{\hyperlink{class_telecon_slider_a04453d119cbeb3bb6e5972e911d608b6}{current\+\_\+state}}, int \mbox{\hyperlink{class_telecon_slider_aec59a1da9fa7033245224440183bde53}{precision}})
 \item 
 double \mbox{\hyperlink{class_telecon_slider_a3ff280da9b55cea212246054791b34c5}{get\+Current\+Value}} ()
 \item 
@@ -22,7 +22,7 @@ int \mbox{\hyperlink{class_telecon_slider_a388fd2a2becee59adda3c7353588cd36}{min
 \item 
 int \mbox{\hyperlink{class_telecon_slider_a9866d5ef00a56c6caf69fea5bfa91321}{max}}
 \item 
-volatile int \mbox{\hyperlink{class_telecon_slider_a4494480e03abe178574d7c55ab71f81a}{current\+\_\+state}}
+atomic\+\_\+int \mbox{\hyperlink{class_telecon_slider_a04453d119cbeb3bb6e5972e911d608b6}{current\+\_\+state}}
 \item 
 int \mbox{\hyperlink{class_telecon_slider_aec59a1da9fa7033245224440183bde53}{precision}}
 \item 
@@ -31,9 +31,9 @@ int \mbox{\hyperlink{class_telecon_slider_a73ab24de786debf4530ba168be9fe265}{off
 
 
 \doxysubsection{Detailed Description}
+Slider for Controls window, generates a value based on the slider between min and max values. 
 
-
-Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00030}{30}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
+Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00057}{57}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
 
 
 
@@ -44,6 +44,21 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00030}{30}} of fi
 \doxysubsubsection{\texorpdfstring{TeleconSlider()}{TeleconSlider()}}
 {\footnotesize\ttfamily Telecon\+Slider\+::\+Telecon\+Slider (\begin{DoxyParamCaption}\item[{string}]{title,  }\item[{int}]{min,  }\item[{int}]{max,  }\item[{int}]{current\+\_\+state,  }\item[{int}]{precision }\end{DoxyParamCaption})}
 
+Constructor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & Title of the slider \\
+\hline
+{\em min} & Minimum value that the slider should output \\
+\hline
+{\em max} & Maximum value that the slider should output \\
+\hline
+{\em current\+\_\+state} & Current value of the slider \\
+\hline
+{\em precision} & How much each slider tick represents \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{teleconcontrols_8cpp_source}{teleconcontrols.\+cpp}}.
@@ -57,6 +72,11 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00055}{55}} of 
 \doxysubsubsection{\texorpdfstring{current\_value\_to\_string()}{current\_value\_to\_string()}}
 {\footnotesize\ttfamily string Telecon\+Slider\+::current\+\_\+value\+\_\+to\+\_\+string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+Gets the current value of the slider as a string.
+
+\begin{DoxyReturn}{Returns}
+current value of the slider as string 
+\end{DoxyReturn}
 
 
 Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00071}{71}} of file \mbox{\hyperlink{teleconcontrols_8cpp_source}{teleconcontrols.\+cpp}}.
@@ -67,6 +87,11 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00071}{71}} of 
 \doxysubsubsection{\texorpdfstring{getCurrentValue()}{getCurrentValue()}}
 {\footnotesize\ttfamily double Telecon\+Slider\+::get\+Current\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+Gets the current value of the slider.
+
+\begin{DoxyReturn}{Returns}
+current value of the slider as double 
+\end{DoxyReturn}
 
 
 Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00066}{66}} of file \mbox{\hyperlink{teleconcontrols_8cpp_source}{teleconcontrols.\+cpp}}.
@@ -74,15 +99,15 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00066}{66}} of 
 
 
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{class_telecon_slider_a4494480e03abe178574d7c55ab71f81a}\label{class_telecon_slider_a4494480e03abe178574d7c55ab71f81a}} 
+\mbox{\Hypertarget{class_telecon_slider_a04453d119cbeb3bb6e5972e911d608b6}\label{class_telecon_slider_a04453d119cbeb3bb6e5972e911d608b6}} 
 \index{TeleconSlider@{TeleconSlider}!current\_state@{current\_state}}
 \index{current\_state@{current\_state}!TeleconSlider@{TeleconSlider}}
 \doxysubsubsection{\texorpdfstring{current\_state}{current\_state}}
-{\footnotesize\ttfamily volatile int Telecon\+Slider\+::current\+\_\+state}
+{\footnotesize\ttfamily atomic\+\_\+int Telecon\+Slider\+::current\+\_\+state}
 
+Current value of the slider. 
 
-
-Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00037}{37}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
+Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00090}{90}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
 
 \mbox{\Hypertarget{class_telecon_slider_a9866d5ef00a56c6caf69fea5bfa91321}\label{class_telecon_slider_a9866d5ef00a56c6caf69fea5bfa91321}} 
 \index{TeleconSlider@{TeleconSlider}!max@{max}}
@@ -90,9 +115,9 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00037}{37}} of fi
 \doxysubsubsection{\texorpdfstring{max}{max}}
 {\footnotesize\ttfamily int Telecon\+Slider\+::max}
 
+Maximum value that the slider should output. 
 
-
-Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00036}{36}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
+Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00085}{85}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
 
 \mbox{\Hypertarget{class_telecon_slider_a388fd2a2becee59adda3c7353588cd36}\label{class_telecon_slider_a388fd2a2becee59adda3c7353588cd36}} 
 \index{TeleconSlider@{TeleconSlider}!min@{min}}
@@ -100,9 +125,9 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00036}{36}} of fi
 \doxysubsubsection{\texorpdfstring{min}{min}}
 {\footnotesize\ttfamily int Telecon\+Slider\+::min}
 
+Minimum value that the slider should output. 
 
-
-Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00035}{35}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
+Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00080}{80}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
 
 \mbox{\Hypertarget{class_telecon_slider_a73ab24de786debf4530ba168be9fe265}\label{class_telecon_slider_a73ab24de786debf4530ba168be9fe265}} 
 \index{TeleconSlider@{TeleconSlider}!offset@{offset}}
@@ -112,7 +137,7 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00035}{35}} of fi
 
 
 
-Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00041}{41}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
+Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00094}{94}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
 
 \mbox{\Hypertarget{class_telecon_slider_aec59a1da9fa7033245224440183bde53}\label{class_telecon_slider_aec59a1da9fa7033245224440183bde53}} 
 \index{TeleconSlider@{TeleconSlider}!precision@{precision}}
@@ -122,7 +147,7 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00041}{41}} of fi
 
 
 
-Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00040}{40}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
+Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00093}{93}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
 
 \mbox{\Hypertarget{class_telecon_slider_a39ab3bdc71c3c0ae80a160497f519c38}\label{class_telecon_slider_a39ab3bdc71c3c0ae80a160497f519c38}} 
 \index{TeleconSlider@{TeleconSlider}!title@{title}}
@@ -130,9 +155,9 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00040}{40}} of fi
 \doxysubsubsection{\texorpdfstring{title}{title}}
 {\footnotesize\ttfamily std\+::string Telecon\+Slider\+::title}
 
+Title of the slider. 
 
-
-Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00034}{34}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
+Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00075}{75}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
 
 
 

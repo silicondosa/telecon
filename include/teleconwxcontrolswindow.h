@@ -7,9 +7,17 @@
 
 wxDECLARE_EVENT(wxEVT_INPUT_UPDATE, wxThreadEvent);
 
+/**
+ * UI handler for the telecon controls window.
+ */
 class TeleconWxControlsWindow : public wxFrame
 {
 public:
+    /**
+     * Constructor.
+     * 
+     * \param controls TeleconControls object pointer
+     */
     TeleconWxControlsWindow(std::shared_ptr<TeleconControls> controls);
     DECLARE_EVENT_TABLE()
 private:

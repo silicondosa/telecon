@@ -102,7 +102,7 @@ $(document).ready(function(){initNavTree('class_telecon_slider.html',''); initRe
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5b9e1c018bf98d0e5463b99a24c67f24"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_slider.html#a5b9e1c018bf98d0e5463b99a24c67f24">TeleconSlider</a> (string <a class="el" href="class_telecon_slider.html#a39ab3bdc71c3c0ae80a160497f519c38">title</a>, int <a class="el" href="class_telecon_slider.html#a388fd2a2becee59adda3c7353588cd36">min</a>, int <a class="el" href="class_telecon_slider.html#a9866d5ef00a56c6caf69fea5bfa91321">max</a>, int <a class="el" href="class_telecon_slider.html#a4494480e03abe178574d7c55ab71f81a">current_state</a>, int <a class="el" href="class_telecon_slider.html#aec59a1da9fa7033245224440183bde53">precision</a>)</td></tr>
+<tr class="memitem:a5b9e1c018bf98d0e5463b99a24c67f24"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_slider.html#a5b9e1c018bf98d0e5463b99a24c67f24">TeleconSlider</a> (string <a class="el" href="class_telecon_slider.html#a39ab3bdc71c3c0ae80a160497f519c38">title</a>, int <a class="el" href="class_telecon_slider.html#a388fd2a2becee59adda3c7353588cd36">min</a>, int <a class="el" href="class_telecon_slider.html#a9866d5ef00a56c6caf69fea5bfa91321">max</a>, int <a class="el" href="class_telecon_slider.html#a04453d119cbeb3bb6e5972e911d608b6">current_state</a>, int <a class="el" href="class_telecon_slider.html#aec59a1da9fa7033245224440183bde53">precision</a>)</td></tr>
 <tr class="separator:a5b9e1c018bf98d0e5463b99a24c67f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ff280da9b55cea212246054791b34c5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_slider.html#a3ff280da9b55cea212246054791b34c5">getCurrentValue</a> ()</td></tr>
 <tr class="separator:a3ff280da9b55cea212246054791b34c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -117,16 +117,17 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a388fd2a2becee59adda3c7353588cd36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9866d5ef00a56c6caf69fea5bfa91321"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_slider.html#a9866d5ef00a56c6caf69fea5bfa91321">max</a></td></tr>
 <tr class="separator:a9866d5ef00a56c6caf69fea5bfa91321"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4494480e03abe178574d7c55ab71f81a"><td class="memItemLeft" align="right" valign="top">volatile int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_slider.html#a4494480e03abe178574d7c55ab71f81a">current_state</a></td></tr>
-<tr class="separator:a4494480e03abe178574d7c55ab71f81a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04453d119cbeb3bb6e5972e911d608b6"><td class="memItemLeft" align="right" valign="top">atomic_int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_slider.html#a04453d119cbeb3bb6e5972e911d608b6">current_state</a></td></tr>
+<tr class="separator:a04453d119cbeb3bb6e5972e911d608b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec59a1da9fa7033245224440183bde53"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_slider.html#aec59a1da9fa7033245224440183bde53">precision</a></td></tr>
 <tr class="separator:aec59a1da9fa7033245224440183bde53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73ab24de786debf4530ba168be9fe265"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_slider.html#a73ab24de786debf4530ba168be9fe265">offset</a></td></tr>
 <tr class="separator:a73ab24de786debf4530ba168be9fe265"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="teleconcontrols_8h_source.html#l00030">30</a> of file <a class="el" href="teleconcontrols_8h_source.html">teleconcontrols.h</a>.</p>
+<div class="textblock"><p>Slider for Controls window, generates a value based on the slider between min and max values. </p>
+
+<p class="definition">Definition at line <a class="el" href="teleconcontrols_8h_source.html#l00057">57</a> of file <a class="el" href="teleconcontrols_8h_source.html">teleconcontrols.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5b9e1c018bf98d0e5463b99a24c67f24" name="a5b9e1c018bf98d0e5463b99a24c67f24"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5b9e1c018bf98d0e5463b99a24c67f24">&#9670;&#160;</a></span>TeleconSlider()</h2>
@@ -171,6 +172,17 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Constructor.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">title</td><td>Title of the slider </td></tr>
+    <tr><td class="paramname">min</td><td>Minimum value that the slider should output </td></tr>
+    <tr><td class="paramname">max</td><td>Maximum value that the slider should output </td></tr>
+    <tr><td class="paramname">current_state</td><td>Current value of the slider </td></tr>
+    <tr><td class="paramname">precision</td><td>How much each slider tick represents </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="teleconcontrols_8cpp_source.html#l00055">55</a> of file <a class="el" href="teleconcontrols_8cpp_source.html">teleconcontrols.cpp</a>.</p>
 
@@ -191,6 +203,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Gets the current value of the slider as a string.</p>
+<dl class="section return"><dt>Returns</dt><dd>current value of the slider as string </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="teleconcontrols_8cpp_source.html#l00071">71</a> of file <a class="el" href="teleconcontrols_8cpp_source.html">teleconcontrols.cpp</a>.</p>
 
@@ -210,25 +224,28 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Gets the current value of the slider.</p>
+<dl class="section return"><dt>Returns</dt><dd>current value of the slider as double </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="teleconcontrols_8cpp_source.html#l00066">66</a> of file <a class="el" href="teleconcontrols_8cpp_source.html">teleconcontrols.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a4494480e03abe178574d7c55ab71f81a" name="a4494480e03abe178574d7c55ab71f81a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4494480e03abe178574d7c55ab71f81a">&#9670;&#160;</a></span>current_state</h2>
+<a id="a04453d119cbeb3bb6e5972e911d608b6" name="a04453d119cbeb3bb6e5972e911d608b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04453d119cbeb3bb6e5972e911d608b6">&#9670;&#160;</a></span>current_state</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">volatile int TeleconSlider::current_state</td>
+          <td class="memname">atomic_int TeleconSlider::current_state</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Current value of the slider. </p>
 
-<p class="definition">Definition at line <a class="el" href="teleconcontrols_8h_source.html#l00037">37</a> of file <a class="el" href="teleconcontrols_8h_source.html">teleconcontrols.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconcontrols_8h_source.html#l00090">90</a> of file <a class="el" href="teleconcontrols_8h_source.html">teleconcontrols.h</a>.</p>
 
 </div>
 </div>
@@ -243,8 +260,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Maximum value that the slider should output. </p>
 
-<p class="definition">Definition at line <a class="el" href="teleconcontrols_8h_source.html#l00036">36</a> of file <a class="el" href="teleconcontrols_8h_source.html">teleconcontrols.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconcontrols_8h_source.html#l00085">85</a> of file <a class="el" href="teleconcontrols_8h_source.html">teleconcontrols.h</a>.</p>
 
 </div>
 </div>
@@ -259,8 +277,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Minimum value that the slider should output. </p>
 
-<p class="definition">Definition at line <a class="el" href="teleconcontrols_8h_source.html#l00035">35</a> of file <a class="el" href="teleconcontrols_8h_source.html">teleconcontrols.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconcontrols_8h_source.html#l00080">80</a> of file <a class="el" href="teleconcontrols_8h_source.html">teleconcontrols.h</a>.</p>
 
 </div>
 </div>
@@ -276,7 +295,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="teleconcontrols_8h_source.html#l00041">41</a> of file <a class="el" href="teleconcontrols_8h_source.html">teleconcontrols.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconcontrols_8h_source.html#l00094">94</a> of file <a class="el" href="teleconcontrols_8h_source.html">teleconcontrols.h</a>.</p>
 
 </div>
 </div>
@@ -292,7 +311,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="teleconcontrols_8h_source.html#l00040">40</a> of file <a class="el" href="teleconcontrols_8h_source.html">teleconcontrols.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconcontrols_8h_source.html#l00093">93</a> of file <a class="el" href="teleconcontrols_8h_source.html">teleconcontrols.h</a>.</p>
 
 </div>
 </div>
@@ -307,8 +326,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Title of the slider. </p>
 
-<p class="definition">Definition at line <a class="el" href="teleconcontrols_8h_source.html#l00034">34</a> of file <a class="el" href="teleconcontrols_8h_source.html">teleconcontrols.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconcontrols_8h_source.html#l00075">75</a> of file <a class="el" href="teleconcontrols_8h_source.html">teleconcontrols.h</a>.</p>
 
 </div>
 </div>

@@ -15,12 +15,35 @@
  */
 class TeleconWindow {
 protected:
+
+	/**
+	 * If the window is quiting or not, as bool.
+	 */
 	std::atomic_bool m_hasRequestedQuit;
+
+	/**
+	 * Quiting mutex lock.
+	 */
 	mutex m_hasQuitLock;
+
+	/**
+	 * Quiting CV.
+	 */
 	condition_variable m_hasQuitCV;
+
+	/**
+	 * If the window successfully quits or not, as bool.
+	 */
 	bool m_hasQuit;
+
+	/**
+	 * Title of the window as string.
+	 */
 	const std::string m_title;
 
+	/**
+	 * State of whether or not the window has started as bool.
+	 */
     bool m_hasStarted;
 public:
 

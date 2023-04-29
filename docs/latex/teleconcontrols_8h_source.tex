@@ -19,77 +19,112 @@
 \DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00015}00015\ }
 \DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00016}\mbox{\hyperlink{teleconcontrols_8h_ae5b4a360e8122d0ee24c574250827a3f}{00016}}\ \textcolor{keyword}{typedef}\ void\ (*\mbox{\hyperlink{teleconcontrols_8h_ae5b4a360e8122d0ee24c574250827a3f}{func\_t}})();}
 \DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00017}00017\ }
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00018}\mbox{\hyperlink{class_telecon_button}{00018}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_telecon_button}{TeleconButton}}}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00019}00019\ \{}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00020}00020\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00021}00021\ \ \ \ \ \mbox{\hyperlink{class_telecon_button}{TeleconButton}}(\textcolor{keywordtype}{string}\ title,\ \mbox{\hyperlink{teleconcontrols_8h_ae5b4a360e8122d0ee24c574250827a3f}{func\_t}}\ callback);}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00022}\mbox{\hyperlink{class_telecon_button_ad12987d0ae294bacd75a4af0dcd1a210}{00022}}\ \ \ \ \ \mbox{\hyperlink{teleconcontrols_8h_ae5b4a360e8122d0ee24c574250827a3f}{func\_t}}\ \mbox{\hyperlink{class_telecon_button_ad12987d0ae294bacd75a4af0dcd1a210}{functionPtr}};}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00023}00023\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_button_aa75d09098af13fe76904369227fe793d}{getTitle}}();}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00024}\mbox{\hyperlink{class_telecon_button_aa8d143a8f6f9b6af58c283c6c8b75a8d}{00024}}\ \ \ \ \ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_telecon_button_aa8d143a8f6f9b6af58c283c6c8b75a8d}{state}}\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00025}00025\ }
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00026}00026\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00027}00027\ \ \ \ \ \textcolor{keywordtype}{string}\ title;}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00028}00028\ \};}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00029}00029\ }
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00030}\mbox{\hyperlink{class_telecon_slider}{00030}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_telecon_slider}{TeleconSlider}}}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00031}00031\ \{}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00032}00032\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00033}00033\ \ \ \ \ \mbox{\hyperlink{class_telecon_slider}{TeleconSlider}}(\textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_slider_a39ab3bdc71c3c0ae80a160497f519c38}{title}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_slider_a388fd2a2becee59adda3c7353588cd36}{min}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_slider_a9866d5ef00a56c6caf69fea5bfa91321}{max}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_slider_a4494480e03abe178574d7c55ab71f81a}{current\_state}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_slider_aec59a1da9fa7033245224440183bde53}{precision}});}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00034}\mbox{\hyperlink{class_telecon_slider_a39ab3bdc71c3c0ae80a160497f519c38}{00034}}\ \ \ \ \ std::string\ \mbox{\hyperlink{class_telecon_slider_a39ab3bdc71c3c0ae80a160497f519c38}{title}};}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00035}\mbox{\hyperlink{class_telecon_slider_a388fd2a2becee59adda3c7353588cd36}{00035}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_slider_a388fd2a2becee59adda3c7353588cd36}{min}};}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00036}\mbox{\hyperlink{class_telecon_slider_a9866d5ef00a56c6caf69fea5bfa91321}{00036}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_slider_a9866d5ef00a56c6caf69fea5bfa91321}{max}};}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00037}\mbox{\hyperlink{class_telecon_slider_a4494480e03abe178574d7c55ab71f81a}{00037}}\ \ \ \ \ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_slider_a4494480e03abe178574d7c55ab71f81a}{current\_state}};}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00038}00038\ }
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00039}00039\ \ \ \ \ \textcolor{comment}{//TODO}}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00040}\mbox{\hyperlink{class_telecon_slider_aec59a1da9fa7033245224440183bde53}{00040}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_slider_aec59a1da9fa7033245224440183bde53}{precision}};}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00041}\mbox{\hyperlink{class_telecon_slider_a73ab24de786debf4530ba168be9fe265}{00041}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_slider_a73ab24de786debf4530ba168be9fe265}{offset}};}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00042}00042\ }
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00043}00043\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_telecon_slider_a3ff280da9b55cea212246054791b34c5}{getCurrentValue}}();}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00044}00044\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_slider_a52aca94be452c4e5180c733746c88993}{current\_value\_to\_string}}();}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00045}00045\ \};}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00046}00046\ }
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00047}\mbox{\hyperlink{class_telecon_toggle}{00047}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_telecon_toggle}{TeleconToggle}}}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00048}00048\ \{}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00049}00049\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00050}00050\ \ \ \ \ \mbox{\hyperlink{class_telecon_toggle}{TeleconToggle}}(\textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_toggle_adcacce3e8ebe513597f440670e0362fe}{title}});}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00051}\mbox{\hyperlink{class_telecon_toggle_adcacce3e8ebe513597f440670e0362fe}{00051}}\ \ \ \ \ std::string\ \mbox{\hyperlink{class_telecon_toggle_adcacce3e8ebe513597f440670e0362fe}{title}};}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00052}00052\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_toggle_aa5024883ceb63c3646dbb16dfd45142b}{getTitle}}();}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00053}\mbox{\hyperlink{class_telecon_toggle_a0909a35e0eecac06644ba44e1bf16d84}{00053}}\ \ \ \ \ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_telecon_toggle_a0909a35e0eecac06644ba44e1bf16d84}{state}}\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00054}00054\ \};}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00055}00055\ }
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00056}\mbox{\hyperlink{class_telecon_input}{00056}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_telecon_input}{TeleconInput}}}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00057}00057\ \{}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00058}00058\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00059}00059\ \ \ \ \ \mbox{\hyperlink{class_telecon_input}{TeleconInput}}(\textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_input_aacc8d590385849ac8428caaa2e4c01a4}{title}},\ \textcolor{keywordtype}{int}\ startVal);}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00060}\mbox{\hyperlink{class_telecon_input_aacc8d590385849ac8428caaa2e4c01a4}{00060}}\ \ \ \ \ std::string\ \mbox{\hyperlink{class_telecon_input_aacc8d590385849ac8428caaa2e4c01a4}{title}};}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00061}00061\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_input_afcac1c14a4cd290e0f32eb8d5c0fd614}{getTitle}}();}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00062}\mbox{\hyperlink{class_telecon_input_a92a0bca6eb4230743a834573dc5528b1}{00062}}\ \ \ \ \ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_telecon_input_a92a0bca6eb4230743a834573dc5528b1}{val}};}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00063}00063\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_telecon_input_aa5efe0a0f7d459bb48d1289efc6bdd61}{getVal}}();}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00064}00064\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_input_a683e3674dfc0900ebcec781a43b6ca87}{setVal}}(\textcolor{keywordtype}{double}\ newVal);}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00065}00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_input_a707c448ba515e0f2805d5155c6ad6ed8}{setId}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00066}00066\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_input_a62bb9f5579ad67b165b22c56309ee147}{setFrame}}(wxFrame*\ frame);}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00067}00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_input_a65b0ded466f7d67c99d1bede16647b58}{updateInputBox}}(\textcolor{keywordtype}{double}\ value);}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00068}00068\ \ \ \ \ \mbox{\hyperlink{class_telecon_input_ad61529a9b57d60ed5762649fd5e28412}{\string~TeleconInput}}();}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00069}00069\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00070}00070\ \ \ \ \ wxFrame*\ frame;}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00071}00071\ \ \ \ \ \textcolor{keywordtype}{int}\ id;}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00072}00072\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00073}00073\ \};}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00074}00074\ }
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00075}\mbox{\hyperlink{class_telecon_controls}{00075}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_telecon_controls}{TeleconControls}}}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00076}00076\ \{}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00077}00077\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00078}00078\ \ \ \ \ \mbox{\hyperlink{class_telecon_controls}{TeleconControls}}(\textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_controls_ab3042467cfad3b74055e47fd3bdd6df0}{windowName}});}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00079}00079\ \ \ \ \ shared\_ptr<TeleconButton>\ \mbox{\hyperlink{class_telecon_controls_ae778b435da14b1527159102b80f3ce5c}{addButton}}(\textcolor{keywordtype}{string}\ title,\ \mbox{\hyperlink{teleconcontrols_8h_ae5b4a360e8122d0ee24c574250827a3f}{func\_t}}\ callback);}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00080}00080\ \ \ \ \ shared\_ptr<TeleconToggle>\ \mbox{\hyperlink{class_telecon_controls_a337e23f217be1970a55c65673ccffea5}{addToggle}}(\textcolor{keywordtype}{string}\ title);}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00081}00081\ \ \ \ \ shared\_ptr<TeleconSlider>\ \mbox{\hyperlink{class_telecon_controls_a63a1740b6de24c1c2570b54486bdd08e}{addSlider}}(\textcolor{keywordtype}{string}\ title,\ \textcolor{keywordtype}{int}\ min,\ \textcolor{keywordtype}{int}\ max,\ \textcolor{keywordtype}{int}\ startPos,\ \textcolor{keywordtype}{int}\ precision);}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00082}00082\ \ \ \ \ shared\_ptr<TeleconInput>\ \mbox{\hyperlink{class_telecon_controls_aa7d33c78b5a0051db1b22735a45958de}{addInput}}(\textcolor{keywordtype}{string}\ title,\ \textcolor{keywordtype}{int}\ startVal);}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00083}00083\ }
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00084}\mbox{\hyperlink{class_telecon_controls_ab3042467cfad3b74055e47fd3bdd6df0}{00084}}\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_controls_ab3042467cfad3b74055e47fd3bdd6df0}{windowName}};}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00085}\mbox{\hyperlink{class_telecon_controls_aad637f7da4966e72076500749b85b4c8}{00085}}\ \ \ \ \ vector<shared\_ptr<TeleconButton>>\ \mbox{\hyperlink{class_telecon_controls_aad637f7da4966e72076500749b85b4c8}{buttons}};}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00086}\mbox{\hyperlink{class_telecon_controls_a62876fd09140f01653165c513686a230}{00086}}\ \ \ \ \ vector<shared\_ptr<TeleconToggle>>\ \mbox{\hyperlink{class_telecon_controls_a62876fd09140f01653165c513686a230}{toggles}};}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00087}\mbox{\hyperlink{class_telecon_controls_a2858cb4d59ebb7ba2890e35e340ed8e0}{00087}}\ \ \ \ \ vector<shared\_ptr<TeleconSlider>>\ \mbox{\hyperlink{class_telecon_controls_a2858cb4d59ebb7ba2890e35e340ed8e0}{sliders}};}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00088}\mbox{\hyperlink{class_telecon_controls_abe4f331017e92424af4d3150b3e5c270}{00088}}\ \ \ \ \ vector<shared\_ptr<TeleconInput>>\ \mbox{\hyperlink{class_telecon_controls_abe4f331017e92424af4d3150b3e5c270}{inputs}};}
-\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00089}00089\ \};}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00021}\mbox{\hyperlink{class_telecon_button}{00021}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_telecon_button}{TeleconButton}}}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00022}00022\ \{}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00023}00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00031}00031\ \ \ \ \ \mbox{\hyperlink{class_telecon_button}{TeleconButton}}(\textcolor{keywordtype}{string}\ title,\ \mbox{\hyperlink{teleconcontrols_8h_ae5b4a360e8122d0ee24c574250827a3f}{func\_t}}\ callback);}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00036}\mbox{\hyperlink{class_telecon_button_ad12987d0ae294bacd75a4af0dcd1a210}{00036}}\ \ \ \ \ \mbox{\hyperlink{teleconcontrols_8h_ae5b4a360e8122d0ee24c574250827a3f}{func\_t}}\ \mbox{\hyperlink{class_telecon_button_ad12987d0ae294bacd75a4af0dcd1a210}{functionPtr}};}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00043}00043\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_button_aa75d09098af13fe76904369227fe793d}{getTitle}}();}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00048}\mbox{\hyperlink{class_telecon_button_add574a7a3b6a76cbd3f2052367769c90}{00048}}\ \ \ \ \ atomic\_bool\ \mbox{\hyperlink{class_telecon_button_add574a7a3b6a76cbd3f2052367769c90}{state}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00050}00050\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00051}00051\ \ \ \ \ \textcolor{keywordtype}{string}\ title;}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00052}00052\ \};}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00057}\mbox{\hyperlink{class_telecon_slider}{00057}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_telecon_slider}{TeleconSlider}}}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00058}00058\ \{}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00059}00059\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00070}00070\ \ \ \ \ \mbox{\hyperlink{class_telecon_slider}{TeleconSlider}}(\textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_slider_a39ab3bdc71c3c0ae80a160497f519c38}{title}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_slider_a388fd2a2becee59adda3c7353588cd36}{min}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_slider_a9866d5ef00a56c6caf69fea5bfa91321}{max}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_slider_a04453d119cbeb3bb6e5972e911d608b6}{current\_state}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_slider_aec59a1da9fa7033245224440183bde53}{precision}});}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00075}\mbox{\hyperlink{class_telecon_slider_a39ab3bdc71c3c0ae80a160497f519c38}{00075}}\ \ \ \ \ std::string\ \mbox{\hyperlink{class_telecon_slider_a39ab3bdc71c3c0ae80a160497f519c38}{title}};}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00080}\mbox{\hyperlink{class_telecon_slider_a388fd2a2becee59adda3c7353588cd36}{00080}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_slider_a388fd2a2becee59adda3c7353588cd36}{min}};}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00085}\mbox{\hyperlink{class_telecon_slider_a9866d5ef00a56c6caf69fea5bfa91321}{00085}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_slider_a9866d5ef00a56c6caf69fea5bfa91321}{max}};}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00090}\mbox{\hyperlink{class_telecon_slider_a04453d119cbeb3bb6e5972e911d608b6}{00090}}\ \ \ \ \ atomic\_int\ \mbox{\hyperlink{class_telecon_slider_a04453d119cbeb3bb6e5972e911d608b6}{current\_state}};}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00092}00092\ \ \ \ \ \textcolor{comment}{//TODO}}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00093}\mbox{\hyperlink{class_telecon_slider_aec59a1da9fa7033245224440183bde53}{00093}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_slider_aec59a1da9fa7033245224440183bde53}{precision}};}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00094}\mbox{\hyperlink{class_telecon_slider_a73ab24de786debf4530ba168be9fe265}{00094}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_telecon_slider_a73ab24de786debf4530ba168be9fe265}{offset}};}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00101}00101\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_telecon_slider_a3ff280da9b55cea212246054791b34c5}{getCurrentValue}}();}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00108}00108\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_slider_a52aca94be452c4e5180c733746c88993}{current\_value\_to\_string}}();}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00109}00109\ \};}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00114}\mbox{\hyperlink{class_telecon_toggle}{00114}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_telecon_toggle}{TeleconToggle}}}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00115}00115\ \{}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00116}00116\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00123}00123\ \ \ \ \ \mbox{\hyperlink{class_telecon_toggle}{TeleconToggle}}(\textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_toggle_adcacce3e8ebe513597f440670e0362fe}{title}});}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00128}\mbox{\hyperlink{class_telecon_toggle_adcacce3e8ebe513597f440670e0362fe}{00128}}\ \ \ \ \ std::string\ \mbox{\hyperlink{class_telecon_toggle_adcacce3e8ebe513597f440670e0362fe}{title}};}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00135}00135\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_toggle_aa5024883ceb63c3646dbb16dfd45142b}{getTitle}}();}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00140}\mbox{\hyperlink{class_telecon_toggle_a6e382bfcafc5874ebb0870969ed4caea}{00140}}\ \ \ \ \ atomic\_bool\ \mbox{\hyperlink{class_telecon_toggle_a6e382bfcafc5874ebb0870969ed4caea}{state}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00141}00141\ \};}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00147}\mbox{\hyperlink{class_telecon_input}{00147}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_telecon_input}{TeleconInput}}}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00148}00148\ \{}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00149}00149\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00157}00157\ \ \ \ \ \mbox{\hyperlink{class_telecon_input}{TeleconInput}}(\textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_input_aacc8d590385849ac8428caaa2e4c01a4}{title}},\ \textcolor{keywordtype}{int}\ startVal);}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00162}\mbox{\hyperlink{class_telecon_input_aacc8d590385849ac8428caaa2e4c01a4}{00162}}\ \ \ \ \ std::string\ \mbox{\hyperlink{class_telecon_input_aacc8d590385849ac8428caaa2e4c01a4}{title}};}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00169}00169\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_input_afcac1c14a4cd290e0f32eb8d5c0fd614}{getTitle}}();}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00174}\mbox{\hyperlink{class_telecon_input_abda8cbb40c98a59bc1048760e88fb711}{00174}}\ \ \ \ \ atomic<double>\ \mbox{\hyperlink{class_telecon_input_abda8cbb40c98a59bc1048760e88fb711}{val}};}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00181}00181\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_telecon_input_aa5efe0a0f7d459bb48d1289efc6bdd61}{getVal}}();}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00188}00188\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_input_a683e3674dfc0900ebcec781a43b6ca87}{setVal}}(\textcolor{keywordtype}{double}\ newVal);}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00189}00189\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00195}00195\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_input_a707c448ba515e0f2805d5155c6ad6ed8}{setId}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00202}00202\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_input_a62bb9f5579ad67b165b22c56309ee147}{setFrame}}(wxFrame*\ frame);}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00209}00209\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_input_a65b0ded466f7d67c99d1bede16647b58}{updateInputBox}}(\textcolor{keywordtype}{double}\ value);}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00215}00215\ \ \ \ \ \mbox{\hyperlink{class_telecon_input_ad61529a9b57d60ed5762649fd5e28412}{\string~TeleconInput}}();}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00216}00216\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00217}00217\ \ \ \ \ wxFrame*\ frame;}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00218}00218\ \ \ \ \ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00219}00219\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00220}00220\ \};}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00221}00221\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00222}00222\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00226}\mbox{\hyperlink{class_telecon_controls}{00226}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_telecon_controls}{TeleconControls}}}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00227}00227\ \{}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00228}00228\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00235}00235\ \ \ \ \ \mbox{\hyperlink{class_telecon_controls}{TeleconControls}}(\textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_controls_ab3042467cfad3b74055e47fd3bdd6df0}{windowName}});}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00236}00236\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00244}00244\ \ \ \ \ shared\_ptr<TeleconButton>\ \mbox{\hyperlink{class_telecon_controls_ae778b435da14b1527159102b80f3ce5c}{addButton}}(\textcolor{keywordtype}{string}\ title,\ \mbox{\hyperlink{teleconcontrols_8h_ae5b4a360e8122d0ee24c574250827a3f}{func\_t}}\ callback);}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00252}00252\ \ \ \ \ shared\_ptr<TeleconToggle>\ \mbox{\hyperlink{class_telecon_controls_a337e23f217be1970a55c65673ccffea5}{addToggle}}(\textcolor{keywordtype}{string}\ title);}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00264}00264\ \ \ \ \ shared\_ptr<TeleconSlider>\ \mbox{\hyperlink{class_telecon_controls_a63a1740b6de24c1c2570b54486bdd08e}{addSlider}}(\textcolor{keywordtype}{string}\ title,\ \textcolor{keywordtype}{int}\ min,\ \textcolor{keywordtype}{int}\ max,\ \textcolor{keywordtype}{int}\ startPos,\ \textcolor{keywordtype}{int}\ precision);}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00265}00265\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00273}00273\ \ \ \ \ shared\_ptr<TeleconInput>\ \mbox{\hyperlink{class_telecon_controls_aa7d33c78b5a0051db1b22735a45958de}{addInput}}(\textcolor{keywordtype}{string}\ title,\ \textcolor{keywordtype}{int}\ startVal);}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00274}00274\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00278}\mbox{\hyperlink{class_telecon_controls_ab3042467cfad3b74055e47fd3bdd6df0}{00278}}\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_controls_ab3042467cfad3b74055e47fd3bdd6df0}{windowName}};}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00279}00279\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00283}\mbox{\hyperlink{class_telecon_controls_aad637f7da4966e72076500749b85b4c8}{00283}}\ \ \ \ \ vector<shared\_ptr<TeleconButton>>\ \mbox{\hyperlink{class_telecon_controls_aad637f7da4966e72076500749b85b4c8}{buttons}};}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00284}00284\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00288}\mbox{\hyperlink{class_telecon_controls_a62876fd09140f01653165c513686a230}{00288}}\ \ \ \ \ vector<shared\_ptr<TeleconToggle>>\ \mbox{\hyperlink{class_telecon_controls_a62876fd09140f01653165c513686a230}{toggles}};}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00289}00289\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00293}\mbox{\hyperlink{class_telecon_controls_a2858cb4d59ebb7ba2890e35e340ed8e0}{00293}}\ \ \ \ \ vector<shared\_ptr<TeleconSlider>>\ \mbox{\hyperlink{class_telecon_controls_a2858cb4d59ebb7ba2890e35e340ed8e0}{sliders}};}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00294}00294\ }
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00298}\mbox{\hyperlink{class_telecon_controls_abe4f331017e92424af4d3150b3e5c270}{00298}}\ \ \ \ \ vector<shared\_ptr<TeleconInput>>\ \mbox{\hyperlink{class_telecon_controls_abe4f331017e92424af4d3150b3e5c270}{inputs}};}
+\DoxyCodeLine{\Hypertarget{teleconcontrols_8h_source_l00299}00299\ \};}
 
 \end{DoxyCode}

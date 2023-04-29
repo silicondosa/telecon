@@ -111,12 +111,13 @@ Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ad12987d0ae294bacd75a4af0dcd1a210"><td class="memItemLeft" align="right" valign="top"><a class="el" href="teleconcontrols_8h.html#ae5b4a360e8122d0ee24c574250827a3f">func_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_button.html#ad12987d0ae294bacd75a4af0dcd1a210">functionPtr</a></td></tr>
 <tr class="separator:ad12987d0ae294bacd75a4af0dcd1a210"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8d143a8f6f9b6af58c283c6c8b75a8d"><td class="memItemLeft" align="right" valign="top">volatile bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_button.html#aa8d143a8f6f9b6af58c283c6c8b75a8d">state</a> = false</td></tr>
-<tr class="separator:aa8d143a8f6f9b6af58c283c6c8b75a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add574a7a3b6a76cbd3f2052367769c90"><td class="memItemLeft" align="right" valign="top">atomic_bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_button.html#add574a7a3b6a76cbd3f2052367769c90">state</a> = false</td></tr>
+<tr class="separator:add574a7a3b6a76cbd3f2052367769c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="teleconcontrols_8h_source.html#l00018">18</a> of file <a class="el" href="teleconcontrols_8h_source.html">teleconcontrols.h</a>.</p>
+<div class="textblock"><p>Button for Controls window, linked to a function pointer. </p>
+
+<p class="definition">Definition at line <a class="el" href="teleconcontrols_8h_source.html#l00021">21</a> of file <a class="el" href="teleconcontrols_8h_source.html">teleconcontrols.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae5e33db5e894abe2b292871373c5c37b" name="ae5e33db5e894abe2b292871373c5c37b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae5e33db5e894abe2b292871373c5c37b">&#9670;&#160;</a></span>TeleconButton()</h2>
@@ -143,6 +144,14 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Constructor.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">title</td><td>Title of the button </td></tr>
+    <tr><td class="paramname">callback</td><td>Function that the button should call back to </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="teleconcontrols_8cpp_source.html#l00046">46</a> of file <a class="el" href="teleconcontrols_8cpp_source.html">teleconcontrols.cpp</a>.</p>
 
@@ -163,6 +172,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Getter function for button title.</p>
+<dl class="section return"><dt>Returns</dt><dd>title of button as string </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="teleconcontrols_8cpp_source.html#l00083">83</a> of file <a class="el" href="teleconcontrols_8cpp_source.html">teleconcontrols.cpp</a>.</p>
 
@@ -180,24 +191,26 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>A function pointer that points to the callback function linked to the button. </p>
 
-<p class="definition">Definition at line <a class="el" href="teleconcontrols_8h_source.html#l00022">22</a> of file <a class="el" href="teleconcontrols_8h_source.html">teleconcontrols.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconcontrols_8h_source.html#l00036">36</a> of file <a class="el" href="teleconcontrols_8h_source.html">teleconcontrols.h</a>.</p>
 
 </div>
 </div>
-<a id="aa8d143a8f6f9b6af58c283c6c8b75a8d" name="aa8d143a8f6f9b6af58c283c6c8b75a8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8d143a8f6f9b6af58c283c6c8b75a8d">&#9670;&#160;</a></span>state</h2>
+<a id="add574a7a3b6a76cbd3f2052367769c90" name="add574a7a3b6a76cbd3f2052367769c90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add574a7a3b6a76cbd3f2052367769c90">&#9670;&#160;</a></span>state</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">volatile bool TeleconButton::state = false</td>
+          <td class="memname">atomic_bool TeleconButton::state = false</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>State of the button, off (default) or on. </p>
 
-<p class="definition">Definition at line <a class="el" href="teleconcontrols_8h_source.html#l00024">24</a> of file <a class="el" href="teleconcontrols_8h_source.html">teleconcontrols.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconcontrols_8h_source.html#l00048">48</a> of file <a class="el" href="teleconcontrols_8h_source.html">teleconcontrols.h</a>.</p>
 
 </div>
 </div>

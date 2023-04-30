@@ -63,6 +63,7 @@
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00062}00062\ }
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00063}00063\ }
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00065}00065\ \ \ \ \ \textcolor{comment}{//\ CONTROLS\ SETUP\ BEGIN}}
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00066}00066\ \ \ \ \ \textcolor{comment}{//\ A\ CONTROL\ window\ can\ have\ BUTTONS,\ TOGGLES,\ SLIDERS,\ and\ INPUTS}}
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00067}00067\ }
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00068}00068\ \ \ \ \ \textcolor{comment}{//\ Create\ a\ controls\ window}}
@@ -88,9 +89,11 @@
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00088}00088\ \ \ \ \ shared\_ptr<TeleconLinePlot>\ sinePlot\ =\ sinechart-\/>addLinePlot(\textcolor{stringliteral}{"{}Sine\ Function"{}},\ \mbox{\hyperlink{class_line_style}{LineStyle}}(\mbox{\hyperlink{enums_8h_a43527cfb592cc97d3ee51be1f95e05e8a2a9daf215a30f1c539ead18c66380fc1}{COLOR\_BLACK}}));}
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00089}00089\ \ \ \ \ \textcolor{keywordtype}{double}\ sinvalue\ =\ 0;}
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00091}00091\ \ \ \ \ \textcolor{comment}{//\ CONTROLS\ SETUP\ END}}
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00092}00092\ }
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00093}00093\ }
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00095}00095\ \ \ \ \ \textcolor{comment}{//\ TELEMETRY\ SETUP\ BEGIN}}
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00096}00096\ \ \ \ \ \textcolor{comment}{//\ Hierarchy\ of\ elements:\ A\ WINDOW\ has\ CHARTS\ which\ contain\ PLOTS}}
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00097}00097\ \ \ \ \ \textcolor{comment}{//\ A\ WINDOW\ may\ have\ different\ types\ of\ CHARTS,\ but\ it\ is\ best\ practice\ that\ CHARTS\ only\ contain\ the\ same\ type\ PLOTS}}
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00098}00098\ }
@@ -165,6 +168,7 @@
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00167}00167\ \ \ \ \ vector<shared\_ptr<TeleconLinePlot>>\ absoluteTimePlots(\{\ plot1,\ plot2,\ plot3,\ plot4,\ plot5,\ plot6,\ plot7,\ plot8,\ plot9,\ plot10,\ plot11,\ plot12\});}
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00168}00168\ \ \ \ \ vector<shared\_ptr<TeleconScatterPlot>>\ relativeTimePlots(\{\ plot13,\ plot14,\ plot15\ \});}
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00170}00170\ \ \ \ \ \textcolor{comment}{//\ TELEMETRY\ SETUP\ END}}
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00171}00171\ }
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00172}00172\ }
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00173}00173\ }
@@ -173,6 +177,7 @@
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00176}00176\ }
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00177}00177\ }
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00179}00179\ \ \ \ \ \textcolor{comment}{//\ CONTROLLER\ CODE\ BEGIN}}
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00180}00180\ \ \ \ \ \textcolor{comment}{//\ This\ portion\ is\ to\ generate\ data\ to\ push\ into\ the\ plots}}
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00181}00181\ \ \ \ \ wxDateTime\ start\ =\ wxDateTime::UNow();}
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00182}00182\ \ \ \ \ \textcolor{keywordtype}{double}\ startTimestamp\ =\ Chart::chartTime2(start.GetTicks())\ +\ start.GetMillisecond()\ /\ 1000.0;}
@@ -213,6 +218,7 @@
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00217}00217\ }
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00218}00218\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00220}00220\ \ \ \ \ \textcolor{comment}{//\ CONTROLLER\ CODE\ END}}
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00221}00221\ }
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00222}00222\ }
 \DoxyCodeLine{\Hypertarget{userfile_8cpp_source_l00223}00223\ \ \ \ \ \textcolor{comment}{//\ Make\ sure\ to\ stop\ Telecon\ as\ well}}

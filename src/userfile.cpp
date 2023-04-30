@@ -62,7 +62,7 @@ int main(int argc, char* argv[])
 
 
 
-    ///// CONTROLS SETUP BEGIN
+    // CONTROLS SETUP BEGIN
     // A CONTROL window can have BUTTONS, TOGGLES, SLIDERS, and INPUTS
 
     // Create a controls window
@@ -88,11 +88,11 @@ int main(int argc, char* argv[])
     shared_ptr<TeleconLinePlot> sinePlot = sinechart->addLinePlot("Sine Function", LineStyle(COLOR_BLACK));
     double sinvalue = 0;
 
-    ///// CONTROLS SETUP END
+    // CONTROLS SETUP END
 
 
 
-    ///// TELEMETRY SETUP BEGIN
+    // TELEMETRY SETUP BEGIN
     // Hierarchy of elements: A WINDOW has CHARTS which contain PLOTS
     // A WINDOW may have different types of CHARTS, but it is best practice that CHARTS only contain the same type PLOTS
 
@@ -167,7 +167,7 @@ int main(int argc, char* argv[])
     vector<shared_ptr<TeleconLinePlot>> absoluteTimePlots({ plot1, plot2, plot3, plot4, plot5, plot6, plot7, plot8, plot9, plot10, plot11, plot12});
     vector<shared_ptr<TeleconScatterPlot>> relativeTimePlots({ plot13, plot14, plot15 });
 
-    ///// TELEMETRY SETUP END
+    // TELEMETRY SETUP END
 
 
 
@@ -176,7 +176,7 @@ int main(int argc, char* argv[])
 
 
 
-    ///// CONTROLLER CODE BEGIN
+    // CONTROLLER CODE BEGIN
     // This portion is to generate data to push into the plots
     wxDateTime start = wxDateTime::UNow();
     double startTimestamp = Chart::chartTime2(start.GetTicks()) + start.GetMillisecond() / 1000.0;
@@ -217,7 +217,7 @@ int main(int argc, char* argv[])
 
     }
 
-    ///// CONTROLLER CODE END
+    // CONTROLLER CODE END
 
 
     // Make sure to stop Telecon as well

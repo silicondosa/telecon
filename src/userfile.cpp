@@ -50,17 +50,15 @@ void printHello(){
  */
 int main(int argc, char* argv[])
 {
-    // Constants
+    // Helper constant; this will be the rate in milliseconds at which we push data to the plots
     const int dataRateMillis = 100;
-
 
     // START SETTING UP COMPONENTS TO BE USED FOR TELEMETRY AND CONTROLS
 
-
     // Initialization code, create a telecon object
+    // We recommend allocating Telecon like this, or by using a std::unique_ptr
+    // You can allocate a TeleconImplChartDir statically, but it is not recommended
     Telecon* telecon = new TeleconImplChartDir();
-
-
 
     // CONTROLS SETUP BEGIN
     // A CONTROL window can have BUTTONS, TOGGLES, SLIDERS, and INPUTS
@@ -90,11 +88,9 @@ int main(int argc, char* argv[])
 
     // CONTROLS SETUP END
 
-
-
     // TELEMETRY SETUP BEGIN
     // Hierarchy of elements: A WINDOW has CHARTS which contain PLOTS
-    // A WINDOW may have different types of CHARTS, but it is best practice that CHARTS only contain the same type PLOTS
+    // A WINDOW may have different types of CHARTS, but it is best practice that CHARTS only contain the same type of PLOTS
 
     // Create a window [1]
     shared_ptr<TeleconWindow> window = telecon->addWindow("MyWindow");
@@ -139,13 +135,10 @@ int main(int argc, char* argv[])
     shared_ptr<TeleconRealtimeChart> chart5 = window3->addRealtimeChart("Raster Chart", 60.0, dataRateMillis, "time (s)", "Neuron", CSM_BLACK);
     
     // Set up Raster Plots. 
-    // They are also added to the chart like the other plots, but due to the nature of the plot the setup may be different
-    // How you store the shared pointers is up to you
+    // They are also added to the chart like the other plots
+    // How you store the shared pointers is up to you; we use a std::vector for convenience
     vector<shared_ptr<TeleconRasterPlot>> rasterPlots;
-    for (int i = 0; i < 100; ++i) {
-        rasterPlots.push_back(chart5->addRasterPlot("", i, SymbolStyle(SYMBOL_SQUARE, COLOR_RED, false, 3)));
-    }
-    for (int i = 100; i < 1000; ++i) {
+    for (int i = 0; i < 1000; ++i) {
         rasterPlots.push_back(chart5->addRasterPlot("", i));
     }
 
@@ -157,19 +150,14 @@ int main(int argc, char* argv[])
     phasePortraits.push_back(chart6->addPhasePortraitPlot("Student C"));
     phasePortraits.push_back(chart6->addPhasePortraitPlot("Student D"));
 
-
     // Storing previously created plots for easier access, but this portion is not necessary
     vector<shared_ptr<TeleconLinePlot>> absoluteTimePlots({ plot1, plot2, plot3, plot4, plot5, plot6, plot7, plot8, plot9, plot10, plot11, plot12});
     vector<shared_ptr<TeleconScatterPlot>> relativeTimePlots({ plot13, plot14, plot15 });
 
     // TELEMETRY SETUP END
 
-
-
-    // Make sure to start Telecon!
+    // Make sure to start Telecon! After you do this, you can no longer add new windows/charts/plots
     telecon->teleconStart();
-
-
 
     // CONTROLLER CODE BEGIN
     // This portion is to generate data to push into the plots
@@ -208,16 +196,16 @@ int main(int argc, char* argv[])
             break;
         }
 
+        // Simple delay method; wait for dataRateMillis milliseconds
         this_thread::sleep_for(chrono::milliseconds(dataRateMillis));
-
     }
 
     // CONTROLLER CODE END
 
-
-    // Make sure to stop Telecon as well
+    // This is optional. If you do not call teleconStop, it will be called when the Telecon object is deleted
     telecon->teleconStop();
 
+    // More controller code could go here after Telecon stops if necessary
 
     delete telecon;
 

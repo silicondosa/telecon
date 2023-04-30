@@ -6,9 +6,9 @@ Telecon projects use four prerequisite libraries: wxWidgets, wxMathPlot, wxChart
 
 ## Necessary prerequisite: wxWidgets
 ### Linux
-On most Linux distributions, wxWidgets packages are available in system repositories under the name "wxGTK". Note that to develop applications using wxWidgets you may need to install the "development" packages and not just the libraries needed for running the applications using wxWidgets.
+Install wxWidgets 3.2 from https://docs.codelite.org/wxWidgets/repo320/. Note that to develop applications using wxWidgets you may need to install the "development" packages and not just the libraries needed for running the applications using wxWidgets.  
 
-For example, to install wxWidgets 3.0 on Ubuntu 20.04 LTS, you need to run the command `apt get libwxgtk3.0-gtk3-dev` on a terminal.
+After installation, check that the `wx-config` command works in your terminal. If it does, navigate into `telecon/src/` and run `make`  
 
 ### Windows
 - [Download](https://www.wxwidgets.org/downloads/) the latest stable binary zip files for wxWidgets (v3.2.1 used here).

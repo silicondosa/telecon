@@ -9,6 +9,7 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <atomic>
 
 
 using namespace std;

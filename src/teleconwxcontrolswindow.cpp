@@ -115,10 +115,9 @@ TeleconWxControlsWindow::TeleconWxControlsWindow(shared_ptr<TeleconControls> con
   // Connect(wxEVT_INPUT_UPDATE, wxEventHandler(TeleconWxControlsWindow::inputUpdateHandler));
   // Bind(wxEVT_INPUT_UPDATE,&TeleconWxControlsWindow::inputUpdateHandler,this);
   Connect(wxEVT_INPUT_UPDATE, wxThreadEventHandler(TeleconWxControlsWindow::inputUpdateHandler));
-  Connect(wxEVT_THREAD, wxThreadEventHandler(TeleconWxControlsWindow::inputUpdateHandler));
+  // Connect(wxEVT_THREAD, wxThreadEventHandler(TeleconWxControlsWindow::inputUpdateHandler));
   // cout << "In controlwindow id: " << wxEVT_INPUT_UPDATE << endl;
 
-  //CAN HAVE MAP MAPPING BUTTON IDS TO THE BUTTON OBJEcTS
 
   // m_controlsBoxSizer.
   SetSizerAndFit(m_controlsBoxSizer);

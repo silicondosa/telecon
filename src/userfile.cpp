@@ -35,6 +35,8 @@ CreateDataPoints()
     return dataA;
 }
 
+shared_ptr<TeleconInput> input2;
+
 void printHello(){
     cout << "Callback Hello World" << endl;
     // input2->updateInputBox(4000);
@@ -49,8 +51,6 @@ void printHello(){
 int main(int argc, char* argv[])
 {
     // Constants
-    float test = .1;
-    cout << std::to_string(test) << endl;
     const int dataRateMillis = 100;
 
 
@@ -75,7 +75,7 @@ int main(int argc, char* argv[])
     shared_ptr<TeleconSlider> slider2 = controls->addSlider("Frequency", 0, 3, 1, 2);     // Here is a slider with min value 0 and max value 3, starting at 1 with precision 2
     shared_ptr<TeleconSlider> slider3 = controls->addSlider("Amplitude", 0, 3, 2, 2);     // Here is another slider, you can add multiple elements of the same type
     shared_ptr<TeleconInput> input1 = controls->addInput("Input 1", 300);     // Here is an input field with a default value of 300
-    shared_ptr<TeleconInput> input2 = controls->addInput("Input 2", 10);     // Another input field with default value 10
+    input2 = controls->addInput("Input 2", 10);     // Another input field with default value 10
     shared_ptr<TeleconInput> input3 = controls->addInput("amplitude", 1);     // A third input field
 
     // Create a normal window to be controlled by the previously created controls window
@@ -157,11 +157,6 @@ int main(int argc, char* argv[])
     phasePortraits.push_back(chart6->addPhasePortraitPlot("Student C"));
     phasePortraits.push_back(chart6->addPhasePortraitPlot("Student D"));
 
-    // Create another window [4]
-    telecon->addWindow("Fourth window");
-    window2->addRealtimeChart();
-    chart4->addLinePlot("line");
-    chart4->addScatterPlot("scatter");
 
     // Storing previously created plots for easier access, but this portion is not necessary
     vector<shared_ptr<TeleconLinePlot>> absoluteTimePlots({ plot1, plot2, plot3, plot4, plot5, plot6, plot7, plot8, plot9, plot10, plot11, plot12});

@@ -5,6 +5,7 @@
 #include <wx/wx.h>
 #endif
 
+#include "teleconcontrols.h"
 #include "telecon.h"
 #include "teleconimplchartdir.h"
 
@@ -34,7 +35,6 @@ CreateDataPoints()
     return dataA;
 }
 
-shared_ptr<TeleconInput> input2;
 void printHello(){
     cout << "Callback Hello World" << endl;
     // input2->updateInputBox(4000);

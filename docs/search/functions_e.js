@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['_7etelecon_0',['~Telecon',['../class_telecon.html#aae363873cda0dd58aed13376b5e4152b',1,'Telecon']]],
-  ['_7eteleconwxchart_1',['~TeleconWxChart',['../class_telecon_wx_chart.html#a9da8fc0339b316b55323ef8c68e7e654',1,'TeleconWxChart']]]
+  ['waituntilquit_0',['waitUntilQuit',['../class_telecon_window.html#a53eb0df50cc63f31ee05edef1a3ae0ba',1,'TeleconWindow']]],
+  ['wxdeclare_5fevent_1',['wxDECLARE_EVENT',['../teleconwxcontrolswindow_8h.html#a6a9b57c501bc4b5443975d8d15c8615d',1,'teleconwxcontrolswindow.h']]],
+  ['wxdefine_5fevent_2',['wxDEFINE_EVENT',['../teleconwxcontrolswindow_8cpp.html#a3cd18e30639a81dcd921f471dffd2b84',1,'teleconwxcontrolswindow.cpp']]]
 ];

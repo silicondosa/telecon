@@ -7,11 +7,11 @@
 #endif
 
 #include <vector>
-#include "telecon.h"
+#include "teleconimplchartdir.h"
 #include "teleconwxwindow.h"
 #include "teleconwxcontrolswindow.h"
 
-class Telecon; // Forward declaration needed due to circular dependency between telecon and app
+class TeleconImplChartDir; // Forward declaration needed due to circular dependency between telecon and app
 
 /**
  * Main GUI for telecon object, inherits from wxApp.
@@ -26,7 +26,7 @@ class Telecon; // Forward declaration needed due to circular dependency between 
 class TeleconWxApp : public wxApp 
 {
 private:
-    Telecon* m_telecon;
+    TeleconImplChartDir* m_telecon;
     vector<TeleconWxWindow*> m_frames;
     vector<TeleconWxControlsWindow*> m_controls_windows;
 public:
@@ -35,7 +35,7 @@ public:
      * 
      * \param telecon A pointer to the ::Telecon object representing the app.
      */
-    TeleconWxApp(Telecon* telecon);
+    TeleconWxApp(TeleconImplChartDir* telecon);
 
     /**
      * Initializes the app, adding windows according to the specifications of the ::Telecon object.

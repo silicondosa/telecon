@@ -1,0 +1,40 @@
+\hypertarget{teleconimplchartdir_8h_source}{}\doxysection{teleconimplchartdir.\+h}
+\label{teleconimplchartdir_8h_source}\index{include/teleconimplchartdir.h@{include/teleconimplchartdir.h}}
+\mbox{\hyperlink{teleconimplchartdir_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{telecon_8h}{telecon.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{teleconwindowimplchartdir_8h}{teleconwindowimplchartdir.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{teleconwxapp_8h}{teleconwxapp.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00007}00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_telecon_wx_app}{TeleconWxApp}};\ \textcolor{comment}{//\ Forward\ declaration\ needed\ due\ to\ circular\ dependency\ between\ telecon\ and\ app}}
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00012}\mbox{\hyperlink{class_telecon_impl_chart_dir}{00012}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_telecon_impl_chart_dir}{TeleconImplChartDir}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_telecon}{Telecon}}\ \{}
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00013}00013\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00015}00015\ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_app}{TeleconWxApp}}*\ m\_teleconWxApp;}
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00018}00018\ \ \ \ \ vector<shared\_ptr<TeleconWindowImplChartDir>>\ m\_windows;}
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00019}00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00023}00023\ \ \ \ \ \mbox{\hyperlink{class_telecon_impl_chart_dir_a7fc5d7b4991d84916a24944a59b19080}{TeleconImplChartDir}}();}
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00028}00028\ \ \ \ \ \mbox{\hyperlink{class_telecon_impl_chart_dir_a1a94393c07a2002138822904773ac606}{\string~TeleconImplChartDir}}();}
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00033}00033\ \ \ \ \ shared\_ptr<TeleconWindowImplChartDir>\ \mbox{\hyperlink{class_telecon_impl_chart_dir_aba49e432210f9f727d82d74c7064a79f}{getWindowImpl}}(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00036}00036\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_impl_chart_dir_a892a8605abb8379164baaa7ae744447b}{teleconAppInit}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00039}00039\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_impl_chart_dir_aca462572dc87ccea982b1dc1241b9e80}{initializeWindows}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00044}00044\ \ \ \ \ \textcolor{keyword}{virtual}\ shared\_ptr<TeleconWindow>\ \mbox{\hyperlink{class_telecon_impl_chart_dir_acb19da1359b042fb3b6db6a97f7cbca8}{addWindow}}(\textcolor{keywordtype}{string}\ name)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00049}00049\ \ \ \ \ \textcolor{keyword}{virtual}\ shared\_ptr<TeleconWindow>\ \mbox{\hyperlink{class_telecon_impl_chart_dir_a9f586c4cf3184be3387b2f451e8f816a}{getWindow}}(\textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00054}00054\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_telecon_impl_chart_dir_adb1b231b6a6d245cc2c6a49be605ed7b}{getNumWindows}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00059}00059\ \ \ \ \ \textcolor{keyword}{virtual}\ shared\_ptr<TeleconControls>\ \mbox{\hyperlink{class_telecon_impl_chart_dir_a301cf8a646661d6b6ed14cc767448207}{addControls}}(\textcolor{keywordtype}{string}\ name)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00064}00064\ \ \ \ \ \textcolor{keyword}{virtual}\ shared\_ptr<TeleconControls>\ \mbox{\hyperlink{class_telecon_impl_chart_dir_aeb3bfcc8fc1e044caf3abb63ef93d739}{getControls}}(\textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00069}00069\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_telecon_impl_chart_dir_adbe0d1cde86085219c4bc66341573825}{getNumControls}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{teleconimplchartdir_8h_source_l00070}00070\ \};}
+
+\end{DoxyCode}

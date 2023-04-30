@@ -36,34 +36,9 @@ long TeleconChart::getNextDefaultColor() {
 		break;
 	case CSM_DIVERGING:
 		// Cycle through the colors in CSM_COLORS_DIVERGING
-		return CSM_COLORS_DIVERGING[m_plots.size() % CSM_COLORS_DIVERGING.size()];
+		return CSM_COLORS_DIVERGING[getNumPlots() % CSM_COLORS_DIVERGING.size()];
 		break;
 	}
 	// Should be impossible, cases are exhaustive
 	return COLOR_BLACK;
-}
-
-void TeleconChart::initialize()
-{
-    m_hasStarted = true;
-}
-
-shared_ptr<TeleconPlot> TeleconChart::getPlot(int index)
-{
-	return m_plots[index];
-}
-
-size_t TeleconChart::getNumPlots()
-{
-	return m_plots.size();
-}
-
-shared_ptr<TeleconPlot> TeleconChart::getPlotByName(string name)
-{
-	for (auto plot : m_plots) {
-		if (name.compare(plot->getPlotTitle()) == 0) {
-			return plot;
-		}
-	}
-	return nullptr;
 }

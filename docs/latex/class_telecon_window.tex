@@ -4,6 +4,12 @@
 
 {\ttfamily \#include $<$include/teleconwindow.\+h$>$}
 
+Inheritance diagram for Telecon\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_telecon_window}
+\end{center}
+\end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -21,19 +27,32 @@ void \mbox{\hyperlink{class_telecon_window_a53eb0df50cc63f31ee05edef1a3ae0ba}{wa
 \item 
 std\+::string \mbox{\hyperlink{class_telecon_window_ac7c1481d3d53920cfd3fd1df18e2dadb}{get\+Title}} ()
 \item 
-void \mbox{\hyperlink{class_telecon_window_a807b87958ab2b8dafd8aa84f13e5d04e}{initialize}} ()
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_realtime_chart}{Telecon\+Realtime\+Chart}} $>$ \mbox{\hyperlink{class_telecon_window_ae13fbf52ffaa58c221c679bcdb0ad7e6}{add\+Realtime\+Chart}} (std\+::string title=\char`\"{}\char`\"{}, double memory\+Depth\+Seconds=60.\+0, int data\+Rate\+Millis=100, std\+::string x\+Label=\char`\"{}\char`\"{}, std\+::string y\+Label=\char`\"{}\char`\"{}, \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} color\+Sequence\+Mode=\mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38af694240c2be72deb06f19859d21ba193}{CSM\+\_\+\+BLACK}})=0
 \item 
-shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_realtime_chart}{Telecon\+Realtime\+Chart}} $>$ \mbox{\hyperlink{class_telecon_window_aaab31256371ead70513e272d2b67677c}{add\+Realtime\+Chart}} (std\+::string title=\char`\"{}\char`\"{}, double memory\+Depth\+Seconds=60.\+0, int data\+Rate\+Millis=100, std\+::string x\+Label=\char`\"{}\char`\"{}, std\+::string y\+Label=\char`\"{}\char`\"{}, \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} color\+Sequence\+Mode=\mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38af694240c2be72deb06f19859d21ba193}{CSM\+\_\+\+BLACK}})
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_data_chart}{Telecon\+Data\+Chart}} $>$ \mbox{\hyperlink{class_telecon_window_ae9186bbb0c0ebe7ed39a1a73a6b1c676}{add\+Data\+Chart}} (std\+::string title=\char`\"{}\char`\"{}, double memory\+Depth\+Seconds=60.\+0, int data\+Rate\+Millis=100, std\+::string x\+Label=\char`\"{}\char`\"{}, std\+::string y\+Label=\char`\"{}\char`\"{}, \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} color\+Sequence\+Mode=\mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38af694240c2be72deb06f19859d21ba193}{CSM\+\_\+\+BLACK}})=0
 \item 
-shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_data_chart}{Telecon\+Data\+Chart}} $>$ \mbox{\hyperlink{class_telecon_window_ac51bdc921ccc978c97934b7d5ecd6153}{add\+Data\+Chart}} (std\+::string title=\char`\"{}\char`\"{}, double memory\+Depth\+Seconds=60.\+0, int data\+Rate\+Millis=100, std\+::string x\+Label=\char`\"{}\char`\"{}, std\+::string y\+Label=\char`\"{}\char`\"{}, \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} color\+Sequence\+Mode=\mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38af694240c2be72deb06f19859d21ba193}{CSM\+\_\+\+BLACK}})
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} $>$ \mbox{\hyperlink{class_telecon_window_ab7627ed7ccf8198dcca2658b1ad5522f}{get\+Chart}} (size\+\_\+t index)=0
 \item 
-shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} $>$ \mbox{\hyperlink{class_telecon_window_ac5c083d7bbdf47e61e10c3c0034b2e35}{get\+Chart}} (size\+\_\+t index)
+virtual size\+\_\+t \mbox{\hyperlink{class_telecon_window_ac3941b9598a05b53e12e4393b6aa72d0}{get\+Num\+Charts}} () const =0
 \item 
-size\+\_\+t \mbox{\hyperlink{class_telecon_window_ab9751dd7c8c1120afb78f8eb54d45611}{get\+Num\+Charts}} () const
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} $>$ \mbox{\hyperlink{class_telecon_window_a2572a63682f812eaf31942f7e84c3f16}{get\+Chart\+By\+Name}} (string name)=0
 \item 
-shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} $>$ \mbox{\hyperlink{class_telecon_window_acd7ae4dd6f73c1232e59410a564d60d2}{get\+Chart\+By\+Name}} (string name)
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ \mbox{\hyperlink{class_telecon_window_ae3af4caf725a89ba34328d83c3932879}{get\+Plot\+By\+Name}} (string chart\+Name, string plot\+Name)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
 \item 
-shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ \mbox{\hyperlink{class_telecon_window_afc1a1e1a551a06824f4fe2f88b3c296f}{get\+Plot\+By\+Name}} (string chart\+Name, string plot\+Name)
+std\+::atomic\+\_\+bool \mbox{\hyperlink{class_telecon_window_a8c7bf5708181f00de7ca96267de5adba}{m\+\_\+has\+Requested\+Quit}}
+\item 
+mutex \mbox{\hyperlink{class_telecon_window_a709f3e983f0656923b4b4bbb6234a1a4}{m\+\_\+has\+Quit\+Lock}}
+\item 
+condition\+\_\+variable \mbox{\hyperlink{class_telecon_window_a644286350ffda661daea359f8edb0a89}{m\+\_\+has\+Quit\+CV}}
+\item 
+bool \mbox{\hyperlink{class_telecon_window_ac6f71297cc427b571971bef9544bc132}{m\+\_\+has\+Quit}}
+\item 
+const std\+::string \mbox{\hyperlink{class_telecon_window_aaf1e4b03464151a71e0b68224439a4b1}{m\+\_\+title}}
+\item 
+bool \mbox{\hyperlink{class_telecon_window_aee5f8c1ce676452a261bb41f22e5ee5c}{m\+\_\+has\+Started}}
 \end{DoxyCompactItemize}
 
 
@@ -65,11 +84,11 @@ Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00005}{5}} of fil
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_telecon_window_ac51bdc921ccc978c97934b7d5ecd6153}\label{class_telecon_window_ac51bdc921ccc978c97934b7d5ecd6153}} 
+\mbox{\Hypertarget{class_telecon_window_ae9186bbb0c0ebe7ed39a1a73a6b1c676}\label{class_telecon_window_ae9186bbb0c0ebe7ed39a1a73a6b1c676}} 
 \index{TeleconWindow@{TeleconWindow}!addDataChart@{addDataChart}}
 \index{addDataChart@{addDataChart}!TeleconWindow@{TeleconWindow}}
 \doxysubsubsection{\texorpdfstring{addDataChart()}{addDataChart()}}
-{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_data_chart}{Telecon\+Data\+Chart}} $>$ Telecon\+Window\+::add\+Data\+Chart (\begin{DoxyParamCaption}\item[{std\+::string}]{title = {\ttfamily \char`\"{}\char`\"{}},  }\item[{double}]{memory\+Depth\+Seconds = {\ttfamily 60.0},  }\item[{int}]{data\+Rate\+Millis = {\ttfamily 100},  }\item[{std\+::string}]{x\+Label = {\ttfamily \char`\"{}\char`\"{}},  }\item[{std\+::string}]{y\+Label = {\ttfamily \char`\"{}\char`\"{}},  }\item[{\mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}}}]{color\+Sequence\+Mode = {\ttfamily \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38af694240c2be72deb06f19859d21ba193}{CSM\+\_\+\+BLACK}}} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_data_chart}{Telecon\+Data\+Chart}} $>$ Telecon\+Window\+::add\+Data\+Chart (\begin{DoxyParamCaption}\item[{std\+::string}]{title = {\ttfamily \char`\"{}\char`\"{}},  }\item[{double}]{memory\+Depth\+Seconds = {\ttfamily 60.0},  }\item[{int}]{data\+Rate\+Millis = {\ttfamily 100},  }\item[{std\+::string}]{x\+Label = {\ttfamily \char`\"{}\char`\"{}},  }\item[{std\+::string}]{y\+Label = {\ttfamily \char`\"{}\char`\"{}},  }\item[{\mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}}}]{color\+Sequence\+Mode = {\ttfamily \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38af694240c2be72deb06f19859d21ba193}{CSM\+\_\+\+BLACK}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 Adds a data chart to the window. Data charts have arbitrary non-\/time data on the x-\/axis. For parameters, see add\+Realtime\+Chart, which has the same parameters.
 
@@ -77,17 +96,17 @@ Adds a data chart to the window. Data charts have arbitrary non-\/time data on t
 A pointer to the \mbox{\hyperlink{class_telecon_data_chart}{Telecon\+Data\+Chart}} object created. 
 \end{DoxyReturn}
 \begin{DoxySeeAlso}{See also}
-\mbox{\hyperlink{class_telecon_window_aaab31256371ead70513e272d2b67677c}{Telecon\+Window\+::add\+Realtime\+Chart}} 
+\mbox{\hyperlink{class_telecon_window_ae13fbf52ffaa58c221c679bcdb0ad7e6}{Telecon\+Window\+::add\+Realtime\+Chart}} 
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00064}{64}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+Implemented in \mbox{\hyperlink{class_telecon_window_impl_chart_dir_a4b9ffc0da7139fef1df3fe64aee9edd2}{Telecon\+Window\+Impl\+Chart\+Dir}}.
 
-\mbox{\Hypertarget{class_telecon_window_aaab31256371ead70513e272d2b67677c}\label{class_telecon_window_aaab31256371ead70513e272d2b67677c}} 
+\mbox{\Hypertarget{class_telecon_window_ae13fbf52ffaa58c221c679bcdb0ad7e6}\label{class_telecon_window_ae13fbf52ffaa58c221c679bcdb0ad7e6}} 
 \index{TeleconWindow@{TeleconWindow}!addRealtimeChart@{addRealtimeChart}}
 \index{addRealtimeChart@{addRealtimeChart}!TeleconWindow@{TeleconWindow}}
 \doxysubsubsection{\texorpdfstring{addRealtimeChart()}{addRealtimeChart()}}
-{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_realtime_chart}{Telecon\+Realtime\+Chart}} $>$ Telecon\+Window\+::add\+Realtime\+Chart (\begin{DoxyParamCaption}\item[{std\+::string}]{title = {\ttfamily \char`\"{}\char`\"{}},  }\item[{double}]{memory\+Depth\+Seconds = {\ttfamily 60.0},  }\item[{int}]{data\+Rate\+Millis = {\ttfamily 100},  }\item[{std\+::string}]{x\+Label = {\ttfamily \char`\"{}\char`\"{}},  }\item[{std\+::string}]{y\+Label = {\ttfamily \char`\"{}\char`\"{}},  }\item[{\mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}}}]{color\+Sequence\+Mode = {\ttfamily \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38af694240c2be72deb06f19859d21ba193}{CSM\+\_\+\+BLACK}}} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_realtime_chart}{Telecon\+Realtime\+Chart}} $>$ Telecon\+Window\+::add\+Realtime\+Chart (\begin{DoxyParamCaption}\item[{std\+::string}]{title = {\ttfamily \char`\"{}\char`\"{}},  }\item[{double}]{memory\+Depth\+Seconds = {\ttfamily 60.0},  }\item[{int}]{data\+Rate\+Millis = {\ttfamily 100},  }\item[{std\+::string}]{x\+Label = {\ttfamily \char`\"{}\char`\"{}},  }\item[{std\+::string}]{y\+Label = {\ttfamily \char`\"{}\char`\"{}},  }\item[{\mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}}}]{color\+Sequence\+Mode = {\ttfamily \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38af694240c2be72deb06f19859d21ba193}{CSM\+\_\+\+BLACK}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 Adds a realtime chart to the window. Realtime charts have time data on the x-\/axis. Charts will be displayed in the order added, from top to bottom.
 
@@ -111,13 +130,13 @@ A pointer to the \mbox{\hyperlink{class_telecon_realtime_chart}{Telecon\+Realtim
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00053}{53}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+Implemented in \mbox{\hyperlink{class_telecon_window_impl_chart_dir_a8632be1a8a617c9915155b04dfe52cb3}{Telecon\+Window\+Impl\+Chart\+Dir}}.
 
-\mbox{\Hypertarget{class_telecon_window_ac5c083d7bbdf47e61e10c3c0034b2e35}\label{class_telecon_window_ac5c083d7bbdf47e61e10c3c0034b2e35}} 
+\mbox{\Hypertarget{class_telecon_window_ab7627ed7ccf8198dcca2658b1ad5522f}\label{class_telecon_window_ab7627ed7ccf8198dcca2658b1ad5522f}} 
 \index{TeleconWindow@{TeleconWindow}!getChart@{getChart}}
 \index{getChart@{getChart}!TeleconWindow@{TeleconWindow}}
 \doxysubsubsection{\texorpdfstring{getChart()}{getChart()}}
-{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} $>$ Telecon\+Window\+::get\+Chart (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} $>$ Telecon\+Window\+::get\+Chart (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 \begin{DoxyParams}{Parameters}
@@ -129,13 +148,13 @@ A pointer to the \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} requeste
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00075}{75}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+Implemented in \mbox{\hyperlink{class_telecon_window_impl_chart_dir_a9da30fec3fd2934889d35fa2d1b16b02}{Telecon\+Window\+Impl\+Chart\+Dir}}.
 
-\mbox{\Hypertarget{class_telecon_window_acd7ae4dd6f73c1232e59410a564d60d2}\label{class_telecon_window_acd7ae4dd6f73c1232e59410a564d60d2}} 
+\mbox{\Hypertarget{class_telecon_window_a2572a63682f812eaf31942f7e84c3f16}\label{class_telecon_window_a2572a63682f812eaf31942f7e84c3f16}} 
 \index{TeleconWindow@{TeleconWindow}!getChartByName@{getChartByName}}
 \index{getChartByName@{getChartByName}!TeleconWindow@{TeleconWindow}}
 \doxysubsubsection{\texorpdfstring{getChartByName()}{getChartByName()}}
-{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} $>$ Telecon\+Window\+::get\+Chart\+By\+Name (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} $>$ Telecon\+Window\+::get\+Chart\+By\+Name (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 \begin{DoxyParams}{Parameters}
@@ -147,26 +166,26 @@ A pointer to a chart with the given name, or a null pointer if no chart has that
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00085}{85}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+Implemented in \mbox{\hyperlink{class_telecon_window_impl_chart_dir_ac7862404571ba59e1f1048821e0c04b9}{Telecon\+Window\+Impl\+Chart\+Dir}}.
 
-\mbox{\Hypertarget{class_telecon_window_ab9751dd7c8c1120afb78f8eb54d45611}\label{class_telecon_window_ab9751dd7c8c1120afb78f8eb54d45611}} 
+\mbox{\Hypertarget{class_telecon_window_ac3941b9598a05b53e12e4393b6aa72d0}\label{class_telecon_window_ac3941b9598a05b53e12e4393b6aa72d0}} 
 \index{TeleconWindow@{TeleconWindow}!getNumCharts@{getNumCharts}}
 \index{getNumCharts@{getNumCharts}!TeleconWindow@{TeleconWindow}}
 \doxysubsubsection{\texorpdfstring{getNumCharts()}{getNumCharts()}}
-{\footnotesize\ttfamily size\+\_\+t Telecon\+Window\+::get\+Num\+Charts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily virtual size\+\_\+t Telecon\+Window\+::get\+Num\+Charts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 \begin{DoxyReturn}{Returns}
 The number of Telecon\+Charts added to the window. 
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00080}{80}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+Implemented in \mbox{\hyperlink{class_telecon_window_impl_chart_dir_af7864cbd3a38f8791f76b89db9ba9f4c}{Telecon\+Window\+Impl\+Chart\+Dir}}.
 
-\mbox{\Hypertarget{class_telecon_window_afc1a1e1a551a06824f4fe2f88b3c296f}\label{class_telecon_window_afc1a1e1a551a06824f4fe2f88b3c296f}} 
+\mbox{\Hypertarget{class_telecon_window_ae3af4caf725a89ba34328d83c3932879}\label{class_telecon_window_ae3af4caf725a89ba34328d83c3932879}} 
 \index{TeleconWindow@{TeleconWindow}!getPlotByName@{getPlotByName}}
 \index{getPlotByName@{getPlotByName}!TeleconWindow@{TeleconWindow}}
 \doxysubsubsection{\texorpdfstring{getPlotByName()}{getPlotByName()}}
-{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ Telecon\+Window\+::get\+Plot\+By\+Name (\begin{DoxyParamCaption}\item[{string}]{chart\+Name,  }\item[{string}]{plot\+Name }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ Telecon\+Window\+::get\+Plot\+By\+Name (\begin{DoxyParamCaption}\item[{string}]{chart\+Name,  }\item[{string}]{plot\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 \begin{DoxyParams}{Parameters}
@@ -180,7 +199,7 @@ A pointer to a plot with the given name, or a null pointer if no plot in the giv
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00095}{95}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+Implemented in \mbox{\hyperlink{class_telecon_window_impl_chart_dir_ab285f86f36a3f10d3e485ea36a077e68}{Telecon\+Window\+Impl\+Chart\+Dir}}.
 
 \mbox{\Hypertarget{class_telecon_window_ac7c1481d3d53920cfd3fd1df18e2dadb}\label{class_telecon_window_ac7c1481d3d53920cfd3fd1df18e2dadb}} 
 \index{TeleconWindow@{TeleconWindow}!getTitle@{getTitle}}
@@ -223,23 +242,13 @@ True if request\+Quit has been called, or false otherwise.
 
 Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
 
-\mbox{\Hypertarget{class_telecon_window_a807b87958ab2b8dafd8aa84f13e5d04e}\label{class_telecon_window_a807b87958ab2b8dafd8aa84f13e5d04e}} 
-\index{TeleconWindow@{TeleconWindow}!initialize@{initialize}}
-\index{initialize@{initialize}!TeleconWindow@{TeleconWindow}}
-\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
-{\footnotesize\ttfamily void Telecon\+Window\+::initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-Initializer function. After this has been called, no further changes to the window may be made. This function will be called by the parent \mbox{\hyperlink{class_telecon}{Telecon}} object, and normally should not be called directly by the user. 
-
-Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
-
 \mbox{\Hypertarget{class_telecon_window_a86848112a81a9dfeac71808d107fc0c3}\label{class_telecon_window_a86848112a81a9dfeac71808d107fc0c3}} 
 \index{TeleconWindow@{TeleconWindow}!requestQuit@{requestQuit}}
 \index{requestQuit@{requestQuit}!TeleconWindow@{TeleconWindow}}
 \doxysubsubsection{\texorpdfstring{requestQuit()}{requestQuit()}}
 {\footnotesize\ttfamily void Telecon\+Window\+::request\+Quit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Requests that the given window should be closed. On the next chart refresh, the app\textquotesingle{}s implementation should close the window. 
+Requests that the given window should be closed. On the next refresh, the window\textquotesingle{}s implementation should close the window. 
 
 Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
 
@@ -262,6 +271,69 @@ Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00018}{18}} of fi
 Blocks the calling thread until this window has been closed (i.\+e. has\+Quit returns true). 
 
 Definition at line \mbox{\hyperlink{teleconwindow_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{teleconwindow_8cpp_source}{teleconwindow.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_telecon_window_ac6f71297cc427b571971bef9544bc132}\label{class_telecon_window_ac6f71297cc427b571971bef9544bc132}} 
+\index{TeleconWindow@{TeleconWindow}!m\_hasQuit@{m\_hasQuit}}
+\index{m\_hasQuit@{m\_hasQuit}!TeleconWindow@{TeleconWindow}}
+\doxysubsubsection{\texorpdfstring{m\_hasQuit}{m\_hasQuit}}
+{\footnotesize\ttfamily bool Telecon\+Window\+::m\+\_\+has\+Quit\hspace{0.3cm}{\ttfamily [protected]}}
+
+If the window successfully quits or not, as bool. 
+
+Definition at line \mbox{\hyperlink{teleconwindow_8h_source_l00037}{37}} of file \mbox{\hyperlink{teleconwindow_8h_source}{teleconwindow.\+h}}.
+
+\mbox{\Hypertarget{class_telecon_window_a644286350ffda661daea359f8edb0a89}\label{class_telecon_window_a644286350ffda661daea359f8edb0a89}} 
+\index{TeleconWindow@{TeleconWindow}!m\_hasQuitCV@{m\_hasQuitCV}}
+\index{m\_hasQuitCV@{m\_hasQuitCV}!TeleconWindow@{TeleconWindow}}
+\doxysubsubsection{\texorpdfstring{m\_hasQuitCV}{m\_hasQuitCV}}
+{\footnotesize\ttfamily condition\+\_\+variable Telecon\+Window\+::m\+\_\+has\+Quit\+CV\hspace{0.3cm}{\ttfamily [protected]}}
+
+Quiting CV. 
+
+Definition at line \mbox{\hyperlink{teleconwindow_8h_source_l00032}{32}} of file \mbox{\hyperlink{teleconwindow_8h_source}{teleconwindow.\+h}}.
+
+\mbox{\Hypertarget{class_telecon_window_a709f3e983f0656923b4b4bbb6234a1a4}\label{class_telecon_window_a709f3e983f0656923b4b4bbb6234a1a4}} 
+\index{TeleconWindow@{TeleconWindow}!m\_hasQuitLock@{m\_hasQuitLock}}
+\index{m\_hasQuitLock@{m\_hasQuitLock}!TeleconWindow@{TeleconWindow}}
+\doxysubsubsection{\texorpdfstring{m\_hasQuitLock}{m\_hasQuitLock}}
+{\footnotesize\ttfamily mutex Telecon\+Window\+::m\+\_\+has\+Quit\+Lock\hspace{0.3cm}{\ttfamily [protected]}}
+
+Quiting mutex lock. 
+
+Definition at line \mbox{\hyperlink{teleconwindow_8h_source_l00027}{27}} of file \mbox{\hyperlink{teleconwindow_8h_source}{teleconwindow.\+h}}.
+
+\mbox{\Hypertarget{class_telecon_window_a8c7bf5708181f00de7ca96267de5adba}\label{class_telecon_window_a8c7bf5708181f00de7ca96267de5adba}} 
+\index{TeleconWindow@{TeleconWindow}!m\_hasRequestedQuit@{m\_hasRequestedQuit}}
+\index{m\_hasRequestedQuit@{m\_hasRequestedQuit}!TeleconWindow@{TeleconWindow}}
+\doxysubsubsection{\texorpdfstring{m\_hasRequestedQuit}{m\_hasRequestedQuit}}
+{\footnotesize\ttfamily std\+::atomic\+\_\+bool Telecon\+Window\+::m\+\_\+has\+Requested\+Quit\hspace{0.3cm}{\ttfamily [protected]}}
+
+If the window is quiting or not, as bool. 
+
+Definition at line \mbox{\hyperlink{teleconwindow_8h_source_l00022}{22}} of file \mbox{\hyperlink{teleconwindow_8h_source}{teleconwindow.\+h}}.
+
+\mbox{\Hypertarget{class_telecon_window_aee5f8c1ce676452a261bb41f22e5ee5c}\label{class_telecon_window_aee5f8c1ce676452a261bb41f22e5ee5c}} 
+\index{TeleconWindow@{TeleconWindow}!m\_hasStarted@{m\_hasStarted}}
+\index{m\_hasStarted@{m\_hasStarted}!TeleconWindow@{TeleconWindow}}
+\doxysubsubsection{\texorpdfstring{m\_hasStarted}{m\_hasStarted}}
+{\footnotesize\ttfamily bool Telecon\+Window\+::m\+\_\+has\+Started\hspace{0.3cm}{\ttfamily [protected]}}
+
+State of whether or not the window has started as bool. 
+
+Definition at line \mbox{\hyperlink{teleconwindow_8h_source_l00047}{47}} of file \mbox{\hyperlink{teleconwindow_8h_source}{teleconwindow.\+h}}.
+
+\mbox{\Hypertarget{class_telecon_window_aaf1e4b03464151a71e0b68224439a4b1}\label{class_telecon_window_aaf1e4b03464151a71e0b68224439a4b1}} 
+\index{TeleconWindow@{TeleconWindow}!m\_title@{m\_title}}
+\index{m\_title@{m\_title}!TeleconWindow@{TeleconWindow}}
+\doxysubsubsection{\texorpdfstring{m\_title}{m\_title}}
+{\footnotesize\ttfamily const std\+::string Telecon\+Window\+::m\+\_\+title\hspace{0.3cm}{\ttfamily [protected]}}
+
+Title of the window as string. 
+
+Definition at line \mbox{\hyperlink{teleconwindow_8h_source_l00042}{42}} of file \mbox{\hyperlink{teleconwindow_8h_source}{teleconwindow.\+h}}.
 
 
 

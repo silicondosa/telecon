@@ -16,14 +16,14 @@ string \mbox{\hyperlink{class_telecon_toggle_aa5024883ceb63c3646dbb16dfd45142b}{
 \item 
 std\+::string \mbox{\hyperlink{class_telecon_toggle_adcacce3e8ebe513597f440670e0362fe}{title}}
 \item 
-bool \mbox{\hyperlink{class_telecon_toggle_a82d06dafb78e71e8b016136a4babaf0c}{state}} = false
+atomic\+\_\+bool \mbox{\hyperlink{class_telecon_toggle_a6e382bfcafc5874ebb0870969ed4caea}{state}} = false
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+Button for Controls window that stays either on or off when clicked. 
 
-
-Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00030}{30}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
+Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00114}{114}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
 
 
 
@@ -34,9 +34,16 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00030}{30}} of fi
 \doxysubsubsection{\texorpdfstring{TeleconToggle()}{TeleconToggle()}}
 {\footnotesize\ttfamily Telecon\+Toggle\+::\+Telecon\+Toggle (\begin{DoxyParamCaption}\item[{string}]{title }\end{DoxyParamCaption})}
 
+Constructor.
 
 
-Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{teleconcontrols_8cpp_source}{teleconcontrols.\+cpp}}.
+\begin{DoxyParams}{Parameters}
+{\em title} & Title of the toggle button \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00051}{51}} of file \mbox{\hyperlink{teleconcontrols_8cpp_source}{teleconcontrols.\+cpp}}.
 
 
 
@@ -47,22 +54,27 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00034}{34}} of 
 \doxysubsubsection{\texorpdfstring{getTitle()}{getTitle()}}
 {\footnotesize\ttfamily string Telecon\+Toggle\+::get\+Title (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+Gets the toggle title.
+
+\begin{DoxyReturn}{Returns}
+Title as a string 
+\end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00049}{49}} of file \mbox{\hyperlink{teleconcontrols_8cpp_source}{teleconcontrols.\+cpp}}.
+Definition at line \mbox{\hyperlink{teleconcontrols_8cpp_source_l00088}{88}} of file \mbox{\hyperlink{teleconcontrols_8cpp_source}{teleconcontrols.\+cpp}}.
 
 
 
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{class_telecon_toggle_a82d06dafb78e71e8b016136a4babaf0c}\label{class_telecon_toggle_a82d06dafb78e71e8b016136a4babaf0c}} 
+\mbox{\Hypertarget{class_telecon_toggle_a6e382bfcafc5874ebb0870969ed4caea}\label{class_telecon_toggle_a6e382bfcafc5874ebb0870969ed4caea}} 
 \index{TeleconToggle@{TeleconToggle}!state@{state}}
 \index{state@{state}!TeleconToggle@{TeleconToggle}}
 \doxysubsubsection{\texorpdfstring{state}{state}}
-{\footnotesize\ttfamily bool Telecon\+Toggle\+::state = false}
+{\footnotesize\ttfamily atomic\+\_\+bool Telecon\+Toggle\+::state = false}
 
+State of the toggle (default off). False = off, True = on 
 
-
-Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00036}{36}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
+Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00140}{140}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
 
 \mbox{\Hypertarget{class_telecon_toggle_adcacce3e8ebe513597f440670e0362fe}\label{class_telecon_toggle_adcacce3e8ebe513597f440670e0362fe}} 
 \index{TeleconToggle@{TeleconToggle}!title@{title}}
@@ -70,9 +82,9 @@ Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00036}{36}} of fi
 \doxysubsubsection{\texorpdfstring{title}{title}}
 {\footnotesize\ttfamily std\+::string Telecon\+Toggle\+::title}
 
+Title of the toggle button. 
 
-
-Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00034}{34}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
+Definition at line \mbox{\hyperlink{teleconcontrols_8h_source_l00128}{128}} of file \mbox{\hyperlink{teleconcontrols_8h_source}{teleconcontrols.\+h}}.
 
 
 

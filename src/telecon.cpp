@@ -3,30 +3,7 @@
 using namespace std;
 
 Telecon::Telecon()
-    : m_teleconWxApp(nullptr), m_hasStarted(false), m_hasStopped(false) {}
-
-Telecon::~Telecon()
-{
-    // m_teleconWxApp is automatically deleted by wxwidgets on close
-    teleconStop();
-}
-
-void Telecon::teleconAppInit()
-{
-    m_teleconWxApp = new TeleconWxApp(this);
-    wxApp::SetInstance(m_teleconWxApp);
-    int argCount = 0;
-    char** argv = nullptr;
-    if (!wxEntryStart(argCount, argv)) {
-        cerr << "wx failed to start\n";
-        wxExit();
-    }
-    wxTheApp->CallOnInit();
-    wxTheApp->OnRun();
-    wxTheApp->OnExit();
-    wxEntryCleanup();
-    m_hasStopped = true;
-}
+    : m_hasStarted(false), m_hasStopped(false) {}
 
 void Telecon::teleconStart()
 {
@@ -35,18 +12,18 @@ void Telecon::teleconStart()
         return;
     }
     m_hasStarted = true;
-    for (auto& window : m_windows) {
-        window->initialize();
-    }
+    initializeWindows();
     m_wxAppThread = thread(&Telecon::teleconAppInit, this);
 }
 
 void Telecon::teleconStop()
 {
-    for (auto& window : m_windows) {
+    for (int i = 0; i < getNumWindows(); i++) {
+        shared_ptr<TeleconWindow> window = getWindow(i);
         window->requestQuit();
     }
-    for (auto& window : m_windows) {
+    for (int i = 0; i < getNumWindows(); i++) {
+        shared_ptr<TeleconWindow> window = getWindow(i);
         window->waitUntilQuit();
     }
     if (m_wxAppThread.joinable()) {
@@ -64,30 +41,10 @@ bool Telecon::hasStopped()
     return m_hasStopped;
 }
 
-shared_ptr<TeleconWindow> Telecon::addWindow(string name)
-{
-    if (m_hasStarted) {
-        cout << "telecon: Telecon has already started, windows may not be added." << endl;
-        return shared_ptr<TeleconWindow>();
-    }
-    shared_ptr<TeleconWindow> window = make_shared<TeleconWindow>(name);
-    m_windows.push_back(window);
-    return window;
-}
-
-shared_ptr<TeleconWindow> Telecon::getWindow(int index)
-{
-    return m_windows[index];
-}
-
-size_t Telecon::getNumWindows() const
-{
-    return m_windows.size();
-}
-
 shared_ptr<TeleconWindow> Telecon::getWindowByName(string name)
 {
-    for (auto window : m_windows) {
+    for (int i = 0; i < getNumWindows(); i++) {
+        shared_ptr<TeleconWindow> window = getWindow(i);
         if (name.compare(window->getTitle()) == 0) {
             return window;
         }
@@ -109,18 +66,4 @@ shared_ptr<TeleconPlot> Telecon::getPlotByName(string windowName, string chartNa
     }
     shared_ptr<TeleconChart> chart = window->getChartByName(chartName);
     return chart == nullptr ? nullptr : chart->getPlotByName(plotName);
-}
-
-shared_ptr<TeleconControls> Telecon::addControls(string name){
-    shared_ptr<TeleconControls> telecon_controls= make_shared<TeleconControls>(name);
-    m_controls.push_back(telecon_controls);
-    return telecon_controls;
-}
-
-shared_ptr<TeleconControls> Telecon::getControls(int index){
-    return m_controls[index];
-}
-
-size_t Telecon::getNumControls() {
-    return m_controls.size();
 }

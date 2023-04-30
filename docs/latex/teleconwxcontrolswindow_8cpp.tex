@@ -1,16 +1,22 @@
 \hypertarget{teleconwxcontrolswindow_8cpp}{}\doxysection{src/teleconwxcontrolswindow.cpp File Reference}
 \label{teleconwxcontrolswindow_8cpp}\index{src/teleconwxcontrolswindow.cpp@{src/teleconwxcontrolswindow.cpp}}
 {\ttfamily \#include \char`\"{}teleconwxcontrolswindow.\+h\char`\"{}}\newline
-{\ttfamily \#include $<$wx/wx.\+h$>$}\newline
 {\ttfamily \#include $<$wx/tglbtn.\+h$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
 enum \{ \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5ab2d77cabb0bd9bdf1834d496139ffa60}{id\+\_\+button}} = (wx\+ID\+\_\+\+HIGHEST + 1)
 , \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5ac9f90c6b94b3567b67912ac70239ce6d}{id\+\_\+toggle}} = wx\+ID\+\_\+\+HIGHEST + 200
 , \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5a97d67eb4cdbb81b932fa9fe38ff9e6b6}{id\+\_\+slider}} = wx\+ID\+\_\+\+HIGHEST + 400
+, \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5a031720dd7b9d32c1f13fe9f1619c5443}{id\+\_\+input}} = wx\+ID\+\_\+\+HIGHEST + 600
  \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{teleconwxcontrolswindow_8cpp_a3cd18e30639a81dcd921f471dffd2b84}{wx\+DEFINE\+\_\+\+EVENT}} (wx\+EVT\+\_\+\+INPUT\+\_\+\+UPDATE, wx\+Thread\+Event)
 \end{DoxyCompactItemize}
 
 
@@ -32,8 +38,21 @@ id\+\_\+toggle&\\
 id\+\_\+slider&\\
 \hline
 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{id\_input@{id\_input}!teleconwxcontrolswindow.cpp@{teleconwxcontrolswindow.cpp}}\index{teleconwxcontrolswindow.cpp@{teleconwxcontrolswindow.cpp}!id\_input@{id\_input}}}\mbox{\Hypertarget{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5a031720dd7b9d32c1f13fe9f1619c5443}\label{teleconwxcontrolswindow_8cpp_a99fb83031ce9923c84392b4e92f956b5a031720dd7b9d32c1f13fe9f1619c5443}} 
+id\+\_\+input&\\
+\hline
+
 \end{DoxyEnumFields}
 
 
-Definition at line \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_source}{teleconwxcontrolswindow.\+cpp}}.
+Definition at line \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{teleconwxcontrolswindow_8cpp_source}{teleconwxcontrolswindow.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{teleconwxcontrolswindow_8cpp_a3cd18e30639a81dcd921f471dffd2b84}\label{teleconwxcontrolswindow_8cpp_a3cd18e30639a81dcd921f471dffd2b84}} 
+\index{teleconwxcontrolswindow.cpp@{teleconwxcontrolswindow.cpp}!wxDEFINE\_EVENT@{wxDEFINE\_EVENT}}
+\index{wxDEFINE\_EVENT@{wxDEFINE\_EVENT}!teleconwxcontrolswindow.cpp@{teleconwxcontrolswindow.cpp}}
+\doxysubsubsection{\texorpdfstring{wxDEFINE\_EVENT()}{wxDEFINE\_EVENT()}}
+{\footnotesize\ttfamily wx\+DEFINE\+\_\+\+EVENT (\begin{DoxyParamCaption}\item[{wx\+EVT\+\_\+\+INPUT\+\_\+\+UPDATE}]{,  }\item[{wx\+Thread\+Event}]{ }\end{DoxyParamCaption})}
 

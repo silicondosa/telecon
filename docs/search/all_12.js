@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['ydata_0',['yData',['../struct_line_plot_data_point.html#a5776d13b01486a182bd3c1975cc21aad',1,'LinePlotDataPoint::yData()'],['../struct_phase_portrait_data_point.html#a5ddcef17508c580888566a66f3e73c3b',1,'PhasePortraitDataPoint::yData()'],['../struct_scatter_plot_data_point.html#a0d5f96960cb7640a4efd9b6e98069098',1,'ScatterPlotDataPoint::yData()']]]
+  ['waituntilquit_0',['waitUntilQuit',['../class_telecon_window.html#a53eb0df50cc63f31ee05edef1a3ae0ba',1,'TeleconWindow']]],
+  ['windowname_1',['windowName',['../class_telecon_controls.html#ab3042467cfad3b74055e47fd3bdd6df0',1,'TeleconControls']]],
+  ['wxdeclare_5fevent_2',['wxDECLARE_EVENT',['../teleconwxcontrolswindow_8h.html#a6a9b57c501bc4b5443975d8d15c8615d',1,'teleconwxcontrolswindow.h']]],
+  ['wxdefine_5fevent_3',['wxDEFINE_EVENT',['../teleconwxcontrolswindow_8cpp.html#a3cd18e30639a81dcd921f471dffd2b84',1,'teleconwxcontrolswindow.cpp']]]
 ];

@@ -8,7 +8,7 @@
 
 static const int chartRefreshIntervals[8] = { 250, 500, 750, 1000, 1250, 1500, 1750, 2000 };
 
-TeleconWxWindow::TeleconWxWindow(shared_ptr<TeleconWindow> window)
+TeleconWxWindow::TeleconWxWindow(shared_ptr<TeleconWindowImplChartDir> window)
     : wxFrame((wxFrame*)NULL, -1, window->getTitle(), wxDefaultPosition, wxDefaultSize), m_window(window)
 {
 
@@ -22,7 +22,7 @@ TeleconWxWindow::TeleconWxWindow(shared_ptr<TeleconWindow> window)
 
     //add charts to main sizer
     for (int i = 0; i < m_window->getNumCharts(); i++) {
-        TeleconWxChart* chart = new TeleconWxChart(m_window->getChart(i), this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL | wxNO_BORDER, wxASCII_STR(wxPanelNameStr));
+        TeleconWxChart* chart = new TeleconWxChart(m_window->getChartImpl(i), this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL | wxNO_BORDER, wxASCII_STR(wxPanelNameStr));
         m_charts.push_back(chart);
     }
     for (auto panel_element : m_charts) {

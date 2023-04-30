@@ -91,14 +91,15 @@ $(document).ready(function(){initNavTree('teleconwxcontrolswindow_8cpp.html','')
 
 <div class="header">
   <div class="summary">
-<a href="#enum-members">Enumerations</a>  </div>
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">teleconwxcontrolswindow.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="teleconwxcontrolswindow_8h_source.html">teleconwxcontrolswindow.h</a>&quot;</code><br />
-<code>#include &lt;wx/wx.h&gt;</code><br />
 <code>#include &lt;wx/tglbtn.h&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;sstream&gt;</code><br />
 </div>
 <p><a href="teleconwxcontrolswindow_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -107,8 +108,14 @@ Enumerations</h2></td></tr>
 <tr class="memitem:a99fb83031ce9923c84392b4e92f956b5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="teleconwxcontrolswindow_8cpp.html#a99fb83031ce9923c84392b4e92f956b5ab2d77cabb0bd9bdf1834d496139ffa60">id_button</a> = (wxID_HIGHEST + 1)
 , <a class="el" href="teleconwxcontrolswindow_8cpp.html#a99fb83031ce9923c84392b4e92f956b5ac9f90c6b94b3567b67912ac70239ce6d">id_toggle</a> = wxID_HIGHEST + 200
 , <a class="el" href="teleconwxcontrolswindow_8cpp.html#a99fb83031ce9923c84392b4e92f956b5a97d67eb4cdbb81b932fa9fe38ff9e6b6">id_slider</a> = wxID_HIGHEST + 400
+, <a class="el" href="teleconwxcontrolswindow_8cpp.html#a99fb83031ce9923c84392b4e92f956b5a031720dd7b9d32c1f13fe9f1619c5443">id_input</a> = wxID_HIGHEST + 600
  }</td></tr>
 <tr class="separator:a99fb83031ce9923c84392b4e92f956b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a3cd18e30639a81dcd921f471dffd2b84"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="teleconwxcontrolswindow_8cpp.html#a3cd18e30639a81dcd921f471dffd2b84">wxDEFINE_EVENT</a> (wxEVT_INPUT_UPDATE, wxThreadEvent)</td></tr>
+<tr class="separator:a3cd18e30639a81dcd921f471dffd2b84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="a99fb83031ce9923c84392b4e92f956b5" name="a99fb83031ce9923c84392b4e92f956b5"></a>
@@ -126,9 +133,39 @@ Enumerations</h2></td></tr>
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a99fb83031ce9923c84392b4e92f956b5ab2d77cabb0bd9bdf1834d496139ffa60" name="a99fb83031ce9923c84392b4e92f956b5ab2d77cabb0bd9bdf1834d496139ffa60"></a>id_button&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a99fb83031ce9923c84392b4e92f956b5ac9f90c6b94b3567b67912ac70239ce6d" name="a99fb83031ce9923c84392b4e92f956b5ac9f90c6b94b3567b67912ac70239ce6d"></a>id_toggle&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a99fb83031ce9923c84392b4e92f956b5a97d67eb4cdbb81b932fa9fe38ff9e6b6" name="a99fb83031ce9923c84392b4e92f956b5a97d67eb4cdbb81b932fa9fe38ff9e6b6"></a>id_slider&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a99fb83031ce9923c84392b4e92f956b5a031720dd7b9d32c1f13fe9f1619c5443" name="a99fb83031ce9923c84392b4e92f956b5a031720dd7b9d32c1f13fe9f1619c5443"></a>id_input&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="teleconwxcontrolswindow_8cpp_source.html#l00011">11</a> of file <a class="el" href="teleconwxcontrolswindow_8cpp_source.html">teleconwxcontrolswindow.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconwxcontrolswindow_8cpp_source.html#l00009">9</a> of file <a class="el" href="teleconwxcontrolswindow_8cpp_source.html">teleconwxcontrolswindow.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a3cd18e30639a81dcd921f471dffd2b84" name="a3cd18e30639a81dcd921f471dffd2b84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cd18e30639a81dcd921f471dffd2b84">&#9670;&#160;</a></span>wxDEFINE_EVENT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">wxDEFINE_EVENT </td>
+          <td>(</td>
+          <td class="paramtype">wxEVT_INPUT_UPDATE&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">wxThreadEvent&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

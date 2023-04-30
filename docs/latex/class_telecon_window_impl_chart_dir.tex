@@ -1,0 +1,283 @@
+\hypertarget{class_telecon_window_impl_chart_dir}{}\doxysection{Telecon\+Window\+Impl\+Chart\+Dir Class Reference}
+\label{class_telecon_window_impl_chart_dir}\index{TeleconWindowImplChartDir@{TeleconWindowImplChartDir}}
+
+
+{\ttfamily \#include $<$include/teleconwindowimplchartdir.\+h$>$}
+
+Inheritance diagram for Telecon\+Window\+Impl\+Chart\+Dir\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_telecon_window_impl_chart_dir}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_telecon_window_impl_chart_dir_ac7d3efc3567ff33f49f23e12e69c189d}{Telecon\+Window\+Impl\+Chart\+Dir}} (std\+::string title=\char`\"{}\char`\"{})
+\item 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_chart_impl_chart_dir}{Telecon\+Chart\+Impl\+Chart\+Dir}} $>$ \mbox{\hyperlink{class_telecon_window_impl_chart_dir_a6c6143f6e7a7fe9e908e0463e66093a0}{get\+Chart\+Impl}} (size\+\_\+t index)
+\item 
+void \mbox{\hyperlink{class_telecon_window_impl_chart_dir_a43d9c92e5497d4bebc441d4781718188}{initialize}} ()
+\item 
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_realtime_chart}{Telecon\+Realtime\+Chart}} $>$ \mbox{\hyperlink{class_telecon_window_impl_chart_dir_a8632be1a8a617c9915155b04dfe52cb3}{add\+Realtime\+Chart}} (std\+::string title, double memory\+Depth\+Seconds, int data\+Rate\+Millis, std\+::string x\+Label, std\+::string y\+Label, \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} color\+Sequence\+Mode) override
+\item 
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_data_chart}{Telecon\+Data\+Chart}} $>$ \mbox{\hyperlink{class_telecon_window_impl_chart_dir_a4b9ffc0da7139fef1df3fe64aee9edd2}{add\+Data\+Chart}} (std\+::string title, double memory\+Depth\+Seconds, int data\+Rate\+Millis, std\+::string x\+Label, std\+::string y\+Label, \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} color\+Sequence\+Mode) override
+\item 
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} $>$ \mbox{\hyperlink{class_telecon_window_impl_chart_dir_a9da30fec3fd2934889d35fa2d1b16b02}{get\+Chart}} (size\+\_\+t index) override
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_telecon_window_impl_chart_dir_af7864cbd3a38f8791f76b89db9ba9f4c}{get\+Num\+Charts}} () const override
+\item 
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} $>$ \mbox{\hyperlink{class_telecon_window_impl_chart_dir_ac7862404571ba59e1f1048821e0c04b9}{get\+Chart\+By\+Name}} (string name) override
+\item 
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ \mbox{\hyperlink{class_telecon_window_impl_chart_dir_ab285f86f36a3f10d3e485ea36a077e68}{get\+Plot\+By\+Name}} (string chart\+Name, string plot\+Name) override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_telecon_window_a2bdc5362c99c951052b7dddce2efa859}{Telecon\+Window}} (std\+::string title=\char`\"{}\char`\"{})
+\item 
+void \mbox{\hyperlink{class_telecon_window_a86848112a81a9dfeac71808d107fc0c3}{request\+Quit}} ()
+\item 
+bool \mbox{\hyperlink{class_telecon_window_af774c0541f883c33cf15c0e3e08ebf40}{has\+Requested\+Quit}} ()
+\item 
+void \mbox{\hyperlink{class_telecon_window_a04702615f238323fed9c4e8ad7182130}{set\+Has\+Quit}} ()
+\item 
+bool \mbox{\hyperlink{class_telecon_window_a727d3b00dd934cd08b33e483427b501a}{has\+Quit}} ()
+\item 
+void \mbox{\hyperlink{class_telecon_window_a53eb0df50cc63f31ee05edef1a3ae0ba}{wait\+Until\+Quit}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_telecon_window_ac7c1481d3d53920cfd3fd1df18e2dadb}{get\+Title}} ()
+\item 
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_realtime_chart}{Telecon\+Realtime\+Chart}} $>$ \mbox{\hyperlink{class_telecon_window_ae13fbf52ffaa58c221c679bcdb0ad7e6}{add\+Realtime\+Chart}} (std\+::string title=\char`\"{}\char`\"{}, double memory\+Depth\+Seconds=60.\+0, int data\+Rate\+Millis=100, std\+::string x\+Label=\char`\"{}\char`\"{}, std\+::string y\+Label=\char`\"{}\char`\"{}, \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} color\+Sequence\+Mode=\mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38af694240c2be72deb06f19859d21ba193}{CSM\+\_\+\+BLACK}})=0
+\item 
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_data_chart}{Telecon\+Data\+Chart}} $>$ \mbox{\hyperlink{class_telecon_window_ae9186bbb0c0ebe7ed39a1a73a6b1c676}{add\+Data\+Chart}} (std\+::string title=\char`\"{}\char`\"{}, double memory\+Depth\+Seconds=60.\+0, int data\+Rate\+Millis=100, std\+::string x\+Label=\char`\"{}\char`\"{}, std\+::string y\+Label=\char`\"{}\char`\"{}, \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} color\+Sequence\+Mode=\mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38af694240c2be72deb06f19859d21ba193}{CSM\+\_\+\+BLACK}})=0
+\item 
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} $>$ \mbox{\hyperlink{class_telecon_window_ab7627ed7ccf8198dcca2658b1ad5522f}{get\+Chart}} (size\+\_\+t index)=0
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_telecon_window_ac3941b9598a05b53e12e4393b6aa72d0}{get\+Num\+Charts}} () const =0
+\item 
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} $>$ \mbox{\hyperlink{class_telecon_window_a2572a63682f812eaf31942f7e84c3f16}{get\+Chart\+By\+Name}} (string name)=0
+\item 
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ \mbox{\hyperlink{class_telecon_window_ae3af4caf725a89ba34328d83c3932879}{get\+Plot\+By\+Name}} (string chart\+Name, string plot\+Name)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::atomic\+\_\+bool \mbox{\hyperlink{class_telecon_window_a8c7bf5708181f00de7ca96267de5adba}{m\+\_\+has\+Requested\+Quit}}
+\item 
+mutex \mbox{\hyperlink{class_telecon_window_a709f3e983f0656923b4b4bbb6234a1a4}{m\+\_\+has\+Quit\+Lock}}
+\item 
+condition\+\_\+variable \mbox{\hyperlink{class_telecon_window_a644286350ffda661daea359f8edb0a89}{m\+\_\+has\+Quit\+CV}}
+\item 
+bool \mbox{\hyperlink{class_telecon_window_ac6f71297cc427b571971bef9544bc132}{m\+\_\+has\+Quit}}
+\item 
+const std\+::string \mbox{\hyperlink{class_telecon_window_aaf1e4b03464151a71e0b68224439a4b1}{m\+\_\+title}}
+\item 
+bool \mbox{\hyperlink{class_telecon_window_aee5f8c1ce676452a261bb41f22e5ee5c}{m\+\_\+has\+Started}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The wx\+Chart\+Dir implementation of the \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} interface. 
+
+Definition at line \mbox{\hyperlink{teleconwindowimplchartdir_8h_source_l00010}{10}} of file \mbox{\hyperlink{teleconwindowimplchartdir_8h_source}{teleconwindowimplchartdir.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_telecon_window_impl_chart_dir_ac7d3efc3567ff33f49f23e12e69c189d}\label{class_telecon_window_impl_chart_dir_ac7d3efc3567ff33f49f23e12e69c189d}} 
+\index{TeleconWindowImplChartDir@{TeleconWindowImplChartDir}!TeleconWindowImplChartDir@{TeleconWindowImplChartDir}}
+\index{TeleconWindowImplChartDir@{TeleconWindowImplChartDir}!TeleconWindowImplChartDir@{TeleconWindowImplChartDir}}
+\doxysubsubsection{\texorpdfstring{TeleconWindowImplChartDir()}{TeleconWindowImplChartDir()}}
+{\footnotesize\ttfamily Telecon\+Window\+Impl\+Chart\+Dir\+::\+Telecon\+Window\+Impl\+Chart\+Dir (\begin{DoxyParamCaption}\item[{std\+::string}]{title = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+
+
+Constructs a new window element with given title.
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & the title displayed on top of the window.   \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{teleconwindowimplchartdir_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{teleconwindowimplchartdir_8cpp_source}{teleconwindowimplchartdir.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_telecon_window_impl_chart_dir_a4b9ffc0da7139fef1df3fe64aee9edd2}\label{class_telecon_window_impl_chart_dir_a4b9ffc0da7139fef1df3fe64aee9edd2}} 
+\index{TeleconWindowImplChartDir@{TeleconWindowImplChartDir}!addDataChart@{addDataChart}}
+\index{addDataChart@{addDataChart}!TeleconWindowImplChartDir@{TeleconWindowImplChartDir}}
+\doxysubsubsection{\texorpdfstring{addDataChart()}{addDataChart()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_data_chart}{Telecon\+Data\+Chart}} $>$ Telecon\+Window\+Impl\+Chart\+Dir\+::add\+Data\+Chart (\begin{DoxyParamCaption}\item[{std\+::string}]{title,  }\item[{double}]{memory\+Depth\+Seconds,  }\item[{int}]{data\+Rate\+Millis,  }\item[{std\+::string}]{x\+Label,  }\item[{std\+::string}]{y\+Label,  }\item[{\mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}}}]{color\+Sequence\+Mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+
+
+Implements \mbox{\hyperlink{class_telecon_window_ae9186bbb0c0ebe7ed39a1a73a6b1c676}{Telecon\+Window}}.
+
+
+
+Definition at line \mbox{\hyperlink{teleconwindowimplchartdir_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{teleconwindowimplchartdir_8cpp_source}{teleconwindowimplchartdir.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_window_impl_chart_dir_a8632be1a8a617c9915155b04dfe52cb3}\label{class_telecon_window_impl_chart_dir_a8632be1a8a617c9915155b04dfe52cb3}} 
+\index{TeleconWindowImplChartDir@{TeleconWindowImplChartDir}!addRealtimeChart@{addRealtimeChart}}
+\index{addRealtimeChart@{addRealtimeChart}!TeleconWindowImplChartDir@{TeleconWindowImplChartDir}}
+\doxysubsubsection{\texorpdfstring{addRealtimeChart()}{addRealtimeChart()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_realtime_chart}{Telecon\+Realtime\+Chart}} $>$ Telecon\+Window\+Impl\+Chart\+Dir\+::add\+Realtime\+Chart (\begin{DoxyParamCaption}\item[{std\+::string}]{title,  }\item[{double}]{memory\+Depth\+Seconds,  }\item[{int}]{data\+Rate\+Millis,  }\item[{std\+::string}]{x\+Label,  }\item[{std\+::string}]{y\+Label,  }\item[{\mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}}}]{color\+Sequence\+Mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+
+
+Implements \mbox{\hyperlink{class_telecon_window_ae13fbf52ffaa58c221c679bcdb0ad7e6}{Telecon\+Window}}.
+
+
+
+Definition at line \mbox{\hyperlink{teleconwindowimplchartdir_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{teleconwindowimplchartdir_8cpp_source}{teleconwindowimplchartdir.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_window_impl_chart_dir_a9da30fec3fd2934889d35fa2d1b16b02}\label{class_telecon_window_impl_chart_dir_a9da30fec3fd2934889d35fa2d1b16b02}} 
+\index{TeleconWindowImplChartDir@{TeleconWindowImplChartDir}!getChart@{getChart}}
+\index{getChart@{getChart}!TeleconWindowImplChartDir@{TeleconWindowImplChartDir}}
+\doxysubsubsection{\texorpdfstring{getChart()}{getChart()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} $>$ Telecon\+Window\+Impl\+Chart\+Dir\+::get\+Chart (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & the index of the \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} to return, relative to the order added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} requested.   
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_telecon_window_ab7627ed7ccf8198dcca2658b1ad5522f}{Telecon\+Window}}.
+
+
+
+Definition at line \mbox{\hyperlink{teleconwindowimplchartdir_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{teleconwindowimplchartdir_8cpp_source}{teleconwindowimplchartdir.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_window_impl_chart_dir_ac7862404571ba59e1f1048821e0c04b9}\label{class_telecon_window_impl_chart_dir_ac7862404571ba59e1f1048821e0c04b9}} 
+\index{TeleconWindowImplChartDir@{TeleconWindowImplChartDir}!getChartByName@{getChartByName}}
+\index{getChartByName@{getChartByName}!TeleconWindowImplChartDir@{TeleconWindowImplChartDir}}
+\doxysubsubsection{\texorpdfstring{getChartByName()}{getChartByName()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} $>$ Telecon\+Window\+Impl\+Chart\+Dir\+::get\+Chart\+By\+Name (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the name of the \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} to return. If multiple windows share the same name, no guarantee is made about which will be returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a chart with the given name, or a null pointer if no chart has that name.   
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_telecon_window_a2572a63682f812eaf31942f7e84c3f16}{Telecon\+Window}}.
+
+
+
+Definition at line \mbox{\hyperlink{teleconwindowimplchartdir_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{teleconwindowimplchartdir_8cpp_source}{teleconwindowimplchartdir.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_window_impl_chart_dir_a6c6143f6e7a7fe9e908e0463e66093a0}\label{class_telecon_window_impl_chart_dir_a6c6143f6e7a7fe9e908e0463e66093a0}} 
+\index{TeleconWindowImplChartDir@{TeleconWindowImplChartDir}!getChartImpl@{getChartImpl}}
+\index{getChartImpl@{getChartImpl}!TeleconWindowImplChartDir@{TeleconWindowImplChartDir}}
+\doxysubsubsection{\texorpdfstring{getChartImpl()}{getChartImpl()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_chart_impl_chart_dir}{Telecon\+Chart\+Impl\+Chart\+Dir}} $>$ Telecon\+Window\+Impl\+Chart\+Dir\+::get\+Chart\+Impl (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & the index of the \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} to return as a \mbox{\hyperlink{class_telecon_chart_impl_chart_dir}{Telecon\+Chart\+Impl\+Chart\+Dir}}, relative to the order added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} requested. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{teleconwindowimplchartdir_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{teleconwindowimplchartdir_8cpp_source}{teleconwindowimplchartdir.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_window_impl_chart_dir_af7864cbd3a38f8791f76b89db9ba9f4c}\label{class_telecon_window_impl_chart_dir_af7864cbd3a38f8791f76b89db9ba9f4c}} 
+\index{TeleconWindowImplChartDir@{TeleconWindowImplChartDir}!getNumCharts@{getNumCharts}}
+\index{getNumCharts@{getNumCharts}!TeleconWindowImplChartDir@{TeleconWindowImplChartDir}}
+\doxysubsubsection{\texorpdfstring{getNumCharts()}{getNumCharts()}}
+{\footnotesize\ttfamily size\+\_\+t Telecon\+Window\+Impl\+Chart\+Dir\+::get\+Num\+Charts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+\begin{DoxyReturn}{Returns}
+The number of Telecon\+Charts added to the window.   
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_telecon_window_ac3941b9598a05b53e12e4393b6aa72d0}{Telecon\+Window}}.
+
+
+
+Definition at line \mbox{\hyperlink{teleconwindowimplchartdir_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{teleconwindowimplchartdir_8cpp_source}{teleconwindowimplchartdir.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_window_impl_chart_dir_ab285f86f36a3f10d3e485ea36a077e68}\label{class_telecon_window_impl_chart_dir_ab285f86f36a3f10d3e485ea36a077e68}} 
+\index{TeleconWindowImplChartDir@{TeleconWindowImplChartDir}!getPlotByName@{getPlotByName}}
+\index{getPlotByName@{getPlotByName}!TeleconWindowImplChartDir@{TeleconWindowImplChartDir}}
+\doxysubsubsection{\texorpdfstring{getPlotByName()}{getPlotByName()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ Telecon\+Window\+Impl\+Chart\+Dir\+::get\+Plot\+By\+Name (\begin{DoxyParamCaption}\item[{string}]{chart\+Name,  }\item[{string}]{plot\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em chart\+Name} & the name of the \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} in which to search for a plot with the given name. If multiple charts share the same name, no guarantee is made about which will be returned. \\
+\hline
+{\em plot\+Name} & the name of the \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} to return. If multiple plots share the same name, no guarantee is made about which will be returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a plot with the given name, or a null pointer if no plot in the given chart and window has that name.   
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_telecon_window_ae3af4caf725a89ba34328d83c3932879}{Telecon\+Window}}.
+
+
+
+Definition at line \mbox{\hyperlink{teleconwindowimplchartdir_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{teleconwindowimplchartdir_8cpp_source}{teleconwindowimplchartdir.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_window_impl_chart_dir_a43d9c92e5497d4bebc441d4781718188}\label{class_telecon_window_impl_chart_dir_a43d9c92e5497d4bebc441d4781718188}} 
+\index{TeleconWindowImplChartDir@{TeleconWindowImplChartDir}!initialize@{initialize}}
+\index{initialize@{initialize}!TeleconWindowImplChartDir@{TeleconWindowImplChartDir}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily void Telecon\+Window\+Impl\+Chart\+Dir\+::initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Initializer function. After this has been called, no further changes to the window may be made. 
+
+Definition at line \mbox{\hyperlink{teleconwindowimplchartdir_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{teleconwindowimplchartdir_8cpp_source}{teleconwindowimplchartdir.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{teleconwindowimplchartdir_8h}{teleconwindowimplchartdir.\+h}}\item 
+src/\mbox{\hyperlink{teleconwindowimplchartdir_8cpp}{teleconwindowimplchartdir.\+cpp}}\end{DoxyCompactItemize}

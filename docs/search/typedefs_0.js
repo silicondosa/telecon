@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['doublefuncptr_0',['DoubleFuncPtr',['../teleconplot_8h.html#af69020f6765dfdd7b0be93676167a0ed',1,'teleconplot.h']]]
+  ['func_5ft_0',['func_t',['../teleconcontrols_8h.html#ae5b4a360e8122d0ee24c574250827a3f',1,'teleconcontrols.h']]]
 ];

@@ -106,8 +106,13 @@ Inheritance diagram for TeleconChart:</div>
  <div class="center">
   <img src="class_telecon_chart.png" usemap="#TeleconChart_map" alt=""/>
   <map id="TeleconChart_map" name="TeleconChart_map">
-<area href="class_telecon_data_chart.html" alt="TeleconDataChart" shape="rect" coords="0,56,135,80"/>
-<area href="class_telecon_realtime_chart.html" alt="TeleconRealtimeChart" shape="rect" coords="145,56,280,80"/>
+<area href="class_telecon_chart_impl_chart_dir.html" alt="TeleconChartImplChartDir" shape="rect" coords="107,56,312,80"/>
+<area href="class_telecon_data_chart.html" alt="TeleconDataChart" shape="rect" coords="430,56,635,80"/>
+<area href="class_telecon_realtime_chart.html" alt="TeleconRealtimeChart" shape="rect" coords="645,56,850,80"/>
+<area href="class_telecon_data_chart_impl_chart_dir.html" alt="TeleconDataChartImplChartDir" shape="rect" coords="0,112,205,136"/>
+<area href="class_telecon_realtime_chart_impl_chart_dir.html" alt="TeleconRealtimeChartImplChartDir" shape="rect" coords="215,112,420,136"/>
+<area href="class_telecon_data_chart_impl_chart_dir.html" alt="TeleconDataChartImplChartDir" shape="rect" coords="430,112,635,136"/>
+<area href="class_telecon_realtime_chart_impl_chart_dir.html" alt="TeleconRealtimeChartImplChartDir" shape="rect" coords="645,112,850,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -127,14 +132,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abfeeb8c29606422ce614a3599e07e198"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8968d74709f6969e442cba648ef8a3c1"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="teleconchart_8h.html#a54534a1398c95ca6d61f6ac68e610b7e">ChartXAxisType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_chart.html#a8968d74709f6969e442cba648ef8a3c1">getChartXAxisType</a> ()=0</td></tr>
 <tr class="separator:a8968d74709f6969e442cba648ef8a3c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac833b24aa16da530a531a22fcafa1f52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_chart.html#ac833b24aa16da530a531a22fcafa1f52">initialize</a> ()</td></tr>
-<tr class="separator:ac833b24aa16da530a531a22fcafa1f52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9b2e34588a68d39df3144b32d98fc9b"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_telecon_plot.html">TeleconPlot</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_chart.html#ac9b2e34588a68d39df3144b32d98fc9b">getPlot</a> (int index)</td></tr>
-<tr class="separator:ac9b2e34588a68d39df3144b32d98fc9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abed3e9f9ca52e351ba4ca6a510250530"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_chart.html#abed3e9f9ca52e351ba4ca6a510250530">getNumPlots</a> ()</td></tr>
-<tr class="separator:abed3e9f9ca52e351ba4ca6a510250530"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68684c5c612a7ed173ccee9fce9d1347"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_telecon_plot.html">TeleconPlot</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_chart.html#a68684c5c612a7ed173ccee9fce9d1347">getPlotByName</a> (string name)</td></tr>
-<tr class="separator:a68684c5c612a7ed173ccee9fce9d1347"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bcb9743197202e17d65195aeaf7f71e"><td class="memItemLeft" align="right" valign="top">virtual shared_ptr&lt; <a class="el" href="class_telecon_plot.html">TeleconPlot</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_chart.html#a7bcb9743197202e17d65195aeaf7f71e">getPlot</a> (int index)=0</td></tr>
+<tr class="separator:a7bcb9743197202e17d65195aeaf7f71e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8ee3846df0f1dcb9f8d80f49d1105cd"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_chart.html#ac8ee3846df0f1dcb9f8d80f49d1105cd">getNumPlots</a> ()=0</td></tr>
+<tr class="separator:ac8ee3846df0f1dcb9f8d80f49d1105cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dd6d3f4bc6fb578ed1f2981a22df843"><td class="memItemLeft" align="right" valign="top">virtual shared_ptr&lt; <a class="el" href="class_telecon_plot.html">TeleconPlot</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_chart.html#a8dd6d3f4bc6fb578ed1f2981a22df843">getPlotByName</a> (string name)=0</td></tr>
+<tr class="separator:a8dd6d3f4bc6fb578ed1f2981a22df843"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -157,8 +160,6 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a5a502369abdc755468a305349eb34676"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af315b4acbdefb53894bd06e78e96e682"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_chart.html#af315b4acbdefb53894bd06e78e96e682">m_hasStarted</a></td></tr>
 <tr class="separator:af315b4acbdefb53894bd06e78e96e682"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8e44cc492bc62c52c5cece30e126f0d"><td class="memItemLeft" align="right" valign="top">vector&lt; shared_ptr&lt; <a class="el" href="class_telecon_plot.html">TeleconPlot</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_chart.html#ab8e44cc492bc62c52c5cece30e126f0d">m_plots</a></td></tr>
-<tr class="separator:ab8e44cc492bc62c52c5cece30e126f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The user-level chart interface. It describes features such as the title, data rate, x/y labels, and color sequence that will be used.</p>
@@ -338,40 +339,56 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="abed3e9f9ca52e351ba4ca6a510250530" name="abed3e9f9ca52e351ba4ca6a510250530"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abed3e9f9ca52e351ba4ca6a510250530">&#9670;&#160;</a></span>getNumPlots()</h2>
+<a id="ac8ee3846df0f1dcb9f8d80f49d1105cd" name="ac8ee3846df0f1dcb9f8d80f49d1105cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8ee3846df0f1dcb9f8d80f49d1105cd">&#9670;&#160;</a></span>getNumPlots()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t TeleconChart::getNumPlots </td>
+          <td class="memname">virtual size_t TeleconChart::getNumPlots </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>The number of TeleconPlots added to the chart </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="teleconchart_8cpp_source.html#l00056">56</a> of file <a class="el" href="teleconchart_8cpp_source.html">teleconchart.cpp</a>.</p>
+<p>Implemented in <a class="el" href="class_telecon_chart_impl_chart_dir.html#a40606b7cc8becd70ec65533e057a3d99">TeleconChartImplChartDir</a>.</p>
 
 </div>
 </div>
-<a id="ac9b2e34588a68d39df3144b32d98fc9b" name="ac9b2e34588a68d39df3144b32d98fc9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9b2e34588a68d39df3144b32d98fc9b">&#9670;&#160;</a></span>getPlot()</h2>
+<a id="a7bcb9743197202e17d65195aeaf7f71e" name="a7bcb9743197202e17d65195aeaf7f71e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bcb9743197202e17d65195aeaf7f71e">&#9670;&#160;</a></span>getPlot()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">shared_ptr&lt; <a class="el" href="class_telecon_plot.html">TeleconPlot</a> &gt; TeleconChart::getPlot </td>
+          <td class="memname">virtual shared_ptr&lt; <a class="el" href="class_telecon_plot.html">TeleconPlot</a> &gt; TeleconChart::getPlot </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>index</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -381,24 +398,32 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the <a class="el" href="class_telecon_plot.html">TeleconPlot</a> requested. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="teleconchart_8cpp_source.html#l00051">51</a> of file <a class="el" href="teleconchart_8cpp_source.html">teleconchart.cpp</a>.</p>
+<p>Implemented in <a class="el" href="class_telecon_chart_impl_chart_dir.html#a8734fa4d5394d73ca9bd38437014f518">TeleconChartImplChartDir</a>.</p>
 
 </div>
 </div>
-<a id="a68684c5c612a7ed173ccee9fce9d1347" name="a68684c5c612a7ed173ccee9fce9d1347"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68684c5c612a7ed173ccee9fce9d1347">&#9670;&#160;</a></span>getPlotByName()</h2>
+<a id="a8dd6d3f4bc6fb578ed1f2981a22df843" name="a8dd6d3f4bc6fb578ed1f2981a22df843"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8dd6d3f4bc6fb578ed1f2981a22df843">&#9670;&#160;</a></span>getPlotByName()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">shared_ptr&lt; <a class="el" href="class_telecon_plot.html">TeleconPlot</a> &gt; TeleconChart::getPlotByName </td>
+          <td class="memname">virtual shared_ptr&lt; <a class="el" href="class_telecon_plot.html">TeleconPlot</a> &gt; TeleconChart::getPlotByName </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>name</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -408,7 +433,7 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to a plot with the given name, or a null pointer if no plot in the given chart and window has that name. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="teleconchart_8cpp_source.html#l00061">61</a> of file <a class="el" href="teleconchart_8cpp_source.html">teleconchart.cpp</a>.</p>
+<p>Implemented in <a class="el" href="class_telecon_chart_impl_chart_dir.html#a4dda68878bca25c6cd002b1f49d54345">TeleconChartImplChartDir</a>.</p>
 
 </div>
 </div>
@@ -469,26 +494,6 @@ Protected Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The label adjacent to the y-axis. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="teleconchart_8cpp_source.html#l00022">22</a> of file <a class="el" href="teleconchart_8cpp_source.html">teleconchart.cpp</a>.</p>
-
-</div>
-</div>
-<a id="ac833b24aa16da530a531a22fcafa1f52" name="ac833b24aa16da530a531a22fcafa1f52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac833b24aa16da530a531a22fcafa1f52">&#9670;&#160;</a></span>initialize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void TeleconChart::initialize </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Initializer function. After this has been called, no further changes to the chart may be made. This function will be called by the parent <a class="el" href="class_telecon_window.html">TeleconWindow</a> object, and normally should not be called directly by the user. </p>
-
-<p class="definition">Definition at line <a class="el" href="teleconchart_8cpp_source.html#l00046">46</a> of file <a class="el" href="teleconchart_8cpp_source.html">teleconchart.cpp</a>.</p>
 
 </div>
 </div>
@@ -590,31 +595,6 @@ Protected Attributes</h2></td></tr>
 <p>The default number of seconds for which data will be remembered by plots added to this chart. This default can be overridden manually when a plot is being added. </p>
 
 <p class="definition">Definition at line <a class="el" href="teleconchart_8h_source.html#l00035">35</a> of file <a class="el" href="teleconchart_8h_source.html">teleconchart.h</a>.</p>
-
-</div>
-</div>
-<a id="ab8e44cc492bc62c52c5cece30e126f0d" name="ab8e44cc492bc62c52c5cece30e126f0d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab8e44cc492bc62c52c5cece30e126f0d">&#9670;&#160;</a></span>m_plots</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">vector&lt;shared_ptr&lt;<a class="el" href="class_telecon_plot.html">TeleconPlot</a>&gt; &gt; TeleconChart::m_plots</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>A list of the plots that have been added to the chart. </p>
-
-<p class="definition">Definition at line <a class="el" href="teleconchart_8h_source.html#l00053">53</a> of file <a class="el" href="teleconchart_8h_source.html">teleconchart.h</a>.</p>
 
 </div>
 </div>

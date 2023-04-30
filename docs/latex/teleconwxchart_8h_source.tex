@@ -17,7 +17,7 @@
 \DoxyCodeLine{\Hypertarget{teleconwxchart_8h_source_l00013}00013\ }
 \DoxyCodeLine{\Hypertarget{teleconwxchart_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}chartdir.h"{}}}
 \DoxyCodeLine{\Hypertarget{teleconwxchart_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}wxchartviewer.h"{}}}
-\DoxyCodeLine{\Hypertarget{teleconwxchart_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{teleconchart_8h}{teleconchart.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{teleconwxchart_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{teleconchartimplchartdir_8h}{teleconchartimplchartdir.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{teleconwxchart_8h_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{teleconwxplot_8h}{teleconwxplot.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{teleconwxchart_8h_source_l00018}00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{colors_8h}{colors.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{teleconwxchart_8h_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{enums_8h}{enums.h}}"{}}}
@@ -28,7 +28,7 @@
 \DoxyCodeLine{\Hypertarget{teleconwxchart_8h_source_l00029}00029\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{\Hypertarget{teleconwxchart_8h_source_l00030}00030\ }
 \DoxyCodeLine{\Hypertarget{teleconwxchart_8h_source_l00042}00042\ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_chart}{TeleconWxChart}}(}
-\DoxyCodeLine{\Hypertarget{teleconwxchart_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ shared\_ptr<TeleconChart>\ chart,}
+\DoxyCodeLine{\Hypertarget{teleconwxchart_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ shared\_ptr<TeleconChartImplChartDir>\ chart,}
 \DoxyCodeLine{\Hypertarget{teleconwxchart_8h_source_l00044}00044\ \ \ \ \ \ \ \ \ wxWindow*\ parent,}
 \DoxyCodeLine{\Hypertarget{teleconwxchart_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ wxWindowID\ winid\ =\ wxID\_ANY,}
 \DoxyCodeLine{\Hypertarget{teleconwxchart_8h_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ wxPoint\&\ pos\ =\ wxDefaultPosition,}
@@ -83,7 +83,7 @@
 \DoxyCodeLine{\Hypertarget{teleconwxchart_8h_source_l00114}00114\ \ \ \ \ unordered\_map<int,\ wxTextCtrl*>\ m\_latestValueTextCtrls;\ \textcolor{comment}{//\ Maps\ index\ in\ chart\ to\ control}}
 \DoxyCodeLine{\Hypertarget{teleconwxchart_8h_source_l00115}00115\ \ \ \ \ wxColour\ m\_bgColour;}
 \DoxyCodeLine{\Hypertarget{teleconwxchart_8h_source_l00116}00116\ }
-\DoxyCodeLine{\Hypertarget{teleconwxchart_8h_source_l00117}00117\ \ \ \ \ shared\_ptr<TeleconChart>\ m\_chart;}
+\DoxyCodeLine{\Hypertarget{teleconwxchart_8h_source_l00117}00117\ \ \ \ \ shared\_ptr<TeleconChartImplChartDir>\ m\_chart;}
 \DoxyCodeLine{\Hypertarget{teleconwxchart_8h_source_l00118}00118\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_isRefreshEnabled;}
 \DoxyCodeLine{\Hypertarget{teleconwxchart_8h_source_l00119}00119\ }
 \DoxyCodeLine{\Hypertarget{teleconwxchart_8h_source_l00120}00120\ \ \ \ \ \textcolor{comment}{//\ Pointer\ to\ the\ chart\ viewer\ -\/\ main\ body\ of\ panel}}

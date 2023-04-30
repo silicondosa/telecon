@@ -1,18 +1,19 @@
 var searchData=
 [
-  ['addbutton_0',['addButton',['../class_telecon_controls.html#abcb3b5e2fbde08f965f4e25c55279f6d',1,'TeleconControls']]],
-  ['addcontrols_1',['addControls',['../class_telecon.html#aa566973f4e9fa1f508eba8b861538036',1,'Telecon']]],
-  ['adddatachart_2',['addDataChart',['../class_telecon_window.html#ac51bdc921ccc978c97934b7d5ecd6153',1,'TeleconWindow']]],
+  ['addbutton_0',['addButton',['../class_telecon_controls.html#ae778b435da14b1527159102b80f3ce5c',1,'TeleconControls']]],
+  ['addcontrols_1',['addControls',['../class_telecon.html#a7bf7e2b3fb61e76e86809cb93dbeab89',1,'Telecon::addControls()'],['../class_telecon_impl_chart_dir.html#a301cf8a646661d6b6ed14cc767448207',1,'TeleconImplChartDir::addControls()']]],
+  ['adddatachart_2',['addDataChart',['../class_telecon_window.html#ae9186bbb0c0ebe7ed39a1a73a6b1c676',1,'TeleconWindow::addDataChart()'],['../class_telecon_window_impl_chart_dir.html#a4b9ffc0da7139fef1df3fe64aee9edd2',1,'TeleconWindowImplChartDir::addDataChart()']]],
   ['adddatapoint_3',['addDataPoint',['../class_data_to_add_list.html#ad27b97cc4f4b4c97e3b0f27a3efd2867',1,'DataToAddList']]],
-  ['addlineplot_4',['addLinePlot',['../class_telecon_realtime_chart.html#a2cb97fa7275cfe4975827b3dcfac6869',1,'TeleconRealtimeChart']]],
-  ['addlineplottochart_5',['addLinePlotToChart',['../class_telecon_wx_plot.html#a2134bde951b9996ab1bc1fbb0fc4d5a8',1,'TeleconWxPlot']]],
-  ['addphaseportraitplot_6',['addPhasePortraitPlot',['../class_telecon_data_chart.html#a0cc4e57eb9e364198629ee1e67676732',1,'TeleconDataChart']]],
-  ['addrasterplot_7',['addRasterPlot',['../class_telecon_realtime_chart.html#af8344c2cccbbfa4c66904164fb8940f7',1,'TeleconRealtimeChart']]],
-  ['addrealtimechart_8',['addRealtimeChart',['../class_telecon_window.html#aaab31256371ead70513e272d2b67677c',1,'TeleconWindow']]],
-  ['addscatterplot_9',['addScatterPlot',['../class_telecon_realtime_chart.html#a3f4200b6f03758322255638eb13a8013',1,'TeleconRealtimeChart']]],
-  ['addscatterplottochart_10',['addScatterPlotToChart',['../class_telecon_wx_plot.html#a1a5cdcd2202a28f28bb8751b1c79db15',1,'TeleconWxPlot']]],
-  ['addslider_11',['addSlider',['../class_telecon_controls.html#a559bf5c9854db410be6d62e14591fd0b',1,'TeleconControls']]],
-  ['addtochart_12',['addToChart',['../class_telecon_wx_line_plot.html#ada80bf1d708eabd8eb82281c6ccebfa6',1,'TeleconWxLinePlot::addToChart()'],['../class_telecon_wx_phase_portrait_plot.html#a0e33db8dc9be9c34e1a4338ad0911776',1,'TeleconWxPhasePortraitPlot::addToChart()'],['../class_telecon_wx_plot.html#a29380c087e2d6252ff1dafe2b13f98ff',1,'TeleconWxPlot::addToChart()'],['../class_telecon_wx_raster_plot.html#a351d4d2ba1de3d496d721caf96068260',1,'TeleconWxRasterPlot::addToChart()'],['../class_telecon_wx_scatter_plot.html#a7c1efeb2e4b1e080ee49d741b21c8981',1,'TeleconWxScatterPlot::addToChart()']]],
-  ['addtoggle_13',['addToggle',['../class_telecon_controls.html#a337e23f217be1970a55c65673ccffea5',1,'TeleconControls']]],
-  ['addwindow_14',['addWindow',['../class_telecon.html#aec146a459b32c194874b8c1a60a139ca',1,'Telecon']]]
+  ['addinput_4',['addInput',['../class_telecon_controls.html#aa7d33c78b5a0051db1b22735a45958de',1,'TeleconControls']]],
+  ['addlineplot_5',['addLinePlot',['../class_telecon_realtime_chart.html#adb9bec866768784b93e2167beec28012',1,'TeleconRealtimeChart::addLinePlot()'],['../class_telecon_realtime_chart_impl_chart_dir.html#ab7636a9b0b1104ca409f51b1bffe746d',1,'TeleconRealtimeChartImplChartDir::addLinePlot()']]],
+  ['addlineplottochart_6',['addLinePlotToChart',['../class_telecon_wx_plot.html#a2134bde951b9996ab1bc1fbb0fc4d5a8',1,'TeleconWxPlot']]],
+  ['addphaseportraitplot_7',['addPhasePortraitPlot',['../class_telecon_data_chart.html#acd55ca8ac99037f8152f1353889f0ff3',1,'TeleconDataChart::addPhasePortraitPlot()'],['../class_telecon_data_chart_impl_chart_dir.html#a671793c3fe1893bc40c64d166768fa09',1,'TeleconDataChartImplChartDir::addPhasePortraitPlot()']]],
+  ['addrasterplot_8',['addRasterPlot',['../class_telecon_realtime_chart.html#a36c6795acc0ff24fcca7e2cb6ac24031',1,'TeleconRealtimeChart::addRasterPlot()'],['../class_telecon_realtime_chart_impl_chart_dir.html#a1b9077da8f125feb11046570b24370e2',1,'TeleconRealtimeChartImplChartDir::addRasterPlot()']]],
+  ['addrealtimechart_9',['addRealtimeChart',['../class_telecon_window.html#ae13fbf52ffaa58c221c679bcdb0ad7e6',1,'TeleconWindow::addRealtimeChart()'],['../class_telecon_window_impl_chart_dir.html#a8632be1a8a617c9915155b04dfe52cb3',1,'TeleconWindowImplChartDir::addRealtimeChart()']]],
+  ['addscatterplot_10',['addScatterPlot',['../class_telecon_realtime_chart.html#afbcee57c7e1ca2d780af53563122d600',1,'TeleconRealtimeChart::addScatterPlot()'],['../class_telecon_realtime_chart_impl_chart_dir.html#a6979e5cc24554a7c5d70388eff7af39a',1,'TeleconRealtimeChartImplChartDir::addScatterPlot()']]],
+  ['addscatterplottochart_11',['addScatterPlotToChart',['../class_telecon_wx_plot.html#a1a5cdcd2202a28f28bb8751b1c79db15',1,'TeleconWxPlot']]],
+  ['addslider_12',['addSlider',['../class_telecon_controls.html#a63a1740b6de24c1c2570b54486bdd08e',1,'TeleconControls']]],
+  ['addtochart_13',['addToChart',['../class_telecon_wx_line_plot.html#ada80bf1d708eabd8eb82281c6ccebfa6',1,'TeleconWxLinePlot::addToChart()'],['../class_telecon_wx_phase_portrait_plot.html#a0e33db8dc9be9c34e1a4338ad0911776',1,'TeleconWxPhasePortraitPlot::addToChart()'],['../class_telecon_wx_plot.html#a29380c087e2d6252ff1dafe2b13f98ff',1,'TeleconWxPlot::addToChart()'],['../class_telecon_wx_raster_plot.html#a351d4d2ba1de3d496d721caf96068260',1,'TeleconWxRasterPlot::addToChart()'],['../class_telecon_wx_scatter_plot.html#a7c1efeb2e4b1e080ee49d741b21c8981',1,'TeleconWxScatterPlot::addToChart()']]],
+  ['addtoggle_14',['addToggle',['../class_telecon_controls.html#a337e23f217be1970a55c65673ccffea5',1,'TeleconControls']]],
+  ['addwindow_15',['addWindow',['../class_telecon.html#af1c69554d382c4e6e102869620a0cc5c',1,'Telecon::addWindow()'],['../class_telecon_impl_chart_dir.html#acb19da1359b042fb3b6db6a97f7cbca8',1,'TeleconImplChartDir::addWindow()']]]
 ];

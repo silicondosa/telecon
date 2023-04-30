@@ -12,38 +12,39 @@
 \DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00008}00008\ \textcolor{comment}{//\ We\ perform\ diamond\ inheritance,\ which\ can\ cause\ issues,\ but\ the\ way\ we\ do\ it\ is\ safe\ (only\ one\ definition\ for\ each\ function)}}
 \DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00009}00009\ \textcolor{preprocessor}{\#\ pragma\ warning(\ disable\ :\ 4250)}}
 \DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00010}00010\ }
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00011}\mbox{\hyperlink{struct_scatter_plot_data_point}{00011}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_scatter_plot_data_point}{ScatterPlotDataPoint}}}
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00012}00012\ \{}
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00013}\mbox{\hyperlink{struct_scatter_plot_data_point_ae26415ffd222bbf0f5a54f6e811fe042}{00013}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_scatter_plot_data_point_ae26415ffd222bbf0f5a54f6e811fe042}{xTimestamp}};}
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00014}\mbox{\hyperlink{struct_scatter_plot_data_point_a0d5f96960cb7640a4efd9b6e98069098}{00014}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_scatter_plot_data_point_a0d5f96960cb7640a4efd9b6e98069098}{yData}};}
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00015}00015\ \};}
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00016}00016\ }
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00022}\mbox{\hyperlink{class_telecon_wx_scatter_plot}{00022}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_telecon_wx_scatter_plot}{TeleconWxScatterPlot}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_telecon_wx_plot}{TeleconWxPlot}},\ \textcolor{keyword}{virtual}\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_telecon_scatter_plot}{TeleconScatterPlot}}\ \{}
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00023}00023\ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00025}\mbox{\hyperlink{class_telecon_wx_scatter_plot_ae6f1e815cdbb05658a2ab3b23e5c0e73}{00025}}\ \ \ \ \ \mbox{\hyperlink{class_data_to_add_list}{DataToAddList<ScatterPlotDataPoint>}}\ \mbox{\hyperlink{class_telecon_wx_scatter_plot_ae6f1e815cdbb05658a2ab3b23e5c0e73}{m\_dataToAdd}};}
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00027}\mbox{\hyperlink{class_telecon_wx_scatter_plot_ac229c4797f026d033768ee96a628f11e}{00027}}\ \ \ \ \ \mbox{\hyperlink{class_data_buffer}{DataBuffer<double>}}\ \mbox{\hyperlink{class_telecon_wx_scatter_plot_ac229c4797f026d033768ee96a628f11e}{m\_xTimestamps}};}
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00029}\mbox{\hyperlink{class_telecon_wx_scatter_plot_ab823349fdd913d005e232bcbc21a4cf1}{00029}}\ \ \ \ \ \mbox{\hyperlink{class_data_buffer}{DataBuffer<double>}}\ \mbox{\hyperlink{class_telecon_wx_scatter_plot_ab823349fdd913d005e232bcbc21a4cf1}{m\_yData}};}
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00030}00030\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00031}00031\ }
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00039}00039\ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_scatter_plot}{TeleconWxScatterPlot}}(\textcolor{keywordtype}{string}\ plotTitle,\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_telecon_wx_plot_a3f09ba9a7d15253b9ebabf26f8c7e3a0}{depth}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_symbol_style}{SymbolStyle}}\&\ symbolStyle);}
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00040}00040\ }
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00041}00041\ \ \ \ \ \textcolor{comment}{//\ Inherited\ via\ TeleconWxPlot}}
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00045}00045\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_wx_scatter_plot_a21697ec191d2b9fdd24dc6375b31038a}{prepDataForDraw}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00046}00046\ }
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00050}00050\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_wx_scatter_plot_a7c1efeb2e4b1e080ee49d741b21c8981}{addToChart}}(XYChart*\ chart)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00051}00051\ }
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00057}00057\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_telecon_wx_scatter_plot_a1b33f1ce91c2cbfd962fa08e0116c3e4}{getLeftmostX}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00058}00058\ }
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00064}00064\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_telecon_wx_scatter_plot_a67534d4e04f8d65f643d6ad7b1a142a0}{getRightmostX}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00065}00065\ }
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00069}00069\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_wx_scatter_plot_a3e6e7a58ce8492884bccad9d2530dc99}{getLatestValueString}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00070}00070\ }
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00074}00074\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_telecon_wx_scatter_plot_aa77c4ea8bcc2ab1dfb706df8fb96551e}{isIncludedInLegend}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00014}\mbox{\hyperlink{struct_scatter_plot_data_point}{00014}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_scatter_plot_data_point}{ScatterPlotDataPoint}}}
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00015}00015\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00019}\mbox{\hyperlink{struct_scatter_plot_data_point_ae26415ffd222bbf0f5a54f6e811fe042}{00019}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_scatter_plot_data_point_ae26415ffd222bbf0f5a54f6e811fe042}{xTimestamp}};}
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00024}\mbox{\hyperlink{struct_scatter_plot_data_point_a0d5f96960cb7640a4efd9b6e98069098}{00024}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_scatter_plot_data_point_a0d5f96960cb7640a4efd9b6e98069098}{yData}};}
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00025}00025\ \};}
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00032}\mbox{\hyperlink{class_telecon_wx_scatter_plot}{00032}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_telecon_wx_scatter_plot}{TeleconWxScatterPlot}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_telecon_wx_plot}{TeleconWxPlot}},\ \textcolor{keyword}{virtual}\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_telecon_scatter_plot}{TeleconScatterPlot}}\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00033}00033\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00035}\mbox{\hyperlink{class_telecon_wx_scatter_plot_ae6f1e815cdbb05658a2ab3b23e5c0e73}{00035}}\ \ \ \ \ \mbox{\hyperlink{class_data_to_add_list}{DataToAddList<ScatterPlotDataPoint>}}\ \mbox{\hyperlink{class_telecon_wx_scatter_plot_ae6f1e815cdbb05658a2ab3b23e5c0e73}{m\_dataToAdd}};}
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00037}\mbox{\hyperlink{class_telecon_wx_scatter_plot_ac229c4797f026d033768ee96a628f11e}{00037}}\ \ \ \ \ \mbox{\hyperlink{class_data_buffer}{DataBuffer<double>}}\ \mbox{\hyperlink{class_telecon_wx_scatter_plot_ac229c4797f026d033768ee96a628f11e}{m\_xTimestamps}};}
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00039}\mbox{\hyperlink{class_telecon_wx_scatter_plot_ab823349fdd913d005e232bcbc21a4cf1}{00039}}\ \ \ \ \ \mbox{\hyperlink{class_data_buffer}{DataBuffer<double>}}\ \mbox{\hyperlink{class_telecon_wx_scatter_plot_ab823349fdd913d005e232bcbc21a4cf1}{m\_yData}};}
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00040}00040\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00049}00049\ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_scatter_plot}{TeleconWxScatterPlot}}(\textcolor{keywordtype}{string}\ plotTitle,\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_telecon_wx_plot_a3f09ba9a7d15253b9ebabf26f8c7e3a0}{depth}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_symbol_style}{SymbolStyle}}\&\ symbolStyle);}
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00051}00051\ \ \ \ \ \textcolor{comment}{//\ Inherited\ via\ TeleconWxPlot}}
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00055}00055\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_wx_scatter_plot_a21697ec191d2b9fdd24dc6375b31038a}{prepDataForDraw}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00060}00060\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_wx_scatter_plot_a7c1efeb2e4b1e080ee49d741b21c8981}{addToChart}}(XYChart*\ chart)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00067}00067\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_telecon_wx_scatter_plot_a1b33f1ce91c2cbfd962fa08e0116c3e4}{getLeftmostX}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00074}00074\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_telecon_wx_scatter_plot_a67534d4e04f8d65f643d6ad7b1a142a0}{getRightmostX}}()\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00075}00075\ }
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00076}00076\ \ \ \ \ \textcolor{comment}{//\ Inherited\ via\ TeleconScatterPlot}}
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00080}00080\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_telecon_wx_scatter_plot_aae4d7cf34d6ab30661c296fa276ff148}{size}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00081}00081\ }
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00085}00085\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_wx_scatter_plot_a6b485474b717e14c2390f0413c2a1602}{pushData}}(\textcolor{keywordtype}{double}\ xTimestamp,\ \textcolor{keywordtype}{double}\ yData)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00086}00086\ \};}
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00079}00079\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_telecon_wx_scatter_plot_a3e6e7a58ce8492884bccad9d2530dc99}{getLatestValueString}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00084}00084\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_telecon_wx_scatter_plot_aa77c4ea8bcc2ab1dfb706df8fb96551e}{isIncludedInLegend}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00086}00086\ \ \ \ \ \textcolor{comment}{//\ Inherited\ via\ TeleconScatterPlot}}
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00090}00090\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_telecon_wx_scatter_plot_aae4d7cf34d6ab30661c296fa276ff148}{size}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00095}00095\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_telecon_wx_scatter_plot_a6b485474b717e14c2390f0413c2a1602}{pushData}}(\textcolor{keywordtype}{double}\ xTimestamp,\ \textcolor{keywordtype}{double}\ yData)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{teleconwxscatterplot_8h_source_l00096}00096\ \};}
 
 \end{DoxyCode}

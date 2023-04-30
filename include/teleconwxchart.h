@@ -13,7 +13,7 @@
 
 #include "chartdir.h"
 #include "wxchartviewer.h"
-#include "teleconchart.h"
+#include "teleconchartimplchartdir.h"
 #include "teleconwxplot.h"
 #include "colors.h"
 #include "enums.h"
@@ -40,7 +40,7 @@ public:
      * \param name the wxWidgets name of the wxPanel. Not to be confused with the actual title of the chart, as set in ::TeleconChart, which is separate; this value is unused by our app.
      */
     TeleconWxChart(
-        shared_ptr<TeleconChart> chart,
+        shared_ptr<TeleconChartImplChartDir> chart,
         wxWindow* parent,
         wxWindowID winid = wxID_ANY,
         const wxPoint& pos = wxDefaultPosition,
@@ -114,7 +114,7 @@ private:
     unordered_map<int, wxTextCtrl*> m_latestValueTextCtrls; // Maps index in chart to control
     wxColour m_bgColour;
 
-    shared_ptr<TeleconChart> m_chart;
+    shared_ptr<TeleconChartImplChartDir> m_chart;
     bool m_isRefreshEnabled;
 
     // Pointer to the chart viewer - main body of panel

@@ -20,7 +20,7 @@ using namespace std;
 static const int chartRefreshIntervals[8] = {250, 500, 750, 1000, 1250, 1500, 1750, 2000};
 
 TeleconWxChart::TeleconWxChart(
-    shared_ptr<TeleconChart> chart,
+    shared_ptr<TeleconChartImplChartDir> chart,
     wxWindow* parent,
     wxWindowID winid,
     const wxPoint& pos,
@@ -45,7 +45,7 @@ TeleconWxChart::TeleconWxChart(
 
     bool hasLegendPlot = false;
     for (int i = 0; i < m_chart->getNumPlots(); i++) {
-        auto plot = dynamic_pointer_cast<TeleconWxPlot>(m_chart->getPlot(i));
+        auto plot = (m_chart->getWxPlot(i));
         if (plot->isIncludedInLegend()) {
             hasLegendPlot = true;
             break;
@@ -69,7 +69,7 @@ void TeleconWxChart::SetUpLatestValueBox()
     m_viewOptionsBoxSizer->Add(m_plotLatestValueFlexGridSizer, 0, wxGROW | wxALL, FromDIP(3));
 
     for (int i = 0; i < m_chart->getNumPlots(); i++) {
-        auto plot = dynamic_pointer_cast<TeleconWxPlot>(m_chart->getPlot(i));
+        auto plot = m_chart->getWxPlot(i);
         if (plot->isIncludedInLegend()) {
             addLatestValueText(i, m_chart->getPlot(i)->getPlotTitle());
         }
@@ -143,7 +143,7 @@ void TeleconWxChart::DrawChart(bool isRefreshEnabled)
 {
     // If refresh is not enabled, all we want to do is update the latest value text
     for (int i = 0; i < m_chart->getNumPlots(); i++) {
-        shared_ptr<TeleconWxPlot> plot = std::dynamic_pointer_cast<TeleconWxPlot>(m_chart->getPlot(i));
+        shared_ptr<TeleconWxPlot> plot = m_chart->getWxPlot(i);
         // Move data from the controller thread to the UI thread
         plot->prepDataForDraw();
         if (plot->size() > 0) {
@@ -199,7 +199,7 @@ void TeleconWxChart::DrawChart(bool isRefreshEnabled)
         double lastTime = 0.0;
         bool hasData = false;
         for (int i = 0; i < m_chart->getNumPlots(); i++) {
-            shared_ptr<TeleconWxPlot> plot = std::dynamic_pointer_cast<TeleconWxPlot>(m_chart->getPlot(i));
+            shared_ptr<TeleconWxPlot> plot = m_chart->getWxPlot(i);
             // Update the earliest and latest data points found so far
             if (plot->size() > 0 && !hasData) {
                 firstTime = plot->getLeftmostX();
@@ -232,7 +232,7 @@ void TeleconWxChart::DrawChart(bool isRefreshEnabled)
 
     // The data series are used to draw lines.
     for (int i = 0; i < m_chart->getNumPlots(); i++) {
-        shared_ptr<TeleconWxPlot> plot = std::dynamic_pointer_cast<TeleconWxPlot>(m_chart->getPlot(i));
+        shared_ptr<TeleconWxPlot> plot = m_chart->getWxPlot(i);
         plot->addToChart(c);
     }
     

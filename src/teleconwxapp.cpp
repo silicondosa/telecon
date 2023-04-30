@@ -1,12 +1,12 @@
 #include "teleconwxapp.h"
 
-TeleconWxApp::TeleconWxApp(Telecon* telecon)
+TeleconWxApp::TeleconWxApp(TeleconImplChartDir* telecon)
 	: m_telecon(telecon) {}
 
 bool TeleconWxApp::OnInit()
 {
     for (int i = 0; i < m_telecon->getNumWindows(); ++i) {
-        shared_ptr<TeleconWindow> window = m_telecon->getWindow(i);
+        shared_ptr<TeleconWindowImplChartDir> window = m_telecon->getWindowImpl(i);
         TeleconWxWindow* frame = new TeleconWxWindow(window);
         m_frames.push_back(frame);
         frame->Show(true);
@@ -21,6 +21,8 @@ bool TeleconWxApp::OnInit()
         TeleconWxControlsWindow* window = new TeleconWxControlsWindow(controls);
         m_controls_windows.push_back(window);
         window->Show(TRUE);
+
+        // window->QueueEvent()
     }
     
     // TeleconWxControlsWindow* window = new TeleconWxControlsWindow(controls);

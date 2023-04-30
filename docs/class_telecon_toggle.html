@@ -111,12 +111,13 @@ Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:adcacce3e8ebe513597f440670e0362fe"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_toggle.html#adcacce3e8ebe513597f440670e0362fe">title</a></td></tr>
 <tr class="separator:adcacce3e8ebe513597f440670e0362fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82d06dafb78e71e8b016136a4babaf0c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_toggle.html#a82d06dafb78e71e8b016136a4babaf0c">state</a> = false</td></tr>
-<tr class="separator:a82d06dafb78e71e8b016136a4babaf0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e382bfcafc5874ebb0870969ed4caea"><td class="memItemLeft" align="right" valign="top">atomic_bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_telecon_toggle.html#a6e382bfcafc5874ebb0870969ed4caea">state</a> = false</td></tr>
+<tr class="separator:a6e382bfcafc5874ebb0870969ed4caea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="teleconcontrols_8h_source.html#l00030">30</a> of file <a class="el" href="teleconcontrols_8h_source.html">teleconcontrols.h</a>.</p>
+<div class="textblock"><p>Button for Controls window that stays either on or off when clicked. </p>
+
+<p class="definition">Definition at line <a class="el" href="teleconcontrols_8h_source.html#l00114">114</a> of file <a class="el" href="teleconcontrols_8h_source.html">teleconcontrols.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a169c18304f3ebe1b6c17555fcc43d8a1" name="a169c18304f3ebe1b6c17555fcc43d8a1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a169c18304f3ebe1b6c17555fcc43d8a1">&#9670;&#160;</a></span>TeleconToggle()</h2>
@@ -133,8 +134,15 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Constructor.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">title</td><td>Title of the toggle button </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="teleconcontrols_8cpp_source.html#l00034">34</a> of file <a class="el" href="teleconcontrols_8cpp_source.html">teleconcontrols.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconcontrols_8cpp_source.html#l00051">51</a> of file <a class="el" href="teleconcontrols_8cpp_source.html">teleconcontrols.cpp</a>.</p>
 
 </div>
 </div>
@@ -153,25 +161,28 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Gets the toggle title.</p>
+<dl class="section return"><dt>Returns</dt><dd>Title as a string </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="teleconcontrols_8cpp_source.html#l00049">49</a> of file <a class="el" href="teleconcontrols_8cpp_source.html">teleconcontrols.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconcontrols_8cpp_source.html#l00088">88</a> of file <a class="el" href="teleconcontrols_8cpp_source.html">teleconcontrols.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a82d06dafb78e71e8b016136a4babaf0c" name="a82d06dafb78e71e8b016136a4babaf0c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82d06dafb78e71e8b016136a4babaf0c">&#9670;&#160;</a></span>state</h2>
+<a id="a6e382bfcafc5874ebb0870969ed4caea" name="a6e382bfcafc5874ebb0870969ed4caea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e382bfcafc5874ebb0870969ed4caea">&#9670;&#160;</a></span>state</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool TeleconToggle::state = false</td>
+          <td class="memname">atomic_bool TeleconToggle::state = false</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>State of the toggle (default off). False = off, True = on </p>
 
-<p class="definition">Definition at line <a class="el" href="teleconcontrols_8h_source.html#l00036">36</a> of file <a class="el" href="teleconcontrols_8h_source.html">teleconcontrols.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconcontrols_8h_source.html#l00140">140</a> of file <a class="el" href="teleconcontrols_8h_source.html">teleconcontrols.h</a>.</p>
 
 </div>
 </div>
@@ -186,8 +197,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Title of the toggle button. </p>
 
-<p class="definition">Definition at line <a class="el" href="teleconcontrols_8h_source.html#l00034">34</a> of file <a class="el" href="teleconcontrols_8h_source.html">teleconcontrols.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="teleconcontrols_8h_source.html#l00128">128</a> of file <a class="el" href="teleconcontrols_8h_source.html">teleconcontrols.h</a>.</p>
 
 </div>
 </div>

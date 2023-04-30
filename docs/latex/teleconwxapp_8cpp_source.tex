@@ -4,13 +4,13 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{teleconwxapp_8h}{teleconwxapp.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00002}00002\ }
-\DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00003}\mbox{\hyperlink{class_telecon_wx_app_a7398eddf6f581929a09038edf492cfd7}{00003}}\ \mbox{\hyperlink{class_telecon_wx_app_a7398eddf6f581929a09038edf492cfd7}{TeleconWxApp::TeleconWxApp}}(\mbox{\hyperlink{class_telecon}{Telecon}}*\ telecon)}
+\DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00003}\mbox{\hyperlink{class_telecon_wx_app_af0dc7c6c64c942a53bb46be274e65c26}{00003}}\ \mbox{\hyperlink{class_telecon_wx_app_af0dc7c6c64c942a53bb46be274e65c26}{TeleconWxApp::TeleconWxApp}}(\mbox{\hyperlink{class_telecon_impl_chart_dir}{TeleconImplChartDir}}*\ telecon)}
 \DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00004}00004\ \ \ \ \ :\ m\_telecon(telecon)\ \{\}}
 \DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00005}00005\ }
 \DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00006}\mbox{\hyperlink{class_telecon_wx_app_a398c3c7d17f011c4488f2600da3aa9e2}{00006}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_telecon_wx_app_a398c3c7d17f011c4488f2600da3aa9e2}{TeleconWxApp::OnInit}}()}
 \DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00007}00007\ \{}
-\DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00008}00008\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ m\_telecon-\/>\mbox{\hyperlink{class_telecon_aee854954e0004822dece3130a61e332e}{getNumWindows}}();\ ++i)\ \{}
-\DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00009}00009\ \ \ \ \ \ \ \ \ shared\_ptr<TeleconWindow>\ window\ =\ m\_telecon-\/>\mbox{\hyperlink{class_telecon_a4e268e27cfd1420b9d6e5cb8f6f94d2e}{getWindow}}(i);}
+\DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00008}00008\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ m\_telecon-\/>\mbox{\hyperlink{class_telecon_impl_chart_dir_adb1b231b6a6d245cc2c6a49be605ed7b}{getNumWindows}}();\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00009}00009\ \ \ \ \ \ \ \ \ shared\_ptr<TeleconWindowImplChartDir>\ window\ =\ m\_telecon-\/>\mbox{\hyperlink{class_telecon_impl_chart_dir_aba49e432210f9f727d82d74c7064a79f}{getWindowImpl}}(i);}
 \DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00010}00010\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_window}{TeleconWxWindow}}*\ frame\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_telecon_wx_window}{TeleconWxWindow}}(window);}
 \DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00011}00011\ \ \ \ \ \ \ \ \ m\_frames.push\_back(frame);}
 \DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ frame-\/>Show(\textcolor{keyword}{true});}
@@ -20,17 +20,19 @@
 \DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00016}00016\ \ \ \ \ \textcolor{comment}{//\ controls-\/>addToggle("{}Button1"{});}}
 \DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00017}00017\ \ \ \ \ \textcolor{comment}{//\ controls-\/>addToggle("{}Button2"{});}}
 \DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00018}00018\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00019}00019\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ m\_telecon-\/>\mbox{\hyperlink{class_telecon_afcd66c21817fc7d669e359c8eae52dc8}{getNumControls}}();\ i++)\{}
-\DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ shared\_ptr<TeleconControls>\ controls\ =\ m\_telecon-\/>\mbox{\hyperlink{class_telecon_a88ade5d08712d0bf47fac09cbe581cb0}{getControls}}(i);}
+\DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00019}00019\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ m\_telecon-\/>\mbox{\hyperlink{class_telecon_impl_chart_dir_adbe0d1cde86085219c4bc66341573825}{getNumControls}}();\ i++)\{}
+\DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ shared\_ptr<TeleconControls>\ controls\ =\ m\_telecon-\/>\mbox{\hyperlink{class_telecon_impl_chart_dir_aeb3bfcc8fc1e044caf3abb63ef93d739}{getControls}}(i);}
 \DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_telecon_wx_controls_window}{TeleconWxControlsWindow}}*\ window\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_telecon_wx_controls_window}{TeleconWxControlsWindow}}(controls);}
 \DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ m\_controls\_windows.push\_back(window);}
 \DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ window-\/>Show(TRUE);}
-\DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00024}00024\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00025}00025\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{comment}{//\ TeleconWxControlsWindow*\ window\ =\ new\ TeleconWxControlsWindow(controls);}}
-\DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{comment}{//\ window-\/>Show(TRUE);}}
-\DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00028}00028\ }
-\DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00030}00030\ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ window-\/>QueueEvent()}}
+\DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00026}00026\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00027}00027\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00028}00028\ \ \ \ \ \textcolor{comment}{//\ TeleconWxControlsWindow*\ window\ =\ new\ TeleconWxControlsWindow(controls);}}
+\DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{comment}{//\ window-\/>Show(TRUE);}}
+\DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{teleconwxapp_8cpp_source_l00032}00032\ \}}
 
 \end{DoxyCode}

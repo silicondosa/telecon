@@ -4,6 +4,12 @@
 
 {\ttfamily \#include $<$include/telecon.\+h$>$}
 
+Inheritance diagram for Telecon\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_telecon}
+\end{center}
+\end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -13,17 +19,15 @@ void \mbox{\hyperlink{class_telecon_ae8e37edb38dd36ec134ac770f827dfeb}{telecon\+
 \item 
 \mbox{\hyperlink{class_telecon_a1a13d754d2f95d6be675d5165e4c025e}{Telecon}} ()
 \item 
-\mbox{\hyperlink{class_telecon_aae363873cda0dd58aed13376b5e4152b}{$\sim$\+Telecon}} ()
-\item 
 bool \mbox{\hyperlink{class_telecon_a4e7f44f91777f60ce3de1921ffafa39e}{has\+Started}} ()
 \item 
 bool \mbox{\hyperlink{class_telecon_a7506c1f81501bc2d7ac5fa416809d5ec}{has\+Stopped}} ()
 \item 
-shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $>$ \mbox{\hyperlink{class_telecon_aec146a459b32c194874b8c1a60a139ca}{add\+Window}} (string name)
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $>$ \mbox{\hyperlink{class_telecon_af1c69554d382c4e6e102869620a0cc5c}{add\+Window}} (string name)=0
 \item 
-shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $>$ \mbox{\hyperlink{class_telecon_a4e268e27cfd1420b9d6e5cb8f6f94d2e}{get\+Window}} (int index)
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $>$ \mbox{\hyperlink{class_telecon_ae209e127812101ff9f9bf43c4c6e09a7}{get\+Window}} (int index)=0
 \item 
-size\+\_\+t \mbox{\hyperlink{class_telecon_aee854954e0004822dece3130a61e332e}{get\+Num\+Windows}} () const
+virtual size\+\_\+t \mbox{\hyperlink{class_telecon_a4fa91709c8412a03f2fffd88861b27b5}{get\+Num\+Windows}} () const =0
 \item 
 shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $>$ \mbox{\hyperlink{class_telecon_ae895c607a872a31022bea2e182eab27f}{get\+Window\+By\+Name}} (string name)
 \item 
@@ -31,11 +35,29 @@ shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}} $>$ \m
 \item 
 shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ \mbox{\hyperlink{class_telecon_ae479f7f3668aa391e1211b42b8ad85d3}{get\+Plot\+By\+Name}} (string window\+Name, string chart\+Name, string plot\+Name)
 \item 
-shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_controls}{Telecon\+Controls}} $>$ \mbox{\hyperlink{class_telecon_aa566973f4e9fa1f508eba8b861538036}{add\+Controls}} (string name)
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_controls}{Telecon\+Controls}} $>$ \mbox{\hyperlink{class_telecon_a7bf7e2b3fb61e76e86809cb93dbeab89}{add\+Controls}} (string name)=0
 \item 
-shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_controls}{Telecon\+Controls}} $>$ \mbox{\hyperlink{class_telecon_a88ade5d08712d0bf47fac09cbe581cb0}{get\+Controls}} (int index)
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_controls}{Telecon\+Controls}} $>$ \mbox{\hyperlink{class_telecon_a37c7f80ff6f9c7ef8aa8bd0a8f773f79}{get\+Controls}} (int index)=0
 \item 
-size\+\_\+t \mbox{\hyperlink{class_telecon_afcd66c21817fc7d669e359c8eae52dc8}{get\+Num\+Controls}} ()
+virtual size\+\_\+t \mbox{\hyperlink{class_telecon_a29c32aa6e031f585c842a0c3b35eb160}{get\+Num\+Controls}} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_telecon_a2e58e46b65343e101653d95620770b1b}{telecon\+App\+Init}} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_telecon_afbffe5f56715ed61e8927c02ffa23b96}{initialize\+Windows}} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+thread \mbox{\hyperlink{class_telecon_a429b8ff5d0d627621780a5fdceb86f88}{m\+\_\+wx\+App\+Thread}}
+\item 
+std\+::atomic\+\_\+bool \mbox{\hyperlink{class_telecon_a27947fd222434f597e9b29b4fe92acdf}{m\+\_\+has\+Started}}
+\item 
+std\+::atomic\+\_\+bool \mbox{\hyperlink{class_telecon_a047afccf666f2b7d6c963d469e672ed1}{m\+\_\+has\+Stopped}}
+\item 
+vector$<$ shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_controls}{Telecon\+Controls}} $>$ $>$ \mbox{\hyperlink{class_telecon_a09d167103ff1962c1eb0b13769f1b26e}{m\+\_\+controls}}
 \end{DoxyCompactItemize}
 
 
@@ -46,7 +68,7 @@ There should only ever be one \mbox{\hyperlink{class_telecon}{Telecon}} object a
 
 \mbox{\hyperlink{class_telecon}{Telecon}} is inherently thread-\/safe with regard to the controller (calling) thread and the UI thread (which is created and managed by \mbox{\hyperlink{class_telecon}{Telecon}}). However, if a \mbox{\hyperlink{class_telecon}{Telecon}} object is used by multiple controller threads, external synchronization must be used to prevent concurrent access to member functions. 
 
-Definition at line \mbox{\hyperlink{telecon_8h_source_l00034}{34}} of file \mbox{\hyperlink{telecon_8h_source}{telecon.\+h}}.
+Definition at line \mbox{\hyperlink{telecon_8h_source_l00031}{31}} of file \mbox{\hyperlink{telecon_8h_source}{telecon.\+h}}.
 
 
 
@@ -61,24 +83,14 @@ Constructs a new empty \mbox{\hyperlink{class_telecon}{Telecon}} object with no 
 
 Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
 
-\mbox{\Hypertarget{class_telecon_aae363873cda0dd58aed13376b5e4152b}\label{class_telecon_aae363873cda0dd58aed13376b5e4152b}} 
-\index{Telecon@{Telecon}!````~Telecon@{$\sim$Telecon}}
-\index{````~Telecon@{$\sim$Telecon}!Telecon@{Telecon}}
-\doxysubsubsection{\texorpdfstring{$\sim$Telecon()}{~Telecon()}}
-{\footnotesize\ttfamily Telecon\+::$\sim$\+Telecon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-Closes and windows that are still open and exits, then deletes the \mbox{\hyperlink{class_telecon}{Telecon}} object. This may be a long-\/running operation if there are still windows open. 
-
-Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
-
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_telecon_aa566973f4e9fa1f508eba8b861538036}\label{class_telecon_aa566973f4e9fa1f508eba8b861538036}} 
+\mbox{\Hypertarget{class_telecon_a7bf7e2b3fb61e76e86809cb93dbeab89}\label{class_telecon_a7bf7e2b3fb61e76e86809cb93dbeab89}} 
 \index{Telecon@{Telecon}!addControls@{addControls}}
 \index{addControls@{addControls}!Telecon@{Telecon}}
 \doxysubsubsection{\texorpdfstring{addControls()}{addControls()}}
-{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_controls}{Telecon\+Controls}} $>$ Telecon\+::add\+Controls (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_controls}{Telecon\+Controls}} $>$ Telecon\+::add\+Controls (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 Adds a controls window to the application that will be displayed when telecon\+Start is called. Should not be called after telecon\+Start.
 
@@ -92,13 +104,13 @@ A pointer to the \mbox{\hyperlink{class_telecon_controls}{Telecon\+Controls}} ob
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00114}{114}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+Implemented in \mbox{\hyperlink{class_telecon_impl_chart_dir_a301cf8a646661d6b6ed14cc767448207}{Telecon\+Impl\+Chart\+Dir}}.
 
-\mbox{\Hypertarget{class_telecon_aec146a459b32c194874b8c1a60a139ca}\label{class_telecon_aec146a459b32c194874b8c1a60a139ca}} 
+\mbox{\Hypertarget{class_telecon_af1c69554d382c4e6e102869620a0cc5c}\label{class_telecon_af1c69554d382c4e6e102869620a0cc5c}} 
 \index{Telecon@{Telecon}!addWindow@{addWindow}}
 \index{addWindow@{addWindow}!Telecon@{Telecon}}
 \doxysubsubsection{\texorpdfstring{addWindow()}{addWindow()}}
-{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $>$ Telecon\+::add\+Window (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $>$ Telecon\+::add\+Window (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 Adds a window to the application that will be displayed when telecon\+Start is called. Should not be called after telecon\+Start.
 
@@ -112,7 +124,7 @@ A pointer to the \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} object
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00067}{67}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+Implemented in \mbox{\hyperlink{class_telecon_impl_chart_dir_acb19da1359b042fb3b6db6a97f7cbca8}{Telecon\+Impl\+Chart\+Dir}}.
 
 \mbox{\Hypertarget{class_telecon_ab83bf47e29f4a14c97a78b0e2d8d3013}\label{class_telecon_ab83bf47e29f4a14c97a78b0e2d8d3013}} 
 \index{Telecon@{Telecon}!getChartByName@{getChartByName}}
@@ -132,13 +144,13 @@ A pointer to a chart with the given name, or a null pointer if no chart in the g
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00098}{98}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
 
-\mbox{\Hypertarget{class_telecon_a88ade5d08712d0bf47fac09cbe581cb0}\label{class_telecon_a88ade5d08712d0bf47fac09cbe581cb0}} 
+\mbox{\Hypertarget{class_telecon_a37c7f80ff6f9c7ef8aa8bd0a8f773f79}\label{class_telecon_a37c7f80ff6f9c7ef8aa8bd0a8f773f79}} 
 \index{Telecon@{Telecon}!getControls@{getControls}}
 \index{getControls@{getControls}!Telecon@{Telecon}}
 \doxysubsubsection{\texorpdfstring{getControls()}{getControls()}}
-{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_controls}{Telecon\+Controls}} $>$ Telecon\+::get\+Controls (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_controls}{Telecon\+Controls}} $>$ Telecon\+::get\+Controls (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 \begin{DoxyParams}{Parameters}
@@ -150,33 +162,33 @@ A pointer to the \mbox{\hyperlink{class_telecon_controls}{Telecon\+Controls}} re
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00120}{120}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+Implemented in \mbox{\hyperlink{class_telecon_impl_chart_dir_aeb3bfcc8fc1e044caf3abb63ef93d739}{Telecon\+Impl\+Chart\+Dir}}.
 
-\mbox{\Hypertarget{class_telecon_afcd66c21817fc7d669e359c8eae52dc8}\label{class_telecon_afcd66c21817fc7d669e359c8eae52dc8}} 
+\mbox{\Hypertarget{class_telecon_a29c32aa6e031f585c842a0c3b35eb160}\label{class_telecon_a29c32aa6e031f585c842a0c3b35eb160}} 
 \index{Telecon@{Telecon}!getNumControls@{getNumControls}}
 \index{getNumControls@{getNumControls}!Telecon@{Telecon}}
 \doxysubsubsection{\texorpdfstring{getNumControls()}{getNumControls()}}
-{\footnotesize\ttfamily size\+\_\+t Telecon\+::get\+Num\+Controls (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily virtual size\+\_\+t Telecon\+::get\+Num\+Controls (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 \begin{DoxyReturn}{Returns}
 The number of \mbox{\hyperlink{class_telecon_controls}{Telecon\+Controls}} added to the application. 
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00124}{124}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+Implemented in \mbox{\hyperlink{class_telecon_impl_chart_dir_adbe0d1cde86085219c4bc66341573825}{Telecon\+Impl\+Chart\+Dir}}.
 
-\mbox{\Hypertarget{class_telecon_aee854954e0004822dece3130a61e332e}\label{class_telecon_aee854954e0004822dece3130a61e332e}} 
+\mbox{\Hypertarget{class_telecon_a4fa91709c8412a03f2fffd88861b27b5}\label{class_telecon_a4fa91709c8412a03f2fffd88861b27b5}} 
 \index{Telecon@{Telecon}!getNumWindows@{getNumWindows}}
 \index{getNumWindows@{getNumWindows}!Telecon@{Telecon}}
 \doxysubsubsection{\texorpdfstring{getNumWindows()}{getNumWindows()}}
-{\footnotesize\ttfamily size\+\_\+t Telecon\+::get\+Num\+Windows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily virtual size\+\_\+t Telecon\+::get\+Num\+Windows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 \begin{DoxyReturn}{Returns}
 The number of Telecon\+Windows added to the application. 
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00083}{83}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+Implemented in \mbox{\hyperlink{class_telecon_impl_chart_dir_adb1b231b6a6d245cc2c6a49be605ed7b}{Telecon\+Impl\+Chart\+Dir}}.
 
 \mbox{\Hypertarget{class_telecon_ae479f7f3668aa391e1211b42b8ad85d3}\label{class_telecon_ae479f7f3668aa391e1211b42b8ad85d3}} 
 \index{Telecon@{Telecon}!getPlotByName@{getPlotByName}}
@@ -198,13 +210,13 @@ A pointer to a plot with the given name, or a null pointer if no plot in the giv
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00104}{104}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
 
-\mbox{\Hypertarget{class_telecon_a4e268e27cfd1420b9d6e5cb8f6f94d2e}\label{class_telecon_a4e268e27cfd1420b9d6e5cb8f6f94d2e}} 
+\mbox{\Hypertarget{class_telecon_ae209e127812101ff9f9bf43c4c6e09a7}\label{class_telecon_ae209e127812101ff9f9bf43c4c6e09a7}} 
 \index{Telecon@{Telecon}!getWindow@{getWindow}}
 \index{getWindow@{getWindow}!Telecon@{Telecon}}
 \doxysubsubsection{\texorpdfstring{getWindow()}{getWindow()}}
-{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $>$ Telecon\+::get\+Window (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} $>$ Telecon\+::get\+Window (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 \begin{DoxyParams}{Parameters}
@@ -216,7 +228,7 @@ A pointer to the \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} reques
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00078}{78}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+Implemented in \mbox{\hyperlink{class_telecon_impl_chart_dir_a9f586c4cf3184be3387b2f451e8f816a}{Telecon\+Impl\+Chart\+Dir}}.
 
 \mbox{\Hypertarget{class_telecon_ae895c607a872a31022bea2e182eab27f}\label{class_telecon_ae895c607a872a31022bea2e182eab27f}} 
 \index{Telecon@{Telecon}!getWindowByName@{getWindowByName}}
@@ -234,7 +246,7 @@ A pointer to a window with the given name, or a null pointer if no window has th
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00088}{88}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
 
 \mbox{\Hypertarget{class_telecon_a4e7f44f91777f60ce3de1921ffafa39e}\label{class_telecon_a4e7f44f91777f60ce3de1921ffafa39e}} 
 \index{Telecon@{Telecon}!hasStarted@{hasStarted}}
@@ -247,7 +259,7 @@ Returns true if the \mbox{\hyperlink{class_telecon}{Telecon}} object has already
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
 
 \mbox{\Hypertarget{class_telecon_a7506c1f81501bc2d7ac5fa416809d5ec}\label{class_telecon_a7506c1f81501bc2d7ac5fa416809d5ec}} 
 \index{Telecon@{Telecon}!hasStopped@{hasStopped}}
@@ -263,7 +275,27 @@ Returns true if all windows have been closed (either manually by the user or by 
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00062}{62}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+
+\mbox{\Hypertarget{class_telecon_afbffe5f56715ed61e8927c02ffa23b96}\label{class_telecon_afbffe5f56715ed61e8927c02ffa23b96}} 
+\index{Telecon@{Telecon}!initializeWindows@{initializeWindows}}
+\index{initializeWindows@{initializeWindows}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{initializeWindows()}{initializeWindows()}}
+{\footnotesize\ttfamily virtual void Telecon\+::initialize\+Windows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+Initializes the windows, preventing them from being changed. 
+
+Implemented in \mbox{\hyperlink{class_telecon_impl_chart_dir_aca462572dc87ccea982b1dc1241b9e80}{Telecon\+Impl\+Chart\+Dir}}.
+
+\mbox{\Hypertarget{class_telecon_a2e58e46b65343e101653d95620770b1b}\label{class_telecon_a2e58e46b65343e101653d95620770b1b}} 
+\index{Telecon@{Telecon}!teleconAppInit@{teleconAppInit}}
+\index{teleconAppInit@{teleconAppInit}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{teleconAppInit()}{teleconAppInit()}}
+{\footnotesize\ttfamily virtual void Telecon\+::telecon\+App\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+Starts running the app. 
+
+Implemented in \mbox{\hyperlink{class_telecon_impl_chart_dir_a892a8605abb8379164baaa7ae744447b}{Telecon\+Impl\+Chart\+Dir}}.
 
 \mbox{\Hypertarget{class_telecon_a17d48d9395606bf0b9a526950f1df0f1}\label{class_telecon_a17d48d9395606bf0b9a526950f1df0f1}} 
 \index{Telecon@{Telecon}!teleconStart@{teleconStart}}
@@ -273,7 +305,7 @@ Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00062}{62}} of file \mb
 
 Starts the actual windows that display content, based on the \mbox{\hyperlink{class_telecon_window}{Telecon\+Window}} objects previously added. This function should only be called once. 
 
-Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
 
 \mbox{\Hypertarget{class_telecon_ae8e37edb38dd36ec134ac770f827dfeb}\label{class_telecon_ae8e37edb38dd36ec134ac770f827dfeb}} 
 \index{Telecon@{Telecon}!teleconStop@{teleconStop}}
@@ -283,7 +315,50 @@ Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00031}{31}} of file \mb
 
 Closes any windows that are still open and exits. 
 
-Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+Definition at line \mbox{\hyperlink{telecon_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{telecon_8cpp_source}{telecon.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_telecon_a09d167103ff1962c1eb0b13769f1b26e}\label{class_telecon_a09d167103ff1962c1eb0b13769f1b26e}} 
+\index{Telecon@{Telecon}!m\_controls@{m\_controls}}
+\index{m\_controls@{m\_controls}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{m\_controls}{m\_controls}}
+{\footnotesize\ttfamily vector$<$shared\+\_\+ptr$<$\mbox{\hyperlink{class_telecon_controls}{Telecon\+Controls}}$>$ $>$ Telecon\+::m\+\_\+controls\hspace{0.3cm}{\ttfamily [protected]}}
+
+A list of the control windows that have been added to the app. 
+
+Definition at line \mbox{\hyperlink{telecon_8h_source_l00046}{46}} of file \mbox{\hyperlink{telecon_8h_source}{telecon.\+h}}.
+
+\mbox{\Hypertarget{class_telecon_a27947fd222434f597e9b29b4fe92acdf}\label{class_telecon_a27947fd222434f597e9b29b4fe92acdf}} 
+\index{Telecon@{Telecon}!m\_hasStarted@{m\_hasStarted}}
+\index{m\_hasStarted@{m\_hasStarted}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{m\_hasStarted}{m\_hasStarted}}
+{\footnotesize\ttfamily std\+::atomic\+\_\+bool Telecon\+::m\+\_\+has\+Started\hspace{0.3cm}{\ttfamily [protected]}}
+
+True if \mbox{\hyperlink{class_telecon_a17d48d9395606bf0b9a526950f1df0f1}{Telecon\+::telecon\+Start}} has been called, or false before then. 
+
+Definition at line \mbox{\hyperlink{telecon_8h_source_l00038}{38}} of file \mbox{\hyperlink{telecon_8h_source}{telecon.\+h}}.
+
+\mbox{\Hypertarget{class_telecon_a047afccf666f2b7d6c963d469e672ed1}\label{class_telecon_a047afccf666f2b7d6c963d469e672ed1}} 
+\index{Telecon@{Telecon}!m\_hasStopped@{m\_hasStopped}}
+\index{m\_hasStopped@{m\_hasStopped}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{m\_hasStopped}{m\_hasStopped}}
+{\footnotesize\ttfamily std\+::atomic\+\_\+bool Telecon\+::m\+\_\+has\+Stopped\hspace{0.3cm}{\ttfamily [protected]}}
+
+True once all UI elements have completely closed and finished any cleanup, or false before then. Could be true even if \mbox{\hyperlink{class_telecon_ae8e37edb38dd36ec134ac770f827dfeb}{Telecon\+::telecon\+Stop}} has not been called; for example, if the user closes all windows manually. 
+
+Definition at line \mbox{\hyperlink{telecon_8h_source_l00043}{43}} of file \mbox{\hyperlink{telecon_8h_source}{telecon.\+h}}.
+
+\mbox{\Hypertarget{class_telecon_a429b8ff5d0d627621780a5fdceb86f88}\label{class_telecon_a429b8ff5d0d627621780a5fdceb86f88}} 
+\index{Telecon@{Telecon}!m\_wxAppThread@{m\_wxAppThread}}
+\index{m\_wxAppThread@{m\_wxAppThread}!Telecon@{Telecon}}
+\doxysubsubsection{\texorpdfstring{m\_wxAppThread}{m\_wxAppThread}}
+{\footnotesize\ttfamily thread Telecon\+::m\+\_\+wx\+App\+Thread\hspace{0.3cm}{\ttfamily [protected]}}
+
+The UI thread, in which all long-\/running actions must occur. 
+
+Definition at line \mbox{\hyperlink{telecon_8h_source_l00035}{35}} of file \mbox{\hyperlink{telecon_8h_source}{telecon.\+h}}.
 
 
 

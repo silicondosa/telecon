@@ -7,7 +7,7 @@
 Inheritance diagram for Telecon\+Realtime\+Chart\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{class_telecon_realtime_chart}
+\includegraphics[height=3.000000cm]{class_telecon_realtime_chart}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -15,15 +15,15 @@ Inheritance diagram for Telecon\+Realtime\+Chart\+:\begin{figure}[H]
 \item 
 \mbox{\hyperlink{class_telecon_realtime_chart_a02ced78014747496446d10bc2947010b}{Telecon\+Realtime\+Chart}} (string title, double memory\+Depth\+Seconds=60.\+0, int data\+Rate\+Millis=100, string x\+Label=\char`\"{}\char`\"{}, string y\+Label=\char`\"{}\char`\"{}, \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} color\+Sequence\+Mode=\mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38af694240c2be72deb06f19859d21ba193}{CSM\+\_\+\+BLACK}})
 \item 
-shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_line_plot}{Telecon\+Line\+Plot}} $>$ \mbox{\hyperlink{class_telecon_realtime_chart_a2cb97fa7275cfe4975827b3dcfac6869}{add\+Line\+Plot}} (std\+::string plottitle, const \mbox{\hyperlink{class_line_style}{Line\+Style}} \&line\+Style=\mbox{\hyperlink{class_telecon_line_plot_a4d8d0842e948de67fa4690ff9f78a727}{Telecon\+Line\+Plot\+::default\+Line\+Style}}, const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \&symbol\+Style=\mbox{\hyperlink{class_telecon_line_plot_a7177818e8221ae649f4e0b5945015b7f}{Telecon\+Line\+Plot\+::default\+Symbol\+Style}}, size\+\_\+t memory\+Depth=-\/1)
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_line_plot}{Telecon\+Line\+Plot}} $>$ \mbox{\hyperlink{class_telecon_realtime_chart_adb9bec866768784b93e2167beec28012}{add\+Line\+Plot}} (std\+::string plottitle, const \mbox{\hyperlink{class_line_style}{Line\+Style}} \&line\+Style=\mbox{\hyperlink{class_telecon_line_plot_a4d8d0842e948de67fa4690ff9f78a727}{Telecon\+Line\+Plot\+::default\+Line\+Style}}, const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \&symbol\+Style=\mbox{\hyperlink{class_telecon_line_plot_a7177818e8221ae649f4e0b5945015b7f}{Telecon\+Line\+Plot\+::default\+Symbol\+Style}}, size\+\_\+t memory\+Depth=-\/1)=0
 \item 
-shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_scatter_plot}{Telecon\+Scatter\+Plot}} $>$ \mbox{\hyperlink{class_telecon_realtime_chart_a3f4200b6f03758322255638eb13a8013}{add\+Scatter\+Plot}} (std\+::string plottitle, const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \&symbol\+Style=\mbox{\hyperlink{class_telecon_scatter_plot_af0df8f87bf78c8057175da5214f2456c}{Telecon\+Scatter\+Plot\+::default\+Symbol\+Style}}, size\+\_\+t memory\+Depth=-\/1)
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_scatter_plot}{Telecon\+Scatter\+Plot}} $>$ \mbox{\hyperlink{class_telecon_realtime_chart_afbcee57c7e1ca2d780af53563122d600}{add\+Scatter\+Plot}} (std\+::string plottitle, const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \&symbol\+Style=\mbox{\hyperlink{class_telecon_scatter_plot_af0df8f87bf78c8057175da5214f2456c}{Telecon\+Scatter\+Plot\+::default\+Symbol\+Style}}, size\+\_\+t memory\+Depth=-\/1)=0
 \item 
-shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_raster_plot}{Telecon\+Raster\+Plot}} $>$ \mbox{\hyperlink{class_telecon_realtime_chart_af8344c2cccbbfa4c66904164fb8940f7}{add\+Raster\+Plot}} (std\+::string plottitle, double y\+Value, const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \&symbol\+Style=\mbox{\hyperlink{class_telecon_raster_plot_a429dfccd0e83c87bf6d547bbc3f05c9a}{Telecon\+Raster\+Plot\+::default\+Symbol\+Style}}, size\+\_\+t memory\+Depth=-\/1)
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_raster_plot}{Telecon\+Raster\+Plot}} $>$ \mbox{\hyperlink{class_telecon_realtime_chart_a36c6795acc0ff24fcca7e2cb6ac24031}{add\+Raster\+Plot}} (std\+::string plottitle, double y\+Value, const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \&symbol\+Style=\mbox{\hyperlink{class_telecon_raster_plot_a429dfccd0e83c87bf6d547bbc3f05c9a}{Telecon\+Raster\+Plot\+::default\+Symbol\+Style}}, size\+\_\+t memory\+Depth=-\/1)=0
 \item 
-double \mbox{\hyperlink{class_telecon_realtime_chart_a6bf55049d06e4e2fe74a3906c85cf7a0}{get\+Default\+XAxis\+Span}} () override
+virtual double \mbox{\hyperlink{class_telecon_realtime_chart_a6bf55049d06e4e2fe74a3906c85cf7a0}{get\+Default\+XAxis\+Span}} () override
 \item 
-\mbox{\hyperlink{teleconchart_8h_a54534a1398c95ca6d61f6ac68e610b7e}{Chart\+XAxis\+Type}} \mbox{\hyperlink{class_telecon_realtime_chart_ae636edddfc069f71acfdb5298a0daf4a}{get\+Chart\+XAxis\+Type}} () override
+virtual \mbox{\hyperlink{teleconchart_8h_a54534a1398c95ca6d61f6ac68e610b7e}{Chart\+XAxis\+Type}} \mbox{\hyperlink{class_telecon_realtime_chart_ae636edddfc069f71acfdb5298a0daf4a}{get\+Chart\+XAxis\+Type}} () override
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}}}
 \begin{DoxyCompactItemize}
@@ -42,13 +42,11 @@ virtual double \mbox{\hyperlink{class_telecon_chart_abfeeb8c29606422ce614a3599e0
 \item 
 virtual \mbox{\hyperlink{teleconchart_8h_a54534a1398c95ca6d61f6ac68e610b7e}{Chart\+XAxis\+Type}} \mbox{\hyperlink{class_telecon_chart_a8968d74709f6969e442cba648ef8a3c1}{get\+Chart\+XAxis\+Type}} ()=0
 \item 
-void \mbox{\hyperlink{class_telecon_chart_ac833b24aa16da530a531a22fcafa1f52}{initialize}} ()
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ \mbox{\hyperlink{class_telecon_chart_a7bcb9743197202e17d65195aeaf7f71e}{get\+Plot}} (int index)=0
 \item 
-shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ \mbox{\hyperlink{class_telecon_chart_ac9b2e34588a68d39df3144b32d98fc9b}{get\+Plot}} (int index)
+virtual size\+\_\+t \mbox{\hyperlink{class_telecon_chart_ac8ee3846df0f1dcb9f8d80f49d1105cd}{get\+Num\+Plots}} ()=0
 \item 
-size\+\_\+t \mbox{\hyperlink{class_telecon_chart_abed3e9f9ca52e351ba4ca6a510250530}{get\+Num\+Plots}} ()
-\item 
-shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ \mbox{\hyperlink{class_telecon_chart_a68684c5c612a7ed173ccee9fce9d1347}{get\+Plot\+By\+Name}} (string name)
+virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ \mbox{\hyperlink{class_telecon_chart_a8dd6d3f4bc6fb578ed1f2981a22df843}{get\+Plot\+By\+Name}} (string name)=0
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 \doxysubsubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_telecon_chart}{Telecon\+Chart}}}
@@ -72,8 +70,6 @@ const string \mbox{\hyperlink{class_telecon_chart_a09089bd72af66ca9ae488191c188d
 const \mbox{\hyperlink{colors_8h_a8160ef72c1dba53251eb9ad02be83c38}{Color\+Sequence\+Mode}} \mbox{\hyperlink{class_telecon_chart_a5a502369abdc755468a305349eb34676}{m\+\_\+color\+Sequence\+Mode}}
 \item 
 bool \mbox{\hyperlink{class_telecon_chart_af315b4acbdefb53894bd06e78e96e682}{m\+\_\+has\+Started}}
-\item 
-vector$<$ shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_plot}{Telecon\+Plot}} $>$ $>$ \mbox{\hyperlink{class_telecon_chart_ab8e44cc492bc62c52c5cece30e126f0d}{m\+\_\+plots}}
 \end{DoxyCompactItemize}
 
 
@@ -103,11 +99,11 @@ Definition at line \mbox{\hyperlink{teleconrealtimechart_8cpp_source_l00005}{5}}
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_telecon_realtime_chart_a2cb97fa7275cfe4975827b3dcfac6869}\label{class_telecon_realtime_chart_a2cb97fa7275cfe4975827b3dcfac6869}} 
+\mbox{\Hypertarget{class_telecon_realtime_chart_adb9bec866768784b93e2167beec28012}\label{class_telecon_realtime_chart_adb9bec866768784b93e2167beec28012}} 
 \index{TeleconRealtimeChart@{TeleconRealtimeChart}!addLinePlot@{addLinePlot}}
 \index{addLinePlot@{addLinePlot}!TeleconRealtimeChart@{TeleconRealtimeChart}}
 \doxysubsubsection{\texorpdfstring{addLinePlot()}{addLinePlot()}}
-{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_line_plot}{Telecon\+Line\+Plot}} $>$ Telecon\+Realtime\+Chart\+::add\+Line\+Plot (\begin{DoxyParamCaption}\item[{std\+::string}]{plottitle,  }\item[{const \mbox{\hyperlink{class_line_style}{Line\+Style}} \&}]{line\+Style = {\ttfamily \mbox{\hyperlink{class_telecon_line_plot_a4d8d0842e948de67fa4690ff9f78a727}{Telecon\+Line\+Plot\+::default\+Line\+Style}}},  }\item[{const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \&}]{symbol\+Style = {\ttfamily \mbox{\hyperlink{class_telecon_line_plot_a7177818e8221ae649f4e0b5945015b7f}{Telecon\+Line\+Plot\+::default\+Symbol\+Style}}},  }\item[{size\+\_\+t}]{memory\+Depth = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_line_plot}{Telecon\+Line\+Plot}} $>$ Telecon\+Realtime\+Chart\+::add\+Line\+Plot (\begin{DoxyParamCaption}\item[{std\+::string}]{plottitle,  }\item[{const \mbox{\hyperlink{class_line_style}{Line\+Style}} \&}]{line\+Style = {\ttfamily \mbox{\hyperlink{class_telecon_line_plot_a4d8d0842e948de67fa4690ff9f78a727}{Telecon\+Line\+Plot\+::default\+Line\+Style}}},  }\item[{const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \&}]{symbol\+Style = {\ttfamily \mbox{\hyperlink{class_telecon_line_plot_a7177818e8221ae649f4e0b5945015b7f}{Telecon\+Line\+Plot\+::default\+Symbol\+Style}}},  }\item[{size\+\_\+t}]{memory\+Depth = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 Adds a line plot to the chart with the given parameters.
 
@@ -127,13 +123,13 @@ A pointer to the constructed line plot object.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{teleconrealtimechart_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{teleconrealtimechart_8cpp_source}{teleconrealtimechart.\+cpp}}.
+Implemented in \mbox{\hyperlink{class_telecon_realtime_chart_impl_chart_dir_ab7636a9b0b1104ca409f51b1bffe746d}{Telecon\+Realtime\+Chart\+Impl\+Chart\+Dir}}.
 
-\mbox{\Hypertarget{class_telecon_realtime_chart_af8344c2cccbbfa4c66904164fb8940f7}\label{class_telecon_realtime_chart_af8344c2cccbbfa4c66904164fb8940f7}} 
+\mbox{\Hypertarget{class_telecon_realtime_chart_a36c6795acc0ff24fcca7e2cb6ac24031}\label{class_telecon_realtime_chart_a36c6795acc0ff24fcca7e2cb6ac24031}} 
 \index{TeleconRealtimeChart@{TeleconRealtimeChart}!addRasterPlot@{addRasterPlot}}
 \index{addRasterPlot@{addRasterPlot}!TeleconRealtimeChart@{TeleconRealtimeChart}}
 \doxysubsubsection{\texorpdfstring{addRasterPlot()}{addRasterPlot()}}
-{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_raster_plot}{Telecon\+Raster\+Plot}} $>$ Telecon\+Realtime\+Chart\+::add\+Raster\+Plot (\begin{DoxyParamCaption}\item[{std\+::string}]{plottitle,  }\item[{double}]{y\+Value,  }\item[{const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \&}]{symbol\+Style = {\ttfamily \mbox{\hyperlink{class_telecon_raster_plot_a429dfccd0e83c87bf6d547bbc3f05c9a}{Telecon\+Raster\+Plot\+::default\+Symbol\+Style}}},  }\item[{size\+\_\+t}]{memory\+Depth = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_raster_plot}{Telecon\+Raster\+Plot}} $>$ Telecon\+Realtime\+Chart\+::add\+Raster\+Plot (\begin{DoxyParamCaption}\item[{std\+::string}]{plottitle,  }\item[{double}]{y\+Value,  }\item[{const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \&}]{symbol\+Style = {\ttfamily \mbox{\hyperlink{class_telecon_raster_plot_a429dfccd0e83c87bf6d547bbc3f05c9a}{Telecon\+Raster\+Plot\+::default\+Symbol\+Style}}},  }\item[{size\+\_\+t}]{memory\+Depth = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 Adds a raster plot to the chart with the given parameters.
 
@@ -153,13 +149,13 @@ A pointer to the constructed raster plot object.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{teleconrealtimechart_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{teleconrealtimechart_8cpp_source}{teleconrealtimechart.\+cpp}}.
+Implemented in \mbox{\hyperlink{class_telecon_realtime_chart_impl_chart_dir_a1b9077da8f125feb11046570b24370e2}{Telecon\+Realtime\+Chart\+Impl\+Chart\+Dir}}.
 
-\mbox{\Hypertarget{class_telecon_realtime_chart_a3f4200b6f03758322255638eb13a8013}\label{class_telecon_realtime_chart_a3f4200b6f03758322255638eb13a8013}} 
+\mbox{\Hypertarget{class_telecon_realtime_chart_afbcee57c7e1ca2d780af53563122d600}\label{class_telecon_realtime_chart_afbcee57c7e1ca2d780af53563122d600}} 
 \index{TeleconRealtimeChart@{TeleconRealtimeChart}!addScatterPlot@{addScatterPlot}}
 \index{addScatterPlot@{addScatterPlot}!TeleconRealtimeChart@{TeleconRealtimeChart}}
 \doxysubsubsection{\texorpdfstring{addScatterPlot()}{addScatterPlot()}}
-{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_scatter_plot}{Telecon\+Scatter\+Plot}} $>$ Telecon\+Realtime\+Chart\+::add\+Scatter\+Plot (\begin{DoxyParamCaption}\item[{std\+::string}]{plottitle,  }\item[{const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \&}]{symbol\+Style = {\ttfamily \mbox{\hyperlink{class_telecon_scatter_plot_af0df8f87bf78c8057175da5214f2456c}{Telecon\+Scatter\+Plot\+::default\+Symbol\+Style}}},  }\item[{size\+\_\+t}]{memory\+Depth = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily virtual shared\+\_\+ptr$<$ \mbox{\hyperlink{class_telecon_scatter_plot}{Telecon\+Scatter\+Plot}} $>$ Telecon\+Realtime\+Chart\+::add\+Scatter\+Plot (\begin{DoxyParamCaption}\item[{std\+::string}]{plottitle,  }\item[{const \mbox{\hyperlink{class_symbol_style}{Symbol\+Style}} \&}]{symbol\+Style = {\ttfamily \mbox{\hyperlink{class_telecon_scatter_plot_af0df8f87bf78c8057175da5214f2456c}{Telecon\+Scatter\+Plot\+::default\+Symbol\+Style}}},  }\item[{size\+\_\+t}]{memory\+Depth = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 Adds a scatter plot to the chart with the given parameters.
 
@@ -177,7 +173,7 @@ A pointer to the constructed scatter plot object.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{teleconrealtimechart_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{teleconrealtimechart_8cpp_source}{teleconrealtimechart.\+cpp}}.
+Implemented in \mbox{\hyperlink{class_telecon_realtime_chart_impl_chart_dir_a6979e5cc24554a7c5d70388eff7af39a}{Telecon\+Realtime\+Chart\+Impl\+Chart\+Dir}}.
 
 \mbox{\Hypertarget{class_telecon_realtime_chart_ae636edddfc069f71acfdb5298a0daf4a}\label{class_telecon_realtime_chart_ae636edddfc069f71acfdb5298a0daf4a}} 
 \index{TeleconRealtimeChart@{TeleconRealtimeChart}!getChartXAxisType@{getChartXAxisType}}
@@ -198,7 +194,7 @@ Implements \mbox{\hyperlink{class_telecon_chart_a8968d74709f6969e442cba648ef8a3c
 
 
 
-Definition at line \mbox{\hyperlink{teleconrealtimechart_8cpp_source_l00066}{66}} of file \mbox{\hyperlink{teleconrealtimechart_8cpp_source}{teleconrealtimechart.\+cpp}}.
+Definition at line \mbox{\hyperlink{teleconrealtimechart_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{teleconrealtimechart_8cpp_source}{teleconrealtimechart.\+cpp}}.
 
 \mbox{\Hypertarget{class_telecon_realtime_chart_a6bf55049d06e4e2fe74a3906c85cf7a0}\label{class_telecon_realtime_chart_a6bf55049d06e4e2fe74a3906c85cf7a0}} 
 \index{TeleconRealtimeChart@{TeleconRealtimeChart}!getDefaultXAxisSpan@{getDefaultXAxisSpan}}
@@ -222,7 +218,7 @@ Implements \mbox{\hyperlink{class_telecon_chart_abfeeb8c29606422ce614a3599e07e19
 
 
 
-Definition at line \mbox{\hyperlink{teleconrealtimechart_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{teleconrealtimechart_8cpp_source}{teleconrealtimechart.\+cpp}}.
+Definition at line \mbox{\hyperlink{teleconrealtimechart_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{teleconrealtimechart_8cpp_source}{teleconrealtimechart.\+cpp}}.
 
 
 

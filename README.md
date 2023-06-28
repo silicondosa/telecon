@@ -20,6 +20,7 @@ After installation, check that the `wx-config` command works in your terminal. I
     - The "release DLLs" and "release DLL PDB files" also unzip into the `lib` subdirectory adding additional files to it.
 - To avoid having to hard-code the install directory of wxWidgets into your applications, define wxwin as an environment variable containing the path (C:\wx\3.2.1\) to the files we just downloaded and unzipped.
 - If using DLLs, append the location of wxWidget's DLL files to the `Path` or `PATH` environment variable. For example, for wxWidgets 3.2.1 64-bit, the default location of the DLL files is `C:\wx\3.2.1\lib\vc14x_x64_dll\`. This allows the DLLs to be found by your application during runtime.
+- Also consider defining a new environment variable `wxwin` and set it to the directory path of wxWidgets which is `C:\wx\3.2.1` in our case. This will allow us to avoid using absolute paths when setting up our Visual Studio solutions.
 
 ## Included prerequisite: wxMathPlot library
 This project ships with a **modified** copy of the wxMathPlot library. It is an open-source scientific plotting library for wxWidgets. You can find it in `lib/wxMathPlot/` and is distributed under the wxWindows license. From June 2007 the project is maintained by [Davide Rondini](mailto:cdron77@users.sourceforge.net), who carries on the original work by [David Schalig](mailto:mrhill@users.sourceforge.net).

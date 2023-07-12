@@ -24,6 +24,7 @@
     <ProjectGuid>{d8be2666-47cb-4eca-8193-ce496e3110c8}</ProjectGuid>
     <RootNamespace>telecon</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>telecon_example</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -120,8 +121,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(wxLibOrDllDir);%(AdditionalLibraryDirectories);$(SolutionDir)..\lib\wxchartdir\lib\win64</AdditionalLibraryDirectories>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;comdlg32.lib;winspool.lib;shell32.lib;shlwapi.lib;ole32.lib;oleaut32.lib;uuid.lib;advapi32.lib;version.lib;comctl32.lib;rpcrt4.lib;ws2_32.lib;wininet.lib;winmm.lib;%(AdditionalDependencies);chartdir70.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(wxLibOrDllDir);%(AdditionalLibraryDirectories);$(SolutionDir)..\lib\wxchartdir\lib\win64;$(SolutionDir)..\bin\msvc\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;comdlg32.lib;winspool.lib;shell32.lib;shlwapi.lib;ole32.lib;oleaut32.lib;uuid.lib;advapi32.lib;version.lib;comctl32.lib;rpcrt4.lib;ws2_32.lib;wininet.lib;winmm.lib;%(AdditionalDependencies);chartdir70.lib;telecon.lib;</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y "$(SolutionDir)..\lib\wxchartdir\lib\win64\chartdir70.dll" $(OutDir)</Command>
@@ -143,8 +144,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(wxLibOrDllDir);%(AdditionalLibraryDirectories);$(SolutionDir)..\lib\wxchartdir\lib\win64</AdditionalLibraryDirectories>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;comdlg32.lib;winspool.lib;shell32.lib;shlwapi.lib;ole32.lib;oleaut32.lib;uuid.lib;advapi32.lib;version.lib;comctl32.lib;rpcrt4.lib;ws2_32.lib;wininet.lib;winmm.lib;%(AdditionalDependencies);chartdir70.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(wxLibOrDllDir);%(AdditionalLibraryDirectories);$(SolutionDir)..\lib\wxchartdir\lib\win64;$(SolutionDir)..\bin\msvc\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;comdlg32.lib;winspool.lib;shell32.lib;shlwapi.lib;ole32.lib;oleaut32.lib;uuid.lib;advapi32.lib;version.lib;comctl32.lib;rpcrt4.lib;ws2_32.lib;wininet.lib;winmm.lib;%(AdditionalDependencies);chartdir70.lib;telecon.lib;</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y "$(SolutionDir)..\lib\wxchartdir\lib\win64\chartdir70.dll" $(OutDir)</Command>
@@ -184,33 +185,6 @@
     <ClInclude Include="..\..\include\teleconwindow.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\lib\wxchartdir\wxdemo\common\wxchartviewer.cpp" />
-    <ClCompile Include="..\..\src\linestyle.cpp" />
-    <ClCompile Include="..\..\src\symbolstyle.cpp" />
-    <ClCompile Include="..\..\src\telecon.cpp" />
-    <ClCompile Include="..\..\src\teleconchart.cpp" />
-    <ClCompile Include="..\..\src\teleconchartimplchartdir.cpp" />
-    <ClCompile Include="..\..\src\teleconcontrols.cpp" />
-    <ClCompile Include="..\..\src\telecondatachart.cpp" />
-    <ClCompile Include="..\..\src\telecondatachartimplchartdir.cpp" />
-    <ClCompile Include="..\..\src\teleconimplchartdir.cpp" />
-    <ClCompile Include="..\..\src\teleconlineplot.cpp" />
-    <ClCompile Include="..\..\src\teleconphaseportrait.cpp" />
-    <ClCompile Include="..\..\src\teleconrasterplot.cpp" />
-    <ClCompile Include="..\..\src\teleconrealtimechartimplchartdir.cpp" />
-    <ClCompile Include="..\..\src\teleconscatterplot.cpp" />
-    <ClCompile Include="..\..\src\teleconwindowimplchartdir.cpp" />
-    <ClCompile Include="..\..\src\teleconwxapp.cpp" />
-    <ClCompile Include="..\..\src\teleconwxcontrolswindow.cpp" />
-    <ClCompile Include="..\..\src\teleconwxlineplot.cpp" />
-    <ClCompile Include="..\..\src\teleconrealtimechart.cpp" />
-    <ClCompile Include="..\..\src\teleconwxphaseportraitplot.cpp" />
-    <ClCompile Include="..\..\src\teleconwxplot.cpp" />
-    <ClCompile Include="..\..\src\teleconwxchart.cpp" />
-    <ClCompile Include="..\..\src\teleconwxrasterplot.cpp" />
-    <ClCompile Include="..\..\src\teleconwxscatterplot.cpp" />
-    <ClCompile Include="..\..\src\teleconwxwindow.cpp" />
-    <ClCompile Include="..\..\src\teleconwindow.cpp" />
     <ClCompile Include="..\..\src\userfile.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
